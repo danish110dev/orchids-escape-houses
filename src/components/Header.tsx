@@ -31,18 +31,19 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
+        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md py-3" : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 py-4">
+      <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="https://v3b.fal.media/files/b/kangaroo/Mst13pbVZIG2-LoyTdF0I_output.png"
               alt="Group Escape Houses"
-              width={160}
-              height={60}
-              className="h-14 w-auto"
+              width={220}
+              height={80}
+              className="h-20 w-auto"
               priority
             />
           </Link>
