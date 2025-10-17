@@ -180,13 +180,16 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 flex items-center gap-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <>
+                <Menu className="w-6 h-6" />
+                <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>Menu</span>
+              </>
             )}
           </button>
         </div>
