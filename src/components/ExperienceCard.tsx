@@ -63,7 +63,7 @@ export default function ExperienceCard({
             
             <div
               className="px-6 py-2 rounded-xl font-medium text-sm group-hover:scale-105 transition-transform"
-              style={{ background: "var(--color-accent-pink)", color: "var(--color-text-primary)" }}
+              style={{ background: "var(--color-accent-sage)", color: "white" }}
             >
               View Experience
             </div>
