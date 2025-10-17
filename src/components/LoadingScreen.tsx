@@ -36,16 +36,15 @@ export default function LoadingScreen() {
     >
       <div className="text-center">
         {/* Logo */}
-        <div className="mb-6 animate-pulse">
-          <h1
-            className="text-5xl md:text-6xl font-bold"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-accent-gold)",
-            }}
-          >
-            Group Escape Houses
-          </h1>
+        <div className="mb-8 animate-pulse">
+          <Image
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo.png-1760719639291.pdf"
+            alt="Group Escape Houses"
+            width={200}
+            height={80}
+            className="mx-auto"
+            priority
+          />
         </div>
 
         {/* Loading spinner */}
