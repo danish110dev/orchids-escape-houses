@@ -139,6 +139,10 @@
     @apply border-border outline-ring/50;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
@@ -173,10 +177,6 @@
   
   p {
     color: var(--color-neutral-dark);
-  }
-  
-  .smooth-scroll {
-    scroll-behavior: smooth;
   }
   
   @media (max-width: 768px) {
