@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Home, Search, Mail } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
@@ -18,7 +18,10 @@ export default function NotFound() {
           </h1>
           <h2 
             className="text-3xl md:text-4xl mb-4"
-            style={{ fontFamily: "var(--font-display)" }}
+            style={{ 
+              fontFamily: "var(--font-display)",
+              color: "var(--color-text-primary)"
+            }}
           >
             Page Not Found
           </h2>
@@ -33,8 +36,8 @@ export default function NotFound() {
             size="lg"
             className="rounded-2xl px-10 py-6 text-lg font-medium"
             style={{
-              background: "var(--color-accent-sage)",
-              color: "white",
+              background: "var(--color-accent-pink)",
+              color: "var(--color-text-primary)",
             }}
           >
             <Link href="/">
