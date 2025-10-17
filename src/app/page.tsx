@@ -450,7 +450,7 @@ export default function Home() {
       {/* Instagram Section */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Text Content */}
             <div>
               <p className="text-sm uppercase tracking-wider mb-3" style={{ color: "var(--color-accent-gold)" }}>
@@ -460,7 +460,7 @@ export default function Home() {
                 On Instagram
               </h2>
               <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                Follow us for daily inspiration, behind-the-scenes looks at our stunning properties, guest celebrations, and exclusive offers. Join our community of party planners and celebration enthusiasts.
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour
               </p>
               <a
                 href="https://instagram.com/groupescapehouses"
@@ -470,32 +470,31 @@ export default function Home() {
                 style={{ color: "var(--color-accent-gold)", fontFamily: "var(--font-display)" }}
               >
                 <Instagram className="w-7 h-7" />
-                @groupescapehouses
+                @Group Escape Houses
               </a>
             </div>
 
             {/* Right: Instagram Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-3 gap-4">
               {[
-                "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=800&q=90",
-                "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=90",
-                "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=90",
-                "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&q=90",
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80",
+                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80",
+                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80",
               ].map((image, index) => (
                 <a
                   key={index}
                   href="https://instagram.com/groupescapehouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                  className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
                 >
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${image}')` }}
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-110">
-                      <Instagram className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-6 h-6 text-[var(--color-accent-sage)]" />
                     </div>
                   </div>
                 </a>

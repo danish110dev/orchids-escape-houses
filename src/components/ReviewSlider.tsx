@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface Review {
   name: string;
@@ -9,6 +10,7 @@ interface Review {
   comment: string;
   date: string;
   property?: string;
+  image?: string;
 }
 
 interface ReviewSliderProps {
@@ -78,12 +80,24 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
                 </p>
 
                 {/* Reviewer Info */}
-                <div className="pt-4 border-t border-[var(--color-bg-secondary)]">
-                  <p className="font-semibold text-[var(--color-text-primary)]">{review.name}</p>
-                  {review.property && (
-                    <p className="text-sm text-[var(--color-neutral-dark)]">{review.property}</p>
+                <div className="pt-4 border-t border-[var(--color-bg-secondary)] flex items-center gap-4">
+                  {review.image && (
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={review.image}
+                        alt={review.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   )}
-                  <p className="text-xs text-[var(--color-neutral-dark)] mt-1">{review.date}</p>
+                  <div>
+                    <p className="font-semibold text-[var(--color-text-primary)]">{review.name}</p>
+                    {review.property && (
+                      <p className="text-sm text-[var(--color-neutral-dark)]">{review.property}</p>
+                    )}
+                    <p className="text-xs text-[var(--color-neutral-dark)] mt-1">{review.date}</p>
+                  </div>
                 </div>
               </div>
             </div>
