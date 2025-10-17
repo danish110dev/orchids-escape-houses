@@ -385,43 +385,49 @@ export default function Home() {
                 step: "1",
                 title: "Choose House",
                 description: "Browse our luxury properties and find your perfect match for your celebration or group gathering",
+                icon: HomeIcon,
               },
               {
                 step: "2",
                 title: "Add Experiences",
                 description: "Select from cocktail classes, butlers, spa treatments and more to enhance your weekend",
+                icon: Sparkles,
               },
               {
                 step: "3",
                 title: "Pay Deposit",
                 description: "Secure your booking with a simple deposit payment via our safe payment system",
+                icon: CreditCard,
               },
               {
                 step: "4",
                 title: "Final Balance",
                 description: "Pay the remaining balance before your stay and enjoy your unforgettable celebration!",
+                icon: PartyPopper,
               },
-            ].map((item) => (
-              <div key={item.step} className="text-center relative">
-                <div
-                  className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                    fontFamily: "var(--font-display)",
-                  }}
-                >
-                  {item.step}
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.step} className="text-center relative">
+                  <div
+                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    style={{
+                      background: "var(--color-accent-sage)",
+                      color: "white",
+                    }}
+                  >
+                    <Icon className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
+                  {item.step !== "4" && (
+                    <ArrowRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
+                  )}
                 </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  {item.title}
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
-                {item.step !== "4" && (
-                  <ArrowRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
