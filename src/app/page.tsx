@@ -120,12 +120,12 @@ export default function Home() {
   ];
 
   const destinations = [
-    { name: "Brighton", image: "https://images.unsplash.com/photo-1599067621490-d5c76a0f1e6d?w=600&q=80" },
-    { name: "Bath", image: "https://images.unsplash.com/photo-1566510955207-4fcf94dfafd0?w=600&q=80" },
-    { name: "Manchester", image: "https://images.unsplash.com/photo-1564511287835-b8d1b0de5e98?w=600&q=80" },
-    { name: "York", image: "https://images.unsplash.com/photo-1590759668628-05b0fc34e04a?w=600&q=80" },
-    { name: "Bournemouth", image: "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?w=600&q=80" },
-    { name: "Cardiff", image: "https://images.unsplash.com/photo-1580670432998-8c5cfa7b9b0b?w=600&q=80" },
+    { name: "Brighton", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg" },
+    { name: "Bath", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg" },
+    { name: "Manchester", image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png" },
+    { name: "York", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-york-city-photograph%2c-medieva-87040b2f-20251017161235.jpg" },
+    { name: "Bournemouth", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/bournemouth-beach-photograph%2c-golden-s-804727ac-20251017161243.jpg" },
+    { name: "Cardiff", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
   ];
 
   return (
@@ -158,7 +158,7 @@ export default function Home() {
               color: "var(--color-text-primary)",
             }}
           >
-            Hen Party Houses Designed for the Ultimate Weekend
+            Party Houses Designed for the Ultimate Weekend
           </h1>
           <p
             className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
@@ -167,7 +167,7 @@ export default function Home() {
               animationDelay: "100ms",
             }}
           >
-            Luxury homes, hot tubs, and experiences for unforgettable hen celebrations
+            Luxury homes, hot tubs, and experiences for unforgettable celebrations
           </p>
 
           {/* CTA Buttons */}
@@ -189,7 +189,7 @@ export default function Home() {
               variant="outline"
               className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
               style={{
-                borderColor: "var(--color-accent-sage)",
+                borderColor: "var(--color-accent-gold)",
                 color: "var(--color-text-primary)",
               }}
             >
@@ -239,8 +239,8 @@ export default function Home() {
               <p className="text-[var(--color-neutral-dark)]">5-star reviews</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 Safe Payments
@@ -248,8 +248,8 @@ export default function Home() {
               <p className="text-[var(--color-neutral-dark)]">Secure booking process</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
+                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-gold)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 UK Support
@@ -268,7 +268,7 @@ export default function Home() {
               Featured Properties
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Handpicked luxury houses perfect for your hen celebration
+              Handpicked luxury houses perfect for your celebration
             </p>
           </div>
 
@@ -302,7 +302,7 @@ export default function Home() {
               Add Unforgettable Experiences
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Make your hen weekend extra special with our curated experiences
+              Make your weekend extra special with our curated experiences
             </p>
           </div>
 
@@ -336,7 +336,7 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Four simple steps to your perfect hen weekend
+              Four simple steps to your perfect weekend
             </p>
           </div>
 
@@ -395,7 +395,7 @@ export default function Home() {
               Popular Destinations
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Discover hen party houses across the UK
+              Discover party houses across the UK
             </p>
           </div>
 
@@ -433,7 +433,7 @@ export default function Home() {
               What Our Guests Say
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Join thousands of happy hen parties
+              Join thousands of happy celebrations
             </p>
           </div>
 
@@ -444,54 +444,56 @@ export default function Home() {
       {/* Instagram Section */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Instagram className="w-10 h-10 text-[var(--color-accent-sage)]" />
-              <h2 style={{ fontFamily: "var(--font-display)" }}>
-                Follow Our Adventures
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left: Text Content */}
+            <div>
+              <p className="text-sm uppercase tracking-wider mb-3" style={{ color: "var(--color-accent-gold)" }}>
+                Social Presence
+              </p>
+              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                On Instagram
               </h2>
-            </div>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto mb-6">
-              Get inspired by real hen parties at our houses
-            </p>
-            <a
-              href="https://instagram.com/groupescapehouses"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
-            >
-              @groupescapehouses
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
-              "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
-              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-              "https://images.unsplash.com/photo-1464047736614-af63643285bf?w=600&q=80",
-              "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80",
-              "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=600&q=80",
-              "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&q=80",
-              "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
-            ].map((image, index) => (
+              <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour
+              </p>
               <a
-                key={index}
                 href="https://instagram.com/groupescapehouses"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+                className="inline-flex items-center gap-2 text-2xl font-semibold hover:opacity-80 transition-opacity"
+                style={{ color: "var(--color-accent-gold)", fontFamily: "var(--font-display)" }}
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${image}')` }}
-                ></div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                  <Instagram className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+                <Instagram className="w-7 h-7" />
+                @Group Escape Houses
               </a>
-            ))}
+            </div>
+
+            {/* Right: Instagram Grid */}
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80",
+                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80",
+                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80",
+              ].map((image, index) => (
+                <a
+                  key={index}
+                  href="https://instagram.com/groupescapehouses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${image}')` }}
+                  ></div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-6 h-6 text-[var(--color-accent-sage)]" />
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -500,7 +502,7 @@ export default function Home() {
       <section className="py-24 bg-[var(--color-bg-primary)]">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Get Hen Party Planning Tips
+            Get Party Planning Tips
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
             Subscribe for exclusive deals, house spotlights, and planning inspiration
