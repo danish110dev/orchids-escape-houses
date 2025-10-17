@@ -65,11 +65,11 @@ export default function Header() {
               asChild
               className="rounded-2xl px-9 py-3 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
               style={{
-                background: "var(--color-accent-sage)",
+                background: "var(--color-accent-gold)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Book Now</Link>
             </Button>
           </div>
 
@@ -103,10 +103,10 @@ export default function Header() {
               <Button
                 asChild
                 className="rounded-2xl mt-4 text-white font-medium"
-                style={{ background: "var(--color-accent-sage)" }}
+                style={{ background: "var(--color-accent-gold)" }}
               >
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Get Instant Quote
+                  Book Now
                 </Link>
               </Button>
             </nav>
