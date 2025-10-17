@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Users, MapPin } from "lucide-react";
+import { Heart, UsersRound, MapPinned } from "lucide-react";
 import { useState } from "react";
 
 interface PropertyCardProps {
@@ -82,13 +82,13 @@ export default function PropertyCard({
         </Link>
 
         <div className="flex items-center gap-2 text-sm text-[var(--color-neutral-dark)] mb-4">
-          <MapPin className="w-4 h-4" />
+          <MapPinned className="w-4 h-4" />
           <span>{location}</span>
         </div>
 
         <div className="flex items-center gap-4 mb-4 text-sm">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-[var(--color-accent-sage)]" />
+            <UsersRound className="w-4 h-4 text-[var(--color-accent-sage)]" />
             <span>Sleeps {sleeps}</span>
           </div>
           <span className="text-[var(--color-neutral-dark)]">•</span>
