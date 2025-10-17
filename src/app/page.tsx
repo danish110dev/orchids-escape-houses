@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, CheckCircle, Shield, HeadphonesIcon, ArrowRight, Instagram } from "lucide-react";
+import { Search, Sparkles, ShieldCheck, Headset, MoveRight, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -231,7 +231,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                <Sparkles className="w-8 h-8 text-[var(--color-accent-sage)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 3,000+
@@ -240,7 +240,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                <ShieldCheck className="w-8 h-8 text-[var(--color-accent-sage)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 Safe Payments
@@ -249,7 +249,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
-                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-gold)]" />
+                <Headset className="w-8 h-8 text-[var(--color-accent-gold)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 UK Support
@@ -379,7 +379,7 @@ export default function Home() {
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
                 {item.step !== "4" && (
-                  <ArrowRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
+                  <MoveRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
                 )}
               </div>
             ))}
