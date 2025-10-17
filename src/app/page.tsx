@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, CheckCircle, Shield, HeadphonesIcon, ArrowRight } from "lucide-react";
+import { Search, CheckCircle, Shield, HeadphonesIcon, ArrowRight, Instagram } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -177,8 +177,8 @@ export default function Home() {
               size="lg"
               className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
               style={{
-                background: "var(--color-accent-pink)",
-                color: "var(--color-text-primary)",
+                background: "var(--color-accent-sage)",
+                color: "white",
               }}
             >
               <Link href="/properties">Browse Houses</Link>
@@ -187,7 +187,7 @@ export default function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
               style={{
                 borderColor: "var(--color-accent-sage)",
                 color: "var(--color-text-primary)",
@@ -230,8 +230,8 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-pink)]/20 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-[var(--color-accent-pink)]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-[var(--color-accent-sage)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 3,000+
@@ -239,8 +239,8 @@ export default function Home() {
               <p className="text-[var(--color-neutral-dark)]">5-star reviews</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-[var(--color-accent-gold)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 Safe Payments
@@ -248,8 +248,8 @@ export default function Home() {
               <p className="text-[var(--color-neutral-dark)]">Secure booking process</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
-                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
+                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-sage)]" />
               </div>
               <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 UK Support
@@ -318,8 +318,8 @@ export default function Home() {
               size="lg"
               className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
               style={{
-                background: "var(--color-accent-pink)",
-                color: "var(--color-text-primary)",
+                background: "var(--color-accent-sage)",
+                color: "white",
               }}
             >
               <Link href="/experiences">Explore All Experiences</Link>
@@ -367,8 +367,8 @@ export default function Home() {
                 <div
                   className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold"
                   style={{
-                    background: "var(--color-accent-pink)",
-                    color: "var(--color-text-primary)",
+                    background: "var(--color-accent-sage)",
+                    color: "white",
                     fontFamily: "var(--font-display)",
                   }}
                 >
@@ -441,8 +441,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Email Capture */}
+      {/* Instagram Section */}
       <section className="py-24 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Instagram className="w-10 h-10 text-[var(--color-accent-sage)]" />
+              <h2 style={{ fontFamily: "var(--font-display)" }}>
+                Follow Our Adventures
+              </h2>
+            </div>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto mb-6">
+              Get inspired by real hen parties at our houses
+            </p>
+            <a
+              href="https://instagram.com/groupescapehouses"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
+            >
+              @groupescapehouses
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
+              "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+              "https://images.unsplash.com/photo-1464047736614-af63643285bf?w=600&q=80",
+              "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80",
+              "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=600&q=80",
+              "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&q=80",
+              "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
+            ].map((image, index) => (
+              <a
+                key={index}
+                href="https://instagram.com/groupescapehouses"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image}')` }}
+                ></div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                  <Instagram className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Email Capture */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
             Get Hen Party Planning Tips
@@ -465,8 +520,8 @@ export default function Home() {
               size="lg"
               className="rounded-xl px-10 py-6 font-medium"
               style={{
-                background: "var(--color-accent-pink)",
-                color: "var(--color-text-primary)",
+                background: "var(--color-accent-sage)",
+                color: "white",
               }}
             >
               Subscribe
