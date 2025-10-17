@@ -184,6 +184,17 @@
     color: var(--color-neutral-dark);
   }
   
+  /* Smooth scroll with momentum */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  @supports (scroll-behavior: smooth) {
+    html {
+      scroll-padding-top: 100px;
+    }
+  }
+  
   /* Hero fade-up animation */
   @keyframes fadeUp {
     from {
@@ -213,6 +224,29 @@
     transform: translateY(0);
   }
   
+  /* Smooth scroll parallax effect */
+  @keyframes smoothScroll {
+    to {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Modern scroll indicator */
+  @keyframes scrollDown {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.5;
+    }
+  }
+  
+  .scroll-indicator {
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+  
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -220,7 +254,8 @@
     }
     
     .scroll-reveal,
-    .animate-fade-up {
+    .animate-fade-up,
+    .scroll-indicator {
       opacity: 1;
       transform: none;
       transition: none;
