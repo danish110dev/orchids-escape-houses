@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Users } from "lucide-react";
+import { Clock, UsersRound } from "lucide-react";
 
 interface ExperienceCardProps {
   title: string;
@@ -49,7 +49,7 @@ export default function ExperienceCard({
               <span>{duration}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
+              <UsersRound className="w-4 h-4" />
               <span>{groupSize}</span>
             </div>
           </div>
