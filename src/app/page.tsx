@@ -84,6 +84,7 @@ export default function Home() {
       comment: "Absolutely incredible weekend! The house was stunning, hot tub was perfect, and the cocktail class was so much fun. Can't recommend enough for hen parties!",
       date: "January 2025",
       property: "Brighton Manor",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
     },
     {
       name: "Emma L",
@@ -91,6 +92,7 @@ export default function Home() {
       comment: "Best hen do ever! The team were so helpful from start to finish. The house had everything we needed and more. The private chef was a lovely touch!",
       date: "December 2024",
       property: "Bath Spa Retreat",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
     },
     {
       name: "Rachel K",
@@ -98,24 +100,28 @@ export default function Home() {
       comment: "Planning was so easy and the house exceeded expectations. Games room kept us entertained for hours. Would definitely book again!",
       date: "November 2024",
       property: "Manchester Party House",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
     },
     {
       name: "Lucy T",
       rating: 5,
       comment: "The perfect hen weekend venue. Beautiful house, great location, and the add-on experiences made it extra special. Highly recommend!",
       date: "October 2024",
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
     },
     {
       name: "Hannah P",
       rating: 5,
       comment: "Fantastic service from booking to checkout. The house was immaculate and had all the facilities we needed. Will be back!",
       date: "September 2024",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
     },
     {
       name: "Olivia S",
       rating: 5,
       comment: "Could not fault anything. The house was gorgeous, pool was amazing, and the whole experience was seamless. Thank you!",
       date: "August 2024",
+      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
     },
   ];
 
@@ -444,7 +450,7 @@ export default function Home() {
       {/* Instagram Section */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text Content */}
             <div>
               <p className="text-sm uppercase tracking-wider mb-3" style={{ color: "var(--color-accent-gold)" }}>
@@ -454,7 +460,7 @@ export default function Home() {
                 On Instagram
               </h2>
               <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour
+                Follow us for daily inspiration, behind-the-scenes looks at our stunning properties, guest celebrations, and exclusive offers. Join our community of party planners and celebration enthusiasts.
               </p>
               <a
                 href="https://instagram.com/groupescapehouses"
@@ -464,31 +470,32 @@ export default function Home() {
                 style={{ color: "var(--color-accent-gold)", fontFamily: "var(--font-display)" }}
               >
                 <Instagram className="w-7 h-7" />
-                @Group Escape Houses
+                @groupescapehouses
               </a>
             </div>
 
             {/* Right: Instagram Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               {[
-                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80",
-                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80",
-                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80",
+                "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=800&q=90",
+                "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=90",
+                "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=90",
+                "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&q=90",
               ].map((image, index) => (
                 <a
                   key={index}
                   href="https://instagram.com/groupescapehouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                     style={{ backgroundImage: `url('${image}')` }}
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-6 h-6 text-[var(--color-accent-sage)]" />
+                    <div className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-110">
+                      <Instagram className="w-7 h-7 text-[var(--color-accent-sage)]" />
                     </div>
                   </div>
                 </a>
