@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Search, Sparkles, ShieldCheck, Headset, MoveRight, Instagram } from "lucide-react";
 import Header from "@/components/Header";
@@ -8,11 +8,33 @@ import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import ReviewSlider from "@/components/ReviewSlider";
+import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const [email, setEmail] = useState("");
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in");
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll(".scroll-reveal");
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const featuredProperties = [
     {
@@ -22,7 +44,7 @@ export default function Home() {
       sleeps: 16,
       bedrooms: 8,
       priceFrom: 89,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1200&q=90",
       features: ["Hot Tub", "Pool"],
       slug: "brighton-manor",
     },
@@ -33,7 +55,7 @@ export default function Home() {
       sleeps: 20,
       bedrooms: 10,
       priceFrom: 95,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=90",
       features: ["Games Room", "Cinema"],
       slug: "bath-spa-retreat",
     },
@@ -44,7 +66,7 @@ export default function Home() {
       sleeps: 14,
       bedrooms: 7,
       priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=90",
       features: ["Hot Tub", "BBQ"],
       slug: "manchester-party-house",
     },
@@ -164,7 +186,7 @@ export default function Home() {
               color: "var(--color-text-primary)",
             }}
           >
-            Party Houses Designed for the Ultimate Weekend
+            Luxury Hen Party Houses UK with Hot Tubs & Pools
           </h1>
           <p
             className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
@@ -173,7 +195,7 @@ export default function Home() {
               animationDelay: "100ms",
             }}
           >
-            Luxury homes, hot tubs, and experiences for unforgettable celebrations
+            Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">hen weekend accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
           </p>
 
           {/* CTA Buttons */}
@@ -199,7 +221,7 @@ export default function Home() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Book Now</Link>
             </Button>
           </div>
 
@@ -232,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
@@ -267,14 +289,14 @@ export default function Home() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-24 bg-[var(--color-bg-primary)]">
+      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Featured Properties
+              Featured Hen Party Houses
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Handpicked luxury houses perfect for your celebration
+              Handpicked <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">luxury party houses</Link> perfect for <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebrations across the UK</Link>
             </p>
           </div>
 
@@ -301,14 +323,14 @@ export default function Home() {
       </section>
 
       {/* Experiences */}
-      <section className="py-24 bg-[var(--color-bg-secondary)]">
+      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
               Add Unforgettable Experiences
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Make your weekend extra special with our curated experiences
+              Make your <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">hen weekend</Link> extra special with <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">curated activities and experiences</Link>
             </p>
           </div>
 
@@ -335,14 +357,14 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              How It Works
+              How to Book Your Hen Party House
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Four simple steps to your perfect weekend
+              Four simple steps to your perfect <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">UK group celebration</Link>
             </p>
           </div>
 
@@ -351,22 +373,22 @@ export default function Home() {
               {
                 step: "1",
                 title: "Choose House",
-                description: "Browse our luxury properties and find your perfect match",
+                description: "Browse our luxury properties and find your perfect match for your hen party or group celebration",
               },
               {
                 step: "2",
                 title: "Add Experiences",
-                description: "Select from cocktail classes, butlers, spa treatments and more",
+                description: "Select from cocktail classes, butlers, spa treatments and more to enhance your weekend",
               },
               {
                 step: "3",
                 title: "Pay Deposit",
-                description: "Secure your booking with a simple deposit payment",
+                description: "Secure your booking with a simple deposit payment via our safe payment system",
               },
               {
                 step: "4",
                 title: "Final Balance",
-                description: "Pay the remaining balance before your stay and enjoy!",
+                description: "Pay the remaining balance before your stay and enjoy your unforgettable celebration!",
               },
             ].map((item) => (
               <div key={item.step} className="text-center relative">
@@ -394,14 +416,14 @@ export default function Home() {
       </section>
 
       {/* Destinations */}
-      <section className="py-24 bg-[var(--color-bg-primary)]">
+      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Popular Destinations
+              Popular UK Destinations
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Discover party houses across the UK
+              Discover <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">party houses with hot tubs</Link> across the UK's best cities
             </p>
           </div>
 
@@ -432,14 +454,14 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-24 bg-[var(--color-bg-secondary)]">
+      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
               What Our Guests Say
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Join thousands of happy celebrations
+              Join thousands of happy <Link href="/reviews" className="underline hover:text-[var(--color-accent-gold)] transition-colors">5-star celebrations</Link>
             </p>
           </div>
 
@@ -448,7 +470,7 @@ export default function Home() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Text Content */}
@@ -457,10 +479,10 @@ export default function Home() {
                 Social Presence
               </p>
               <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                On Instagram
+                Follow Us on Instagram
               </h2>
               <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour
+                See real hen weekends, house tours, and party inspiration from our community. Tag us in your celebrations for a chance to be featured!
               </p>
               <a
                 href="https://instagram.com/groupescapehouses"
@@ -470,31 +492,32 @@ export default function Home() {
                 style={{ color: "var(--color-accent-gold)", fontFamily: "var(--font-display)" }}
               >
                 <Instagram className="w-7 h-7" />
-                @Group Escape Houses
+                @groupescapehouses
               </a>
             </div>
 
             {/* Right: Instagram Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               {[
-                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80",
-                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80",
-                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80",
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
+                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
+                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
+                "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
               ].map((image, index) => (
                 <a
                   key={index}
                   href="https://instagram.com/groupescapehouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative aspect-square rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${image}')` }}
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-6 h-6 text-[var(--color-accent-sage)]" />
+                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-7 h-7 text-[var(--color-accent-sage)]" />
                     </div>
                   </div>
                 </a>
@@ -504,14 +527,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection />
+
       {/* Email Capture */}
-      <section className="py-24 bg-[var(--color-bg-primary)]">
+      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Get Party Planning Tips
+            Get Hen Party Planning Tips
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Subscribe for exclusive deals, house spotlights, and planning inspiration
+            Subscribe for exclusive deals, house spotlights, and planning inspiration delivered to your inbox
           </p>
 
           <form className="flex flex-col sm:flex-row gap-4">
@@ -537,7 +563,7 @@ export default function Home() {
           </form>
 
           <p className="text-sm text-[var(--color-neutral-dark)] mt-4">
-            We respect your privacy. Unsubscribe anytime.
+            We respect your privacy. Unsubscribe anytime. Read our <Link href="/privacy" className="underline hover:text-[var(--color-accent-gold)] transition-colors">privacy policy</Link>.
           </p>
         </div>
       </section>
