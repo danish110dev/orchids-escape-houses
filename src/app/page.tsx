@@ -186,7 +186,7 @@ export default function Home() {
               color: "var(--color-text-primary)",
             }}
           >
-            Luxury Hen Party Houses UK with Hot Tubs & Pools
+            Luxury Party Houses UK with Hot Tubs & Pools
           </h1>
           <p
             className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
@@ -195,7 +195,7 @@ export default function Home() {
               animationDelay: "100ms",
             }}
           >
-            Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">hen weekend accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
+            Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
           </p>
 
           {/* CTA Buttons */}
@@ -293,7 +293,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Featured Hen Party Houses
+              Featured Party Houses
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
               Handpicked <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">luxury party houses</Link> perfect for <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebrations across the UK</Link>
@@ -330,7 +330,7 @@ export default function Home() {
               Add Unforgettable Experiences
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-              Make your <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">hen weekend</Link> extra special with <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">curated activities and experiences</Link>
+              Make your <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration weekend</Link> extra special with <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">curated activities and experiences</Link>
             </p>
           </div>
 
@@ -361,7 +361,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              How to Book Your Hen Party House
+              How to Book Your Party House
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
               Four simple steps to your perfect <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">UK group celebration</Link>
@@ -373,7 +373,7 @@ export default function Home() {
               {
                 step: "1",
                 title: "Choose House",
-                description: "Browse our luxury properties and find your perfect match for your hen party or group celebration",
+                description: "Browse our luxury properties and find your perfect match for your celebration or group gathering",
               },
               {
                 step: "2",
@@ -482,7 +482,7 @@ export default function Home() {
                 Follow Us on Instagram
               </h2>
               <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                See real hen weekends, house tours, and party inspiration from our community. Tag us in your celebrations for a chance to be featured!
+                See real celebrations, house tours, and party inspiration from our community. Tag us in your events for a chance to be featured!
               </p>
               <a
                 href="https://instagram.com/groupescapehouses"
@@ -534,7 +534,7 @@ export default function Home() {
       <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Get Hen Party Planning Tips
+            Get Party Planning Tips
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
             Subscribe for exclusive deals, house spotlights, and planning inspiration delivered to your inbox
