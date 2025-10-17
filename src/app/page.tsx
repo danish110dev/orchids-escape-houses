@@ -14,26 +14,37 @@ import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
+    setMounted(true);
+    
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      threshold: 0.15,
+      rootMargin: "0px 0px -100px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-in");
+          // Optional: stop observing after animation to improve performance
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    const elements = document.querySelectorAll(".scroll-reveal");
-    elements.forEach(el => observer.observe(el));
+    // Small delay to ensure DOM is fully ready
+    const timeoutId = setTimeout(() => {
+      const elements = document.querySelectorAll(".scroll-reveal");
+      elements.forEach(el => observer.observe(el));
+    }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
   }, []);
 
   const featuredProperties = [
