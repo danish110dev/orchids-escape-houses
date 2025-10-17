@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -30,18 +31,20 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span
-              className="text-2xl font-semibold"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Group Escape Houses
-            </span>
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo.png-1760719639291.pdf"
+              alt="Group Escape Houses"
+              width={160}
+              height={60}
+              className="h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
