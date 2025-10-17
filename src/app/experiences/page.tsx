@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, CalendarCheck, ShieldCheck } from "lucide-react";
 
 export default function ExperiencesPage() {
   const experiences = [
@@ -65,6 +65,11 @@ export default function ExperiencesPage() {
         "You can book experiences alongside your property booking. Simply select your preferred experiences when making your enquiry and we'll arrange everything for you.",
     },
     {
+      question: "How far in advance should we book experiences?",
+      answer:
+        "We recommend booking experiences at least 4-6 weeks in advance to ensure availability, especially for popular activities like cocktail masterclasses and butlers. However, we can sometimes arrange last-minute bookings subject to provider availability.",
+    },
+    {
       question: "What happens if we need to change or cancel an experience?",
       answer:
         "Changes can be made up to 14 days before your arrival subject to availability. Cancellations within 14 days may incur a fee depending on the provider. Full details are provided when you book.",
@@ -75,9 +80,44 @@ export default function ExperiencesPage() {
         "Most experiences can accommodate groups of 8-20 guests. Some, like private chefs and butlers, can cater to any size. We'll confirm suitability when you enquire.",
     },
     {
+      question: "Can we book multiple experiences during our stay?",
+      answer:
+        "Absolutely! Many groups combine experiences throughout their weekend. Popular combinations include a cocktail masterclass on arrival, spa treatments the next day, and a bottomless brunch before departure. We'll help you plan the perfect schedule.",
+    },
+    {
+      question: "What's included in the experience price?",
+      answer:
+        "Each experience price includes all necessary equipment, materials, and instructor/provider fees. Cocktail classes include ingredients for 3-4 drinks, life drawing includes art supplies, and private chefs include food and preparation. Specific inclusions are listed on each experience page.",
+    },
+    {
       question: "Can we customise experiences?",
       answer:
         "Yes! Many of our experience providers offer customisation options. Let us know your preferences when enquiring and we'll work with you to create the perfect experience.",
+    },
+    {
+      question: "Do you cater for dietary requirements?",
+      answer:
+        "Yes, all our food and drink experiences can accommodate dietary requirements including vegetarian, vegan, gluten-free, and allergies. Simply let us know when booking and we'll ensure everything is arranged with the provider.",
+    },
+    {
+      question: "When do we pay for experiences?",
+      answer:
+        "Experience costs are typically paid alongside your final property balance, 8 weeks before arrival. We'll provide a clear breakdown of all costs when we confirm your booking.",
+    },
+    {
+      question: "What happens if the weather affects our planned experience?",
+      answer:
+        "Most of our experiences take place indoors at your property or nearby venues. For any outdoor activities, providers have contingency plans and we can help reschedule or swap to an alternative experience if needed.",
+    },
+    {
+      question: "Can the bride-to-be be surprised with an experience?",
+      answer:
+        "Yes! Many groups arrange surprise experiences for the bride. Just let us know in your enquiry notes and we'll coordinate discreetly with you to keep it secret until the big reveal.",
+    },
+    {
+      question: "How long do experiences typically last?",
+      answer:
+        "Most experiences run for 1.5-2 hours (cocktail masterclasses, life drawing), though some like private chefs and butlers can be booked for longer periods. Specific durations are shown on each experience card and can often be extended for an additional fee.",
     },
   ];
 
@@ -121,10 +161,10 @@ export default function ExperiencesPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
                 style={{ background: "var(--color-accent-pink)" }}
               >
-                🎉
+                <Sparkles className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Create Memories</h3>
               <p className="text-[var(--color-neutral-dark)]">
@@ -133,10 +173,10 @@ export default function ExperiencesPage() {
             </div>
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
                 style={{ background: "var(--color-accent-sage)" }}
               >
-                ✨
+                <CalendarCheck className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Hassle-Free Planning</h3>
               <p className="text-[var(--color-neutral-dark)]">
@@ -145,10 +185,10 @@ export default function ExperiencesPage() {
             </div>
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
                 style={{ background: "var(--color-accent-gold)" }}
               >
-                💎
+                <ShieldCheck className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Trusted Providers</h3>
               <p className="text-[var(--color-neutral-dark)]">
