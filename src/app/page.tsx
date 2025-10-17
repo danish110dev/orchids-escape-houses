@@ -1,103 +1,481 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Search, CheckCircle, Shield, HeadphonesIcon, ArrowRight } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PropertyCard from "@/components/PropertyCard";
+import ExperienceCard from "@/components/ExperienceCard";
+import ReviewSlider from "@/components/ReviewSlider";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [email, setEmail] = useState("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const featuredProperties = [
+    {
+      id: "1",
+      title: "The Brighton Manor",
+      location: "Brighton, East Sussex",
+      sleeps: 16,
+      bedrooms: 8,
+      priceFrom: 89,
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      features: ["Hot Tub", "Pool"],
+      slug: "brighton-manor",
+    },
+    {
+      id: "2",
+      title: "Bath Spa Retreat",
+      location: "Bath, Somerset",
+      sleeps: 20,
+      bedrooms: 10,
+      priceFrom: 95,
+      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+      features: ["Games Room", "Cinema"],
+      slug: "bath-spa-retreat",
+    },
+    {
+      id: "3",
+      title: "Manchester Party House",
+      location: "Manchester, Greater Manchester",
+      sleeps: 14,
+      bedrooms: 7,
+      priceFrom: 79,
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      features: ["Hot Tub", "BBQ"],
+      slug: "manchester-party-house",
+    },
+  ];
+
+  const experiences = [
+    {
+      title: "Cocktail Masterclass",
+      duration: "2 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
+      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+      slug: "cocktail-masterclass",
+    },
+    {
+      title: "Butlers in the Buff",
+      duration: "2-4 hours",
+      priceFrom: 65,
+      groupSize: "Any size",
+      image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80",
+      slug: "butlers-in-the-buff",
+    },
+    {
+      title: "Life Drawing Class",
+      duration: "1.5-2 hours",
+      priceFrom: 35,
+      groupSize: "8-20 guests",
+      image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+      slug: "life-drawing",
+    },
+  ];
+
+  const reviews = [
+    {
+      name: "Sophie M",
+      rating: 5,
+      comment: "Absolutely incredible weekend! The house was stunning, hot tub was perfect, and the cocktail class was so much fun. Can't recommend enough for hen parties!",
+      date: "January 2025",
+      property: "Brighton Manor",
+    },
+    {
+      name: "Emma L",
+      rating: 5,
+      comment: "Best hen do ever! The team were so helpful from start to finish. The house had everything we needed and more. The private chef was a lovely touch!",
+      date: "December 2024",
+      property: "Bath Spa Retreat",
+    },
+    {
+      name: "Rachel K",
+      rating: 5,
+      comment: "Planning was so easy and the house exceeded expectations. Games room kept us entertained for hours. Would definitely book again!",
+      date: "November 2024",
+      property: "Manchester Party House",
+    },
+    {
+      name: "Lucy T",
+      rating: 5,
+      comment: "The perfect hen weekend venue. Beautiful house, great location, and the add-on experiences made it extra special. Highly recommend!",
+      date: "October 2024",
+    },
+    {
+      name: "Hannah P",
+      rating: 5,
+      comment: "Fantastic service from booking to checkout. The house was immaculate and had all the facilities we needed. Will be back!",
+      date: "September 2024",
+    },
+    {
+      name: "Olivia S",
+      rating: 5,
+      comment: "Could not fault anything. The house was gorgeous, pool was amazing, and the whole experience was seamless. Thank you!",
+      date: "August 2024",
+    },
+  ];
+
+  const destinations = [
+    { name: "Brighton", image: "https://images.unsplash.com/photo-1599067621490-d5c76a0f1e6d?w=600&q=80" },
+    { name: "Bath", image: "https://images.unsplash.com/photo-1566510955207-4fcf94dfafd0?w=600&q=80" },
+    { name: "Manchester", image: "https://images.unsplash.com/photo-1564511287835-b8d1b0de5e98?w=600&q=80" },
+    { name: "York", image: "https://images.unsplash.com/photo-1590759668628-05b0fc34e04a?w=600&q=80" },
+    { name: "Bournemouth", image: "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?w=600&q=80" },
+    { name: "Cardiff", image: "https://images.unsplash.com/photo-1580670432998-8c5cfa7b9b0b?w=600&q=80" },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with parallax effect */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')",
+            transform: "translateZ(0)",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/80 to-[var(--color-bg-secondary)]/70"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-32 text-center">
+          <h1
+            className="mb-6 animate-fade-up"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--color-text-primary)",
+            }}
+          >
+            Hen Party Houses Designed for the Ultimate Weekend
+          </h1>
+          <p
+            className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
+            style={{
+              color: "var(--color-neutral-dark)",
+              animationDelay: "100ms",
+            }}
+          >
+            Luxury homes, hot tubs, and experiences for unforgettable hen celebrations
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up" style={{ animationDelay: "200ms" }}>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-pink)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/properties">Browse Houses</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+              style={{
+                borderColor: "var(--color-accent-sage)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/contact">Get Instant Quote</Link>
+            </Button>
+          </div>
+
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "300ms" }}>
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl">
+              <div className="flex gap-3">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-neutral-dark)]" />
+                  <Input
+                    type="text"
+                    placeholder="Search by location or features..."
+                    className="pl-12 py-6 rounded-xl border-0 text-base"
+                  />
+                </div>
+                <Button
+                  size="lg"
+                  className="rounded-xl px-8 font-medium"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  Search
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Signals */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-pink)]/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-[var(--color-accent-pink)]" />
+              </div>
+              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                3,000+
+              </h3>
+              <p className="text-[var(--color-neutral-dark)]">5-star reviews</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                Safe Payments
+              </h3>
+              <p className="text-[var(--color-neutral-dark)]">Secure booking process</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
+                <HeadphonesIcon className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              </div>
+              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                UK Support
+              </h3>
+              <p className="text-[var(--color-neutral-dark)]">Fast response from our team</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Properties */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Featured Properties
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Handpicked luxury houses perfect for your hen celebration
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProperties.map((property) => (
+              <PropertyCard key={property.id} {...property} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/properties">View All Properties</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Experiences */}
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Add Unforgettable Experiences
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Make your hen weekend extra special with our curated experiences
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {experiences.map((experience) => (
+              <ExperienceCard key={experience.slug} {...experience} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-pink)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/experiences">Explore All Experiences</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              How It Works
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Four simple steps to your perfect hen weekend
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Choose House",
+                description: "Browse our luxury properties and find your perfect match",
+              },
+              {
+                step: "2",
+                title: "Add Experiences",
+                description: "Select from cocktail classes, butlers, spa treatments and more",
+              },
+              {
+                step: "3",
+                title: "Pay Deposit",
+                description: "Secure your booking with a simple deposit payment",
+              },
+              {
+                step: "4",
+                title: "Final Balance",
+                description: "Pay the remaining balance before your stay and enjoy!",
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center relative">
+                <div
+                  className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold"
+                  style={{
+                    background: "var(--color-accent-pink)",
+                    color: "var(--color-text-primary)",
+                    fontFamily: "var(--font-display)",
+                  }}
+                >
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  {item.title}
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
+                {item.step !== "4" && (
+                  <ArrowRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Destinations */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Popular Destinations
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Discover hen party houses across the UK
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {destinations.map((destination) => (
+              <Link
+                key={destination.name}
+                href={`/destinations/${destination.name.toLowerCase()}`}
+                className="group relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${destination.image}')` }}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute inset-0 flex items-end p-4">
+                  <h3
+                    className="text-white text-xl font-semibold"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {destination.name}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              What Our Guests Say
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Join thousands of happy hen parties
+            </p>
+          </div>
+
+          <ReviewSlider reviews={reviews} />
+        </div>
+      </section>
+
+      {/* Email Capture */}
+      <section className="py-24 bg-white">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+            Get Hen Party Planning Tips
+          </h2>
+          <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
+            Subscribe for exclusive deals, house spotlights, and planning inspiration
+          </p>
+
+          <form className="flex flex-col sm:flex-row gap-4">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 py-6 rounded-xl text-base"
+              required
+            />
+            <Button
+              type="submit"
+              size="lg"
+              className="rounded-xl px-10 py-6 font-medium"
+              style={{
+                background: "var(--color-accent-pink)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              Subscribe
+            </Button>
+          </form>
+
+          <p className="text-sm text-[var(--color-neutral-dark)] mt-4">
+            We respect your privacy. Unsubscribe anytime.
+          </p>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
