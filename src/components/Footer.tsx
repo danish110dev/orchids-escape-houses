@@ -163,6 +163,9 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-[var(--color-accent-sage)] transition-colors">
               Terms & Conditions
             </Link>
+            <Link href="/booking-terms" className="hover:text-[var(--color-accent-sage)] transition-colors">
+              Booking Terms
+            </Link>
             <Link href="/privacy" className="hover:text-[var(--color-accent-sage)] transition-colors">
               Privacy & GDPR
             </Link>
