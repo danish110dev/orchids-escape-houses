@@ -74,7 +74,7 @@ export default function PropertyCard({
       <div className="p-6">
         <Link href={`/properties/${slug}`}>
           <h3
-            className="text-xl font-semibold mb-2 group-hover:text-[var(--color-accent-pink)] transition-colors"
+            className="text-xl font-semibold mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors"
             style={{ fontFamily: "var(--font-body)" }}
           >
             {title}

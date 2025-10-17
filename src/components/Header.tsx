@@ -50,11 +50,11 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[15px] font-medium hover:text-[var(--color-accent-pink)] transition-colors relative group"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-pink)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
               </Link>
             ))}
           </nav>
@@ -63,9 +63,9 @@ export default function Header() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="rounded-2xl px-9 py-3 text-[var(--color-text-primary)] font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+              className="rounded-2xl px-9 py-3 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
               style={{
-                background: "var(--color-accent-pink)",
+                background: "var(--color-accent-sage)",
                 fontFamily: "var(--font-body)",
               }}
             >
@@ -94,7 +94,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[15px] font-medium py-2 hover:text-[var(--color-accent-pink)] transition-colors"
+                  className="text-[15px] font-medium py-2 hover:text-[var(--color-accent-sage)] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -102,8 +102,8 @@ export default function Header() {
               ))}
               <Button
                 asChild
-                className="rounded-2xl mt-4 text-[var(--color-text-primary)] font-medium"
-                style={{ background: "var(--color-accent-pink)" }}
+                className="rounded-2xl mt-4 text-white font-medium"
+                style={{ background: "var(--color-accent-sage)" }}
               >
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Get Instant Quote

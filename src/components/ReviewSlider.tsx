@@ -94,14 +94,14 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
       {/* Navigation Buttons */}
       <button
         onClick={prev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-pink)] hover:text-white transition-all duration-200 hover:scale-110"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-pink)] hover:text-white transition-all duration-200 hover:scale-110"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -117,7 +117,7 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
             }}
             className={`w-2 h-2 rounded-full transition-all duration-200 ${
               index === currentIndex
-                ? "w-8 bg-[var(--color-accent-pink)]"
+                ? "w-8 bg-[var(--color-accent-sage)]"
                 : "bg-[var(--color-bg-secondary)]"
             }`}
           />
