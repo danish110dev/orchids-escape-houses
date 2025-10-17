@@ -38,7 +38,7 @@ export default function LoadingScreen() {
         {/* Logo */}
         <div className="mb-8 animate-pulse">
           <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo.png-1760719639291.pdf"
+            src="https://v3b.fal.media/files/b/kangaroo/Mst13pbVZIG2-LoyTdF0I_output.png"
             alt="Group Escape Houses"
             width={200}
             height={80}
