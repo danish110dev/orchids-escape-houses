@@ -350,8 +350,8 @@ export default function PropertiesPage() {
                       setFilters({
                         location: "",
                         groupSize: 0,
-                        priceMin: 0,
-                        priceMax: 200,
+                        priceMin: 50,
+                        priceMax: 3000,
                         features: [],
                       })
                     }
@@ -434,7 +434,7 @@ export default function PropertiesPage() {
                       onValueChange={([min, max]) =>
                         setFilters({ ...filters, priceMin: min, priceMax: max })
                       }
-                      max={300}
+                      max={3000}
                       step={10}
                       className="py-4"
                     />
