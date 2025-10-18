@@ -151,6 +151,78 @@ export default function DestinationsPage() {
       description: "Dynamic city with canal network, Michelin dining and diverse culture",
       featured: false,
     },
+    {
+      name: "Sheffield",
+      region: "South Yorkshire",
+      propertyCount: 8,
+      image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800",
+      slug: "sheffield",
+      description: "Industrial heritage meets modern nightlife with fantastic live music venues",
+      featured: false,
+    },
+    {
+      name: "Belfast",
+      region: "Northern Ireland",
+      propertyCount: 11,
+      image: "https://images.unsplash.com/photo-1590508619732-be5e750b50f9?w=800",
+      slug: "belfast",
+      description: "Vibrant capital with Titanic Quarter, historic pubs and buzzing nightlife",
+      featured: false,
+    },
+    {
+      name: "Exeter",
+      region: "Devon",
+      propertyCount: 6,
+      image: "https://images.unsplash.com/photo-1599652164638-33114ea4a6ff?w=800",
+      slug: "exeter",
+      description: "Historic cathedral city with Roman walls, riverside dining and coastal access",
+      featured: false,
+    },
+    {
+      name: "Chester",
+      region: "Cheshire",
+      propertyCount: 7,
+      image: "https://images.unsplash.com/photo-1599665636969-dbda2c5e5fe8?w=800",
+      slug: "chester",
+      description: "Roman city with ancient walls, Tudor buildings and boutique shopping",
+      featured: false,
+    },
+    {
+      name: "Inverness",
+      region: "Scottish Highlands",
+      propertyCount: 5,
+      image: "https://images.unsplash.com/photo-1599663253574-b07b4b8e991d?w=800",
+      slug: "inverness",
+      description: "Gateway to the Highlands with stunning scenery and Scottish culture",
+      featured: false,
+    },
+    {
+      name: "Durham",
+      region: "County Durham",
+      propertyCount: 6,
+      image: "https://images.unsplash.com/photo-1599665374506-31f4d9ba9894?w=800",
+      slug: "durham",
+      description: "World Heritage site with stunning cathedral, castle and riverside walks",
+      featured: false,
+    },
+    {
+      name: "Canterbury",
+      region: "Kent",
+      propertyCount: 5,
+      image: "https://images.unsplash.com/photo-1599652164565-9df4f90f9d1c?w=800",
+      slug: "canterbury",
+      description: "Medieval city with famous cathedral, charming streets and riverside pubs",
+      featured: false,
+    },
+    {
+      name: "Blackpool",
+      region: "Lancashire",
+      propertyCount: 8,
+      image: "https://images.unsplash.com/photo-1599665374371-62d6f6e16484?w=800",
+      slug: "blackpool",
+      description: "Classic seaside resort with tower, beaches and legendary nightlife",
+      featured: false,
+    },
   ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
@@ -198,34 +270,25 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 
                   {/* Badge */}
                   <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-white/95 text-[var(--color-text-primary)] text-sm font-medium shadow-lg backdrop-blur-sm">
                     {destination.propertyCount} properties
                   </div>
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  {/* Content with white background */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
                     <h3
                       className="text-3xl font-bold mb-2"
-                      style={{ 
-                        fontFamily: "var(--font-display)",
-                        textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6)"
-                      }}
+                      style={{ fontFamily: "var(--font-display)" }}
                     >
                       {destination.name}
                     </h3>
-                    <p 
-                      className="text-sm font-medium mb-3"
-                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
-                    >
+                    <p className="text-sm font-medium mb-3">
                       {destination.region}
                     </p>
-                    <p 
-                      className="text-sm leading-relaxed font-medium"
-                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
-                    >
+                    <p className="text-sm leading-relaxed">
                       {destination.description}
                     </p>
                   </div>
@@ -255,28 +318,19 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
                     <h3
                       className="text-xl font-bold mb-1"
-                      style={{ 
-                        fontFamily: "var(--font-display)",
-                        textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.6)"
-                      }}
+                      style={{ fontFamily: "var(--font-display)" }}
                     >
                       {destination.name}
                     </h3>
-                    <p 
-                      className="text-xs font-medium mb-2"
-                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
-                    >
+                    <p className="text-xs font-medium mb-2">
                       {destination.region}
                     </p>
-                    <p 
-                      className="text-xs font-medium"
-                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
-                    >
+                    <p className="text-xs font-medium">
                       {destination.propertyCount} properties
                     </p>
                   </div>
