@@ -197,8 +197,14 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu className="w-6 h-6" />
-            <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>Menu</span>
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+            <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>
+              {isMobileMenuOpen ? "Close" : "Menu"}
+            </span>
           </button>
         </div>
       </div>
@@ -209,17 +215,6 @@ export default function Header() {
           isMobileMenuOpen ? "translate-x-0 z-[60]" : "translate-x-full z-[-1]"
         }`}
       >
-        {/* Close Button */}
-        <div className="absolute top-6 right-6 z-[70]">
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-white hover:text-[var(--color-accent-gold)] transition-colors p-2"
-            aria-label="Close menu"
-          >
-            <X className="w-8 h-8" />
-          </button>
-        </div>
-
         {/* Menu Content - Scrollable */}
         <div className="flex-1 overflow-y-auto px-8 pt-24 pb-12">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
