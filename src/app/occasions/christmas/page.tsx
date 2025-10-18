@@ -75,7 +75,7 @@ export default function ChristmasPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="/images/occasions/christmas-hero.jpg"
+              src="https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?w=1600&auto=format&fit=crop"
               alt="Festive Christmas dining table with decorations and family gathering"
               className="w-full h-[500px] object-cover"
             />

@@ -5,13 +5,39 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Egg, Trees, Sun, Sparkles, Check } from "lucide-react";
+import { Egg, Trees, Sun, Sparkles, Check, ChevronDown, Star } from "lucide-react";
+import { useState } from "react";
 
 export default function EasterPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const features = [
     "Family-friendly houses with outdoor space",
     "Easter activity ideas and local events",
     "Short breaks and long weekends available",
+  ];
+
+  const faqs = [
+    {
+      question: "Are your Easter houses family-friendly?",
+      answer: "Absolutely! Our Easter properties are chosen for their family-friendly features including gardens for egg hunts, safe outdoor spaces, and plenty of room for everyone. Many have games rooms and entertainment areas perfect for all ages."
+    },
+    {
+      question: "What's the best time to book for Easter?",
+      answer: "Easter is a popular time, so we recommend booking 6-9 months in advance, especially for larger properties. However, we often have last-minute availability, so it's always worth checking with us."
+    },
+    {
+      question: "Can you suggest Easter activities in the area?",
+      answer: "Yes! Each of our properties comes with local area guides including Easter events, family attractions, country walks, and nearby activities. We're always happy to help you plan the perfect Easter break."
+    },
+    {
+      question: "Do you offer short breaks over Easter?",
+      answer: "Yes, we offer flexible stay options including 3-4 night Easter breaks. Many families prefer to arrive on Good Friday and stay through Easter Monday for the full bank holiday experience."
+    },
+    {
+      question: "Are pets allowed for Easter stays?",
+      answer: "Many of our properties are pet-friendly, perfect for bringing the whole family including your four-legged friends. Check individual property listings or ask us to find dog-friendly Easter houses."
+    }
   ];
 
   return (
@@ -41,6 +67,7 @@ export default function EasterPage() {
               >
                 Easter Breaks
               </h1>
+              <p className="text-white/90 text-lg">Springtime family escapes in beautiful countryside</p>
             </div>
           </motion.div>
 
@@ -136,7 +163,74 @@ export default function EasterPage() {
                   Local events and Easter activities
                 </p>
               </div>
+
+              {/* Trust Badge */}
+              <div className="bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl p-6 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-sm font-medium">Perfect Family Breaks</p>
+                <p className="text-xs opacity-90 mt-1">Trusted by Easter families</p>
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Easter FAQs
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about Easter bookings
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

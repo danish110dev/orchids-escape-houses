@@ -75,7 +75,7 @@ export default function NewYearPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="/images/occasions/new-year-hero.jpg"
+              src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=1600&auto=format&fit=crop"
               alt="Spectacular New Year's Eve fireworks celebration with champagne"
               className="w-full h-[500px] object-cover"
             />

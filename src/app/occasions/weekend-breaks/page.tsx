@@ -5,13 +5,39 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Clock, Sparkles, Check } from "lucide-react";
+import { Calendar, MapPin, Clock, Sparkles, Check, ChevronDown, Star } from "lucide-react";
+import { useState } from "react";
 
 export default function WeekendBreaksPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const features = [
     "2–3 night stay options",
     "Hot tubs and entertainment areas",
     "Add-on activities and local guides",
+  ];
+
+  const faqs = [
+    {
+      question: "What's the minimum stay for a weekend break?",
+      answer: "Most of our properties have a 2-night minimum stay for weekends, with many offering 3-night options Friday to Monday. This gives you plenty of time to relax and enjoy the house and local area."
+    },
+    {
+      question: "Can we book midweek breaks instead of weekends?",
+      answer: "Absolutely! Midweek breaks (Monday-Friday) often offer better value and quieter locations. Many properties have flexible check-in days, so you can plan your break to suit your schedule."
+    },
+    {
+      question: "What activities are available during our weekend break?",
+      answer: "We can arrange add-on experiences including spa treatments, private chefs, cocktail classes, and local activity guides. Each property also comes with information about nearby attractions, walks, and restaurants."
+    },
+    {
+      question: "Are weekend breaks more expensive than midweek?",
+      answer: "Weekend stays are typically priced at a premium compared to midweek rates. However, splitting the cost between your group still makes them excellent value. Contact us for exact pricing for your dates."
+    },
+    {
+      question: "Can we extend our weekend break?",
+      answer: "Subject to availability, you can often extend your stay. If you'd like to add extra nights, just let us know when booking or get in touch before your stay and we'll check availability."
+    }
   ];
 
   return (
@@ -41,6 +67,7 @@ export default function WeekendBreaksPage() {
               >
                 Weekend Breaks
               </h1>
+              <p className="text-white/90 text-lg">Short luxury getaways for rest and celebration</p>
             </div>
           </motion.div>
 
@@ -136,7 +163,74 @@ export default function WeekendBreaksPage() {
                   Coastal and countryside retreats
                 </p>
               </div>
+
+              {/* Trust Badge */}
+              <div className="bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl p-6 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-sm font-medium">Perfect Weekend Escapes</p>
+                <p className="text-xs opacity-90 mt-1">Trusted by weekend breakers</p>
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Weekend Break FAQs
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Common questions about short stay bookings
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

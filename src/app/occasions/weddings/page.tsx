@@ -75,7 +75,7 @@ export default function WeddingsPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="/images/occasions/wedding-hero.jpg"
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&auto=format&fit=crop"
               alt="Beautiful outdoor wedding ceremony in elegant garden setting"
               className="w-full h-[500px] object-cover"
             />
