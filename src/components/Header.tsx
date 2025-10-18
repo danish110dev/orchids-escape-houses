@@ -53,7 +53,7 @@ export default function Header() {
     { label: "Destinations", href: "/destinations" },
     { label: "How it works", href: "/how-it-works" },
     { label: "Reviews", href: "/reviews" },
-    { label: "Blog", href: "/blog" },
+    { label: "Planning Tips & Inspiration", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
