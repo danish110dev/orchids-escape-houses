@@ -427,14 +427,14 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      <section className="py-12 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
             <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
               Not Sure Where to Go?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Get a free personalised quote and let us help you find the perfect destination and house for your hen party
+              Get a free personalised quote and let us help you find the perfect destination and house for your group celebration
             </p>
             <Button
               asChild
