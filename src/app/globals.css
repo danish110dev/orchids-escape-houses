@@ -256,16 +256,16 @@
   
   /* Sliding animation for Instagram carousel */
   @keyframes slide-left {
-    0% {
+    0%, 100% {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
+    50% {
+      transform: translateX(-15%);
     }
   }
   
   .animate-slide-left {
-    animation: slide-left 20s linear infinite;
+    animation: slide-left 15s ease-in-out infinite;
     display: flex;
     width: max-content;
   }
