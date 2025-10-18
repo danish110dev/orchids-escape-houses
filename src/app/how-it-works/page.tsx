@@ -3,6 +3,12 @@ import Footer from "@/components/Footer";
 import { HomeIcon, Sparkles, CreditCard, PartyPopper, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function HowItWorksPage() {
   const steps = [
@@ -29,6 +35,41 @@ export default function HowItWorksPage() {
       icon: PartyPopper,
       title: "Final Balance & Enjoy",
       description: "Pay the final balance 8 weeks before arrival, then relax and get ready for an unforgettable celebration.",
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "How far in advance should I book?",
+      answer: "We recommend booking 3-6 months in advance, especially for peak dates like bank holiday weekends and summer. Popular properties can book up to a year ahead for prime dates.",
+    },
+    {
+      question: "What's included in the rental price?",
+      answer: "The rental price includes full use of the property and all its amenities. Utilities, WiFi, linen, and towels are provided. Cleaning fees and security deposits are additional.",
+    },
+    {
+      question: "Can I extend my stay?",
+      answer: "Extensions are subject to availability. Contact us as soon as possible if you'd like to extend, and we'll check if the property is free for additional nights.",
+    },
+    {
+      question: "What happens if we damage something?",
+      answer: "Minor wear and tear is expected and covered. Any damage beyond normal use will be deducted from your security deposit. We'll provide photos and receipts for any repairs needed.",
+    },
+    {
+      question: "Are pets allowed?",
+      answer: "Some properties are pet-friendly. Look for the 'Pet Friendly' badge on property listings. There may be an additional pet fee, and pets must be well-behaved and supervised.",
+    },
+    {
+      question: "Can we have visitors who aren't staying overnight?",
+      answer: "Day visitors must be pre-approved and cannot exceed the property's maximum occupancy at any time. All guests must respect house rules and quiet hours.",
+    },
+    {
+      question: "What if someone in our group cancels?",
+      answer: "You're responsible for the full booking amount regardless of individual cancellations. We recommend taking out group travel insurance to cover these situations.",
+    },
+    {
+      question: "Is there a noise curfew?",
+      answer: "Most properties have quiet hours between 11pm and 8am. This means keeping music, conversation, and activities to a reasonable level out of respect for neighbours.",
     },
   ];
 
@@ -176,6 +217,66 @@ export default function HowItWorksPage() {
               }}
             >
               <Link href="/properties">Browse Properties</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[900px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)]">
+              Got questions? We've got answers.
+            </p>
+          </div>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="border border-[var(--color-bg-secondary)] rounded-2xl px-6 data-[state=open]:bg-[var(--color-bg-primary)]"
+              >
+                <AccordionTrigger 
+                  className="text-left hover:no-underline py-6"
+                  style={{ 
+                    fontFamily: "var(--font-body)",
+                    fontWeight: 600,
+                    fontSize: "18px",
+                    color: "var(--color-text-primary)"
+                  }}
+                >
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[var(--color-neutral-dark)] pb-6"
+                  style={{ fontSize: "16px", lineHeight: "1.7" }}
+                >
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-[var(--color-neutral-dark)] mb-6">
+              Still have questions?
+            </p>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-lg"
+              style={{
+                borderColor: "var(--color-accent-sage)",
+                color: "var(--color-accent-sage)",
+              }}
+            >
+              <Link href="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>
