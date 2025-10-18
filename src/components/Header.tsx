@@ -79,7 +79,12 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center relative z-[70]">
+          <Link 
+            href="/" 
+            className={`flex items-center relative transition-all ${
+              isMobileMenuOpen ? "z-[80]" : "z-[70]"
+            }`}
+          >
             <Image
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
               alt="Group Escape Houses"
@@ -193,7 +198,9 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 flex items-center gap-2 relative z-[70]"
+            className={`lg:hidden p-2 flex items-center gap-2 relative transition-all ${
+              isMobileMenuOpen ? "z-[80]" : "z-[70]"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -212,7 +219,7 @@ export default function Header() {
       {/* Mobile Menu - Full Page Dark Overlay */}
       <div
         className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-transform duration-500 ease-out ${
-          isMobileMenuOpen ? "translate-x-0 z-[60]" : "translate-x-full z-[-1]"
+          isMobileMenuOpen ? "translate-x-0 z-[70]" : "translate-x-full z-[-1]"
         }`}
       >
         {/* Menu Content - Scrollable */}
