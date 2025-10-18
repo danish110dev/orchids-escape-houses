@@ -3,45 +3,63 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, CalendarCheck, Award, Star, Search, Heart, CheckCircle2, PartyPopper } from "lucide-react";
+import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ExperiencesPage() {
-  const experiences = [
+  const chilledExperiences = [
     {
-      title: "Private Chef Meals",
-      duration: "Full day",
-      priceFrom: 75,
-      groupSize: "Any size",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-a4bb843a-20251018104924.jpg",
-      slug: "private-chef",
+      title: "Private Chef Dining",
+      description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-private-chef-c9b1dcae-20251018105326.jpg?",
+      icon: ChefHat,
     },
     {
       title: "Spa Treatments",
-      duration: "2-3 hours",
-      priceFrom: 55,
-      groupSize: "Up to 16",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-d866a7ea-20251018104933.jpg",
-      slug: "spa-treatments",
+      description: "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-b1e16955-20251018105334.jpg?",
+      icon: Waves,
     },
     {
-      title: "Yoga Classes",
-      duration: "1.5 hours",
-      priceFrom: 40,
-      groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-yoga-class-i-516d658c-20251018104941.jpg",
-      slug: "yoga-classes",
+      title: "Yoga & Pilates Classes",
+      description: "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone.",
+      image: "https://v3b.fal.media/files/b/koala/gmzGO0jeJbdr_IoAa7EJP_output.png",
+      icon: Heart,
     },
     {
-      title: "Murder Mystery",
-      duration: "2-3 hours",
-      priceFrom: 50,
-      groupSize: "10-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-d41a1322-20251018104949.jpg",
-      slug: "murder-mystery",
+      title: "Wellness Workshops",
+      description: "Meditation, sound baths, or aromatherapy – for a restorative, bonding experience.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-wor-77218089-20251018105348.jpg?",
+      icon: Sparkles,
+    },
+  ];
+
+  const funExperiences = [
+    {
+      title: "Pizza Party Night",
+      description: "Make, bake, and top your own creations. Dough, laughter, and a lot of prosecco.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pizza-making-09c038d0-20251018105355.jpg?",
+      icon: Pizza,
+    },
+    {
+      title: "Murder Mystery Dinner",
+      description: "Transform your dinner into a night of intrigue and laughter. Dress up, play your part, and see who can uncover the culprit first.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-7b7408cd-20251018105402.jpg?",
+      icon: Users,
+    },
+    {
+      title: "Cocktail Masterclass",
+      description: "Learn to shake, stir, and sip like pros with our expert mixologists.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-9a8fa570-20251018105410.jpg?",
+      icon: Wine,
+    },
+    {
+      title: "Life Drawing & Cheeky Butlers",
+      description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-80bb4e56-20251018105418.jpg?",
+      icon: Palette,
     },
   ];
 
@@ -120,22 +138,53 @@ export default function ExperiencesPage() {
         className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]"
       >
         <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
-            <Sparkles className="w-4 h-4 text-[var(--color-accent-pink)]" />
-            <span className="text-sm font-medium">Add unforgettable moments</span>
-          </div>
-          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Hen Party Experiences
+          <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+            Experiences at Orchids – Relax, Laugh, Celebrate
           </h1>
-          <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-            Make your celebration extra special with our curated selection of activities and services
+          <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto mb-8">
+            Create your dream hen weekend with spa treatments, chef-cooked meals, yoga mornings, and unforgettable moments. Whether you're here to unwind or get the giggles flowing, we've got you covered.
           </p>
+          <Button
+            asChild
+            size="lg"
+            className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+            style={{
+              background: "var(--color-accent-sage)",
+              color: "white",
+            }}
+          >
+            <Link href="/contact">Add Experiences to Your Stay</Link>
+          </Button>
         </div>
       </motion.section>
 
-      {/* Experiences Grid */}
-      <section className="py-16">
+      {/* Intro Paragraph */}
+      <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-lg text-center max-w-4xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+            At Orchids, we make hen weekends feel effortless. Our curated activities bring together everything you love – indulgent food, pampering, laughter, and a sprinkle of luxury. Choose from chef dining, spa treatments, yoga sessions, or something a little cheekier. You tell us the vibe, and we'll make it happen.
+          </p>
+        </div>
+      </section>
+
+      {/* Chilled & Relaxed */}
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+              🌿 Chilled & Relaxed
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+              For hens who love the idea of a weekend that feels like a mini-retreat. Think self-care, slow mornings, and indulgence done right.
+            </p>
+          </motion.div>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -147,101 +196,9 @@ export default function ExperiencesPage() {
                 },
               },
             }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
           >
-            {experiences.map((experience) => (
-              <motion.div
-                key={experience.slug}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <ExperienceCard {...experience} />
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          <div className="text-center mt-16">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-                style={{
-                  background: "var(--color-accent-sage)",
-                  color: "white",
-                }}
-              >
-                <Link href="/properties">Browse Houses</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
-                style={{
-                  borderColor: "var(--color-accent-gold)",
-                  color: "var(--color-text-primary)",
-                }}
-              >
-                <Link href="/contact">Book Now</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Add Experiences */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-          >
-            Why Add Experiences?
-          </motion.h2>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.15,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-12"
-          >
-            {[
-              {
-                icon: Sparkles,
-                gradient: "linear-gradient(135deg, #FF6B9D 0%, #FEC5E5 100%)",
-                shadow: "rgba(255, 107, 157, 0.4)",
-                title: "Create Memories",
-                desc: "Make your hen weekend truly unforgettable with activities that bring everyone together",
-              },
-              {
-                icon: CalendarCheck,
-                gradient: "linear-gradient(135deg, #6366F1 0%, #A5B4FC 100%)",
-                shadow: "rgba(99, 102, 241, 0.4)",
-                title: "Hassle-Free Planning",
-                desc: "We arrange everything for you so you can focus on enjoying the celebration",
-              },
-              {
-                icon: Award,
-                gradient: "linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)",
-                shadow: "rgba(245, 158, 11, 0.4)",
-                title: "Trusted Providers",
-                desc: "All our experience providers are carefully vetted and highly rated by previous guests",
-              },
-            ].map((item, idx) => (
+            {chilledExperiences.map((experience, idx) => (
               <motion.div
                 key={idx}
                 variants={{
@@ -249,69 +206,130 @@ export default function ExperiencesPage() {
                   visible: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-center"
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.15, 
-                    rotate: [0, -8, 8, -8, 0],
-                    y: -8,
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    y: {
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: idx * 0.2,
-                    },
-                    hover: {
-                      duration: 0.6,
-                      ease: "easeOut",
-                    },
-                  }}
-                  className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center relative cursor-pointer"
-                  style={{ 
-                    background: item.gradient,
-                    boxShadow: `0 10px 30px ${item.shadow}, 0 0 0 0 ${item.shadow}`,
-                  }}
-                >
-                  <motion.div
-                    className="absolute inset-0 rounded-full"
-                    initial={{ scale: 1, opacity: 0 }}
-                    whileHover={{ 
-                      scale: 1.5, 
-                      opacity: [0, 0.3, 0],
-                      transition: { duration: 0.8, repeat: Infinity }
-                    }}
-                    style={{ 
-                      background: item.gradient,
-                      filter: 'blur(10px)',
-                    }}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={experience.image}
+                    alt={experience.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
-                  <item.icon 
-                    className="w-12 h-12 relative z-10" 
-                    style={{ 
-                      color: "white", 
-                      fill: "white",
-                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
-                    }} 
-                  />
-                </motion.div>
-                <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: "#374151" }}>{item.desc}</p>
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ background: "rgba(137, 163, 143, 0.9)" }}
+                  >
+                    <experience.icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                    {experience.title}
+                  </h3>
+                  <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                    {experience.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
+
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Enquire About Wellness Experiences</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* How to Book */}
+      {/* Fun & Interactive */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+              🍕 Fun & Interactive
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+              For when you want to add a little energy and entertainment to the weekend.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+          >
+            {funExperiences.map((experience, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={experience.image}
+                    alt={experience.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ background: "rgba(242, 198, 194, 0.9)" }}
+                  >
+                    <experience.icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                    {experience.title}
+                  </h3>
+                  <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                    {experience.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Add a Fun Activity to Your Stay</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.h2
@@ -319,11 +337,21 @@ export default function ExperiencesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-          >
-            How to Add Experiences
+            className="text-center mb-6"
+            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+            ✨ How It Works
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center text-lg max-w-3xl mx-auto mb-12"
+            style={{ color: "var(--color-neutral-dark)" }}
+          >
+            All experiences are optional add-ons that can be arranged before or after booking. Our team takes care of everything – timings, setup, and suppliers – so all you need to do is relax and enjoy.
+          </motion.p>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -335,152 +363,100 @@ export default function ExperiencesPage() {
                 },
               },
             }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
             {[
-              { 
-                step: "1", 
-                title: "Browse", 
-                desc: "Explore our curated experiences", 
-                icon: Search,
-                gradient: "linear-gradient(135deg, #06B6D4 0%, #67E8F9 100%)",
-                shadow: "rgba(6, 182, 212, 0.3)",
-              },
-              { 
-                step: "2", 
-                title: "Select", 
-                desc: "Choose your favourites when enquiring", 
-                icon: Heart,
-                gradient: "linear-gradient(135deg, #EC4899 0%, #F9A8D4 100%)",
-                shadow: "rgba(236, 72, 153, 0.3)",
-              },
-              { 
-                step: "3", 
-                title: "Confirm", 
-                desc: "We'll check availability and quote", 
-                icon: CheckCircle2,
-                gradient: "linear-gradient(135deg, #10B981 0%, #6EE7B7 100%)",
-                shadow: "rgba(16, 185, 129, 0.3)",
-              },
-              { 
-                step: "4", 
-                title: "Enjoy", 
-                desc: "Everything's arranged for your arrival", 
-                icon: PartyPopper,
-                gradient: "linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 100%)",
-                shadow: "rgba(139, 92, 246, 0.3)",
-              },
+              "Tailored to your group size",
+              "Flexible timings",
+              "Trusted local suppliers",
+              "No hidden fees",
             ].map((item, idx) => (
               <motion.div
-                key={item.step}
+                key={idx}
                 variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 },
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-center"
+                className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm"
               >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.2, 
-                    rotate: [0, -10, 10, -10, 0],
-                  }}
-                  whileTap={{ scale: 0.9 }}
-                  animate={{
-                    y: [0, -8, 0],
-                    rotate: [0, 3, -3, 0],
-                  }}
-                  transition={{
-                    y: {
-                      duration: 2.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: idx * 0.15,
-                    },
-                    rotate: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: idx * 0.2,
-                    },
-                    hover: {
-                      duration: 0.5,
-                      ease: "easeOut",
-                    },
-                  }}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center relative cursor-pointer group"
-                  style={{
-                    background: item.gradient,
-                    boxShadow: `0 10px 25px ${item.shadow}, 0 0 0 0 ${item.shadow}`,
-                  }}
-                >
-                  <motion.div
-                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [0, 0.4, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    style={{ 
-                      background: item.gradient,
-                      filter: 'blur(15px)',
-                    }}
-                  />
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <item.icon 
-                      className="w-11 h-11 relative z-10" 
-                      style={{ 
-                        color: "white",
-                        fill: idx === 1 ? "white" : "none",
-                        filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.1))"
-                      }} 
-                    />
-                  </motion.div>
-                  <motion.div
-                    className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shadow-lg"
-                    whileHover={{ scale: 1.15 }}
-                    animate={{
-                      boxShadow: [
-                        "0 4px 10px rgba(31, 41, 55, 0.3)",
-                        "0 8px 20px rgba(31, 41, 55, 0.4)",
-                        "0 4px 10px rgba(31, 41, 55, 0.3)",
-                      ],
-                    }}
-                    transition={{
-                      boxShadow: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                    style={{
-                      background: "linear-gradient(135deg, var(--color-text-primary) 0%, #374151 100%)",
-                      color: "white",
-                      fontFamily: "var(--font-display)",
-                    }}
-                  >
-                    {item.step}
-                  </motion.div>
-                </motion.div>
-                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-text-primary)" }}>
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[var(--color-neutral-dark)]">{item.desc}</p>
+                <CheckCircle2 className="w-6 h-6 flex-shrink-0" style={{ color: "var(--color-accent-sage)" }} />
+                <span className="text-sm font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  {item}
+                </span>
               </motion.div>
             ))}
           </motion.div>
+
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Request My Weekend Plan</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Make It Yours */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+          >
+            💕 Make It Yours
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg max-w-3xl mx-auto mb-8"
+            style={{ color: "var(--color-neutral-dark)" }}
+          >
+            Every hen group is different, and that's what we love. Whether you're planning a wellness retreat or a cocktail-filled celebration, Orchids can be customised to match your perfect vibe.
+          </motion.p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/properties">Check Availability</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+              style={{
+                borderColor: "var(--color-accent-gold)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/contact">Contact Our Team</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* FAQs */}
-      <section className="py-24">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[800px] mx-auto px-6">
           <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             Experience FAQs
