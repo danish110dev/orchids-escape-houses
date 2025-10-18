@@ -5,13 +5,60 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Heart, Waves, Gamepad2, Sparkles, Check } from "lucide-react";
+import { Heart, Waves, Gamepad2, Sparkles, Check, ChevronDown, Star, Gift } from "lucide-react";
+import { useState } from "react";
 
 export default function HenPartyHousesPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const features = [
-    "Hot tubs, pools, and games rooms",
+    "Hot tubs, swimming pools, and games rooms for non-stop fun",
     "Add-on experiences: cocktail masterclass, butlers, life drawing, or pamper spa sessions",
-    "Free stay for the bride on bookings of 10+ people",
+    "Bride goes FREE on bookings of 10+ guests",
+    "Stylish interiors perfect for Instagram-worthy photos",
+    "Spacious communal areas for group activities and celebrations",
+    "24/7 UK support team for any last-minute requests"
+  ];
+
+  const benefits = [
+    {
+      title: "Ultimate Hen Houses",
+      description: "Handpicked luxury properties with hot tubs, pools, and party-perfect features",
+      icon: Heart
+    },
+    {
+      title: "Bride Goes FREE",
+      description: "Special offer: free accommodation for the bride on bookings of 10+ guests",
+      icon: Gift
+    },
+    {
+      title: "Add-On Experiences",
+      description: "Cocktail classes, spa treatments, butlers, and more to make it unforgettable",
+      icon: Sparkles
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Do you really offer a free stay for the bride?",
+      answer: "Yes! On all hen party bookings of 10 or more guests, the bride stays completely free. This is automatically applied when you book, making it even more affordable for the whole group."
+    },
+    {
+      question: "What hen party add-ons do you offer?",
+      answer: "We offer cocktail masterclasses, butlers in the buff, life drawing sessions, private chefs, spa treatments, and decoration packages. These can all be arranged when you make your booking to create the perfect hen weekend."
+    },
+    {
+      question: "Are your houses suitable for wild hen parties?",
+      answer: "Our houses are perfect for fun celebrations, but we do ask guests to respect house rules and neighbours. Many properties are in secluded locations ideal for hen parties. We'll match you with the right house for your group's vibe."
+    },
+    {
+      question: "Can we arrive and leave at flexible times?",
+      answer: "Standard check-in is typically 4pm and checkout is 10am, but we can often arrange early arrival or late checkout for an additional fee. Just let us know your requirements when booking."
+    },
+    {
+      question: "How do we split the cost between the group?",
+      answer: "We provide a clear breakdown of costs that's easy to share with your group. Many hen parties use apps like Splitwise or collect money in advance. We're happy to take payment from multiple cards if that helps."
+    }
   ];
 
   return (
@@ -21,7 +68,6 @@ export default function HenPartyHousesPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
         <div className="max-w-[1200px] mx-auto px-6">
-          {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,8 +75,8 @@ export default function HenPartyHousesPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1600&q=80"
-              alt="Group of women enjoying prosecco by hot tub"
+              src="/images/occasions/hen-party-hero.jpg"
+              alt="Group of women celebrating hen party by hot tub with champagne"
               className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -41,6 +87,11 @@ export default function HenPartyHousesPage() {
               >
                 Hen Party Houses
               </h1>
+              <p className="text-white/90 text-lg">Luxury houses for unforgettable hen weekends</p>
+            </div>
+            {/* Special Offer Badge */}
+            <div className="absolute top-8 right-8 bg-[var(--color-accent-gold)] text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+              Bride Goes FREE on 10+ Bookings
             </div>
           </motion.div>
 
@@ -54,7 +105,7 @@ export default function HenPartyHousesPage() {
               className="md:col-span-2"
             >
               <p className="text-xl text-[var(--color-neutral-dark)] mb-8 leading-relaxed">
-                Make it a weekend to remember with our luxury hen party houses. From chic cottages to countryside manors with hot tubs, our properties are designed for laughter, luxury, and a little bit of mischief.
+                Make it a weekend to remember with our luxury hen party houses across the UK. From chic cottages with hot tubs to countryside manors with pools and games rooms, our properties are designed for laughter, luxury, and making memories with your favourite people.
               </p>
 
               <h3 className="mb-6 flex items-center gap-2" style={{ fontFamily: "var(--font-body)" }}>
@@ -62,7 +113,7 @@ export default function HenPartyHousesPage() {
                 What's Included
               </h3>
 
-              <div className="space-y-4 mb-8">
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -89,7 +140,7 @@ export default function HenPartyHousesPage() {
                     color: "white",
                   }}
                 >
-                  <Link href="/properties">Browse Houses</Link>
+                  <Link href="/properties">Browse Hen Party Houses</Link>
                 </Button>
                 <Button
                   asChild
@@ -106,7 +157,7 @@ export default function HenPartyHousesPage() {
               </div>
             </motion.div>
 
-            {/* Sidebar Icons */}
+            {/* Sidebar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,7 +168,7 @@ export default function HenPartyHousesPage() {
                 <Waves className="w-8 h-8 text-[var(--color-accent-sage)] mb-3" />
                 <h4 className="font-semibold mb-2">Hot Tubs & Pools</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
-                  Perfect for relaxing and celebrating
+                  Perfect for relaxing and celebrating with the girls
                 </p>
               </div>
 
@@ -125,7 +176,7 @@ export default function HenPartyHousesPage() {
                 <Gamepad2 className="w-8 h-8 text-[var(--color-accent-gold)] mb-3" />
                 <h4 className="font-semibold mb-2">Games Rooms</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
-                  Entertainment for the whole group
+                  Entertainment and fun for the whole group
                 </p>
               </div>
 
@@ -133,10 +184,116 @@ export default function HenPartyHousesPage() {
                 <Heart className="w-8 h-8 text-[var(--color-accent-sage)] mb-3" />
                 <h4 className="font-semibold mb-2">Bride Goes FREE</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
-                  On bookings of 10+ guests
+                  Special offer on all bookings of 10+ guests
                 </p>
               </div>
+
+              {/* Trust Badge */}
+              <div className="bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl p-6 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-sm font-medium">Hen Party Specialists</p>
+                <p className="text-xs opacity-90 mt-1">Trusted by thousands of hen parties</p>
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Why Book Your Hen Party With Us
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party FAQs
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about booking your hen weekend
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
