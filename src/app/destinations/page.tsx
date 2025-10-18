@@ -476,16 +476,29 @@ export default function DestinationsPage() {
                     <p className="text-xs leading-relaxed mb-3 text-black">
                       {destination.bio}
                     </p>
-                    <Button
-                    size="sm"
-                    className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
-                    style={{
-                      background: "var(--color-accent-sage)",
-                      color: "white"
-                    }}>
-
-                      View Properties
-                    </Button>
+                    <div className="flex flex-col gap-2">
+                      <Button
+                        size="sm"
+                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
+                        style={{
+                          background: "var(--color-accent-sage)",
+                          color: "white"
+                        }}>
+                        View Properties
+                      </Button>
+                      <Button
+                        asChild
+                        size="sm"
+                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
+                        style={{
+                          background: "var(--color-accent-pink)",
+                          color: "white"
+                        }}>
+                        <Link href="/contact" onClick={(e) => e.stopPropagation()}>
+                          Check Availability
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Link>
