@@ -233,6 +233,12 @@ export default function DestinationDetailPage() {
           link: "https://www.thefrenchquarter.co.uk/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brasserie-din-bb0b93c1-20251018181121.jpg"
         },
+        {
+          name: "Blackfriars Restaurant",
+          description: "Historic medieval building with modern British brunch.",
+          link: "https://www.blackfriarsrestaurant.co.uk/",
+          image: ""
+        },
       ],
       activities: [
         {
