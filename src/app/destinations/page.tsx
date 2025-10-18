@@ -343,9 +343,19 @@ export default function DestinationsPage() {
                     <p className="text-sm font-medium mb-3">
                       {destination.region}
                     </p>
-                    <p className="text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed mb-4">
                       {destination.description}
                     </p>
+                    <Button
+                      size="sm"
+                      className="rounded-xl px-6 py-2 text-sm font-medium transition-all duration-200"
+                      style={{
+                        background: "var(--color-accent-sage)",
+                        color: "white",
+                      }}
+                    >
+                      View Properties
+                    </Button>
                   </div>
                 </div>
               </Link>
@@ -415,9 +425,19 @@ export default function DestinationsPage() {
                     <p className="text-xs font-medium mb-2">
                       {destination.region}
                     </p>
-                    <p className="text-xs font-medium">
+                    <p className="text-xs font-medium mb-3">
                       {destination.propertyCount} properties
                     </p>
+                    <Button
+                      size="sm"
+                      className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
+                      style={{
+                        background: "var(--color-accent-sage)",
+                        color: "white",
+                      }}
+                    >
+                      View Properties
+                    </Button>
                   </div>
                 </div>
               </Link>
