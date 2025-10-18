@@ -219,7 +219,24 @@ export default function ContactPage() {
                             modifiersStyles={{
                               selected: { 
                                 backgroundColor: '#89A38F',
+                                color: 'white',
+                                fontWeight: '600'
+                              },
+                              range_start: {
+                                backgroundColor: '#89A38F',
                                 color: 'white'
+                              },
+                              range_end: {
+                                backgroundColor: '#89A38F',
+                                color: 'white'
+                              },
+                              range_middle: {
+                                backgroundColor: 'rgba(137, 163, 143, 0.2)',
+                                color: '#1F2937'
+                              },
+                              today: {
+                                fontWeight: 'bold',
+                                color: '#89A38F'
                               }
                             }}
                           />
