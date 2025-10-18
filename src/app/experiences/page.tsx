@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { Sparkles, CalendarCheck, ShieldCheck } from "lucide-react";
+import { Sparkles, CalendarCheck, ShieldCheck, PartyPopper } from "lucide-react";
 
 export default function ExperiencesPage() {
   const experiences = [
@@ -164,7 +164,7 @@ export default function ExperiencesPage() {
                 className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
                 style={{ background: "var(--color-accent-pink)" }}
               >
-                <Sparkles className="w-10 h-10 text-white" />
+                <PartyPopper className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Create Memories</h3>
               <p className="text-[var(--color-neutral-dark)]">
