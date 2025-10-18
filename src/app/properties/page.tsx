@@ -242,11 +242,36 @@ export default function PropertiesPage() {
                       onChange={(e) => setFilters({ ...filters, location: e.target.value })}
                     >
                       <option value="">All locations</option>
+                      <option value="london">London</option>
                       <option value="brighton">Brighton</option>
                       <option value="bath">Bath</option>
                       <option value="manchester">Manchester</option>
+                      <option value="newquay">Newquay</option>
+                      <option value="lake-district">Lake District</option>
                       <option value="york">York</option>
                       <option value="bournemouth">Bournemouth</option>
+                      <option value="liverpool">Liverpool</option>
+                      <option value="bristol">Bristol</option>
+                      <option value="newcastle">Newcastle</option>
+                      <option value="cambridge">Cambridge</option>
+                      <option value="oxford">Oxford</option>
+                      <option value="leeds">Leeds</option>
+                      <option value="nottingham">Nottingham</option>
+                      <option value="birmingham">Birmingham</option>
+                      <option value="sheffield">Sheffield</option>
+                      <option value="exeter">Exeter</option>
+                      <option value="chester">Chester</option>
+                      <option value="durham">Durham</option>
+                      <option value="canterbury">Canterbury</option>
+                      <option value="blackpool">Blackpool</option>
+                      <option value="cotswolds">Cotswolds</option>
+                      <option value="margate">Margate</option>
+                      <option value="harrogate">Harrogate</option>
+                      <option value="st-ives">St Ives</option>
+                      <option value="windsor">Windsor</option>
+                      <option value="stratford-upon-avon">Stratford-upon-Avon</option>
+                      <option value="plymouth">Plymouth</option>
+                      <option value="cheltenham">Cheltenham</option>
                       <option value="cardiff">Cardiff</option>
                     </select>
                   </div>
