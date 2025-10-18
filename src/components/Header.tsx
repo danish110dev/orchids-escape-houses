@@ -21,12 +21,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open and reset submenu states when closing
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      // Reset submenu states when menu closes
+      setIsMobileStylesOpen(false);
+      setIsMobileFeaturesOpen(false);
     }
     return () => {
       document.body.style.overflow = "";
@@ -74,14 +77,14 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-md"
-      } ${isMobileMenuOpen ? "z-[100]" : "z-50"}`}
+      } z-50`}
     >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center relative z-[110]"
+            className={`flex items-center ${isMobileMenuOpen ? "relative z-[150]" : "relative z-10"}`}
           >
             <Image
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
@@ -196,7 +199,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 flex items-center gap-2 relative z-[110]"
+            className={`lg:hidden p-2 flex items-center gap-2 ${isMobileMenuOpen ? "relative z-[150]" : "relative z-10"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -214,8 +217,8 @@ export default function Header() {
 
       {/* Mobile Menu - Full Page Dark Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-all duration-500 ease-out ${
-          isMobileMenuOpen ? "translate-x-0 opacity-100 z-[105]" : "translate-x-full opacity-0 z-[-1]"
+        className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-all duration-300 ${
+          isMobileMenuOpen ? "translate-x-0 z-[100]" : "translate-x-full z-[-10]"
         }`}
       >
         {/* Menu Content - Scrollable */}
