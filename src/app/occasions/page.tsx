@@ -13,7 +13,10 @@ import {
   Egg,
   Calendar,
   ArrowRight,
-  ChevronDown
+  ChevronDown,
+  Star,
+  Users,
+  Home
 } from "lucide-react";
 import { useState } from "react";
 
@@ -26,42 +29,56 @@ export default function OccasionsPage() {
       slug: "special-celebrations",
       icon: Sparkles,
       description: "Birthdays, anniversaries, and milestone moments",
+      image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop",
+      color: "#F2C6C2"
     },
     {
       title: "Hen Party Houses",
       slug: "hen-party-houses",
       icon: Heart,
       description: "Luxury houses perfect for hen weekends",
+      image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&auto=format&fit=crop",
+      color: "#89A38F"
     },
     {
       title: "Weddings",
       slug: "weddings",
       icon: Church,
       description: "Intimate ceremonies and weekend celebrations",
+      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop",
+      color: "#C6A76D"
     },
     {
       title: "Christmas",
       slug: "christmas",
       icon: TreePine,
       description: "Festive stays and family gatherings",
+      image: "https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?w=800&auto=format&fit=crop",
+      color: "#89A38F"
     },
     {
       title: "New Year",
       slug: "new-year",
       icon: PartyPopper,
       description: "Ring in the New Year in style",
+      image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&auto=format&fit=crop",
+      color: "#F2C6C2"
     },
     {
       title: "Easter",
       slug: "easter",
       icon: Egg,
       description: "Springtime family escapes",
+      image: "https://images.unsplash.com/photo-1522354224076-3ac67a91d57b?w=800&auto=format&fit=crop",
+      color: "#C6A76D"
     },
     {
       title: "Weekend Breaks",
       slug: "weekend-breaks",
       icon: Calendar,
       description: "Short luxury getaways",
+      image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=800&auto=format&fit=crop",
+      color: "#89A38F"
     },
   ];
 
@@ -93,107 +110,192 @@ export default function OccasionsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
+      <section className="relative pt-24 pb-32 overflow-hidden">
+        {/* Background with overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&auto=format&fit=crop"
+            alt="Luxury celebration gathering"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1F2937]/80 to-[#1F2937]/40"></div>
+        </div>
+
+        <div className="relative max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            <h1 
+              className="mb-6 text-white" 
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop"
-                  alt="Luxury celebration gathering with friends and family"
-                  className="w-full h-[500px] object-cover"
-                />
+              Luxury Houses for Every Occasion
+            </h1>
+            
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Discover our collection of luxury houses for every special moment. Whether you're celebrating a milestone, hosting a hen weekend, or enjoying a festive break, our properties are designed for unforgettable experiences in the UK's most beautiful locations.
+            </p>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-6 mb-8">
+              <div className="flex items-center gap-2 text-white">
+                <Star className="w-5 h-5 text-[var(--color-accent-gold)]" />
+                <span className="font-semibold">3,000+ 5★ Reviews</span>
               </div>
-              {/* Trust Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute -bottom-6 left-6 right-6 bg-white rounded-xl p-4 shadow-lg"
-              >
-                <div className="flex items-center justify-around text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-[var(--color-accent-sage)]">3,000+</div>
-                    <div className="text-xs text-[var(--color-neutral-dark)]">5★ Reviews</div>
-                  </div>
-                  <div className="h-8 w-px bg-[var(--color-bg-secondary)]"></div>
-                  <div>
-                    <div className="text-2xl font-bold text-[var(--color-accent-gold)]">500+</div>
-                    <div className="text-xs text-[var(--color-neutral-dark)]">Luxury Houses</div>
-                  </div>
-                  <div className="h-8 w-px bg-[var(--color-bg-secondary)]"></div>
-                  <div>
-                    <div className="text-2xl font-bold text-[var(--color-accent-sage)]">24/7</div>
-                    <div className="text-xs text-[var(--color-neutral-dark)]">UK Support</div>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="flex items-center gap-2 text-white">
+                <Home className="w-5 h-5 text-[var(--color-accent-gold)]" />
+                <span className="font-semibold">500+ Luxury Houses</span>
+              </div>
+              <div className="flex items-center gap-2 text-white">
+                <Users className="w-5 h-5 text-[var(--color-accent-gold)]" />
+                <span className="font-semibold">24/7 UK Support</span>
+              </div>
+            </div>
+
+            <Link
+              href="/properties"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-accent-sage)] text-white rounded-2xl font-semibold hover:bg-[var(--color-accent-gold)] transition-all duration-300 hover:scale-105"
+            >
+              Browse All Properties
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Occasions Grid */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Find Your Perfect Occasion
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              From intimate celebrations to grand gatherings, we have the perfect house for your special event
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {occasions.map((occasion, index) => {
+              const Icon = occasion.icon;
+              return (
+                <motion.div
+                  key={occasion.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link
+                    href={`/occasions/${occasion.slug}`}
+                    className="group block rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    {/* Image */}
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={occasion.image}
+                        alt={occasion.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      
+                      {/* Icon Badge */}
+                      <div 
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: occasion.color }}
+                      >
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+
+                      {/* Title Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-white font-bold text-2xl mb-1">
+                          {occasion.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <p className="text-[var(--color-neutral-dark)] mb-4">
+                        {occasion.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-[var(--color-accent-sage)] font-semibold group-hover:gap-3 transition-all">
+                        Explore Houses
+                        <ArrowRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Banner */}
+      <section className="py-16 bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                <Home className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="font-semibold text-xl mb-2">Luxury Properties</h3>
+              <p className="text-[var(--color-neutral-dark)]">
+                Hand-picked houses with hot tubs, pools, and unique features
+              </p>
             </motion.div>
 
-            {/* Right: Title and Links */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h1 
-                className="mb-6" 
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Luxury Houses for Every Occasion
-              </h1>
-              
-              <p className="text-lg text-[var(--color-neutral-dark)] mb-8 leading-relaxed">
-                Discover our collection of luxury houses for every special moment. Whether you're celebrating a milestone, hosting a hen weekend, or enjoying a festive break, our properties are designed for unforgettable experiences in the UK's most beautiful locations.
-              </p>
-
-              {/* Occasions Links */}
-              <div className="space-y-3">
-                {occasions.map((occasion, index) => {
-                  const Icon = occasion.icon;
-                  return (
-                    <motion.div
-                      key={occasion.slug}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                    >
-                      <Link
-                        href={`/occasions/${occasion.slug}`}
-                        className="group flex items-center justify-between p-4 rounded-xl bg-white hover:bg-[var(--color-bg-secondary)] transition-all duration-300 shadow-sm hover:shadow-md"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center">
-                            <Icon className="w-5 h-5 text-[var(--color-accent-sage)]" />
-                          </div>
-                          <div>
-                            <span className="font-semibold text-[var(--color-text-primary)]">
-                              {occasion.title}
-                            </span>
-                            <p className="text-sm text-[var(--color-neutral-dark)]">
-                              {occasion.description}
-                            </p>
-                          </div>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-[var(--color-accent-gold)] group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </motion.div>
-                  );
-                })}
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                <Users className="w-8 h-8 text-[var(--color-accent-gold)]" />
               </div>
+              <h3 className="font-semibold text-xl mb-2">Group Friendly</h3>
+              <p className="text-[var(--color-neutral-dark)]">
+                Perfect for groups of 10-30 guests with spacious layouts
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                <Star className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="font-semibold text-xl mb-2">Add-On Experiences</h3>
+              <p className="text-[var(--color-neutral-dark)]">
+                Cocktail classes, private chefs, spa treatments, and more
+              </p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
