@@ -69,11 +69,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="https://v3b.fal.media/files/b/kangaroo/Mst13pbVZIG2-LoyTdF0I_output.png"
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
               alt="Group Escape Houses"
-              width={220}
-              height={80}
-              className="h-20 w-auto"
+              width={180}
+              height={120}
+              className="h-24 w-auto"
               priority
             />
           </Link>
