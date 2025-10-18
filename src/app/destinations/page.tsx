@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+      <section className="pt-32 pb-12 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
             <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
@@ -307,7 +307,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Featured Destinations */}
-      <section className="py-16">
+      <section className="py-12">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-2 mb-8">
             <TrendingUp className="w-6 h-6 text-[var(--color-accent-pink)]" />
@@ -323,12 +323,12 @@ export default function DestinationsPage() {
                 href={`/destinations/${destination.slug}`}
                 className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-96">
+                <div className="relative h-[480px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
                   {/* Badge */}
                   <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-white/95 text-[var(--color-text-primary)] text-sm font-medium shadow-lg backdrop-blur-sm">
@@ -336,7 +336,7 @@ export default function DestinationsPage() {
                   </div>
 
                   {/* Content with white background */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm text-[var(--color-text-primary)]">
                     <h3
                       className="text-3xl font-bold mb-2"
                       style={{ fontFamily: "var(--font-display)" }}
@@ -368,7 +368,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 1 - After Featured Destinations */}
-      <section className="py-16 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
+      <section className="py-12 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-4">
             <Sparkles className="w-4 h-4 text-[var(--color-accent-gold)]" />
@@ -398,7 +398,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* All Destinations */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
             All Destinations
@@ -411,14 +411,14 @@ export default function DestinationsPage() {
                 href={`/destinations/${destination.slug}`}
                 className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative h-64">
+                <div className="relative h-80">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-sm text-[var(--color-text-primary)]">
                     <h3
                       className="text-xl font-bold mb-1"
                       style={{ fontFamily: "var(--font-display)" }}
@@ -478,7 +478,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-16 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full">
           {/* Top Row: Text */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
@@ -540,7 +540,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-24 bg-[var(--color-bg-secondary)]">
+      <section className="py-16 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Why Choose Group Escape Houses?
