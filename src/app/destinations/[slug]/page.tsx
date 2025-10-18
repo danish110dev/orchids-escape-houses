@@ -152,7 +152,7 @@ export default function DestinationDetailPage() {
       <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
-            <Navigation className="w-6 h-6 text-[var(--color-accent-pink)]" />
+            <Navigation className="w-5 h-5 text-[var(--color-accent-pink)]" />
             <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
               Getting There
             </h2>
@@ -171,7 +171,7 @@ export default function DestinationDetailPage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
-            <Moon className="w-6 h-6 text-[var(--color-accent-sage)]" />
+            <Moon className="w-5 h-5 text-[var(--color-accent-sage)]" />
             <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
               Top Nightlife Spots
             </h2>
@@ -191,7 +191,7 @@ export default function DestinationDetailPage() {
       <section className="py-16 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
-            <UtensilsCrossed className="w-6 h-6 text-[var(--color-accent-gold)]" />
+            <UtensilsCrossed className="w-5 h-5 text-[var(--color-accent-gold)]" />
             <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
               Best Brunch & Dining
             </h2>
@@ -211,7 +211,7 @@ export default function DestinationDetailPage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
-            <Sparkles className="w-6 h-6 text-[var(--color-accent-pink)]" />
+            <Sparkles className="w-5 h-5 text-[var(--color-accent-pink)]" />
             <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
               Things to Do
             </h2>
