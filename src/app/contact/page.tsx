@@ -29,7 +29,6 @@ export default function ContactPage() {
       if (range.from && range.to) {
         const formattedDates = `${format(range.from, "dd/MM/yyyy")} - ${format(range.to, "dd/MM/yyyy")}`;
         setFormData({ ...formData, dates: formattedDates });
-        setShowCalendar(false);
       } else if (range.from) {
         const formattedDate = format(range.from, "dd/MM/yyyy");
         setFormData({ ...formData, dates: formattedDate });
