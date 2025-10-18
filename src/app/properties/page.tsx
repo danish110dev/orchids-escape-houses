@@ -7,7 +7,7 @@ import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { Link } from "next/link";
+import Link from "next/link";
 import { 
   SlidersHorizontal, 
   X, 
