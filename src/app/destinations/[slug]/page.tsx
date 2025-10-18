@@ -43,32 +43,32 @@ export default function DestinationDetailPage() {
         {
           name: "The Arch",
           description: "Popular club with multiple rooms and diverse music.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-ni-85dda42b-20251018212525.jpg"
         },
         {
           name: "Patterns",
           description: "Beachfront venue with live DJs and stunning sea views.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-beac-8d37a9fe-20251018212534.jpg"
         },
         {
           name: "Coalition",
           description: "Busy student bar with cheap drinks and great atmosphere.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-busy-5c27222d-20251018212541.jpg"
         },
         {
           name: "Proud Cabaret",
           description: "Dinner and show venue with burlesque performances.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-caba-1f11fafd-20251018212548.jpg"
         },
         {
           name: "Revenge",
           description: "Brighton's biggest LGBT+ club with drag shows.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-vibr-3cf7d9e8-20251018212557.jpg"
         },
         {
           name: "Concorde 2",
           description: "Live music venue and club with indie and alternative nights.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-live-098433dc-20251018212603.jpg"
         },
       ],
       brunch: [
@@ -168,32 +168,32 @@ export default function DestinationDetailPage() {
         {
           name: "Digital",
           description: "Multi-room nightclub with diverse music and great atmosphere.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-mult-5207be2f-20251018212610.jpg"
         },
         {
           name: "The Gate",
           description: "Entertainment complex with bars, clubs and restaurants.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-ente-d4922a80-20251018212617.jpg"
         },
         {
           name: "House of Smith",
           description: "Stylish bar with cocktails and live music.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-styl-0c9c3b99-20251018212624.jpg"
         },
         {
           name: "Tup Tup Palace",
           description: "Moroccan-themed club with unique interiors.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-moro-c2e4bdfa-20251018212630.jpg"
         },
         {
           name: "The Botanist",
           description: "Bar and restaurant with live music and bottomless brunch.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bota-f17060f6-20251018212638.jpg"
         },
         {
           name: "Livello",
           description: "Rooftop bar with stunning city views.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-roof-60d6d01b-20251018212646.jpg"
         },
       ],
       brunch: [
