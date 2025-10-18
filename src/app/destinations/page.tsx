@@ -470,8 +470,11 @@ export default function DestinationsPage() {
                     <p className="text-xs font-medium mb-2">
                       {destination.region}
                     </p>
-                    <p className="text-xs font-medium mb-3">
+                    <p className="text-xs font-medium mb-2">
                       {destination.propertyCount} properties
+                    </p>
+                    <p className="text-xs leading-relaxed mb-3 text-black">
+                      {destination.bio}
                     </p>
                     <Button
                     size="sm"
