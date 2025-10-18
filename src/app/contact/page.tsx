@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock, Calendar } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
+import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
 
 export default function ContactPage() {
@@ -215,29 +216,6 @@ export default function ContactPage() {
                             selected={dateRange}
                             onSelect={handleDateSelect}
                             disabled={{ before: new Date() }}
-                            modifiersStyles={{
-                              selected: { 
-                                backgroundColor: '#89A38F',
-                                color: 'white',
-                                fontWeight: '600'
-                              },
-                              range_start: {
-                                backgroundColor: '#89A38F',
-                                color: 'white'
-                              },
-                              range_end: {
-                                backgroundColor: '#89A38F',
-                                color: 'white'
-                              },
-                              range_middle: {
-                                backgroundColor: 'rgba(137, 163, 143, 0.2)',
-                                color: '#1F2937'
-                              },
-                              today: {
-                                fontWeight: 'bold',
-                                color: '#89A38F'
-                              }
-                            }}
                           />
                           <button
                             type="button"
