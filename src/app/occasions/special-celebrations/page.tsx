@@ -75,7 +75,7 @@ export default function SpecialCelebrationsPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="/images/occasions/special-celebrations-hero.jpg"
+              src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&auto=format&fit=crop"
               alt="Elegant dining setup for special celebrations"
               className="w-full h-[500px] object-cover"
             />
