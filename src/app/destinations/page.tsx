@@ -14,7 +14,7 @@ export default function DestinationsPage() {
       propertyCount: 35,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
       slug: "london",
-      description: "The ultimate hen party destination with world-class entertainment, dining and iconic landmarks",
+      description: "The ultimate hen party destination with world-class entertainment, dining and iconic landmarks.",
       featured: true,
     },
     {
@@ -23,7 +23,7 @@ export default function DestinationsPage() {
       propertyCount: 18,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
       slug: "brighton",
-      description: "Vibrant seaside city with amazing nightlife and stunning Regency architecture",
+      description: "Vibrant seaside city with amazing nightlife and stunning Regency architecture.",
       featured: true,
     },
     {
@@ -32,7 +32,7 @@ export default function DestinationsPage() {
       propertyCount: 15,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
       slug: "bath",
-      description: "Historic spa city with Roman baths, Georgian architecture and luxury experiences",
+      description: "Historic spa city with Roman baths, Georgian architecture and luxury experiences.",
       featured: true,
     },
     {
@@ -41,7 +41,7 @@ export default function DestinationsPage() {
       propertyCount: 22,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
       slug: "manchester",
-      description: "Vibrant city with world-class shopping, dining and legendary nightlife",
+      description: "Vibrant city with world-class shopping, dining and legendary nightlife.",
       featured: true,
     },
     {
@@ -50,7 +50,7 @@ export default function DestinationsPage() {
       propertyCount: 10,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newquay-corn-e91f1ad1-20251018180034.jpg",
       slug: "newquay",
-      description: "Stunning Cornish beaches, surf culture and vibrant coastal nightlife",
+      description: "Stunning Cornish beaches, surf culture and vibrant coastal nightlife.",
       featured: true,
     },
     {
@@ -59,7 +59,7 @@ export default function DestinationsPage() {
       propertyCount: 9,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-lake-distric-a860a2c4-20251018180043.jpg",
       slug: "lake-district",
-      description: "Scenic lakes and mountains perfect for luxury retreat weekends",
+      description: "Scenic lakes and mountains perfect for luxury retreat weekends.",
       featured: true,
     },
     {
@@ -68,7 +68,7 @@ export default function DestinationsPage() {
       propertyCount: 12,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
       slug: "york",
-      description: "Medieval city with cobbled streets, historic walls and charming riverside pubs",
+      description: "Medieval city with cobbled streets, historic walls and charming riverside pubs.",
       featured: false,
     },
     {
@@ -77,7 +77,7 @@ export default function DestinationsPage() {
       propertyCount: 14,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
       slug: "bournemouth",
-      description: "Beautiful beaches, vibrant nightlife and stunning coastal walks",
+      description: "Beautiful beaches, vibrant nightlife and stunning coastal walks.",
       featured: false,
     },
     {
@@ -86,7 +86,7 @@ export default function DestinationsPage() {
       propertyCount: 16,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-liverpool-uk-4dd6a7d5-20251018100435.jpg",
       slug: "liverpool",
-      description: "Cultural hub with iconic waterfront, Beatles heritage and vibrant nightlife",
+      description: "Cultural hub with iconic waterfront, Beatles heritage and vibrant nightlife.",
       featured: false,
     },
     {
@@ -95,7 +95,7 @@ export default function DestinationsPage() {
       propertyCount: 11,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bristol-uk-h-41be7939-20251018100453.jpg",
       slug: "bristol",
-      description: "Creative city with harbour life, street art and amazing food scene",
+      description: "Creative city with harbour life, street art and amazing food scene.",
       featured: false,
     },
     {
@@ -104,7 +104,7 @@ export default function DestinationsPage() {
       propertyCount: 9,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
       slug: "newcastle",
-      description: "Friendly northern city famous for nightlife and stunning quayside",
+      description: "Friendly northern city famous for nightlife and stunning quayside.",
       featured: false,
     },
     {
@@ -113,7 +113,7 @@ export default function DestinationsPage() {
       propertyCount: 8,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cambridge-uk-4a05d130-20251018100510.jpg",
       slug: "cambridge",
-      description: "Historic university city with punting, beautiful colleges and riverside pubs",
+      description: "Historic university city with punting, beautiful colleges and riverside pubs.",
       featured: false,
     },
     {
@@ -122,7 +122,7 @@ export default function DestinationsPage() {
       propertyCount: 7,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-oxford-uk%2c-c49c256a-20251018100521.jpg",
       slug: "oxford",
-      description: "Stunning university city with historic architecture and charming streets",
+      description: "Stunning university city with historic architecture and charming streets.",
       featured: false,
     },
     {
@@ -131,7 +131,7 @@ export default function DestinationsPage() {
       propertyCount: 12,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-leeds-uk-cit-d85d4919-20251018100537.jpg",
       slug: "leeds",
-      description: "Energetic city with fantastic shopping, dining and buzzing nightlife",
+      description: "Energetic city with fantastic shopping, dining and buzzing nightlife.",
       featured: false,
     },
     {
@@ -140,7 +140,7 @@ export default function DestinationsPage() {
       propertyCount: 9,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-nottingham-u-4740c95f-20251018100547.jpg",
       slug: "nottingham",
-      description: "Historic city with Robin Hood legend, caves and vibrant student scene",
+      description: "Historic city with Robin Hood legend, caves and vibrant student scene.",
       featured: false,
     },
     {
@@ -149,7 +149,7 @@ export default function DestinationsPage() {
       propertyCount: 14,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-birmingham-u-99ad4012-20251018100557.jpg",
       slug: "birmingham",
-      description: "Dynamic city with canal network, Michelin dining and diverse culture",
+      description: "Dynamic city with canal network, Michelin dining and diverse culture.",
       featured: false,
     },
     {
@@ -158,7 +158,7 @@ export default function DestinationsPage() {
       propertyCount: 8,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-sheffield%2c-2b51ddd4-20251018103602.jpg",
       slug: "sheffield",
-      description: "Industrial heritage meets modern nightlife with fantastic live music venues",
+      description: "Industrial heritage meets modern nightlife with fantastic live music venues.",
       featured: false,
     },
     {
@@ -167,7 +167,7 @@ export default function DestinationsPage() {
       propertyCount: 6,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-exeter%2c-uk-32d01645-20251018103610.jpg",
       slug: "exeter",
-      description: "Historic cathedral city with Roman walls, riverside dining and coastal access",
+      description: "Historic cathedral city with Roman walls, riverside dining and coastal access.",
       featured: false,
     },
     {
@@ -176,7 +176,7 @@ export default function DestinationsPage() {
       propertyCount: 7,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-chester%2c-u-2fa11484-20251018103617.jpg",
       slug: "chester",
-      description: "Roman city with ancient walls, Tudor buildings and boutique shopping",
+      description: "Roman city with ancient walls, Tudor buildings and boutique shopping.",
       featured: false,
     },
     {
@@ -185,7 +185,7 @@ export default function DestinationsPage() {
       propertyCount: 6,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-durham%2c-uk-c4a1b719-20251018103625.jpg",
       slug: "durham",
-      description: "World Heritage site with stunning cathedral, castle and riverside walks",
+      description: "World Heritage site with stunning cathedral, castle and riverside walks.",
       featured: false,
     },
     {
@@ -194,7 +194,7 @@ export default function DestinationsPage() {
       propertyCount: 5,
       image: "https://v3b.fal.media/files/b/tiger/2bNJn7KNACVIcuVHWsAp-_output.png",
       slug: "canterbury",
-      description: "Medieval city with famous cathedral, charming streets and riverside pubs",
+      description: "Medieval city with famous cathedral, charming streets and riverside pubs.",
       featured: false,
     },
     {
@@ -203,7 +203,7 @@ export default function DestinationsPage() {
       propertyCount: 8,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-blackpool%2c-012163d9-20251018103641.jpg",
       slug: "blackpool",
-      description: "Classic seaside resort with tower, beaches and legendary nightlife",
+      description: "Classic seaside resort with tower, beaches and legendary nightlife.",
       featured: false,
     },
     {
@@ -212,7 +212,7 @@ export default function DestinationsPage() {
       propertyCount: 7,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cotswolds%2c-60a2f4ac-20251018180051.jpg",
       slug: "cotswolds",
-      description: "Picturesque honey-stone villages with luxury manor houses and boutique charm",
+      description: "Picturesque honey-stone villages with luxury manor houses and boutique charm.",
       featured: false,
     },
     {
@@ -221,7 +221,7 @@ export default function DestinationsPage() {
       propertyCount: 6,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-margate%2c-u-d23f8a09-20251018180059.jpg",
       slug: "margate",
-      description: "Trendy seaside town with vintage vibes, art galleries and sandy beaches",
+      description: "Trendy seaside town with vintage vibes, art galleries and sandy beaches.",
       featured: false,
     },
     {
@@ -230,7 +230,7 @@ export default function DestinationsPage() {
       propertyCount: 5,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-harrogate%2c-cfa55d27-20251018180105.jpg",
       slug: "harrogate",
-      description: "Elegant spa town with Victorian charm, boutique shops and afternoon tea",
+      description: "Elegant spa town with Victorian charm, boutique shops and afternoon tea.",
       featured: false,
     },
     {
@@ -239,7 +239,7 @@ export default function DestinationsPage() {
       propertyCount: 4,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-st-ives-corn-c20b8f01-20251018180133.jpg",
       slug: "st-ives",
-      description: "Stunning Cornish harbour town with golden beaches and coastal beauty",
+      description: "Stunning Cornish harbour town with golden beaches and coastal beauty.",
       featured: false,
     },
     {
@@ -248,7 +248,7 @@ export default function DestinationsPage() {
       propertyCount: 5,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-windsor%2c-u-5545ede5-20251018180119.jpg",
       slug: "windsor",
-      description: "Royal town with castle views, riverside walks and historic charm",
+      description: "Royal town with castle views, riverside walks and historic charm.",
       featured: false,
     },
     {
@@ -257,7 +257,7 @@ export default function DestinationsPage() {
       propertyCount: 4,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-stratford-up-91d286ca-20251018180126.jpg",
       slug: "stratford-upon-avon",
-      description: "Shakespeare's birthplace with Tudor houses and riverside gardens",
+      description: "Shakespeare's birthplace with Tudor houses and riverside gardens.",
       featured: false,
     },
     {
@@ -266,7 +266,7 @@ export default function DestinationsPage() {
       propertyCount: 7,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-plymouth%2c--3a2cc458-20251018180819.jpg",
       slug: "plymouth",
-      description: "Historic naval port with waterfront dining, vibrant nightlife and coastal charm",
+      description: "Historic naval port with waterfront dining, vibrant nightlife and coastal charm.",
       featured: false,
     },
     {
@@ -275,7 +275,7 @@ export default function DestinationsPage() {
       propertyCount: 6,
       image: "https://v3b.fal.media/files/b/koala/OWWytRD5loYfhDon_5nva_output.png",
       slug: "cheltenham",
-      description: "Regency spa town with elegant architecture, festivals and Cotswolds gateway",
+      description: "Regency spa town with elegant architecture, festivals and Cotswolds gateway.",
       featured: false,
     },
   ];
