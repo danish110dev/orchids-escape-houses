@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock, Calendar } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
-import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
 
 export default function ContactPage() {
