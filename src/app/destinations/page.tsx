@@ -378,7 +378,7 @@ export default function DestinationsPage() {
                     <p className="text-sm leading-relaxed mb-4 text-black">
                       {destination.bio}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col gap-3">
                       <Button
                         size="sm"
                         className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
