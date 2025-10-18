@@ -23,19 +23,18 @@ export default function ExperienceCard({
 }: ExperienceCardProps) {
   return (
     <Link href={`/experiences/${slug}`}>
-      <div className="group relative rounded-2xl overflow-hidden h-96 shadow-md hover:shadow-2xl transition-all duration-300">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
-        />
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div className="group relative rounded-2xl overflow-hidden h-[450px] md:h-96 shadow-md hover:shadow-2xl transition-all duration-300">
+        <div className="relative w-full h-[250px] md:h-[200px]">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
         
         {/* Content with white background */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-white text-[var(--color-text-primary)]">
           <h3
             className="text-2xl font-semibold mb-3"
             style={{ fontFamily: "var(--font-display)" }}
