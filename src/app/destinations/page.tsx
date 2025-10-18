@@ -393,7 +393,7 @@ export default function DestinationsPage() {
                         size="sm"
                         className="rounded-xl px-6 py-2 text-sm font-medium transition-all duration-200"
                         style={{
-                          background: "var(--color-accent-pink)",
+                          background: "var(--color-text-primary)",
                           color: "white"
                         }}>
                         <Link href="/contact" onClick={(e) => e.stopPropagation()}>
@@ -481,7 +481,7 @@ export default function DestinationsPage() {
                         size="sm"
                         className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
                         style={{
-                          background: "var(--color-accent-sage)",
+                          background: "var(--color-text-primary)",
                           color: "white"
                         }}>
                         View Properties
@@ -491,7 +491,7 @@ export default function DestinationsPage() {
                         size="sm"
                         className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
                         style={{
-                          background: "var(--color-accent-pink)",
+                          background: "var(--color-text-primary)",
                           color: "white"
                         }}>
                         <Link href="/contact" onClick={(e) => e.stopPropagation()}>
