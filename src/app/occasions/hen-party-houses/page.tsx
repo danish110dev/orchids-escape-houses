@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Heart, Waves, Gamepad2, Sparkles, Check, ChevronDown, Star, Gift } from "lucide-react";
+import { Heart, Waves, Gamepad2, Sparkles, Check, ChevronDown, Star } from "lucide-react";
 import { useState } from "react";
 
 export default function HenPartyHousesPage() {
@@ -14,7 +14,6 @@ export default function HenPartyHousesPage() {
   const features = [
     "Hot tubs, swimming pools, and games rooms for non-stop fun",
     "Add-on experiences: cocktail masterclass, butlers, life drawing, or pamper spa sessions",
-    "Bride goes FREE on bookings of 10+ guests",
     "Stylish interiors perfect for Instagram-worthy photos",
     "Spacious communal areas for group activities and celebrations",
     "24/7 UK support team for any last-minute requests"
@@ -25,11 +24,6 @@ export default function HenPartyHousesPage() {
       title: "Ultimate Hen Houses",
       description: "Handpicked luxury properties with hot tubs, pools, and party-perfect features",
       icon: Heart
-    },
-    {
-      title: "Bride Goes FREE",
-      description: "Special offer: free accommodation for the bride on bookings of 10+ guests",
-      icon: Gift
     },
     {
       title: "Add-On Experiences",
@@ -75,7 +69,7 @@ export default function HenPartyHousesPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="/images/occasions/hen-party-hero.jpg"
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&auto=format&fit=crop"
               alt="Group of women celebrating hen party by hot tub with champagne"
               className="w-full h-[500px] object-cover"
             />
@@ -88,10 +82,6 @@ export default function HenPartyHousesPage() {
                 Hen Party Houses
               </h1>
               <p className="text-white/90 text-lg">Luxury houses for unforgettable hen weekends</p>
-            </div>
-            {/* Special Offer Badge */}
-            <div className="absolute top-8 right-8 bg-[var(--color-accent-gold)] text-white px-6 py-3 rounded-full font-semibold shadow-lg">
-              Bride Goes FREE on 10+ Bookings
             </div>
           </motion.div>
 
@@ -180,14 +170,6 @@ export default function HenPartyHousesPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <Heart className="w-8 h-8 text-[var(--color-accent-sage)] mb-3" />
-                <h4 className="font-semibold mb-2">Bride Goes FREE</h4>
-                <p className="text-sm text-[var(--color-neutral-dark)]">
-                  Special offer on all bookings of 10+ guests
-                </p>
-              </div>
-
               {/* Trust Badge */}
               <div className="bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl p-6 text-white">
                 <div className="flex items-center gap-2 mb-2">
@@ -220,7 +202,7 @@ export default function HenPartyHousesPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
