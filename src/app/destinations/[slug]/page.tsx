@@ -769,7 +769,7 @@ export default function DestinationDetailPage() {
                 key={index}
                 href={venue.link}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="relative h-48 overflow-hidden">
