@@ -281,6 +281,138 @@ export default function DestinationDetailPage() {
         "Malmaison Spa - City centre spa with group packages",
       ],
     },
+    bath: {
+      name: "Bath",
+      region: "Somerset",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
+      video: "",
+      overview:
+        "Bath is a stunning historic city renowned for its Roman baths, Georgian architecture, and luxury spa experiences. This UNESCO World Heritage Site offers the perfect blend of culture, elegance, and modern entertainment, making it an ideal destination for sophisticated hen celebrations. From its iconic Royal Crescent to the boutique shops and world-class restaurants, Bath provides an unforgettable backdrop for your special weekend.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        nightlife: "Elegant bars and clubs",
+        dining: "Fine dining & afternoon tea",
+        bestTime: "Year-round destination",
+        beachAccess: "Countryside views",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£75-£160 per night",
+        activities: "Spas, culture, shopping, dining"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Bath: 1.5 hours by train (Paddington to Bath Spa)" },
+        { icon: Plane, text: "Bristol Airport: 30 minutes by car or bus" },
+        { icon: Car, text: "Driving: Well connected via M4 with park and ride facilities" },
+        { icon: Bus, text: "Coach services: Regular National Express from major UK cities" },
+      ],
+      nightlife: [
+        {
+          name: "The Raven",
+          description: "Popular pub with craft beers and live music.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-ni-85dda42b-20251018212525.jpg"
+        },
+        {
+          name: "Moles Club",
+          description: "Legendary live music venue and nightclub.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-beac-8d37a9fe-20251018212534.jpg"
+        },
+        {
+          name: "The Bell",
+          description: "Historic pub with roof terrace and cocktail bar.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-busy-5c27222d-20251018212541.jpg"
+        },
+        {
+          name: "Komedia",
+          description: "Comedy club and late-night venue with bar.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-caba-1f11fafd-20251018212548.jpg"
+        },
+        {
+          name: "Sub13",
+          description: "Underground club with DJ nights and cocktails.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-vibr-3cf7d9e8-20251018212557.jpg"
+        },
+        {
+          name: "Assembly Inn",
+          description: "Quirky pub with eclectic decor and friendly vibe.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-live-098433dc-20251018212603.jpg"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Pump Room",
+          description: "Elegant Georgian restaurant with afternoon tea.",
+          link: "https://www.romanbaths.co.uk/pump-room-restaurant",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-eleg-7ba9008e-20251018214304.jpg"
+        },
+        {
+          name: "The Scallop Shell",
+          description: "Award-winning seafood and champagne brunch.",
+          link: "https://www.thescallopshell.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-afterno-c5b35ba3-20251018214312.jpg"
+        },
+        {
+          name: "The Circus Restaurant",
+          description: "Modern British dining with seasonal menu.",
+          link: "https://www.thecircusrestaurant.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-modern-britis-7f67bb3f-20251018214318.jpg"
+        },
+        {
+          name: "Sotto Sotto",
+          description: "Italian restaurant in historic vaulted cellar.",
+          link: "https://www.sottosotto.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-italian-resta-ea31034c-20251018214325.jpg"
+        },
+        {
+          name: "The Ivy Bath Brasserie",
+          description: "Stylish all-day dining with bottomless brunch.",
+          link: "https://theivybathbrasserie.com/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-stylish-brunc-02aef5c5-20251018214333.jpg"
+        },
+        {
+          name: "Sally Lunn's Historic Eating House",
+          description: "Bath's oldest house serving famous buns since 1680.",
+          link: "https://www.sallylunns.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-historic-bath-1ad03395-20251018214339.jpg"
+        },
+      ],
+      activities: [
+        {
+          name: "Roman Baths",
+          description: "Ancient Roman bathing complex and museum.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-pal-c26b7879-20251018212031.jpg"
+        },
+        {
+          name: "Royal Crescent",
+          description: "Iconic Georgian architecture and museums.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-roy-40faffe4-20251018212039.jpg"
+        },
+        {
+          name: "Thermae Bath Spa",
+          description: "Modern spa with rooftop pool and thermal waters.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-bea-33acb70a-20251018212047.jpg"
+        },
+        {
+          name: "Pulteney Bridge",
+          description: "Picturesque bridge with shops spanning the River Avon.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-the-lanes-br-19ff6aa3-20251018212054.jpg"
+        },
+        {
+          name: "Bath Abbey",
+          description: "Stunning Gothic architecture with tower tours.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-british-airw-87225a9a-20251018212102.jpg"
+        },
+        {
+          name: "Victoria Art Gallery",
+          description: "Free gallery with British and European art.",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-north-laine--874b1984-20251018212109.jpg"
+        },
+      ],
+      spas: [
+        "Thermae Bath Spa - Britain's only natural thermal spa with rooftop pool",
+        "The Gainsborough Bath Spa - Luxury hotel spa with thermal waters",
+        "Bath Spa Hotel - Victorian spa with extensive facilities",
+        "Lucknam Park Spa - Country house spa with Michelin-starred dining",
+      ],
+    },
   };
 
   const destination = destinationsData[slug] || destinationsData.brighton;
