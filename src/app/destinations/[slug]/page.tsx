@@ -415,7 +415,118 @@ export default function DestinationDetailPage() {
     },
   };
 
+  // Location-specific properties
+  const propertiesByLocation: Record<string, any[]> = {
+    brighton: [
+      {
+        id: "1",
+        title: "The Brighton Manor",
+        location: "Brighton, East Sussex",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 89,
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+        features: ["Hot Tub", "Pool", "Games Room"],
+        slug: "brighton-manor",
+      },
+      {
+        id: "2",
+        title: "Brighton Seafront Villa",
+        location: "Brighton, East Sussex",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 79,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        features: ["Sea View", "Hot Tub", "BBQ"],
+        slug: "brighton-villa",
+      },
+      {
+        id: "3",
+        title: "The Lanes Townhouse",
+        location: "Brighton, East Sussex",
+        sleeps: 10,
+        bedrooms: 5,
+        priceFrom: 69,
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        features: ["City Centre", "Roof Terrace"],
+        slug: "lanes-townhouse",
+      },
+    ],
+    newcastle: [
+      {
+        id: "1",
+        title: "The Quayside Residence",
+        location: "Newcastle, Tyne and Wear",
+        sleeps: 14,
+        bedrooms: 7,
+        priceFrom: 79,
+        image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+        features: ["Hot Tub", "Games Room", "City Views"],
+        slug: "quayside-residence",
+      },
+      {
+        id: "2",
+        title: "Ouseburn Valley House",
+        location: "Newcastle, Tyne and Wear",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 69,
+        image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
+        features: ["Hot Tub", "BBQ", "Parking"],
+        slug: "ouseburn-house",
+      },
+      {
+        id: "3",
+        title: "Tyne Bridge Loft",
+        location: "Newcastle, Tyne and Wear",
+        sleeps: 10,
+        bedrooms: 5,
+        priceFrom: 59,
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+        features: ["City Centre", "Modern", "Roof Terrace"],
+        slug: "tyne-bridge-loft",
+      },
+    ],
+    bath: [
+      {
+        id: "1",
+        title: "The Royal Crescent Manor",
+        location: "Bath, Somerset",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 109,
+        image: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&q=80",
+        features: ["Hot Tub", "Gardens", "Historic"],
+        slug: "royal-crescent-manor",
+      },
+      {
+        id: "2",
+        title: "Bath Spa Townhouse",
+        location: "Bath, Somerset",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 89,
+        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
+        features: ["Hot Tub", "City Centre", "Georgian"],
+        slug: "bath-spa-townhouse",
+      },
+      {
+        id: "3",
+        title: "Pulteney Bridge House",
+        location: "Bath, Somerset",
+        sleeps: 10,
+        bedrooms: 5,
+        priceFrom: 79,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        features: ["River Views", "Period Features", "Central"],
+        slug: "pulteney-bridge-house",
+      },
+    ],
+  };
+
   const destination = destinationsData[slug] || destinationsData.brighton;
+
+  const properties = propertiesByLocation[slug] || propertiesByLocation.brighton;
 
   const faqs = [
     {
@@ -479,42 +590,6 @@ export default function DestinationDetailPage() {
       }
     ]
   };
-
-  const properties = [
-    {
-      id: "1",
-      title: "The Brighton Manor",
-      location: "Brighton, East Sussex",
-      sleeps: 16,
-      bedrooms: 8,
-      priceFrom: 89,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-      features: ["Hot Tub", "Pool", "Games Room"],
-      slug: "brighton-manor",
-    },
-    {
-      id: "2",
-      title: "Brighton Seafront Villa",
-      location: "Brighton, East Sussex",
-      sleeps: 12,
-      bedrooms: 6,
-      priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      features: ["Sea View", "Hot Tub", "BBQ"],
-      slug: "brighton-villa",
-    },
-    {
-      id: "3",
-      title: "The Lanes Townhouse",
-      location: "Brighton, East Sussex",
-      sleeps: 10,
-      bedrooms: 5,
-      priceFrom: 69,
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-      features: ["City Centre", "Roof Terrace"],
-      slug: "lanes-townhouse",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
