@@ -7,307 +7,89 @@ import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles } from "lucide-reac
 import { Button } from "@/components/ui/button";
 
 export default function DestinationsPage() {
+  // Only show destinations that have full data in the detail page
   const destinations = [
-  {
-    name: "London",
-    region: "Greater London",
-    propertyCount: 35,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
-    slug: "london",
-    description: "The ultimate hen party destination with world-class entertainment, dining and iconic landmarks.",
-    bio: "The capital offers world-class entertainment, dining and iconic landmarks.",
-    featured: true
-  },
-  {
-    name: "Brighton",
-    region: "East Sussex",
-    propertyCount: 18,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
-    slug: "brighton",
-    description: "Vibrant seaside city with amazing nightlife and stunning Regency architecture.",
-    bio: "Vibrant seaside city combining beach vibes with legendary nightlife.",
-    featured: true
-  },
-  {
-    name: "Bath",
-    region: "Somerset",
-    propertyCount: 15,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
-    slug: "bath",
-    description: "Historic spa city with Roman baths, Georgian architecture and luxury experiences.",
-    bio: "Historic spa city with Roman baths and Georgian architecture.",
-    featured: true
-  },
-  {
-    name: "Manchester",
-    region: "Greater Manchester",
-    propertyCount: 22,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
-    slug: "manchester",
-    description: "Vibrant city with world-class shopping, dining and legendary nightlife.",
-    bio: "Northern powerhouse with vibrant nightlife and warm hospitality.",
-    featured: true
-  },
-  {
-    name: "Newquay",
-    region: "Cornwall",
-    propertyCount: 10,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newquay-corn-e91f1ad1-20251018180034.jpg",
-    slug: "newquay",
-    description: "Stunning Cornish beaches, surf culture and vibrant coastal nightlife.",
-    bio: "Cornwall's coastal gem with stunning beaches and surf culture.",
-    featured: true
-  },
-  {
-    name: "Lake District",
-    region: "Cumbria",
-    propertyCount: 9,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-lake-distric-a860a2c4-20251018180043.jpg",
-    slug: "lake-district",
-    description: "Scenic lakes and mountains perfect for luxury retreat weekends.",
-    bio: "Breathtaking scenery perfect for luxury retreat weekends.",
-    featured: true
-  },
-  {
-    name: "York",
-    region: "North Yorkshire",
-    propertyCount: 12,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
-    slug: "york",
-    description: "Medieval city with cobbled streets, historic walls and charming riverside pubs.",
-    bio: "Medieval city with cobbled streets and charming riverside pubs.",
-    featured: false
-  },
-  {
-    name: "Bournemouth",
-    region: "Dorset",
-    propertyCount: 14,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
-    slug: "bournemouth",
-    description: "Beautiful beaches, vibrant nightlife and stunning coastal walks.",
-    bio: "Beautiful beaches with vibrant nightlife and coastal walks.",
-    featured: false
-  },
-  {
-    name: "Liverpool",
-    region: "Merseyside",
-    propertyCount: 16,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-liverpool-uk-4dd6a7d5-20251018100435.jpg",
-    slug: "liverpool",
-    description: "Cultural hub with iconic waterfront, Beatles heritage and vibrant nightlife.",
-    bio: "Cultural hub with iconic waterfront and Beatles heritage.",
-    featured: false
-  },
-  {
-    name: "Bristol",
-    region: "South West England",
-    propertyCount: 11,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bristol-uk-h-41be7939-20251018100453.jpg",
-    slug: "bristol",
-    description: "Creative city with harbour life, street art and amazing food scene.",
-    bio: "Creative city with harbour life and amazing food scene.",
-    featured: false
-  },
-  {
-    name: "Newcastle",
-    region: "Tyne and Wear",
-    propertyCount: 9,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
-    slug: "newcastle",
-    description: "Friendly northern city famous for nightlife and stunning quayside.",
-    bio: "Friendly northern city famous for nightlife and stunning quayside.",
-    featured: false
-  },
-  {
-    name: "Cambridge",
-    region: "Cambridgeshire",
-    propertyCount: 8,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cambridge-uk-4a05d130-20251018100510.jpg",
-    slug: "cambridge",
-    description: "Historic university city with punting, beautiful colleges and riverside pubs.",
-    bio: "Historic university city with punting and beautiful colleges.",
-    featured: false
-  },
-  {
-    name: "Oxford",
-    region: "Oxfordshire",
-    propertyCount: 7,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-oxford-uk%2c-c49c256a-20251018100521.jpg",
-    slug: "oxford",
-    description: "Stunning university city with historic architecture and charming streets.",
-    bio: "Stunning university city with historic architecture and charming streets.",
-    featured: false
-  },
-  {
-    name: "Leeds",
-    region: "West Yorkshire",
-    propertyCount: 12,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-leeds-uk-cit-d85d4919-20251018100537.jpg",
-    slug: "leeds",
-    description: "Energetic city with fantastic shopping, dining and buzzing nightlife.",
-    bio: "Energetic city with fantastic shopping and buzzing nightlife.",
-    featured: false
-  },
-  {
-    name: "Nottingham",
-    region: "Nottinghamshire",
-    propertyCount: 9,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-nottingham-u-4740c95f-20251018100547.jpg",
-    slug: "nottingham",
-    description: "Historic city with Robin Hood legend, caves and vibrant student scene.",
-    bio: "Historic city with Robin Hood legend and vibrant student scene.",
-    featured: false
-  },
-  {
-    name: "Birmingham",
-    region: "West Midlands",
-    propertyCount: 14,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-birmingham-u-99ad4012-20251018100557.jpg",
-    slug: "birmingham",
-    description: "Dynamic city with canal network, Michelin dining and diverse culture.",
-    bio: "Dynamic city with canal network and diverse culture.",
-    featured: false
-  },
-  {
-    name: "Sheffield",
-    region: "South Yorkshire",
-    propertyCount: 8,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-sheffield%2c-2b51ddd4-20251018103602.jpg",
-    slug: "sheffield",
-    description: "Industrial heritage meets modern nightlife with fantastic live music venues.",
-    bio: "Industrial heritage meets modern nightlife with fantastic live music.",
-    featured: false
-  },
-  {
-    name: "Exeter",
-    region: "Devon",
-    propertyCount: 6,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-exeter%2c-uk-32d01645-20251018103610.jpg",
-    slug: "exeter",
-    description: "Historic cathedral city with Roman walls, riverside dining and coastal access.",
-    bio: "Historic cathedral city with Roman walls and coastal access.",
-    featured: false
-  },
-  {
-    name: "Chester",
-    region: "Cheshire",
-    propertyCount: 7,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-chester%2c-u-2fa11484-20251018103617.jpg",
-    slug: "chester",
-    description: "Roman city with ancient walls, Tudor buildings and boutique shopping.",
-    bio: "Roman city with ancient walls and boutique shopping.",
-    featured: false
-  },
-  {
-    name: "Durham",
-    region: "County Durham",
-    propertyCount: 6,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-durham%2c-uk-c4a1b719-20251018103625.jpg",
-    slug: "durham",
-    description: "World Heritage site with stunning cathedral, castle and riverside walks.",
-    bio: "World Heritage site with stunning cathedral and riverside walks.",
-    featured: false
-  },
-  {
-    name: "Canterbury",
-    region: "Kent",
-    propertyCount: 5,
-    image: "https://v3b.fal.media/files/b/tiger/2bNJn7KNACVIcuVHWsAp-_output.png",
-    slug: "canterbury",
-    description: "Medieval city with famous cathedral, charming streets and riverside pubs.",
-    bio: "Medieval city with famous cathedral and charming streets.",
-    featured: false
-  },
-  {
-    name: "Blackpool",
-    region: "Lancashire",
-    propertyCount: 8,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-blackpool%2c-012163d9-20251018103641.jpg",
-    slug: "blackpool",
-    description: "Classic seaside resort with tower, beaches and legendary nightlife.",
-    bio: "Classic seaside resort with tower, beaches and legendary nightlife.",
-    featured: false
-  },
-  {
-    name: "Cotswolds",
-    region: "Gloucestershire",
-    propertyCount: 7,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cotswolds%2c-60a2f4ac-20251018180051.jpg",
-    slug: "cotswolds",
-    description: "Picturesque honey-stone villages with luxury manor houses and boutique charm.",
-    bio: "Picturesque honey-stone villages with luxury manor houses.",
-    featured: false
-  },
-  {
-    name: "Margate",
-    region: "Kent",
-    propertyCount: 6,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-margate%2c-u-d23f8a09-20251018180059.jpg",
-    slug: "margate",
-    description: "Trendy seaside town with vintage vibes, art galleries and sandy beaches.",
-    bio: "Trendy seaside town with vintage vibes and sandy beaches.",
-    featured: false
-  },
-  {
-    name: "Harrogate",
-    region: "North Yorkshire",
-    propertyCount: 5,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-harrogate%2c-cfa55d27-20251018180105.jpg",
-    slug: "harrogate",
-    description: "Elegant spa town with Victorian charm, boutique shops and afternoon tea.",
-    bio: "Elegant spa town with Victorian charm and afternoon tea.",
-    featured: false
-  },
-  {
-    name: "St Ives",
-    region: "Cornwall",
-    propertyCount: 4,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-st-ives-corn-c20b8f01-20251018180133.jpg",
-    slug: "st-ives",
-    description: "Stunning Cornish harbour town with golden beaches and coastal beauty.",
-    bio: "Stunning Cornish harbour town with golden beaches.",
-    featured: false
-  },
-  {
-    name: "Windsor",
-    region: "Berkshire",
-    propertyCount: 5,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-windsor%2c-u-5545ede5-20251018180119.jpg",
-    slug: "windsor",
-    description: "Royal town with castle views, riverside walks and historic charm.",
-    bio: "Royal town with castle views and historic charm.",
-    featured: false
-  },
-  {
-    name: "Stratford-upon-Avon",
-    region: "Warwickshire",
-    propertyCount: 4,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-stratford-up-91d286ca-20251018180126.jpg",
-    slug: "stratford-upon-avon",
-    description: "Shakespeare's birthplace with Tudor houses and riverside gardens.",
-    bio: "Shakespeare's birthplace with Tudor houses and riverside gardens.",
-    featured: false
-  },
-  {
-    name: "Plymouth",
-    region: "Devon",
-    propertyCount: 7,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-plymouth%2c--3a2cc458-20251018180819.jpg",
-    slug: "plymouth",
-    description: "Historic naval port with waterfront dining, vibrant nightlife and coastal charm.",
-    bio: "Historic naval port with waterfront dining and coastal charm.",
-    featured: false
-  },
-  {
-    name: "Cheltenham",
-    region: "Gloucestershire",
-    propertyCount: 6,
-    image: "https://v3b.fal.media/files/b/koala/OWWytRD5loYfhDon_5nva_output.png",
-    slug: "cheltenham",
-    description: "Regency spa town with elegant architecture, festivals and Cotswolds gateway.",
-    bio: "Regency spa town with elegant architecture and Cotswolds gateway.",
-    featured: false
-  }];
+    {
+      name: "London",
+      region: "Greater London",
+      propertyCount: 35,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
+      slug: "london",
+      description: "The ultimate hen party destination with world-class entertainment, dining and iconic landmarks.",
+      bio: "The capital offers world-class entertainment, dining and iconic landmarks.",
+      featured: true
+    },
+    {
+      name: "Brighton",
+      region: "East Sussex",
+      propertyCount: 18,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
+      slug: "brighton",
+      description: "Vibrant seaside city with amazing nightlife and stunning Regency architecture.",
+      bio: "Vibrant seaside city combining beach vibes with legendary nightlife.",
+      featured: true
+    },
+    {
+      name: "Bath",
+      region: "Somerset",
+      propertyCount: 15,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
+      slug: "bath",
+      description: "Historic spa city with Roman baths, Georgian architecture and luxury experiences.",
+      bio: "Historic spa city with Roman baths and Georgian architecture.",
+      featured: true
+    },
+    {
+      name: "Manchester",
+      region: "Greater Manchester",
+      propertyCount: 22,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
+      slug: "manchester",
+      description: "Vibrant city with world-class shopping, dining and legendary nightlife.",
+      bio: "Northern powerhouse with vibrant nightlife and warm hospitality.",
+      featured: true
+    },
+    {
+      name: "York",
+      region: "North Yorkshire",
+      propertyCount: 12,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
+      slug: "york",
+      description: "Medieval city with cobbled streets, historic walls and charming riverside pubs.",
+      bio: "Medieval city with cobbled streets and charming riverside pubs.",
+      featured: true
+    },
+    {
+      name: "Cardiff",
+      region: "South Wales",
+      propertyCount: 14,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
+      slug: "cardiff",
+      description: "Wales' vibrant capital with fantastic value, warm hospitality and stunning bay.",
+      bio: "Wales' vibrant capital with fantastic value and warm hospitality.",
+      featured: false
+    },
+    {
+      name: "Bournemouth",
+      region: "Dorset",
+      propertyCount: 14,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
+      slug: "bournemouth",
+      description: "Beautiful beaches, vibrant nightlife and stunning coastal walks.",
+      bio: "Beautiful beaches with vibrant nightlife and coastal walks.",
+      featured: false
+    },
+    {
+      name: "Newcastle",
+      region: "Tyne and Wear",
+      propertyCount: 9,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
+      slug: "newcastle",
+      description: "Friendly northern city famous for nightlife and stunning quayside.",
+      bio: "Friendly northern city famous for nightlife and stunning quayside.",
+      featured: false
+    },
+  ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
   const otherDestinations = destinations.filter((d) => !d.featured);
