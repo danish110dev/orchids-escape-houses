@@ -113,7 +113,7 @@ export default function WeddingsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -152,7 +152,7 @@ export default function WeddingsPage() {
                 color: "white",
               }}
             >
-              <Link href="/properties">View Wedding Houses</Link>
+              <Link href="/properties">Find Your Wedding House</Link>
             </Button>
             <Button
               asChild
@@ -164,7 +164,7 @@ export default function WeddingsPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>
@@ -303,10 +303,10 @@ export default function WeddingsPage() {
       <section className="py-24 bg-white scroll-reveal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Ready to Book Wedding Accommodation?
+            Ready to Plan Your Wedding Weekend?
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today and let us help you find the perfect house for your wedding guests
+            Contact us with your wedding dates and requirements for availability check and personalized recommendations
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -318,7 +318,7 @@ export default function WeddingsPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild
