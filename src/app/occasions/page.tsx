@@ -12,10 +12,14 @@ import {
   PartyPopper, 
   Egg,
   Calendar,
-  ArrowRight 
+  ArrowRight,
+  ChevronDown
 } from "lucide-react";
+import { useState } from "react";
 
 export default function OccasionsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const occasions = [
     {
       title: "Special Celebrations",
@@ -61,6 +65,29 @@ export default function OccasionsPage() {
     },
   ];
 
+  const faqs = [
+    {
+      question: "What types of occasions do you cater for?",
+      answer: "We specialise in all types of celebrations including hen parties, weddings, birthdays, anniversaries, Christmas, New Year, Easter, and weekend breaks. Our luxury houses are perfect for groups of 10-30 guests looking for an unforgettable experience."
+    },
+    {
+      question: "Can I book add-on experiences for my occasion?",
+      answer: "Absolutely! We offer a range of add-on experiences including cocktail masterclasses, butlers in the buff, life drawing sessions, private chefs, spa treatments, and decorations. These can be arranged when you make your booking."
+    },
+    {
+      question: "Do you offer special rates for occasion bookings?",
+      answer: "Yes, we have special offers including free stays for the bride on hen party bookings of 10+ guests. We also offer competitive weekend and midweek rates for all occasions. Contact us for a tailored quote."
+    },
+    {
+      question: "What's included in the house rental?",
+      answer: "All our properties come fully equipped with modern kitchens, spacious living areas, comfortable bedrooms, and luxury bathrooms. Many feature hot tubs, pools, games rooms, and beautiful grounds. Specific amenities vary by property."
+    },
+    {
+      question: "How far in advance should I book for my occasion?",
+      answer: "We recommend booking 6-12 months in advance for popular dates like Christmas, New Year, and summer weekends. However, we often have last-minute availability, so it's always worth checking with us."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -78,11 +105,35 @@ export default function OccasionsPage() {
             >
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80"
-                  alt="Luxury celebration gathering"
+                  src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop"
+                  alt="Luxury celebration gathering with friends and family"
                   className="w-full h-[500px] object-cover"
                 />
               </div>
+              {/* Trust Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="absolute -bottom-6 left-6 right-6 bg-white rounded-xl p-4 shadow-lg"
+              >
+                <div className="flex items-center justify-around text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-accent-sage)]">3,000+</div>
+                    <div className="text-xs text-[var(--color-neutral-dark)]">5★ Reviews</div>
+                  </div>
+                  <div className="h-8 w-px bg-[var(--color-bg-secondary)]"></div>
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-accent-gold)]">500+</div>
+                    <div className="text-xs text-[var(--color-neutral-dark)]">Luxury Houses</div>
+                  </div>
+                  <div className="h-8 w-px bg-[var(--color-bg-secondary)]"></div>
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-accent-sage)]">24/7</div>
+                    <div className="text-xs text-[var(--color-neutral-dark)]">UK Support</div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Right: Title and Links */}
@@ -95,7 +146,7 @@ export default function OccasionsPage() {
                 className="mb-6" 
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                OCCASIONS
+                Luxury Houses for Every Occasion
               </h1>
               
               <p className="text-lg text-[var(--color-neutral-dark)] mb-8 leading-relaxed">
@@ -137,6 +188,60 @@ export default function OccasionsPage() {
                 })}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about booking for your special occasion
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
