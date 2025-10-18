@@ -101,6 +101,14 @@ export default function Home() {
       slug: "spa-treatments",
     },
     {
+      title: "Pamper Party",
+      duration: "2-3 hours",
+      priceFrom: 65,
+      groupSize: "8-20 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg?",
+      slug: "pamper-party",
+    },
+    {
       title: "Yoga & Wellness Class",
       duration: "1.5-2 hours",
       priceFrom: 40,
