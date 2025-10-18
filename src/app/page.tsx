@@ -97,7 +97,7 @@ export default function Home() {
       duration: "2-3 hours",
       priceFrom: 75,
       groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-4ff39d27-20251018105047.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-c9c6358b-20251018123402.jpg?",
       slug: "spa-treatments",
     },
     {
