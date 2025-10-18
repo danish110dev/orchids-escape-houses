@@ -72,18 +72,16 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-md"
-      }`}
+      } ${isMobileMenuOpen ? "z-[100]" : "z-50"}`}
     >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
             href="/" 
-            className={`flex items-center relative transition-all ${
-              isMobileMenuOpen ? "z-[80]" : "z-[70]"
-            }`}
+            className="flex items-center relative z-[110]"
           >
             <Image
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
@@ -198,9 +196,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 flex items-center gap-2 relative transition-all ${
-              isMobileMenuOpen ? "z-[80]" : "z-[70]"
-            }`}
+            className="lg:hidden p-2 flex items-center gap-2 relative z-[110]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -218,8 +214,8 @@ export default function Header() {
 
       {/* Mobile Menu - Full Page Dark Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-transform duration-500 ease-out ${
-          isMobileMenuOpen ? "translate-x-0 z-[70]" : "translate-x-full z-[-1]"
+        className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-all duration-500 ease-out ${
+          isMobileMenuOpen ? "translate-x-0 opacity-100 z-[105]" : "translate-x-full opacity-0 z-[-1]"
         }`}
       >
         {/* Menu Content - Scrollable */}
