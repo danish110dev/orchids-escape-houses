@@ -1,12 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
+import { Button } from "@/components/ui/button";
 import { Sparkles, CalendarCheck, Award, Star, Search, Heart, CheckCircle2, PartyPopper } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button, Link } from "@/components/ui";
 
 export default function ExperiencesPage() {
   const experiences = [
