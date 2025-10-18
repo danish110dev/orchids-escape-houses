@@ -338,11 +338,8 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Add Unforgettable Experiences
-            </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
               Make your <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration weekend</Link> extra special with <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">curated activities and experiences</Link>
-            </p>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
