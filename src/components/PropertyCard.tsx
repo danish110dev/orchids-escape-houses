@@ -30,6 +30,14 @@ export default function PropertyCard({
 }: PropertyCardProps) {
   const [isSaved, setIsSaved] = useState(false);
 
+  // Extract city name and convert to slug for destination link
+  const getDestinationSlug = (location: string) => {
+    const city = location.split(',')[0].trim().toLowerCase();
+    return city.replace(/\s+/g, '-');
+  };
+
+  const destinationSlug = getDestinationSlug(location);
+
   return (
     <div className="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
       <Link href={`/properties/${slug}`}>
@@ -81,10 +89,14 @@ export default function PropertyCard({
           </h3>
         </Link>
 
-        <div className="flex items-center gap-2 text-sm text-[var(--color-neutral-dark)] mb-4">
+        <Link 
+          href={`/destinations/${destinationSlug}`}
+          className="flex items-center gap-2 text-sm text-[var(--color-neutral-dark)] mb-4 hover:text-[var(--color-accent-sage)] transition-colors w-fit"
+          onClick={(e) => e.stopPropagation()}
+        >
           <MapPinned className="w-4 h-4" />
           <span>{location}</span>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-4 mb-4 text-sm">
           <div className="flex items-center gap-2">
