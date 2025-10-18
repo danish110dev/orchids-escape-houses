@@ -286,7 +286,7 @@ export default function NewYearPage() {
             Start the Year Right
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today for an instant quote and make your New Year's Eve celebration one to remember
+            Get in touch today and make your New Year's Eve celebration one to remember
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -298,7 +298,7 @@ export default function NewYearPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild
