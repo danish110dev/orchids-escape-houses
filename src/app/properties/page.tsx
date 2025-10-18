@@ -180,7 +180,7 @@ export default function PropertiesPage() {
       </section>
 
       {/* Filters and Results */}
-      <section className="py-12">
+      <section className="py-12 pb-24">
         <div className="max-w-[1200px] mx-auto px-6">
           {/* Filter Toggle Button (Mobile) */}
           <div className="md:hidden mb-6">
