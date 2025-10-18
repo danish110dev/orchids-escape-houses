@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import AnimatedStats from "@/components/AnimatedStats";
 
 export default function OurStoryPage() {
   return (
@@ -100,6 +101,8 @@ export default function OurStoryPage() {
                 </p>
               </div>
             </div>
+
+            <AnimatedStats />
 
             <div>
               <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
