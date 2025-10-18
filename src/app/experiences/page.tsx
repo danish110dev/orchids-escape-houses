@@ -214,10 +214,8 @@ export default function ExperiencesPage() {
                     alt={experience.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(137, 163, 143, 0.9)" }}
-                  >
-                    <experience.icon className="w-6 h-6 text-white" />
+                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                    <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
                   </div>
                 </div>
                 <div className="p-6">
@@ -295,10 +293,8 @@ export default function ExperiencesPage() {
                     alt={experience.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(242, 198, 194, 0.9)" }}
-                  >
-                    <experience.icon className="w-6 h-6 text-white" />
+                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                    <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
                   </div>
                 </div>
                 <div className="p-6">
