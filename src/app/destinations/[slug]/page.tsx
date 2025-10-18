@@ -413,6 +413,138 @@ export default function DestinationDetailPage() {
         "Lucknam Park Spa - Country house spa with Michelin-starred dining",
       ],
     },
+    bournemouth: {
+      name: "Bournemouth",
+      region: "Dorset",
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80",
+      video: "",
+      overview:
+        "Bournemouth is a stunning coastal destination perfect for hen parties, featuring seven miles of golden sandy beaches, vibrant nightlife, and elegant gardens. This seaside resort town offers the ideal blend of beach relaxation and party atmosphere, with bustling bars, restaurants, and clubs. From the iconic pier to the beautiful cliff-top walks, Bournemouth provides an unforgettable coastal celebration experience.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        nightlife: "Vibrant bars and clubs",
+        dining: "Seafront restaurants & cafes",
+        bestTime: "May-September",
+        beachAccess: "7 miles of sandy beaches",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£65-£140 per night",
+        activities: "Beach, pier, watersports, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Bournemouth: 2 hours by train (Waterloo to Bournemouth)" },
+        { icon: Plane, text: "Bournemouth Airport: 15 minutes by car or taxi" },
+        { icon: Car, text: "Driving: Well connected via M3 and A31 with parking available" },
+        { icon: Bus, text: "Coach services: Regular National Express from major UK cities" },
+      ],
+      nightlife: [
+        {
+          name: "The Old Fire Station",
+          description: "Popular nightclub with multiple rooms and live music.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Aruba",
+          description: "Beachfront bar and club with stunning sea views.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Brass Monkey",
+          description: "Quirky bar with cocktails and live entertainment.",
+          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+        },
+        {
+          name: "Smokin' Aces",
+          description: "Late-night venue with DJ sets and dancing.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "The Reef",
+          description: "Beachside bar with live music and cocktails.",
+          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+        },
+        {
+          name: "Opera House",
+          description: "Historic venue with club nights and events.",
+          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Larder House",
+          description: "Contemporary dining with bottomless brunch options.",
+          link: "https://www.thelarderhouse.co.uk/",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+        },
+        {
+          name: "Urban Reef",
+          description: "Seafront dining with stunning beach views.",
+          link: "https://www.urban-reef.com/",
+          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+        },
+        {
+          name: "Bournemouth Brewery Tap",
+          description: "Craft beers and brunch in vibrant setting.",
+          link: "https://www.brewhouseandkitchen.com/venue/bournemouth/",
+          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+        },
+        {
+          name: "The Stable",
+          description: "Cider and pizza restaurant with group menus.",
+          link: "https://stablepizza.com/",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+        },
+        {
+          name: "The Reef Beach Club",
+          description: "Beachside dining with Mediterranean menu.",
+          link: "https://www.thereef-beachclub.com/",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+        },
+        {
+          name: "Bournemouth Beach Club",
+          description: "Relaxed beach dining with fresh seafood.",
+          link: "https://www.bmthbeachclub.com/",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "Bournemouth Beach",
+          description: "Seven miles of golden sand perfect for relaxation.",
+          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        },
+        {
+          name: "Bournemouth Pier",
+          description: "Iconic pier with activities and restaurants.",
+          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        },
+        {
+          name: "Lower Gardens",
+          description: "Beautiful Victorian gardens in town centre.",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+        },
+        {
+          name: "Watersports",
+          description: "Paddleboarding, kayaking and more on the beach.",
+          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+        },
+        {
+          name: "Russell-Cotes Museum",
+          description: "Art gallery and museum in stunning clifftop villa.",
+          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+        },
+        {
+          name: "Bournemouth Square",
+          description: "Shopping and entertainment in the heart of town.",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+      ],
+      spas: [
+        "Urban Beach Hotel Spa - Boutique spa with sea views and treatments",
+        "Hallmark Hotel Spa - Full spa facility with pool and therapies",
+        "The Green House Spa - Eco-friendly spa with organic treatments",
+        "Bournemouth Highcliff Spa - Clifftop spa with panoramic views",
+      ],
+    },
   };
 
   // Location-specific properties
@@ -520,6 +652,41 @@ export default function DestinationDetailPage() {
         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
         features: ["River Views", "Period Features", "Central"],
         slug: "pulteney-bridge-house",
+      },
+    ],
+    bournemouth: [
+      {
+        id: "1",
+        title: "Bournemouth Beach House",
+        location: "Bournemouth, Dorset",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 95,
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+        features: ["Hot Tub", "Beach Access", "Games Room"],
+        slug: "bournemouth-beach-house",
+      },
+      {
+        id: "2",
+        title: "Clifftop Retreat",
+        location: "Bournemouth, Dorset",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 85,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        features: ["Sea View", "Hot Tub", "Parking"],
+        slug: "clifftop-retreat",
+      },
+      {
+        id: "3",
+        title: "The Sandbanks Villa",
+        location: "Bournemouth, Dorset",
+        sleeps: 10,
+        bedrooms: 5,
+        priceFrom: 75,
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        features: ["Beach Views", "Modern", "BBQ"],
+        slug: "sandbanks-villa",
       },
     ],
   };
