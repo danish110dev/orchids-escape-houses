@@ -544,7 +544,7 @@ export default function Home() {
               We're on Instagram
             </h2>
             <a
-              href="https://instagram.com/groupescapehouses"
+              href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 text-3xl md:text-4xl font-semibold hover:opacity-80 transition-opacity"
@@ -575,7 +575,7 @@ export default function Home() {
               ].map((image, index) => (
                 <a
                   key={index}
-                  href="https://instagram.com/groupescapehouses"
+                  href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative flex-shrink-0 w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
