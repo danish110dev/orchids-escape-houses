@@ -97,9 +97,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Office</h3>
                       <p className="text-[var(--color-neutral-dark)]">
-                        11a North St<br />
-                        Brighton and Hove<br />
-                        Brighton BN41 1DH
+                        11a North Street<br />
+                        Brighton<br />
+                        BN41 1DH
                       </p>
                     </div>
                   </div>
