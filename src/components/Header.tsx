@@ -177,6 +177,20 @@ export default function Header() {
             ))}
           </nav>
 
+          {/* CTA Button - Desktop */}
+          <div className="hidden lg:block">
+            <Button
+              asChild
+              className="rounded-2xl px-9 py-3 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+              style={{
+                background: "var(--color-accent-gold)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <Link href="/contact">Book Now</Link>
+            </Button>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
