@@ -9,6 +9,15 @@ import { Button } from "@/components/ui/button";
 export default function DestinationsPage() {
   const destinations = [
     {
+      name: "London",
+      region: "Greater London",
+      propertyCount: 35,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
+      slug: "london",
+      description: "The ultimate hen party destination with world-class entertainment, dining and iconic landmarks",
+      featured: true,
+    },
+    {
       name: "Brighton",
       region: "East Sussex",
       propertyCount: 18,
@@ -33,6 +42,24 @@ export default function DestinationsPage() {
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
       slug: "manchester",
       description: "Vibrant city with world-class shopping, dining and legendary nightlife",
+      featured: true,
+    },
+    {
+      name: "Newquay",
+      region: "Cornwall",
+      propertyCount: 10,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newquay-corn-e91f1ad1-20251018180034.jpg",
+      slug: "newquay",
+      description: "Stunning Cornish beaches, surf culture and vibrant coastal nightlife",
+      featured: true,
+    },
+    {
+      name: "Lake District",
+      region: "Cumbria",
+      propertyCount: 9,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-lake-distric-a860a2c4-20251018180043.jpg",
+      slug: "lake-district",
+      description: "Scenic lakes and mountains perfect for luxury retreat weekends",
       featured: true,
     },
     {
@@ -179,6 +206,60 @@ export default function DestinationsPage() {
       description: "Classic seaside resort with tower, beaches and legendary nightlife",
       featured: false,
     },
+    {
+      name: "Cotswolds",
+      region: "Gloucestershire",
+      propertyCount: 7,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cotswolds%2c-60a2f4ac-20251018180051.jpg",
+      slug: "cotswolds",
+      description: "Picturesque honey-stone villages with luxury manor houses and boutique charm",
+      featured: false,
+    },
+    {
+      name: "Margate",
+      region: "Kent",
+      propertyCount: 6,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-margate%2c-u-d23f8a09-20251018180059.jpg",
+      slug: "margate",
+      description: "Trendy seaside town with vintage vibes, art galleries and sandy beaches",
+      featured: false,
+    },
+    {
+      name: "Harrogate",
+      region: "North Yorkshire",
+      propertyCount: 5,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-harrogate%2c-cfa55d27-20251018180105.jpg",
+      slug: "harrogate",
+      description: "Elegant spa town with Victorian charm, boutique shops and afternoon tea",
+      featured: false,
+    },
+    {
+      name: "St Ives",
+      region: "Cornwall",
+      propertyCount: 4,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-st-ives-corn-c20b8f01-20251018180133.jpg",
+      slug: "st-ives",
+      description: "Stunning Cornish harbour town with golden beaches and coastal beauty",
+      featured: false,
+    },
+    {
+      name: "Windsor",
+      region: "Berkshire",
+      propertyCount: 5,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-windsor%2c-u-5545ede5-20251018180119.jpg",
+      slug: "windsor",
+      description: "Royal town with castle views, riverside walks and historic charm",
+      featured: false,
+    },
+    {
+      name: "Stratford-upon-Avon",
+      region: "Warwickshire",
+      propertyCount: 4,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-stratford-up-91d286ca-20251018180126.jpg",
+      slug: "stratford-upon-avon",
+      description: "Shakespeare's birthplace with Tudor houses and riverside gardens",
+      featured: false,
+    },
   ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
@@ -214,7 +295,7 @@ export default function DestinationsPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredDestinations.map((destination) => (
               <Link
                 key={destination.slug}
