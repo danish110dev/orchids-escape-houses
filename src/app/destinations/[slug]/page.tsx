@@ -183,32 +183,32 @@ export default function DestinationDetailPage() {
         {
           name: "Quayside",
           description: "Scenic riverside walk with bars and restaurants.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-qu-8b4f19e0-20251018212118.jpg"
         },
         {
           name: "BALTIC Centre for Contemporary Art",
           description: "Free art gallery with cafe.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-baltic-centr-6496f41a-20251018212125.jpg"
         },
         {
           name: "Ouseburn Valley",
           description: "Trendy area with independent bars and street food.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-ouseburn-val-228dbdcb-20251018212132.jpg"
         },
         {
           name: "Grainger Market",
           description: "Historic covered market with unique shops.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-grainger-mar-1de926ad-20251018212139.jpg"
         },
         {
           name: "Newcastle Castle",
           description: "Medieval fortress in the heart of the city.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-ca-c770b965-20251018212146.jpg"
         },
         {
           name: "Tyne Bridge",
           description: "Iconic landmark perfect for photos.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-tyne-bridge--8aafb273-20251018212152.jpg"
         },
       ],
       spas: [
