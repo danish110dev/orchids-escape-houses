@@ -10,6 +10,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHousesDropdownOpen, setIsHousesDropdownOpen] = useState(false);
+  const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
+  const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,53 +215,92 @@ export default function Header() {
         >
           <div className="h-full overflow-y-auto pt-32 pb-12 px-8">
             <nav className="flex flex-col gap-8">
-              {/* Houses to Rent Section */}
+              {/* Houses to Rent Section with Dropdown */}
               <div className="border-b border-gray-200 pb-8">
-                <Link
-                  href="/house-styles-and-features"
-                  className="text-2xl font-semibold py-3 block mb-6"
+                <button
+                  onClick={() => {
+                    setIsMobileStylesOpen(false);
+                    setIsMobileFeaturesOpen(false);
+                  }}
+                  className="text-2xl font-semibold py-3 block mb-6 w-full text-left flex items-center justify-between"
                   style={{ 
                     fontFamily: "var(--font-display)",
                     color: "var(--color-accent-sage)"
                   }}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Houses to Rent
-                </Link>
+                  <Link
+                    href="/house-styles-and-features"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Houses to Rent
+                  </Link>
+                </button>
                 
-                {/* House Styles */}
+                {/* House Styles Accordion */}
                 <div className="mb-6">
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">House Styles</p>
-                  <div className="space-y-3">
-                    {houseStyles.map((style) => (
-                      <Link
-                        key={style.slug}
-                        href={`/house-styles/${style.slug}`}
-                        className="text-lg py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                        style={{ fontFamily: "var(--font-body)" }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {style.title}
-                      </Link>
-                    ))}
+                  <button
+                    onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
+                    className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3 w-full text-left flex items-center justify-between py-2"
+                  >
+                    House Styles
+                    <ChevronDown 
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isMobileStylesOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isMobileStylesOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="space-y-3 pt-2">
+                      {houseStyles.map((style) => (
+                        <Link
+                          key={style.slug}
+                          href={`/house-styles/${style.slug}`}
+                          className="text-base py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors pl-4"
+                          style={{ fontFamily: "var(--font-body)" }}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {style.title}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Features */}
+                {/* Features Accordion */}
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Must-Have Features</p>
-                  <div className="space-y-3">
-                    {features.map((feature) => (
-                      <Link
-                        key={feature.slug}
-                        href={`/features/${feature.slug}`}
-                        className="text-lg py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)] transition-colors"
-                        style={{ fontFamily: "var(--font-body)" }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {feature.title}
-                      </Link>
-                    ))}
+                  <button
+                    onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
+                    className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3 w-full text-left flex items-center justify-between py-2"
+                  >
+                    Must-Have Features
+                    <ChevronDown 
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isMobileFeaturesOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isMobileFeaturesOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="space-y-3 pt-2">
+                      {features.map((feature) => (
+                        <Link
+                          key={feature.slug}
+                          href={`/features/${feature.slug}`}
+                          className="text-base py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)] transition-colors pl-4"
+                          style={{ fontFamily: "var(--font-body)" }}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {feature.title}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
