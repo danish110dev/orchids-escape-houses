@@ -4,9 +4,14 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed } from "lucide-react";
+import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function DestinationDetailPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const destination = {
     name: "Brighton",
     region: "East Sussex",
@@ -49,6 +54,69 @@ export default function DestinationDetailPage() {
     ],
   };
 
+  const faqs = [
+    {
+      question: `How far is ${destination.name} from London?`,
+      answer: `${destination.name} is approximately 1 hour from London by train, making it perfect for a weekend getaway. Regular train services run from Victoria station, and the journey offers beautiful countryside views.`
+    },
+    {
+      question: `What's the best time to visit ${destination.name} for a hen party?`,
+      answer: `${destination.name} is a fantastic destination year-round. Summer (June-August) offers beach weather and outdoor activities, while spring and autumn provide milder temperatures and fewer crowds. Weekend bookings are popular, so we recommend booking 6-9 months in advance.`
+    },
+    {
+      question: `Are there hen party houses available in ${destination.name}?`,
+      answer: `Yes! We have a selection of luxury hen party houses in and around ${destination.name}. Our properties feature hot tubs, spacious entertaining areas, and are perfectly located for accessing the city's nightlife and attractions.`
+    },
+    {
+      question: `What activities can we do in ${destination.name} during our stay?`,
+      answer: `${destination.name} offers endless activities including beach visits, spa treatments, cocktail classes, shopping in The Lanes, dining at top restaurants, and experiencing the legendary nightlife. We can help arrange experiences to make your weekend extra special.`
+    },
+    {
+      question: `Can you arrange transport in ${destination.name}?`,
+      answer: `While we don't directly arrange transport, ${destination.name} has excellent public transport, taxis, and ride-sharing services. Many of our properties are within walking distance or a short taxi ride from the city centre. We're happy to provide recommendations.`
+    }
+  ];
+
+  // FAQ Schema for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://groupescapehouses.co.uk"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Destinations",
+        "item": "https://groupescapehouses.co.uk/destinations"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": destination.name,
+        "item": `https://groupescapehouses.co.uk/destinations/${destination.name.toLowerCase()}`
+      }
+    ]
+  };
+
   const properties = [
     {
       id: "1",
@@ -87,21 +155,42 @@ export default function DestinationDetailPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <Header />
 
       {/* Hero */}
       <div className="relative h-[500px] mt-20">
-        <Image src={destination.image} alt={destination.name} fill className="object-cover" />
+        <Image src={destination.image} alt={destination.name} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0">
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
             <h1 className="text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
               {destination.name}
             </h1>
-            <div className="flex items-center gap-2 text-white text-xl">
+            <div className="flex items-center gap-2 text-white text-xl mb-6">
               <MapPin className="w-5 h-5" />
               <span>{destination.region}</span>
             </div>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Check Availability and Book</Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -229,6 +318,50 @@ export default function DestinationDetailPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about visiting {destination.name}
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Properties in this area */}
       <section className="py-24 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -239,6 +372,20 @@ export default function DestinationDetailPage() {
             {properties.map((property) => (
               <PropertyCard key={property.id} {...property} />
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Check Availability and Book</Link>
+            </Button>
           </div>
         </div>
       </section>
