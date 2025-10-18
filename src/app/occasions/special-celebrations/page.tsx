@@ -5,13 +5,60 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Users, Calendar, Utensils, Check } from "lucide-react";
+import { Sparkles, Users, Calendar, Utensils, Check, ChevronDown, Star } from "lucide-react";
+import { useState } from "react";
 
 export default function SpecialCelebrationsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const features = [
-    "Large dining and entertaining areas",
-    "Optional catering, decorations, or private chef",
-    "Flexible weekend or midweek stays",
+    "Large dining and entertaining areas perfect for group celebrations",
+    "Optional catering, decorations, or private chef services",
+    "Flexible weekend or midweek stays with competitive rates",
+    "Hot tubs, games rooms, and entertainment spaces",
+    "Beautiful grounds for photos and outdoor activities",
+    "Dedicated UK support team to help plan your celebration"
+  ];
+
+  const benefits = [
+    {
+      title: "Perfect for Groups",
+      description: "Houses that comfortably sleep 10-30 guests with spacious communal areas",
+      icon: Users
+    },
+    {
+      title: "Celebration Ready",
+      description: "Large dining tables, entertainment systems, and party-perfect layouts",
+      icon: Sparkles
+    },
+    {
+      title: "Flexible Booking",
+      description: "Choose weekend or midweek stays to suit your schedule and budget",
+      icon: Calendar
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What makes your houses perfect for special celebrations?",
+      answer: "Our houses are specifically chosen for their spacious layouts, large dining areas, and entertainment facilities. Many feature hot tubs, games rooms, and beautiful gardens perfect for making memories with loved ones."
+    },
+    {
+      question: "Can you arrange catering for our celebration?",
+      answer: "Yes! We can arrange everything from private chefs to full catering packages. We also offer decorations, birthday cakes, and other celebration extras. Just let us know your requirements when booking."
+    },
+    {
+      question: "What's the minimum group size for a celebration booking?",
+      answer: "Most of our celebration houses accommodate groups of 10-30 guests. We have properties suitable for various group sizes, so get in touch and we'll find the perfect match for your party."
+    },
+    {
+      question: "Can we decorate the house for the celebration?",
+      answer: "Absolutely! You're welcome to bring decorations. We can also arrange professional decoration services including balloons, banners, and table settings. Just no confetti or fixtures that damage walls."
+    },
+    {
+      question: "Are there any noise restrictions we should know about?",
+      answer: "Each property has specific house rules regarding noise levels and quiet hours, typically from 11pm. We'll provide full details when you book. Many of our houses are in secluded locations perfect for celebrations."
+    }
   ];
 
   return (
@@ -21,7 +68,6 @@ export default function SpecialCelebrationsPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
         <div className="max-w-[1200px] mx-auto px-6">
-          {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,8 +75,8 @@ export default function SpecialCelebrationsPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
             <img
-              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1600&q=80"
-              alt="Elegant dining setup for celebrations"
+              src="/images/occasions/special-celebrations-hero.jpg"
+              alt="Elegant dining setup for special celebrations"
               className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -41,6 +87,7 @@ export default function SpecialCelebrationsPage() {
               >
                 Special Celebrations
               </h1>
+              <p className="text-white/90 text-lg">Milestone birthdays, anniversaries, and family reunions</p>
             </div>
           </motion.div>
 
@@ -54,7 +101,7 @@ export default function SpecialCelebrationsPage() {
               className="md:col-span-2"
             >
               <p className="text-xl text-[var(--color-neutral-dark)] mb-8 leading-relaxed">
-                Celebrate life's biggest moments in style. From milestone birthdays to anniversaries and reunions, our exclusive collection of large houses offers everything you need for a memorable gathering.
+                Celebrate life's biggest moments in style and comfort. Our exclusive collection of large luxury homes offers everything you need for unforgettable birthdays, anniversaries, and family gatherings. With spacious dining areas, entertainment spaces, and beautiful surroundings, create memories that last a lifetime.
               </p>
 
               <h3 className="mb-6 flex items-center gap-2" style={{ fontFamily: "var(--font-body)" }}>
@@ -62,7 +109,7 @@ export default function SpecialCelebrationsPage() {
                 What's Included
               </h3>
 
-              <div className="space-y-4 mb-8">
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -89,7 +136,7 @@ export default function SpecialCelebrationsPage() {
                     color: "white",
                   }}
                 >
-                  <Link href="/properties">Browse Houses</Link>
+                  <Link href="/properties">Browse Celebration Houses</Link>
                 </Button>
                 <Button
                   asChild
@@ -106,7 +153,7 @@ export default function SpecialCelebrationsPage() {
               </div>
             </motion.div>
 
-            {/* Sidebar Icons */}
+            {/* Sidebar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +183,113 @@ export default function SpecialCelebrationsPage() {
                   Weekend or midweek availability
                 </p>
               </div>
+
+              {/* Trust Badge */}
+              <div className="bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl p-6 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-sm font-medium">3,000+ Five Star Reviews</p>
+                <p className="text-xs opacity-90 mt-1">Trusted by thousands of celebrators</p>
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Why Choose Us for Your Celebration
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Celebration FAQs
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Common questions about booking for special celebrations
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
