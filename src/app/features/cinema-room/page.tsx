@@ -43,7 +43,7 @@ export default function CinemaRoomPage() {
               "name": "Group Escape Houses",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
+                "streetAddress": "11a North Street",
                 "addressLocality": "Brighton",
                 "postalCode": "BN41 1DH",
                 "addressCountry": "GB"

@@ -170,9 +170,9 @@ export default function TermsPage() {
             </p>
             <p className="mb-2">
               <strong>Group Escape Houses</strong><br />
-              Office, 11a North St<br />
-              Brighton and Hove<br />
-              Brighton BN41 1DH
+              Office, 11a North Street<br />
+              Brighton<br />
+              BN41 1DH
             </p>
             <p>
               Email: <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>

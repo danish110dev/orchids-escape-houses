@@ -37,13 +37,13 @@ export default function GamesRoomPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Properties with Games Rooms",
-            "description": "Luxury hen party houses in the UK with games rooms featuring pool tables, table tennis, and arcade games. Perfect for group entertainment and celebrations.",
+            "description": "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
             "provider": {
               "@type": "Organization",
               "name": "Group Escape Houses",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
+                "streetAddress": "11a North Street",
                 "addressLocality": "Brighton",
                 "postalCode": "BN41 1DH",
                 "addressCountry": "GB"

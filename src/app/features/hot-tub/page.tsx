@@ -36,14 +36,14 @@ export default function HotTubPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Houses with Hot Tubs",
-            "description": "Luxury hen party houses in the UK featuring private hot tubs. Perfect for celebrations, relaxation, and unforgettable group weekends.",
+            "name": "Properties with Hot Tubs",
+            "description": "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
             "provider": {
               "@type": "Organization",
               "name": "Group Escape Houses",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
+                "streetAddress": "11a North Street",
                 "addressLocality": "Brighton",
                 "postalCode": "BN41 1DH",
                 "addressCountry": "GB"
