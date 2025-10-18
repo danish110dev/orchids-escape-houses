@@ -260,7 +260,7 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(-4%);
+      transform: translateX(-2%);
     }
   }
   
