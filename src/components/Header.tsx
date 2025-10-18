@@ -367,17 +367,6 @@ export default function Header() {
               INSTANT QUOTE
             </Link>
           </Button>
-
-          <div className="text-center space-y-2">
-            <p className="text-white/70 text-sm">Nationwide</p>
-            <a
-              href="tel:01273590820"
-              className="text-2xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              01273 590820
-            </a>
-          </div>
         </div>
       </div>
     </header>
