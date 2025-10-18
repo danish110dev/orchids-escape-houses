@@ -89,7 +89,7 @@ export default function Home() {
       duration: "2 hours",
       priceFrom: 45,
       groupSize: "8-20 guests",
-      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+      image: "https://v3b.fal.media/files/b/tiger/t7PziPx7TFaxCBmoMP6XL_output.png",
       slug: "cocktail-masterclass",
     },
     {
@@ -97,7 +97,7 @@ export default function Home() {
       duration: "2-4 hours",
       priceFrom: 65,
       groupSize: "Any size",
-      image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/tasteful-butler-service-photograph%2c-pr-137bd585-20251018093751.jpg",
       slug: "butlers-in-the-buff",
     },
     {
@@ -105,7 +105,7 @@ export default function Home() {
       duration: "1.5-2 hours",
       priceFrom: 35,
       groupSize: "8-20 guests",
-      image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/artistic-life-drawing-class-scene%2c-eas-f3a04986-20251018093800.jpg",
       slug: "life-drawing",
     },
   ];
