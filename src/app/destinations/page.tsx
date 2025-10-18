@@ -79,6 +79,78 @@ export default function DestinationsPage() {
       description: "Historic capital with stunning castle, royal mile and world-famous festivals",
       featured: false,
     },
+    {
+      name: "Bristol",
+      region: "South West England",
+      propertyCount: 11,
+      image: "https://images.unsplash.com/photo-1588432663047-7e13c7c3ad47?w=800&q=80",
+      slug: "bristol",
+      description: "Creative city with harbour life, street art and amazing food scene",
+      featured: false,
+    },
+    {
+      name: "Newcastle",
+      region: "Tyne and Wear",
+      propertyCount: 9,
+      image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800&q=80",
+      slug: "newcastle",
+      description: "Friendly northern city famous for nightlife and stunning quayside",
+      featured: false,
+    },
+    {
+      name: "Cambridge",
+      region: "Cambridgeshire",
+      propertyCount: 8,
+      image: "https://images.unsplash.com/photo-1562869237-37cef4df0d58?w=800&q=80",
+      slug: "cambridge",
+      description: "Historic university city with punting, beautiful colleges and riverside pubs",
+      featured: false,
+    },
+    {
+      name: "Oxford",
+      region: "Oxfordshire",
+      propertyCount: 7,
+      image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?w=800&q=80",
+      slug: "oxford",
+      description: "Stunning university city with historic architecture and charming streets",
+      featured: false,
+    },
+    {
+      name: "Glasgow",
+      region: "Scotland",
+      propertyCount: 10,
+      image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&q=80",
+      slug: "glasgow",
+      description: "Scotland's vibrant cultural capital with amazing nightlife and live music",
+      featured: false,
+    },
+    {
+      name: "Leeds",
+      region: "West Yorkshire",
+      propertyCount: 12,
+      image: "https://images.unsplash.com/photo-1599666699198-d67e4aaa4a82?w=800&q=80",
+      slug: "leeds",
+      description: "Energetic city with fantastic shopping, dining and buzzing nightlife",
+      featured: false,
+    },
+    {
+      name: "Nottingham",
+      region: "Nottinghamshire",
+      propertyCount: 9,
+      image: "https://images.unsplash.com/photo-1566328386401-b2980125f6a5?w=800&q=80",
+      slug: "nottingham",
+      description: "Historic city with Robin Hood legend, caves and vibrant student scene",
+      featured: false,
+    },
+    {
+      name: "Birmingham",
+      region: "West Midlands",
+      propertyCount: 14,
+      image: "https://images.unsplash.com/photo-1565535477165-e9c4a4fc6bd4?w=800&q=80",
+      slug: "birmingham",
+      description: "Dynamic city with canal network, Michelin dining and diverse culture",
+      featured: false,
+    },
   ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
@@ -126,23 +198,23 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
                   {/* Badge */}
-                  <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-[var(--color-accent-pink)] text-white text-sm font-medium">
+                  <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-white/95 text-[var(--color-text-primary)] text-sm font-medium shadow-lg backdrop-blur-sm">
                     {destination.propertyCount} properties
                   </div>
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h3
-                      className="text-3xl font-semibold mb-2"
+                      className="text-3xl font-semibold mb-2 drop-shadow-lg"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {destination.name}
                     </h3>
-                    <p className="text-sm opacity-90 mb-3">{destination.region}</p>
-                    <p className="text-sm leading-relaxed">{destination.description}</p>
+                    <p className="text-sm opacity-95 mb-3 drop-shadow-md">{destination.region}</p>
+                    <p className="text-sm leading-relaxed drop-shadow-md">{destination.description}</p>
                   </div>
                 </div>
               </Link>
@@ -170,17 +242,17 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <h3
-                      className="text-xl font-semibold mb-1"
+                      className="text-xl font-semibold mb-1 drop-shadow-lg"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {destination.name}
                     </h3>
-                    <p className="text-xs opacity-90 mb-2">{destination.region}</p>
-                    <p className="text-xs">
+                    <p className="text-xs opacity-95 mb-2 drop-shadow-md">{destination.region}</p>
+                    <p className="text-xs drop-shadow-md">
                       {destination.propertyCount} properties
                     </p>
                   </div>
@@ -200,7 +272,7 @@ export default function DestinationsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl shadow-lg"
                 style={{ background: "var(--color-accent-pink)" }}
               >
                 🏡
@@ -212,7 +284,7 @@ export default function DestinationsPage() {
             </div>
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl shadow-lg"
                 style={{ background: "var(--color-accent-sage)" }}
               >
                 ⭐
@@ -224,7 +296,7 @@ export default function DestinationsPage() {
             </div>
             <div className="text-center">
               <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl"
+                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl shadow-lg"
                 style={{ background: "var(--color-accent-gold)" }}
               >
                 🎊
