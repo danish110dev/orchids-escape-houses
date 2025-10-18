@@ -10,8 +10,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHousesOpen, setIsHousesOpen] = useState(false);
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
+  const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,10 +66,22 @@ export default function Header() {
     { title: "Indoor Swimming Pool", slug: "indoor-swimming-pool" },
   ];
 
+  const destinations = [
+    { title: "Bath", slug: "bath" },
+    { title: "Brighton", slug: "brighton" },
+    { title: "Bournemouth", slug: "bournemouth" },
+    { title: "Manchester", slug: "manchester" },
+    { title: "York", slug: "york" },
+    { title: "Cardiff", slug: "cardiff" },
+    { title: "Liverpool", slug: "liverpool" },
+    { title: "Edinburgh", slug: "edinburgh" },
+    { title: "Cornwall", slug: "cornwall" },
+    { title: "Lake District", slug: "lake-district" },
+  ];
+
   const navLinks = [
     { label: "Properties", href: "/properties" },
     { label: "Experiences", href: "/experiences" },
-    { label: "Destinations", href: "/destinations" },
     { label: "Occasions", href: "/occasions" },
     { label: "How it works", href: "/how-it-works" },
     { label: "Reviews", href: "/reviews" },
@@ -183,6 +197,53 @@ export default function Header() {
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               ))}
+
+              {/* Destinations Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsDestinationsOpen(true)}
+                onMouseLeave={() => setIsDestinationsOpen(false)}
+              >
+                <button
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Destinations
+                  <ChevronDown className="w-4 h-4" />
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isDestinationsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-[320px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
+                      Popular Destinations
+                    </h3>
+                    <ul className="space-y-2.5">
+                      {destinations.map((destination) => (
+                        <li key={destination.slug}>
+                          <Link
+                            href={`/destinations/${destination.slug}`}
+                            className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
+                          >
+                            {destination.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* View All Link */}
+                    <div className="mt-6 pt-5 border-t border-gray-100">
+                      <Link
+                        href="/destinations"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        View All Destinations →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
             </nav>
 
             {/* CTA Button - Desktop */}
@@ -302,14 +363,40 @@ export default function Header() {
                   Experiences
                 </Link>
 
-                <Link
-                  href="/destinations"
-                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
-                  style={{ fontFamily: "var(--font-display)" }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Destinations
-                </Link>
+                {/* Destinations with Dropdown */}
+                <div className="space-y-3">
+                  <Link
+                    href="/destinations"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Destinations
+                  </Link>
+                  
+                  {/* Destinations Submenu */}
+                  <button
+                    onClick={() => setIsMobileDestinationsOpen(!isMobileDestinationsOpen)}
+                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                  >
+                    Popular Locations
+                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileDestinationsOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {isMobileDestinationsOpen && (
+                    <div className="pl-4 space-y-2 text-white/70">
+                      {destinations.map((destination) => (
+                        <Link
+                          key={destination.slug}
+                          href={`/destinations/${destination.slug}`}
+                          className="block py-1 hover:text-white transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {destination.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 <Link
                   href="/how-it-works"
