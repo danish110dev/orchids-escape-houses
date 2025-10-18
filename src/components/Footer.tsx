@@ -68,9 +68,9 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
             <ul className="space-y-2 text-sm text-[var(--color-bg-secondary)]">
-              <li>Office, 11a North St</li>
-              <li>Brighton and Hove</li>
-              <li>Brighton BN41 1DH</li>
+              <li>Office, 11a North Street</li>
+              <li>Brighton</li>
+              <li>BN41 1DH</li>
               <li className="pt-2">
                 <a
                   href="mailto:hello@groupescapehouses.co.uk"
