@@ -534,9 +534,9 @@ export default function Home() {
 
       {/* Instagram Section */}
       <section className="py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
-        <div className="max-w-[1400px] mx-auto px-6">
+        <div className="max-w-full mx-auto px-6">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto">
             <h2 
               className="text-4xl md:text-5xl m-0" 
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
@@ -564,6 +564,10 @@ export default function Home() {
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-99493a7b-20251018171430.jpg?",
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-uk-luxury-h-da2b06b3-20251018171437.jpg?",
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-a4fb8b25-20251018172538.jpg?",
+                // Duplicate for seamless loop
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-360aceae-20251018171413.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-a-34a56fe6-20251018171423.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-99493a7b-20251018171430.jpg?",
               ].map((image, index) => (
                 <a
                   key={index}
