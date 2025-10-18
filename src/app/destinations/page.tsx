@@ -298,13 +298,13 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-12" style={{ background: "var(--color-accent-pink)" }}>
-        <div className="max-w-[1400px] mx-auto px-6">
+      <section className="py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+        <div className="max-w-full">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
             <h2 
-              className="text-3xl md:text-4xl text-white m-0" 
-              style={{ fontFamily: "var(--font-display)" }}
+              className="text-4xl md:text-5xl m-0" 
+              style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
             >
               We're on Instagram
             </h2>
@@ -312,42 +312,49 @@ export default function DestinationsPage() {
               href="https://instagram.com/groupescapehouses"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-2xl md:text-3xl font-semibold hover:opacity-80 transition-opacity text-white"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="inline-flex items-center gap-3 text-3xl md:text-4xl font-semibold hover:opacity-80 transition-opacity"
+              style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
             >
-              <Instagram className="w-8 h-8" />
+              <Instagram className="w-10 h-10" />
               @groupescapehouses
             </a>
           </div>
 
-          {/* Bottom Row: Photo Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
-              "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
-              "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
-              "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
-              "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=90",
-              "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=90",
-            ].map((image, index) => (
-              <a
-                key={index}
-                href="https://instagram.com/groupescapehouses"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${image}')` }}
-                ></div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Instagram className="w-6 h-6" style={{ color: "var(--color-accent-pink)" }} />
+          {/* Bottom Row: Photo Strip with Animation */}
+          <div className="overflow-hidden">
+            <div className="flex gap-3 animate-slide-left">
+              {[
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
+                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
+                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
+                "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
+                "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=90",
+                "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=90",
+                // Duplicate for seamless loop
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
+                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
+                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
+                "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
+              ].map((image, index) => (
+                <a
+                  key={index}
+                  href="https://instagram.com/groupescapehouses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex-shrink-0 w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${image}')` }}
+                  ></div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-7 h-7" style={{ color: "var(--color-accent-pink)" }} />
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
