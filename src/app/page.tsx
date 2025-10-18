@@ -9,17 +9,24 @@ import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import ReviewSlider from "@/components/ReviewSlider";
 import FAQSection from "@/components/FAQSection";
+import LoadingScreen from "@/components/LoadingScreen";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
     setMounted(true);
     
+    // Wait for loading screen to complete
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
@@ -40,6 +47,7 @@ export default function Home() {
     }, 100);
 
     return () => {
+      clearTimeout(loadingTimer);
       clearTimeout(timeoutId);
       observer.disconnect();
     };
