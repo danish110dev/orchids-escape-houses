@@ -297,8 +297,11 @@ export default function DestinationsPage() {
           <h1 className="mb-4 text-4xl md:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
             Top Hen Party Destinations in England
           </h1>
-          <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto mb-6">
             Discover the best cities and towns across England for your hen celebration
+          </p>
+          <p className="text-base text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
+            From vibrant city centres with legendary nightlife to stunning coastal retreats and historic spa towns, England offers incredible destinations for unforgettable hen weekends. Each location features handpicked luxury houses with hot tubs, pools, and all the amenities you need for the perfect group celebration.
           </p>
         </div>
       </section>
