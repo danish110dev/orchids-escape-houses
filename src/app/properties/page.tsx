@@ -7,6 +7,7 @@ import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { Link } from "next/link";
 import { 
   SlidersHorizontal, 
   X, 
@@ -369,16 +370,30 @@ export default function PropertiesPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all duration-300 hover:scale-[1.05] hover:shadow-lg"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  Load More Properties
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    size="lg"
+                    className="rounded-2xl px-10 py-6 font-medium transition-all duration-300 hover:scale-[1.05] hover:shadow-lg"
+                    style={{
+                      background: "var(--color-accent-sage)",
+                      color: "white",
+                    }}
+                  >
+                    Load More Properties
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-300 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+                    style={{
+                      borderColor: "var(--color-accent-gold)",
+                      color: "var(--color-text-primary)",
+                    }}
+                  >
+                    <Link href="/contact">Request a Quote</Link>
+                  </Button>
+                </div>
               </motion.div>
             </div>
           </div>
