@@ -82,13 +82,32 @@
   cursor: not-allowed;
 }
 
-.rdp-day_range_middle {
+.rdp-day_button:hover:not(.rdp-day_disabled):not(.rdp-day_selected) {
+  background-color: var(--color-bg-secondary);
+}
+
+.rdp-day_button.rdp-day_selected {
+  background-color: var(--color-accent-sage) !important;
+  color: white !important;
+}
+
+.rdp-day_button.rdp-day_selected:hover {
+  background-color: #7a9280 !important;
+}
+
+/* Range selection styles */
+.rdp-day_button.rdp-day_range_start,
+.rdp-day_button.rdp-day_range_end {
+  background-color: var(--color-accent-sage) !important;
+  color: white !important;
+}
+
+.rdp-day_button.rdp-day_range_middle {
   background-color: rgba(137, 163, 143, 0.2) !important;
   color: var(--color-text-primary) !important;
 }
 
-.rdp-day_range_start,
-.rdp-day_range_end {
-  background-color: var(--color-accent-sage) !important;
-  color: white !important;
+.rdp-day_button.rdp-day_today {
+  font-weight: bold;
+  color: var(--color-accent-sage);
 }
