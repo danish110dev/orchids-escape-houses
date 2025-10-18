@@ -4,6 +4,7 @@ import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import LoadingScreen from "@/components/LoadingScreen";
 import CookieConsent from "@/components/CookieConsent";
+import WhatsAppChatbot from "@/components/WhatsAppChatbot";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         {children}
+        <WhatsAppChatbot />
         <CookieConsent />
         <VisualEditsMessenger />
       </body>
