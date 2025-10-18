@@ -14,6 +14,11 @@ const stats: Stat[] = [
   { value: 3000, suffix: "+", label: "Five Star Reviews" },
 ];
 
+// Easing function for smooth animation (ease-out)
+function easeOutCubic(t: number): number {
+  return 1 - Math.pow(1 - t, 3);
+}
+
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -44,22 +49,26 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
     if (!isVisible) return;
 
     const duration = 2000; // 2 seconds
-    const steps = 60;
-    const increment = value / steps;
-    const stepDuration = duration / steps;
-    let current = 0;
+    const startTime = performance.now();
 
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Apply easing function for smooth animation
+      const easedProgress = easeOutCubic(progress);
+      const currentValue = Math.floor(easedProgress * value);
+      
+      setCount(currentValue);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
       } else {
-        setCount(Math.floor(current));
+        setCount(value); // Ensure we end at exact value
       }
-    }, stepDuration);
+    };
 
-    return () => clearInterval(timer);
+    requestAnimationFrame(animate);
   }, [isVisible, value]);
 
   return (
