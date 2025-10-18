@@ -69,7 +69,7 @@ export default function OccasionsPage() {
       slug: "easter",
       icon: Egg,
       description: "Springtime family escapes",
-      image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&auto=format&fit=crop",
       color: "#C6A76D"
     },
     {
