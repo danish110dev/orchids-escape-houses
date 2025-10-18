@@ -104,11 +104,36 @@ export default function DestinationDetailPage() {
         "Livello - Rooftop bar with stunning city views",
       ],
       brunch: [
-        "The Botanist - Bottomless brunch with live music and entertainment",
-        "Turtle Bay - Caribbean bottomless brunch with cocktails",
-        "Pleased to Meet You - Trendy spot with excellent brunch menu",
-        "The Waiting Room - Quirky cafe with delicious breakfast options",
-        "The French Quarter - Brasserie-style dining on the quayside",
+        {
+          name: "The Botanist",
+          description: "Bottomless brunch with live music and entertainment",
+          link: "https://thebotanist.uk.com/locations/newcastle/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bottomless-bru-f86ca3ad-20251018181046.jpg"
+        },
+        {
+          name: "Turtle Bay",
+          description: "Caribbean bottomless brunch with cocktails",
+          link: "https://www.turtlebay.co.uk/restaurants/newcastle/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-caribbean-bru-cdfcf41d-20251018181056.jpg"
+        },
+        {
+          name: "Pleased to Meet You",
+          description: "Trendy spot with excellent brunch menu",
+          link: "https://www.pleasedtomeetyou.org.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-brunch-70c2b47e-20251018181104.jpg"
+        },
+        {
+          name: "The Waiting Room",
+          description: "Quirky cafe with delicious breakfast options",
+          link: "https://www.thewaitingroomnewcastle.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-quirky-cafe-i-b044af4b-20251018181113.jpg"
+        },
+        {
+          name: "The French Quarter",
+          description: "Brasserie-style dining on the quayside",
+          link: "https://www.thefrenchquarter.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brasserie-din-bb0b93c1-20251018181121.jpg"
+        },
       ],
       activities: [
         "Quayside - Scenic riverside walk with bars and restaurants",
@@ -407,13 +432,32 @@ export default function DestinationDetailPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.brunch.map((venue, index) => (
-              <div key={index} className="bg-white rounded-xl p-6">
-                <p className="font-semibold mb-2">{venue.name}</p>
-                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
-                <a href={venue.link} className="text-[var(--color-accent-sage)] hover:underline text-sm mt-2 block">
-                  Visit {venue.name}
-                </a>
-              </div>
+              <a
+                key={index}
+                href={venue.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={venue.image}
+                    alt={venue.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
+                  <p className="text-sm text-[var(--color-neutral-dark)] mb-3">{venue.description}</p>
+                  <span className="text-[var(--color-accent-sage)] hover:underline text-sm font-medium inline-flex items-center gap-1">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
