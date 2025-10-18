@@ -534,9 +534,9 @@ export default function Home() {
 
       {/* Instagram Section */}
       <section className="py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
-        <div className="max-w-full mx-auto px-6">
+        <div className="max-w-full">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
             <h2 
               className="text-4xl md:text-5xl m-0" 
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
