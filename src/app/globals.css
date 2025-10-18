@@ -260,12 +260,12 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(-15%);
+      transform: translateX(-8%);
     }
   }
   
   .animate-slide-left {
-    animation: slide-left 15s ease-in-out infinite;
+    animation: slide-left 20s ease-in-out infinite;
     display: flex;
     width: max-content;
   }
