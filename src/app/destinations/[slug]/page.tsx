@@ -165,12 +165,36 @@ export default function DestinationDetailPage() {
         "Coach services: Regular National Express and Megabus from major cities",
       ],
       nightlife: [
-        "Digital - Multi-room nightclub with diverse music and great atmosphere",
-        "The Gate - Entertainment complex with bars, clubs and restaurants",
-        "House of Smith - Stylish bar with cocktails and live music",
-        "Tup Tup Palace - Moroccan-themed club with unique interiors",
-        "The Botanist - Bar and restaurant with live music and bottomless brunch",
-        "Livello - Rooftop bar with stunning city views",
+        {
+          name: "Digital",
+          description: "Multi-room nightclub with diverse music and great atmosphere.",
+          image: ""
+        },
+        {
+          name: "The Gate",
+          description: "Entertainment complex with bars, clubs and restaurants.",
+          image: ""
+        },
+        {
+          name: "House of Smith",
+          description: "Stylish bar with cocktails and live music.",
+          image: ""
+        },
+        {
+          name: "Tup Tup Palace",
+          description: "Moroccan-themed club with unique interiors.",
+          image: ""
+        },
+        {
+          name: "The Botanist",
+          description: "Bar and restaurant with live music and bottomless brunch.",
+          image: ""
+        },
+        {
+          name: "Livello",
+          description: "Rooftop bar with stunning city views.",
+          image: ""
+        },
       ],
       brunch: [
         {
