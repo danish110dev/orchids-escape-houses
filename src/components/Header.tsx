@@ -352,7 +352,7 @@ export default function Header() {
                   className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Blog
+                  Inspiration
                 </Link>
               </nav>
             </div>
