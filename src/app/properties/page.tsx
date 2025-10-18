@@ -29,6 +29,7 @@ import { motion } from "framer-motion";
 
 export default function PropertiesPage() {
   const [showFilters, setShowFilters] = useState(false);
+  const [displayedCount, setDisplayedCount] = useState(6);
   const [filters, setFilters] = useState({
     location: "",
     groupSize: 0,
@@ -124,6 +125,13 @@ export default function PropertiesPage() {
         ? prev.features.filter((f) => f !== feature)
         : [...prev.features, feature],
     }));
+  };
+
+  const visibleProperties = properties.slice(0, displayedCount);
+  const hasMore = displayedCount < properties.length;
+
+  const loadMore = () => {
+    setDisplayedCount(prev => Math.min(prev + 6, properties.length));
   };
 
   // Animation variants
@@ -335,7 +343,7 @@ export default function PropertiesPage() {
               >
                 <p className="text-[var(--color-neutral-dark)] flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-[var(--color-accent-gold)]" />
-                  Showing {properties.length} properties
+                  Showing {visibleProperties.length} of {properties.length} properties
                 </p>
                 <select className="px-4 py-2 rounded-xl border border-gray-300 text-sm transition-all duration-200 focus:ring-2 focus:ring-[var(--color-accent-sage)] focus:border-transparent">
                   <option>Sort by: Price (Low to High)</option>
@@ -352,7 +360,7 @@ export default function PropertiesPage() {
                 initial="hidden"
                 animate="visible"
               >
-                {properties.map((property) => (
+                {visibleProperties.map((property) => (
                   <motion.div
                     key={property.id}
                     variants={itemVariants}
@@ -364,37 +372,40 @@ export default function PropertiesPage() {
               </motion.div>
 
               {/* Load More */}
-              <motion.div 
-                className="text-center mt-12"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    size="lg"
-                    className="rounded-2xl px-10 py-6 font-medium transition-all duration-300 hover:scale-[1.05] hover:shadow-lg"
-                    style={{
-                      background: "var(--color-accent-sage)",
-                      color: "white",
-                    }}
-                  >
-                    Load More Properties
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-300 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
-                    style={{
-                      borderColor: "var(--color-accent-gold)",
-                      color: "var(--color-text-primary)",
-                    }}
-                  >
-                    <Link href="/contact">Request a Quote</Link>
-                  </Button>
-                </div>
-              </motion.div>
+              {hasMore && (
+                <motion.div 
+                  className="text-center mt-12"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      onClick={loadMore}
+                      size="lg"
+                      className="rounded-2xl px-10 py-6 font-medium transition-all duration-300 hover:scale-[1.05] hover:shadow-lg"
+                      style={{
+                        background: "var(--color-accent-sage)",
+                        color: "white",
+                      }}
+                    >
+                      Load More Properties
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-300 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+                      style={{
+                        borderColor: "var(--color-accent-gold)",
+                        color: "var(--color-text-primary)",
+                      }}
+                    >
+                      <Link href="/contact">Request a Quote</Link>
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </div>
