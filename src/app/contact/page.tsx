@@ -4,7 +4,11 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Calendar } from "lucide-react";
+import { DayPicker } from "react-day-picker";
+import { format } from "date-fns";
+import "react-day-picker/dist/style.css";
+import "./datepicker-styles.css";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +20,22 @@ export default function ContactPage() {
     location: "",
     message: "",
   });
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
+
+  const handleDateSelect = (range: { from?: Date; to?: Date } | undefined) => {
+    if (range) {
+      setDateRange(range);
+      if (range.from && range.to) {
+        const formattedDates = `${format(range.from, "dd/MM/yyyy")} - ${format(range.to, "dd/MM/yyyy")}`;
+        setFormData({ ...formData, dates: formattedDates });
+        setShowCalendar(false);
+      } else if (range.from) {
+        const formattedDate = format(range.from, "dd/MM/yyyy");
+        setFormData({ ...formData, dates: formattedDate });
+      }
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -173,16 +193,44 @@ export default function ContactPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    <div className="relative">
                       <label className="block text-sm font-medium mb-2">Preferred Dates *</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.dates}
-                        onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                        placeholder="e.g. 20-22 June 2025"
-                      />
+                      <div className="relative">
+                        <input
+                          type="text"
+                          required
+                          value={formData.dates}
+                          onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
+                          onClick={() => setShowCalendar(!showCalendar)}
+                          className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none cursor-pointer"
+                          placeholder="Select dates (DD/MM/YYYY)"
+                          readOnly
+                        />
+                        <Calendar 
+                          className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                        />
+                      </div>
+                      {showCalendar && (
+                        <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4">
+                          <DayPicker
+                            mode="range"
+                            selected={dateRange}
+                            onSelect={handleDateSelect}
+                            disabled={{ before: new Date() }}
+                            modifiersClassNames={{
+                              selected: "bg-[var(--color-accent-sage)] text-white hover:bg-[var(--color-accent-sage)]",
+                              today: "font-bold text-[var(--color-accent-sage)]",
+                            }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowCalendar(false)}
+                            className="mt-2 w-full px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">Preferred Location</label>
@@ -192,12 +240,32 @@ export default function ContactPage() {
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
                       >
                         <option value="">Any location</option>
-                        <option value="brighton">Brighton</option>
                         <option value="bath">Bath</option>
-                        <option value="manchester">Manchester</option>
-                        <option value="york">York</option>
+                        <option value="birmingham">Birmingham</option>
+                        <option value="blackpool">Blackpool</option>
                         <option value="bournemouth">Bournemouth</option>
+                        <option value="brighton">Brighton</option>
+                        <option value="bristol">Bristol</option>
+                        <option value="cambridge">Cambridge</option>
                         <option value="cardiff">Cardiff</option>
+                        <option value="chester">Chester</option>
+                        <option value="cornwall">Cornwall</option>
+                        <option value="cotswolds">Cotswolds</option>
+                        <option value="devon">Devon</option>
+                        <option value="durham">Durham</option>
+                        <option value="edinburgh">Edinburgh</option>
+                        <option value="glasgow">Glasgow</option>
+                        <option value="harrogate">Harrogate</option>
+                        <option value="lake-district">Lake District</option>
+                        <option value="leeds">Leeds</option>
+                        <option value="liverpool">Liverpool</option>
+                        <option value="manchester">Manchester</option>
+                        <option value="newcastle">Newcastle</option>
+                        <option value="norfolk">Norfolk</option>
+                        <option value="nottingham">Nottingham</option>
+                        <option value="oxford">Oxford</option>
+                        <option value="peak-district">Peak District</option>
+                        <option value="york">York</option>
                       </select>
                     </div>
                   </div>
