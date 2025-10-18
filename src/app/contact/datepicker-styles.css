@@ -1,8 +1,8 @@
 /* Custom styles for react-day-picker to match brand */
 .rdp {
   --rdp-cell-size: 40px;
-  --rdp-accent-color: #89A38F;
-  --rdp-background-color: #89A38F;
+  --rdp-accent-color: var(--color-accent-sage);
+  --rdp-background-color: var(--color-accent-sage);
   margin: 0;
 }
 
@@ -16,7 +16,7 @@
   align-items: center;
   padding: 0.5rem 0;
   font-weight: 600;
-  color: #1F2937;
+  color: var(--color-text-primary);
 }
 
 .rdp-nav {
@@ -35,13 +35,13 @@
 }
 
 .rdp-nav_button:hover {
-  background-color: #F5F3F0;
+  background-color: var(--color-bg-primary);
 }
 
 .rdp-head_cell {
   font-weight: 600;
   font-size: 0.875rem;
-  color: #374151;
+  color: var(--color-neutral-dark);
   text-transform: uppercase;
 }
 
@@ -59,11 +59,11 @@
 }
 
 .rdp-day:hover:not(.rdp-day_selected):not(.rdp-day_disabled) {
-  background-color: #F5F3F0;
+  background-color: var(--color-bg-primary);
 }
 
 .rdp-day_selected {
-  background-color: #89A38F !important;
+  background-color: var(--color-accent-sage) !important;
   color: white !important;
   font-weight: 600;
 }
@@ -74,7 +74,7 @@
 
 .rdp-day_today {
   font-weight: bold;
-  color: #89A38F;
+  color: var(--color-accent-sage);
 }
 
 .rdp-day_disabled {
@@ -84,11 +84,11 @@
 
 .rdp-day_range_middle {
   background-color: rgba(137, 163, 143, 0.2) !important;
-  color: #1F2937 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .rdp-day_range_start,
 .rdp-day_range_end {
-  background-color: #89A38F !important;
+  background-color: var(--color-accent-sage) !important;
   color: white !important;
 }
