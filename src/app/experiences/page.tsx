@@ -6,6 +6,7 @@ import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Sparkles, CalendarCheck, Award, Star, Search, Heart, CheckCircle2, PartyPopper } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button, Link } from "@/components/ui";
 
 export default function ExperiencesPage() {
   const experiences = [
@@ -176,6 +177,34 @@ export default function ExperiencesPage() {
               </motion.div>
             ))}
           </motion.div>
+          
+          <div className="text-center mt-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/properties">Browse Houses</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+                style={{
+                  borderColor: "var(--color-accent-gold)",
+                  color: "var(--color-text-primary)",
+                }}
+              >
+                <Link href="/contact">Book Now</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
