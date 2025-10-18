@@ -346,7 +346,7 @@ export default function DestinationsPage() {
                     <p className="text-sm font-medium mb-3">
                       {destination.region}
                     </p>
-                    <p className="text-sm leading-relaxed mb-4">
+                    <p className="text-sm leading-relaxed mb-4 text-black">
                       {destination.description}
                     </p>
                     <Button
