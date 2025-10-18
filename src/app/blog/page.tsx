@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Calendar } from "lucide-react";
+import { Calendar, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function BlogPage() {
   const posts = [
@@ -67,6 +68,31 @@ export default function BlogPage() {
     "City Guides",
     "Planning Tips",
     "House Spotlights",
+  ];
+
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: "How often do you publish new blog posts?",
+      answer: "We publish new planning tips, destination guides, and hen party inspiration at least twice a week. Subscribe to our newsletter to get the latest posts delivered to your inbox."
+    },
+    {
+      question: "Can I request a specific topic or destination guide?",
+      answer: "Absolutely! We love hearing what our readers want to know. Contact us with your suggestions and we'll do our best to cover topics that help you plan the perfect hen weekend."
+    },
+    {
+      question: "Are the experiences and venues you mention available to book?",
+      answer: "Yes! Many of the experiences, venues, and properties featured in our blog posts can be booked directly through our platform or via our partner network. Look for booking links within each article."
+    },
+    {
+      question: "Can I share your articles with my hen party group?",
+      answer: "Please do! All our content is designed to be shared. Use the share buttons on each post or copy the URL to send to your group chat."
+    },
+    {
+      question: "Do you accept guest posts or contributions?",
+      answer: "We're always interested in authentic hen party stories and destination recommendations. If you have a unique experience or expert knowledge to share, get in touch with our editorial team."
+    }
   ];
 
   return (
@@ -172,6 +198,69 @@ export default function BlogPage() {
             <button className="px-4 py-2 rounded-xl border border-gray-300 hover:bg-gray-50 transition-colors">
               Next
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about our planning tips and inspiration
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-[var(--color-accent-gold)]/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg bg-white"
+              >
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors hover:bg-[var(--color-bg-primary)]"
+                >
+                  <h3
+                    className="text-lg font-semibold pr-4"
+                    style={{ fontFamily: "var(--font-body)", color: "var(--color-text-primary)" }}
+                  >
+                    {faq.question}
+                  </h3>
+                  <ChevronDown
+                    className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
+                      openFAQ === index ? "rotate-180" : ""
+                    }`}
+                    style={{ color: "var(--color-accent-gold)" }}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFAQ === index ? "max-h-96" : "max-h-0"
+                  }`}
+                >
+                  <div className="px-6 pb-5 text-[var(--color-neutral-dark)]">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-[var(--color-neutral-dark)] mb-4">
+              Looking for more hen party inspiration?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-lg font-semibold hover:underline"
+              style={{ color: "var(--color-accent-gold)" }}
+            >
+              Get in touch with our team
+            </Link>
           </div>
         </div>
       </section>
