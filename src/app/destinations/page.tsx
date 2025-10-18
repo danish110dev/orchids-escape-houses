@@ -260,6 +260,24 @@ export default function DestinationsPage() {
       description: "Shakespeare's birthplace with Tudor houses and riverside gardens",
       featured: false,
     },
+    {
+      name: "Plymouth",
+      region: "Devon",
+      propertyCount: 7,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-plymouth%2c--3a2cc458-20251018180819.jpg",
+      slug: "plymouth",
+      description: "Historic naval port with waterfront dining, vibrant nightlife and coastal charm",
+      featured: false,
+    },
+    {
+      name: "Cheltenham",
+      region: "Gloucestershire",
+      propertyCount: 6,
+      image: "https://v3b.fal.media/files/b/koala/OWWytRD5loYfhDon_5nva_output.png",
+      slug: "cheltenham",
+      description: "Regency spa town with elegant architecture, festivals and Cotswolds gateway",
+      featured: false,
+    },
   ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
