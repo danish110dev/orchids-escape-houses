@@ -4,7 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { Sparkles, CalendarCheck, ShieldCheck, Star } from "lucide-react";
+import { Sparkles, CalendarCheck, ShieldCheck, Star, Search, MousePointerClick, CheckCheck, PartyPopper } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ExperiencesPage() {
   const experiences = [
@@ -126,7 +127,12 @@ export default function ExperiencesPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]"
+      >
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
             <Sparkles className="w-4 h-4 text-[var(--color-accent-pink)]" />
@@ -139,95 +145,181 @@ export default function ExperiencesPage() {
             Make your celebration extra special with our curated selection of activities and services
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Experiences Grid */}
       <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {experiences.map((experience) => (
-              <ExperienceCard key={experience.slug} {...experience} />
+              <motion.div
+                key={experience.slug}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <ExperienceCard {...experience} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Why Add Experiences */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+          >
             Why Add Experiences?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "#F2C6C2" }}
+          </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+          >
+            {[
+              {
+                icon: Star,
+                bg: "#F2C6C2",
+                title: "Create Memories",
+                desc: "Make your hen weekend truly unforgettable with activities that bring everyone together",
+              },
+              {
+                icon: CalendarCheck,
+                bg: "#89A38F",
+                title: "Hassle-Free Planning",
+                desc: "We arrange everything for you so you can focus on enjoying the celebration",
+              },
+              {
+                icon: ShieldCheck,
+                bg: "#C6A76D",
+                title: "Trusted Providers",
+                desc: "All our experience providers are carefully vetted and highly rated by previous guests",
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="text-center"
               >
-                <Star className="w-10 h-10" style={{ color: "white", fill: "white" }} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Create Memories</h3>
-              <p style={{ color: "#374151" }}>
-                Make your hen weekend truly unforgettable with activities that bring everyone together
-              </p>
-            </div>
-            <div className="text-center">
-              <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "#89A38F" }}
-              >
-                <CalendarCheck className="w-10 h-10" style={{ color: "white" }} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Hassle-Free Planning</h3>
-              <p style={{ color: "#374151" }}>
-                We arrange everything for you so you can focus on enjoying the celebration
-              </p>
-            </div>
-            <div className="text-center">
-              <div
-                className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "#C6A76D" }}
-              >
-                <ShieldCheck className="w-10 h-10" style={{ color: "white" }} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Trusted Providers</h3>
-              <p style={{ color: "#374151" }}>
-                All our experience providers are carefully vetted and highly rated by previous guests
-              </p>
-            </div>
-          </div>
+                <motion.div
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
+                  style={{ background: item.bg }}
+                >
+                  <item.icon className="w-10 h-10" style={{ color: "white", fill: idx === 0 ? "white" : "none" }} />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: "#374151" }}>{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* How to Book */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+            style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+          >
             How to Add Experiences
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          >
             {[
-              { step: "1", title: "Browse", desc: "Explore our curated experiences" },
-              { step: "2", title: "Select", desc: "Choose your favourites when enquiring" },
-              { step: "3", title: "Confirm", desc: "We'll check availability and quote" },
-              { step: "4", title: "Enjoy", desc: "Everything's arranged for your arrival" },
+              { step: "1", title: "Browse", desc: "Explore our curated experiences", icon: Search },
+              { step: "2", title: "Select", desc: "Choose your favourites when enquiring", icon: MousePointerClick },
+              { step: "3", title: "Confirm", desc: "We'll check availability and quote", icon: CheckCheck },
+              { step: "4", title: "Enjoy", desc: "Everything's arranged for your arrival", icon: PartyPopper },
             ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div
-                  className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold"
+              <motion.div
+                key={item.step}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="text-center"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center relative"
                   style={{
                     background: "var(--color-accent-pink)",
-                    color: "var(--color-text-primary)",
-                    fontFamily: "var(--font-display)",
                   }}
                 >
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-text-primary)" }}>{item.title}</h3>
+                  <item.icon className="w-9 h-9" style={{ color: "var(--color-text-primary)" }} />
+                  <div
+                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+                    style={{
+                      background: "var(--color-text-primary)",
+                      color: "white",
+                      fontFamily: "var(--font-display)",
+                    }}
+                  >
+                    {item.step}
+                  </div>
+                </motion.div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-text-primary)" }}>
+                  {item.title}
+                </h3>
                 <p className="text-sm text-[var(--color-neutral-dark)]">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
