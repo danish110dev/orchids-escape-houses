@@ -564,9 +564,21 @@ export default function DestinationDetailPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.nightlife.map((venue, index) => (
-              <div key={index} className="bg-[var(--color-bg-primary)] rounded-xl p-6">
-                <p className="font-semibold mb-2">{venue.name}</p>
-                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+                {venue.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={venue.image}
+                      alt={venue.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
+                  <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
+                </div>
               </div>
             ))}
           </div>
