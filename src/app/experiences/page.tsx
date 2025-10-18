@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { Sparkles, CalendarCheck, ShieldCheck, Gift } from "lucide-react";
+import { Sparkles, CalendarCheck, ShieldCheck, Star } from "lucide-react";
 
 export default function ExperiencesPage() {
   const experiences = [
@@ -162,36 +162,36 @@ export default function ExperiencesPage() {
             <div className="text-center">
               <div
                 className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "var(--color-accent-pink)" }}
+                style={{ background: "#F2C6C2" }}
               >
-                <Gift className="w-10 h-10 text-white" />
+                <Star className="w-10 h-10" style={{ color: "white", fill: "white" }} />
               </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Create Memories</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Create Memories</h3>
+              <p style={{ color: "#374151" }}>
                 Make your hen weekend truly unforgettable with activities that bring everyone together
               </p>
             </div>
             <div className="text-center">
               <div
                 className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "var(--color-accent-sage)" }}
+                style={{ background: "#89A38F" }}
               >
-                <CalendarCheck className="w-10 h-10 text-white" />
+                <CalendarCheck className="w-10 h-10" style={{ color: "white" }} />
               </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Hassle-Free Planning</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Hassle-Free Planning</h3>
+              <p style={{ color: "#374151" }}>
                 We arrange everything for you so you can focus on enjoying the celebration
               </p>
             </div>
             <div className="text-center">
               <div
                 className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                style={{ background: "var(--color-accent-gold)" }}
+                style={{ background: "#C6A76D" }}
               >
-                <ShieldCheck className="w-10 h-10 text-white" />
+                <ShieldCheck className="w-10 h-10" style={{ color: "white" }} />
               </div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Trusted Providers</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>Trusted Providers</h3>
+              <p style={{ color: "#374151" }}>
                 All our experience providers are carefully vetted and highly rated by previous guests
               </p>
             </div>
