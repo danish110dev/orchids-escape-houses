@@ -294,7 +294,7 @@ export default function DestinationsPage() {
             <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
             <span className="text-sm font-medium">Explore England</span>
           </div>
-          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+          <h1 className="mb-4 text-4xl md:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
             Top Hen Party Destinations in England
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
