@@ -21,7 +21,7 @@ export default function DestinationDetailPage() {
       name: "London",
       region: "Greater London",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-9523ddd1-20251018221659.mp4",
       overview:
         "London is the ultimate destination for unforgettable celebrations, offering world-class entertainment, iconic landmarks, and endless dining options. From the West End to trendy East London, the capital provides an unmatched mix of culture, nightlife, and luxury experiences perfect for any group celebration.",
       quickFacts: {
@@ -153,7 +153,7 @@ export default function DestinationDetailPage() {
       name: "Manchester",
       region: "Greater Manchester",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-814b7958-20251018221723.mp4",
       overview:
         "Manchester is a vibrant northern powerhouse famous for its music heritage, fantastic shopping, and legendary nightlife. This cosmopolitan city offers incredible value with amazing restaurants, bars, and cultural venues, making it perfect for memorable group celebrations.",
       quickFacts: {
@@ -285,7 +285,7 @@ export default function DestinationDetailPage() {
       name: "York",
       region: "North Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-cf550e7c-20251018221750.mp4",
       overview:
         "York is a charming medieval city with cobbled streets, historic walls, and beautiful riverside setting. This compact city combines rich history with modern amenities, offering boutique shops, cosy pubs, and unique experiences perfect for sophisticated group celebrations.",
       quickFacts: {
@@ -417,7 +417,7 @@ export default function DestinationDetailPage() {
       name: "Cardiff",
       region: "South Wales",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-7ddf21c9-20251018221811.mp4",
       overview:
         "Cardiff is Wales' vibrant capital city offering fantastic value, warm hospitality, and easy access to stunning coastline. This compact city combines modern amenities with historic charm, featuring a beautiful bay area, excellent shopping, and lively nightlife perfect for group celebrations.",
       quickFacts: {
@@ -945,7 +945,7 @@ export default function DestinationDetailPage() {
       name: "Bournemouth",
       region: "Dorset",
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-deb21a6b-20251018221634.mp4",
       overview:
         "Bournemouth is a stunning coastal destination perfect for hen parties, featuring seven miles of golden sandy beaches, vibrant nightlife, and elegant gardens. This seaside resort town offers the ideal blend of beach relaxation and party atmosphere, with bustling bars, restaurants, and clubs. From the iconic pier to the beautiful cliff-top walks, Bournemouth provides an unforgettable coastal celebration experience.",
       quickFacts: {
@@ -1038,17 +1038,17 @@ export default function DestinationDetailPage() {
         {
           name: "Bournemouth Beach",
           description: "Seven miles of golden sand perfect for relaxation.",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--fe669a03-20251018221818.jpg"
         },
         {
           name: "Bournemouth Pier",
           description: "Iconic pier with activities and restaurants.",
-          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--1b74fef4-20251018221825.jpg"
         },
         {
           name: "Lower Gardens",
           description: "Beautiful Victorian gardens in town centre.",
-          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-lower-garden-87563fdd-20251018221833.jpg"
         },
         {
           name: "Watersports",
@@ -1058,12 +1058,12 @@ export default function DestinationDetailPage() {
         {
           name: "Russell-Cotes Museum",
           description: "Art gallery and museum in stunning clifftop villa.",
-          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-russell-cote-b560c5bd-20251018221841.jpg"
         },
         {
           name: "Bournemouth Square",
           description: "Shopping and entertainment in the heart of town.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--a0a20694-20251018221849.jpg"
         },
       ],
       spas: [
