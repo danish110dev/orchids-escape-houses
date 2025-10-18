@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isHousesDropdownOpen, setIsHousesDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHousesOpen, setIsHousesOpen] = useState(false);
   const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
 
@@ -21,15 +20,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
 
@@ -73,7 +72,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md py-3" : "bg-transparent py-4"
+        isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-md"
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6">
@@ -95,8 +94,8 @@ export default function Header() {
             {/* Houses to Rent Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setIsHousesDropdownOpen(true)}
-              onMouseLeave={() => setIsHousesDropdownOpen(false)}
+              onMouseEnter={() => setIsHousesOpen(true)}
+              onMouseLeave={() => setIsHousesOpen(false)}
             >
               <button
                 className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
@@ -108,7 +107,7 @@ export default function Header() {
               </button>
 
               {/* Dropdown Menu */}
-              {isHousesDropdownOpen && (
+              {isHousesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-[640px] bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
                   <div className="grid grid-cols-2 gap-10">
                     {/* House Styles Column */}
@@ -207,130 +206,186 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Full-Page Mobile Menu */}
-        <div
-          className={`lg:hidden fixed inset-0 bg-[var(--color-bg-primary)] z-[55] transition-transform duration-500 ease-in-out ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="h-full overflow-y-auto pt-32 pb-12 px-8">
-            <nav className="flex flex-col gap-8">
-              {/* Houses to Rent Section with Dropdown */}
-              <div className="border-b border-gray-200 pb-8">
-                <button
-                  onClick={() => {
-                    setIsMobileStylesOpen(false);
-                    setIsMobileFeaturesOpen(false);
-                  }}
-                  className="text-2xl font-semibold py-3 block mb-6 w-full text-left flex items-center justify-between"
-                  style={{ 
-                    fontFamily: "var(--font-display)",
-                    color: "var(--color-accent-sage)"
-                  }}
-                >
+        {/* Mobile Menu - Full Page Dark Overlay */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 z-55 bg-[#1F2937] text-white flex flex-col">
+            {/* Close Button */}
+            <div className="absolute top-6 right-6 z-60">
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white hover:text-[var(--color-accent-gold)] transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+
+            {/* Menu Content - Scrollable */}
+            <div className="flex-1 overflow-y-auto px-8 pt-24 pb-12">
+              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                {/* Left Column - Main Navigation */}
+                <nav className="space-y-6">
                   <Link
-                    href="/house-styles-and-features"
+                    href="/"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-display)" }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Houses to Rent
+                    Home
                   </Link>
-                </button>
-                
-                {/* House Styles Accordion */}
-                <div className="mb-6">
-                  <button
-                    onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
-                    className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3 w-full text-left flex items-center justify-between py-2"
-                  >
-                    House Styles
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        isMobileStylesOpen ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-                  <div 
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isMobileStylesOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="space-y-3 pt-2">
-                      {houseStyles.map((style) => (
-                        <Link
-                          key={style.slug}
-                          href={`/house-styles/${style.slug}`}
-                          className="text-base py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors pl-4"
-                          style={{ fontFamily: "var(--font-body)" }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {style.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
 
-                {/* Features Accordion */}
-                <div>
-                  <button
-                    onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
-                    className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3 w-full text-left flex items-center justify-between py-2"
-                  >
-                    Must-Have Features
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        isMobileFeaturesOpen ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-                  <div 
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isMobileFeaturesOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="space-y-3 pt-2">
-                      {features.map((feature) => (
-                        <Link
-                          key={feature.slug}
-                          href={`/features/${feature.slug}`}
-                          className="text-base py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)] transition-colors pl-4"
-                          style={{ fontFamily: "var(--font-body)" }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {feature.title}
-                        </Link>
-                      ))}
-                    </div>
+                  {/* Properties Dropdown */}
+                  <div className="space-y-3">
+                    <Link
+                      href="/properties"
+                      className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                      style={{ fontFamily: "var(--font-display)" }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Properties
+                    </Link>
+                    
+                    {/* House Styles Submenu */}
+                    <button
+                      onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
+                      className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    >
+                      House Styles
+                      <ChevronDown className={`w-5 h-5 transition-transform ${isMobileStylesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isMobileStylesOpen && (
+                      <div className="pl-4 space-y-2 text-white/70">
+                        {houseStyles.map((style) => (
+                          <Link
+                            key={style.slug}
+                            href={`/house-styles/${style.slug}`}
+                            className="block py-1 hover:text-white transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {style.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Features Submenu */}
+                    <button
+                      onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
+                      className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    >
+                      Must-Have Features
+                      <ChevronDown className={`w-5 h-5 transition-transform ${isMobileFeaturesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isMobileFeaturesOpen && (
+                      <div className="pl-4 space-y-2 text-white/70">
+                        {features.map((feature) => (
+                          <Link
+                            key={feature.slug}
+                            href={`/features/${feature.slug}`}
+                            className="block py-1 hover:text-white transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {feature.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
+
+                  <Link
+                    href="/experiences"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Experiences
+                  </Link>
+
+                  <Link
+                    href="/destinations"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Destinations
+                  </Link>
+
+                  <Link
+                    href="/how-it-works"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    How It Works
+                  </Link>
+                </nav>
+
+                {/* Right Column - Secondary Navigation */}
+                <nav className="space-y-4 md:pt-0 pt-8">
+                  <Link
+                    href="/our-story"
+                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+
+                  <Link
+                    href="/reviews"
+                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Testimonials
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Contact Us
+                  </Link>
+
+                  <Link
+                    href="/blog"
+                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Blog
+                  </Link>
+                </nav>
               </div>
+            </div>
 
-              {/* Main Nav Links */}
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-2xl font-semibold py-3 hover:text-[var(--color-accent-sage)] transition-colors"
-                  style={{ fontFamily: "var(--font-display)" }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              {/* CTA Button */}
+            {/* Bottom CTA and Contact */}
+            <div className="border-t border-white/20 px-8 py-8 space-y-6">
               <Button
                 asChild
-                className="rounded-2xl py-6 text-lg text-white font-medium mt-6"
-                style={{ background: "var(--color-accent-gold)" }}
+                size="lg"
+                className="w-full rounded-full py-6 text-xl font-medium"
+                style={{
+                  background: "var(--color-accent-gold)",
+                  color: "white",
+                }}
               >
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book Now
+                  INSTANT QUOTE
                 </Link>
               </Button>
-            </nav>
+
+              <div className="text-center space-y-2">
+                <p className="text-white/70 text-sm">Nationwide</p>
+                <a
+                  href="tel:01273590820"
+                  className="text-2xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  01273 590820
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
