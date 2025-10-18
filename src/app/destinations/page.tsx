@@ -478,7 +478,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-16 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-8 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full">
           {/* Top Row: Text */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
@@ -540,7 +540,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-16 bg-[var(--color-bg-secondary)]">
+      <section className="py-12 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Why Choose Group Escape Houses?
