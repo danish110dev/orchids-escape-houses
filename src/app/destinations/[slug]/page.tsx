@@ -37,11 +37,36 @@ export default function DestinationDetailPage() {
         "Revenge - Brighton's biggest LGBT+ club with drag shows",
       ],
       brunch: [
-        "The Ivy in the Lanes - Elegant all-day dining in beautiful setting",
-        "Burnt Orange - Bottomless brunch with great cocktails",
-        "Bills - Local favourite serving delicious breakfast and brunch",
-        "The Salt Room - Upscale seafront dining with amazing views",
-        "Cafe Coho - Independent cafe with excellent coffee and brunch",
+        {
+          name: "The Ivy in the Lanes",
+          description: "Elegant all-day dining in beautiful setting",
+          link: "https://theivybrighton.com/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-an-e-59e4c8c3-20251018180521.jpg"
+        },
+        {
+          name: "Burnt Orange",
+          description: "Bottomless brunch with great cocktails",
+          link: "https://www.burntorangerestaurant.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-brunch--d0d07ee5-20251018180529.jpg"
+        },
+        {
+          name: "Bills",
+          description: "Local favourite serving delicious breakfast and brunch",
+          link: "https://bills-website.co.uk/restaurants/brighton/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cozy-brunch-r-01a7b99d-20251018180537.jpg"
+        },
+        {
+          name: "The Salt Room",
+          description: "Upscale seafront dining with amazing views",
+          link: "https://www.saltroom-restaurant.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-upscale-seafr-d2c9e08b-20251018180545.jpg"
+        },
+        {
+          name: "Cafe Coho",
+          description: "Independent cafe with excellent coffee and brunch",
+          link: "https://www.cafecoho.co.uk/",
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-independent--8343a7c0-20251018180554.jpg"
+        },
       ],
       activities: [
         "Brighton Palace Pier - Classic seaside fun with arcade games",
@@ -383,8 +408,11 @@ export default function DestinationDetailPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.brunch.map((venue, index) => (
               <div key={index} className="bg-white rounded-xl p-6">
-                <p className="font-semibold mb-2">{venue.split(" - ")[0]}</p>
-                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.split(" - ")[1]}</p>
+                <p className="font-semibold mb-2">{venue.name}</p>
+                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
+                <a href={venue.link} className="text-[var(--color-accent-sage)] hover:underline text-sm mt-2 block">
+                  Visit {venue.name}
+                </a>
               </div>
             ))}
           </div>
