@@ -1,8 +1,8 @@
 /* Custom styles for react-day-picker to match brand */
 .rdp {
   --rdp-cell-size: 40px;
-  --rdp-accent-color: var(--color-accent-sage);
-  --rdp-background-color: var(--color-accent-sage);
+  --rdp-accent-color: #89A38F;
+  --rdp-background-color: #89A38F;
   --rdp-accent-color-dark: #7a9280;
   margin: 0;
 }
@@ -22,7 +22,7 @@
   align-items: center;
   padding: 0.5rem 0;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: #1F2937;
 }
 
 .rdp-nav {
@@ -38,23 +38,23 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  color: var(--color-neutral-dark);
+  color: #374151;
 }
 
 .rdp-nav_button:hover {
-  background-color: var(--color-bg-primary);
-  color: var(--color-accent-sage);
+  background-color: #F5F3F0;
+  color: #89A38F;
 }
 
 .rdp-nav_button:focus-visible {
-  outline: 2px solid var(--color-accent-sage);
+  outline: 2px solid #89A38F;
   outline-offset: 2px;
 }
 
 .rdp-head_cell {
   font-weight: 600;
   font-size: 0.875rem;
-  color: var(--color-neutral-dark);
+  color: #374151;
   text-transform: uppercase;
 }
 
@@ -69,21 +69,21 @@
   font-size: 0.875rem;
   transition: all 0.2s;
   border: none;
-  color: var(--color-text-primary);
+  color: #1F2937;
 }
 
 .rdp-day:hover:not(.rdp-day_selected):not(.rdp-day_disabled) {
-  background-color: var(--color-bg-primary);
+  background-color: #F5F3F0;
 }
 
 .rdp-day:focus-visible {
-  outline: 2px solid var(--color-accent-sage);
+  outline: 2px solid #89A38F;
   outline-offset: -2px;
-  background-color: var(--color-bg-primary);
+  background-color: #F5F3F0;
 }
 
 .rdp-day_selected {
-  background-color: var(--color-accent-sage) !important;
+  background-color: #89A38F !important;
   color: white !important;
   font-weight: 600;
   border: none !important;
@@ -94,18 +94,18 @@
 }
 
 .rdp-day_selected:focus-visible {
-  outline: 2px solid var(--color-accent-sage);
+  outline: 2px solid #89A38F;
   outline-offset: 2px;
 }
 
 .rdp-day_today {
   font-weight: bold;
-  color: var(--color-accent-sage);
+  color: #89A38F;
   background-color: transparent;
 }
 
 .rdp-day_today:not(.rdp-day_selected) {
-  border: 2px solid var(--color-accent-sage);
+  border: 2px solid #89A38F;
 }
 
 .rdp-day_disabled {
@@ -116,13 +116,13 @@
 
 .rdp-day_range_middle {
   background-color: rgba(137, 163, 143, 0.2) !important;
-  color: var(--color-text-primary) !important;
+  color: #1F2937 !important;
   border: none !important;
 }
 
 .rdp-day_range_start,
 .rdp-day_range_end {
-  background-color: var(--color-accent-sage) !important;
+  background-color: #89A38F !important;
   color: white !important;
   border: none !important;
 }
