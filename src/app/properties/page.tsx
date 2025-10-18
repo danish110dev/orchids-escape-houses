@@ -7,7 +7,24 @@ import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { SlidersHorizontal, X } from "lucide-react";
+import { 
+  SlidersHorizontal, 
+  X, 
+  MapPin, 
+  Users, 
+  PoundSterling,
+  Sparkles,
+  Waves,
+  Gamepad2,
+  PawPrint,
+  Accessibility,
+  Clapperboard,
+  Flame,
+  Trees,
+  Check,
+  Loader2
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function PropertiesPage() {
   const [showFilters, setShowFilters] = useState(false);
@@ -89,14 +106,14 @@ export default function PropertiesPage() {
   ];
 
   const featureOptions = [
-    "Hot Tub",
-    "Pool",
-    "Games Room",
-    "Pet Friendly",
-    "Accessible",
-    "Cinema",
-    "BBQ",
-    "Garden",
+    { icon: Waves, label: "Hot Tub" },
+    { icon: Waves, label: "Pool" },
+    { icon: Gamepad2, label: "Games Room" },
+    { icon: PawPrint, label: "Pet Friendly" },
+    { icon: Accessibility, label: "Accessible" },
+    { icon: Clapperboard, label: "Cinema" },
+    { icon: Flame, label: "BBQ" },
+    { icon: Trees, label: "Garden" },
   ];
 
   const toggleFeature = (feature: string) => {
@@ -108,6 +125,29 @@ export default function PropertiesPage() {
     }));
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.19, 1, 0.22, 1]
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -115,12 +155,18 @@ export default function PropertiesPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Hen Party Houses to Rent
-          </h1>
-          <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
-            Luxury group accommodation across the UK with hot tubs, pools, and amazing features
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          >
+            <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party Houses to Rent
+            </h1>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
+              Luxury group accommodation across the UK with hot tubs, pools, and amazing features
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -131,7 +177,7 @@ export default function PropertiesPage() {
           <div className="md:hidden mb-6">
             <Button
               onClick={() => setShowFilters(!showFilters)}
-              className="w-full rounded-xl py-6 font-medium"
+              className="w-full rounded-xl py-6 font-medium transition-all duration-200 hover:scale-[1.02]"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -144,10 +190,16 @@ export default function PropertiesPage() {
 
           <div className="flex flex-col md:flex-row gap-8">
             {/* Filters Sidebar */}
-            <div className={`md:w-80 ${showFilters ? "block" : "hidden md:block"}`}>
+            <motion.div 
+              className={`md:w-80 ${showFilters ? "block" : "hidden md:block"}`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <div className="bg-white rounded-2xl p-6 shadow-md sticky top-24">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-semibold" style={{ fontFamily: "var(--font-body)" }}>
+                  <h3 className="text-xl font-semibold flex items-center gap-2" style={{ fontFamily: "var(--font-body)" }}>
+                    <SlidersHorizontal className="w-5 h-5 text-[var(--color-accent-sage)]" />
                     Filters
                   </h3>
                   <Button
@@ -162,6 +214,7 @@ export default function PropertiesPage() {
                         features: [],
                       })
                     }
+                    className="hover:text-[var(--color-accent-pink)] transition-colors"
                   >
                     Clear all
                   </Button>
@@ -170,9 +223,12 @@ export default function PropertiesPage() {
                 <div className="space-y-6">
                   {/* Location */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">Location</label>
+                    <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
+                      Location
+                    </label>
                     <select
-                      className="w-full px-4 py-2 rounded-xl border border-gray-300"
+                      className="w-full px-4 py-2 rounded-xl border border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-[var(--color-accent-sage)] focus:border-transparent"
                       value={filters.location}
                       onChange={(e) => setFilters({ ...filters, location: e.target.value })}
                     >
@@ -188,7 +244,8 @@ export default function PropertiesPage() {
 
                   {/* Group Size */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                      <Users className="w-4 h-4 text-[var(--color-accent-gold)]" />
                       Group size: {filters.groupSize > 0 ? `${filters.groupSize}+` : "Any"}
                     </label>
                     <Slider
@@ -202,7 +259,8 @@ export default function PropertiesPage() {
 
                   {/* Price Range */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                      <PoundSterling className="w-4 h-4 text-[var(--color-accent-sage)]" />
                       Price per night: £{filters.priceMin} - £{filters.priceMax}
                     </label>
                     <Slider
@@ -218,63 +276,102 @@ export default function PropertiesPage() {
 
                   {/* Features */}
                   <div>
-                    <label className="block text-sm font-medium mb-3">Features</label>
+                    <label className="block text-sm font-medium mb-3 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-[var(--color-accent-pink)]" />
+                      Features
+                    </label>
                     <div className="space-y-2">
-                      {featureOptions.map((feature) => (
-                        <label key={feature} className="flex items-center gap-3 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={filters.features.includes(feature)}
-                            onChange={() => toggleFeature(feature)}
-                            className="w-4 h-4 rounded accent-[var(--color-accent-pink)]"
-                          />
-                          <span className="text-sm">{feature}</span>
-                        </label>
-                      ))}
+                      {featureOptions.map((feature) => {
+                        const Icon = feature.icon;
+                        return (
+                          <motion.label 
+                            key={feature.label} 
+                            className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors"
+                            whileHover={{ x: 4 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={filters.features.includes(feature.label)}
+                              onChange={() => toggleFeature(feature.label)}
+                              className="w-4 h-4 rounded accent-[var(--color-accent-pink)]"
+                            />
+                            <Icon className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                            <span className="text-sm">{feature.label}</span>
+                          </motion.label>
+                        );
+                      })}
                     </div>
                   </div>
 
                   {/* Instant Enquiry Only */}
                   <div>
-                    <label className="flex items-center gap-3 cursor-pointer">
+                    <motion.label 
+                      className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <input
                         type="checkbox"
                         className="w-4 h-4 rounded accent-[var(--color-accent-pink)]"
                       />
+                      <Check className="w-4 h-4 text-[var(--color-accent-gold)]" />
                       <span className="text-sm font-medium">Instant enquiry only</span>
-                    </label>
+                    </motion.label>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Property Grid */}
             <div className="flex-1">
               {/* Sort and Count */}
-              <div className="flex items-center justify-between mb-8">
-                <p className="text-[var(--color-neutral-dark)]">
+              <motion.div 
+                className="flex items-center justify-between mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <p className="text-[var(--color-neutral-dark)] flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[var(--color-accent-gold)]" />
                   Showing {properties.length} properties
                 </p>
-                <select className="px-4 py-2 rounded-xl border border-gray-300 text-sm">
+                <select className="px-4 py-2 rounded-xl border border-gray-300 text-sm transition-all duration-200 focus:ring-2 focus:ring-[var(--color-accent-sage)] focus:border-transparent">
                   <option>Sort by: Price (Low to High)</option>
                   <option>Sort by: Price (High to Low)</option>
                   <option>Sort by: Sleeps (Most first)</option>
                   <option>Sort by: Newest</option>
                 </select>
-              </div>
+              </motion.div>
 
               {/* Property Cards */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <motion.div 
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
                 {properties.map((property) => (
-                  <PropertyCard key={property.id} {...property} />
+                  <motion.div
+                    key={property.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                  >
+                    <PropertyCard {...property} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Load More */}
-              <div className="text-center mt-12">
+              <motion.div 
+                className="text-center mt-12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 <Button
                   size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all duration-300 hover:scale-[1.05] hover:shadow-lg"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
@@ -282,7 +379,7 @@ export default function PropertiesPage() {
                 >
                   Load More Properties
                 </Button>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
