@@ -33,8 +33,8 @@ export default function PropertiesPage() {
   const [filters, setFilters] = useState({
     location: "",
     groupSize: 0,
-    priceMin: 0,
-    priceMax: 200,
+    priceMin: 50,
+    priceMax: 3000,
     features: [] as string[],
   });
 
