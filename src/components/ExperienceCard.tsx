@@ -32,10 +32,10 @@ export default function ExperienceCard({
         />
         
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
         
-        {/* Content */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+        {/* Content with white background */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/90 backdrop-blur-sm text-[var(--color-text-primary)]">
           <h3
             className="text-2xl font-semibold mb-3"
             style={{ fontFamily: "var(--font-display)" }}
@@ -45,25 +45,27 @@ export default function ExperienceCard({
           
           <div className="flex items-center gap-6 mb-4 text-sm">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-[var(--color-accent-sage)]" />
               <span>{duration}</span>
             </div>
             <div className="flex items-center gap-2">
-              <UsersRound className="w-4 h-4" />
+              <UsersRound className="w-4 h-4 text-[var(--color-accent-sage)]" />
               <span>{groupSize}</span>
             </div>
           </div>
           
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm opacity-90">From</p>
-              <p className="text-2xl font-bold">£{priceFrom}</p>
-              <p className="text-xs opacity-90">per person</p>
+              <p className="text-sm text-[var(--color-neutral-dark)]">From</p>
+              <p className="text-2xl font-bold" style={{ color: "var(--color-accent-gold)" }}>
+                £{priceFrom}
+              </p>
+              <p className="text-xs text-[var(--color-neutral-dark)]">per person</p>
             </div>
             
             <div
-              className="px-6 py-2 rounded-xl font-medium text-sm group-hover:scale-105 transition-transform"
-              style={{ background: "var(--color-accent-sage)", color: "white" }}
+              className="px-6 py-2 rounded-xl font-medium text-sm group-hover:scale-105 transition-transform text-white"
+              style={{ background: "var(--color-accent-sage)" }}
             >
               View Experience
             </div>
