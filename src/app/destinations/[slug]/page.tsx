@@ -40,11 +40,36 @@ export default function DestinationDetailPage() {
         "Coach services: Regular National Express services from major UK cities",
       ],
       nightlife: [
-        "The Arch - Popular club with multiple rooms and diverse music",
-        "Patterns - Beachfront venue with live DJs and stunning sea views",
-        "Coalition - Busy student bar with cheap drinks and great atmosphere",
-        "Proud Cabaret - Dinner and show venue with burlesque performances",
-        "Revenge - Brighton's biggest LGBT+ club with drag shows",
+        {
+          name: "The Arch",
+          description: "Popular club with multiple rooms and diverse music.",
+          image: ""
+        },
+        {
+          name: "Patterns",
+          description: "Beachfront venue with live DJs and stunning sea views.",
+          image: ""
+        },
+        {
+          name: "Coalition",
+          description: "Busy student bar with cheap drinks and great atmosphere.",
+          image: ""
+        },
+        {
+          name: "Proud Cabaret",
+          description: "Dinner and show venue with burlesque performances.",
+          image: ""
+        },
+        {
+          name: "Revenge",
+          description: "Brighton's biggest LGBT+ club with drag shows.",
+          image: ""
+        },
+        {
+          name: "Concorde 2",
+          description: "Live music venue and club with indie and alternative nights.",
+          image: ""
+        },
       ],
       brunch: [
         {
@@ -516,8 +541,8 @@ export default function DestinationDetailPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.nightlife.map((venue, index) => (
               <div key={index} className="bg-[var(--color-bg-primary)] rounded-xl p-6">
-                <p className="font-semibold mb-2">{venue.split(" - ")[0]}</p>
-                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.split(" - ")[1]}</p>
+                <p className="font-semibold mb-2">{venue.name}</p>
+                <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
               </div>
             ))}
           </div>
