@@ -177,20 +177,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button
-              asChild
-              className="rounded-2xl px-9 py-3 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-              style={{
-                background: "var(--color-accent-gold)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              <Link href="/contact">Book Now</Link>
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
@@ -209,9 +195,9 @@ export default function Header() {
 
         {/* Mobile Menu - Full Page Dark Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-55 bg-[#1F2937] text-white flex flex-col">
+          <div className="lg:hidden fixed inset-0 z-[55] bg-[#1F2937] text-white flex flex-col">
             {/* Close Button */}
-            <div className="absolute top-6 right-6 z-60">
+            <div className="absolute top-6 right-6 z-[60]">
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-white hover:text-[var(--color-accent-gold)] transition-colors"
