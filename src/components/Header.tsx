@@ -219,7 +219,7 @@ export default function Header() {
 
       {/* Mobile Menu - Full Screen Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-[55] bg-[#1F2937] flex flex-col overflow-hidden">
+        <div className="lg:hidden fixed inset-0 z-[55] bg-[#89A38F] flex flex-col overflow-hidden">
           {/* Menu Content - Scrollable */}
           <div className="flex-1 overflow-y-auto px-8 pt-32 pb-12">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
@@ -358,7 +358,7 @@ export default function Header() {
           </div>
 
           {/* Bottom CTA and Contact */}
-          <div className="border-t border-white/20 px-8 py-8 space-y-6 bg-[#1F2937]">
+          <div className="border-t border-white/20 px-8 py-8 space-y-6 bg-[#89A38F]">
             <Button
               asChild
               size="lg"
