@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MapPin, TrendingUp } from "lucide-react";
+import Button from "@/components/Button";
 
 export default function DestinationsPage() {
   const destinations = [
@@ -383,6 +384,34 @@ export default function DestinationsPage() {
               <p className="text-[var(--color-neutral-dark)]">
                 Combine accommodation with experiences for a hassle-free celebration
               </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/properties">Browse Houses</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+                style={{
+                  borderColor: "var(--color-accent-gold)",
+                  color: "var(--color-text-primary)",
+                }}
+              >
+                <Link href="/contact">Get a Quote</Link>
+              </Button>
             </div>
           </div>
         </div>
