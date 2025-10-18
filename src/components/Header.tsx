@@ -19,6 +19,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const houseStyles = [
     { title: "Manor Houses", slug: "manor-houses" },
     { title: "Country Houses", slug: "country-houses" },
@@ -179,7 +191,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 flex items-center gap-2"
+            className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -193,59 +205,82 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg mt-2 rounded-lg mx-4 p-6 backdrop-blur-md max-h-[80vh] overflow-y-auto">
-            <nav className="flex flex-col gap-5">
-              {/* Houses to Rent Mobile */}
-              <div className="border-b border-gray-200 pb-5">
+        {/* Full-Page Mobile Menu */}
+        <div
+          className={`lg:hidden fixed inset-0 bg-[var(--color-bg-primary)] z-[55] transition-transform duration-500 ease-in-out ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="h-full overflow-y-auto pt-32 pb-12 px-8">
+            <nav className="flex flex-col gap-8">
+              {/* Houses to Rent Section */}
+              <div className="border-b border-gray-200 pb-8">
                 <Link
                   href="/house-styles-and-features"
-                  className="text-base font-semibold py-2 block text-[var(--color-accent-sage)]"
+                  className="text-2xl font-semibold py-3 block mb-6"
+                  style={{ 
+                    fontFamily: "var(--font-display)",
+                    color: "var(--color-accent-sage)"
+                  }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Houses to Rent
                 </Link>
-                <div className="ml-4 mt-3 space-y-2.5">
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">House Styles</p>
-                  {houseStyles.slice(0, 6).map((style) => (
-                    <Link
-                      key={style.slug}
-                      href={`/house-styles/${style.slug}`}
-                      className="text-[15px] py-1.5 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)]"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {style.title}
-                    </Link>
-                  ))}
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mt-4">Features</p>
-                  {features.slice(0, 5).map((feature) => (
-                    <Link
-                      key={feature.slug}
-                      href={`/features/${feature.slug}`}
-                      className="text-[15px] py-1.5 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)]"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {feature.title}
-                    </Link>
-                  ))}
+                
+                {/* House Styles */}
+                <div className="mb-6">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">House Styles</p>
+                  <div className="space-y-3">
+                    {houseStyles.map((style) => (
+                      <Link
+                        key={style.slug}
+                        href={`/house-styles/${style.slug}`}
+                        className="text-lg py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
+                        style={{ fontFamily: "var(--font-body)" }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {style.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Must-Have Features</p>
+                  <div className="space-y-3">
+                    {features.map((feature) => (
+                      <Link
+                        key={feature.slug}
+                        href={`/features/${feature.slug}`}
+                        className="text-lg py-2 block text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)] transition-colors"
+                        style={{ fontFamily: "var(--font-body)" }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {feature.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Other Nav Links */}
+              {/* Main Nav Links */}
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-base font-medium py-2 hover:text-[var(--color-accent-sage)] transition-colors"
+                  className="text-2xl font-semibold py-3 hover:text-[var(--color-accent-sage)] transition-colors"
+                  style={{ fontFamily: "var(--font-display)" }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
+
+              {/* CTA Button */}
               <Button
                 asChild
-                className="rounded-2xl mt-4 text-white font-medium"
+                className="rounded-2xl py-6 text-lg text-white font-medium mt-6"
                 style={{ background: "var(--color-accent-gold)" }}
               >
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
@@ -254,7 +289,7 @@ export default function Header() {
               </Button>
             </nav>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
