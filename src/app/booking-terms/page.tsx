@@ -237,7 +237,7 @@ export default function BookingTermsPage() {
               </p>
               <p className="text-[var(--color-neutral-dark)]">
                 <strong>Email:</strong> <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hello@groupescapehouses.co.uk</a><br />
-                <strong>Office:</strong> 11a North St, Brighton and Hove, Brighton BN41 1DH
+                <strong>Office:</strong> 11a North Street, Brighton BN41 1DH
               </p>
             </div>
 
