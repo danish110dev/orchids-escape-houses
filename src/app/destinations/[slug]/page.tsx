@@ -276,9 +276,31 @@ export default function DestinationDetailPage() {
               <h2 className="text-3xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Why {destination.name}?
               </h2>
-              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
                 {destination.overview}
               </p>
+              
+              <div className="space-y-4 mt-6">
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  {destination.name} stands out as one of the UK's premier destinations for <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party celebrations</Link>. 
+                  Our carefully selected <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury properties</Link> in the area provide the perfect base for your celebration, 
+                  featuring essential amenities like <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">private hot tubs</Link>, <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link>, 
+                  and spacious living areas designed for group entertainment.
+                </p>
+                
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  Beyond the accommodation, {destination.name} offers an incredible range of activities to enhance your <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>. 
+                  From world-class dining and vibrant nightlife to unique <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> like cocktail masterclasses, spa treatments, 
+                  and private chef dinners, there's something to suit every group's taste and budget. The city's compact layout means you can easily explore on foot, making it simple to move between venues and attractions.
+                </p>
+                
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  Looking for other celebration options? Explore our <Link href="/house-styles/party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">party houses</Link> for 
+                  lively group gatherings, <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link> for upscale celebrations, 
+                  or browse our collection of <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link> including <Link href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium">Bath</Link>, <Link href="/destinations/manchester" className="text-[var(--color-accent-sage)] hover:underline font-medium">Manchester</Link>, 
+                  and <Link href="/destinations/york" className="text-[var(--color-accent-sage)] hover:underline font-medium">York</Link>.
+                </p>
+              </div>
             </div>
             <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
               <h3 className="text-xl font-semibold mb-6">Quick Facts</h3>
