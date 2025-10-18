@@ -21,21 +21,19 @@ export default function Home() {
     setMounted(true);
     
     const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -100px 0px"
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-in");
-          // Optional: stop observing after animation to improve performance
-          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Small delay to ensure DOM is fully ready
+    // Observe all scroll-reveal elements
     const timeoutId = setTimeout(() => {
       const elements = document.querySelectorAll(".scroll-reveal");
       elements.forEach(el => observer.observe(el));
@@ -429,15 +427,16 @@ export default function Home() {
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.step} className="text-center relative">
+                <div key={item.step} className="text-center relative group">
                   <div
-                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg animate-float"
                     style={{
                       background: "var(--color-accent-sage)",
                       color: "white",
+                      animationDelay: `${parseInt(item.step) * 100}ms`,
                     }}
                   >
-                    <Icon className="w-10 h-10" />
+                    <Icon className="w-10 h-10 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                     {item.title}
