@@ -57,10 +57,11 @@ export default function HowItWorksPage() {
               return (
                 <div key={item.step} className="text-center">
                   <div
-                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center animate-float"
                     style={{
                       background: "var(--color-accent-sage)",
                       color: "white",
+                      animationDelay: `${item.step * 0.2}s`,
                     }}
                   >
                     <Icon className="w-10 h-10" />
