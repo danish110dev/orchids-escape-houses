@@ -363,15 +363,13 @@ export default function Header() {
             <Button
               asChild
               size="lg"
-              className="w-full rounded-full py-6 text-xl font-medium"
+              className="hidden md:flex rounded-2xl px-8 py-3 font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
               }}
             >
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                INSTANT QUOTE
-              </Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>

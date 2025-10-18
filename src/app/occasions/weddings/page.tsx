@@ -148,7 +148,7 @@ export default function WeddingsPage() {
                     color: "var(--color-text-primary)",
                   }}
                 >
-                  <Link href="/contact">Get Instant Quote</Link>
+                  <Link href="/contact">Check Availability and Book</Link>
                 </Button>
               </div>
             </motion.div>

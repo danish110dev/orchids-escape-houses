@@ -161,7 +161,7 @@ export default function WeekendBreaksPage() {
                 color: "white",
               }}
             >
-              <Link href="/properties">Browse Weekend Houses</Link>
+              <Link href="/properties">Find Your Weekend House</Link>
             </Button>
             <Button
               asChild
@@ -173,7 +173,7 @@ export default function WeekendBreaksPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>
@@ -310,7 +310,7 @@ export default function WeekendBreaksPage() {
             Plan Your Weekend Break
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today for an instant quote and start planning your perfect weekend getaway
+            Get in touch today for availability check and discover the perfect property for your next escape
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -322,7 +322,7 @@ export default function WeekendBreaksPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild

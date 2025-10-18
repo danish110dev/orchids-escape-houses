@@ -152,7 +152,7 @@ export default function EasterPage() {
                 color: "white",
               }}
             >
-              <Link href="/properties">Browse Easter Houses</Link>
+              <Link href="/properties">Find Your Easter House</Link>
             </Button>
             <Button
               asChild
@@ -164,7 +164,7 @@ export default function EasterPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>
@@ -286,7 +286,7 @@ export default function EasterPage() {
             Plan Your Easter Break
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today for an instant quote and start planning the perfect Easter with your family
+            Get in touch today for availability check and start planning your perfect Easter getaway
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -298,7 +298,7 @@ export default function EasterPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild

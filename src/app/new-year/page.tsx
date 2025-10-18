@@ -152,7 +152,7 @@ export default function NewYearPage() {
                 color: "white",
               }}
             >
-              <Link href="/properties">Browse Party Houses</Link>
+              <Link href="/properties">Find Your New Year House</Link>
             </Button>
             <Button
               asChild
@@ -164,7 +164,7 @@ export default function NewYearPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function NewYearPage() {
             Book Early for New Year
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            New Year's Eve is one of our busiest times. Secure your perfect party house now and start planning an unforgettable celebration
+            Contact us for availability check and start planning your unforgettable New Year celebration
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -261,7 +261,7 @@ export default function NewYearPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Check Availability</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild

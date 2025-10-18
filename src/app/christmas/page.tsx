@@ -152,7 +152,7 @@ export default function ChristmasPage() {
                 color: "white",
               }}
             >
-              <Link href="/properties">Browse Christmas Houses</Link>
+              <Link href="/properties">Find Your Christmas House</Link>
             </Button>
             <Button
               asChild
@@ -164,7 +164,7 @@ export default function ChristmasPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
           </div>
         </div>
@@ -286,7 +286,7 @@ export default function ChristmasPage() {
             Make This Christmas Unforgettable
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today for an instant quote and start planning the perfect Christmas with your loved ones
+            Get in touch today for availability check and start planning your magical Christmas celebration
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -298,7 +298,7 @@ export default function ChristmasPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Get Instant Quote</Link>
+              <Link href="/contact">Check Availability and Book</Link>
             </Button>
             <Button
               asChild
