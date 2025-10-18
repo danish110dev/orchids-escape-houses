@@ -79,11 +79,6 @@ export default function Footer() {
                   hello@groupescapehouses.co.uk
                 </a>
               </li>
-              <li className="pt-4">
-                <Link href="/contact" className="inline-block px-6 py-2 rounded-xl bg-[var(--color-accent-gold)] text-white hover:bg-[var(--color-accent-sage)] transition-colors">
-                  Book Now
-                </Link>
-              </li>
             </ul>
           </div>
 
