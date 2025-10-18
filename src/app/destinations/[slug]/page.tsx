@@ -77,37 +77,37 @@ export default function DestinationDetailPage() {
           name: "The Ivy in the Lanes",
           description: "Elegant all-day dining in beautiful setting.",
           link: "https://theivybrighton.com/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-an-e-59e4c8c3-20251018180521.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-eleg-9ccf4e6e-20251018213941.jpg"
         },
         {
           name: "Burnt Orange",
           description: "Bottomless brunch with great cocktails.",
           link: "https://www.burntorangerestaurant.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-brunch--d0d07ee5-20251018180529.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-bottoml-b2a5bdbc-20251018213948.jpg"
         },
         {
           name: "Bills",
           description: "Local favourite serving delicious breakfast and brunch.",
           link: "https://bills-website.co.uk/restaurants/brighton/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cozy-brunch-r-01a7b99d-20251018180537.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cozy-local-fa-1bb43550-20251018213955.jpg"
         },
         {
           name: "The Salt Room",
           description: "Upscale seafront dining with amazing views.",
           link: "https://www.saltroom-restaurant.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-upscale-seafr-d2c9e08b-20251018180545.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-upscale-seafr-2a17d9c6-20251018214003.jpg"
         },
         {
           name: "Cafe Coho",
           description: "Independent cafe with excellent coffee and brunch.",
           link: "https://www.cafecoho.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-independent--8343a7c0-20251018180554.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-independent-a-2d62cdd0-20251018214014.jpg"
         },
         {
           name: "Terre à Terre",
           description: "Award-winning vegetarian restaurant with creative brunch.",
           link: "https://www.terreaterre.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-vegetar-1ea0553b-20251018212927.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-creativ-74c2bc4c-20251018214021.jpg"
         },
       ],
       activities: [
