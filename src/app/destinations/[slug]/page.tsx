@@ -17,6 +17,534 @@ export default function DestinationDetailPage() {
 
   // Destinations data
   const destinationsData: Record<string, any> = {
+    london: {
+      name: "London",
+      region: "Greater London",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london%2c-uk-29990c38-20251018180027.jpg",
+      video: "",
+      overview:
+        "London is the ultimate destination for unforgettable celebrations, offering world-class entertainment, iconic landmarks, and endless dining options. From the West End to trendy East London, the capital provides an unmatched mix of culture, nightlife, and luxury experiences perfect for any group celebration.",
+      quickFacts: {
+        fromLondon: "In the capital",
+        nightlife: "World-class entertainment",
+        dining: "Michelin stars & street food",
+        bestTime: "Year-round destination",
+        beachAccess: "River Thames views",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£85-£180 per night",
+        activities: "Museums, shows, shopping, dining"
+      },
+      gettingThere: [
+        { icon: Train, text: "Excellent train connections to all London terminals from across the UK" },
+        { icon: Plane, text: "Multiple airports: Heathrow, Gatwick, Stansted, Luton, City Airport" },
+        { icon: Car, text: "Major motorways M1, M4, M25 with congestion charge in central zones" },
+        { icon: Bus, text: "Extensive coach network and 24-hour tube on weekends" },
+      ],
+      nightlife: [
+        {
+          name: "Fabric",
+          description: "World-famous superclub in Farringdon.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Ministry of Sound",
+          description: "Iconic club with legendary sound system.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Shoreditch House",
+          description: "Rooftop bar with stunning city views.",
+          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+        },
+        {
+          name: "The Box Soho",
+          description: "Cabaret and nightclub experience.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "Cirque le Soir",
+          description: "Circus-themed immersive nightclub.",
+          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+        },
+        {
+          name: "XOYO",
+          description: "Cutting-edge music venue in Shoreditch.",
+          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "Sketch",
+          description: "Instagram-famous pink room with afternoon tea.",
+          link: "https://sketch.london/",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+        },
+        {
+          name: "The Ivy",
+          description: "British classics in glamorous setting.",
+          link: "https://www.the-ivy.co.uk/",
+          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+        },
+        {
+          name: "Dishoom",
+          description: "Bombay-style cafe with legendary bacon naan.",
+          link: "https://www.dishoom.com/",
+          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+        },
+        {
+          name: "Balthazar",
+          description: "French brasserie in Covent Garden.",
+          link: "https://www.balthazarlondon.com/",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+        },
+        {
+          name: "Duck & Waffle",
+          description: "24-hour dining with breathtaking views.",
+          link: "https://duckandwaffle.com/",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+        },
+        {
+          name: "Granger & Co",
+          description: "Australian brunch classics.",
+          link: "https://grangerandco.com/",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "West End Shows",
+          description: "World-class theatre and musicals.",
+          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        },
+        {
+          name: "Thames River Cruise",
+          description: "See London's landmarks from the water.",
+          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        },
+        {
+          name: "Borough Market",
+          description: "Historic food market with artisan treats.",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+        },
+        {
+          name: "Shoreditch Street Art",
+          description: "Walking tour of famous graffiti.",
+          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+        },
+        {
+          name: "Sky Garden",
+          description: "Free rooftop garden with panoramic views.",
+          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+        },
+        {
+          name: "Camden Market",
+          description: "Alternative shopping and street food.",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+      ],
+      spas: [
+        "The Ned Spa - City spa with rooftop pool",
+        "ESPA Life at Corinthia - Five-star luxury spa",
+        "Cowshed Spa - Trendy Shoreditch spa retreat",
+        "Bulgari Spa - Knightsbridge luxury spa",
+      ],
+    },
+    manchester: {
+      name: "Manchester",
+      region: "Greater Manchester",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
+      video: "",
+      overview:
+        "Manchester is a vibrant northern powerhouse famous for its music heritage, fantastic shopping, and legendary nightlife. This cosmopolitan city offers incredible value with amazing restaurants, bars, and cultural venues, making it perfect for memorable group celebrations.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        nightlife: "Northern Quarter buzzing",
+        dining: "Diverse food scene",
+        bestTime: "Year-round destination",
+        beachAccess: "City centre location",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£65-£140 per night",
+        activities: "Shopping, music, culture, dining"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Manchester: 2 hours by train (Euston to Piccadilly)" },
+        { icon: Plane, text: "Manchester Airport: 20 minutes by train or car to city centre" },
+        { icon: Car, text: "Well connected via M6, M62, M60 with city centre parking" },
+        { icon: Bus, text: "Regular coach services from all major UK cities" },
+      ],
+      nightlife: [
+        {
+          name: "The Warehouse Project",
+          description: "Legendary club nights and events.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Revolution",
+          description: "Cocktail bar with party atmosphere.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Deansgate Locks",
+          description: "Canal-side bars and clubs.",
+          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+        },
+        {
+          name: "The Printworks",
+          description: "Entertainment complex with multiple venues.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "Cloud 23",
+          description: "Rooftop bar with panoramic views.",
+          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+        },
+        {
+          name: "Albert's Schloss",
+          description: "Bavarian-style beer hall with live music.",
+          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "Federal Bar & Kitchen",
+          description: "Australian-style brunch in Northern Quarter.",
+          link: "https://federalandco.com/",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+        },
+        {
+          name: "Evelyn's Cafe Bar",
+          description: "Bottomless brunch with live music.",
+          link: "https://www.evelynscafebar.com/",
+          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+        },
+        {
+          name: "The Ivy Spinningfields",
+          description: "All-day dining with cocktails.",
+          link: "https://www.the-ivy.co.uk/spinningfields",
+          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+        },
+        {
+          name: "Bill's Manchester",
+          description: "Relaxed dining with brunch classics.",
+          link: "https://bills-website.co.uk/",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+        },
+        {
+          name: "Dough Pizza Kitchen",
+          description: "Bottomless pizza and prosecco.",
+          link: "https://www.doughpizzakitchen.co.uk/",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+        },
+        {
+          name: "Turtle Bay",
+          description: "Caribbean bottomless brunch.",
+          link: "https://www.turtlebay.co.uk/",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "Northern Quarter",
+          description: "Trendy area with independent shops and street art.",
+          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        },
+        {
+          name: "Manchester Art Gallery",
+          description: "Free gallery with extensive collections.",
+          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        },
+        {
+          name: "Old Trafford Stadium",
+          description: "Tour the iconic football stadium.",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+        },
+        {
+          name: "Manchester Cathedral",
+          description: "Stunning medieval architecture.",
+          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+        },
+        {
+          name: "Afflecks Palace",
+          description: "Alternative shopping emporium.",
+          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+        },
+        {
+          name: "Castlefield",
+          description: "Historic canal area with bars and restaurants.",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+      ],
+      spas: [
+        "The Spa at Midland - Historic hotel spa",
+        "King Street Townhouse Spa - Rooftop infinity pool",
+        "Bannatyne Spa Manchester - Full facilities",
+        "Cloud 23 Spa - Luxury city spa",
+      ],
+    },
+    york: {
+      name: "York",
+      region: "North Yorkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
+      video: "",
+      overview:
+        "York is a charming medieval city with cobbled streets, historic walls, and beautiful riverside setting. This compact city combines rich history with modern amenities, offering boutique shops, cosy pubs, and unique experiences perfect for sophisticated group celebrations.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        nightlife: "Charming pubs & bars",
+        dining: "Historic tea rooms & modern dining",
+        bestTime: "Year-round destination",
+        beachAccess: "Countryside & river views",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£70-£145 per night",
+        activities: "History, shopping, walking, dining"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to York: 2 hours by train (Kings Cross to York)" },
+        { icon: Plane, text: "Leeds Bradford Airport: 40 minutes by car" },
+        { icon: Car, text: "Well connected via A1(M) and A64 with park and ride" },
+        { icon: Bus, text: "Regular coach services from major cities" },
+      ],
+      nightlife: [
+        {
+          name: "The House of Trembling Madness",
+          description: "Quirky medieval bar with craft beers.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Kuda",
+          description: "Popular nightclub in city centre.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Pitcher & Piano",
+          description: "Stylish bar with live music.",
+          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+        },
+        {
+          name: "The Phoenix",
+          description: "Live music venue and bar.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "All Bar One",
+          description: "Cocktails and sophisticated atmosphere.",
+          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+        },
+        {
+          name: "The Botanist",
+          description: "Garden-themed bar with live entertainment.",
+          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "Bettys Tea Room",
+          description: "Iconic Yorkshire tea room since 1919.",
+          link: "https://www.bettys.co.uk/",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+        },
+        {
+          name: "The Ivy St Helens Square",
+          description: "All-day British dining.",
+          link: "https://www.the-ivy.co.uk/",
+          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+        },
+        {
+          name: "The Star Inn The City",
+          description: "Riverside dining with views.",
+          link: "https://www.starinnthe city.co.uk/",
+          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+        },
+        {
+          name: "Partisan",
+          description: "Independent cafe with great breakfast.",
+          link: "https://www.partisanyork.co.uk/",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+        },
+        {
+          name: "Spring Espresso",
+          description: "Artisan coffee and brunch.",
+          link: "https://www.springespresso.co.uk/",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+        },
+        {
+          name: "The Botanist",
+          description: "Bottomless brunch with live music.",
+          link: "https://thebotanist.uk.com/",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "York Minster",
+          description: "Magnificent Gothic cathedral.",
+          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        },
+        {
+          name: "The Shambles",
+          description: "Medieval shopping street.",
+          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        },
+        {
+          name: "York City Walls",
+          description: "Walk the historic medieval walls.",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+        },
+        {
+          name: "Ghost Walk",
+          description: "Evening ghost tours through the city.",
+          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+        },
+        {
+          name: "JORVIK Viking Centre",
+          description: "Interactive Viking history experience.",
+          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+        },
+        {
+          name: "York's Chocolate Story",
+          description: "Interactive chocolate making experience.",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+      ],
+      spas: [
+        "York Hall Spa - Boutique city spa",
+        "Cedar Court Grand Hotel Spa - Historic venue",
+        "Middlethorpe Spa - Country house spa",
+        "Radisson Blu Spa - Modern spa facilities",
+      ],
+    },
+    cardiff: {
+      name: "Cardiff",
+      region: "South Wales",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
+      video: "",
+      overview:
+        "Cardiff is Wales' vibrant capital city offering fantastic value, warm hospitality, and easy access to stunning coastline. This compact city combines modern amenities with historic charm, featuring a beautiful bay area, excellent shopping, and lively nightlife perfect for group celebrations.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        nightlife: "St Mary Street buzzing",
+        dining: "Welsh & international cuisine",
+        bestTime: "Year-round destination",
+        beachAccess: "Cardiff Bay waterfront",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£60-£130 per night",
+        activities: "Bay, castle, shopping, rugby"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Cardiff: 2 hours by train (Paddington to Cardiff Central)" },
+        { icon: Plane, text: "Cardiff Airport: 30 minutes by car or bus" },
+        { icon: Car, text: "Well connected via M4 with city centre parking" },
+        { icon: Bus, text: "Regular coach services from across the UK" },
+      ],
+      nightlife: [
+        {
+          name: "Pryzm",
+          description: "Large nightclub with multiple rooms.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Wow Bar",
+          description: "Quirky cocktail bar with fun atmosphere.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "The Depot",
+          description: "Cardiff Bay venue with live entertainment.",
+          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+        },
+        {
+          name: "Clwb Ifor Bach",
+          description: "Alternative music venue.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "The Gatekeeper",
+          description: "Rooftop bar with city views.",
+          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+        },
+        {
+          name: "Revolution Cardiff",
+          description: "Cocktail bar with party vibes.",
+          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Cosy Club",
+          description: "All-day dining in stylish setting.",
+          link: "https://www.cosyclub.co.uk/",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+        },
+        {
+          name: "The Ivy Cardiff",
+          description: "British classics with brunch menu.",
+          link: "https://www.the-ivy.co.uk/cardiff",
+          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+        },
+        {
+          name: "Bill's Cardiff",
+          description: "Relaxed brunch and all-day dining.",
+          link: "https://bills-website.co.uk/",
+          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+        },
+        {
+          name: "The Potted Pig",
+          description: "Unique dining in former bank vault.",
+          link: "https://www.thepottedpig.com/",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+        },
+        {
+          name: "Porro",
+          description: "Italian brunch with prosecco.",
+          link: "https://www.porro.co.uk/",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+        },
+        {
+          name: "Calabrisella",
+          description: "Italian restaurant with brunch menu.",
+          link: "https://www.calabrisella.co.uk/",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "Cardiff Castle",
+          description: "Historic castle in city centre.",
+          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+        },
+        {
+          name: "Cardiff Bay",
+          description: "Waterfront with restaurants and bars.",
+          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        },
+        {
+          name: "Principality Stadium",
+          description: "World-class rugby venue with tours.",
+          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+        },
+        {
+          name: "Cardiff Market",
+          description: "Victorian indoor market.",
+          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+        },
+        {
+          name: "Wales Millennium Centre",
+          description: "Arts venue with shows and performances.",
+          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+        },
+        {
+          name: "Bute Park",
+          description: "Beautiful parkland along the river.",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+      ],
+      spas: [
+        "St David's Hotel Spa - Luxury bay spa",
+        "Healing Clouds Spa - City centre spa",
+        "The Vale Resort Spa - Golf resort spa",
+        "Celtic Manor Spa - Championship venue",
+      ],
+    },
     brighton: {
       name: "Brighton",
       region: "East Sussex",
