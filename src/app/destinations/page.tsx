@@ -198,7 +198,7 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
 
                   {/* Badge */}
                   <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-white/95 text-[var(--color-text-primary)] text-sm font-medium shadow-lg backdrop-blur-sm">
@@ -208,13 +208,26 @@ export default function DestinationsPage() {
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h3
-                      className="text-3xl font-semibold mb-2 drop-shadow-lg"
-                      style={{ fontFamily: "var(--font-display)" }}
+                      className="text-3xl font-bold mb-2"
+                      style={{ 
+                        fontFamily: "var(--font-display)",
+                        textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6)"
+                      }}
                     >
                       {destination.name}
                     </h3>
-                    <p className="text-sm opacity-95 mb-3 drop-shadow-md">{destination.region}</p>
-                    <p className="text-sm leading-relaxed drop-shadow-md">{destination.description}</p>
+                    <p 
+                      className="text-sm font-medium mb-3"
+                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
+                    >
+                      {destination.region}
+                    </p>
+                    <p 
+                      className="text-sm leading-relaxed font-medium"
+                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
+                    >
+                      {destination.description}
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -242,17 +255,28 @@ export default function DestinationsPage() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${destination.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <h3
-                      className="text-xl font-semibold mb-1 drop-shadow-lg"
-                      style={{ fontFamily: "var(--font-display)" }}
+                      className="text-xl font-bold mb-1"
+                      style={{ 
+                        fontFamily: "var(--font-display)",
+                        textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.6)"
+                      }}
                     >
                       {destination.name}
                     </h3>
-                    <p className="text-xs opacity-95 mb-2 drop-shadow-md">{destination.region}</p>
-                    <p className="text-xs drop-shadow-md">
+                    <p 
+                      className="text-xs font-medium mb-2"
+                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
+                    >
+                      {destination.region}
+                    </p>
+                    <p 
+                      className="text-xs font-medium"
+                      style={{ textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}
+                    >
                       {destination.propertyCount} properties
                     </p>
                   </div>
