@@ -456,9 +456,9 @@ export default function Home() {
                   style={{ backgroundImage: `url('${destination.image}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute inset-0 flex items-end p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm">
                   <h3
-                    className="text-white text-xl font-semibold"
+                    className="text-xl font-semibold text-[var(--color-text-primary)]"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {destination.name}
@@ -466,6 +466,20 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-gold)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
           </div>
         </div>
       </section>
