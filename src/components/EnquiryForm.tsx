@@ -107,10 +107,10 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         </div>
 
         {/* Dates */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-4">
           <div>
-            <Label htmlFor="checkin" className="text-sm font-medium mb-2 block">
-              Check-in
+            <Label htmlFor="checkin" className="text-base font-semibold mb-2 block">
+              Arrival date
             </Label>
             <div className="relative">
               <Input
@@ -118,14 +118,17 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 name="checkin"
                 type="date"
                 required
-                className="rounded-xl"
+                className="rounded-xl text-base py-6"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-[var(--color-neutral-dark)]" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-pink)]" />
             </div>
+            <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
+              Check-in from 4pm
+            </p>
           </div>
           <div>
-            <Label htmlFor="checkout" className="text-sm font-medium mb-2 block">
-              Check-out
+            <Label htmlFor="checkout" className="text-base font-semibold mb-2 block">
+              Departure date
             </Label>
             <div className="relative">
               <Input
@@ -133,10 +136,13 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 name="checkout"
                 type="date"
                 required
-                className="rounded-xl"
+                className="rounded-xl text-base py-6"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-[var(--color-neutral-dark)]" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-pink)]" />
             </div>
+            <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
+              Check-out by 10am · 3 night minimum
+            </p>
           </div>
         </div>
 
