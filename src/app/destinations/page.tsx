@@ -381,7 +381,7 @@ export default function DestinationsPage() {
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Button
                         size="sm"
-                        className="rounded-xl px-6 py-2 text-sm font-medium transition-all duration-200"
+                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
                         style={{
                           background: "var(--color-accent-sage)",
                           color: "white"
@@ -391,7 +391,7 @@ export default function DestinationsPage() {
                       <Button
                         asChild
                         size="sm"
-                        className="rounded-xl px-6 py-2 text-sm font-medium transition-all duration-200"
+                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
                         style={{
                           background: "var(--color-accent-gold)",
                           color: "white"
