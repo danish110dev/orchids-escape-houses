@@ -74,7 +74,7 @@ export default function SpaPage() {
         {/* Hero Image Background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-bca7cc00-20251018110147.jpg?"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-0db740ac-20251018122325.jpg?"
             alt="Spa Treatments at Orchids"
             className="w-full h-full object-cover"
           />
