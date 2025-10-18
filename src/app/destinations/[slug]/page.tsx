@@ -102,6 +102,12 @@ export default function DestinationDetailPage() {
           link: "https://www.cafecoho.co.uk/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-independent--8343a7c0-20251018180554.jpg"
         },
+        {
+          name: "Terre à Terre",
+          description: "Award-winning vegetarian restaurant with creative brunch.",
+          link: "https://www.terreaterre.co.uk/",
+          image: ""
+        },
       ],
       activities: [
         {
