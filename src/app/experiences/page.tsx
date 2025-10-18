@@ -235,12 +235,54 @@ export default function ExperiencesPage() {
                 className="text-center"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center"
-                  style={{ background: item.bg }}
+                  whileHover={{ 
+                    scale: 1.15, 
+                    rotate: [0, -8, 8, -8, 0],
+                    y: -8,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    y: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.2,
+                    },
+                    hover: {
+                      duration: 0.6,
+                      ease: "easeOut",
+                    },
+                  }}
+                  className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center relative cursor-pointer"
+                  style={{ 
+                    background: `linear-gradient(135deg, ${item.bg} 0%, ${item.bg}dd 100%)`,
+                    boxShadow: `0 10px 30px ${item.bg}40, 0 0 0 0 ${item.bg}00`,
+                  }}
                 >
-                  <item.icon className="w-10 h-10" style={{ color: "white", fill: idx === 0 ? "white" : "none" }} />
+                  <motion.div
+                    className="absolute inset-0 rounded-full"
+                    initial={{ scale: 1, opacity: 0 }}
+                    whileHover={{ 
+                      scale: 1.5, 
+                      opacity: [0, 0.3, 0],
+                      transition: { duration: 0.8, repeat: Infinity }
+                    }}
+                    style={{ 
+                      background: item.bg,
+                      filter: 'blur(10px)',
+                    }}
+                  />
+                  <item.icon 
+                    className="w-12 h-12 relative z-10" 
+                    style={{ 
+                      color: "white", 
+                      fill: idx === 0 ? "white" : "none",
+                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
+                    }} 
+                  />
                 </motion.div>
                 <h3 className="text-xl font-semibold mb-3" style={{ color: "#1F2937" }}>
                   {item.title}
@@ -283,7 +325,7 @@ export default function ExperiencesPage() {
               { step: "2", title: "Select", desc: "Choose your favourites when enquiring", icon: MousePointerClick },
               { step: "3", title: "Confirm", desc: "We'll check availability and quote", icon: CheckCheck },
               { step: "4", title: "Enjoy", desc: "Everything's arranged for your arrival", icon: PartyPopper },
-            ].map((item) => (
+            ].map((item, idx) => (
               <motion.div
                 key={item.step}
                 variants={{
@@ -294,24 +336,92 @@ export default function ExperiencesPage() {
                 className="text-center"
               >
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center relative"
+                  whileHover={{ 
+                    scale: 1.2, 
+                    rotate: [0, -10, 10, -10, 0],
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  animate={{
+                    y: [0, -8, 0],
+                    rotate: [0, 3, -3, 0],
+                  }}
+                  transition={{
+                    y: {
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.15,
+                    },
+                    rotate: {
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.2,
+                    },
+                    hover: {
+                      duration: 0.5,
+                      ease: "easeOut",
+                    },
+                  }}
+                  className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center relative cursor-pointer group"
                   style={{
-                    background: "var(--color-accent-pink)",
+                    background: "linear-gradient(135deg, var(--color-accent-pink) 0%, #F2C6C2 100%)",
+                    boxShadow: "0 10px 25px rgba(242, 198, 194, 0.3), 0 0 0 0 rgba(242, 198, 194, 0)",
                   }}
                 >
-                  <item.icon className="w-9 h-9" style={{ color: "var(--color-text-primary)" }} />
-                  <div
-                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+                  <motion.div
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0, 0.4, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    style={{ 
+                      background: "var(--color-accent-pink)",
+                      filter: 'blur(15px)',
+                    }}
+                  />
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <item.icon 
+                      className="w-11 h-11 relative z-10" 
+                      style={{ 
+                        color: "var(--color-text-primary)",
+                        filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.1))"
+                      }} 
+                    />
+                  </motion.div>
+                  <motion.div
+                    className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shadow-lg"
+                    whileHover={{ scale: 1.15 }}
+                    animate={{
+                      boxShadow: [
+                        "0 4px 10px rgba(31, 41, 55, 0.3)",
+                        "0 8px 20px rgba(31, 41, 55, 0.4)",
+                        "0 4px 10px rgba(31, 41, 55, 0.3)",
+                      ],
+                    }}
+                    transition={{
+                      boxShadow: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
                     style={{
-                      background: "var(--color-text-primary)",
+                      background: "linear-gradient(135deg, var(--color-text-primary) 0%, #374151 100%)",
                       color: "white",
                       fontFamily: "var(--font-display)",
                     }}
                   >
                     {item.step}
-                  </div>
+                  </motion.div>
                 </motion.div>
                 <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-text-primary)" }}>
                   {item.title}
