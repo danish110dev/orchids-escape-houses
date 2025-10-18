@@ -8,51 +8,101 @@ import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDow
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const params = useParams();
+  const slug = params.slug as string;
 
-  const destination = {
-    name: "Brighton",
-    region: "East Sussex",
-    image: "https://images.unsplash.com/photo-1599067621490-d5c76a0f1e6d?w=1600&q=80",
-    overview:
-      "Brighton is the ultimate hen party destination, combining stunning seaside charm with vibrant nightlife and endless entertainment. This cosmopolitan city offers the perfect mix of beach vibes, quirky shops, amazing restaurants, and legendary clubs. From the iconic Brighton Pier to the historic Lanes, there's something for every taste and budget.",
-    gettingThere: [
-      "London to Brighton: 1 hour by train (Victoria to Brighton)",
-      "London Gatwick Airport: 30 minutes by train or car",
-      "Driving: Well connected via M23 and A23 with ample parking",
-      "Coach services: Regular National Express services from major UK cities",
-    ],
-    nightlife: [
-      "The Arch - Popular club with multiple rooms and diverse music",
-      "Patterns - Beachfront venue with live DJs and stunning sea views",
-      "Coalition - Busy student bar with cheap drinks and great atmosphere",
-      "Proud Cabaret - Dinner and show venue with burlesque performances",
-      "Revenge - Brighton's biggest LGBT+ club with drag shows",
-    ],
-    brunch: [
-      "The Ivy in the Lanes - Elegant all-day dining in beautiful setting",
-      "Burnt Orange - Bottomless brunch with great cocktails",
-      "Bills - Local favourite serving delicious breakfast and brunch",
-      "The Salt Room - Upscale seafront dining with amazing views",
-      "Cafe Coho - Independent cafe with excellent coffee and brunch",
-    ],
-    activities: [
-      "Brighton Palace Pier - Classic seaside fun with arcade games",
-      "Royal Pavilion - Stunning historic palace and gardens",
-      "Brighton Beach - Pebble beach perfect for summer celebrations",
-      "The Lanes - Historic quarter with quirky shops and cafes",
-      "British Airways i360 - Observation tower with panoramic views",
-      "North Laine - Bohemian area with independent shops and cafes",
-    ],
-    spas: [
-      "The Lanes Spa - Luxury spa in the heart of the city",
-      "Brighton Harbour Hotel Spa - Upscale spa with rooftop pool",
-      "Serenity Spa - Day spa offering packages for groups",
-      "Unique Mobile Spa - In-house treatments at your property",
-    ],
+  // Destinations data
+  const destinationsData: Record<string, any> = {
+    brighton: {
+      name: "Brighton",
+      region: "East Sussex",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
+      overview:
+        "Brighton is the ultimate hen party destination, combining stunning seaside charm with vibrant nightlife and endless entertainment. This cosmopolitan city offers the perfect mix of beach vibes, quirky shops, amazing restaurants, and legendary clubs. From the iconic Brighton Pier to the historic Lanes, there's something for every taste and budget.",
+      gettingThere: [
+        "London to Brighton: 1 hour by train (Victoria to Brighton)",
+        "London Gatwick Airport: 30 minutes by train or car",
+        "Driving: Well connected via M23 and A23 with ample parking",
+        "Coach services: Regular National Express services from major UK cities",
+      ],
+      nightlife: [
+        "The Arch - Popular club with multiple rooms and diverse music",
+        "Patterns - Beachfront venue with live DJs and stunning sea views",
+        "Coalition - Busy student bar with cheap drinks and great atmosphere",
+        "Proud Cabaret - Dinner and show venue with burlesque performances",
+        "Revenge - Brighton's biggest LGBT+ club with drag shows",
+      ],
+      brunch: [
+        "The Ivy in the Lanes - Elegant all-day dining in beautiful setting",
+        "Burnt Orange - Bottomless brunch with great cocktails",
+        "Bills - Local favourite serving delicious breakfast and brunch",
+        "The Salt Room - Upscale seafront dining with amazing views",
+        "Cafe Coho - Independent cafe with excellent coffee and brunch",
+      ],
+      activities: [
+        "Brighton Palace Pier - Classic seaside fun with arcade games",
+        "Royal Pavilion - Stunning historic palace and gardens",
+        "Brighton Beach - Pebble beach perfect for summer celebrations",
+        "The Lanes - Historic quarter with quirky shops and cafes",
+        "British Airways i360 - Observation tower with panoramic views",
+        "North Laine - Bohemian area with independent shops and cafes",
+      ],
+      spas: [
+        "The Lanes Spa - Luxury spa in the heart of the city",
+        "Brighton Harbour Hotel Spa - Upscale spa with rooftop pool",
+        "Serenity Spa - Day spa offering packages for groups",
+        "Unique Mobile Spa - In-house treatments at your property",
+      ],
+    },
+    newcastle: {
+      name: "Newcastle",
+      region: "Tyne and Wear",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
+      overview:
+        "Newcastle is famous for its legendary nightlife, warm Geordie hospitality, and stunning quayside setting. This vibrant northern city offers incredible value for money with amazing bars, clubs, and restaurants, making it a top choice for hen parties. From the iconic Tyne Bridge to the rejuvenated Ouseburn Valley, Newcastle combines historic charm with modern entertainment.",
+      gettingThere: [
+        "London to Newcastle: 3 hours by train (Kings Cross to Newcastle Central)",
+        "Newcastle International Airport: 15 minutes by metro or car",
+        "Driving: Well connected via A1(M) with parking in city centre",
+        "Coach services: Regular National Express and Megabus from major cities",
+      ],
+      nightlife: [
+        "Digital - Multi-room nightclub with diverse music and great atmosphere",
+        "The Gate - Entertainment complex with bars, clubs and restaurants",
+        "House of Smith - Stylish bar with cocktails and live music",
+        "Tup Tup Palace - Moroccan-themed club with unique interiors",
+        "The Botanist - Bar and restaurant with live music and bottomless brunch",
+        "Livello - Rooftop bar with stunning city views",
+      ],
+      brunch: [
+        "The Botanist - Bottomless brunch with live music and entertainment",
+        "Turtle Bay - Caribbean bottomless brunch with cocktails",
+        "Pleased to Meet You - Trendy spot with excellent brunch menu",
+        "The Waiting Room - Quirky cafe with delicious breakfast options",
+        "The French Quarter - Brasserie-style dining on the quayside",
+      ],
+      activities: [
+        "Quayside - Scenic riverside walk with bars and restaurants",
+        "BALTIC Centre for Contemporary Art - Free art gallery with cafe",
+        "Ouseburn Valley - Trendy area with independent bars and street food",
+        "Grainger Market - Historic covered market with unique shops",
+        "Newcastle Castle - Medieval fortress in the heart of the city",
+        "Tyne Bridge - Iconic landmark perfect for photos",
+      ],
+      spas: [
+        "Bannatyne Spa Newcastle - Large spa with pool, sauna and treatments",
+        "Hotel du Vin Spa - Boutique spa with luxurious treatments",
+        "Village Hotel Spa - Modern spa with extensive facilities",
+        "Malmaison Spa - City centre spa with group packages",
+      ],
+    },
   };
+
+  const destination = destinationsData[slug] || destinationsData.brighton;
 
   const faqs = [
     {
