@@ -491,7 +491,7 @@ export default function DestinationsPage() {
                         size="sm"
                         className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
                         style={{
-                          background: "var(--color-accent-gold)",
+                          background: "var(--color-accent-pink)",
                           color: "white"
                         }}>
                         <Link href="/contact" onClick={(e) => e.stopPropagation()}>
