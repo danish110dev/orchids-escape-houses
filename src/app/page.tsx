@@ -314,7 +314,7 @@ export default function Home() {
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
               Featured Party Houses
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-4xl mx-auto">
               Handpicked <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">luxury party houses</Link> perfect for <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebrations across the UK</Link>
             </p>
           </div>
