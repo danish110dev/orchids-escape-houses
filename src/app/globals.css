@@ -265,7 +265,7 @@
   }
   
   .animate-slide-left {
-    animation: slide-left 20s ease-in-out infinite;
+    animation: slide-left 10s ease-in-out infinite;
     display: flex;
     width: max-content;
   }
