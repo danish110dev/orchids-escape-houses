@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, TrendingUp, Instagram } from "lucide-react";
+import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function DestinationsPage() {
@@ -336,6 +336,36 @@ export default function DestinationsPage() {
         </div>
       </section>
 
+      {/* CTA Section 1 - After Featured Destinations */}
+      <section className="py-16 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-4">
+            <Sparkles className="w-4 h-4 text-[var(--color-accent-gold)]" />
+            <span className="text-sm font-medium">Ready to Book?</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+            Find Your Perfect Hen Party House
+          </h2>
+          <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+            Browse our full collection of luxury houses with hot tubs, pools and games rooms
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="rounded-2xl px-12 py-7 text-lg font-semibold transition-all duration-200 hover:shadow-2xl hover:-translate-y-1 group"
+            style={{
+              background: "var(--color-text-primary)",
+              color: "white",
+            }}
+          >
+            <Link href="/properties" className="inline-flex items-center gap-2">
+              View All Properties
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
       {/* All Destinations */}
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -374,6 +404,34 @@ export default function DestinationsPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section 2 - After All Destinations */}
+      <section className="py-20 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
+            <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
+              Not Sure Where to Go?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Get a free personalised quote and let us help you find the perfect destination and house for your hen party
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-12 py-7 text-lg font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
+              style={{
+                background: "white",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/contact" className="inline-flex items-center gap-2">
+                Get Your Free Quote
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
