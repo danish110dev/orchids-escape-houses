@@ -4,17 +4,24 @@
   --rdp-accent-color: #89A38F !important;
   --rdp-background-color: #89A38F !important;
   --rdp-accent-color-dark: #7a9280 !important;
-  /* Override default blue */
   --rdp-accent-color-light: #89A38F !important;
   margin: 0;
 }
 
 /* Force override all default blue colors from library */
-.rdp * {
+.rdp *,
+.rdp *::before,
+.rdp *::after {
   accent-color: #89A38F !important;
 }
 
-/* Selected day states - comprehensive override */
+/* Override any potential blue backgrounds globally */
+.rdp [style*="background"],
+.rdp [style*="background-color"] {
+  background-color: #89A38F !important;
+}
+
+/* Selected day states - comprehensive override with maximum specificity */
 .rdp-day_selected,
 .rdp-day_selected:hover,
 .rdp-day_selected:focus,
@@ -24,30 +31,39 @@ button.rdp-day_selected,
 button.rdp-day_selected:hover,
 button.rdp-day_selected:focus,
 .rdp-button[aria-selected="true"],
-.rdp-button[aria-pressed="true"] {
+.rdp-button[aria-pressed="true"],
+.rdp .rdp-day_selected,
+.rdp .rdp-button[aria-selected="true"],
+.rdp-cell .rdp-day_selected,
+.rdp-tbody .rdp-day_selected {
   background-color: #89A38F !important;
   color: white !important;
   border-color: #89A38F !important;
 }
 
-/* Range selection states */
+/* Range selection states with all variants */
 .rdp-day_range_start,
 .rdp-day_range_end,
 .rdp-day_range_middle,
 .rdp-day_range_start:hover,
 .rdp-day_range_end:hover,
-.rdp-day_range_middle:hover {
+.rdp-day_range_middle:hover,
+.rdp .rdp-day_range_start,
+.rdp .rdp-day_range_end,
+.rdp .rdp-day_range_middle {
   background-color: #89A38F !important;
   color: white !important;
 }
 
-.rdp-day_range_middle {
+.rdp-day_range_middle,
+.rdp .rdp-day_range_middle {
   opacity: 0.3 !important;
   background-color: #89A38F !important;
 }
 
 /* Today indicator */
-.rdp-day_today:not(.rdp-day_selected) {
+.rdp-day_today:not(.rdp-day_selected),
+.rdp .rdp-day_today:not(.rdp-day_selected) {
   font-weight: bold;
   color: #89A38F !important;
   background-color: transparent !important;
@@ -60,9 +76,19 @@ button.rdp-day_selected:focus,
 }
 
 /* Hover states */
-.rdp-day:hover:not(.rdp-day_selected):not(.rdp-day_disabled) {
+.rdp-day:hover:not(.rdp-day_selected):not(.rdp-day_disabled),
+.rdp .rdp-day:hover:not(.rdp-day_selected):not(.rdp-day_disabled) {
   background-color: #F5F3F0 !important;
   color: #1F2937 !important;
+}
+
+/* Additional selectors for modifiers */
+.rdp-day_from,
+.rdp-day_to,
+.rdp .rdp-day_from,
+.rdp .rdp-day_to {
+  background-color: #89A38F !important;
+  color: white !important;
 }
 
 .rdp-months {
@@ -83,7 +109,8 @@ button.rdp-day_selected:focus,
   gap: 0.5rem;
 }
 
-.rdp-nav_button {
+.rdp-nav_button,
+.rdp .rdp-nav_button {
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -94,13 +121,15 @@ button.rdp-day_selected:focus,
   color: #374151;
 }
 
-.rdp-nav_button:hover {
+.rdp-nav_button:hover,
+.rdp .rdp-nav_button:hover {
   background-color: #F5F3F0;
-  color: #89A38F;
+  color: #89A38F !important;
 }
 
-.rdp-nav_button:focus-visible {
-  outline: 2px solid #89A38F;
+.rdp-nav_button:focus-visible,
+.rdp .rdp-nav_button:focus-visible {
+  outline: 2px solid #89A38F !important;
   outline-offset: 2px;
 }
 
@@ -115,7 +144,8 @@ button.rdp-day_selected:focus,
   padding: 2px;
 }
 
-.rdp-day {
+.rdp-day,
+.rdp .rdp-day {
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -125,8 +155,9 @@ button.rdp-day_selected:focus,
   color: #1F2937;
 }
 
-.rdp-day:focus-visible {
-  outline: 2px solid #89A38F;
+.rdp-day:focus-visible,
+.rdp .rdp-day:focus-visible {
+  outline: 2px solid #89A38F !important;
   outline-offset: -2px;
   background-color: #F5F3F0;
 }
