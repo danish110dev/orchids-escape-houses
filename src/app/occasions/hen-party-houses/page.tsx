@@ -112,9 +112,7 @@ export default function HenPartyHousesPage() {
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-[var(--color-accent-sage)] bg-opacity-20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <Check className="w-4 h-4 text-[var(--color-accent-sage)]" />
-                    </div>
+                    <Check className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
                     <p className="text-[var(--color-neutral-dark)]">{feature}</p>
                   </motion.div>
                 ))}
@@ -214,9 +212,7 @@ export default function HenPartyHousesPage() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-[var(--color-accent-sage)]" />
-                  </div>
+                  <Icon className="w-8 h-8 text-[var(--color-accent-sage)] mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
                 </motion.div>
