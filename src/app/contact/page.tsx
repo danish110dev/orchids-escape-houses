@@ -216,9 +216,11 @@ export default function ContactPage() {
                             selected={dateRange}
                             onSelect={handleDateSelect}
                             disabled={{ before: new Date() }}
-                            modifiersClassNames={{
-                              selected: "bg-[var(--color-accent-sage)] text-white hover:bg-[var(--color-accent-sage)]",
-                              today: "font-bold text-[var(--color-accent-sage)]",
+                            modifiersStyles={{
+                              selected: { 
+                                backgroundColor: '#89A38F',
+                                color: 'white'
+                              }
                             }}
                           />
                           <button
