@@ -50,6 +50,7 @@ export default function Header() {
   const navLinks = [
     { label: "Properties", href: "/properties" },
     { label: "Experiences", href: "/experiences" },
+    { label: "Spa Treatments", href: "/spa-treatments" },
     { label: "Destinations", href: "/destinations" },
     { label: "How it works", href: "/how-it-works" },
     { label: "Reviews", href: "/reviews" },
