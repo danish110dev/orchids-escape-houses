@@ -79,7 +79,7 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center relative z-[70]">
             <Image
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
               alt="Group Escape Houses"
@@ -193,200 +193,197 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
+            className="lg:hidden p-2 flex items-center gap-2 relative z-[70]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <>
-                <Menu className="w-6 h-6" />
-                <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>Menu</span>
-              </>
-            )}
+            <Menu className="w-6 h-6" />
+            <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>Menu</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu - Full Page Dark Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-[#1F2937] text-white flex flex-col transition-transform duration-500 ease-out ${
+          isMobileMenuOpen ? "translate-x-0 z-[60]" : "translate-x-full z-[-1]"
+        }`}
+      >
+        {/* Close Button */}
+        <div className="absolute top-6 right-6 z-[70]">
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-white hover:text-[var(--color-accent-gold)] transition-colors p-2"
+            aria-label="Close menu"
+          >
+            <X className="w-8 h-8" />
           </button>
         </div>
 
-        {/* Mobile Menu - Full Page Dark Overlay */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-[55] bg-[#1F2937] text-white flex flex-col">
-            {/* Close Button */}
-            <div className="absolute top-6 right-6 z-[60]">
-              <button
+        {/* Menu Content - Scrollable */}
+        <div className="flex-1 overflow-y-auto px-8 pt-24 pb-12">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+            {/* Left Column - Main Navigation */}
+            <nav className="space-y-6">
+              <Link
+                href="/"
+                className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                style={{ fontFamily: "var(--font-display)" }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white hover:text-[var(--color-accent-gold)] transition-colors"
-                aria-label="Close menu"
               >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
+                Home
+              </Link>
 
-            {/* Menu Content - Scrollable */}
-            <div className="flex-1 overflow-y-auto px-8 pt-24 pb-12">
-              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                {/* Left Column - Main Navigation */}
-                <nav className="space-y-6">
-                  <Link
-                    href="/"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-
-                  {/* Properties Dropdown */}
-                  <div className="space-y-3">
-                    <Link
-                      href="/properties"
-                      className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-                      style={{ fontFamily: "var(--font-display)" }}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Properties
-                    </Link>
-                    
-                    {/* House Styles Submenu */}
-                    <button
-                      onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
-                      className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
-                    >
-                      House Styles
-                      <ChevronDown className={`w-5 h-5 transition-transform ${isMobileStylesOpen ? "rotate-180" : ""}`} />
-                    </button>
-                    {isMobileStylesOpen && (
-                      <div className="pl-4 space-y-2 text-white/70">
-                        {houseStyles.map((style) => (
-                          <Link
-                            key={style.slug}
-                            href={`/house-styles/${style.slug}`}
-                            className="block py-1 hover:text-white transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {style.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Features Submenu */}
-                    <button
-                      onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
-                      className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
-                    >
-                      Must-Have Features
-                      <ChevronDown className={`w-5 h-5 transition-transform ${isMobileFeaturesOpen ? "rotate-180" : ""}`} />
-                    </button>
-                    {isMobileFeaturesOpen && (
-                      <div className="pl-4 space-y-2 text-white/70">
-                        {features.map((feature) => (
-                          <Link
-                            key={feature.slug}
-                            href={`/features/${feature.slug}`}
-                            className="block py-1 hover:text-white transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {feature.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  <Link
-                    href="/experiences"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Experiences
-                  </Link>
-
-                  <Link
-                    href="/destinations"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Destinations
-                  </Link>
-
-                  <Link
-                    href="/how-it-works"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    How It Works
-                  </Link>
-                </nav>
-
-                {/* Right Column - Secondary Navigation */}
-                <nav className="space-y-4 md:pt-0 pt-8">
-                  <Link
-                    href="/our-story"
-                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-
-                  <Link
-                    href="/reviews"
-                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Testimonials
-                  </Link>
-
-                  <Link
-                    href="/contact"
-                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-
-                  <Link
-                    href="/blog"
-                    className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Blog
-                  </Link>
-                </nav>
-              </div>
-            </div>
-
-            {/* Bottom CTA and Contact */}
-            <div className="border-t border-white/20 px-8 py-8 space-y-6">
-              <Button
-                asChild
-                size="lg"
-                className="w-full rounded-full py-6 text-xl font-medium"
-                style={{
-                  background: "var(--color-accent-gold)",
-                  color: "white",
-                }}
-              >
-                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  INSTANT QUOTE
-                </Link>
-              </Button>
-
-              <div className="text-center space-y-2">
-                <p className="text-white/70 text-sm">Nationwide</p>
-                <a
-                  href="tel:01273590820"
-                  className="text-2xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+              {/* Properties Dropdown */}
+              <div className="space-y-3">
+                <Link
+                  href="/properties"
+                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
                   style={{ fontFamily: "var(--font-display)" }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  01273 590820
-                </a>
+                  Properties
+                </Link>
+                
+                {/* House Styles Submenu */}
+                <button
+                  onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
+                  className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                >
+                  House Styles
+                  <ChevronDown className={`w-5 h-5 transition-transform ${isMobileStylesOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isMobileStylesOpen && (
+                  <div className="pl-4 space-y-2 text-white/70">
+                    {houseStyles.map((style) => (
+                      <Link
+                        key={style.slug}
+                        href={`/house-styles/${style.slug}`}
+                        className="block py-1 hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {style.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                {/* Features Submenu */}
+                <button
+                  onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
+                  className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                >
+                  Must-Have Features
+                  <ChevronDown className={`w-5 h-5 transition-transform ${isMobileFeaturesOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isMobileFeaturesOpen && (
+                  <div className="pl-4 space-y-2 text-white/70">
+                    {features.map((feature) => (
+                      <Link
+                        key={feature.slug}
+                        href={`/features/${feature.slug}`}
+                        className="block py-1 hover:text-white transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {feature.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
+
+              <Link
+                href="/experiences"
+                className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                style={{ fontFamily: "var(--font-display)" }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Experiences
+              </Link>
+
+              <Link
+                href="/destinations"
+                className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                style={{ fontFamily: "var(--font-display)" }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Destinations
+              </Link>
+
+              <Link
+                href="/how-it-works"
+                className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+                style={{ fontFamily: "var(--font-display)" }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                How It Works
+              </Link>
+            </nav>
+
+            {/* Right Column - Secondary Navigation */}
+            <nav className="space-y-4 md:pt-0 pt-8">
+              <Link
+                href="/our-story"
+                className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+
+              <Link
+                href="/reviews"
+                className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Testimonials
+              </Link>
+
+              <Link
+                href="/contact"
+                className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+
+              <Link
+                href="/blog"
+                className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
+            </nav>
           </div>
-        )}
+        </div>
+
+        {/* Bottom CTA and Contact */}
+        <div className="border-t border-white/20 px-8 py-8 space-y-6">
+          <Button
+            asChild
+            size="lg"
+            className="w-full rounded-full py-6 text-xl font-medium"
+            style={{
+              background: "var(--color-accent-gold)",
+              color: "white",
+            }}
+          >
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              INSTANT QUOTE
+            </Link>
+          </Button>
+
+          <div className="text-center space-y-2">
+            <p className="text-white/70 text-sm">Nationwide</p>
+            <a
+              href="tel:01273590820"
+              className="text-2xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              01273 590820
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );
