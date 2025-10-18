@@ -5,6 +5,7 @@ import { Check, ArrowRight, Dog, Home, TreePine } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function LuxuryDogFriendlyCottagesPage() {
   const highlights = [
@@ -86,35 +87,86 @@ export default function LuxuryDogFriendlyCottagesPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <Dog className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Dog className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
+                </motion.div>
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Pets Welcome
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
                   Enclosed gardens and facilities designed for your furry friends
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <TreePine className="w-12 h-12 text-[var(--color-accent-gold)] mb-4" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
+              >
+                <motion.div
+                  animate={{ 
+                    rotate: [0, -10, 10, -10, 0],
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <TreePine className="w-12 h-12 text-[var(--color-accent-gold)] mb-4" />
+                </motion.div>
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Countryside Walks
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
                   Beautiful rural locations with dog-friendly trails nearby
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <Home className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
+              >
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{ 
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Home className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
+                </motion.div>
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Luxury Comfort
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
                   High-end interiors without compromising on pet friendliness
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
