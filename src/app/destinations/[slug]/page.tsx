@@ -4,7 +4,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown } from "lucide-react";
+import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
@@ -23,6 +23,16 @@ export default function DestinationDetailPage() {
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
       overview:
         "Brighton is the ultimate hen party destination, combining stunning seaside charm with vibrant nightlife and endless entertainment. This cosmopolitan city offers the perfect mix of beach vibes, quirky shops, amazing restaurants, and legendary clubs. From the iconic Brighton Pier to the historic Lanes, there's something for every taste and budget.",
+      quickFacts: {
+        fromLondon: "1 hour by train",
+        nightlife: "Legendary clubs and bars",
+        dining: "100+ restaurants",
+        bestTime: "May-September",
+        beachAccess: "Pebble beach waterfront",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£69-£150 per night",
+        activities: "Beach, pier, shopping, spas"
+      },
       gettingThere: [
         "London to Brighton: 1 hour by train (Victoria to Brighton)",
         "London Gatwick Airport: 30 minutes by train or car",
@@ -89,6 +99,16 @@ export default function DestinationDetailPage() {
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
       overview:
         "Newcastle is famous for its legendary nightlife, warm Geordie hospitality, and stunning quayside setting. This vibrant northern city offers incredible value for money with amazing bars, clubs, and restaurants, making it a top choice for hen parties. From the iconic Tyne Bridge to the rejuvenated Ouseburn Valley, Newcastle combines historic charm with modern entertainment.",
+      quickFacts: {
+        fromLondon: "3 hours by train",
+        nightlife: "Famous party atmosphere",
+        dining: "Quayside restaurants & bars",
+        bestTime: "April-October",
+        beachAccess: "Coast nearby (Tynemouth)",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£59-£120 per night",
+        activities: "Quayside, bars, culture, spas"
+      },
       gettingThere: [
         "London to Newcastle: 3 hours by train (Kings Cross to Newcastle Central)",
         "Newcastle International Airport: 15 minutes by metro or car",
@@ -359,21 +379,56 @@ export default function DestinationDetailPage() {
                   <Navigation className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-medium">From London</p>
-                    <p className="text-sm text-[var(--color-neutral-dark)]">1 hour by train</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.fromLondon}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Calendar className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Best Time to Visit</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.bestTime}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Moon className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-medium">Nightlife</p>
-                    <p className="text-sm text-[var(--color-neutral-dark)]">Legendary clubs and bars</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.nightlife}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Coffee className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-medium">Dining</p>
-                    <p className="text-sm text-[var(--color-neutral-dark)]">100+ restaurants</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.dining}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Waves className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Beach Access</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.beachAccess}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Home className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Accommodation</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.accommodation}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <PoundSterling className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Price Range</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.priceRange}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <PartyPopper className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Activities</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.activities}</p>
                   </div>
                 </div>
               </div>
