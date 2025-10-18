@@ -559,11 +559,11 @@ export default function Home() {
           <div className="overflow-hidden">
             <div className="flex gap-6 animate-slide-left">
               {[
-                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
-                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
-                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
-                "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
-                "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=90",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-360aceae-20251018171413.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-a-34a56fe6-20251018171423.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-99493a7b-20251018171430.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-uk-luxury-h-da2b06b3-20251018171437.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-edf2c4b0-20251018171444.jpg?",
               ].map((image, index) => (
                 <a
                   key={index}
