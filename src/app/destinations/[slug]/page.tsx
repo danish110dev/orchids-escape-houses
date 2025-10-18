@@ -4,7 +4,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper } from "lucide-react";
+import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,6 +21,7 @@ export default function DestinationDetailPage() {
       name: "Brighton",
       region: "East Sussex",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-drone-footage-slowly-flying-ov-6568fb80-20251018213103.mp4",
       overview:
         "Brighton is the ultimate hen party destination, combining stunning seaside charm with vibrant nightlife and endless entertainment. This cosmopolitan city offers the perfect mix of beach vibes, quirky shops, amazing restaurants, and legendary clubs. From the iconic Brighton Pier to the historic Lanes, there's something for every taste and budget.",
       quickFacts: {
@@ -34,10 +35,10 @@ export default function DestinationDetailPage() {
         activities: "Beach, pier, shopping, spas"
       },
       gettingThere: [
-        "London to Brighton: 1 hour by train (Victoria to Brighton)",
-        "London Gatwick Airport: 30 minutes by train or car",
-        "Driving: Well connected via M23 and A23 with ample parking",
-        "Coach services: Regular National Express services from major UK cities",
+        { icon: Train, text: "London to Brighton: 1 hour by train (Victoria to Brighton)" },
+        { icon: Plane, text: "London Gatwick Airport: 30 minutes by train or car" },
+        { icon: Car, text: "Driving: Well connected via M23 and A23 with ample parking" },
+        { icon: Bus, text: "Coach services: Regular National Express services from major UK cities" },
       ],
       nightlife: [
         {
@@ -106,7 +107,7 @@ export default function DestinationDetailPage() {
           name: "Terre à Terre",
           description: "Award-winning vegetarian restaurant with creative brunch.",
           link: "https://www.terreaterre.co.uk/",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-food-photography-of-vegetar-1ea0553b-20251018212927.jpg"
         },
       ],
       activities: [
@@ -152,6 +153,7 @@ export default function DestinationDetailPage() {
       name: "Newcastle",
       region: "Tyne and Wear",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-drone-footage-slowly-flying-ov-0ece3ba3-20251018213135.mp4",
       overview:
         "Newcastle is famous for its legendary nightlife, warm Geordie hospitality, and stunning quayside setting. This vibrant northern city offers incredible value for money with amazing bars, clubs, and restaurants, making it a top choice for hen parties. From the iconic Tyne Bridge to the rejuvenated Ouseburn Valley, Newcastle combines historic charm with modern entertainment.",
       quickFacts: {
@@ -165,10 +167,10 @@ export default function DestinationDetailPage() {
         activities: "Quayside, bars, culture, spas"
       },
       gettingThere: [
-        "London to Newcastle: 3 hours by train (Kings Cross to Newcastle Central)",
-        "Newcastle International Airport: 15 minutes by metro or car",
-        "Driving: Well connected via A1(M) with parking in city centre",
-        "Coach services: Regular National Express and Megabus from major cities",
+        { icon: Train, text: "London to Newcastle: 3 hours by train (Kings Cross to Newcastle Central)" },
+        { icon: Plane, text: "Newcastle International Airport: 15 minutes by metro or car" },
+        { icon: Car, text: "Driving: Well connected via A1(M) with parking in city centre" },
+        { icon: Bus, text: "Coach services: Regular National Express and Megabus from major cities" },
       ],
       nightlife: [
         {
@@ -237,7 +239,7 @@ export default function DestinationDetailPage() {
           name: "Blackfriars Restaurant",
           description: "Historic medieval building with modern British brunch.",
           link: "https://www.blackfriarsrestaurant.co.uk/",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-historic-blac-bffa7755-20251018212934.jpg"
         },
       ],
       activities: [
@@ -398,8 +400,25 @@ export default function DestinationDetailPage() {
 
       {/* Hero */}
       <div className="relative h-[500px] mt-20">
-        <Image src={destination.image} alt={destination.name} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        {destination.video ? (
+          <>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={destination.video} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          </>
+        ) : (
+          <>
+            <Image src={destination.image} alt={destination.name} fill className="object-cover" priority />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          </>
+        )}
         <div className="absolute bottom-0 left-0 right-0">
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
             <h1 className="text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
@@ -556,11 +575,17 @@ export default function DestinationDetailPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {destination.gettingThere.map((option, index) => (
-              <div key={index} className="bg-white rounded-xl p-6">
-                <p className="text-[var(--color-neutral-dark)]">{option}</p>
-              </div>
-            ))}
+            {destination.gettingThere.map((option: any, index: number) => {
+              const Icon = option.icon;
+              return (
+                <div key={index} className="bg-white rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-[var(--color-accent-sage)]" />
+                  </div>
+                  <p className="text-[var(--color-neutral-dark)] flex-1">{option.text}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
