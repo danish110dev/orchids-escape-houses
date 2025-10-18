@@ -479,9 +479,9 @@ export default function DestinationsPage() {
                     <div className="flex flex-col gap-2">
                       <Button
                         size="sm"
-                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
+                        className="rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200 w-full"
                         style={{
-                          background: "var(--color-accent-gold)",
+                          background: "var(--color-accent-sage)",
                           color: "white"
                         }}>
                         View Properties
@@ -489,7 +489,7 @@ export default function DestinationsPage() {
                       <Button
                         asChild
                         size="sm"
-                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200 w-full"
+                        className="rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200 w-full"
                         style={{
                           background: "var(--color-accent-gold)",
                           color: "white"
