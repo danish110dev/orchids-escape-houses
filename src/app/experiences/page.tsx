@@ -13,7 +13,7 @@ export default function ExperiencesPage() {
       duration: "2 hours",
       priceFrom: 45,
       groupSize: "8-20 guests",
-      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+      image: "https://v3b.fal.media/files/b/koala/pooDA9ogPXXK6L6beoEwZ_output.png",
       slug: "cocktail-masterclass",
     },
     {
@@ -21,7 +21,7 @@ export default function ExperiencesPage() {
       duration: "2-4 hours",
       priceFrom: 65,
       groupSize: "Any size",
-      image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/tasteful-butler-service-photograph%2c-pr-e2c8ab0c-20251018093936.jpg?",
       slug: "butlers-in-the-buff",
     },
     {
@@ -29,7 +29,7 @@ export default function ExperiencesPage() {
       duration: "1.5-2 hours",
       priceFrom: 35,
       groupSize: "8-20 guests",
-      image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/artistic-life-drawing-class-scene%2c-eas-d2674e31-20251018093944.jpg?",
       slug: "life-drawing",
     },
     {
@@ -37,7 +37,7 @@ export default function ExperiencesPage() {
       duration: "Full day",
       priceFrom: 75,
       groupSize: "Any size",
-      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/private-chef-preparing-gourmet-food-in-l-d4cba3e9-20251018093953.jpg?",
       slug: "private-chef",
     },
     {
@@ -45,7 +45,7 @@ export default function ExperiencesPage() {
       duration: "2-3 hours",
       priceFrom: 55,
       groupSize: "Up to 16",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-spa-treatment-scene%2c-serene-spa-568274b8-20251018094000.jpg?",
       slug: "spa-treatments",
     },
     {
@@ -53,7 +53,7 @@ export default function ExperiencesPage() {
       duration: "2 hours",
       priceFrom: 40,
       groupSize: "Any size",
-      image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/bottomless-brunch-celebration-scene%2c-e-b3c13bf8-20251018094009.jpg?",
       slug: "bottomless-brunch",
     },
   ];
@@ -132,7 +132,7 @@ export default function ExperiencesPage() {
             <Sparkles className="w-4 h-4 text-[var(--color-accent-pink)]" />
             <span className="text-sm font-medium">Add unforgettable moments</span>
           </div>
-          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             Hen Party Experiences
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
@@ -155,7 +155,7 @@ export default function ExperiencesPage() {
       {/* Why Add Experiences */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             Why Add Experiences?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -166,7 +166,7 @@ export default function ExperiencesPage() {
               >
                 <Sparkles className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Create Memories</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Create Memories</h3>
               <p className="text-[var(--color-neutral-dark)]">
                 Make your hen weekend truly unforgettable with activities that bring everyone together
               </p>
@@ -178,7 +178,7 @@ export default function ExperiencesPage() {
               >
                 <CalendarCheck className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Hassle-Free Planning</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Hassle-Free Planning</h3>
               <p className="text-[var(--color-neutral-dark)]">
                 We arrange everything for you so you can focus on enjoying the celebration
               </p>
@@ -190,7 +190,7 @@ export default function ExperiencesPage() {
               >
                 <ShieldCheck className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Trusted Providers</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>Trusted Providers</h3>
               <p className="text-[var(--color-neutral-dark)]">
                 All our experience providers are carefully vetted and highly rated by previous guests
               </p>
@@ -202,7 +202,7 @@ export default function ExperiencesPage() {
       {/* How to Book */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             How to Add Experiences
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -223,7 +223,7 @@ export default function ExperiencesPage() {
                 >
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-text-primary)" }}>{item.title}</h3>
                 <p className="text-sm text-[var(--color-neutral-dark)]">{item.desc}</p>
               </div>
             ))}
@@ -234,7 +234,7 @@ export default function ExperiencesPage() {
       {/* FAQs */}
       <section className="py-24">
         <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             Experience FAQs
           </h2>
           <FAQAccordion faqs={faqs} />
