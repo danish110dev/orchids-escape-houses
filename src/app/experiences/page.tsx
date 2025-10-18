@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { Sparkles, CalendarCheck, ShieldCheck, Star, Search, MousePointerClick, CheckCheck, PartyPopper } from "lucide-react";
+import { Sparkles, CalendarCheck, Award, Star, Search, Heart, CheckCircle2, PartyPopper } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ExperiencesPage() {
@@ -207,20 +207,23 @@ export default function ExperiencesPage() {
           >
             {[
               {
-                icon: Star,
-                bg: "#F2C6C2",
+                icon: Sparkles,
+                gradient: "linear-gradient(135deg, #FF6B9D 0%, #FEC5E5 100%)",
+                shadow: "rgba(255, 107, 157, 0.4)",
                 title: "Create Memories",
                 desc: "Make your hen weekend truly unforgettable with activities that bring everyone together",
               },
               {
                 icon: CalendarCheck,
-                bg: "#89A38F",
+                gradient: "linear-gradient(135deg, #6366F1 0%, #A5B4FC 100%)",
+                shadow: "rgba(99, 102, 241, 0.4)",
                 title: "Hassle-Free Planning",
                 desc: "We arrange everything for you so you can focus on enjoying the celebration",
               },
               {
-                icon: ShieldCheck,
-                bg: "#C6A76D",
+                icon: Award,
+                gradient: "linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)",
+                shadow: "rgba(245, 158, 11, 0.4)",
                 title: "Trusted Providers",
                 desc: "All our experience providers are carefully vetted and highly rated by previous guests",
               },
@@ -258,8 +261,8 @@ export default function ExperiencesPage() {
                   }}
                   className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center relative cursor-pointer"
                   style={{ 
-                    background: `linear-gradient(135deg, ${item.bg} 0%, ${item.bg}dd 100%)`,
-                    boxShadow: `0 10px 30px ${item.bg}40, 0 0 0 0 ${item.bg}00`,
+                    background: item.gradient,
+                    boxShadow: `0 10px 30px ${item.shadow}, 0 0 0 0 ${item.shadow}`,
                   }}
                 >
                   <motion.div
@@ -271,7 +274,7 @@ export default function ExperiencesPage() {
                       transition: { duration: 0.8, repeat: Infinity }
                     }}
                     style={{ 
-                      background: item.bg,
+                      background: item.gradient,
                       filter: 'blur(10px)',
                     }}
                   />
@@ -279,7 +282,7 @@ export default function ExperiencesPage() {
                     className="w-12 h-12 relative z-10" 
                     style={{ 
                       color: "white", 
-                      fill: idx === 0 ? "white" : "none",
+                      fill: "white",
                       filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
                     }} 
                   />
@@ -321,10 +324,38 @@ export default function ExperiencesPage() {
             className="grid grid-cols-1 md:grid-cols-4 gap-8"
           >
             {[
-              { step: "1", title: "Browse", desc: "Explore our curated experiences", icon: Search },
-              { step: "2", title: "Select", desc: "Choose your favourites when enquiring", icon: MousePointerClick },
-              { step: "3", title: "Confirm", desc: "We'll check availability and quote", icon: CheckCheck },
-              { step: "4", title: "Enjoy", desc: "Everything's arranged for your arrival", icon: PartyPopper },
+              { 
+                step: "1", 
+                title: "Browse", 
+                desc: "Explore our curated experiences", 
+                icon: Search,
+                gradient: "linear-gradient(135deg, #06B6D4 0%, #67E8F9 100%)",
+                shadow: "rgba(6, 182, 212, 0.3)",
+              },
+              { 
+                step: "2", 
+                title: "Select", 
+                desc: "Choose your favourites when enquiring", 
+                icon: Heart,
+                gradient: "linear-gradient(135deg, #EC4899 0%, #F9A8D4 100%)",
+                shadow: "rgba(236, 72, 153, 0.3)",
+              },
+              { 
+                step: "3", 
+                title: "Confirm", 
+                desc: "We'll check availability and quote", 
+                icon: CheckCircle2,
+                gradient: "linear-gradient(135deg, #10B981 0%, #6EE7B7 100%)",
+                shadow: "rgba(16, 185, 129, 0.3)",
+              },
+              { 
+                step: "4", 
+                title: "Enjoy", 
+                desc: "Everything's arranged for your arrival", 
+                icon: PartyPopper,
+                gradient: "linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 100%)",
+                shadow: "rgba(139, 92, 246, 0.3)",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={item.step}
@@ -365,8 +396,8 @@ export default function ExperiencesPage() {
                   }}
                   className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center relative cursor-pointer group"
                   style={{
-                    background: "linear-gradient(135deg, var(--color-accent-pink) 0%, #F2C6C2 100%)",
-                    boxShadow: "0 10px 25px rgba(242, 198, 194, 0.3), 0 0 0 0 rgba(242, 198, 194, 0)",
+                    background: item.gradient,
+                    boxShadow: `0 10px 25px ${item.shadow}, 0 0 0 0 ${item.shadow}`,
                   }}
                 >
                   <motion.div
@@ -381,7 +412,7 @@ export default function ExperiencesPage() {
                       ease: "easeInOut",
                     }}
                     style={{ 
-                      background: "var(--color-accent-pink)",
+                      background: item.gradient,
                       filter: 'blur(15px)',
                     }}
                   />
@@ -392,7 +423,8 @@ export default function ExperiencesPage() {
                     <item.icon 
                       className="w-11 h-11 relative z-10" 
                       style={{ 
-                        color: "var(--color-text-primary)",
+                        color: "white",
+                        fill: idx === 1 ? "white" : "none",
                         filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.1))"
                       }} 
                     />
