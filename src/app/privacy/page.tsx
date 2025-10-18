@@ -27,9 +27,9 @@ export default function PrivacyPage() {
             </p>
             <p className="mb-4">
               <strong>Group Escape Houses</strong><br />
-              Office, 11a North St<br />
-              Brighton and Hove<br />
-              Brighton BN41 1DH<br />
+              Office, 11a North Street<br />
+              Brighton<br />
+              BN41 1DH<br />
               Email: <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>
             </p>
           </section>
@@ -269,9 +269,9 @@ export default function PrivacyPage() {
             <p className="mb-4">
               <strong>Data Protection Officer</strong><br />
               Group Escape Houses<br />
-              Office, 11a North St<br />
-              Brighton and Hove<br />
-              Brighton BN41 1DH<br />
+              Office, 11a North Street<br />
+              Brighton<br />
+              BN41 1DH<br />
               Email: <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>
             </p>
             <p className="mt-4">
