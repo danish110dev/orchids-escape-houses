@@ -54,30 +54,12 @@ export default function DestinationsPage() {
       featured: false,
     },
     {
-      name: "Cardiff",
-      region: "South Wales",
-      propertyCount: 10,
-      image: "https://v3b.fal.media/files/b/lion/6f-XCqGoe8c0wUVf_SpUe_output.png",
-      slug: "cardiff",
-      description: "Capital city with historic castle, waterfront dining and buzzing nightlife",
-      featured: false,
-    },
-    {
       name: "Liverpool",
       region: "Merseyside",
       propertyCount: 16,
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-liverpool-uk-4dd6a7d5-20251018100435.jpg",
       slug: "liverpool",
       description: "Cultural hub with iconic waterfront, Beatles heritage and vibrant nightlife",
-      featured: false,
-    },
-    {
-      name: "Edinburgh",
-      region: "Scotland",
-      propertyCount: 13,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-edinburgh-sc-7e05a4c1-20251018100445.jpg",
-      slug: "edinburgh",
-      description: "Historic capital with stunning castle, royal mile and world-famous festivals",
       featured: false,
     },
     {
@@ -117,15 +99,6 @@ export default function DestinationsPage() {
       featured: false,
     },
     {
-      name: "Glasgow",
-      region: "Scotland",
-      propertyCount: 10,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-glasgow-scot-d1396afd-20251018100530.jpg",
-      slug: "glasgow",
-      description: "Scotland's vibrant cultural capital with amazing nightlife and live music",
-      featured: false,
-    },
-    {
       name: "Leeds",
       region: "West Yorkshire",
       propertyCount: 12,
@@ -162,15 +135,6 @@ export default function DestinationsPage() {
       featured: false,
     },
     {
-      name: "Belfast",
-      region: "Northern Ireland",
-      propertyCount: 11,
-      image: "https://images.unsplash.com/photo-1590508619732-be5e750b50f9?w=800",
-      slug: "belfast",
-      description: "Vibrant capital with Titanic Quarter, historic pubs and buzzing nightlife",
-      featured: false,
-    },
-    {
       name: "Exeter",
       region: "Devon",
       propertyCount: 6,
@@ -186,15 +150,6 @@ export default function DestinationsPage() {
       image: "https://images.unsplash.com/photo-1599665636969-dbda2c5e5fe8?w=800",
       slug: "chester",
       description: "Roman city with ancient walls, Tudor buildings and boutique shopping",
-      featured: false,
-    },
-    {
-      name: "Inverness",
-      region: "Scottish Highlands",
-      propertyCount: 5,
-      image: "https://images.unsplash.com/photo-1599663253574-b07b4b8e991d?w=800",
-      slug: "inverness",
-      description: "Gateway to the Highlands with stunning scenery and Scottish culture",
       featured: false,
     },
     {
@@ -238,13 +193,13 @@ export default function DestinationsPage() {
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
             <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
-            <span className="text-sm font-medium">Explore the UK</span>
+            <span className="text-sm font-medium">Explore England</span>
           </div>
           <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Hen Party Destinations
+            Top Hen Party Destinations in England
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-            Discover the best cities and towns across the UK for your hen celebration
+            Discover the best cities and towns across England for your hen celebration
           </p>
         </div>
       </section>
