@@ -66,42 +66,6 @@ export default function OurStoryPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
-              <div className="text-center">
-                <div
-                  className="text-5xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}
-                >
-                  150+
-                </div>
-                <p className="text-lg" style={{ color: "var(--color-neutral-dark)" }}>
-                  Handpicked Properties
-                </p>
-              </div>
-              <div className="text-center">
-                <div
-                  className="text-5xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}
-                >
-                  12,000+
-                </div>
-                <p className="text-lg" style={{ color: "var(--color-neutral-dark)" }}>
-                  Happy Guests
-                </p>
-              </div>
-              <div className="text-center">
-                <div
-                  className="text-5xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}
-                >
-                  3,000+
-                </div>
-                <p className="text-lg" style={{ color: "var(--color-neutral-dark)" }}>
-                  Five Star Reviews
-                </p>
-              </div>
-            </div>
-
             <AnimatedStats />
 
             <div>
