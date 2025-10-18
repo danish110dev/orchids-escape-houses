@@ -150,42 +150,66 @@ export default function DestinationDetailPage() {
       brunch: [
         {
           name: "The Botanist",
-          description: "Bottomless brunch with live music and entertainment",
+          description: "Bottomless brunch with live music and entertainment.",
           link: "https://thebotanist.uk.com/locations/newcastle/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bottomless-bru-f86ca3ad-20251018181046.jpg"
         },
         {
           name: "Turtle Bay",
-          description: "Caribbean bottomless brunch with cocktails",
+          description: "Caribbean bottomless brunch with cocktails.",
           link: "https://www.turtlebay.co.uk/restaurants/newcastle/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-caribbean-bru-cdfcf41d-20251018181056.jpg"
         },
         {
           name: "Pleased to Meet You",
-          description: "Trendy spot with excellent brunch menu",
+          description: "Trendy spot with excellent brunch menu.",
           link: "https://www.pleasedtomeetyou.org.uk/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-brunch-70c2b47e-20251018181104.jpg"
         },
         {
           name: "The Waiting Room",
-          description: "Quirky cafe with delicious breakfast options",
+          description: "Quirky cafe with delicious breakfast options.",
           link: "https://www.thewaitingroomnewcastle.co.uk/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-quirky-cafe-i-b044af4b-20251018181113.jpg"
         },
         {
           name: "The French Quarter",
-          description: "Brasserie-style dining on the quayside",
+          description: "Brasserie-style dining on the quayside.",
           link: "https://www.thefrenchquarter.co.uk/",
           image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brasserie-din-bb0b93c1-20251018181121.jpg"
         },
       ],
       activities: [
-        "Quayside - Scenic riverside walk with bars and restaurants",
-        "BALTIC Centre for Contemporary Art - Free art gallery with cafe",
-        "Ouseburn Valley - Trendy area with independent bars and street food",
-        "Grainger Market - Historic covered market with unique shops",
-        "Newcastle Castle - Medieval fortress in the heart of the city",
-        "Tyne Bridge - Iconic landmark perfect for photos",
+        {
+          name: "Quayside",
+          description: "Scenic riverside walk with bars and restaurants.",
+          image: ""
+        },
+        {
+          name: "BALTIC Centre for Contemporary Art",
+          description: "Free art gallery with cafe.",
+          image: ""
+        },
+        {
+          name: "Ouseburn Valley",
+          description: "Trendy area with independent bars and street food.",
+          image: ""
+        },
+        {
+          name: "Grainger Market",
+          description: "Historic covered market with unique shops.",
+          image: ""
+        },
+        {
+          name: "Newcastle Castle",
+          description: "Medieval fortress in the heart of the city.",
+          image: ""
+        },
+        {
+          name: "Tyne Bridge",
+          description: "Iconic landmark perfect for photos.",
+          image: ""
+        },
       ],
       spas: [
         "Bannatyne Spa Newcastle - Large spa with pool, sauna and treatments",
