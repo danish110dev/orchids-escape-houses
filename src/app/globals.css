@@ -227,17 +227,31 @@
     opacity: 0;
   }
   
-  /* Enhanced scroll reveal animations */
+  /* Enhanced scroll reveal animations - More visible */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), 
-                transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(60px);
+    transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), 
+                transform 1s cubic-bezier(0.19, 1, 0.22, 1);
   }
   
   .scroll-reveal.animate-fade-in {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  /* Floating animation for icons */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
   
   /* Smooth scroll parallax effect */
@@ -276,6 +290,7 @@
     
     .scroll-reveal,
     .animate-fade-up,
+    .animate-float,
     .scroll-indicator {
       opacity: 1;
       transform: none;
