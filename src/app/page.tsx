@@ -533,59 +533,56 @@ export default function Home() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-24 bg-white scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Text Content */}
-            <div>
-              <p className="text-sm uppercase tracking-wider mb-3" style={{ color: "var(--color-accent-gold)" }}>
-                Social Presence
-              </p>
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Follow Us on Instagram
-              </h2>
-              <p className="text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                See real celebrations, house tours, and party inspiration from our community. Tag us in your events for a chance to be featured!
-              </p>
+      <section className="py-12 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+        <div className="max-w-[1400px] mx-auto px-6">
+          {/* Top Row: Text */}
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <h2 
+              className="text-3xl md:text-4xl text-white m-0" 
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              We're on Instagram
+            </h2>
+            <a
+              href="https://instagram.com/groupescapehouses"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-2xl md:text-3xl font-semibold hover:opacity-80 transition-opacity text-white"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              <Instagram className="w-8 h-8" />
+              @groupescapehouses
+            </a>
+          </div>
+
+          {/* Bottom Row: Photo Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
+              "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
+              "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
+              "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
+              "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=90",
+              "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=90",
+            ].map((image, index) => (
               <a
+                key={index}
                 href="https://instagram.com/groupescapehouses"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-2xl font-semibold hover:opacity-80 transition-opacity"
-                style={{ color: "var(--color-accent-gold)", fontFamily: "var(--font-display)" }}
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <Instagram className="w-7 h-7" />
-                @groupescapehouses
-              </a>
-            </div>
-
-            {/* Right: Instagram Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90",
-                "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=90",
-                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90",
-                "https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?w=800&q=90",
-              ].map((image, index) => (
-                <a
-                  key={index}
-                  href="https://instagram.com/groupescapehouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundImage: `url('${image}')` }}
-                  ></div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                    </div>
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image}')` }}
+                ></div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Instagram className="w-6 h-6" style={{ color: "var(--color-accent-pink)" }} />
                   </div>
-                </a>
-              ))}
-            </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
