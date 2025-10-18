@@ -577,11 +577,23 @@ export default function DestinationDetailPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.activities.map((activity, index) => (
-              <div key={index} className="bg-[var(--color-bg-primary)] rounded-xl p-6">
-                <p className="font-semibold mb-2">{activity.name}</p>
-                {activity.description && (
-                  <p className="text-sm text-[var(--color-neutral-dark)]">{activity.description}</p>
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+                {activity.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={activity.image}
+                      alt={activity.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                 )}
+                <div className="p-6">
+                  <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{activity.name}</p>
+                  {activity.description && (
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{activity.description}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
