@@ -82,32 +82,32 @@ export default function DestinationDetailPage() {
         {
           name: "Brighton Palace Pier",
           description: "Classic seaside fun with arcade games.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-pal-c26b7879-20251018212031.jpg"
         },
         {
           name: "Royal Pavilion",
           description: "Stunning historic palace and gardens.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-roy-40faffe4-20251018212039.jpg"
         },
         {
           name: "Brighton Beach",
           description: "Pebble beach perfect for summer celebrations.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-bea-33acb70a-20251018212047.jpg"
         },
         {
           name: "The Lanes",
           description: "Historic quarter with quirky shops and cafes.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-the-lanes-br-19ff6aa3-20251018212054.jpg"
         },
         {
           name: "British Airways i360",
           description: "Observation tower with panoramic views.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-british-airw-87225a9a-20251018212102.jpg"
         },
         {
           name: "North Laine",
           description: "Bohemian area with independent shops and cafes.",
-          image: ""
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-north-laine--874b1984-20251018212109.jpg"
         },
       ],
       spas: [
