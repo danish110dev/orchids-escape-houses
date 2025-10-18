@@ -453,7 +453,7 @@ export default function DestinationsPage() {
               href={`/destinations/${destination.slug}`}
               className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
 
-                <div className="relative h-[420px]">
+                <div className="relative h-[500px]">
                   <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundImage: `url('${destination.image}')` }}>
