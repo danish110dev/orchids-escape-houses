@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-16 bg-white scroll-reveal">
+      <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
@@ -396,7 +396,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-white scroll-reveal">
+      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -462,7 +462,7 @@ export default function Home() {
       </section>
 
       {/* Destinations */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -526,7 +526,7 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -609,7 +609,7 @@ export default function Home() {
       <FAQSection />
 
       {/* Email Capture */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
             Get Party Planning Tips
