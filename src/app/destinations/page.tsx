@@ -119,7 +119,7 @@ export default function DestinationsPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+      <section className="pt-28 pb-8 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
             <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
@@ -341,10 +341,10 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-8 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-6 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full !text-[10px]">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 max-w-[1400px] mx-auto px-6">
             <h2
               className="text-4xl md:text-5xl m-0"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
