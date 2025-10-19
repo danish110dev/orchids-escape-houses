@@ -1469,7 +1469,7 @@ export default function DestinationDetailPage() {
       name: "Oxford",
       region: "Oxfordshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-oxford-univer-e05e954c-20251019170708.jpg",
-      video: "",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-cf550e7c-20251018221750.mp4",
       overview:
         "Oxford offers stunning spires, world-famous university buildings, and elegant dining and bars. This historic city combines rich academic heritage with modern amenities, boutique hotels, and sophisticated nightlife, making it perfect for refined hen celebrations in a city of dreaming spires.",
       quickFacts: {
@@ -1488,9 +1488,108 @@ export default function DestinationDetailPage() {
         { icon: Car, text: "M40 motorway access with park and ride" },
         { icon: Bus, text: "Regular Oxford Tube coach service from London" },
       ],
-      nightlife: [],
-      brunch: [],
-      activities: [],
+      nightlife: [
+        {
+          name: "The Varsity Club",
+          description: "Rooftop bar with stunning city views.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "The Cellar",
+          description: "Live music venue and club nights.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "Raoul's Bar",
+          description: "Stylish cocktail bar in Jericho.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "The Bullingdon",
+          description: "Alternative music venue and club.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "The Bridge",
+          description: "Student bar with affordable drinks.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "The Alchemist",
+          description: "Theatrical cocktail bar and restaurant.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Breakfast Club",
+          description: "All-day brunch with bottomless options.",
+          link: "https://thebreakfastclubcafes.com/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "Bill's Oxford",
+          description: "Relaxed dining with British classics.",
+          link: "https://bills-website.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "The Vaults & Garden",
+          description: "University church cafe with garden seating.",
+          link: "https://www.thevaultsandgarden.com/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "The Grand Cafe",
+          description: "Historic cafe with elegant afternoon tea.",
+          link: "https://www.thegrandcafe.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "Quod Restaurant",
+          description: "Modern European dining in former bank.",
+          link: "https://www.quod.co.uk/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "The Ivy Oxford Brasserie",
+          description: "All-day British dining with style.",
+          link: "https://www.the-ivy.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "Oxford University Colleges",
+          description: "Tour historic college buildings and chapels.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Bodleian Library",
+          description: "Stunning medieval library tours.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Punting on the Cherwell",
+          description: "Traditional punting experience on the river.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Covered Market",
+          description: "Historic market with independent shops.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Ashmolean Museum",
+          description: "World-class art and archaeology museum.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Christchurch Meadow",
+          description: "Beautiful riverside walks and views.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+      ],
       spas: [
         "Macdonald Randolph Hotel Spa - City centre spa",
         "Oxford Thames Four Pillars Hotel Spa - Riverside spa",
