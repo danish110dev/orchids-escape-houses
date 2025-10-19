@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Search, Award, Shield, PhoneCall, ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper } from "lucide-react";
+import { Search, ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
