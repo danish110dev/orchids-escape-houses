@@ -440,32 +440,32 @@ export default function DestinationDetailPage() {
         {
           name: "Pryzm",
           description: "Large nightclub with multiple rooms.",
-          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-pryz-67ce071a-20251019145236.jpg"
         },
         {
           name: "Wow Bar",
           description: "Quirky cocktail bar with fun atmosphere.",
-          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-wow--8b92cec3-20251019145245.jpg"
         },
         {
           name: "The Depot",
           description: "Cardiff Bay venue with live entertainment.",
-          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-depot-car-df06ce5e-20251019145251.jpg"
         },
         {
           name: "Clwb Ifor Bach",
           description: "Alternative music venue.",
-          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-clwb-5989c1c0-20251019145258.jpg"
         },
         {
           name: "The Gatekeeper",
           description: "Rooftop bar with city views.",
-          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-gatekeepe-22a5ae79-20251019145305.jpg"
         },
         {
           name: "Revolution Cardiff",
           description: "Cocktail bar with party vibes.",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-revo-34cc12db-20251019145313.jpg"
         },
       ],
       brunch: [
@@ -473,69 +473,69 @@ export default function DestinationDetailPage() {
           name: "The Cosy Club",
           description: "All-day dining in stylish setting.",
           link: "https://www.cosyclub.co.uk/",
-          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--6287a25e-20251019145342.jpg"
         },
         {
           name: "The Ivy Cardiff",
           description: "British classics with brunch menu.",
           link: "https://www.the-ivy.co.uk/cardiff",
-          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--93334740-20251019145348.jpg"
         },
         {
           name: "Bill's Cardiff",
           description: "Relaxed brunch and all-day dining.",
           link: "https://bills-website.co.uk/",
-          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bill-78d6741f-20251019145357.jpg"
         },
         {
           name: "The Potted Pig",
           description: "Unique dining in former bank vault.",
           link: "https://www.thepottedpig.com/",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--6036cbaf-20251019145410.jpg"
         },
         {
           name: "Porro",
           description: "Italian brunch with prosecco.",
           link: "https://www.porro.co.uk/",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-porr-b8c316b1-20251019145418.jpg"
         },
         {
           name: "Calabrisella",
           description: "Italian restaurant with brunch menu.",
           link: "https://www.calabrisella.co.uk/",
-          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-cala-73f3f312-20251019145427.jpg"
         },
       ],
       activities: [
         {
           name: "Cardiff Castle",
           description: "Historic castle in city centre.",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cardiff-cast-dbf26bb1-20251019145459.jpg"
         },
         {
           name: "Cardiff Bay",
           description: "Waterfront with restaurants and bars.",
-          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cardiff-bay--3166f67b-20251019145506.jpg"
         },
         {
           name: "Principality Stadium",
           description: "World-class rugby venue with tours.",
-          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-principality-dae58efb-20251019145516.jpg"
         },
         {
           name: "Cardiff Market",
           description: "Victorian indoor market.",
-          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cardiff-vict-ac5e26fd-20251019145523.jpg"
         },
         {
           name: "Wales Millennium Centre",
           description: "Arts venue with shows and performances.",
-          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wales-millen-fb998eda-20251019145532.jpg"
         },
         {
           name: "Bute Park",
           description: "Beautiful parkland along the river.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bute-park-in-bc01c5b0-20251019145539.jpg"
         },
       ],
       spas: [
