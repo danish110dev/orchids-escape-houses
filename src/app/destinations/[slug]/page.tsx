@@ -549,7 +549,7 @@ export default function DestinationDetailPage() {
       name: "Brighton",
       region: "East Sussex",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-drone-footage-slowly-flying-ov-6568fb80-20251018213103.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-2e4878b9-20251019143819.mp4",
       overview:
         "Brighton is the ultimate hen party destination, combining stunning seaside charm with vibrant nightlife and endless entertainment. This cosmopolitan city offers the perfect mix of beach vibes, quirky shops, amazing restaurants, and legendary clubs. From the iconic Brighton Pier to the historic Lanes, there's something for every taste and budget.",
       quickFacts: {
