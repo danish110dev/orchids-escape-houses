@@ -60,6 +60,16 @@ export default function DestinationsPage() {
       featured: true
     },
     {
+      name: "Liverpool",
+      region: "Merseyside",
+      propertyCount: 19,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-liverpool-uk-12524f88-20251019151454.jpg",
+      slug: "liverpool",
+      description: "Iconic waterfront city with legendary nightlife, Beatles heritage and vibrant atmosphere.",
+      bio: "Iconic waterfront city with legendary nightlife and Beatles heritage.",
+      featured: true
+    },
+    {
       name: "Cardiff",
       region: "South Wales",
       propertyCount: 14,
@@ -87,6 +97,16 @@ export default function DestinationsPage() {
       slug: "newcastle",
       description: "Friendly northern city famous for nightlife and stunning quayside.",
       bio: "Friendly northern city famous for nightlife and stunning quayside.",
+      featured: false
+    },
+    {
+      name: "Birmingham",
+      region: "West Midlands",
+      propertyCount: 11,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-birmingham-u-6b0d439a-20251019151500.jpg",
+      slug: "birmingham",
+      description: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
+      bio: "Dynamic city with world-class shopping and diverse entertainment.",
       featured: false
     },
   ];
