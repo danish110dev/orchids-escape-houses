@@ -44,32 +44,32 @@ export default function DestinationDetailPage() {
         {
           name: "Fabric",
           description: "World-famous superclub in Farringdon.",
-          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-fabr-04e8b8b7-20251019160800.jpg"
         },
         {
           name: "Ministry of Sound",
           description: "Iconic club with legendary sound system.",
-          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-mini-3fa369b0-20251019160808.jpg"
         },
         {
           name: "Shoreditch House",
           description: "Rooftop bar with stunning city views.",
-          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-shoreditch-ho-9aa7be85-20251019160817.jpg"
         },
         {
           name: "The Box Soho",
           description: "Cabaret and nightclub experience.",
-          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--519c3daa-20251019160827.jpg"
         },
         {
           name: "Cirque le Soir",
           description: "Circus-themed immersive nightclub.",
-          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-cirq-2ddc18f5-20251019160838.jpg"
         },
         {
           name: "XOYO",
           description: "Cutting-edge music venue in Shoreditch.",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-xoyo-afa5d766-20251019160846.jpg"
         },
       ],
       brunch: [
@@ -77,69 +77,69 @@ export default function DestinationDetailPage() {
           name: "Sketch",
           description: "Instagram-famous pink room with afternoon tea.",
           link: "https://sketch.london/",
-          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-sket-3df89909-20251019160854.jpg"
         },
         {
           name: "The Ivy",
           description: "British classics in glamorous setting.",
           link: "https://www.the-ivy.co.uk/",
-          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--b97bab31-20251019160901.jpg"
         },
         {
           name: "Dishoom",
           description: "Bombay-style cafe with legendary bacon naan.",
           link: "https://www.dishoom.com/",
-          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-dish-17464926-20251019160909.jpg"
         },
         {
           name: "Balthazar",
           description: "French brasserie in Covent Garden.",
           link: "https://www.balthazarlondon.com/",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-balt-d299a5ab-20251019160917.jpg"
         },
         {
           name: "Duck & Waffle",
           description: "24-hour dining with breathtaking views.",
           link: "https://duckandwaffle.com/",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-duck-eade91e1-20251019160925.jpg"
         },
         {
           name: "Granger & Co",
           description: "Australian brunch classics.",
           link: "https://grangerandco.com/",
-          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-gran-eb7f7d03-20251019160937.jpg"
         },
       ],
       activities: [
         {
           name: "West End Shows",
           description: "World-class theatre and musicals.",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london-west--25bf85fa-20251019160945.jpg"
         },
         {
           name: "Thames River Cruise",
           description: "See London's landmarks from the water.",
-          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-thames-river-25ed8e9b-20251019160952.jpg"
         },
         {
           name: "Borough Market",
           description: "Historic food market with artisan treats.",
-          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-borough-mark-c97700ca-20251019161001.jpg"
         },
         {
           name: "Shoreditch Street Art",
           description: "Walking tour of famous graffiti.",
-          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-shoreditch-s-4a8d64d1-20251019161010.jpg"
         },
         {
           name: "Sky Garden",
           description: "Free rooftop garden with panoramic views.",
-          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-sky-garden-r-a9df30bb-20251019161016.jpg"
         },
         {
           name: "Camden Market",
           description: "Alternative shopping and street food.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-camden-marke-628ba9a1-20251019161024.jpg"
         },
       ],
       spas: [
