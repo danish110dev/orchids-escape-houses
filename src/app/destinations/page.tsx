@@ -313,27 +313,27 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-0 bg-[var(--color-bg-primary)]">
+      <section className="py-12 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="rounded-3xl p-1.5 md:p-2 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
-            <h2 className="text-base md:text-lg mb-0.5 text-white" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
+            <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
               Not Sure Where to Go?
             </h2>
-            <p className="text-[10px] text-white/90 mb-1.5 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Get a free personalised quote and let us help you find the perfect destination and house for your group celebration
             </p>
             <Button
               asChild
-              size="sm"
-              className="rounded-2xl px-4 py-2 text-[10px] font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
+              size="lg"
+              className="rounded-2xl px-12 py-7 text-lg font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
               style={{
                 background: "white",
                 color: "var(--color-text-primary)"
               }}>
 
-              <Link href="/contact" className="inline-flex items-center gap-1.5">
+              <Link href="/contact" className="inline-flex items-center gap-2">
                 Get Your Free Quote
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
