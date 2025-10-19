@@ -17,7 +17,450 @@ export default function DestinationDetailPage() {
 
   // Destinations data
   const destinationsData: Record<string, any> = {
-    // ... keep existing london, manchester, york, cardiff, brighton, newcastle, bath, bournemouth, liverpool, birmingham, newquay, lake-district data ...
+    "lake-district": {
+      name: "Lake District",
+      region: "Cumbria",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-lake-district-51198f8c-20251019170636.jpg",
+      overview: "The Lake District is England's most stunning national park, offering breathtaking landscapes, luxury lodges, and peaceful mountain retreats perfect for group celebrations. With dramatic fells, pristine lakes, and charming villages, it's the ideal destination for groups seeking natural beauty combined with luxury accommodation.",
+      quickFacts: {
+        fromLondon: "4-5 hours by train or car",
+        bestTime: "Year-round, Spring and Summer for hiking",
+        nightlife: "Cosy pubs and country inns",
+        dining: "Traditional pubs and fine dining restaurants",
+        beachAccess: "No beach access, stunning lakes and mountains",
+        accommodation: "Luxury lodges with hot tubs and lake views",
+        priceRange: "£80-£120 per night",
+        activities: "Hiking, boat trips, spa treatments, scenic walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Regular train services to Windermere and Penrith from London Euston (4-5 hours)" },
+        { icon: Car, text: "Scenic drive via M6 motorway (approx 5-6 hours from London)" },
+        { icon: Bus, text: "National Express coaches run daily services to major Lake District towns" },
+        { icon: Plane, text: "Nearest airports: Manchester (2 hours) or Newcastle (2.5 hours)" }
+      ],
+      nightlife: [
+        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" },
+        { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
+        { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
+        { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" }
+      ]
+    },
+    brighton: {
+      name: "Brighton",
+      region: "East Sussex",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
+      overview: "Brighton is the UK's premier hen party destination, combining stunning Regency architecture with legendary nightlife, a vibrant beach scene, and endless entertainment options. From cocktail bars to beachfront clubs, this seaside city offers the perfect blend of sophistication and fun for unforgettable group celebrations.",
+      quickFacts: {
+        fromLondon: "1 hour by train",
+        bestTime: "Year-round, May-September for beach weather",
+        nightlife: "Legendary nightlife and club scene",
+        dining: "Outstanding restaurants and brunch spots",
+        beachAccess: "Direct beach access with pier and promenade",
+        accommodation: "Luxury houses with hot tubs and sea views",
+        priceRange: "£75-£110 per night",
+        activities: "Beach clubs, spa treatments, shopping, water sports"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Victoria or London Bridge (1 hour)" },
+        { icon: Car, text: "Easy drive via M23 and A23 (approx 1.5 hours from London)" },
+        { icon: Bus, text: "National Express and Megabus services from London Victoria" },
+        { icon: Plane, text: "Gatwick Airport is 30 minutes away with direct train connections" }
+      ],
+      nightlife: [
+        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "https://theivybrighton.com" },
+        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
+        { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?w=800&q=80" }
+      ]
+    },
+    london: {
+      name: "London",
+      region: "Greater London",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg",
+      overview: "London is the ultimate hen party destination with world-class entertainment, dining, and iconic landmarks. From West End shows to rooftop bars, Michelin-starred restaurants to hidden speakeasies, the capital offers endless possibilities for an unforgettable celebration.",
+      quickFacts: {
+        fromLondon: "You're here!",
+        bestTime: "Year-round destination",
+        nightlife: "World-class clubs and bars",
+        dining: "Michelin-starred to street food",
+        beachAccess: "No beach, but Thames riverside",
+        accommodation: "Luxury townhouses and penthouses",
+        priceRange: "£100-£150 per night",
+        activities: "Shows, museums, shopping, afternoon tea"
+      },
+      gettingThere: [
+        { icon: Train, text: "Multiple train stations connecting to all major UK cities" },
+        { icon: Plane, text: "Five major airports: Heathrow, Gatwick, Stansted, Luton, City" },
+        { icon: Bus, text: "Excellent coach connections from across the UK" },
+        { icon: Car, text: "M25 motorway provides access from all directions" }
+      ],
+      nightlife: [
+        { name: "Cirque le Soir", description: "Theatrical nightclub with circus performers", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "XOYO", description: "Shoreditch club with cutting-edge music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "Sky Garden", description: "Rooftop bar with stunning city views", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Sketch", description: "Instagram-famous afternoon tea and brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "https://sketch.london" },
+        { name: "Dishoom", description: "Bombay-style café with legendary breakfast", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "The Ivy Chelsea Garden", description: "Chic all-day dining with bottomless brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "West End Shows", description: "World-class theatre and musicals", image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80" },
+        { name: "Thames River Cruise", description: "Champagne cruises past iconic landmarks", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" },
+        { name: "Shopping", description: "From Oxford Street to boutique Covent Garden", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" }
+      ]
+    },
+    bath: {
+      name: "Bath",
+      region: "Somerset",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
+      overview: "Bath is a stunning UNESCO World Heritage city combining Roman history, Georgian elegance, and world-class spa experiences. Perfect for sophisticated hen parties seeking culture, relaxation, and refined entertainment in one of England's most beautiful cities.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        bestTime: "Year-round, Spring for festivals",
+        nightlife: "Sophisticated bars and wine venues",
+        dining: "Fine dining and traditional tea rooms",
+        beachAccess: "No beach, riverside walks",
+        accommodation: "Georgian townhouses with period features",
+        priceRange: "£85-£120 per night",
+        activities: "Spa treatments, historical tours, afternoon tea"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (1.5 hours)" },
+        { icon: Car, text: "M4 motorway via Bristol (approx 2.5 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London Victoria" },
+        { icon: Plane, text: "Bristol Airport is 30 minutes away" }
+      ],
+      nightlife: [
+        { name: "Sub 13", description: "Underground cocktail bar in vaulted cellars", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "The Bell Inn", description: "Historic pub with live music nights", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "The Dark Horse", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Pump Room", description: "Elegant dining in historic Roman Baths setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Society Café", description: "Stylish all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Colonna & Small's", description: "Award-winning coffee and brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Thermae Bath Spa", description: "Rooftop thermal pools with city views", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
+        { name: "Roman Baths", description: "Ancient Roman bathing complex", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
+        { name: "Royal Crescent", description: "Iconic Georgian architecture and gardens", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+      ]
+    },
+    manchester: {
+      name: "Manchester",
+      region: "Greater Manchester",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
+      overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality. From the trendy Northern Quarter to iconic music venues, Manchester offers an electric atmosphere perfect for unforgettable hen celebrations.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "Year-round, Summer for outdoor venues",
+        nightlife: "Legendary music and club scene",
+        dining: "Diverse restaurants and trendy eateries",
+        beachAccess: "No beach, canal-side walkways",
+        accommodation: "Modern lofts and warehouse conversions",
+        priceRange: "£70-£95 per night",
+        activities: "Shopping, live music, food markets, cocktail bars"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (2 hours)" },
+        { icon: Plane, text: "Manchester Airport with global connections" },
+        { icon: Car, text: "M6 and M62 motorways from all directions" },
+        { icon: Bus, text: "Frequent coach services from major UK cities" }
+      ],
+      nightlife: [
+        { name: "The Warehouse Project", description: "Legendary club with world-class DJs", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Refuge", description: "Grand hotel bar with eclectic entertainment", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Ivy Spinningfields", description: "Elegant all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Federal Bar", description: "Australian-inspired brunch and coffee", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Shopping", description: "From Harvey Nichols to independent boutiques", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "Music Tours", description: "Explore Manchester's legendary music heritage", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80" },
+        { name: "Food Markets", description: "Altrincham and Mackie Mayor markets", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" }
+      ]
+    },
+    york: {
+      name: "York",
+      region: "North Yorkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
+      overview: "York is a stunning medieval city with cobbled streets, historic walls, and charming riverside pubs. Perfect for hen parties seeking history, culture, and traditional English charm combined with modern entertainment and excellent dining.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "Year-round, Summer for outdoor terraces",
+        nightlife: "Traditional pubs and cocktail bars",
+        dining: "Historic pubs and fine dining restaurants",
+        beachAccess: "No beach, riverside walks",
+        accommodation: "Period townhouses and modern homes",
+        priceRange: "£75-£100 per night",
+        activities: "Historical tours, river cruises, afternoon tea"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Kings Cross (2 hours)" },
+        { icon: Car, text: "A1(M) and M1 motorways (approx 3.5 hours from London)" },
+        { icon: Bus, text: "National Express services from major cities" },
+        { icon: Plane, text: "Leeds Bradford Airport is 45 minutes away" }
+      ],
+      nightlife: [
+        { name: "The Botanist", description: "Stylish bar with botanical cocktails", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "The House of Trembling Madness", description: "Unique medieval beer hall", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "Evil Eye Lounge", description: "Quirky cocktail bar with vintage vibes", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Ate O'Clock", description: "Popular brunch spot in The Shambles", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Ivy St. Helen's Square", description: "Elegant dining in historic setting", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Mannion & Co", description: "Contemporary dining with local produce", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "York Minster", description: "Stunning Gothic cathedral tours", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
+        { name: "The Shambles", description: "Medieval shopping street with boutiques", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "River Cruise", description: "Relaxing boat trips along the River Ouse", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" }
+      ]
+    },
+    cardiff: {
+      name: "Cardiff",
+      region: "South Wales",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
+      overview: "Cardiff is Wales' vibrant capital offering fantastic value, warm Welsh hospitality, and stunning Cardiff Bay. With a thriving nightlife scene, excellent shopping, and beautiful waterfront, it's perfect for hen parties seeking a lively celebration with great prices.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "Year-round, Summer for bay activities",
+        nightlife: "Lively bars and clubs scene",
+        dining: "Welsh cuisine and international restaurants",
+        beachAccess: "No beach, stunning bay waterfront",
+        accommodation: "Modern apartments and bay-view properties",
+        priceRange: "£65-£90 per night",
+        activities: "Shopping, castle tours, bay walks, stadium tours"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
+        { icon: Car, text: "M4 motorway (approx 2.5 hours from London)" },
+        { icon: Bus, text: "Regular coach services from major UK cities" },
+        { icon: Plane, text: "Cardiff Airport with connections to major cities" }
+      ],
+      nightlife: [
+        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Ivy Cardiff", description: "Elegant all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
+        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://images.unsplash.com/photo-1577223625816-7546f9142bb2?w=800&q=80" },
+        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+      ]
+    },
+    bournemouth: {
+      name: "Bournemouth",
+      region: "Dorset",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
+      overview: "Bournemouth offers beautiful sandy beaches, vibrant nightlife, and stunning clifftop walks. Perfect for hen parties wanting beach club days, lively entertainment, and coastal charm all in one fantastic seaside destination.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "May-September for beach weather",
+        nightlife: "Beach clubs and vibrant bar scene",
+        dining: "Seafood restaurants and beach cafés",
+        beachAccess: "7 miles of golden sandy beaches",
+        accommodation: "Beach-view houses and modern apartments",
+        priceRange: "£75-£105 per night",
+        activities: "Beach clubs, water sports, coastal walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Waterloo (2 hours)" },
+        { icon: Car, text: "M3 and A31 (approx 2.5 hours from London)" },
+        { icon: Bus, text: "National Express services from London Victoria" },
+        { icon: Plane, text: "Bournemouth Airport with European connections" }
+      ],
+      nightlife: [
+        { name: "Aruba", description: "Beach club and nightclub with DJ sets", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Ojo Rojo", description: "Beach club with sea views and cocktails", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "The Old Fire Station", description: "Multi-level bar with rooftop terrace", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Urban Beach", description: "Beachfront dining with bottomless brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Larder House", description: "Stylish café and wine bar", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Neo Restaurant", description: "Contemporary dining with sea views", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Beach Clubs", description: "Sun loungers, cocktails and DJ sets", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
+        { name: "Water Sports", description: "Paddleboarding, surfing and jet skiing", image: "https://images.unsplash.com/photo-1476400935293-0404fce16baa?w=800&q=80" },
+        { name: "Coastal Walks", description: "Stunning clifftop paths with sea views", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+      ]
+    },
+    liverpool: {
+      name: "Liverpool",
+      region: "Merseyside",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-liverpool-wat-563898e7-20251019170646.jpg",
+      overview: "Liverpool combines iconic waterfront views, legendary nightlife, and rich Beatles heritage. With warm Scouse hospitality, fantastic value, and a vibrant atmosphere, it's perfect for hen parties seeking authentic Northern charm.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round, Summer for waterfront",
+        nightlife: "Famous nightlife and live music",
+        dining: "Diverse restaurants and Albert Dock eateries",
+        beachAccess: "No beach, stunning waterfront",
+        accommodation: "Converted warehouses and modern apartments",
+        priceRange: "£70-£95 per night",
+        activities: "Beatles tours, shopping, waterfront walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (2.5 hours)" },
+        { icon: Plane, text: "Liverpool John Lennon Airport" },
+        { icon: Car, text: "M6 and M62 motorways" },
+        { icon: Bus, text: "Regular coach services from major cities" }
+      ],
+      nightlife: [
+        { name: "The Cavern Club", description: "Legendary music venue where Beatles played", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "Santa Chupitos", description: "Shot bar with theatrical serves", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "The Merchant", description: "Rooftop bar with city views", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Ivy Liverpool", description: "Elegant dining in stunning setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Maray", description: "Middle Eastern inspired small plates", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "92 Degrees", description: "Award-winning coffee and brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Beatles Story", description: "Immersive Beatles museum experience", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80" },
+        { name: "Albert Dock Shopping", description: "Waterfront shopping and dining", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "River Cruise", description: "Mersey ferry sightseeing tours", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" }
+      ]
+    },
+    newcastle: {
+      name: "Newcastle",
+      region: "Tyne and Wear",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
+      overview: "Newcastle is famous for legendary nightlife, friendly locals, and stunning quayside architecture. The Geordie spirit of fun combined with excellent value makes it a top choice for unforgettable hen celebrations.",
+      quickFacts: {
+        fromLondon: "3 hours by train",
+        bestTime: "Year-round, famous for winter nightlife",
+        nightlife: "Legendary Geordie nightlife scene",
+        dining: "Modern restaurants and traditional pubs",
+        beachAccess: "Nearby Tynemouth beach (20 mins)",
+        accommodation: "Quayside apartments and modern houses",
+        priceRange: "£65-£90 per night",
+        activities: "Shopping, quayside walks, coastal trips"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Kings Cross (3 hours)" },
+        { icon: Plane, text: "Newcastle International Airport" },
+        { icon: Car, text: "A1(M) motorway from the south" },
+        { icon: Bus, text: "National Express services from major cities" }
+      ],
+      nightlife: [
+        { name: "House of Smith", description: "Multi-floor venue with DJs and live acts", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Digital", description: "Underground club with top electronic music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "The Botanist", description: "Botanical bar and restaurant", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Pleased To Meet You", description: "Stylish rooftop dining and cocktails", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Forth", description: "Award-winning restaurant with chef's table", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "The Patricia", description: "Contemporary bistro on the quayside", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Quayside Market", description: "Sunday market with crafts and street food", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" },
+        { name: "Angel of the North", description: "Iconic sculpture photo opportunity", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" },
+        { name: "Shopping", description: "From Eldon Square to Grainger Market", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" }
+      ]
+    },
+    birmingham: {
+      name: "Birmingham",
+      region: "West Midlands",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
+      overview: "Birmingham is Britain's dynamic second city with world-class shopping, diverse dining, and buzzing nightlife. The vibrant Jewellery Quarter and modern canal-side venues create the perfect backdrop for celebrations.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        bestTime: "Year-round, Summer for outdoor venues",
+        nightlife: "Diverse clubs and trendy bars",
+        dining: "Balti Triangle and Michelin-starred restaurants",
+        beachAccess: "No beach, extensive canal network",
+        accommodation: "Industrial lofts and modern apartments",
+        priceRange: "£70-£95 per night",
+        activities: "Shopping, canal walks, food tours"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
+        { icon: Plane, text: "Birmingham Airport with global connections" },
+        { icon: Car, text: "M6, M5, M40 and M42 motorways" },
+        { icon: Bus, text: "National Express hub with extensive services" }
+      ],
+      nightlife: [
+        { name: "Snobs", description: "Iconic indie club since 1993", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Lab 11", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "The Jekyll & Hyde", description: "Multi-level themed bar and club", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Ivy Temple Row", description: "Glamorous all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Purnell's Bistro", description: "Michelin-starred chef's casual dining", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "The Wilderness", description: "Innovative tasting menu restaurant", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Shopping", description: "Bullring, Grand Central and boutiques", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "Balti Triangle Food Tour", description: "Explore Birmingham's curry heritage", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" },
+        { name: "Jewellery Quarter", description: "Historic area with independent shops", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+      ]
+    },
+    newquay: {
+      name: "Newquay",
+      region: "Cornwall",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg",
+      overview: "Newquay is Cornwall's surf capital with stunning beaches, coastal walks, and vibrant nightlife. Perfect for hen parties combining beach days, water sports, and evening entertainment in this beautiful seaside town.",
+      quickFacts: {
+        fromLondon: "5 hours by train",
+        bestTime: "May-September for beach weather",
+        nightlife: "Beach clubs and surf-themed bars",
+        dining: "Fresh seafood and beachfront cafés",
+        beachAccess: "Multiple stunning surf beaches",
+        accommodation: "Beach-view houses and coastal cottages",
+        priceRange: "£70-£95 per night",
+        activities: "Surfing, coastal walks, beach clubs"
+      },
+      gettingThere: [
+        { icon: Train, text: "Trains from London Paddington via Plymouth (5 hours)" },
+        { icon: Plane, text: "Newquay Cornwall Airport with UK connections" },
+        { icon: Car, text: "A30 via Exeter (approx 5-6 hours from London)" },
+        { icon: Bus, text: "National Express services via Plymouth" }
+      ],
+      nightlife: [
+        { name: "Sailors", description: "Legendary nightclub and live music venue", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Bertie's Nightclub", description: "Waterfront club with sea views", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
+        { name: "Koola", description: "Beach club with DJ sets and cocktails", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Seafood Restaurant", description: "Rick Stein's legendary seafood dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Fistral Beach Restaurant", description: "Beachfront dining with stunning views", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "The Beach Hut", description: "Relaxed café with fresh local produce", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Surf Lessons", description: "Learn to surf on Fistral Beach", image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&q=80" },
+        { name: "Coastal Walks", description: "Stunning South West Coast Path", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" },
+        { name: "Beach Clubs", description: "Day beds, cocktails and DJ sets", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" }
+      ]
+    }
   };
 
   // Location-specific properties
