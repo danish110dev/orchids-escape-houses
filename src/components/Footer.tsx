@@ -43,7 +43,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/how-it-works" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  How to Book
+                  How It Works
                 </Link>
               </li>
               <li>
