@@ -704,32 +704,32 @@ export default function DestinationDetailPage() {
         {
           name: "Digital",
           description: "Multi-room nightclub with diverse music and great atmosphere.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-mult-5207be2f-20251018212610.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-digi-7e8a7795-20251019145953.jpg"
         },
         {
           name: "The Gate",
           description: "Entertainment complex with bars, clubs and restaurants.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-ente-d4922a80-20251018212617.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--3ec1c42b-20251019150002.jpg"
         },
         {
           name: "House of Smith",
           description: "Stylish bar with cocktails and live music.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-styl-0c9c3b99-20251018212624.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-hous-e09f0af0-20251019150011.jpg"
         },
         {
           name: "Tup Tup Palace",
           description: "Moroccan-themed club with unique interiors.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-moro-c2e4bdfa-20251018212630.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-tup--a3a68636-20251019150019.jpg"
         },
         {
           name: "The Botanist",
           description: "Bar and restaurant with live music and bottomless brunch.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bota-f17060f6-20251018212638.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--1a8c77bd-20251019150028.jpg"
         },
         {
           name: "Livello",
           description: "Rooftop bar with stunning city views.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-roof-60d6d01b-20251018212646.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-live-867ed824-20251019150036.jpg"
         },
       ],
       brunch: [
@@ -737,69 +737,69 @@ export default function DestinationDetailPage() {
           name: "The Botanist",
           description: "Bottomless brunch with live music and entertainment.",
           link: "https://thebotanist.uk.com/locations/newcastle/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bottomless-bru-f86ca3ad-20251018181046.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-botanist--1482a995-20251019150104.jpg"
         },
         {
           name: "Turtle Bay",
           description: "Caribbean bottomless brunch with cocktails.",
           link: "https://www.turtlebay.co.uk/restaurants/newcastle/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-caribbean-bru-cdfcf41d-20251018181056.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-turtle-bay-ne-311c7c9b-20251019150109.jpg"
         },
         {
           name: "Pleased to Meet You",
           description: "Trendy spot with excellent brunch menu.",
           link: "https://www.pleasedtomeetyou.org.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-brunch-70c2b47e-20251018181104.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-pleased-to-me-3ae5168a-20251019150117.jpg"
         },
         {
           name: "The Waiting Room",
           description: "Quirky cafe with delicious breakfast options.",
           link: "https://www.thewaitingroomnewcastle.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-quirky-cafe-i-b044af4b-20251018181113.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-waiting-r-14f231a7-20251019150124.jpg"
         },
         {
           name: "The French Quarter",
           description: "Brasserie-style dining on the quayside.",
           link: "https://www.thefrenchquarter.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brasserie-din-bb0b93c1-20251018181121.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-french-qu-d9599041-20251019150132.jpg"
         },
         {
           name: "Blackfriars Restaurant",
           description: "Historic medieval building with modern British brunch.",
           link: "https://www.blackfriarsrestaurant.co.uk/",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-historic-blac-bffa7755-20251018212934.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-blackfriars-r-fd21b8b3-20251019150140.jpg"
         },
       ],
       activities: [
         {
           name: "Quayside",
           description: "Scenic riverside walk with bars and restaurants.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-qu-8b4f19e0-20251018212118.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-qu-72455aae-20251019150211.jpg"
         },
         {
           name: "BALTIC Centre for Contemporary Art",
           description: "Free art gallery with cafe.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-baltic-centr-6496f41a-20251018212125.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-baltic-centr-c820a6d7-20251019150219.jpg"
         },
         {
           name: "Ouseburn Valley",
           description: "Trendy area with independent bars and street food.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-ouseburn-val-228dbdcb-20251018212132.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-ouseburn-val-6c414289-20251019150226.jpg"
         },
         {
           name: "Grainger Market",
           description: "Historic covered market with unique shops.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-grainger-mar-1de926ad-20251018212139.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-grainger-mar-e6ecb4ef-20251019150234.jpg"
         },
         {
           name: "Newcastle Castle",
           description: "Medieval fortress in the heart of the city.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-ca-c770b965-20251018212146.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-ca-9cc26af9-20251019150245.jpg"
         },
         {
           name: "Tyne Bridge",
           description: "Iconic landmark perfect for photos.",
-          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-tyne-bridge--8aafb273-20251018212152.jpg"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-tyne-bridge--526fb827-20251019150252.jpg"
         },
       ],
       spas: [
