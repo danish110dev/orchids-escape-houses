@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -10,6 +10,7 @@ import ExperienceCard from "@/components/ExperienceCard";
 import ReviewSlider from "@/components/ReviewSlider";
 import FAQSection from "@/components/FAQSection";
 import LoadingScreen from "@/components/LoadingScreen";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -199,6 +200,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <StructuredData type="home" />
       <LoadingScreen />
       <Header />
 
@@ -269,6 +271,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Signals Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Safe & Secure</h3>
+              <p className="text-[var(--color-neutral-dark)]">Protected payments via Stripe. Your booking is safe with us.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center">
+                <Award className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">3,000+ 5-Star Reviews</h3>
+              <p className="text-[var(--color-neutral-dark)]">Trusted by thousands of happy guests across the UK.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-pink)]/10 flex items-center justify-center">
+                <Users className="w-8 h-8" style={{ color: "var(--color-accent-pink)" }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">UK Support Team</h3>
+              <p className="text-[var(--color-neutral-dark)]">Brighton-based team ready to help plan your perfect stay.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
+                <Clock className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">24-Hour Response</h3>
+              <p className="text-[var(--color-neutral-dark)]">Fast replies to all enquiries. No waiting around.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-[var(--color-bg-secondary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+              Why Choose Group Escape Houses?
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+              We're the UK's leading provider of luxury group accommodation for hen parties, celebrations, and special occasions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                Handpicked Properties
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Every house in our collection is personally inspected and verified. We only feature properties with exceptional facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-gold)]">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-gold)]">pools</Link>, <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-gold)]">games rooms</Link>, and luxury amenities perfect for group celebrations.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                Complete Party Planning
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                From <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)]">cocktail masterclasses</Link> to <Link href="/experiences/private-chef" className="underline hover:text-[var(--color-accent-gold)]">private chefs</Link> and <Link href="/experiences/spa-treatments" className="underline hover:text-[var(--color-accent-gold)]">spa treatments</Link>, we handle all the details so you can focus on celebrating. Our UK team manages everything from booking to check-out.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                Flexible Group Sizes
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Whether you're a group of 8 close friends or 30+ guests, we have the perfect property. All our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)]">party houses</Link> are designed for large groups with multiple bedrooms, spacious living areas, and entertainment facilities.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                UK-Wide Coverage
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Properties across all major UK destinations including <Link href="/destinations/brighton" className="underline hover:text-[var(--color-accent-gold)]">Brighton</Link>, <Link href="/destinations/bath" className="underline hover:text-[var(--color-accent-gold)]">Bath</Link>, <Link href="/destinations/manchester" className="underline hover:text-[var(--color-accent-gold)]">Manchester</Link>, <Link href="/destinations/london" className="underline hover:text-[var(--color-accent-gold)]">London</Link>, and more. Every location offers great nightlife, restaurants, and attractions for your celebration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Properties - Improved Grid */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -299,6 +389,62 @@ export default function Home() {
             >
               <Link href="/properties">View All Properties</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas Section */}
+      <section className="py-20 bg-white scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+              Luxury Group Accommodation Across the UK
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+              We specialise in providing premium party houses and large group accommodation across England, Scotland, and Wales
+            </p>
+          </div>
+
+          <div className="prose prose-lg max-w-4xl mx-auto text-[var(--color-neutral-dark)]">
+            <p className="text-center leading-relaxed">
+              Group Escape Houses offers an exclusive collection of <strong>luxury hen party houses</strong>, <strong>large holiday homes</strong>, and <strong>celebration accommodation</strong> throughout the United Kingdom. Our properties are located in the country's most popular destinations for group getaways, including coastal towns, vibrant cities, and stunning countryside locations.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 not-prose">
+              <div>
+                <h3 className="font-semibold text-lg mb-3 text-[var(--color-text-primary)]">South England</h3>
+                <ul className="space-y-2 text-[var(--color-neutral-dark)]">
+                  <li><Link href="/destinations/brighton" className="hover:text-[var(--color-accent-gold)]">Brighton & Hove</Link></li>
+                  <li><Link href="/destinations/bath" className="hover:text-[var(--color-accent-gold)]">Bath & Somerset</Link></li>
+                  <li><Link href="/destinations/bournemouth" className="hover:text-[var(--color-accent-gold)]">Bournemouth & Dorset</Link></li>
+                  <li><Link href="/destinations/london" className="hover:text-[var(--color-accent-gold)]">London & South East</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg mb-3 text-[var(--color-text-primary)]">North England</h3>
+                <ul className="space-y-2 text-[var(--color-neutral-dark)]">
+                  <li><Link href="/destinations/manchester" className="hover:text-[var(--color-accent-gold)]">Manchester & Lancashire</Link></li>
+                  <li><Link href="/destinations/liverpool" className="hover:text-[var(--color-accent-gold)]">Liverpool & Merseyside</Link></li>
+                  <li><Link href="/destinations/york" className="hover:text-[var(--color-accent-gold)]">York & Yorkshire</Link></li>
+                  <li><Link href="/destinations/newcastle" className="hover:text-[var(--color-accent-gold)]">Newcastle & North East</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg mb-3 text-[var(--color-text-primary)]">Wales & Scotland</h3>
+                <ul className="space-y-2 text-[var(--color-neutral-dark)]">
+                  <li><Link href="/destinations/cardiff" className="hover:text-[var(--color-accent-gold)]">Cardiff & South Wales</Link></li>
+                  <li><Link href="/destinations" className="hover:text-[var(--color-accent-gold)]">Scottish Highlands</Link></li>
+                  <li><Link href="/destinations" className="hover:text-[var(--color-accent-gold)]">Edinburgh & Lowlands</Link></li>
+                  <li><Link href="/destinations" className="hover:text-[var(--color-accent-gold)]">Snowdonia & North Wales</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="text-center mt-8 leading-relaxed">
+              All our properties feature essential amenities for group celebrations including fully equipped kitchens, spacious living areas, outdoor spaces, parking, and high-speed Wi-Fi. Most houses include luxury additions such as <strong>hot tubs</strong>, <strong>swimming pools</strong>, <strong>games rooms with pool tables and table tennis</strong>, <strong>cinema rooms</strong>, and <strong>BBQ areas</strong>.
+            </p>
           </div>
         </div>
       </section>
