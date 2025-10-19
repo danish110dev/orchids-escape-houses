@@ -466,11 +466,8 @@ export default function DestinationsPage() {
 
                 <div className="relative h-[540px]">
                   <div
-                  className="absolute inset-0 bg-cover transition-transform duration-300 group-hover:scale-110"
-                  style={{ 
-                    backgroundImage: `url('${destination.image}')`,
-                    backgroundPosition: destination.name === "Newcastle" ? "center 35%" : "center"
-                  }}>
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${destination.image}')` }}>
                 </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
