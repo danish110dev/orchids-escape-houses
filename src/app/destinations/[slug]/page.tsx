@@ -1073,6 +1073,270 @@ export default function DestinationDetailPage() {
         "Bournemouth Highcliff Spa - Clifftop spa with panoramic views",
       ],
     },
+    liverpool: {
+      name: "Liverpool",
+      region: "Merseyside",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-liverpool-uk-12524f88-20251019151454.jpg",
+      video: "",
+      overview:
+        "Liverpool is an iconic waterfront city famous for its legendary nightlife, Beatles heritage, and warm Scouse hospitality. This vibrant northern city offers incredible value with a buzzing cultural scene, world-class museums, stunning architecture, and unforgettable entertainment, making it perfect for memorable hen party celebrations.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        nightlife: "Legendary party scene",
+        dining: "Albert Dock & city centre",
+        bestTime: "Year-round destination",
+        beachAccess: "Waterfront views",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£62-£135 per night",
+        activities: "Beatles tours, museums, nightlife, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Liverpool: 2.5 hours by train (Euston to Lime Street)" },
+        { icon: Plane, text: "Liverpool John Lennon Airport: 20 minutes by car or taxi" },
+        { icon: Car, text: "Well connected via M62, M56, M6 with city centre parking" },
+        { icon: Bus, text: "Regular coach services from all major UK cities" },
+      ],
+      nightlife: [
+        {
+          name: "Concert Square",
+          description: "Heart of Liverpool nightlife with multiple bars and clubs.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Mathew Street",
+          description: "Home of The Cavern Club and legendary Beatles venues.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "Albert Dock",
+          description: "Waterfront bars with stunning views.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Fusion Nightclub",
+          description: "Popular nightclub with themed nights.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Level Nightclub",
+          description: "Multi-floor venue with diverse music.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "24 Kitchen Street",
+          description: "Alternative venue with live music and club nights.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Ivy Liverpool",
+          description: "Elegant dining in stunning surroundings.",
+          link: "https://www.the-ivy.co.uk/liverpool",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "Bill's Liverpool",
+          description: "All-day dining with bottomless options.",
+          link: "https://bills-website.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "Tate Liverpool Café",
+          description: "Waterfront dining with gallery views.",
+          link: "https://www.tate.org.uk/visit/tate-liverpool",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "The Florist",
+          description: "Botanical-themed bar with bottomless brunch.",
+          link: "https://theflorist.com/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "Turtle Bay Albert Dock",
+          description: "Caribbean bottomless brunch by the waterfront.",
+          link: "https://www.turtlebay.co.uk/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "Maray",
+          description: "Small plates and cocktails in trendy setting.",
+          link: "https://www.maray.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "The Beatles Story",
+          description: "Immersive museum dedicated to the Fab Four.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Albert Dock",
+          description: "Historic waterfront with shops and restaurants.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Liverpool Cathedral",
+          description: "Stunning Gothic cathedral with tower tours.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Liverpool ONE",
+          description: "Premier shopping destination in city centre.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Cavern Club",
+          description: "Legendary venue where The Beatles played.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Tate Liverpool",
+          description: "Modern art gallery at Albert Dock.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+      ],
+      spas: [
+        "Titanic Hotel Spa - Historic venue with luxury treatments",
+        "Hope Street Hotel Spa - Boutique city centre spa",
+        "The Shankly Hotel Spa - Football-themed luxury spa",
+        "Malmaison Liverpool Spa - Contemporary waterfront spa",
+      ],
+    },
+    birmingham: {
+      name: "Birmingham",
+      region: "West Midlands",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-birmingham-u-6b0d439a-20251019151500.jpg",
+      video: "",
+      overview:
+        "Birmingham is Britain's second city with world-class shopping, diverse dining, and buzzing nightlife. This dynamic Midlands metropolis offers incredible value with its famous Bullring shopping centre, canal-side bars, Michelin-starred restaurants, and vibrant entertainment venues, making it ideal for sophisticated hen party celebrations.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        nightlife: "Broad Street & Digbeth",
+        dining: "Balti Triangle & fine dining",
+        bestTime: "Year-round destination",
+        beachAccess: "City centre location",
+        accommodation: "Houses sleep 8-30 guests",
+        priceRange: "£58-£125 per night",
+        activities: "Shopping, dining, canals, culture"
+      },
+      gettingThere: [
+        { icon: Train, text: "London to Birmingham: 1.5 hours by train (Euston to New Street)" },
+        { icon: Plane, text: "Birmingham Airport: 15 minutes by train or car to city centre" },
+        { icon: Car, text: "Central location via M6, M5, M42 with ample parking" },
+        { icon: Bus, text: "Excellent coach connections from all UK cities" },
+      ],
+      nightlife: [
+        {
+          name: "Broad Street",
+          description: "Main nightlife strip with bars and clubs.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "The Night Owl",
+          description: "Cocktail bar with vintage decor.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "Lab 11",
+          description: "Popular club in the heart of Broad Street.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+        {
+          name: "Revolution Birmingham",
+          description: "Cocktail bar with party atmosphere.",
+          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+        },
+        {
+          name: "Snobs Nightclub",
+          description: "Indie and alternative music venue.",
+          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+        },
+        {
+          name: "The Vaults",
+          description: "Underground bar in historic railway arches.",
+          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+        },
+      ],
+      brunch: [
+        {
+          name: "The Ivy Temple Row",
+          description: "Elegant all-day British dining.",
+          link: "https://www.the-ivy.co.uk/templerow",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "Bills Birmingham",
+          description: "Relaxed dining with brunch favourites.",
+          link: "https://bills-website.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "The Botanist",
+          description: "Botanical-themed venue with bottomless brunch.",
+          link: "https://thebotanist.uk.com/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "Purnell's Bistro",
+          description: "Michelin-starred chef's relaxed venue.",
+          link: "https://www.purnellsbistro.com/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+        {
+          name: "Turtle Bay Birmingham",
+          description: "Caribbean brunch with unlimited cocktails.",
+          link: "https://www.turtlebay.co.uk/",
+          image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+        },
+        {
+          name: "The Wilderness",
+          description: "Contemporary British cuisine in stylish setting.",
+          link: "https://thewildernessbirmingham.co.uk/",
+          image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80"
+        },
+      ],
+      activities: [
+        {
+          name: "Bullring Shopping Centre",
+          description: "Iconic shopping destination with 200+ stores.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Birmingham Museum & Art Gallery",
+          description: "Free museum with extensive collections.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Canal Quarter",
+          description: "Historic waterways with bars and restaurants.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Jewellery Quarter",
+          description: "Historic area with independent shops and cafes.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+        {
+          name: "Cadbury World",
+          description: "Chocolate factory tour and experience.",
+          image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80"
+        },
+        {
+          name: "Library of Birmingham",
+          description: "Stunning architecture with rooftop garden.",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80"
+        },
+      ],
+      spas: [
+        "The Spa at Hoar Cross Hall - Luxury country spa",
+        "Malmaison Birmingham Spa - City centre boutique spa",
+        "Resorts World Spa - Modern facilities with pool",
+        "The Cube Spa - Rooftop spa with city views",
+      ],
+    },
   };
 
   // Location-specific properties
@@ -1355,6 +1619,76 @@ export default function DestinationDetailPage() {
         image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-mo-5886e798-20251019164036.jpg",
         features: ["Beach Views", "Modern", "BBQ"],
         slug: "sandbanks-villa",
+      },
+    ],
+    liverpool: [
+      {
+        id: "1",
+        title: "Albert Dock Warehouse",
+        location: "Liverpool, Merseyside",
+        sleeps: 18,
+        bedrooms: 9,
+        priceFrom: 88,
+        image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+        features: ["Hot Tub", "Waterfront Views", "Games Room"],
+        slug: "albert-dock-warehouse",
+      },
+      {
+        id: "2",
+        title: "Cavern Quarter House",
+        location: "Liverpool, Merseyside",
+        sleeps: 14,
+        bedrooms: 7,
+        priceFrom: 78,
+        image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
+        features: ["City Centre", "Hot Tub", "Roof Terrace"],
+        slug: "cavern-quarter-house",
+      },
+      {
+        id: "3",
+        title: "Georgian Liverpool Villa",
+        location: "Liverpool, Merseyside",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 68,
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+        features: ["Period Features", "Garden", "Parking"],
+        slug: "georgian-liverpool-villa",
+      },
+    ],
+    birmingham: [
+      {
+        id: "1",
+        title: "Canal Quarter Loft",
+        location: "Birmingham, West Midlands",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 82,
+        image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+        features: ["Hot Tub", "Canal Views", "Modern"],
+        slug: "canal-quarter-loft",
+      },
+      {
+        id: "2",
+        title: "Jewellery Quarter House",
+        location: "Birmingham, West Midlands",
+        sleeps: 14,
+        bedrooms: 7,
+        priceFrom: 72,
+        image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
+        features: ["Historic", "Hot Tub", "City Centre"],
+        slug: "jewellery-quarter-house",
+      },
+      {
+        id: "3",
+        title: "Digbeth Warehouse",
+        location: "Birmingham, West Midlands",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 65,
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+        features: ["Industrial Style", "Games Room", "Parking"],
+        slug: "digbeth-warehouse",
       },
     ],
   };
