@@ -70,13 +70,11 @@ export default function Header() {
     { title: "Bath", slug: "bath" },
     { title: "Brighton", slug: "brighton" },
     { title: "Bournemouth", slug: "bournemouth" },
-    { title: "Manchester", slug: "manchester" },
-    { title: "York", slug: "york" },
     { title: "Cardiff", slug: "cardiff" },
-    { title: "Liverpool", slug: "liverpool" },
-    { title: "Edinburgh", slug: "edinburgh" },
-    { title: "Cornwall", slug: "cornwall" },
-    { title: "Lake District", slug: "lake-district" },
+    { title: "London", slug: "london" },
+    { title: "Manchester", slug: "manchester" },
+    { title: "Newcastle", slug: "newcastle" },
+    { title: "York", slug: "york" },
   ];
 
   const navLinks = [
