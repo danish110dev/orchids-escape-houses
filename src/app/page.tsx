@@ -202,8 +202,8 @@ export default function Home() {
       <LoadingScreen />
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Improved Responsive Design */}
+      <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background video with parallax effect */}
         <video
           autoPlay
@@ -219,10 +219,10 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/80 to-[var(--color-bg-secondary)]/70"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-32 text-center">
+        {/* Content - Improved Mobile Layout */}
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
           <h1
-            className="mb-6 animate-fade-up"
+            className="mb-4 sm:mb-6 animate-fade-up text-3xl sm:text-5xl md:text-6xl lg:text-[64px] leading-tight"
             style={{
               fontFamily: "var(--font-display)",
               color: "var(--color-text-primary)",
@@ -231,7 +231,7 @@ export default function Home() {
             Luxury Party Houses UK with Hot Tubs & Pools
           </h1>
           <p
-            className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto animate-fade-up px-4"
             style={{
               color: "var(--color-neutral-dark)",
               animationDelay: "100ms",
@@ -240,12 +240,12 @@ export default function Home() {
             Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "200ms" }}>
+          {/* CTA Buttons - Better Mobile Layout */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-up max-w-md sm:max-w-none mx-auto px-4" style={{ animationDelay: "200ms" }}>
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -257,7 +257,7 @@ export default function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)] w-full sm:w-auto"
               style={{
                 borderColor: "var(--color-accent-gold)",
                 color: "var(--color-text-primary)",
@@ -269,19 +269,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Properties */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      {/* Featured Properties - Improved Grid */}
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               Featured Party Houses
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-4xl mx-auto px-4">
               Handpicked <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">luxury party houses</Link> perfect for <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebrations across the UK</Link>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {featuredProperties.map((property) => (
               <PropertyCard key={property.id} {...property} />
             ))}
@@ -291,7 +291,7 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -303,16 +303,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experiences */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      {/* Experiences - Better Mobile Grid */}
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-[42px] px-4" style={{ fontFamily: "var(--font-display)" }}>
               Make your celebration weekend extra special with curated activities and experiences
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {experiences.map((experience) => (
               <ExperienceCard key={experience.slug} {...experience} />
             ))}
@@ -322,7 +322,7 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -334,19 +334,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      {/* How It Works - Better Mobile Layout */}
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               How to Book Your Party House
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto px-4">
               Four simple steps to your perfect <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors">UK group celebration</Link>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8">
             {[
               {
                 step: "1",
@@ -377,21 +377,21 @@ export default function Home() {
               return (
                 <div key={item.step} className="text-center relative group">
                   <div
-                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg animate-float"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-4 sm:mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg animate-float"
                     style={{
                       background: "var(--color-accent-sage)",
                       color: "white",
                       animationDelay: `${parseInt(item.step) * 100}ms`,
                     }}
                   >
-                    <Icon className="w-10 h-10 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+                    <Icon className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3" style={{ fontFamily: "var(--font-body)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
+                  <p className="text-sm sm:text-base text-[var(--color-neutral-dark)]">{item.description}</p>
                   {item.step !== "4" && (
-                    <ArrowRight className="hidden md:block absolute top-10 -right-4 w-8 h-8 text-[var(--color-accent-gold)]" />
+                    <ArrowRight className="hidden lg:block absolute top-8 sm:top-10 -right-4 w-6 h-6 sm:w-8 sm:h-8 text-[var(--color-accent-gold)]" />
                   )}
                 </div>
               );
@@ -400,33 +400,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Destinations */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      {/* Destinations - Improved Grid Layout */}
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               Top UK Destinations
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto px-4">
               Discover <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">party houses with hot tubs</Link> across the UK's best locations
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+          {/* Improved Grid: 2 cols mobile, 3 cols tablet, 3 cols desktop for balanced 2x3 layout */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {destinations.map((destination) => (
               <Link
                 key={destination.name}
                 href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className="group relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+                className="group relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundImage: `url('${destination.image}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-sm">
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-white/90 backdrop-blur-sm">
                   <h3
-                    className="text-base md:text-lg font-semibold text-[var(--color-text-primary)] leading-tight"
+                    className="text-sm sm:text-base md:text-lg font-semibold text-[var(--color-text-primary)] leading-tight"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {destination.name}
@@ -436,11 +437,11 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -452,7 +453,7 @@ export default function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)] w-full sm:w-auto"
               style={{
                 borderColor: "var(--color-accent-gold)",
                 color: "var(--color-text-primary)",
@@ -465,13 +466,13 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               What Our Guests Say
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto px-4">
               Join thousands of happy <Link href="/reviews" className="underline hover:text-[var(--color-accent-gold)] transition-colors">5-star celebrations</Link>
             </p>
           </div>
@@ -480,13 +481,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Section */}
-      <section className="py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      {/* Instagram Section - Better Mobile Layout */}
+      <section className="py-12 sm:py-16 md:py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full">
-          {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 max-w-[1400px] mx-auto px-6">
+          {/* Top Row: Text - Better Mobile Spacing */}
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
             <h2 
-              className="text-4xl md:text-5xl m-0" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl m-0 text-center md:text-left" 
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
             >
               We're on Instagram
@@ -495,17 +496,17 @@ export default function Home() {
               href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-3xl md:text-4xl font-semibold hover:opacity-80 transition-opacity"
+              className="inline-flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold hover:opacity-80 transition-opacity"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
             >
-              <Instagram className="w-10 h-10" />
+              <Instagram className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" />
               @groupescapehouses
             </a>
           </div>
 
-          {/* Bottom Row: Photo Strip with Animation */}
+          {/* Bottom Row: Photo Strip - Better Mobile Display */}
           <div className="overflow-hidden">
-            <div className="flex gap-3 animate-slide-left">
+            <div className="flex gap-2 sm:gap-3 animate-slide-left">
               {[
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-1043bcfc-20251018173502.jpg?",
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-i-de445ee3-20251018173511.jpg?",
@@ -526,15 +527,15 @@ export default function Home() {
                   href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex-shrink-0 w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="group relative flex-shrink-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundImage: `url('${image}')` }}
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-7 h-7" style={{ color: "var(--color-accent-pink)" }} />
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-5 h-5 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-pink)" }} />
                     </div>
                   </div>
                 </a>
@@ -547,29 +548,29 @@ export default function Home() {
       {/* FAQ Section */}
       <FAQSection />
 
-      {/* Email Capture */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      {/* Email Capture - Better Mobile Layout */}
+      <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
             Get Party Planning Tips
           </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6 sm:mb-8">
             Subscribe for exclusive deals, house spotlights, and planning inspiration delivered to your inbox
           </p>
 
-          <form className="flex flex-col sm:flex-row gap-4">
+          <form className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 py-6 rounded-xl text-base"
+              className="flex-1 py-5 sm:py-6 rounded-xl text-base"
               required
             />
             <Button
               type="submit"
               size="lg"
-              className="rounded-xl px-10 py-6 font-medium"
+              className="rounded-xl px-8 sm:px-10 py-5 sm:py-6 font-medium w-full sm:w-auto"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
@@ -579,7 +580,7 @@ export default function Home() {
             </Button>
           </form>
 
-          <p className="text-sm text-[var(--color-neutral-dark)] mt-4">
+          <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)] mt-3 sm:mt-4">
             We respect your privacy. Unsubscribe anytime. Read our <Link href="/privacy" className="underline hover:text-[var(--color-accent-gold)] transition-colors">privacy policy</Link>.
           </p>
         </div>
