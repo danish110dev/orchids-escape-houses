@@ -1053,7 +1053,7 @@ export default function DestinationDetailPage() {
         {
           name: "Watersports",
           description: "Paddleboarding, kayaking and more on the beach.",
-          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-watersports--8197a73f-20251019141858.jpg"
         },
         {
           name: "Russell-Cotes Museum",
