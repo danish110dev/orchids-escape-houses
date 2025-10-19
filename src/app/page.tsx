@@ -194,9 +194,6 @@ export default function Home() {
     { name: "Bath", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg" },
     { name: "Manchester", image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png" },
     { name: "Newquay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?" },
-    { name: "Lake District", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-lake-district-51198f8c-20251019170636.jpg?" },
-    { name: "York", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-york-city-photograph%2c-medieva-87040b2f-20251017161235.jpg" },
-    { name: "Bournemouth", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/bournemouth-beach-photograph%2c-golden-s-804727ac-20251017161243.jpg" },
   ];
 
   return (
@@ -433,14 +430,14 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              All UK Destinations
+              Top UK Destinations
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
               Discover <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">party houses with hot tubs</Link> across the UK's best locations
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
             {destinations.map((destination) => (
               <Link
                 key={destination.name}
@@ -464,26 +461,26 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
-              style={{
-                borderColor: "var(--color-accent-sage)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/destinations">View Destination Guides</Link>
-            </Button>
+          <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               asChild
               size="lg"
               className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
               style={{
-                background: "var(--color-accent-gold)",
+                background: "var(--color-accent-sage)",
                 color: "white",
+              }}
+            >
+              <Link href="/destinations">View All Locations</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+              style={{
+                borderColor: "var(--color-accent-gold)",
+                color: "var(--color-text-primary)",
               }}
             >
               <Link href="/contact">Get a Quote</Link>
