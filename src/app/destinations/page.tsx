@@ -93,7 +93,7 @@ export default function DestinationsPage() {
       name: "Newcastle",
       region: "Tyne and Wear",
       propertyCount: 9,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-uk-a7d70fdf-20251018100503.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-newcastle-up-67f977e5-20251019151656.jpg",
       slug: "newcastle",
       description: "Friendly northern city famous for nightlife and stunning quayside.",
       bio: "Friendly northern city famous for nightlife and stunning quayside.",
