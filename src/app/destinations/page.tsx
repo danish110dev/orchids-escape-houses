@@ -138,7 +138,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Featured Destinations */}
-      <section className="py-12">
+      <section className="py-12 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center gap-2 mb-8">
             <TrendingUp className="w-6 h-6 text-[var(--color-accent-pink)]" />
