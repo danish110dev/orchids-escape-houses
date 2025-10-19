@@ -241,7 +241,7 @@ export default function Home() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up" style={{ animationDelay: "200ms" }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "200ms" }}>
             <Button
               asChild
               size="lg"
@@ -265,32 +265,6 @@ export default function Home() {
             >
               <Link href="/contact">Book Now</Link>
             </Button>
-          </div>
-
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "300ms" }}>
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl">
-              <div className="flex gap-3">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-neutral-dark)]" />
-                  <Input
-                    type="text"
-                    placeholder="Search by location or features..."
-                    className="pl-12 py-6 rounded-xl border-0 text-base"
-                  />
-                </div>
-                <Button
-                  size="lg"
-                  className="rounded-xl px-8 font-medium"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  Search
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
