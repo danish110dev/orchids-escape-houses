@@ -208,7 +208,7 @@ export default function SpecialCelebrationsPage() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+      <section className="py-24 pb-12 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -242,7 +242,7 @@ export default function SpecialCelebrationsPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+      <section className="pt-12 pb-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
