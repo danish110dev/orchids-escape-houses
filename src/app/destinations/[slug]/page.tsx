@@ -1019,7 +1019,7 @@ export default function DestinationDetailPage() {
           name: "The Stable",
           description: "Cider and pizza restaurant with group menus.",
           link: "https://stablepizza.com/",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-ru-e9630520-20251019144056.jpg"
         },
         {
           name: "The Reef Beach Club",
