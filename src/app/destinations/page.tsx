@@ -212,22 +212,22 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 1 - After Featured Destinations */}
-      <section className="py-12 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
+      <section className="py-8 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-4">
             <Sparkles className="w-4 h-4 text-[var(--color-accent-gold)]" />
             <span className="text-sm font-medium">Ready to Book?</span>
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl md:text-4xl mb-3" style={{ fontFamily: "var(--font-display)" }}>
             Find Your Perfect Hen Party House
           </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--color-neutral-dark)] mb-6 max-w-2xl mx-auto">
             Browse our full collection of luxury houses with hot tubs, pools and games rooms
           </p>
           <Button
             asChild
             size="lg"
-            className="rounded-2xl px-12 py-7 text-lg font-semibold transition-all duration-200 hover:shadow-2xl hover:-translate-y-1 group"
+            className="rounded-2xl px-10 py-6 text-base font-semibold transition-all duration-200 hover:shadow-2xl hover:-translate-y-1 group"
             style={{
               background: "var(--color-text-primary)",
               color: "white"
@@ -257,8 +257,11 @@ export default function DestinationsPage() {
 
                 <div className="relative h-[540px]">
                   <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${destination.image}')` }}>
+                  className="absolute inset-0 bg-cover transition-transform duration-300 group-hover:scale-110"
+                  style={{ 
+                    backgroundImage: `url('${destination.image}')`,
+                    backgroundPosition: destination.name === "Newcastle" ? "center 35%" : "center"
+                  }}>
                 </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
