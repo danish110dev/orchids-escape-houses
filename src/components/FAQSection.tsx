@@ -63,11 +63,11 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--color-accent-gold)]/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg"
+              className="border border-[var(--color-accent-gold)]/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-[var(--color-accent-gold)]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors hover:bg-[var(--color-bg-primary)]"
+                className="w-full px-6 py-5 flex items-center justify-between text-left transition-all duration-200 hover:bg-[var(--color-accent-gold)]/10"
               >
                 <h3
                   className="text-lg font-semibold pr-4"
