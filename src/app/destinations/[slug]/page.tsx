@@ -176,32 +176,32 @@ export default function DestinationDetailPage() {
         {
           name: "The Warehouse Project",
           description: "Legendary club nights and events.",
-          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--4e8a13f4-20251019161345.jpg"
         },
         {
           name: "Revolution",
           description: "Cocktail bar with party atmosphere.",
-          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-revo-27db3211-20251019161353.jpg"
         },
         {
           name: "Deansgate Locks",
           description: "Canal-side bars and clubs.",
-          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-deansgate-loc-ed73dd36-20251019161401.jpg"
         },
         {
           name: "The Printworks",
           description: "Entertainment complex with multiple venues.",
-          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--cd2dd1a4-20251019161410.jpg"
         },
         {
           name: "Cloud 23",
           description: "Rooftop bar with panoramic views.",
-          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-clou-86d155e4-20251019161419.jpg"
         },
         {
           name: "Albert's Schloss",
           description: "Bavarian-style beer hall with live music.",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-albe-67964db5-20251019161426.jpg"
         },
       ],
       brunch: [
@@ -209,69 +209,69 @@ export default function DestinationDetailPage() {
           name: "Federal Bar & Kitchen",
           description: "Australian-style brunch in Northern Quarter.",
           link: "https://federalandco.com/",
-          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-fede-c636d4b3-20251019161434.jpg"
         },
         {
           name: "Evelyn's Cafe Bar",
           description: "Bottomless brunch with live music.",
           link: "https://www.evelynscafebar.com/",
-          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-evel-5324f86b-20251019161443.jpg"
         },
         {
           name: "The Ivy Spinningfields",
           description: "All-day dining with cocktails.",
           link: "https://www.the-ivy.co.uk/spinningfields",
-          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--cd553742-20251019161448.jpg"
         },
         {
           name: "Bill's Manchester",
           description: "Relaxed dining with brunch classics.",
           link: "https://bills-website.co.uk/",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bill-bfa3e6be-20251019161456.jpg"
         },
         {
           name: "Dough Pizza Kitchen",
           description: "Bottomless pizza and prosecco.",
           link: "https://www.doughpizzakitchen.co.uk/",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-doug-fc722530-20251019161503.jpg"
         },
         {
           name: "Turtle Bay",
           description: "Caribbean bottomless brunch.",
           link: "https://www.turtlebay.co.uk/",
-          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-turt-3f1e8a27-20251019161510.jpg"
         },
       ],
       activities: [
         {
           name: "Northern Quarter",
           description: "Trendy area with independent shops and street art.",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          image: "https://v3b.fal.media/files/b/koala/v6ZTWxmoV2VnXT74ia6nN_output.png"
         },
         {
           name: "Manchester Art Gallery",
           description: "Free gallery with extensive collections.",
-          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-a-0e1f2bc8-20251019161524.jpg"
         },
         {
           name: "Old Trafford Stadium",
           description: "Tour the iconic football stadium.",
-          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-old-trafford-bbe915fb-20251019161534.jpg"
         },
         {
           name: "Manchester Cathedral",
           description: "Stunning medieval architecture.",
-          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-c-1ddf8cc2-20251019161543.jpg"
         },
         {
           name: "Afflecks Palace",
           description: "Alternative shopping emporium.",
-          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-afflecks-pal-1b56dfc5-20251019161549.jpg"
         },
         {
           name: "Castlefield",
           description: "Historic canal area with bars and restaurants.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-castlefield--9532b8a6-20251019161558.jpg"
         },
       ],
       spas: [
@@ -308,32 +308,32 @@ export default function DestinationDetailPage() {
         {
           name: "The House of Trembling Madness",
           description: "Quirky medieval bar with craft beers.",
-          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--c4fcdc21-20251019161638.jpg"
         },
         {
           name: "Kuda",
           description: "Popular nightclub in city centre.",
-          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-kuda-d8135e11-20251019161646.jpg"
         },
         {
           name: "Pitcher & Piano",
           description: "Stylish bar with live music.",
-          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-pitc-3ccef4c4-20251019161652.jpg"
         },
         {
           name: "The Phoenix",
           description: "Live music venue and bar.",
-          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--e5fea03c-20251019161701.jpg"
         },
         {
           name: "All Bar One",
           description: "Cocktails and sophisticated atmosphere.",
-          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-all--8557886b-20251019161709.jpg"
         },
         {
           name: "The Botanist",
           description: "Garden-themed bar with live entertainment.",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--b8a243c3-20251019161715.jpg"
         },
       ],
       brunch: [
@@ -341,69 +341,69 @@ export default function DestinationDetailPage() {
           name: "Bettys Tea Room",
           description: "Iconic Yorkshire tea room since 1919.",
           link: "https://www.bettys.co.uk/",
-          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bett-ad3828ec-20251019161722.jpg"
         },
         {
           name: "The Ivy St Helens Square",
           description: "All-day British dining.",
           link: "https://www.the-ivy.co.uk/",
-          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--138075ff-20251019161729.jpg"
         },
         {
           name: "The Star Inn The City",
           description: "Riverside dining with views.",
           link: "https://www.starinnthe city.co.uk/",
-          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-star-inn--9a06ea8d-20251019161737.jpg"
         },
         {
           name: "Partisan",
           description: "Independent cafe with great breakfast.",
           link: "https://www.partisanyork.co.uk/",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-part-1634d352-20251019161746.jpg"
         },
         {
           name: "Spring Espresso",
           description: "Artisan coffee and brunch.",
           link: "https://www.springespresso.co.uk/",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-spri-21a646a9-20251019161752.jpg"
         },
         {
           name: "The Botanist",
           description: "Bottomless brunch with live music.",
           link: "https://thebotanist.uk.com/",
-          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--d8db4af8-20251019161800.jpg"
         },
       ],
       activities: [
         {
           name: "York Minster",
           description: "Magnificent Gothic cathedral.",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-minster-4b219d9f-20251019161807.jpg"
         },
         {
           name: "The Shambles",
           description: "Medieval shopping street.",
-          image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-the-shambles-ebd123da-20251019161814.jpg"
         },
         {
           name: "York City Walls",
           description: "Walk the historic medieval walls.",
-          image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-city-wa-b7ae138b-20251019161820.jpg"
         },
         {
           name: "Ghost Walk",
           description: "Evening ghost tours through the city.",
-          image: "https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-ghost-w-b152fe3b-20251019161829.jpg"
         },
         {
           name: "JORVIK Viking Centre",
           description: "Interactive Viking history experience.",
-          image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-jorvik-vikin-4bfd8755-20251019161842.jpg"
         },
         {
           name: "York's Chocolate Story",
           description: "Interactive chocolate making experience.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york%27s-cho-af974700-20251019161849.jpg"
         },
       ],
       spas: [
@@ -968,32 +968,32 @@ export default function DestinationDetailPage() {
         {
           name: "The Old Fire Station",
           description: "Popular nightclub with multiple rooms and live music.",
-          image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-the--4aa5b4cf-20251019161920.jpg"
         },
         {
           name: "Aruba",
           description: "Beachfront bar and club with stunning sea views.",
-          image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-aruba-beachfr-a5f4b103-20251019161928.jpg"
         },
         {
           name: "Brass Monkey",
           description: "Quirky bar with cocktails and live entertainment.",
-          image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bras-87bd008d-20251019161939.jpg"
         },
         {
           name: "Smokin' Aces",
           description: "Late-night venue with DJ sets and dancing.",
-          image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-smok-477b12fb-20251019161946.jpg"
         },
         {
           name: "The Reef",
           description: "Beachside bar with live music and cocktails.",
-          image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-reef-beac-9c439a93-20251019161952.jpg"
         },
         {
           name: "Opera House",
           description: "Historic venue with club nights and events.",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-oper-e2792bb0-20251019162000.jpg"
         },
       ],
       brunch: [
@@ -1007,13 +1007,13 @@ export default function DestinationDetailPage() {
           name: "Urban Reef",
           description: "Seafront dining with stunning beach views.",
           link: "https://www.urban-reef.com/",
-          image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-urban-reef-re-792a0dff-20251019162006.jpg"
         },
         {
           name: "Bournemouth Brewery Tap",
           description: "Craft beers and brunch in vibrant setting.",
           link: "https://www.brewhouseandkitchen.com/venue/bournemouth/",
-          image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-bour-0ee78094-20251019162014.jpg"
         },
         {
           name: "The Stable",
@@ -1025,13 +1025,13 @@ export default function DestinationDetailPage() {
           name: "The Reef Beach Club",
           description: "Beachside dining with Mediterranean menu.",
           link: "https://www.thereef-beachclub.com/",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-reef-beac-1c0ecc2f-20251019162022.jpg"
         },
         {
           name: "Bournemouth Beach Club",
           description: "Relaxed beach dining with fresh seafood.",
           link: "https://www.bmthbeachclub.com/",
-          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+          image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bournemouth-b-74a0e2b9-20251019162031.jpg"
         },
       ],
       activities: [
