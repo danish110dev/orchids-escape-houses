@@ -944,7 +944,7 @@ export default function DestinationDetailPage() {
     bournemouth: {
       name: "Bournemouth",
       region: "Dorset",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--1f766a4a-20251019142825.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-bournem-b7bf3aa3-20251019144046.jpg",
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-footage-slowly-fl-deb21a6b-20251018221634.mp4",
       overview:
         "Bournemouth is a stunning coastal destination perfect for hen parties, featuring seven miles of golden sandy beaches, vibrant nightlife, and elegant gardens. This seaside resort town offers the ideal blend of beach relaxation and party atmosphere, with bustling bars, restaurants, and clubs. From the iconic pier to the beautiful cliff-top walks, Bournemouth provides an unforgettable coastal celebration experience.",
