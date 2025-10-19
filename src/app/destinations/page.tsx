@@ -391,13 +391,16 @@ export default function DestinationsPage() {
                     </p>
                     <div className="flex flex-col gap-3">
                       <Button
+                        asChild
                         size="sm"
                         className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
                         style={{
                           background: "var(--color-accent-sage)",
                           color: "white"
                         }}>
-                        View Properties
+                        <Link href={`/destinations/${destination.slug}`} onClick={(e) => e.stopPropagation()}>
+                          View Properties
+                        </Link>
                       </Button>
                       <Button
                         asChild
@@ -489,13 +492,16 @@ export default function DestinationsPage() {
                     </p>
                     <div className="flex flex-col gap-2">
                       <Button
+                        asChild
                         size="sm"
                         className="rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200 w-full"
                         style={{
                           background: "var(--color-accent-sage)",
                           color: "white"
                         }}>
-                        View Properties
+                        <Link href={`/destinations/${destination.slug}`} onClick={(e) => e.stopPropagation()}>
+                          View Properties
+                        </Link>
                       </Button>
                       <Button
                         asChild
