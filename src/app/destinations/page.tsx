@@ -403,7 +403,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-12 bg-[var(--color-bg-secondary)]">
+      <section className="pt-6 pb-12 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Why Choose Group Escape Houses?
