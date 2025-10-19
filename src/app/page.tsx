@@ -320,41 +320,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Signals */}
-      <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-[var(--color-accent-sage)]" />
-              </div>
-              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                3,000+
-              </h3>
-              <p className="text-[var(--color-neutral-dark)]">5-star reviews</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
-              </div>
-              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                Safe Payments
-              </h3>
-              <p className="text-[var(--color-neutral-dark)]">Secure booking process</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mx-auto mb-4">
-                <PhoneCall className="w-8 h-8 text-[var(--color-accent-gold)]" />
-              </div>
-              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                UK Support
-              </h3>
-              <p className="text-[var(--color-neutral-dark)]">Fast response from our team</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Properties */}
       <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-6">
