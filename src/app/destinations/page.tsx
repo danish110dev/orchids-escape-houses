@@ -242,7 +242,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* All Destinations */}
-      <section className="py-0 bg-white">
+      <section className="py-0 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
             All Destinations
