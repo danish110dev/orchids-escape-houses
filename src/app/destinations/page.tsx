@@ -313,8 +313,8 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-0 bg-[var(--color-bg-primary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6 py-12">
           <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
             <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
               Not Sure Where to Go?
