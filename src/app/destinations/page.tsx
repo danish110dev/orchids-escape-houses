@@ -313,7 +313,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-12 bg-[var(--color-bg-primary)]">
+      <section className="py-8 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
             <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -341,10 +341,10 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-6 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-4 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full !text-[10px]">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 max-w-[1400px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 max-w-[1400px] mx-auto px-6">
             <h2
               className="text-4xl md:text-5xl m-0"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
