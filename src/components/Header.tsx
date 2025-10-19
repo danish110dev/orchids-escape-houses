@@ -81,7 +81,6 @@ export default function Header() {
     { label: "Properties", href: "/properties" },
     { label: "Experiences", href: "/experiences" },
     { label: "Occasions", href: "/occasions" },
-    { label: "How it works", href: "/how-it-works" },
     { label: "Reviews", href: "/reviews" },
     { label: "Contact", href: "/contact" },
   ];
