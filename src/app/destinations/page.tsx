@@ -313,19 +313,19 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-8 bg-[var(--color-bg-primary)]">
+      <section className="py-4 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
-            <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="rounded-3xl p-8 md:p-10 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
+            <h2 className="text-3xl md:text-4xl mb-3 text-white" style={{ fontFamily: "var(--font-display)" }}>
               Not Sure Where to Go?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
               Get a free personalised quote and let us help you find the perfect destination and house for your group celebration
             </p>
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-12 py-7 text-lg font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
+              className="rounded-2xl px-10 py-6 text-base font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
               style={{
                 background: "white",
                 color: "var(--color-text-primary)"
@@ -341,10 +341,10 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-4 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-2 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full !text-[10px]">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 max-w-[1400px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4 max-w-[1400px] mx-auto px-6">
             <h2
               className="text-4xl md:text-5xl m-0"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
