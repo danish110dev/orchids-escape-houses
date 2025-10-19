@@ -313,19 +313,19 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section 2 - After All Destinations */}
-      <section className="py-1 bg-[var(--color-bg-primary)]">
+      <section className="py-0 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="rounded-3xl p-3 md:p-4 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
-            <h2 className="text-xl md:text-2xl mb-1 text-white" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="rounded-3xl p-2 md:p-3 text-center shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-accent-sage), var(--color-accent-gold))" }}>
+            <h2 className="text-lg md:text-xl mb-1 text-white" style={{ fontFamily: "var(--font-display)" }}>
               Not Sure Where to Go?
             </h2>
-            <p className="text-sm text-white/90 mb-3 max-w-2xl mx-auto">
+            <p className="text-xs text-white/90 mb-2 max-w-2xl mx-auto">
               Get a free personalised quote and let us help you find the perfect destination and house for your group celebration
             </p>
             <Button
               asChild
-              size="lg"
-              className="rounded-2xl px-6 py-4 text-sm font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
+              size="sm"
+              className="rounded-2xl px-5 py-3 text-xs font-semibold transition-all duration-200 hover:shadow-2xl hover:scale-105 group"
               style={{
                 background: "white",
                 color: "var(--color-text-primary)"
@@ -333,7 +333,7 @@ export default function DestinationsPage() {
 
               <Link href="/contact" className="inline-flex items-center gap-2">
                 Get Your Free Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
@@ -341,12 +341,12 @@ export default function DestinationsPage() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-0.5 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-0 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full !text-[10px]">
           {/* Top Row: Text */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-1 gap-4 max-w-[1400px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-0.5 gap-4 max-w-[1400px] mx-auto px-6">
             <h2
-              className="text-4xl md:text-5xl m-0"
+              className="text-3xl md:text-4xl m-0"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
 
               We're on Instagram
@@ -355,10 +355,10 @@ export default function DestinationsPage() {
               href="https://instagram.com/groupescapehouses"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-3xl md:text-4xl font-semibold hover:opacity-80 transition-opacity"
+              className="inline-flex items-center gap-3 text-2xl md:text-3xl font-semibold hover:opacity-80 transition-opacity"
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
 
-              <Instagram className="w-10 h-10" />
+              <Instagram className="w-8 h-8" />
               @groupescapehouses
             </a>
           </div>
@@ -403,7 +403,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-12 bg-[var(--color-bg-secondary)]">
+      <section className="py-6 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Why Choose Group Escape Houses?
