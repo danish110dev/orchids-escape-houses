@@ -104,7 +104,7 @@ export default function Home() {
       duration: "2-3 hours",
       priceFrom: 50,
       groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-9a8fa570-20251018105410.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
       slug: "cocktail-masterclass",
     },
     {
