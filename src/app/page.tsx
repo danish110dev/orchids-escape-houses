@@ -310,49 +310,81 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-20 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center mb-16">
+            <h2 className="mb-6 text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
               Why Choose Group Escape Houses?
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
               We're the UK's leading provider of luxury group accommodation for hen parties, celebrations, and special occasions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-                Handpicked Properties
-              </h3>
-              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                Every house in our collection is personally inspected and verified. We only feature properties with exceptional facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-gold)]">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-gold)]">pools</Link>, <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-gold)]">games rooms</Link>, and luxury amenities perfect for group celebrations.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
+                  <HomeIcon className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Handpicked Properties
+                </h3>
+              </div>
+              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
+                Every house in our collection is personally inspected and verified. We only feature properties with exceptional facilities including <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">hot tubs</Link>, <Link href="/features/swimming-pool" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">pools</Link>, <Link href="/features/games-room" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">games rooms</Link>, and luxury amenities perfect for group celebrations.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-                Complete Party Planning
-              </h3>
-              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                From <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)]">cocktail masterclasses</Link> to <Link href="/experiences/private-chef" className="underline hover:text-[var(--color-accent-gold)]">private chefs</Link> and <Link href="/experiences/spa-treatments" className="underline hover:text-[var(--color-accent-gold)]">spa treatments</Link>, we handle all the details so you can focus on celebrating. Our UK team manages everything from booking to check-out.
+            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
+                  <Sparkles className="w-7 h-7 text-[var(--color-accent-gold)]" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Complete Party Planning
+                </h3>
+              </div>
+              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
+                From <Link href="/experiences" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">cocktail masterclasses</Link> to <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">private chefs</Link> and <Link href="/experiences/spa-treatments" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">spa treatments</Link>, we handle all the details so you can focus on celebrating. Our UK team manages everything from booking to check-out.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-                Flexible Group Sizes
-              </h3>
-              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                Whether you're a group of 8 close friends or 30+ guests, we have the perfect property. All our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)]">party houses</Link> are designed for large groups with multiple bedrooms, spacious living areas, and entertainment facilities.
+            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
+                  <Users className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Flexible Group Sizes
+                </h3>
+              </div>
+              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
+                Whether you're a group of 8 close friends or 30+ guests, we have the perfect property. All our <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">party houses</Link> are designed for large groups with multiple bedrooms, spacious living areas, and entertainment facilities.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-                UK-Wide Coverage
-              </h3>
-              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                Properties across all major UK destinations including <Link href="/destinations/brighton" className="underline hover:text-[var(--color-accent-gold)]">Brighton</Link>, <Link href="/destinations/bath" className="underline hover:text-[var(--color-accent-gold)]">Bath</Link>, <Link href="/destinations/manchester" className="underline hover:text-[var(--color-accent-gold)]">Manchester</Link>, <Link href="/destinations/london" className="underline hover:text-[var(--color-accent-gold)]">London</Link>, and more. Every location offers great nightlife, restaurants, and attractions for your celebration.
+            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
+                  <HomeIcon className="w-7 h-7 text-[var(--color-accent-gold)]" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  UK-Wide Coverage
+                </h3>
+              </div>
+              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
+                Properties across all major UK destinations including <Link href="/destinations/brighton" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Brighton</Link>, <Link href="/destinations/bath" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Bath</Link>, <Link href="/destinations/manchester" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Manchester</Link>, <Link href="/destinations/london" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">London</Link>, and more. Every location offers great nightlife, restaurants, and attractions for your celebration.
               </p>
             </div>
           </div>
