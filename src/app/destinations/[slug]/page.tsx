@@ -261,19 +261,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Cardiff Airport with connections to major cities" }
       ],
       nightlife: [
-        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
+        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
+        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" }
       ],
       brunch: [
-        { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
-        { name: "The Ivy Cardiff", description: "Elegant all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
-        { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+        { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" },
+        { name: "The Ivy Cardiff", description: "Elegant all-day dining and cocktails", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" },
+        { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" }
       ],
       activities: [
-        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
-        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://images.unsplash.com/photo-1577223625816-7546f9142bb2?w=800&q=80" },
-        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
+        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
+        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" }
       ]
     },
     bournemouth: {
