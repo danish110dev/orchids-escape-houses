@@ -276,29 +276,29 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '0ms' }}>
+                <Shield className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Safe & Secure</h3>
               <p className="text-[var(--color-neutral-dark)]">Protected payments via Stripe. Your booking is safe with us.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center">
-                <Award className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '300ms' }}>
+                <Award className="w-8 h-8 text-[var(--color-accent-gold)] transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold mb-2">3,000+ 5-Star Reviews</h3>
               <p className="text-[var(--color-neutral-dark)]">Trusted by thousands of happy guests across the UK.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-pink)]/10 flex items-center justify-center">
-                <Users className="w-8 h-8" style={{ color: "var(--color-accent-pink)" }} />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-pink)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '600ms' }}>
+                <Users className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" style={{ color: "var(--color-accent-pink)" }} />
               </div>
               <h3 className="text-xl font-semibold mb-2">UK Support Team</h3>
               <p className="text-[var(--color-neutral-dark)]">Brighton-based team ready to help plan your perfect stay.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '900ms' }}>
+                <Clock className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold mb-2">24-Hour Response</h3>
               <p className="text-[var(--color-neutral-dark)]">Fast replies to all enquiries. No waiting around.</p>
