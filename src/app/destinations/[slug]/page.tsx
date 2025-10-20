@@ -39,19 +39,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Nearest airports: Manchester (2 hours) or Newcastle (2.5 hours)" }
       ],
       nightlife: [
-        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80" },
+        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
         { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
-        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" },
-        { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" }
+        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80", link: "#" },
+        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=800&q=80", link: "#" },
+        { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
       ],
       activities: [
         { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
-        { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
-        { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" }
+        { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" },
+        { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
       ]
     },
     brighton: {
@@ -76,17 +76,17 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Gatwick Airport is 30 minutes away with direct train connections" }
       ],
       nightlife: [
-        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1571266028243-d220c6c2c0e1?w=800&q=80" },
         { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "https://theivybrighton.com" },
-        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
-        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "https://theivybrighton.com" },
+        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" },
+        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
+        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" },
         { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
         { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?w=800&q=80" }
       ]
@@ -261,19 +261,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Cardiff Airport with connections to major cities" }
       ],
       nightlife: [
-        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
-        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
-        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" }
+        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80" },
+        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
+        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" }
       ],
       brunch: [
-        { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" },
-        { name: "The Ivy Cardiff", description: "Elegant all-day dining and cocktails", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" },
-        { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg", link: "#" }
+        { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?w=800&q=80", link: "#" },
+        { name: "The Ivy Cardiff", description: "Elegant all-day dining and cocktails", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80", link: "#" },
+        { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
-        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" },
-        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg" }
+        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&q=80" },
+        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80" },
+        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=800&q=80" }
       ]
     },
     bournemouth: {
