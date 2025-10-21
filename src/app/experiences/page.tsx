@@ -135,21 +135,6 @@ export default function ExperiencesPage() {
     const contentRef = useRef<HTMLDivElement>(null);
     const x = useMotionValue(0);
     const controls = useAnimation();
-    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
-
-    // Calculate drag constraints
-    useEffect(() => {
-      if (containerRef.current && contentRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const contentWidth = contentRef.current.scrollWidth;
-        const maxScroll = -(contentWidth / 2); // Half because we duplicate
-        
-        setDragConstraints({
-          left: maxScroll,
-          right: 0
-        });
-      }
-    }, [experiences]);
 
     // Auto-scroll animation
     useEffect(() => {
@@ -184,15 +169,28 @@ export default function ExperiencesPage() {
             ref={contentRef}
             className="flex gap-6 px-6 md:px-0 cursor-grab active:cursor-grabbing"
             drag="x"
-            dragConstraints={dragConstraints}
-            dragElastic={0.2}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+            dragConstraints={{ left: -2000, right: 0 }}
+            dragElastic={0.05}
+            dragMomentum={true}
+            dragTransition={{ 
+              power: 0.3,
+              timeConstant: 200,
+              modifyTarget: (target) => {
+                // Infinite loop effect - reset position when reaching end
+                const cardWidth = 320 + 24;
+                const totalWidth = cardWidth * experiences.length;
+                if (target < -totalWidth) {
+                  return target + totalWidth;
+                }
+                return target;
+              }
+            }}
             onDragStart={() => setIsDragging(true)}
             onDragEnd={() => setIsDragging(false)}
             style={{ x }}
             animate={controls}
           >
-            {[...experiences, ...experiences].map((experience, idx) => (
+            {[...experiences, ...experiences, ...experiences].map((experience, idx) => (
               <div
                 key={idx}
                 className="flex-shrink-0 w-[320px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
