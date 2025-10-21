@@ -6,7 +6,6 @@ import CookieConsent from "@/components/CookieConsent";
 import WhatsAppChatbot from "@/components/WhatsAppChatbot";
 import Script from "next/script";
 
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 export const metadata: Metadata = {
   title: "Group Escape Houses | Luxury Hen Party Houses UK with Hot Tubs & Pools",
   description: "Book luxury hen party houses across the UK. Large group accommodation with hot tubs, pools, games rooms. Perfect for hen weekends, birthdays & celebrations. Instant enquiry available.",
@@ -96,8 +95,6 @@ export default function RootLayout({
         {children}
         <WhatsAppChatbot />
         <CookieConsent />
-      
-        <VisualEditsMessenger />
       </body>
     </html>
   );
