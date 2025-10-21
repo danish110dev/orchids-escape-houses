@@ -39,19 +39,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Nearest airports: Manchester (2 hours) or Newcastle (2.5 hours)" }
       ],
       nightlife: [
-        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80" },
-        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=800&q=80" },
+        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
+        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80", link: "#" },
-        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=800&q=80", link: "#" },
+        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80", link: "#" },
+        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" },
         { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
-        { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" },
-        { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" },
+        { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
+        { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" }
       ]
     },
     brighton: {
