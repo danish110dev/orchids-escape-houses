@@ -64,8 +64,8 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
   const cardWidth = 100 / slidesToShow;
 
   return (
-    <div className="relative px-2 sm:px-4">
-      <div className="overflow-hidden">
+    <div className="relative px-12 sm:px-4">
+      <div className="overflow-hidden rounded-xl sm:rounded-2xl">
         <div
           className="flex transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${currentIndex * cardWidth}%)` }}
@@ -76,10 +76,10 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
               className="flex-shrink-0 px-2 sm:px-3"
               style={{ width: `${cardWidth}%` }}
             >
-              <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-md h-full">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-md h-full">
                 {/* Quote Icon */}
                 <svg
-                  className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4 opacity-20"
+                  className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3 md:mb-4 opacity-20"
                   fill="var(--color-accent-gold)"
                   viewBox="0 0 24 24"
                 >
@@ -87,11 +87,11 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
                 </svg>
 
                 {/* Stars */}
-                <div className="flex gap-1 mb-3 sm:mb-4">
+                <div className="flex gap-0.5 sm:gap-1 mb-2 sm:mb-3 md:mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 sm:w-5 sm:h-5 ${
+                      className={`w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 ${
                         i < review.rating
                           ? "fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]"
                           : "text-gray-300"
@@ -101,14 +101,14 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
                 </div>
 
                 {/* Review Text */}
-                <p className="text-sm sm:text-base text-[var(--color-neutral-dark)] mb-4 sm:mb-6 line-clamp-4 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-[var(--color-neutral-dark)] mb-3 sm:mb-4 md:mb-6 line-clamp-4 leading-relaxed">
                   {review.comment}
                 </p>
 
                 {/* Reviewer Info */}
-                <div className="pt-3 sm:pt-4 border-t border-[var(--color-bg-secondary)] flex items-center gap-3 sm:gap-4">
+                <div className="pt-2 sm:pt-3 md:pt-4 border-t border-[var(--color-bg-secondary)] flex items-center gap-2 sm:gap-3 md:gap-4">
                   {review.image && (
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
                       <Image
                         src={review.image}
                         alt={review.name}
@@ -117,12 +117,12 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
                       />
                     </div>
                   )}
-                  <div>
-                    <p className="text-sm sm:text-base font-semibold text-[var(--color-text-primary)]">{review.name}</p>
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm md:text-base font-semibold text-[var(--color-text-primary)] truncate">{review.name}</p>
                     {review.property && (
-                      <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)]">{review.property}</p>
+                      <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)] truncate">{review.property}</p>
                     )}
-                    <p className="text-xs text-[var(--color-neutral-dark)] mt-1">{review.date}</p>
+                    <p className="text-xs text-[var(--color-neutral-dark)] mt-0.5 sm:mt-1 truncate">{review.date}</p>
                   </div>
                 </div>
               </div>
@@ -136,25 +136,25 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
         <>
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110 z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110 z-10 border border-gray-200"
             aria-label="Previous reviews"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
 
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110 z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 hover:scale-110 z-10 border border-gray-200"
             aria-label="Next reviews"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
         </>
       )}
 
       {/* Dots Indicator */}
       {maxIndex > 0 && (
-        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
+        <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 md:mt-8">
           {[...Array(maxIndex + 1)].map((_, index) => (
             <button
               key={index}
@@ -162,10 +162,10 @@ export default function ReviewSlider({ reviews }: ReviewSliderProps) {
                 setIsAutoPlaying(false);
                 setCurrentIndex(index);
               }}
-              className={`h-2 rounded-full transition-all duration-200 ${
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-200 ${
                 index === currentIndex
-                  ? "w-6 sm:w-8 bg-[var(--color-accent-sage)]"
-                  : "w-2 bg-[var(--color-bg-secondary)]"
+                  ? "w-5 sm:w-6 md:w-8 bg-[var(--color-accent-sage)]"
+                  : "w-1.5 sm:w-2 bg-[var(--color-bg-secondary)]"
               }`}
               aria-label={`Go to review ${index + 1}`}
             />
