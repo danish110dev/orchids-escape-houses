@@ -13,25 +13,25 @@ export default function ExperiencesPage() {
     {
       title: "Private Chef Dining",
       description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-private-chef-c9b1dcae-20251018105326.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-0a38cf4c-20251021222802.jpg",
       icon: ChefHat,
     },
     {
       title: "Spa Treatments",
       description: "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-b1e16955-20251018105334.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
       icon: Waves,
     },
     {
       title: "Yoga & Pilates Classes",
       description: "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone.",
-      image: "https://v3b.fal.media/files/b/koala/gmzGO0jeJbdr_IoAa7EJP_output.png",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
       icon: Heart,
     },
     {
       title: "Wellness Workshops",
       description: "Meditation, sound baths, or aromatherapy – for a restorative, bonding experience.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-wor-77218089-20251018105348.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-med-b1dcd986-20251021222802.jpg",
       icon: Sparkles,
     },
   ];
@@ -40,25 +40,25 @@ export default function ExperiencesPage() {
     {
       title: "Pizza Party Night",
       description: "Make, bake, and top your own creations. Dough, laughter, and a lot of prosecco.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pizza-making-09c038d0-20251018105355.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-fun-pizza-ma-4a0f37e9-20251021222802.jpg",
       icon: Pizza,
     },
     {
       title: "Murder Mystery Dinner",
       description: "Transform your dinner into a night of intrigue and laughter. Dress up, play your part, and see who can uncover the culprit first.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-7b7408cd-20251018105402.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-3f806f2a-20251021222805.jpg",
       icon: Users,
     },
     {
       title: "Cocktail Masterclass",
       description: "Learn to shake, stir, and sip like pros with our expert mixologists.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-9a8fa570-20251018105410.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
       icon: Wine,
     },
     {
       title: "Life Drawing & Cheeky Butlers",
       description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-80bb4e56-20251018105418.jpg?",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
       icon: Palette,
     },
   ];
@@ -185,50 +185,35 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
-          >
-            {chilledExperiences.map((experience, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                    <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+          <div className="relative mt-12 overflow-x-auto scrollbar-hide">
+            <div className="animate-slide-left gap-6">
+              {[...chilledExperiences, ...chilledExperiences].map((experience, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 w-[320px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={experience.image}
+                      alt={experience.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                      <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                      {experience.title}
+                    </h3>
+                    <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                      {experience.description}
+                    </p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
-                    {experience.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
 
           <div className="text-center mt-12">
             <Button
@@ -264,50 +249,35 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
-          >
-            {funExperiences.map((experience, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                    <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+          <div className="relative mt-12 overflow-x-auto scrollbar-hide">
+            <div className="animate-slide-left gap-6">
+              {[...funExperiences, ...funExperiences].map((experience, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 w-[320px] bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={experience.image}
+                      alt={experience.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                      <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                      {experience.title}
+                    </h3>
+                    <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                      {experience.description}
+                    </p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
-                    {experience.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
 
           <div className="text-center mt-12">
             <Button
