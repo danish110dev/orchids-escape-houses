@@ -683,7 +683,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Row: Photo Strip - Auto-scrolling on desktop, swipeable on mobile */}
-          <div className="overflow-hidden">
+          <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-3 sm:gap-4 animate-slide-left">
               {/* First set of images */}
               {[
