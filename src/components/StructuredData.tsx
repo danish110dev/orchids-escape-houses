@@ -150,51 +150,6 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     ]
   };
 
-  // Service Schema
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Luxury Group Accommodation Rental",
-    provider: {
-      "@type": "Organization",
-      name: "Group Escape Houses"
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "United Kingdom"
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Group Accommodation Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Product",
-            name: "Hen Party Houses",
-            description: "Luxury accommodation perfect for hen party weekends with hot tubs, pools, and games rooms"
-          }
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Product",
-            name: "Party House Experiences",
-            description: "Cocktail masterclasses, butlers, private chefs, spa treatments, and entertainment"
-          }
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Product",
-            name: "Large Group Accommodation",
-            description: "Properties sleeping 8-30+ guests across the UK"
-          }
-        }
-      ]
-    }
-  };
-
   // Website Schema
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -225,13 +180,6 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
         id="local-business-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-
-      {/* Service Schema */}
-      <Script
-        id="service-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
       {/* Website Schema */}
