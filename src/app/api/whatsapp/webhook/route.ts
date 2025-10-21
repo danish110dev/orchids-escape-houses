@@ -4,11 +4,23 @@ import OpenAI from "openai";
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioClient = twilio(accountSid, authToken);
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialize Twilio client only when needed
+function getTwilioClient() {
+  if (!accountSid || !authToken) {
+    throw new Error("Twilio credentials not configured");
+  }
+  return twilio(accountSid, authToken);
+}
+
+// Lazy initialize OpenAI client only when needed
+function getOpenAIClient() {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    return null; // Return null if not configured, we'll handle gracefully
+  }
+  return new OpenAI({ apiKey });
+}
 
 // Website context for the AI chatbot
 const WEBSITE_CONTEXT = `
@@ -78,26 +90,37 @@ export async function POST(request: NextRequest) {
       return new NextResponse("No message body", { status: 400 });
     }
 
-    // Generate AI response using OpenAI
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: WEBSITE_CONTEXT,
-        },
-        {
-          role: "user",
-          content: body,
-        },
-      ],
-      temperature: 0.7,
-      max_tokens: 500,
-    });
+    let aiResponse = "Thanks for your message! For immediate assistance, please email us at hello@groupescapehouses.co.uk or visit our website at groupescapehouses.co.uk to make an instant enquiry.";
 
-    const aiResponse = completion.choices[0].message.content || "Sorry, I couldn't process that. Please contact us at hello@groupescapehouses.co.uk";
+    // Try to generate AI response if OpenAI is configured
+    const openai = getOpenAIClient();
+    if (openai) {
+      try {
+        const completion = await openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: WEBSITE_CONTEXT,
+            },
+            {
+              role: "user",
+              content: body,
+            },
+          ],
+          temperature: 0.7,
+          max_tokens: 500,
+        });
+
+        aiResponse = completion.choices[0].message.content || aiResponse;
+      } catch (error) {
+        console.error("OpenAI error:", error);
+        // Fall back to default message
+      }
+    }
 
     // Send response via Twilio
+    const twilioClient = getTwilioClient();
     const twiml = new twilio.twiml.MessagingResponse();
     twiml.message(aiResponse);
 
