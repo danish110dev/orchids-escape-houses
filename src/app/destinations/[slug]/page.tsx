@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq,] = useState<number | null>(null);
   const params = useParams();
   const slug = params.slug as string;
 
@@ -76,19 +76,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Gatwick Airport is 30 minutes away with direct train connections" }
       ],
       nightlife: [
-        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
-        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
-        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" },
+        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80" },
+        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1460533893735-45cea2212645?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "https://theivybrighton.com" },
-        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" },
-        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
+        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", link: "https://theivybrighton.com" },
+        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80", link: "#" },
+        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" },
-        { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
-        { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?w=800&q=80" }
+        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80" },
+        { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80" },
+        { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://images.unsplash.com/photo-1502920514313-52581002a659?w=800&q=80" }
       ]
     },
     london: {
