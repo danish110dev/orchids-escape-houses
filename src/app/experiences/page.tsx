@@ -169,14 +169,13 @@ export default function ExperiencesPage() {
             ref={contentRef}
             className="flex gap-6 px-6 md:px-0 cursor-grab active:cursor-grabbing"
             drag="x"
-            dragConstraints={{ left: -5000, right: 0 }}
-            dragElastic={0.02}
+            dragConstraints={{ left: -8000, right: 0 }}
+            dragElastic={0}
             dragMomentum={true}
             dragTransition={{ 
-              power: 0.8,
-              timeConstant: 400,
-              bounceStiffness: 100,
-              bounceDamping: 20,
+              power: 1.5,
+              timeConstant: 700,
+              restDelta: 0.01,
               modifyTarget: (target) => {
                 // Infinite loop effect - reset position when reaching end
                 const cardWidth = 320 + 24;
@@ -192,7 +191,7 @@ export default function ExperiencesPage() {
             style={{ x }}
             animate={controls}
           >
-            {[...experiences, ...experiences, ...experiences, ...experiences].map((experience, idx) => (
+            {[...experiences, ...experiences, ...experiences, ...experiences, ...experiences].map((experience, idx) => (
               <div
                 key={idx}
                 className="flex-shrink-0 w-[320px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
