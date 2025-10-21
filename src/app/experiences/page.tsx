@@ -131,9 +131,25 @@ export default function ExperiencesPage() {
   const DraggableCarousel = ({ experiences, bgColor }: { experiences: typeof chilledExperiences, bgColor: string }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
-    const constraintsRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
     const x = useMotionValue(0);
     const controls = useAnimation();
+    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+    // Calculate drag constraints
+    useEffect(() => {
+      if (containerRef.current && contentRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const contentWidth = contentRef.current.scrollWidth;
+        const maxScroll = -(contentWidth / 2); // Half because we duplicate
+        
+        setDragConstraints({
+          left: maxScroll,
+          right: 0
+        });
+      }
+    }, [experiences]);
 
     // Auto-scroll animation
     useEffect(() => {
@@ -163,13 +179,14 @@ export default function ExperiencesPage() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="overflow-hidden -mx-6 md:mx-0" ref={constraintsRef}>
+        <div className="overflow-hidden -mx-6 md:mx-0" ref={containerRef}>
           <motion.div
+            ref={contentRef}
             className="flex gap-6 px-6 md:px-0 cursor-grab active:cursor-grabbing"
             drag="x"
-            dragConstraints={constraintsRef}
-            dragElastic={0.1}
-            dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+            dragConstraints={dragConstraints}
+            dragElastic={0.2}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             onDragStart={() => setIsDragging(true)}
             onDragEnd={() => setIsDragging(false)}
             style={{ x }}
