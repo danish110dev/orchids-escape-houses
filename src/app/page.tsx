@@ -682,9 +682,10 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Bottom Row: Photo Strip - Mobile Swipeable */}
-          <div className="overflow-x-auto overflow-y-hidden -mx-4 px-4 sm:overflow-hidden scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
-            <div className="flex gap-3 sm:gap-4 md:animate-slide-left min-w-max">
+          {/* Bottom Row: Photo Strip - Auto-scrolling on desktop, swipeable on mobile */}
+          <div className="overflow-hidden">
+            <div className="flex gap-3 sm:gap-4 animate-slide-left">
+              {/* First set of images */}
               {[
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-1043bcfc-20251018173502.jpg?",
                 "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-i-de445ee3-20251018173511.jpg?",
@@ -697,6 +698,35 @@ export default function Home() {
               ].map((image, index) => (
                 <a
                   key={index}
+                  href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex-shrink-0 w-72 h-72 sm:w-80 sm:h-80 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${image}')` }}
+                  ></div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Instagram className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-pink)" }} />
+                    </div>
+                  </div>
+                </a>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {[
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-1043bcfc-20251018173502.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-i-de445ee3-20251018173511.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-fb4c6ff3-20251018173520.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-an-elegant-ou-0244cbf2-20251018173528.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-h-812ddd27-20251018173536.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-360aceae-20251018171413.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-a-34a56fe6-20251018171423.jpg?",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-99493a7b-20251018171430.jpg?",
+              ].map((image, index) => (
+                <a
+                  key={`duplicate-${index}`}
                   href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
                   target="_blank"
                   rel="noopener noreferrer"
