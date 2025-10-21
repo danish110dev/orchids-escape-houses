@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import LoadingScreen from "@/components/LoadingScreen";
 import CookieConsent from "@/components/CookieConsent";
@@ -96,7 +95,6 @@ export default function RootLayout({
         {children}
         <WhatsAppChatbot />
         <CookieConsent />
-        <VisualEditsMessenger />
       </body>
     </html>
   );
