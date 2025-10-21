@@ -185,9 +185,9 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <div className="relative mt-12 overflow-hidden">
-            <div className="overflow-x-auto scrollbar-hide pl-6">
-              <div className="animate-slide-left gap-6">
+          <div className="mt-12 -mx-6 md:mx-0">
+            <div className="overflow-x-auto scrollbar-hide px-6 md:overflow-hidden">
+              <div className="flex gap-6 md:animate-slide-left">
                 {[...chilledExperiences, ...chilledExperiences].map((experience, idx) => (
                   <div
                     key={idx}
@@ -251,9 +251,9 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <div className="relative mt-12 overflow-hidden">
-            <div className="overflow-x-auto scrollbar-hide pl-6">
-              <div className="animate-slide-left gap-6">
+          <div className="mt-12 -mx-6 md:mx-0">
+            <div className="overflow-x-auto scrollbar-hide px-6 md:overflow-hidden">
+              <div className="flex gap-6 md:animate-slide-left">
                 {[...funExperiences, ...funExperiences].map((experience, idx) => (
                   <div
                     key={idx}
