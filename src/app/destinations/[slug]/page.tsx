@@ -39,9 +39,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Nearest airports: Manchester (2 hours) or Newcastle (2.5 hours)" }
       ],
       nightlife: [
-        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=800&q=80" },
-        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
-        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
+        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80" },
+        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" }
       ],
       brunch: [
         { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80", link: "#" },
@@ -76,9 +76,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Gatwick Airport is 30 minutes away with direct train connections" }
       ],
       nightlife: [
-        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1571266028243-d220c6c2c0e1?w=800&q=80" },
-        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
+        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "https://theivybrighton.com" },
@@ -113,9 +113,9 @@ export default function DestinationDetailPage() {
         { icon: Car, text: "M25 motorway provides access from all directions" }
       ],
       nightlife: [
-        { name: "Cirque le Soir", description: "Theatrical nightclub with circus performers", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "XOYO", description: "Shoreditch club with cutting-edge music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Sky Garden", description: "Rooftop bar with stunning city views", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Cirque le Soir", description: "Theatrical nightclub with circus performers", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" },
+        { name: "XOYO", description: "Shoreditch club with cutting-edge music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Sky Garden", description: "Rooftop bar with stunning city views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
       brunch: [
         { name: "Sketch", description: "Instagram-famous afternoon tea and brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "https://sketch.london" },
@@ -150,9 +150,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bristol Airport is 30 minutes away" }
       ],
       nightlife: [
-        { name: "Sub 13", description: "Underground cocktail bar in vaulted cellars", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "The Bell Inn", description: "Historic pub with live music nights", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
-        { name: "The Dark Horse", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+        { name: "Sub 13", description: "Underground cocktail bar in vaulted cellars", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "The Bell Inn", description: "Historic pub with live music nights", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" },
+        { name: "The Dark Horse", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Pump Room", description: "Elegant dining in historic Roman Baths setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -187,9 +187,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "Frequent coach services from major UK cities" }
       ],
       nightlife: [
-        { name: "The Warehouse Project", description: "Legendary club with world-class DJs", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Refuge", description: "Grand hotel bar with eclectic entertainment", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "The Warehouse Project", description: "Legendary club with world-class DJs", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Refuge", description: "Grand hotel bar with eclectic entertainment", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
+        { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
       brunch: [
         { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -224,9 +224,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Leeds Bradford Airport is 45 minutes away" }
       ],
       nightlife: [
-        { name: "The Botanist", description: "Stylish bar with botanical cocktails", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "The House of Trembling Madness", description: "Unique medieval beer hall", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
-        { name: "Evil Eye Lounge", description: "Quirky cocktail bar with vintage vibes", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+        { name: "The Botanist", description: "Stylish bar with botanical cocktails", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "The House of Trembling Madness", description: "Unique medieval beer hall", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" },
+        { name: "Evil Eye Lounge", description: "Quirky cocktail bar with vintage vibes", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "Ate O'Clock", description: "Popular brunch spot in The Shambles", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -261,9 +261,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Cardiff Airport with connections to major cities" }
       ],
       nightlife: [
-        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80" },
-        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
-        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" }
+        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?w=800&q=80", link: "#" },
@@ -298,9 +298,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bournemouth Airport with European connections" }
       ],
       nightlife: [
-        { name: "Aruba", description: "Beach club and nightclub with DJ sets", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Ojo Rojo", description: "Beach club with sea views and cocktails", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Old Fire Station", description: "Multi-level bar with rooftop terrace", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Aruba", description: "Beach club and nightclub with DJ sets", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Ojo Rojo", description: "Beach club with sea views and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
+        { name: "The Old Fire Station", description: "Multi-level bar with rooftop terrace", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
       brunch: [
         { name: "Urban Beach", description: "Beachfront dining with bottomless brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -335,9 +335,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "Regular coach services from major cities" }
       ],
       nightlife: [
-        { name: "The Cavern Club", description: "Legendary music venue where Beatles played", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Santa Chupitos", description: "Shot bar with theatrical serves", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
-        { name: "The Merchant", description: "Rooftop bar with city views", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" }
+        { name: "The Cavern Club", description: "Legendary music venue where Beatles played", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Santa Chupitos", description: "Shot bar with theatrical serves", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" },
+        { name: "The Merchant", description: "Rooftop bar with city views", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ivy Liverpool", description: "Elegant dining in stunning setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -372,9 +372,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express services from major cities" }
       ],
       nightlife: [
-        { name: "House of Smith", description: "Multi-floor venue with DJs and live acts", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Digital", description: "Underground club with top electronic music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Botanist", description: "Botanical bar and restaurant", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "House of Smith", description: "Multi-floor venue with DJs and live acts", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Digital", description: "Underground club with top electronic music", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "The Botanist", description: "Botanical bar and restaurant", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" }
       ],
       brunch: [
         { name: "Pleased To Meet You", description: "Stylish rooftop dining and cocktails", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -409,9 +409,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express hub with extensive services" }
       ],
       nightlife: [
-        { name: "Snobs", description: "Iconic indie club since 1993", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Lab 11", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Jekyll & Hyde", description: "Multi-level themed bar and club", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Snobs", description: "Iconic indie club since 1993", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Lab 11", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "The Jekyll & Hyde", description: "Multi-level themed bar and club", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ivy Temple Row", description: "Glamorous all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -446,9 +446,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express services via Plymouth" }
       ],
       nightlife: [
-        { name: "Sailors", description: "Legendary nightclub and live music venue", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Bertie's Nightclub", description: "Waterfront club with sea views", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Koola", description: "Beach club with DJ sets and cocktails", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Sailors", description: "Legendary nightclub and live music venue", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Bertie's Nightclub", description: "Waterfront club with sea views", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Koola", description: "Beach club with DJ sets and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Seafood Restaurant", description: "Rick Stein's legendary seafood dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -483,9 +483,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bristol Airport 20 minutes from city centre" }
       ],
       nightlife: [
-        { name: "Motion", description: "Legendary club with international DJs", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Thekla", description: "Nightclub on a converted ship", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Bambalan", description: "Caribbean-inspired cocktail bar", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Motion", description: "Legendary club with international DJs", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Thekla", description: "Nightclub on a converted ship", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Bambalan", description: "Caribbean-inspired cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ivy Clifton Brasserie", description: "Elegant dining with harbour views", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -594,9 +594,9 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express services from major cities" }
       ],
       nightlife: [
-        { name: "Headrow House", description: "Multi-level venue with rooftop terrace", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Belgrave Music Hall", description: "Rooftop bars and live music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Mint Club", description: "Underground club with top DJs", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Headrow House", description: "Multi-level venue with rooftop terrace", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Belgrave Music Hall", description: "Rooftop bars and live music", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Mint Club", description: "Underground club with top DJs", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ivy Leeds", description: "Elegant all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -631,9 +631,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "East Midlands Airport 20 minutes away" }
       ],
       nightlife: [
-        { name: "Stealth", description: "Multi-room club with varied music", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Hockley Arts Club", description: "Independent music and arts venue", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Tilt", description: "Board game bar and cocktails", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Stealth", description: "Multi-room club with varied music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Hockley Arts Club", description: "Independent music and arts venue", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Tilt", description: "Board game bar and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Larder on Goosegate", description: "Bistro and cocktail bar", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -668,9 +668,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Doncaster Sheffield Airport" }
       ],
       nightlife: [
-        { name: "Corporation", description: "Multi-room rock and alternative club", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "The Leadmill", description: "Iconic live music venue since 1980", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Bloo88", description: "Trendy cocktail bar", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Corporation", description: "Multi-room rock and alternative club", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "The Leadmill", description: "Iconic live music venue since 1980", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Bloo88", description: "Trendy cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "Craft & Dough", description: "Pizza and bottomless brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -705,7 +705,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Exeter Airport with UK and European connections" }
       ],
       nightlife: [
-        { name: "Timepiece", description: "Multi-level nightclub with varied music", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Timepiece", description: "Multi-level nightclub with varied music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
         { name: "The Old Firehouse", description: "Quirky bar and events venue", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
         { name: "Vaults", description: "Underground bar in historic vaults", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
       ],
@@ -779,9 +779,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Newcastle Airport 30 minutes away" }
       ],
       nightlife: [
-        { name: "The Garden House", description: "Student union venue with club nights", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "Klute", description: "Famous student nightclub", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Slug and Lettuce", description: "Bar with cocktails and music", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "The Garden House", description: "Student union venue with club nights", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Klute", description: "Famous student nightclub", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Slug and Lettuce", description: "Bar with cocktails and music", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Cellar Door", description: "Contemporary dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -817,8 +817,8 @@ export default function DestinationDetailPage() {
       ],
       nightlife: [
         { name: "The Foundry", description: "Brewery bar with craft beers", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Club Chemistry", description: "Student nightclub", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Ballroom", description: "Art deco cocktail bar", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Club Chemistry", description: "Student nightclub", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "The Ballroom", description: "Art deco cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Goods Shed", description: "Farmers' market and restaurant", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -853,9 +853,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Blackpool Airport and Manchester Airport nearby" }
       ],
       nightlife: [
-        { name: "Funny Girls", description: "Famous cabaret and drag shows", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "The Syndicate", description: "Multi-room nightclub", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "Promenade Bars", description: "Seafront entertainment venues", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "Funny Girls", description: "Famous cabaret and drag shows", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "The Syndicate", description: "Multi-room nightclub", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "Promenade Bars", description: "Seafront entertainment venues", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Dining Room", description: "Fine dining in hotel", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -927,9 +927,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "London Gatwick 2 hours away" }
       ],
       nightlife: [
-        { name: "The Lighthouse Bar", description: "Seafront cocktail bar", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
-        { name: "The Cuban Bar", description: "Latin-inspired cocktails and music", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80" },
-        { name: "The Spread Eagle", description: "Historic pub with live music", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" }
+        { name: "The Lighthouse Bar", description: "Seafront cocktail bar", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "The Cuban Bar", description: "Latin-inspired cocktails and music", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+        { name: "The Spread Eagle", description: "Historic pub with live music", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
         { name: "The Ambrette", description: "Award-winning Indian fusion", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -1113,7 +1113,7 @@ export default function DestinationDetailPage() {
       ],
       nightlife: [
         { name: "Barbican venues", description: "Historic waterfront bars", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Pryzm", description: "Large nightclub with multiple rooms", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Pryzm", description: "Large nightclub with multiple rooms", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
         { name: "The Treasury", description: "Cocktail bar in former bank", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
       ],
       brunch: [
@@ -1149,7 +1149,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bristol and Birmingham airports nearby" }
       ],
       nightlife: [
-        { name: "Subtone", description: "Cocktail bar and nightclub", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+        { name: "Subtone", description: "Cocktail bar and nightclub", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
         { name: "The Scandinavian Coffee Pod", description: "Quirky bar and café", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
         { name: "Moo Moo", description: "Stylish wine and cocktail bar", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
       ],
