@@ -185,33 +185,35 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <div className="relative mt-12 overflow-x-auto scrollbar-hide">
-            <div className="animate-slide-left gap-6">
-              {[...chilledExperiences, ...chilledExperiences].map((experience, idx) => (
-                <div
-                  key={idx}
-                  className="flex-shrink-0 w-[320px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={experience.image}
-                      alt={experience.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                      <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+          <div className="relative mt-12 overflow-hidden">
+            <div className="overflow-x-auto scrollbar-hide pl-6">
+              <div className="animate-slide-left gap-6">
+                {[...chilledExperiences, ...chilledExperiences].map((experience, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 w-[320px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={experience.image}
+                        alt={experience.title}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                        <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                        {experience.title}
+                      </h3>
+                      <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                        {experience.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                      {experience.title}
-                    </h3>
-                    <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
-                      {experience.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -249,33 +251,35 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
-          <div className="relative mt-12 overflow-x-auto scrollbar-hide">
-            <div className="animate-slide-left gap-6">
-              {[...funExperiences, ...funExperiences].map((experience, idx) => (
-                <div
-                  key={idx}
-                  className="flex-shrink-0 w-[320px] bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={experience.image}
-                      alt={experience.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                      <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+          <div className="relative mt-12 overflow-hidden">
+            <div className="overflow-x-auto scrollbar-hide pl-6">
+              <div className="animate-slide-left gap-6">
+                {[...funExperiences, ...funExperiences].map((experience, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 w-[320px] bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={experience.image}
+                        alt={experience.title}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                        <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                        {experience.title}
+                      </h3>
+                      <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
+                        {experience.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                      {experience.title}
-                    </h3>
-                    <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
-                      {experience.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
