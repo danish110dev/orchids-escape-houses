@@ -39,17 +39,17 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Nearest airports: Manchester (2 hours) or Newcastle (2.5 hours)" }
       ],
       nightlife: [
-        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80" },
-        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
+        { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&q=80" },
         { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80", link: "#" },
+        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
         { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" },
         { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" },
+        { name: "Windermere Lake Cruise", description: "Scenic boat tours on England's largest lake", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
         { name: "Spa Treatments", description: "Luxury spa experiences in stunning settings", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
         { name: "Mountain Hiking", description: "Guided walks and fell climbing adventures", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" }
       ]
@@ -76,19 +76,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Gatwick Airport is 30 minutes away with direct train connections" }
       ],
       nightlife: [
-        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" },
-        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80" },
-        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://images.unsplash.com/photo-1460533893735-45cea2212645?w=800&q=80" }
+        { name: "Coalition", description: "Multi-room club with varied music across 5 floors", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-coalition-nig-29e59447-20251021225433.jpg" },
+        { name: "Patterns", description: "Seafront club with top DJs and stunning terrace", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-patterns-nigh-5f24e50c-20251021225433.jpg" },
+        { name: "The Arch", description: "Boutique venue with cocktails and live music", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-arch-bout-a93a2833-20251021225430.jpg" }
       ],
       brunch: [
-        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", link: "https://theivybrighton.com" },
-        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80", link: "#" },
-        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80", link: "#" }
+        { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-ivy-resta-1c715dbf-20251021225433.jpg", link: "https://theivybrighton.com" },
+        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-plateau-rooft-2483f55d-20251021225433.jpg", link: "#" },
+        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-riddle-finns--673f96a3-20251021225431.jpg", link: "#" }
       ],
       activities: [
-        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80" },
-        { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80" },
-        { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://images.unsplash.com/photo-1502920514313-52581002a659?w=800&q=80" }
+        { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brighton-beac-485ffce6-20251021225433.jpg" },
+        { name: "Shopping in The Lanes", description: "Explore quirky boutiques and vintage shops", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-lanes-sho-fff3bd80-20251021225430.jpg" },
+        { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brighton-pala-37f86c92-20251021225430.jpg" }
       ]
     },
     london: {
