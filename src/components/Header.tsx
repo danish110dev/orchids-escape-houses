@@ -11,9 +11,11 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHousesOpen, setIsHousesOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
+  const [isOccasionsOpen, setIsOccasionsOpen] = useState(false);
   const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
   const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
+  const [isMobileOccasionsOpen, setIsMobileOccasionsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,8 @@ export default function Header() {
       // Reset submenu states when menu closes
       setIsMobileStylesOpen(false);
       setIsMobileFeaturesOpen(false);
+      setIsMobileDestinationsOpen(false);
+      setIsMobileOccasionsOpen(false);
     }
     return () => {
       document.body.style.overflow = "";
@@ -43,46 +47,41 @@ export default function Header() {
     { title: "Country Houses", slug: "country-houses" },
     { title: "Luxury Houses", slug: "luxury-houses" },
     { title: "Castles", slug: "castles" },
-    { title: "Luxury Dog Friendly Cottages", slug: "luxury-dog-friendly-cottages" },
-    { title: "Unusual & Quirky", slug: "unusual-and-quirky" },
-    { title: "Family Holidays", slug: "family-holidays" },
     { title: "Party Houses", slug: "party-houses" },
+    { title: "Large Holiday Homes", slug: "large-holiday-homes" },
     { title: "Large Cottages", slug: "large-cottages" },
     { title: "Stately Houses", slug: "stately-houses" },
-    { title: "Large Holiday Homes", slug: "large-holiday-homes" },
-    { title: "Luxury Cottages with Sea Views", slug: "luxury-cottages-with-sea-views" },
   ];
 
   const features = [
-    { title: "Games Room", slug: "games-room" },
-    { title: "Tennis Court", slug: "tennis-court" },
-    { title: "Swimming Pool", slug: "swimming-pool" },
-    { title: "Cinema Room", slug: "cinema-room" },
     { title: "Hot Tub", slug: "hot-tub" },
+    { title: "Swimming Pool", slug: "swimming-pool" },
+    { title: "Games Room", slug: "games-room" },
+    { title: "Cinema Room", slug: "cinema-room" },
+    { title: "Tennis Court", slug: "tennis-court" },
     { title: "EV Charging", slug: "ev-charging" },
-    { title: "Fishing Lake", slug: "fishing-lake" },
-    { title: "Direct Beach Access", slug: "direct-beach-access" },
     { title: "Ground Floor Bedroom", slug: "ground-floor-bedroom" },
     { title: "Indoor Swimming Pool", slug: "indoor-swimming-pool" },
   ];
 
   const destinations = [
-    { title: "Bath", slug: "bath" },
     { title: "Brighton", slug: "brighton" },
-    { title: "Bournemouth", slug: "bournemouth" },
-    { title: "Cardiff", slug: "cardiff" },
+    { title: "Bath", slug: "bath" },
     { title: "London", slug: "london" },
     { title: "Manchester", slug: "manchester" },
-    { title: "Newcastle", slug: "newcastle" },
+    { title: "Bournemouth", slug: "bournemouth" },
     { title: "York", slug: "york" },
+    { title: "Cardiff", slug: "cardiff" },
+    { title: "Newcastle", slug: "newcastle" },
   ];
 
-  const navLinks = [
-    { label: "Properties", href: "/properties" },
-    { label: "Experiences", href: "/experiences" },
-    { label: "Occasions", href: "/occasions" },
-    { label: "Reviews", href: "/reviews" },
-    { label: "Contact", href: "/contact" },
+  const occasions = [
+    { title: "Hen Party Houses", slug: "hen-party-houses", description: "Perfect for hen weekends" },
+    { title: "Weddings", slug: "weddings", description: "Celebrate your special day" },
+    { title: "Weekend Breaks", slug: "weekend-breaks", description: "Relaxing group getaways" },
+    { title: "Special Celebrations", slug: "special-celebrations", description: "Birthdays & milestones" },
+    { title: "Christmas", slug: "christmas", description: "Festive gatherings" },
+    { title: "New Year", slug: "new-year", description: "Ring in the new year" },
   ];
 
   return (
@@ -110,7 +109,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10">
+            <nav className="hidden lg:flex items-center gap-8">
               {/* Houses to Rent Dropdown */}
               <div
                 className="relative"
@@ -121,7 +120,7 @@ export default function Header() {
                   className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Houses to Rent
+                  Properties
                   <ChevronDown className="w-4 h-4" />
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
                 </button>
@@ -172,28 +171,77 @@ export default function Header() {
                     {/* View All Link */}
                     <div className="mt-6 pt-5 border-t border-gray-100">
                       <Link
-                        href="/house-styles-and-features"
+                        href="/properties"
                         className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
                       >
-                        View All House Styles & Features →
+                        Browse All Properties →
                       </Link>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Other Nav Links */}
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+              {/* Occasions Dropdown - NEW HIGH-CONVERSION SECTION */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsOccasionsOpen(true)}
+                onMouseLeave={() => setIsOccasionsOpen(false)}
+              >
+                <button
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  {link.label}
+                  Occasions
+                  <ChevronDown className="w-4 h-4" />
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-                </Link>
-              ))}
+                </button>
+
+                {/* Dropdown Menu */}
+                {isOccasionsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-[420px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
+                      Perfect For Your Celebration
+                    </h3>
+                    <ul className="space-y-3">
+                      {occasions.map((occasion) => (
+                        <li key={occasion.slug}>
+                          <Link
+                            href={`/occasions/${occasion.slug}`}
+                            className="group/item flex flex-col py-2 hover:bg-[var(--color-bg-secondary)] rounded-lg px-3 -mx-3 transition-all"
+                          >
+                            <span className="text-[15px] font-medium text-[var(--color-text-primary)] group-hover/item:text-[var(--color-accent-sage)] transition-colors">
+                              {occasion.title}
+                            </span>
+                            <span className="text-xs text-[var(--color-neutral-dark)]">
+                              {occasion.description}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* View All Link */}
+                    <div className="mt-5 pt-4 border-t border-gray-100">
+                      <Link
+                        href="/occasions"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        View All Occasions →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Experiences Link */}
+              <Link
+                href="/experiences"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Experiences
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
 
               {/* Destinations Dropdown */}
               <div
@@ -241,6 +289,26 @@ export default function Header() {
                   </div>
                 )}
               </div>
+
+              {/* Reviews Link - Social Proof */}
+              <Link
+                href="/reviews"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Reviews
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
+
+              {/* How It Works Link */}
+              <Link
+                href="/how-it-works"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                How It Works
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
             </nav>
 
             {/* CTA Button - Desktop */}
@@ -351,6 +419,40 @@ export default function Header() {
                   )}
                 </div>
 
+                {/* Occasions Dropdown - NEW */}
+                <div className="space-y-3">
+                  <Link
+                    href="/occasions"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Occasions
+                  </Link>
+                  
+                  <button
+                    onClick={() => setIsMobileOccasionsOpen(!isMobileOccasionsOpen)}
+                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                  >
+                    View By Occasion
+                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileOccasionsOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {isMobileOccasionsOpen && (
+                    <div className="pl-4 space-y-2 text-white/70">
+                      {occasions.map((occasion) => (
+                        <Link
+                          key={occasion.slug}
+                          href={`/occasions/${occasion.slug}`}
+                          className="block py-1 hover:text-white transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {occasion.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <Link
                   href="/experiences"
                   className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
@@ -371,7 +473,6 @@ export default function Header() {
                     Destinations
                   </Link>
                   
-                  {/* Destinations Submenu */}
                   <button
                     onClick={() => setIsMobileDestinationsOpen(!isMobileDestinationsOpen)}
                     className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
@@ -394,33 +495,32 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-
-                <Link
-                  href="/how-it-works"
-                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
-                  style={{ fontFamily: "var(--font-display)" }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  How It Works
-                </Link>
               </nav>
 
               {/* Right Column - Secondary Navigation */}
               <nav className="space-y-4 md:pt-0 pt-8">
                 <Link
-                  href="/our-story"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About
-                </Link>
-
-                <Link
                   href="/reviews"
                   className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Testimonials
+                  Reviews
+                </Link>
+
+                <Link
+                  href="/how-it-works"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  How It Works
+                </Link>
+
+                <Link
+                  href="/our-story"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Our Story
                 </Link>
 
                 <Link
@@ -442,12 +542,12 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Bottom CTA and Contact */}
-          <div className="border-t border-white/20 px-8 py-8 space-y-6 bg-[#E5D8C5]">
+          {/* Bottom CTA */}
+          <div className="border-t border-white/20 px-8 py-8 bg-[#E5D8C5]">
             <Button
               asChild
               size="lg"
-              className="hidden md:flex rounded-2xl px-8 py-3 font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              className="w-full md:w-auto rounded-2xl px-8 py-3 font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
