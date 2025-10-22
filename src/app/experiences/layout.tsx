@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hen Party Experiences & Activities | Cocktail Classes, Spa Treatments & More",
-  description: "Add unforgettable experiences to your hen weekend. Private chefs, cocktail masterclasses, spa treatments, yoga classes & murder mystery nights. Book experiences with your party house.",
+  title: "Add Experiences to Your Hen Weekend | Chef, Cocktails & Spa Days",
+  description: "Transform your hen weekend with curated experiences. Private chefs from £55pp, cocktail masterclasses, mobile spa treatments, yoga and wellness. Book activities with your property.",
   keywords: ["hen party activities UK", "cocktail masterclass", "private chef hen party", "spa treatments", "hen do experiences"],
   openGraph: {
-    title: "Hen Party Experiences | Group Escape Houses",
-    description: "Cocktail classes, private chefs, spa treatments & more. Make your hen weekend unforgettable.",
+    title: "Hen Weekend Experiences & Activities | Group Escape Houses",
+    description: "Private chefs, cocktail classes, spa days & wellness. Prices from £40pp.",
     url: "https://groupescapehouses.co.uk/experiences",
   },
 };
