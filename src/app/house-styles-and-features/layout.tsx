@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "House Styles & Features | Find Your Perfect Party House Type | Group Escape Houses",
-  description: "Explore party houses by style and feature. Manor houses, castles, luxury cottages, houses with hot tubs, pools, cinema rooms & more. Find your ideal celebration venue.",
+  title: "Browse by House Style & Features | Manor Houses, Castles & Hot Tubs",
+  description: "Filter party houses by architectural style and premium features. Grand manors, historic castles, luxury cottages. Search by hot tubs, pools, games rooms and cinema rooms.",
   keywords: ["luxury manor houses UK", "party houses with hot tubs", "houses with pools", "castles for hire UK", "luxury cottages"],
   openGraph: {
-    title: "House Styles & Features | Group Escape Houses",
-    description: "Browse party houses by style. Manor houses, castles, cottages with hot tubs, pools & more.",
+    title: "House Styles & Premium Features | Group Escape Houses",
+    description: "Filter by architectural style or feature. Manors, castles, hot tubs, pools and entertainment.",
     url: "https://groupescapehouses.co.uk/house-styles-and-features",
   },
 };
