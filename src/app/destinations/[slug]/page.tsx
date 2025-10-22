@@ -11,8 +11,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [openFaq, setOpenFaq, setImageErrors] = useState<number | null>(null);
   const params = useParams();
   const slug = params.slug as string;
 
@@ -2410,25 +2409,35 @@ export default function DestinationDetailPage() {
               muted
               playsInline
               preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover z-0"
+              style={{ display: 'block' }}
               onError={(e) => {
-                // Hide video on error and show fallback image
+                console.error('Video failed to load:', e);
                 e.currentTarget.style.display = 'none';
+                const fallbackImg = document.getElementById('hero-fallback-img');
+                if (fallbackImg) {
+                  (fallbackImg as HTMLElement).style.display = 'block';
+                }
               }}
             >
               <source src={destination.video} type="video/mp4" />
             </video>
             {/* Fallback image if video fails */}
-            <Image 
-              src={destination.image} 
-              alt={destination.name} 
-              fill 
-              className="object-cover" 
-              priority 
-              style={{ display: imageErrors['hero-fallback'] ? 'none' : 'block' }}
-              onError={() => handleImageError('hero-fallback')}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div 
+              id="hero-fallback-img"
+              className="absolute inset-0 z-0"
+              style={{ display: 'none' }}
+            >
+              <Image 
+                src={destination.image} 
+                alt={destination.name} 
+                fill 
+                className="object-cover" 
+                priority 
+                onError={() => handleImageError('hero-fallback')}
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
           </>
         ) : (
           <>
@@ -2436,14 +2445,14 @@ export default function DestinationDetailPage() {
               src={destination.image} 
               alt={destination.name} 
               fill 
-              className="object-cover" 
+              className="object-cover z-0" 
               priority 
               onError={() => handleImageError('hero')}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
           </>
         )}
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute bottom-0 left-0 right-0 z-20">
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
             <h1 className="text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
               {destination.name}
