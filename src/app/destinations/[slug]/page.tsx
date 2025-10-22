@@ -178,7 +178,7 @@ export default function DestinationDetailPage() {
       name: "Manchester",
       region: "Greater Manchester",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-dynamic-urban-flyover-showcasing-manc-c89bf0da-20251022110441.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
       overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality. From the trendy Northern Quarter to iconic music venues, Manchester offers an electric atmosphere perfect for unforgettable hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -202,13 +202,13 @@ export default function DestinationDetailPage() {
         { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cloud-23-roof-d94afb9b-20251022190830.jpg" }
       ],
       brunch: [
-        { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-northe-25780f44-20251022190826.jpg", link: "#" },
+        { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-beautif-manch-90968a36-20251022191035.jpg", link: "#" },
         { name: "The Ivy Spinningfields", description: "Elegant all-day dining and cocktails", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-ivy-spinn-4308f1da-20251022190830.jpg", link: "#" },
         { name: "Federal Bar", description: "Australian-inspired brunch and coffee", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-australian-st-14bd32d8-20251022190830.jpg", link: "#" }
       ],
       activities: [
-        { name: "Shopping", description: "From Harvey Nichols to independent boutiques", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-sh-f2840807-20251022190830.jpg" },
-        { name: "Music Tours", description: "Explore Manchester's legendary music heritage", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-mu-becd6137-20251022190830.jpg" },
+        { name: "Shopping", description: "From Harvey Nichols to independent boutiques", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-sp-e36bf3b2-20251022191035.jpg" },
+        { name: "Northern Quarter", description: "Vibrant street art and creative scene", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-no-a9e2fddf-20251022191035.jpg" },
         { name: "Food Markets", description: "Altrincham and Mackie Mayor markets", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-mackie-mayor--e1d6b2c7-20251022190830.jpg" }
       ]
     },
