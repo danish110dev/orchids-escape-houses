@@ -5,6 +5,7 @@ import { Check, ArrowRight, Sparkles, Users, Waves } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function LuxuryHousesPage() {
   const highlights = [
@@ -24,27 +25,35 @@ export default function LuxuryHousesPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=90')",
+            backgroundImage: "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/stunning-luxury-mansion-exterior-with-mo-b1b962c1-20251022153011.jpg')",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
         </div>
         
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center text-white">
-          <nav className="flex justify-center gap-2 text-sm mb-6">
-            <Link href="/" className="hover:underline">Home</Link>
-            <span>/</span>
-            <Link href="/house-styles-and-features" className="hover:underline">House Styles</Link>
-            <span>/</span>
-            <span>Luxury Houses</span>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
+          {/* Breadcrumb with better visibility */}
+          <nav className="flex justify-center gap-2 text-sm mb-6 bg-white/95 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit mx-auto">
+            <Link href="/" className="text-[var(--color-accent-sage)] hover:underline font-medium">
+              Home
+            </Link>
+            <span className="text-[var(--color-neutral-dark)]">/</span>
+            <Link href="/house-styles-and-features" className="text-[var(--color-accent-sage)] hover:underline font-medium">
+              House Styles
+            </Link>
+            <span className="text-[var(--color-neutral-dark)]">/</span>
+            <span className="text-[var(--color-accent-gold)] font-semibold">Luxury Houses</span>
           </nav>
           
-          <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "white" }}>
-            Luxury Houses UK
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            High-end group accommodation for unforgettable celebrations
-          </p>
+          {/* Hero text card with better contrast */}
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl px-10 py-8 shadow-2xl max-w-4xl mx-auto">
+            <h1 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+              Luxury Houses UK
+            </h1>
+            <p className="text-xl text-[var(--color-neutral-dark)]">
+              High-end group accommodation for unforgettable celebrations
+            </p>
+          </div>
         </div>
       </section>
 
@@ -72,6 +81,39 @@ export default function LuxuryHousesPage() {
                 ))}
               </ul>
 
+              {/* Large feature image */}
+              <div className="mb-8 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxurious-modern-living-room-interior-wi-7bd73f84-20251022153010.jpg"
+                  alt="Luxurious modern living room"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              {/* Two smaller images in a grid */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/high-end-outdoor-hot-tub-spa-on-luxury-p-a4c3ca50-20251022153010.jpg"
+                    alt="Luxury hot tub spa"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-kitchen-with-marble-countertops-h-b23cdb7c-20251022153010.jpg"
+                    alt="High-end luxury kitchen"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+
               <Button
                 asChild
                 size="lg"
@@ -86,7 +128,7 @@ export default function LuxuryHousesPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md">
                 <Sparkles className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Premium Features
@@ -96,7 +138,7 @@ export default function LuxuryHousesPage() {
                 </p>
               </div>
 
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md">
                 <Waves className="w-12 h-12 text-[var(--color-accent-gold)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Pools & Hot Tubs
@@ -106,7 +148,7 @@ export default function LuxuryHousesPage() {
                 </p>
               </div>
 
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md">
                 <Users className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
                   Concierge Service
