@@ -13,6 +13,7 @@ import { useParams } from "next/navigation";
 export default function DestinationDetailPage() {
   const [openFaq, setOpenFaq,] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const params = useParams();
   const slug = params.slug as string;
 
