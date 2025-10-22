@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Party Houses with Cinema Rooms UK | Home Theatre & Movie Night Facilities",
-  description: "Luxury party houses with private cinema rooms and home theatres. Perfect for cosy movie nights during your group celebration. Houses sleeping 8-30+ guests across the UK.",
-  keywords: ["houses with cinema rooms UK", "party houses home theatre", "houses with movie room", "cinema facilities"],
+  title: "Houses with Cinema Rooms | Private Screening Spaces for Groups",
+  description: "Luxury party houses featuring private cinema rooms with big screens, surround sound and comfy seating. Perfect for movie nights and chilled hen party evenings.",
+  keywords: ["houses with cinema rooms UK", "party houses with movie room", "private screening rooms", "home cinema group accommodation"],
   openGraph: {
-    title: "Party Houses with Cinema Rooms UK | Group Escape Houses",
-    description: "Luxury houses with private cinema rooms for movie nights. Groups of 8-30+.",
+    title: "Party Houses with Cinema Rooms | Group Escape Houses",
+    description: "Private screening rooms with big screens and surround sound. Perfect for movie night relaxation.",
     url: "https://groupescapehouses.co.uk/features/cinema-room",
   },
 };

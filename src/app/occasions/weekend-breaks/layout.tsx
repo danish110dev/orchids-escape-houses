@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Weekend Break Houses UK | Luxury Group Getaways & Short Breaks for Groups",
-  description: "Book luxury weekend breaks for groups of 8-30+. Short breaks in stunning houses with hot tubs, pools & entertainment. Perfect for friends reunions and group getaways across the UK.",
-  keywords: ["weekend breaks for groups UK", "short breaks large groups", "group weekend getaways", "luxury weekend houses"],
+  title: "Weekend Breaks for Groups | Friday to Sunday Short Stays UK",
+  description: "Two and three-night weekend breaks in party houses. Friday arrivals, flexible check-outs and midweek discounts available. Perfect for quick getaways and mini-celebrations.",
+  keywords: ["weekend breaks for groups UK", "short stay party houses", "Friday to Sunday breaks", "group weekend accommodation"],
   openGraph: {
-    title: "Weekend Break Houses UK | Group Escape Houses",
-    description: "Luxury weekend breaks for groups. Hot tubs, pools & entertainment in stunning locations.",
+    title: "Group Weekend Breaks | Group Escape Houses",
+    description: "2-3 night stays with Friday arrivals. Quick getaways and mini-celebrations from £69pp.",
     url: "https://groupescapehouses.co.uk/occasions/weekend-breaks",
   },
 };

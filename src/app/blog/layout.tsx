@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hen Party Planning Blog | Tips, Ideas & City Guides | Group Escape Houses",
-  description: "Expert hen party planning advice, city guides, house spotlights and celebration ideas. Everything you need to plan the perfect UK hen weekend from our experienced team.",
+  title: "Hen Party Planning Blog | Expert Tips, City Guides & House Spotlights",
+  description: "Free planning resources from hen party experts. City nightlife guides, packing checklists, budgeting tips and property spotlights. Updated weekly with fresh inspiration.",
   keywords: ["hen party planning tips", "hen weekend ideas", "UK hen party blog", "celebration planning guide"],
   openGraph: {
-    title: "Hen Party Planning Blog | Group Escape Houses",
-    description: "Expert tips, city guides and planning advice for your perfect hen weekend.",
+    title: "Hen Party Planning Blog & Resources | Group Escape Houses",
+    description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
     url: "https://groupescapehouses.co.uk/blog",
   },
 };

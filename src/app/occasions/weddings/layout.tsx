@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wedding Party Houses UK | Large Group Accommodation for Wedding Guests",
-  description: "Book luxury houses for wedding guests and celebrations. Accommodation sleeping 8-30+ with hot tubs, gardens & entertainment. Perfect for pre-wedding parties and guest accommodation.",
-  keywords: ["wedding party houses UK", "wedding guest accommodation", "houses for wedding parties", "large group wedding venues"],
+  title: "Wedding Party Accommodation | Guest Houses for Wedding Groups UK",
+  description: "Exclusive-use houses for wedding parties and guests. Sleep entire wedding groups together with space for getting ready, celebrations and post-wedding brunches.",
+  keywords: ["wedding accommodation UK", "wedding party houses", "exclusive use wedding venues", "wedding guest accommodation"],
   openGraph: {
-    title: "Wedding Party Houses UK | Group Escape Houses",
-    description: "Luxury accommodation for wedding parties and guests. Hot tubs, gardens & space for groups of 8-30+.",
+    title: "Wedding Party Accommodation | Group Escape Houses",
+    description: "Exclusive houses for wedding parties and guests. Getting ready space, celebrations and brunches.",
     url: "https://groupescapehouses.co.uk/occasions/weddings",
   },
 };
