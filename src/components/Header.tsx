@@ -117,7 +117,7 @@ export default function Header() {
                 onMouseLeave={() => setIsHousesOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Properties
@@ -127,7 +127,7 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {isHousesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[640px] bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                  <div className="absolute top-full left-0 w-[640px] bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
                     <div className="grid grid-cols-2 gap-10">
                       {/* House Styles Column */}
                       <div>
@@ -188,7 +188,7 @@ export default function Header() {
                 onMouseLeave={() => setIsOccasionsOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Occasions
@@ -198,7 +198,7 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {isOccasionsOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[420px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                  <div className="absolute top-full left-0 w-[420px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
                     <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
                       Perfect For Your Celebration
                     </h3>
@@ -236,7 +236,7 @@ export default function Header() {
               {/* Experiences Link */}
               <Link
                 href="/experiences"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Experiences
@@ -250,7 +250,7 @@ export default function Header() {
                 onMouseLeave={() => setIsDestinationsOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-2"
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Destinations
@@ -260,7 +260,7 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {isDestinationsOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[320px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                  <div className="absolute top-full left-0 w-[320px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
                     <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                       Popular Destinations
                     </h3>
@@ -293,7 +293,7 @@ export default function Header() {
               {/* Reviews Link - Social Proof */}
               <Link
                 href="/reviews"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Reviews
@@ -303,7 +303,7 @@ export default function Header() {
               {/* How It Works Link */}
               <Link
                 href="/how-it-works"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-2"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 How It Works
