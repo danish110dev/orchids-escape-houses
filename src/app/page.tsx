@@ -14,6 +14,17 @@ import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+export const metadata = {
+  title: "Luxury Hen Party Houses UK with Hot Tubs & Pools | Group Escape Houses",
+  description: "Book luxury hen party houses across the UK. Large group accommodation with hot tubs, pools & games rooms. Perfect for celebrations. Instant enquiry & 3,000+ 5-star reviews.",
+  keywords: ["hen party houses UK", "luxury group accommodation", "houses with hot tubs", "party houses with pools", "hen weekend houses", "celebration accommodation"],
+  openGraph: {
+    title: "Luxury Hen Party Houses UK | Group Escape Houses",
+    description: "Book luxury hen party houses with hot tubs, pools & games rooms. Perfect for celebrations across the UK.",
+    url: "https://groupescapehouses.co.uk",
+  },
+};
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
