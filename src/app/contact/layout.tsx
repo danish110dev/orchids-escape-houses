@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Get a Quote for Your Hen Party House | Group Escape Houses",
-  description: "Contact Group Escape Houses for instant enquiries and free quotes. Brighton-based UK team ready to help plan your perfect hen weekend. Fast response guaranteed within 24 hours.",
+  title: "Get Your Free Quote | Contact Our Hen Party Booking Team Brighton",
+  description: "Free instant quotes for hen party houses. Call our Brighton team on 01273 xxx xxx or submit an enquiry form. Same-day response Monday to Friday. No booking fees.",
   keywords: ["contact group escape houses", "hen party booking enquiry", "quote hen weekend", "book party house UK"],
   openGraph: {
-    title: "Contact Group Escape Houses | Instant Enquiry",
-    description: "Get a free quote for your hen party. Brighton-based team, fast response, instant enquiry available.",
+    title: "Contact Us for Free Quote | Group Escape Houses",
+    description: "Brighton-based booking team ready to help. Same-day quotes, no fees. Call or enquire online.",
     url: "https://groupescapehouses.co.uk/contact",
   },
 };
