@@ -19,6 +19,33 @@ export default function HenPartyHousesPage() {
     "24/7 UK support team for any last-minute requests"
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=90",
+      alt: "Group of women celebrating hen party by hot tub with champagne"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90",
+      alt: "Luxury hot tub with champagne glasses for hen celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=1600&q=90",
+      alt: "Friends celebrating hen party weekend together"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90",
+      alt: "Stylish hen party decorations and celebration setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=1600&q=90",
+      alt: "Girls enjoying cocktails at hen party celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=1600&q=90",
+      alt: "Group photo of hen party weekend celebration"
+    }
+  ];
+
   const benefits = [
     {
       title: "Ultimate Hen Houses",
@@ -52,6 +79,10 @@ export default function HenPartyHousesPage() {
     {
       question: "How do we split the cost between the group?",
       answer: "We provide a clear breakdown of costs that's easy to share with your group. Many hen parties use apps like Splitwise or collect money in advance. We're happy to take payment from multiple cards if that helps."
+    },
+    {
+      question: "What if someone drops out last minute?",
+      answer: "We understand group bookings can be tricky. Contact us as soon as possible if your group size changes. While we can't always offer refunds, we'll work with you to find the best solution."
     }
   ];
 
@@ -185,8 +216,44 @@ export default function HenPartyHousesPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party House Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -223,7 +290,7 @@ export default function HenPartyHousesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +315,7 @@ export default function HenPartyHousesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden"
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
