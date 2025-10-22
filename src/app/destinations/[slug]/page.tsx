@@ -21,6 +21,7 @@ export default function DestinationDetailPage() {
       name: "Lake District",
       region: "Cumbria",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-lake-district-51198f8c-20251019170636.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-serene-establishing-shot-panning-acr-39e0f5a8-20251022110441.mp4",
       overview: "The Lake District is England's most stunning national park, offering breathtaking landscapes, luxury lodges, and peaceful mountain retreats perfect for group celebrations. With dramatic fells, pristine lakes, and charming villages, it's the ideal destination for groups seeking natural beauty combined with luxury accommodation.",
       quickFacts: {
         fromLondon: "4-5 hours by train or car",
@@ -58,6 +59,7 @@ export default function DestinationDetailPage() {
       name: "Brighton",
       region: "East Sussex",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-vibrant-aerial-view-sweeping-over-bri-a2e24bbe-20251022110441.mp4",
       overview: "Brighton is the UK's premier hen party destination, combining stunning Regency architecture with legendary nightlife, a vibrant beach scene, and endless entertainment options. From cocktail bars to beachfront clubs, this seaside city offers the perfect blend of sophistication and fun for unforgettable group celebrations.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -95,6 +97,7 @@ export default function DestinationDetailPage() {
       name: "London",
       region: "Greater London",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/an-iconic-aerial-shot-rising-over-the-t-35bfa6c0-20251022110441.mp4",
       overview: "London is the ultimate hen party destination with world-class entertainment, dining, and iconic landmarks. From West End shows to rooftop bars, Michelin-starred restaurants to hidden speakeasies, the capital offers endless possibilities for an unforgettable celebration.",
       quickFacts: {
         fromLondon: "You're here!",
@@ -132,6 +135,7 @@ export default function DestinationDetailPage() {
       name: "Bath",
       region: "Somerset",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-slow-drone-shot-gliding-over-bath-s-g-2e659e56-20251022110441.mp4",
       overview: "Bath is a stunning UNESCO World Heritage city combining Roman history, Georgian elegance, and world-class spa experiences. Perfect for sophisticated hen parties seeking culture, relaxation, and refined entertainment in one of England's most beautiful cities.",
       quickFacts: {
         fromLondon: "1.5 hours by train",
@@ -169,6 +173,7 @@ export default function DestinationDetailPage() {
       name: "Manchester",
       region: "Greater Manchester",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-dynamic-urban-flyover-showcasing-manc-c89bf0da-20251022110441.mp4",
       overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality. From the trendy Northern Quarter to iconic music venues, Manchester offers an electric atmosphere perfect for unforgettable hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -206,6 +211,7 @@ export default function DestinationDetailPage() {
       name: "York",
       region: "North Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
       overview: "York is a stunning medieval city with cobbled streets, historic walls, and charming riverside pubs. Perfect for hen parties seeking history, culture, and traditional English charm combined with modern entertainment and excellent dining.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -243,6 +249,7 @@ export default function DestinationDetailPage() {
       name: "Cardiff",
       region: "South Wales",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-cinematic-aerial-establishing-shot-of-8ee20d4a-20251022110442.mp4",
       overview: "Cardiff is Wales' vibrant capital offering fantastic value, warm Welsh hospitality, and stunning Cardiff Bay. With a thriving nightlife scene, excellent shopping, and beautiful waterfront, it's perfect for hen parties seeking a lively celebration with great prices.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -280,6 +287,7 @@ export default function DestinationDetailPage() {
       name: "Bournemouth",
       region: "Dorset",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-smooth-tracking-shot-gliding-along-bo-a75e4726-20251022110442.mp4",
       overview: "Bournemouth offers beautiful sandy beaches, vibrant nightlife, and stunning clifftop walks. Perfect for hen parties wanting beach club days, lively entertainment, and coastal charm all in one fantastic seaside destination.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -317,6 +325,7 @@ export default function DestinationDetailPage() {
       name: "Liverpool",
       region: "Merseyside",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-liverpool-wat-563898e7-20251019170646.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-majestic-aerial-shot-rising-over-live-19f38bc2-20251022110442.mp4",
       overview: "Liverpool combines iconic waterfront views, legendary nightlife, and rich Beatles heritage. With warm Scouse hospitality, fantastic value, and a vibrant atmosphere, it's perfect for hen parties seeking authentic Northern charm.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -354,6 +363,7 @@ export default function DestinationDetailPage() {
       name: "Newcastle",
       region: "Tyne and Wear",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-striking-aerial-view-rising-over-newc-0c1d67be-20251022110442.mp4",
       overview: "Newcastle is famous for legendary nightlife, friendly locals, and stunning quayside architecture. The Geordie spirit of fun combined with excellent value makes it a top choice for unforgettable hen celebrations.",
       quickFacts: {
         fromLondon: "3 hours by train",
@@ -391,6 +401,7 @@ export default function DestinationDetailPage() {
       name: "Birmingham",
       region: "West Midlands",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-dynamic-aerial-flyover-of-birmingham-s-3dd3f2d0-20251022110443.mp4",
       overview: "Birmingham is Britain's dynamic second city with world-class shopping, diverse dining, and buzzing nightlife. The vibrant Jewellery Quarter and modern canal-side venues create the perfect backdrop for celebrations.",
       quickFacts: {
         fromLondon: "1.5 hours by train",
@@ -428,6 +439,7 @@ export default function DestinationDetailPage() {
       name: "Newquay",
       region: "Cornwall",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-over-newquay-s-g-00a6f8fa-20251022110443.mp4",
       overview: "Newquay is Cornwall's surf capital with stunning beaches, coastal walks, and vibrant nightlife. Perfect for hen parties combining beach days, water sports, and evening entertainment in this beautiful seaside town.",
       quickFacts: {
         fromLondon: "5 hours by train",
@@ -465,6 +477,7 @@ export default function DestinationDetailPage() {
       name: "Bristol",
       region: "South West England",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bristol-harbo-235d69cd-20251019170653.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-smooth-drone-shot-rising-over-bristol-3f21b17e-20251022110443.mp4",
       overview: "Bristol is a creative harbour city with fantastic food scene, vibrant culture and stunning waterfront. Perfect for hen parties seeking street art, independent venues and a bohemian atmosphere combined with excellent nightlife.",
       quickFacts: {
         fromLondon: "1.5-2 hours by train",
@@ -502,6 +515,7 @@ export default function DestinationDetailPage() {
       name: "Cambridge",
       region: "Cambridgeshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cambridge-uni-706b7fc1-20251019170701.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-serene-aerial-view-gliding-over-cambr-9fd61758-20251022110443.mp4",
       overview: "Cambridge is a historic university city with beautiful colleges, punting and sophisticated dining. Perfect for hen parties seeking culture, riverside charm and elegant celebrations in one of England's most picturesque cities.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -539,6 +553,7 @@ export default function DestinationDetailPage() {
       name: "Oxford",
       region: "Oxfordshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-oxford-univer-e05e954c-20251019170708.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-majestic-aerial-establishing-shot-ris-b4258a5a-20251022110443.mp4",
       overview: "Oxford offers stunning architecture, world-famous university and elegant atmosphere. With beautiful colleges, sophisticated bars and excellent dining, it's perfect for refined hen celebrations.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -576,6 +591,7 @@ export default function DestinationDetailPage() {
       name: "Leeds",
       region: "West Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-leeds-city-ce-2b3778ad-20251019170714.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-vibrant-aerial-shot-sweeping-over-lee-5930b3e4-20251022110443.mp4",
       overview: "Leeds is a dynamic northern city with incredible shopping and legendary nightlife. From designer boutiques to vibrant bars and clubs, it's perfect for hen parties seeking great value and Northern hospitality.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
