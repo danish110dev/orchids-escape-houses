@@ -17,6 +17,33 @@ export default function EasterPage() {
     "Short breaks and long weekends available",
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=1600&q=80",
+      alt: "Countryside picnic with family dining outdoors"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1584201712767-a80a2f29c1c6?w=1600&q=80",
+      alt: "Beautiful spring garden perfect for Easter egg hunts"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1600&q=80",
+      alt: "Family gathering in country house garden"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1600&q=80",
+      alt: "Springtime countryside with blooming flowers"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1416169607655-0c2b3ce2e1cc?w=1600&q=80",
+      alt: "Luxury holiday home with beautiful spring gardens"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
+      alt: "Easter celebration breakfast table outdoors"
+    }
+  ];
+
   const faqs = [
     {
       question: "Are your Easter houses family-friendly?",
@@ -181,8 +208,44 @@ export default function EasterPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Easter House Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
