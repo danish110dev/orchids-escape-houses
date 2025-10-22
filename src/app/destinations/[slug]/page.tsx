@@ -122,11 +122,11 @@ export default function DestinationDetailPage() {
       ],
       nightlife: [
         { name: "Cirque le Soir", description: "Theatrical nightclub with circus performers", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" },
-        { name: "XOYO", description: "Shoreditch club with cutting-edge music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "XOYO", description: "Shoreditch club with cutting-edge music", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-urban--2931fb0e-20251022153404.jpg" },
         { name: "Sky Garden", description: "Rooftop bar with stunning city views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
       brunch: [
-        { name: "Sketch", description: "Instagram-famous afternoon tea and brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "https://sketch.london" },
+        { name: "Sketch", description: "Instagram-famous afternoon tea and brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-sketch-restau-e634d453-20251022153404.jpg", link: "https://sketch.london" },
         { name: "Dishoom", description: "Bombay-style café with legendary breakfast", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
         { name: "The Ivy Chelsea Garden", description: "Chic all-day dining with bottomless brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
