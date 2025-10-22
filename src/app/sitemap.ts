@@ -2,78 +2,79 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://groupescapehouses.co.uk';
+  const currentDate = new Date().toISOString();
   
   // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/properties`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/experiences`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/destinations`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/how-it-works`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/reviews`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/our-story`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/booking-terms`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/house-styles-and-features`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
@@ -86,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'manchester-party-house',
   ].map((slug) => ({
     url: `${baseUrl}/properties/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
@@ -101,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'murder-mystery',
   ].map((slug) => ({
     url: `${baseUrl}/experiences/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -120,7 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'bournemouth',
   ].map((slug) => ({
     url: `${baseUrl}/destinations/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -139,7 +140,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'ground-floor-bedroom',
   ].map((slug) => ({
     url: `${baseUrl}/features/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
@@ -160,7 +161,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'family-holidays',
   ].map((slug) => ({
     url: `${baseUrl}/house-styles/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
@@ -176,7 +177,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'easter',
   ].map((slug) => ({
     url: `${baseUrl}/occasions/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
@@ -193,7 +194,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'spa-treatments',
   ].map((slug) => ({
     url: `${baseUrl}/${slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
