@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Spa Treatments at Orchids | Hen Party Pamper Packages & Mobile Spa",
-  description: "Book luxury spa treatments for your hen weekend at Orchids. Choose from massages, facials, and pamper packages — with express options and the bride going FREE on bookings of 10 or more.",
+  title: "Mobile Spa Treatments for Hen Parties | Massage & Facials at Your House",
+  description: "Luxury mobile spa treatments delivered to your party house. Professional therapists bring massages, facials and pamper packages. Book for 10+ and the bride goes free.",
+  keywords: ["mobile spa treatments", "hen party spa", "massage at party house", "mobile beauty therapist"],
+  openGraph: {
+    title: "Mobile Spa & Beauty Treatments | Group Escape Houses",
+    description: "Professional spa treatments at your house. Massages, facials and pamper packages. Bride free on 10+ bookings.",
+    url: "https://groupescapehouses.co.uk/spa-treatments",
+  },
 };
 
 export default function SpaLayout({
