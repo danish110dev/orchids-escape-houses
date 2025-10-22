@@ -17,6 +17,33 @@ export default function WeekendBreaksPage() {
     "Add-on activities and local guides",
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80",
+      alt: "Friends relaxing in countryside hot tub escape"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80",
+      alt: "Luxury weekend break cottage with hot tub"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=80",
+      alt: "Group of friends enjoying weekend getaway"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1600&q=80",
+      alt: "Countryside holiday home for weekend break"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=1600&q=80",
+      alt: "Relaxing weekend break in luxury accommodation"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1600&q=80",
+      alt: "Friends toasting during weekend celebration"
+    }
+  ];
+
   const faqs = [
     {
       question: "What's the minimum stay for a weekend break?",
@@ -37,6 +64,10 @@ export default function WeekendBreaksPage() {
     {
       question: "Can we extend our weekend break?",
       answer: "Subject to availability, you can often extend your stay. If you'd like to add extra nights, just let us know when booking or get in touch before your stay and we'll check availability."
+    },
+    {
+      question: "What's included in a weekend break?",
+      answer: "All properties come fully equipped with kitchens, linens, towels, and Wi-Fi. Many include hot tubs, games rooms, and entertainment systems. Specific amenities vary by property - check individual listings for full details."
     }
   ];
 
@@ -181,8 +212,44 @@ export default function WeekendBreaksPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Weekend Break Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -207,7 +274,7 @@ export default function WeekendBreaksPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+                className="bg-white rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
