@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -37,6 +37,11 @@ export default function PropertiesPage() {
     priceMax: 3000,
     features: [] as string[],
   });
+
+  // Reset displayedCount when filters change
+  useEffect(() => {
+    setDisplayedCount(6);
+  }, [filters]);
 
   const properties = [
     {
