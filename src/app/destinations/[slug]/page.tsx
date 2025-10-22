@@ -2413,8 +2413,7 @@ export default function DestinationDetailPage() {
               className="absolute inset-0 w-full h-full object-cover"
               style={{ 
                 display: 'block',
-                zIndex: 0,
-                objectFit: 'cover'
+                zIndex: 0
               }}
               onError={(e) => {
                 console.error('Video failed to load:', e);
@@ -2424,8 +2423,13 @@ export default function DestinationDetailPage() {
                   (fallbackImg as HTMLElement).style.display = 'block';
                 }
               }}
+              onLoadedData={(e) => {
+                console.log('Video loaded successfully');
+                e.currentTarget.play().catch(err => console.error('Play error:', err));
+              }}
             >
               <source src={destination.video} type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
             {/* Fallback image if video fails */}
             <div 
