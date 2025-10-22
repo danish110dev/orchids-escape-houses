@@ -197,19 +197,19 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "Frequent coach services from major UK cities" }
       ],
       nightlife: [
-        { name: "The Warehouse Project", description: "Legendary club with world-class DJs", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
-        { name: "Refuge", description: "Grand hotel bar with eclectic entertainment", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
-        { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
+        { name: "The Warehouse Project", description: "Legendary club with world-class DJs", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-warehouse-b090804a-20251022190830.jpg" },
+        { name: "Refuge", description: "Grand hotel bar with eclectic entertainment", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-refuge-bar-an-b3087eb5-20251022190830.jpg" },
+        { name: "Cloud 23", description: "Rooftop bar with panoramic city views", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cloud-23-roof-d94afb9b-20251022190830.jpg" }
       ],
       brunch: [
-        { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
-        { name: "The Ivy Spinningfields", description: "Elegant all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
-        { name: "Federal Bar", description: "Australian-inspired brunch and coffee", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+        { name: "Beautif", description: "Trendy Northern Quarter brunch spot", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-trendy-northe-25780f44-20251022190826.jpg", link: "#" },
+        { name: "The Ivy Spinningfields", description: "Elegant all-day dining and cocktails", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-ivy-spinn-4308f1da-20251022190830.jpg", link: "#" },
+        { name: "Federal Bar", description: "Australian-inspired brunch and coffee", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-australian-st-14bd32d8-20251022190830.jpg", link: "#" }
       ],
       activities: [
-        { name: "Shopping", description: "From Harvey Nichols to independent boutiques", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
-        { name: "Music Tours", description: "Explore Manchester's legendary music heritage", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80" },
-        { name: "Food Markets", description: "Altrincham and Mackie Mayor markets", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" }
+        { name: "Shopping", description: "From Harvey Nichols to independent boutiques", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-sh-f2840807-20251022190830.jpg" },
+        { name: "Music Tours", description: "Explore Manchester's legendary music heritage", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-manchester-mu-becd6137-20251022190830.jpg" },
+        { name: "Food Markets", description: "Altrincham and Mackie Mayor markets", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-mackie-mayor--e1d6b2c7-20251022190830.jpg" }
       ]
     },
     york: {
@@ -2442,7 +2442,7 @@ export default function DestinationDetailPage() {
                 onError={() => handleImageError('hero-fallback')}
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" style={{ zIndex: 1 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" style={{ zIndex: 1 }}></div>
           </>
         ) : (
           <>
@@ -2455,22 +2455,22 @@ export default function DestinationDetailPage() {
               priority 
               onError={() => handleImageError('hero')}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" style={{ zIndex: 1 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" style={{ zIndex: 1 }}></div>
           </>
         )}
         <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 2 }}>
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
-            <h1 className="text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
+            <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
               {destination.name}
             </h1>
-            <div className="flex items-center gap-2 text-white text-xl mb-6">
-              <MapPin className="w-5 h-5" />
+            <div className="flex items-center gap-2 text-white text-xl mb-6 drop-shadow-md" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+              <MapPin className="w-5 h-5 drop-shadow-md" />
               <span>{destination.region}</span>
             </div>
             <Button
               asChild
               size="lg"
-              className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02] shadow-lg"
               style={{
                 background: "var(--color-accent-sage)",
                 color: "white",
