@@ -520,7 +520,7 @@ export default function DestinationDetailPage() {
       name: "Cambridge",
       region: "Cambridgeshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cambridge-uni-706b7fc1-20251019170701.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-serene-aerial-view-gliding-over-cambr-9fd61758-20251022110443.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/serene-aerial-view-gliding-over-cambridg-a7382733-20251022200307.mp4",
       overview: "Cambridge is a historic university city with beautiful colleges, punting and sophisticated dining. Perfect for hen parties seeking culture, riverside charm and elegant celebrations in one of England's most picturesque cities.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -558,7 +558,7 @@ export default function DestinationDetailPage() {
       name: "Oxford",
       region: "Oxfordshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-oxford-univer-e05e954c-20251019170708.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-majestic-aerial-establishing-shot-ris-b4258a5a-20251022110443.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/majestic-aerial-establishing-shot-rising-702ff814-20251022200310.mp4",
       overview: "Oxford offers stunning architecture, world-famous university and elegant atmosphere. With beautiful colleges, sophisticated bars and excellent dining, it's perfect for refined hen celebrations.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -596,7 +596,7 @@ export default function DestinationDetailPage() {
       name: "Leeds",
       region: "West Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-leeds-city-ce-2b3778ad-20251019170714.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-vibrant-aerial-shot-sweeping-over-lee-5930b3e4-20251022110443.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-shot-sweeping-over-leeds--ce356a74-20251022200645.mp4",
       overview: "Leeds is a dynamic northern city with incredible shopping and legendary nightlife. From designer boutiques to vibrant bars and clubs, it's perfect for hen parties seeking great value and Northern hospitality.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -634,7 +634,7 @@ export default function DestinationDetailPage() {
       name: "Nottingham",
       region: "Nottinghamshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-nottingham-ci-c74b1381-20251019170721.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-view-of-nottingham-city-c-fc006cf1-20251022200647.mp4",
       overview: "Nottingham is a historic city with Robin Hood heritage, great nightlife and vibrant atmosphere. With excellent value accommodation and legendary night scene, it's perfect for budget-conscious hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -672,7 +672,7 @@ export default function DestinationDetailPage() {
       name: "Sheffield",
       region: "South Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-sheffield-cit-c9093e0d-20251019170737.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-aerial-shot-over-sheffield-show-5d5b8f57-20251022200304.mp4",
       overview: "Sheffield is a green city near Peak District with friendly locals and great value. With excellent nightlife, outdoor activities nearby and warm Yorkshire hospitality, it's perfect for adventurous hen celebrations.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -710,7 +710,7 @@ export default function DestinationDetailPage() {
       name: "Exeter",
       region: "Devon",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-exeter-cathed-62bbdacd-20251019170745.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-view-of-exeter-cathedra-5488dc00-20251022200647.mp4",
       overview: "Exeter is a cathedral city with Roman history and beautiful Devon setting. With historic charm, excellent dining and access to both coast and countryside, it's perfect for relaxed hen celebrations.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -748,7 +748,7 @@ export default function DestinationDetailPage() {
       name: "Chester",
       region: "Cheshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-chester-city--d1134f79-20251019170752.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/majestic-aerial-shot-gliding-over-cheste-1b776860-20251022200639.mp4",
       overview: "Chester is a Roman walled city with unique shopping and riverside charm. With historic architecture, traditional pubs and excellent shopping, it's perfect for sophisticated hen celebrations.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -786,7 +786,7 @@ export default function DestinationDetailPage() {
       name: "Durham",
       region: "County Durham",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-durham-cathed-5ca6e566-20251019170759.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-aerial-view-of-durham-cathedral-adaab2bf-20251022200316.mp4",
       overview: "Durham is a UNESCO World Heritage site with stunning cathedral and historic university. With medieval charm, riverside walks and excellent value, it's perfect for cultured hen celebrations.",
       quickFacts: {
         fromLondon: "3 hours by train",
@@ -824,7 +824,7 @@ export default function DestinationDetailPage() {
       name: "Canterbury",
       region: "Kent",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-canterbury-ca-dca05dc1-20251019170811.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/aerial-establishing-shot-of-canterbury-s-b3d925e4-20251022200652.mp4",
       overview: "Canterbury is a medieval city with famous cathedral and cobbled streets. With historic charm, independent shops and traditional tea rooms, it's perfect for elegant hen celebrations.",
       quickFacts: {
         fromLondon: "1 hour by train",
@@ -862,7 +862,7 @@ export default function DestinationDetailPage() {
       name: "Blackpool",
       region: "Lancashire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-blackpool-tow-64085652-20251019170818.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-view-of-blackpool-seafron-f56dc062-20251022200306.mp4",
       overview: "Blackpool is a classic seaside resort with famous tower and lively entertainment. With beach fun, amusement rides and vibrant nightlife, it's perfect for fun-filled hen celebrations.",
       quickFacts: {
         fromLondon: "3 hours by train",
@@ -900,7 +900,7 @@ export default function DestinationDetailPage() {
       name: "Cotswolds",
       region: "South West England",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cotswolds-cou-81699b79-20251019170824.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-aerial-drone-shot-over-pictures-d843fa0c-20251022200636.mp4",
       overview: "The Cotswolds offers picturesque villages and luxury country retreats. With rolling hills, charming stone cottages and peaceful countryside, it's perfect for relaxing hen celebrations in stunning rural settings.",
       quickFacts: {
         fromLondon: "2 hours by car",
@@ -938,7 +938,7 @@ export default function DestinationDetailPage() {
       name: "Margate",
       region: "Kent",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-margate-seafr-9f3138d3-20251019170830.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-view-of-margate-seaside-63a5e6fe-20251022200651.mp4",
       overview: "Margate is a trendy seaside town with sandy beaches and creative vibe. With vintage shops, art galleries and vibrant atmosphere, it's perfect for bohemian hen celebrations.",
       quickFacts: {
         fromLondon: "1.5 hours by train",
@@ -976,7 +976,7 @@ export default function DestinationDetailPage() {
       name: "Harrogate",
       region: "North Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-harrogate-tow-ef6ad8e6-20251019170838.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/elegant-aerial-shot-gliding-over-harroga-41e2b757-20251022200650.mp4",
       overview: "Harrogate is an elegant spa town with beautiful gardens and afternoon tea. With boutique shopping, Turkish baths and refined atmosphere, it's perfect for sophisticated hen celebrations.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -1014,7 +1014,7 @@ export default function DestinationDetailPage() {
       name: "St Ives",
       region: "Cornwall",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-st-ives-harbo-608d18b9-20251019170846.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/beautiful-aerial-view-of-st-ives-harbor--7d3d7780-20251022200308.mp4",
       overview: "St Ives offers stunning harbour with golden beaches and artistic charm. With seafood restaurants, art galleries and coastal walks, it's perfect for picturesque hen celebrations.",
       quickFacts: {
         fromLondon: "5 hours by train",
@@ -1052,7 +1052,7 @@ export default function DestinationDetailPage() {
       name: "Windsor",
       region: "Berkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-windsor-castl-304247da-20251019170853.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/majestic-aerial-shot-of-windsor-castle-a-a25a4427-20251022200307.mp4",
       overview: "Windsor is a royal town with historic castle and Thames-side elegance. With royal heritage, riverside walks and elegant hotels, it's perfect for regal hen celebrations.",
       quickFacts: {
         fromLondon: "45 minutes by train",
@@ -1090,7 +1090,7 @@ export default function DestinationDetailPage() {
       name: "Stratford-upon-Avon",
       region: "Warwickshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-stratford-upo-660c5853-20251019170900.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-view-of-stratford-upon--964f6188-20251022200418.mp4",
       overview: "Stratford-upon-Avon is Shakespeare's birthplace with Tudor buildings and theatre. With literary heritage, riverside walks and charming market town atmosphere, it's perfect for cultured hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -1128,7 +1128,7 @@ export default function DestinationDetailPage() {
       name: "Plymouth",
       region: "Devon",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-pley-14909bf-20251019170907.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-aerial-shot-over-plymouth-water-a6fb3dc4-20251022200314.mp4",
       overview: "Plymouth is a historic waterfront city with maritime heritage and coastal views. With naval history, harbour walks and nearby beaches, it's perfect for coastal hen celebrations.",
       quickFacts: {
         fromLondon: "3.5 hours by train",
@@ -1166,7 +1166,7 @@ export default function DestinationDetailPage() {
       name: "Cheltenham",
       region: "Gloucestershire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cheltenham-to-be3b5273-20251019170915.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/elegant-aerial-view-of-cheltenham-regenc-2956678a-20251022200310.mp4",
       overview: "Cheltenham is a Regency spa town famous for festivals and elegant architecture. With horse racing heritage, beautiful gardens and sophisticated atmosphere, it's perfect for refined hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
