@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -259,11 +259,44 @@ export default function PropertiesPage() {
     }));
   };
 
-  const visibleProperties = properties.slice(0, displayedCount);
-  const hasMore = displayedCount < properties.length;
+  // Apply filters to properties
+  const filteredProperties = useMemo(() => {
+    return properties.filter((property) => {
+      // Location filter
+      if (filters.location) {
+        const locationMatch = property.location
+          .toLowerCase()
+          .includes(filters.location.toLowerCase().replace("-", " "));
+        if (!locationMatch) return false;
+      }
+
+      // Group size filter
+      if (filters.groupSize > 0 && property.sleeps < filters.groupSize) {
+        return false;
+      }
+
+      // Price filter
+      if (property.priceFrom < filters.priceMin || property.priceFrom > filters.priceMax) {
+        return false;
+      }
+
+      // Features filter
+      if (filters.features.length > 0) {
+        const hasAllFeatures = filters.features.every((feature) =>
+          property.features.includes(feature)
+        );
+        if (!hasAllFeatures) return false;
+      }
+
+      return true;
+    });
+  }, [filters]);
+
+  const visibleProperties = filteredProperties.slice(0, displayedCount);
+  const hasMore = displayedCount < filteredProperties.length;
 
   const loadMore = () => {
-    setDisplayedCount(prev => Math.min(prev + 6, properties.length));
+    setDisplayedCount(prev => Math.min(prev + 6, filteredProperties.length));
   };
 
   // Animation variants
@@ -500,7 +533,7 @@ export default function PropertiesPage() {
               >
                 <p className="text-[var(--color-neutral-dark)] flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-[var(--color-accent-gold)]" />
-                  Showing {visibleProperties.length} of {properties.length} properties
+                  Showing {visibleProperties.length} of {filteredProperties.length} properties
                 </p>
                 <select className="px-4 py-2 rounded-xl border border-gray-300 text-sm transition-all duration-200 focus:ring-2 focus:ring-[var(--color-accent-sage)] focus:border-transparent">
                   <option>Sort by: Price (Low to High)</option>
@@ -517,15 +550,23 @@ export default function PropertiesPage() {
                 initial="hidden"
                 animate="visible"
               >
-                {visibleProperties.map((property) => (
-                  <motion.div
-                    key={property.id}
-                    variants={itemVariants}
-                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  >
-                    <PropertyCard {...property} />
-                  </motion.div>
-                ))}
+                {visibleProperties.length > 0 ? (
+                  visibleProperties.map((property) => (
+                    <motion.div
+                      key={property.id}
+                      variants={itemVariants}
+                      whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                    >
+                      <PropertyCard {...property} />
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="col-span-2 text-center py-12">
+                    <p className="text-xl text-[var(--color-neutral-dark)]">
+                      No properties match your filters. Try adjusting your search criteria.
+                    </p>
+                  </div>
+                )}
               </motion.div>
 
               {/* Load More */}
