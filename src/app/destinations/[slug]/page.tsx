@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
-  const [openFaq, setOpenFaq,] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const params = useParams();
   const slug = params.slug as string;
 
