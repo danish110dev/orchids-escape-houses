@@ -2,43 +2,97 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://groupescapehouses.co.uk';
-  const currentDate = new Date();
-
+  
   // Static routes
-  const staticRoutes = [
-    '',
-    '/properties',
-    '/experiences',
-    '/destinations',
-    '/contact',
-    '/how-it-works',
-    '/reviews',
-    '/our-story',
-    '/privacy',
-    '/terms',
-    '/booking-terms',
-    '/house-styles-and-features',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }));
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/properties`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/experiences`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/destinations`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/how-it-works`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/reviews`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/our-story`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/booking-terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/house-styles-and-features`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ];
 
   // Property pages
-  const properties = [
+  const propertyRoutes: MetadataRoute.Sitemap = [
     'brighton-manor',
     'bath-spa-retreat',
     'manchester-party-house',
   ].map((slug) => ({
     url: `${baseUrl}/properties/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
   // Experience pages
-  const experiences = [
+  const experienceRoutes: MetadataRoute.Sitemap = [
     'private-chef',
     'cocktail-masterclass',
     'spa-treatments',
@@ -47,13 +101,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'murder-mystery',
   ].map((slug) => ({
     url: `${baseUrl}/experiences/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
   // Destination pages
-  const destinations = [
+  const destinationRoutes: MetadataRoute.Sitemap = [
     'brighton',
     'bath',
     'manchester',
@@ -66,13 +120,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'bournemouth',
   ].map((slug) => ({
     url: `${baseUrl}/destinations/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
   // Feature pages
-  const features = [
+  const featureRoutes: MetadataRoute.Sitemap = [
     'hot-tub',
     'swimming-pool',
     'indoor-swimming-pool',
@@ -85,13 +139,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'ground-floor-bedroom',
   ].map((slug) => ({
     url: `${baseUrl}/features/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   // House styles pages
-  const houseStyles = [
+  const houseStyleRoutes: MetadataRoute.Sitemap = [
     'manor-houses',
     'party-houses',
     'castles',
@@ -106,13 +160,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'family-holidays',
   ].map((slug) => ({
     url: `${baseUrl}/house-styles/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  // Occasions pages
-  const occasions = [
+  // Occasions pages (with /occasions/ prefix)
+  const occasionRoutes: MetadataRoute.Sitemap = [
     'hen-party-houses',
     'weddings',
     'special-celebrations',
@@ -122,13 +176,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'easter',
   ].map((slug) => ({
     url: `${baseUrl}/occasions/${slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  // Direct occasion routes (also accessible without /occasions/ prefix)
-  const directOccasions = [
+  // Direct occasion routes (without /occasions/ prefix)
+  const directOccasionRoutes: MetadataRoute.Sitemap = [
     'hen-party-houses',
     'weddings',
     'special-celebrations',
@@ -136,32 +190,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'christmas',
     'new-year',
     'easter',
+    'spa-treatments',
   ].map((slug) => ({
     url: `${baseUrl}/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
-  // Additional pages
-  const additionalPages = [
-    '/spa-treatments',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   return [
     ...staticRoutes,
-    ...properties,
-    ...experiences,
-    ...destinations,
-    ...features,
-    ...houseStyles,
-    ...occasions,
-    ...directOccasions,
-    ...additionalPages,
+    ...propertyRoutes,
+    ...experienceRoutes,
+    ...destinationRoutes,
+    ...featureRoutes,
+    ...houseStyleRoutes,
+    ...occasionRoutes,
+    ...directOccasionRoutes,
   ];
 }
