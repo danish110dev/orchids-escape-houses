@@ -8,21 +8,31 @@ export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
+    // Check if already loaded this session
+    const hasLoaded = sessionStorage.getItem('hasLoadedOnce');
+    
+    if (hasLoaded) {
+      // Skip loading screen on subsequent page loads
+      setIsLoading(false);
+      return;
+    }
+
+    // Simulate loading progress tied to actual page load
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + Math.random() * 15;
+        return prev + Math.random() * 20;
       });
-    }, 150);
+    }, 100);
 
-    // Start fade out after loading completes
+    // Faster fade out - reduced from 2500ms to 1500ms
     const fadeTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+      sessionStorage.setItem('hasLoadedOnce', 'true');
+    }, 1500);
 
     return () => {
       clearInterval(progressInterval);
@@ -34,7 +44,7 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-500 ${
         progress >= 100 ? "opacity-0" : "opacity-100"
       }`}
       style={{
@@ -44,27 +54,27 @@ export default function LoadingScreen() {
       <div className="text-center">
         {/* Logo with smooth fade-in */}
         <div 
-          className="mb-12 transition-all duration-1000"
+          className="mb-8 transition-all duration-700"
           style={{
-            opacity: Math.min(progress / 30, 1),
-            transform: `translateY(${Math.max(20 - progress / 3, 0)}px)`,
+            opacity: Math.min(progress / 25, 1),
+            transform: `translateY(${Math.max(15 - progress / 4, 0)}px)`,
           }}
         >
           <Image
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
             alt="Group Escape Houses"
-            width={240}
-            height={160}
+            width={200}
+            height={133}
             className="mx-auto"
             priority
           />
         </div>
 
         {/* Modern progress bar */}
-        <div className="w-64 mx-auto">
-          <div className="h-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm">
+        <div className="w-56 mx-auto">
+          <div className="h-1 bg-white/30 rounded-full overflow-hidden">
             <div
-              className="h-full rounded-full transition-all duration-300 ease-out"
+              className="h-full rounded-full transition-all duration-200 ease-out"
               style={{
                 width: `${Math.min(progress, 100)}%`,
                 background: "linear-gradient(90deg, var(--color-accent-sage) 0%, var(--color-accent-gold) 100%)",
@@ -74,10 +84,10 @@ export default function LoadingScreen() {
           
           {/* Loading text */}
           <p 
-            className="mt-4 text-sm font-medium tracking-wider"
+            className="mt-3 text-xs font-medium tracking-wider"
             style={{ 
               color: "var(--color-neutral-dark)",
-              opacity: Math.min(progress / 40, 0.7),
+              opacity: Math.min(progress / 35, 0.6),
             }}
           >
             Loading your escape...
