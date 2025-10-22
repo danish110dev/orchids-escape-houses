@@ -20,6 +20,33 @@ export default function ChristmasPage() {
     "Flexible arrival dates for Christmas and New Year stays"
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?w=1600&q=90",
+      alt: "Festive Christmas dining table with family gathering"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=1600&q=90",
+      alt: "Cosy log fire with Christmas stockings"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=1600&q=90",
+      alt: "Decorated Christmas tree in luxury living room"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1600&q=90",
+      alt: "Snowy countryside house with festive lights"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1608588563989-e937d76838f9?w=1600&q=90",
+      alt: "Christmas dinner spread on elegant table"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=1600&q=90",
+      alt: "Family gathered around fireplace at Christmas"
+    }
+  ];
+
   const benefits = [
     {
       title: "Magical Settings",
@@ -201,8 +228,44 @@ export default function ChristmasPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Christmas House Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +304,7 @@ export default function ChristmasPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +329,7 @@ export default function ChristmasPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden"
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
