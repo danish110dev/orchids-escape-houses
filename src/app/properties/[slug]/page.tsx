@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -27,7 +26,7 @@ import {
   Calendar,
 } from "lucide-react";
 
-// Property data lookup
+// Property database
 const propertiesData: Record<string, any> = {
   "brighton-manor": {
     title: "The Brighton Manor",
@@ -70,8 +69,8 @@ const propertiesData: Record<string, any> = {
     sleeps: 20,
     bedrooms: 10,
     bathrooms: 8,
-    priceWeekend: 1600,
-    priceMidweek: 1350,
+    priceWeekend: 1500,
+    priceMidweek: 1200,
     images: [
       "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
@@ -79,15 +78,15 @@ const propertiesData: Record<string, any> = {
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
     ],
     description:
-      "An exquisite spa retreat in the historic city of Bath. This magnificent property boasts 10 luxurious bedrooms, a private cinema room, games room, and stunning gardens. Perfect for large groups seeking relaxation and entertainment with easy access to Bath's famous attractions.",
+      "An elegant Victorian property in the historic city of Bath. This magnificent retreat boasts a private cinema room, professional games room with pool table, and stunning period features throughout. With 10 luxurious bedrooms and modern amenities, it's the perfect backdrop for your special celebration.",
     features: [
       { icon: Music, label: "Games Room" },
-      { icon: Music, label: "Cinema Room" },
-      { icon: Waves, label: "Spa Area" },
+      { icon: Music, label: "Cinema" },
       { icon: Wifi, label: "Fast Wi-Fi" },
       { icon: Car, label: "Free Parking" },
       { icon: Flame, label: "BBQ Area" },
       { icon: ChefHat, label: "Gourmet Kitchen" },
+      { icon: Waves, label: "Hot Tub" },
       { icon: Music, label: "Sound System" },
     ],
     houseRules: [
@@ -106,7 +105,7 @@ const propertiesData: Record<string, any> = {
     bedrooms: 7,
     bathrooms: 5,
     priceWeekend: 1100,
-    priceMidweek: 890,
+    priceMidweek: 850,
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
@@ -114,15 +113,16 @@ const propertiesData: Record<string, any> = {
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
     ],
     description:
-      "A vibrant party house in the heart of Manchester. This contemporary property features a hot tub, BBQ area, and spacious living areas perfect for celebrations. With 7 bedrooms and modern amenities, it's ideal for hen parties and group getaways in Manchester's buzzing city center.",
+      "A contemporary party house in the vibrant heart of Manchester. This stylish property features a luxury hot tub, BBQ area, and open-plan living spaces perfect for group celebrations. With 7 beautifully designed bedrooms and modern bathrooms, your group will love this urban retreat.",
     features: [
       { icon: Waves, label: "Hot Tub" },
-      { icon: Flame, label: "BBQ Area" },
-      { icon: Music, label: "Sound System" },
+      { icon: Flame, label: "BBQ" },
       { icon: Wifi, label: "Fast Wi-Fi" },
       { icon: Car, label: "Free Parking" },
+      { icon: Music, label: "Sound System" },
       { icon: ChefHat, label: "Modern Kitchen" },
-      { icon: Music, label: "Entertainment Area" },
+      { icon: Music, label: "Games Area" },
+      { icon: Waves, label: "Garden" },
     ],
     houseRules: [
       "Check-in: 4pm",
@@ -142,19 +142,22 @@ const propertiesData: Record<string, any> = {
     priceWeekend: 950,
     priceMidweek: 750,
     images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
     ],
     description:
-      "A stylish city loft in Leeds perfect for urban celebrations. This modern property features contemporary design, open-plan living, and all the amenities needed for an unforgettable group stay. Located in the heart of Leeds with easy access to nightlife, restaurants, and shopping.",
+      "A stunning modern loft in Leeds city centre. This industrial-chic property features exposed brick, high ceilings, and contemporary furnishings throughout. Perfect for hen parties wanting to be close to Leeds' famous nightlife while having a stylish home base to return to.",
     features: [
       { icon: Wifi, label: "Fast Wi-Fi" },
       { icon: Music, label: "Sound System" },
-      { icon: ChefHat, label: "Modern Kitchen" },
+      { icon: ChefHat, label: "Designer Kitchen" },
       { icon: Car, label: "Secure Parking" },
       { icon: Music, label: "Entertainment Area" },
+      { icon: Flame, label: "Rooftop Terrace" },
+      { icon: Waves, label: "City Views" },
+      { icon: Music, label: "Smart TV" },
     ],
     houseRules: [
       "Check-in: 4pm",
@@ -162,74 +165,51 @@ const propertiesData: Record<string, any> = {
       "No smoking inside",
       "Quiet hours: 11pm - 8am",
       "Maximum occupancy: 12 guests",
-      "Damage deposit: £400 (refundable)",
+      "Damage deposit: £450 (refundable)",
     ],
   },
 };
 
-export default function PropertyDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  
+export default function PropertyDetailPage({ params }: { params: { slug: string } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
 
-  // Get the property data based on slug
-  const property = useMemo(() => {
-    return propertiesData[slug] || propertiesData["brighton-manor"];
-  }, [slug]);
+  const property = propertiesData[params.slug];
+
+  // If property not found, show error
+  if (!property) {
+    return (
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
+        <div className="pt-24 pb-24 text-center">
+          <h1 className="mb-4">Property Not Found</h1>
+          <p className="mb-8">Sorry, we couldn't find the property you're looking for.</p>
+          <Link href="/properties">
+            <Button>Browse All Properties</Button>
+          </Link>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   // Get related properties (exclude current property)
-  const relatedProperties = useMemo(() => {
-    const allProperties = [
-      {
-        id: "1",
-        title: "The Brighton Manor",
-        location: "Brighton, East Sussex",
-        sleeps: 16,
-        bedrooms: 8,
-        priceFrom: 95,
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-        features: ["Hot Tub", "Indoor Pool"],
-        slug: "brighton-manor",
-      },
-      {
-        id: "2",
-        title: "Bath Spa Retreat",
-        location: "Bath, Somerset",
-        sleeps: 20,
-        bedrooms: 10,
-        priceFrom: 95,
-        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-        features: ["Games Room", "Cinema"],
-        slug: "bath-spa-retreat",
-      },
-      {
-        id: "3",
-        title: "Manchester Party House",
-        location: "Manchester, Greater Manchester",
-        sleeps: 14,
-        bedrooms: 7,
-        priceFrom: 79,
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-        features: ["Hot Tub", "BBQ"],
-        slug: "manchester-party-house",
-      },
-      {
-        id: "4",
-        title: "Leeds City Loft",
-        location: "Leeds, West Yorkshire",
-        sleeps: 12,
-        bedrooms: 6,
-        priceFrom: 75,
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-        features: ["City Centre", "Modern"],
-        slug: "leeds-city-loft",
-      },
-    ];
+  const allPropertySlugs = Object.keys(propertiesData);
+  const relatedPropertySlugs = allPropertySlugs
+    .filter((slug) => slug !== params.slug)
+    .slice(0, 2);
 
-    return allProperties.filter(p => p.slug !== slug).slice(0, 2);
-  }, [slug]);
+  const relatedProperties = relatedPropertySlugs.map((slug) => ({
+    id: slug,
+    slug: slug,
+    title: propertiesData[slug].title,
+    location: propertiesData[slug].location,
+    sleeps: propertiesData[slug].sleeps,
+    bedrooms: propertiesData[slug].bedrooms,
+    priceFrom: Math.round(propertiesData[slug].priceMidweek / 3),
+    image: propertiesData[slug].images[0],
+    features: propertiesData[slug].features.slice(0, 2).map((f: any) => f.label),
+  }));
 
   const faqs = [
     {
@@ -271,7 +251,7 @@ export default function PropertyDetailPage() {
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {property.images.slice(1).map((image, index) => (
+              {property.images.slice(1).map((image: string, index: number) => (
                 <div key={index} className="relative h-[190px] md:h-[290px] cursor-pointer">
                   <Image
                     src={image}
@@ -388,7 +368,7 @@ export default function PropertyDetailPage() {
                   Features
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {property.features.map((feature, index) => {
+                  {property.features.map((feature: any, index: number) => {
                     const Icon = feature.icon;
                     return (
                       <div key={index} className="text-center">
@@ -418,7 +398,7 @@ export default function PropertyDetailPage() {
                   House Rules
                 </h3>
                 <ul className="space-y-3">
-                  {property.houseRules.map((rule, index) => (
+                  {property.houseRules.map((rule: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-[var(--color-accent-pink)] mt-1">•</span>
                       <span>{rule}</span>
@@ -438,7 +418,7 @@ export default function PropertyDetailPage() {
 
             {/* Right Column - Enquiry Form */}
             <div className="lg:col-span-1">
-              <EnquiryForm propertyTitle={property.title} propertySlug={slug} />
+              <EnquiryForm propertyTitle={property.title} propertySlug={params.slug} />
             </div>
           </div>
 
