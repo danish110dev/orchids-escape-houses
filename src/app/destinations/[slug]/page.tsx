@@ -482,7 +482,7 @@ export default function DestinationDetailPage() {
       name: "Bristol",
       region: "South West England",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bristol-harbo-235d69cd-20251019170653.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-smooth-drone-shot-rising-over-bristol-3f21b17e-20251022110443.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-aerial-drone-shot-gliding-over--593379f4-20251022200952.mp4",
       overview: "Bristol is a creative harbour city with fantastic food scene, vibrant culture and stunning waterfront. Perfect for hen parties seeking street art, independent venues and a bohemian atmosphere combined with excellent nightlife.",
       quickFacts: {
         fromLondon: "1.5-2 hours by train",
