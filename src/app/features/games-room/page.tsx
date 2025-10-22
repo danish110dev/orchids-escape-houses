@@ -16,10 +16,12 @@ export default function GamesRoomPage() {
   ];
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1534158914592-062992fbe900?w=800&q=90", alt: "Luxury games room with pool table" },
-    { url: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=90", alt: "Friends playing table tennis" },
-    { url: "https://images.unsplash.com/photo-1600869441341-d83ebca27e34?w=800&q=90", alt: "Modern games room entertainment space" },
-    { url: "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?w=800&q=90", alt: "Group enjoying games room activities" },
+    { url: "https://images.unsplash.com/photo-1626995216005-51fce6be8f73?w=800&q=90", alt: "Luxury games room with professional pool table" },
+    { url: "https://images.unsplash.com/photo-1534878883218-7650ec5e5b10?w=800&q=90", alt: "Friends playing table tennis in modern games room" },
+    { url: "https://images.unsplash.com/photo-1511882150382-421056c89033?w=800&q=90", alt: "Arcade games and entertainment area" },
+    { url: "https://images.unsplash.com/photo-1550645612-83f5d594b671?w=800&q=90", alt: "Pool table with vintage arcade games" },
+    { url: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=90", alt: "Luxury home entertainment room with gaming setup" },
+    { url: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=90", alt: "Group enjoying games and entertainment together" },
   ];
 
   const relatedFeatures = [
@@ -100,7 +102,7 @@ export default function GamesRoomPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1534158914592-062992fbe900?w=1600&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1626995216005-51fce6be8f73?w=1600&q=90')",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
@@ -127,7 +129,7 @@ export default function GamesRoomPage() {
       {/* Image Gallery Section */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div key={index} className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
                 <div
