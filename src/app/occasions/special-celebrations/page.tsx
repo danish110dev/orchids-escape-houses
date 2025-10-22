@@ -20,6 +20,33 @@ export default function SpecialCelebrationsPage() {
     "Dedicated UK support team to help plan your celebration"
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=90",
+      alt: "Elegant dining setup for special celebrations"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=90",
+      alt: "Birthday celebration with balloons and decorations"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=90",
+      alt: "Group celebrating anniversary milestone"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1600&q=90",
+      alt: "Elegant celebration table setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1478145787956-f6f12c59624d?w=1600&q=90",
+      alt: "Family reunion celebration outdoors"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=1600&q=90",
+      alt: "Milestone birthday celebration with cake"
+    }
+  ];
+
   const benefits = [
     {
       title: "Perfect for Groups",
@@ -58,6 +85,10 @@ export default function SpecialCelebrationsPage() {
     {
       question: "Are there any noise restrictions we should know about?",
       answer: "Each property has specific house rules regarding noise levels and quiet hours, typically from 11pm. We'll provide full details when you book. Many of our houses are in secluded locations perfect for celebrations."
+    },
+    {
+      question: "How far in advance should we book?",
+      answer: "For popular dates and larger properties, we recommend booking 6-12 months ahead. However, we often have last-minute availability, so it's always worth checking with us even for shorter notice."
     }
   ];
 
@@ -201,8 +232,44 @@ export default function SpecialCelebrationsPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Celebration House Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +308,7 @@ export default function SpecialCelebrationsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +333,7 @@ export default function SpecialCelebrationsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden"
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
