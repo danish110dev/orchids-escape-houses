@@ -12,8 +12,13 @@ import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const params = useParams();
   const slug = params.slug as string;
+
+  const handleImageError = (imageId: string) => {
+    setImageErrors(prev => ({ ...prev, [imageId]: true }));
+  };
 
   // Destinations data
   const destinationsData: Record<string, any> = {
@@ -2404,15 +2409,37 @@ export default function DestinationDetailPage() {
               loop
               muted
               playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                // Hide video on error and show fallback image
+                e.currentTarget.style.display = 'none';
+              }}
             >
               <source src={destination.video} type="video/mp4" />
             </video>
+            {/* Fallback image if video fails */}
+            <Image 
+              src={destination.image} 
+              alt={destination.name} 
+              fill 
+              className="object-cover" 
+              priority 
+              style={{ display: imageErrors['hero-fallback'] ? 'none' : 'block' }}
+              onError={() => handleImageError('hero-fallback')}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           </>
         ) : (
           <>
-            <Image src={destination.image} alt={destination.name} fill className="object-cover" priority />
+            <Image 
+              src={destination.image} 
+              alt={destination.name} 
+              fill 
+              className="object-cover" 
+              priority 
+              onError={() => handleImageError('hero')}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           </>
         )}
@@ -2597,16 +2624,21 @@ export default function DestinationDetailPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destination.nightlife.map((venue, index) => (
+            {destination.nightlife.map((venue: any, index: number) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
-                {venue.image && (
-                  <div className="relative h-48 overflow-hidden">
+                {venue.image && !imageErrors[`nightlife-${index}`] ? (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)]">
                     <Image
                       src={venue.image}
                       alt={venue.name}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      onError={() => handleImageError(`nightlife-${index}`)}
                     />
+                  </div>
+                ) : (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)] flex items-center justify-center">
+                    <Moon className="w-16 h-16 text-[var(--color-accent-sage)] opacity-30" />
                   </div>
                 )}
                 <div className="p-6">
@@ -2629,7 +2661,7 @@ export default function DestinationDetailPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destination.brunch.map((venue, index) => (
+            {destination.brunch.map((venue: any, index: number) => (
               <a
                 key={index}
                 href={venue.link}
@@ -2637,14 +2669,21 @@ export default function DestinationDetailPage() {
                 rel="nofollow noopener noreferrer"
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={venue.image}
-                    alt={venue.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
+                {!imageErrors[`brunch-${index}`] ? (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-primary)]">
+                    <Image
+                      src={venue.image}
+                      alt={venue.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      onError={() => handleImageError(`brunch-${index}`)}
+                    />
+                  </div>
+                ) : (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-primary)] flex items-center justify-center">
+                    <UtensilsCrossed className="w-16 h-16 text-[var(--color-accent-gold)] opacity-30" />
+                  </div>
+                )}
                 <div className="p-6">
                   <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
                   <p className="text-sm text-[var(--color-neutral-dark)] mb-3">{venue.description}</p>
@@ -2671,16 +2710,21 @@ export default function DestinationDetailPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destination.activities.map((activity, index) => (
+            {destination.activities.map((activity: any, index: number) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
-                {activity.image && (
-                  <div className="relative h-48 overflow-hidden">
+                {activity.image && !imageErrors[`activity-${index}`] ? (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)]">
                     <Image
                       src={activity.image}
                       alt={activity.name}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      onError={() => handleImageError(`activity-${index}`)}
                     />
+                  </div>
+                ) : (
+                  <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)] flex items-center justify-center">
+                    <Sparkles className="w-16 h-16 text-[var(--color-accent-pink)] opacity-30" />
                   </div>
                 )}
                 <div className="p-6">
