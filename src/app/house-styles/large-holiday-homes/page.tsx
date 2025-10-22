@@ -77,7 +77,18 @@ export default function LargeHolidayHomesPage() {
                 ))}
               </ul>
 
-              {/* Feature Image */}
+              {/* Kitchen Image */}
+              <div className="mb-8 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-large-holiday-home-spacious-moder-24fd9d3b-20251022192734.jpg"
+                  alt="Modern kitchen with island seating in large holiday home"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              {/* Living Area Image */}
               <div className="mb-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/large-holiday-home-open-plan-living-area-c48f6e12-20251022191855.jpg"
@@ -102,11 +113,33 @@ export default function LargeHolidayHomesPage() {
             </div>
 
             <div className="space-y-6">
-              {/* Large Feature Image */}
+              {/* Outdoor Entertainment Image */}
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/large-holiday-home-outdoor-entertainment-7fdc6cd3-20251022191905.jpg"
                   alt="Large holiday home outdoor entertainment area with hot tub"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+
+              {/* Dining Room Image */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/spacious-holiday-home-dining-room-with-l-f62f7507-20251022192730.jpg"
+                  alt="Spacious dining room with large table for group gatherings"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+
+              {/* Bedroom Image */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/large-holiday-home-master-bedroom-suite--dc572282-20251022192732.jpg"
+                  alt="Master bedroom suite in large holiday home"
                   width={800}
                   height={600}
                   className="w-full h-auto"
