@@ -520,19 +520,19 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Stansted Airport 40 minutes away" }
       ],
       nightlife: [
-        { name: "Revolution", description: "Cocktail bar with vodka vault", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
-        { name: "Lola Lo", description: "Tiki-themed cocktail bar and club", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "The Regal", description: "Former cinema turned nightclub", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" }
+        { name: "Revolution", description: "Cocktail bar with vodka vault", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-vodka-vault-c-203bf712-20251022073647.jpg" },
+        { name: "Lola Lo", description: "Tiki-themed cocktail bar and club", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-tiki-themed-t-c281e5cc-20251022073648.jpg" },
+        { name: "The Regal", description: "Former cinema turned nightclub", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-converted-his-1e5a1b75-20251022073647.jpg" }
       ],
       brunch: [
         { name: "The Ivy Cambridge Brasserie", description: "Elegant all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
-        { name: "Fitzbillies", description: "Historic café famous for Chelsea buns", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80", link: "#" },
-        { name: "Midsummer House", description: "TwoMichelin-starred riverside dining", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
+        { name: "Fitzbillies", description: "Historic café famous for Chelsea buns", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-traditional-6f351355-20251022073648.jpg", link: "#" },
+        { name: "Midsummer House", description: "TwoMichelin-starred riverside dining", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-michelin-star-eb18d817-20251022073647.jpg", link: "#" }
       ],
       activities: [
-        { name: "Punting on River Cam", description: "Traditional river tour past the colleges", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
-        { name: "King's College Chapel", description: "Stunning Gothic architecture", image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=800&q=80" },
-        { name: "Afternoon Tea", description: "Traditional tea at historic venues", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" }
+        { name: "Punting on River Cam", description: "Traditional river tour past the colleges", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-punting-boats-ff10642b-20251022073647.jpg" },
+        { name: "King's College Chapel", description: "Stunning Gothic architecture", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-king-s-colleg-191baaa4-20251022073647.jpg" },
+        { name: "Afternoon Tea", description: "Traditional tea at historic venues", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-traditional-a-960991eb-20251022073642.jpg" }
       ]
     },
     oxford: {
