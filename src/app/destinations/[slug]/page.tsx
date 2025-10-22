@@ -7,13 +7,14 @@ import PropertyCard from "@/components/PropertyCard";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 
 export default function DestinationDetailPage() {
   const [openFaq, setOpenFaq,] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const params = useParams();
   const slug = params.slug as string;
 
@@ -2387,6 +2388,44 @@ export default function DestinationDetailPage() {
     ]
   };
 
+  useEffect(() => {
+    // Ensure video plays when loaded
+    if (videoRef.current && destination.video) {
+      const playVideo = async () => {
+        try {
+          videoRef.current!.muted = true;
+          await videoRef.current!.play();
+          setVideoLoaded(true);
+          console.log('Video playing successfully');
+        } catch (error) {
+          console.error('Video play failed:', error);
+          // Show fallback image if video fails to play
+          if (videoRef.current) {
+            videoRef.current.style.display = 'none';
+          }
+          const fallbackImg = document.getElementById('hero-fallback-img');
+          if (fallbackImg) {
+            (fallbackImg as HTMLElement).style.display = 'block';
+          }
+        }
+      };
+
+      // Try to play immediately
+      playVideo();
+
+      // Also try when video is loaded
+      videoRef.current.addEventListener('loadeddata', playVideo);
+      videoRef.current.addEventListener('canplay', playVideo);
+
+      return () => {
+        if (videoRef.current) {
+          videoRef.current.removeEventListener('loadeddata', playVideo);
+          videoRef.current.removeEventListener('canplay', playVideo);
+        }
+      };
+    }
+  }, [destination.video]);
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       {/* Schema Markup */}
@@ -2406,6 +2445,7 @@ export default function DestinationDetailPage() {
         {destination.video ? (
           <>
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
@@ -2423,10 +2463,6 @@ export default function DestinationDetailPage() {
                 if (fallbackImg) {
                   (fallbackImg as HTMLElement).style.display = 'block';
                 }
-              }}
-              onLoadedData={(e) => {
-                console.log('Video loaded successfully');
-                e.currentTarget.play().catch(err => console.error('Play error:', err));
               }}
             >
               <source src={destination.video} type="video/mp4" />
