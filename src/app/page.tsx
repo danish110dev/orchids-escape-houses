@@ -162,6 +162,8 @@ const destinations = [
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   // Optimized Intersection Observer
   useEffect(() => {
@@ -192,6 +194,41 @@ export default function Home() {
       observer.disconnect();
     };
   }, []);
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || isSubmitting) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    
+    try {
+      // Simulate API call - replace with actual endpoint when ready
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // TODO: Replace with actual API call
+      // const response = await fetch('/api/subscribe', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email })
+      // });
+      
+      setSubmitStatus("success");
+      setEmail("");
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Subscription error:", error);
+      setSubmitStatus("error");
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -751,7 +788,7 @@ export default function Home() {
             Subscribe for exclusive deals, house spotlights, and planning inspiration delivered to your inbox
           </p>
 
-          <form className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <form className="flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={handleEmailSubmit}>
             <Input
               type="email"
               placeholder="Enter your email"
@@ -768,10 +805,23 @@ export default function Home() {
                 background: "var(--color-accent-sage)",
                 color: "white",
               }}
+              disabled={isSubmitting || submitStatus === "success"}
             >
-              Subscribe
+              {isSubmitting ? "Processing..." : "Subscribe"}
             </Button>
           </form>
+
+          {submitStatus === "success" && (
+            <p className="text-green-500 text-sm mt-3 sm:mt-4">
+              Thank you for subscribing! We'll send you exclusive party planning tips and special offers.
+            </p>
+          )}
+
+          {submitStatus === "error" && (
+            <p className="text-red-500 text-sm mt-3 sm:mt-4">
+              Oops! There was an error. Please try again.
+            </p>
+          )}
 
           <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)] mt-3 sm:mt-4">
             We respect your privacy. Unsubscribe anytime. Read our <Link href="/privacy" className="underline hover:text-[var(--color-accent-gold)] transition-colors">privacy policy</Link>.
