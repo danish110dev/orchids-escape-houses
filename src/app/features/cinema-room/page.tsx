@@ -27,6 +27,33 @@ export default function CinemaRoomPage() {
     { title: "Large Holiday Homes", slug: "large-holiday-homes" },
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1600&q=90",
+      alt: "Luxury home cinema room with reclining seats and large screen"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1600&q=90",
+      alt: "Private cinema room with comfortable seating for groups"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1600&q=90",
+      alt: "Home theater with popcorn and movie night setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=1600&q=90",
+      alt: "Cozy cinema room with plush seating and ambient lighting"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1600&q=90",
+      alt: "Modern home cinema with surround sound system"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1627873649417-c67f701f1949?w=1600&q=90",
+      alt: "Cinema room ready for group movie screening"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Schema Markup */}
@@ -192,8 +219,33 @@ export default function CinemaRoomPage() {
         </div>
       </section>
 
-      {/* Related Features Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="mb-8 text-center text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+            Cinema Room Gallery
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <div 
+                key={index}
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Features Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="mb-8 text-center text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
             Other Popular Features
@@ -203,7 +255,7 @@ export default function CinemaRoomPage() {
               <Link
                 key={feature.slug}
                 href={`/features/${feature.slug}`}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group bg-[var(--color-bg-primary)] rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <feature.icon className="w-10 h-10 text-[var(--color-accent-gold)] mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-semibold mb-2 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-gold)] transition-colors">
@@ -225,7 +277,7 @@ export default function CinemaRoomPage() {
                 <Link
                   key={style.slug}
                   href={`/house-styles/${style.slug}`}
-                  className="px-6 py-3 bg-white rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-300 font-medium"
+                  className="px-6 py-3 bg-[var(--color-bg-primary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-300 font-medium"
                 >
                   {style.title}
                 </Link>
