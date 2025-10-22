@@ -41,11 +41,11 @@ export default function DestinationDetailPage() {
       nightlife: [
         { name: "The Drunken Duck", description: "Award-winning pub with craft beers and stunning views", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" },
         { name: "Zeffirellis", description: "Popular cinema and jazz bar in Ambleside", image: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&q=80" },
-        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" }
+        { name: "The Old Dungeon Ghyll", description: "Traditional climbers' pub with live music", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-traditional-c-9f271f04-20251022073931.jpg" }
       ],
       brunch: [
-        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
-        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", link: "#" },
+        { name: "The Jumble Room", description: "Quirky restaurant with creative brunch menu", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-quirky-eclect-9dc02dd6-20251022073924.jpg", link: "#" },
+        { name: "Doi Intanon", description: "Thai restaurant with lakeside views", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-thai-restaura-a5539b7a-20251022073930.jpg", link: "#" },
         { name: "The Cottage in the Wood", description: "Fine dining with panoramic fell views", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
       ],
       activities: [
