@@ -28,24 +28,28 @@ export default function LuxuryDogFriendlyCottagesPage() {
             backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90')",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
         </div>
         
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center text-white">
-          <nav className="flex justify-center gap-2 text-sm mb-6">
-            <Link href="/" className="hover:underline">Home</Link>
-            <span>/</span>
-            <Link href="/house-styles-and-features" className="hover:underline">House Styles</Link>
-            <span>/</span>
-            <span>Luxury Dog Friendly Cottages</span>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
+          {/* Breadcrumb with white background card */}
+          <nav className="inline-flex items-center gap-2 text-sm mb-6 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+            <Link href="/" className="text-[var(--color-accent-sage)] hover:underline font-medium">Home</Link>
+            <span className="text-[var(--color-neutral-dark)]">/</span>
+            <Link href="/house-styles-and-features" className="text-[var(--color-accent-sage)] hover:underline font-medium">House Styles</Link>
+            <span className="text-[var(--color-neutral-dark)]">/</span>
+            <span className="text-[var(--color-accent-gold)] font-semibold">Luxury Dog Friendly Cottages</span>
           </nav>
           
-          <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "white" }}>
-            Luxury Dog Friendly Cottages
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Pet-friendly luxury homes where everyone in the family is welcome
-          </p>
+          {/* Hero text in white card */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl max-w-4xl mx-auto">
+            <h1 className="mb-4 text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+              Luxury Dog Friendly Cottages
+            </h1>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+              Pet-friendly luxury homes where everyone in the family is welcome
+            </p>
+          </div>
         </div>
       </section>
 
