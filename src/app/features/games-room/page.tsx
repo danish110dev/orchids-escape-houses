@@ -15,6 +15,13 @@ export default function GamesRoomPage() {
     "Ideal for evening entertainment after activities"
   ];
 
+  const galleryImages = [
+    { url: "https://images.unsplash.com/photo-1534158914592-062992fbe900?w=800&q=90", alt: "Luxury games room with pool table" },
+    { url: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=90", alt: "Friends playing table tennis" },
+    { url: "https://images.unsplash.com/photo-1600869441341-d83ebca27e34?w=800&q=90", alt: "Modern games room entertainment space" },
+    { url: "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?w=800&q=90", alt: "Group enjoying games room activities" },
+  ];
+
   const relatedFeatures = [
     { title: "Hot Tub", slug: "hot-tub", icon: Droplets },
     { title: "Cinema Room", slug: "cinema-room", icon: Film },
@@ -114,6 +121,23 @@ export default function GamesRoomPage() {
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Entertainment spaces with pool tables, arcade games, and competitive fun
           </p>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

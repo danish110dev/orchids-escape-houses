@@ -15,6 +15,13 @@ export default function HotTubPage() {
     "Most popular feature for hen parties"
   ];
 
+  const galleryImages = [
+    { url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=90", alt: "Luxury outdoor hot tub with scenic views" },
+    { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=90", alt: "Friends enjoying hot tub celebration" },
+    { url: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=90", alt: "Evening hot tub under the stars" },
+    { url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=90", alt: "Private hot tub at party house" },
+  ];
+
   const relatedFeatures = [
     { title: "Swimming Pool", slug: "swimming-pool", icon: Waves },
     { title: "Cinema Room", slug: "cinema-room", icon: Film },
@@ -114,6 +121,23 @@ export default function HotTubPage() {
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Luxury relaxation with private hot tub access for your hen party or group celebration
           </p>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

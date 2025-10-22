@@ -15,6 +15,13 @@ export default function ManorHousesPage() {
     "Premium amenities including pools and hot tubs"
   ];
 
+  const galleryImages = [
+    { url: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=90", alt: "Grand manor house exterior with manicured gardens" },
+    { url: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=90", alt: "Elegant manor house living room with period features" },
+    { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=90", alt: "Luxury manor house bedroom with four poster bed" },
+    { url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=90", alt: "Manor house dining room perfect for celebrations" },
+  ];
+
   const relatedFeatures = [
     { title: "Hot Tub", slug: "hot-tub", icon: Droplets },
     { title: "Swimming Pool", slug: "swimming-pool", icon: Waves },
@@ -112,6 +119,23 @@ export default function ManorHousesPage() {
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Grand country manors for unforgettable group celebrations and hen parties
           </p>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
