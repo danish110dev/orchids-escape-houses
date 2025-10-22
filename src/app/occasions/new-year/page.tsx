@@ -20,6 +20,33 @@ export default function NewYearPage() {
     "Beautiful locations for scenic New Year's Day walks"
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=1600&q=90",
+      alt: "Spectacular New Year's Eve fireworks celebration with champagne"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1600&q=90",
+      alt: "New Year party celebration with friends toasting"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1482575832494-771f74bf6857?w=1600&q=90",
+      alt: "Champagne glasses ready for New Year celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=90",
+      alt: "NYE party decorations and celebration setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=90",
+      alt: "Elegant dining for New Year celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600&q=90",
+      alt: "Friends celebrating New Year together"
+    }
+  ];
+
   const benefits = [
     {
       title: "Party Perfect",
@@ -58,6 +85,10 @@ export default function NewYearPage() {
     {
       question: "Can we do a late checkout on New Year's Day?",
       answer: "We offer late checkout options (usually until 12pm or 2pm) for an additional fee, perfect for recovering from celebrations. This needs to be arranged in advance and depends on property availability."
+    },
+    {
+      question: "How many people can stay at the properties?",
+      answer: "Our New Year properties typically accommodate 10-30 guests. We have a range of sizes to suit different group sizes. Contact us to find the perfect house for your celebration."
     }
   ];
 
@@ -201,8 +232,44 @@ export default function NewYearPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              New Year House Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +308,7 @@ export default function NewYearPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +333,7 @@ export default function NewYearPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden"
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
