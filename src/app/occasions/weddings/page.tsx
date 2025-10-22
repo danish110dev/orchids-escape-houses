@@ -20,6 +20,33 @@ export default function WeddingsPage() {
     "Dedicated wedding coordinator to help plan every detail"
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=90",
+      alt: "Beautiful outdoor wedding ceremony in elegant garden setting"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=90",
+      alt: "Romantic countryside wedding venue"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1600&q=90",
+      alt: "Elegant wedding reception table setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90",
+      alt: "Wedding celebration with guests"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&q=90",
+      alt: "Bride and groom in beautiful garden venue"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1600&q=90",
+      alt: "Luxury wedding venue with stunning architecture"
+    }
+  ];
+
   const benefits = [
     {
       title: "Intimate Venues",
@@ -58,6 +85,10 @@ export default function WeddingsPage() {
     {
       question: "How far in advance should we book for a wedding?",
       answer: "We recommend booking 12-18 months in advance for summer weekends and popular dates. However, we often have availability for smaller timescales, especially for midweek weddings or off-peak months."
+    },
+    {
+      question: "Do you have wedding packages available?",
+      answer: "Yes! We can create bespoke wedding packages including accommodation, catering, styling, and coordination. Get in touch to discuss your dream wedding and we'll create a tailored package for you."
     }
   ];
 
@@ -201,8 +232,44 @@ export default function WeddingsPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Gallery Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Wedding Venue Gallery
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +308,7 @@ export default function WeddingsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +333,7 @@ export default function WeddingsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden"
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
