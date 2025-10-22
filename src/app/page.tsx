@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import Link from "next/link";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock } from "lucide-react";
 import Header from "@/components/Header";
@@ -14,189 +14,184 @@ import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+// Move static data outside component to prevent re-creation on each render
+const featuredProperties = [
+  {
+    id: "1",
+    title: "The Brighton Manor",
+    location: "Brighton, East Sussex",
+    sleeps: 16,
+    bedrooms: 8,
+    priceFrom: 89,
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-b6c21bf3-20251018131712.jpg",
+    features: ["Hot Tub", "Pool"],
+    slug: "brighton-manor",
+  },
+  {
+    id: "2",
+    title: "Bath Spa Retreat",
+    location: "Bath, Somerset",
+    sleeps: 20,
+    bedrooms: 10,
+    priceFrom: 95,
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-71429268-20251018131719.jpg",
+    features: ["Games Room", "Cinema"],
+    slug: "bath-spa-retreat",
+  },
+  {
+    id: "3",
+    title: "Manchester Party House",
+    location: "Manchester, Greater Manchester",
+    sleeps: 14,
+    bedrooms: 7,
+    priceFrom: 79,
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-303caf30-20251018131730.jpg",
+    features: ["Hot Tub", "BBQ"],
+    slug: "manchester-party-house",
+  },
+];
+
+const experiences = [
+  {
+    title: "Private Chef Experience",
+    duration: "3-4 hours",
+    priceFrom: 55,
+    groupSize: "Any size",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+    slug: "private-chef",
+  },
+  {
+    title: "Cocktail Masterclass",
+    duration: "2-3 hours",
+    priceFrom: 50,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    slug: "cocktail-masterclass",
+  },
+  {
+    title: "Spa & Treatments",
+    duration: "2-3 hours",
+    priceFrom: 75,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-c9c6358b-20251018123402.jpg?",
+    slug: "spa-treatments",
+  },
+  {
+    title: "Pamper Party",
+    duration: "2-3 hours",
+    priceFrom: 65,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg?",
+    slug: "pamper-party",
+  },
+  {
+    title: "Yoga & Wellness Class",
+    duration: "1.5-2 hours",
+    priceFrom: 40,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-yoga-class-i-48b5a9ef-20251018105055.jpg",
+    slug: "yoga-class",
+  },
+  {
+    title: "Murder Mystery Night",
+    duration: "3-4 hours",
+    priceFrom: 50,
+    groupSize: "10-30 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-09ddcc62-20251018105103.jpg",
+    slug: "murder-mystery",
+  },
+];
+
+const reviews = [
+  {
+    name: "Sophie M",
+    rating: 5,
+    comment: "Absolutely incredible weekend! The house was stunning, hot tub was perfect, and the cocktail class was so much fun. Can't recommend enough for hen parties!",
+    date: "January 2025",
+    property: "Brighton Manor",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+  },
+  {
+    name: "Emma L",
+    rating: 5,
+    comment: "Best hen do ever! The team were so helpful from start to finish. The house had everything we needed and more. The private chef was a lovely touch!",
+    date: "December 2024",
+    property: "Bath Spa Retreat",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+  },
+  {
+    name: "Rachel K",
+    rating: 5,
+    comment: "Planning was so easy and the house exceeded expectations. Games room kept us entertained for hours. Would definitely book again!",
+    date: "November 2024",
+    property: "Manchester Party House",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
+  },
+  {
+    name: "Lucy T",
+    rating: 5,
+    comment: "The perfect hen weekend venue. Beautiful house, great location, and the add-on experiences made it extra special. Highly recommend!",
+    date: "October 2024",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
+  },
+  {
+    name: "Hannah P",
+    rating: 5,
+    comment: "Fantastic service from booking to checkout. The house was immaculate and had all the facilities we needed. Will be back!",
+    date: "September 2024",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
+  },
+  {
+    name: "Olivia S",
+    rating: 5,
+    comment: "Could not fault anything. The house was gorgeous, pool was amazing, and the whole experience was seamless. Thank you!",
+    date: "August 2024",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
+  },
+];
+
+const destinations = [
+  { name: "London", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg?" },
+  { name: "Brighton", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg" },
+  { name: "Bath", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg" },
+  { name: "Manchester", image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png" },
+  { name: "Newquay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?" },
+  { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
+];
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Intersection Observer for scroll animations
+  // Optimized Intersection Observer
   useEffect(() => {
     setMounted(true);
-    
-    // Wait for loading screen to complete
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500);
 
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "50px 0px -50px 0px" // Start animation slightly before element enters viewport
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-in");
+          observer.unobserve(entry.target); // Stop observing once animated
         }
       });
     }, observerOptions);
 
-    // Observe all scroll-reveal elements
+    // Observe all scroll-reveal elements with slight delay
     const timeoutId = setTimeout(() => {
       const elements = document.querySelectorAll(".scroll-reveal");
       elements.forEach(el => observer.observe(el));
     }, 100);
 
     return () => {
-      clearTimeout(loadingTimer);
       clearTimeout(timeoutId);
       observer.disconnect();
     };
   }, []);
-
-  const featuredProperties = [
-    {
-      id: "1",
-      title: "The Brighton Manor",
-      location: "Brighton, East Sussex",
-      sleeps: 16,
-      bedrooms: 8,
-      priceFrom: 89,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-b6c21bf3-20251018131712.jpg",
-      features: ["Hot Tub", "Pool"],
-      slug: "brighton-manor",
-    },
-    {
-      id: "2",
-      title: "Bath Spa Retreat",
-      location: "Bath, Somerset",
-      sleeps: 20,
-      bedrooms: 10,
-      priceFrom: 95,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-71429268-20251018131719.jpg",
-      features: ["Games Room", "Cinema"],
-      slug: "bath-spa-retreat",
-    },
-    {
-      id: "3",
-      title: "Manchester Party House",
-      location: "Manchester, Greater Manchester",
-      sleeps: 14,
-      bedrooms: 7,
-      priceFrom: 79,
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-303caf30-20251018131730.jpg",
-      features: ["Hot Tub", "BBQ"],
-      slug: "manchester-party-house",
-    },
-  ];
-
-  const experiences = [
-    {
-      title: "Private Chef Experience",
-      duration: "3-4 hours",
-      priceFrom: 55,
-      groupSize: "Any size",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
-      slug: "private-chef",
-    },
-    {
-      title: "Cocktail Masterclass",
-      duration: "2-3 hours",
-      priceFrom: 50,
-      groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
-      slug: "cocktail-masterclass",
-    },
-    {
-      title: "Spa & Treatments",
-      duration: "2-3 hours",
-      priceFrom: 75,
-      groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-c9c6358b-20251018123402.jpg?",
-      slug: "spa-treatments",
-    },
-    {
-      title: "Pamper Party",
-      duration: "2-3 hours",
-      priceFrom: 65,
-      groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg?",
-      slug: "pamper-party",
-    },
-    {
-      title: "Yoga & Wellness Class",
-      duration: "1.5-2 hours",
-      priceFrom: 40,
-      groupSize: "8-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-yoga-class-i-48b5a9ef-20251018105055.jpg",
-      slug: "yoga-class",
-    },
-    {
-      title: "Murder Mystery Night",
-      duration: "3-4 hours",
-      priceFrom: 50,
-      groupSize: "10-30 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-09ddcc62-20251018105103.jpg",
-      slug: "murder-mystery",
-    },
-  ];
-
-  const reviews = [
-    {
-      name: "Sophie M",
-      rating: 5,
-      comment: "Absolutely incredible weekend! The house was stunning, hot tub was perfect, and the cocktail class was so much fun. Can't recommend enough for hen parties!",
-      date: "January 2025",
-      property: "Brighton Manor",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-    },
-    {
-      name: "Emma L",
-      rating: 5,
-      comment: "Best hen do ever! The team were so helpful from start to finish. The house had everything we needed and more. The private chef was a lovely touch!",
-      date: "December 2024",
-      property: "Bath Spa Retreat",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-    },
-    {
-      name: "Rachel K",
-      rating: 5,
-      comment: "Planning was so easy and the house exceeded expectations. Games room kept us entertained for hours. Would definitely book again!",
-      date: "November 2024",
-      property: "Manchester Party House",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-    },
-    {
-      name: "Lucy T",
-      rating: 5,
-      comment: "The perfect hen weekend venue. Beautiful house, great location, and the add-on experiences made it extra special. Highly recommend!",
-      date: "October 2024",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
-    },
-    {
-      name: "Hannah P",
-      rating: 5,
-      comment: "Fantastic service from booking to checkout. The house was immaculate and had all the facilities we needed. Will be back!",
-      date: "September 2024",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
-    },
-    {
-      name: "Olivia S",
-      rating: 5,
-      comment: "Could not fault anything. The house was gorgeous, pool was amazing, and the whole experience was seamless. Thank you!",
-      date: "August 2024",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-    },
-  ];
-
-  const destinations = [
-    { name: "London", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg?" },
-    { name: "Brighton", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg" },
-    { name: "Bath", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg" },
-    { name: "Manchester", image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png" },
-    { name: "Newquay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?" },
-    { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -204,17 +199,19 @@ export default function Home() {
       <LoadingScreen />
       <Header />
 
-      {/* Hero Section - Improved Responsive Design */}
+      {/* Hero Section - Optimized */}
       <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background video with parallax effect */}
+        {/* Background video with lazy loading optimization */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             transform: "translateZ(0)",
+            willChange: "transform" // GPU acceleration hint
           }}
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-slowly-appro-67258827-20251017160648.mp4" type="video/mp4" />
@@ -242,7 +239,7 @@ export default function Home() {
             Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
           </p>
 
-          {/* CTA Buttons - Better Mobile Layout */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-up max-w-md sm:max-w-none mx-auto px-4" style={{ animationDelay: "200ms" }}>
             <Button
               asChild
@@ -321,7 +318,6 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              {/* Gradient accent */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="mb-4">
@@ -338,7 +334,6 @@ export default function Home() {
             </div>
 
             <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              {/* Gradient accent */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="mb-4">
@@ -355,7 +350,6 @@ export default function Home() {
             </div>
 
             <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              {/* Gradient accent */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="mb-4">
@@ -372,7 +366,6 @@ export default function Home() {
             </div>
 
             <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              {/* Gradient accent */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="mb-4">
@@ -391,7 +384,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Properties - Improved Grid */}
+      {/* Featured Properties */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
@@ -481,7 +474,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experiences - Better Mobile Grid */}
+      {/* Experiences */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
@@ -512,7 +505,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works - Better Mobile Layout */}
+      {/* How It Works */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
@@ -578,7 +571,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Destinations - Improved Grid Layout */}
+      {/* Destinations */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
@@ -590,7 +583,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Improved Grid: 2 cols mobile, 3 cols tablet, 3 cols desktop for balanced 2x3 layout */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {destinations.map((destination) => (
               <Link
@@ -659,10 +651,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Section - Better Mobile Layout */}
+      {/* Instagram Section */}
       <section className="py-12 sm:py-16 md:py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
         <div className="max-w-full">
-          {/* Top Row: Text - Better Mobile Spacing */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
             <h2 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl m-0 text-center md:text-left" 
@@ -682,7 +673,6 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Bottom Row: Photo Strip - Auto-scrolling on desktop, swipeable on mobile */}
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-3 sm:gap-4 animate-slide-left">
               {/* First set of images */}
@@ -751,7 +741,7 @@ export default function Home() {
       {/* FAQ Section */}
       <FAQSection />
 
-      {/* Email Capture - Better Mobile Layout */}
+      {/* Email Capture */}
       <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
