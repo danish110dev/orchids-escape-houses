@@ -16,10 +16,12 @@ export default function HotTubPage() {
   ];
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=90", alt: "Luxury outdoor hot tub with scenic views" },
-    { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=90", alt: "Friends enjoying hot tub celebration" },
-    { url: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=90", alt: "Evening hot tub under the stars" },
-    { url: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=90", alt: "Private hot tub at party house" },
+    { url: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=90", alt: "Luxury outdoor hot tub with scenic countryside views" },
+    { url: "https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=800&q=90", alt: "Hot tub with champagne for hen party celebration" },
+    { url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=90", alt: "Relaxing in hot tub at sunset" },
+    { url: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=90", alt: "Private hot tub at luxury holiday home" },
+    { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=90", alt: "Hot tub deck with garden views" },
+    { url: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=800&q=90", alt: "Evening hot tub under the stars" },
   ];
 
   const relatedFeatures = [
