@@ -1,0 +1,9 @@
+# Group Escape Houses - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://groupescapehouses.co.uk/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
