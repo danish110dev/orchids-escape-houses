@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -26,11 +27,9 @@ import {
   Calendar,
 } from "lucide-react";
 
-export default function PropertyDetailPage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isSaved, setIsSaved] = useState(false);
-
-  const property = {
+// Property data lookup
+const propertiesData: Record<string, any> = {
+  "brighton-manor": {
     title: "The Brighton Manor",
     location: "Brighton, East Sussex",
     sleeps: 16,
@@ -64,32 +63,173 @@ export default function PropertyDetailPage() {
       "Maximum occupancy: 16 guests",
       "Damage deposit: £500 (refundable)",
     ],
-  };
+  },
+  "bath-spa-retreat": {
+    title: "Bath Spa Retreat",
+    location: "Bath, Somerset",
+    sleeps: 20,
+    bedrooms: 10,
+    bathrooms: 8,
+    priceWeekend: 1600,
+    priceMidweek: 1350,
+    images: [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    ],
+    description:
+      "An exquisite spa retreat in the historic city of Bath. This magnificent property boasts 10 luxurious bedrooms, a private cinema room, games room, and stunning gardens. Perfect for large groups seeking relaxation and entertainment with easy access to Bath's famous attractions.",
+    features: [
+      { icon: Music, label: "Games Room" },
+      { icon: Music, label: "Cinema Room" },
+      { icon: Waves, label: "Spa Area" },
+      { icon: Wifi, label: "Fast Wi-Fi" },
+      { icon: Car, label: "Free Parking" },
+      { icon: Flame, label: "BBQ Area" },
+      { icon: ChefHat, label: "Gourmet Kitchen" },
+      { icon: Music, label: "Sound System" },
+    ],
+    houseRules: [
+      "Check-in: 4pm",
+      "Check-out: 10am",
+      "No smoking inside",
+      "Quiet hours: 11pm - 8am",
+      "Maximum occupancy: 20 guests",
+      "Damage deposit: £600 (refundable)",
+    ],
+  },
+  "manchester-party-house": {
+    title: "Manchester Party House",
+    location: "Manchester, Greater Manchester",
+    sleeps: 14,
+    bedrooms: 7,
+    bathrooms: 5,
+    priceWeekend: 1100,
+    priceMidweek: 890,
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    ],
+    description:
+      "A vibrant party house in the heart of Manchester. This contemporary property features a hot tub, BBQ area, and spacious living areas perfect for celebrations. With 7 bedrooms and modern amenities, it's ideal for hen parties and group getaways in Manchester's buzzing city center.",
+    features: [
+      { icon: Waves, label: "Hot Tub" },
+      { icon: Flame, label: "BBQ Area" },
+      { icon: Music, label: "Sound System" },
+      { icon: Wifi, label: "Fast Wi-Fi" },
+      { icon: Car, label: "Free Parking" },
+      { icon: ChefHat, label: "Modern Kitchen" },
+      { icon: Music, label: "Entertainment Area" },
+    ],
+    houseRules: [
+      "Check-in: 4pm",
+      "Check-out: 10am",
+      "No smoking inside",
+      "Quiet hours: 11pm - 8am",
+      "Maximum occupancy: 14 guests",
+      "Damage deposit: £500 (refundable)",
+    ],
+  },
+  "leeds-city-loft": {
+    title: "Leeds City Loft",
+    location: "Leeds, West Yorkshire",
+    sleeps: 12,
+    bedrooms: 6,
+    bathrooms: 4,
+    priceWeekend: 950,
+    priceMidweek: 750,
+    images: [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    ],
+    description:
+      "A stylish city loft in Leeds perfect for urban celebrations. This modern property features contemporary design, open-plan living, and all the amenities needed for an unforgettable group stay. Located in the heart of Leeds with easy access to nightlife, restaurants, and shopping.",
+    features: [
+      { icon: Wifi, label: "Fast Wi-Fi" },
+      { icon: Music, label: "Sound System" },
+      { icon: ChefHat, label: "Modern Kitchen" },
+      { icon: Car, label: "Secure Parking" },
+      { icon: Music, label: "Entertainment Area" },
+    ],
+    houseRules: [
+      "Check-in: 4pm",
+      "Check-out: 10am",
+      "No smoking inside",
+      "Quiet hours: 11pm - 8am",
+      "Maximum occupancy: 12 guests",
+      "Damage deposit: £400 (refundable)",
+    ],
+  },
+};
 
-  const relatedProperties = [
-    {
-      id: "2",
-      title: "Bath Spa Retreat",
-      location: "Bath, Somerset",
-      sleeps: 20,
-      bedrooms: 10,
-      priceFrom: 95,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-      features: ["Games Room", "Cinema"],
-      slug: "bath-spa-retreat",
-    },
-    {
-      id: "3",
-      title: "Manchester Party House",
-      location: "Manchester, Greater Manchester",
-      sleeps: 14,
-      bedrooms: 7,
-      priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-      features: ["Hot Tub", "BBQ"],
-      slug: "manchester-party-house",
-    },
-  ];
+export default function PropertyDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isSaved, setIsSaved] = useState(false);
+
+  // Get the property data based on slug
+  const property = useMemo(() => {
+    return propertiesData[slug] || propertiesData["brighton-manor"];
+  }, [slug]);
+
+  // Get related properties (exclude current property)
+  const relatedProperties = useMemo(() => {
+    const allProperties = [
+      {
+        id: "1",
+        title: "The Brighton Manor",
+        location: "Brighton, East Sussex",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 95,
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+        features: ["Hot Tub", "Indoor Pool"],
+        slug: "brighton-manor",
+      },
+      {
+        id: "2",
+        title: "Bath Spa Retreat",
+        location: "Bath, Somerset",
+        sleeps: 20,
+        bedrooms: 10,
+        priceFrom: 95,
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+        features: ["Games Room", "Cinema"],
+        slug: "bath-spa-retreat",
+      },
+      {
+        id: "3",
+        title: "Manchester Party House",
+        location: "Manchester, Greater Manchester",
+        sleeps: 14,
+        bedrooms: 7,
+        priceFrom: 79,
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+        features: ["Hot Tub", "BBQ"],
+        slug: "manchester-party-house",
+      },
+      {
+        id: "4",
+        title: "Leeds City Loft",
+        location: "Leeds, West Yorkshire",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 75,
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        features: ["City Centre", "Modern"],
+        slug: "leeds-city-loft",
+      },
+    ];
+
+    return allProperties.filter(p => p.slug !== slug).slice(0, 2);
+  }, [slug]);
 
   const faqs = [
     {
@@ -298,7 +438,7 @@ export default function PropertyDetailPage() {
 
             {/* Right Column - Enquiry Form */}
             <div className="lg:col-span-1">
-              <EnquiryForm propertyTitle={property.title} propertySlug="brighton-manor" />
+              <EnquiryForm propertyTitle={property.title} propertySlug={slug} />
             </div>
           </div>
 
