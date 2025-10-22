@@ -2262,23 +2262,51 @@ export default function DestinationDetailPage() {
   const faqs = [
     {
       question: `How far is ${destination.name} from London?`,
-      answer: `${destination.name} is approximately 1 hour from London by train, making it perfect for a weekend getaway. Regular train services run from Victoria station, and the journey offers beautiful countryside views.`
+      answer: `${destination.quickFacts.fromLondon}. ${destination.name} is easily accessible by direct train services, making it perfect for a weekend getaway without the hassle of long travel times.`
     },
     {
-      question: `What's the best time to visit ${destination.name} for a hen party?`,
-      answer: `${destination.name} is a fantastic destination year-round. Summer (June-August) offers beach weather and outdoor activities, while spring and autumn provide milder temperatures and fewer crowds. Weekend bookings are popular, so we recommend booking 6-9 months in advance.`
+      question: `What's included in the price of a hen party house in ${destination.name}?`,
+      answer: `Our ${destination.name} properties include all essential amenities such as WiFi, bed linens, towels, fully equipped kitchens, and access to features like hot tubs and games rooms where available. Prices are typically per night, and we'll provide a full breakdown of what's included when you enquire. Most properties also include welcome packs and detailed house information.`
     },
     {
-      question: `Are there hen party houses available in ${destination.name}?`,
-      answer: `Yes! We have a selection of luxury hen party houses in and around ${destination.name}. Our properties feature hot tubs, spacious entertaining areas, and are perfectly located for accessing the city's nightlife and attractions.`
+      question: `How many people can stay in your ${destination.name} hen party houses?`,
+      answer: `Our ${destination.name} properties accommodate groups from 10 to 20+ people. Each house listing shows the exact number of bedrooms and maximum occupancy. We have a range of properties to suit different group sizes, from intimate gatherings to large hen parties. When you enquire, let us know your exact numbers and we'll match you with the perfect property.`
     },
     {
-      question: `What activities can we do in ${destination.name} during our stay?`,
-      answer: `${destination.name} offers endless activities including beach visits, spa treatments, cocktail classes, shopping in The Lanes, dining at top restaurants, and experiencing the legendary nightlife. We can help arrange experiences to make your weekend extra special.`
+      question: `Are hen parties and celebrations allowed in ${destination.name} properties?`,
+      answer: `Yes! Our ${destination.name} properties are specifically selected for group celebrations including hen parties. However, we do have house rules to respect neighbours and local communities. This typically includes reasonable noise levels after 11pm and no external guests beyond your booking. Each property has specific guidelines which we'll share with you.`
     },
     {
-      question: `Can you arrange transport in ${destination.name}?`,
-      answer: `While we don't directly arrange transport, ${destination.name} has excellent public transport, taxis, and ride-sharing services. Many of our properties are within walking distance or a short taxi ride from the city centre. We're happy to provide recommendations.`
+      question: `What are the best areas to stay in ${destination.name} for a hen party?`,
+      answer: `For ${destination.name}, we recommend staying close to the main nightlife and entertainment areas for easy access. ${destination.name === 'Brighton' ? 'Properties near The Lanes, North Laine, or the seafront offer the best location for hen parties, with bars, restaurants, and the beach all within walking distance.' : destination.name === 'Bath' ? 'The city centre or near Milsom Street puts you within walking distance of the Roman Baths, restaurants, and nightlife.' : destination.name === 'Manchester' ? 'The Northern Quarter and city centre areas are ideal, close to bars, restaurants, and Manchester\'s famous nightlife.' : 'Properties near the city centre typically offer the best access to restaurants, bars, and local attractions.'} We'll help you choose the perfect location based on your plans.`
+    },
+    {
+      question: `Can we bring decorations and have a party at the house?`,
+      answer: `Absolutely! You're welcome to bring decorations to celebrate. We recommend non-damaging items like banners, balloons, and table decorations. Please avoid confetti, glitter, or anything that might damage walls or furnishings. Many properties have outdoor spaces perfect for daytime celebrations, and all have spacious living areas for gathering as a group.`
+    },
+    {
+      question: `What time is check-in and check-out?`,
+      answer: `Standard check-in is typically 4pm and check-out is 10am. However, we understand hen parties often want more flexibility. Where possible, we can arrange early check-in or late check-out for an additional fee. Let us know your travel plans when booking and we'll do our best to accommodate your needs.`
+    },
+    {
+      question: `Is parking available at ${destination.name} properties?`,
+      answer: `${destination.name === 'Brighton' || destination.name === 'London' ? 'Parking in ' + destination.name + ' can be limited in central areas. Some properties include designated parking spaces, while others have nearby public car parks. We recommend using public transport where possible as ' + destination.name + ' has excellent connections. We\'ll provide full parking information for your chosen property.' : 'Most of our ' + destination.name + ' properties include parking for multiple vehicles. We\'ll confirm exact parking arrangements when you book. ' + destination.name + ' also has good public transport links if some of your group prefers not to drive.'}`
+    },
+    {
+      question: `How does payment work and can we split the cost?`,
+      answer: `We require a deposit to secure your booking, with the balance due closer to your stay date. For hen parties, it's common for one person to pay the deposit and then split the remaining cost among the group. We provide detailed payment schedules and can work with you on timing. Many groups use money pool apps to collect funds from everyone.`
+    },
+    {
+      question: `What's your cancellation policy?`,
+      answer: `We understand plans can change. Our standard cancellation policy allows full refund if cancelled 8+ weeks before arrival, 50% refund for 4-8 weeks notice, and deposits are non-refundable within 4 weeks of arrival. We strongly recommend travel insurance for hen parties. Each property may have specific terms which we'll share when booking.`
+    },
+    {
+      question: `Are the houses suitable for mixed groups or just hen parties?`,
+      answer: `While our properties are perfect for hen parties, they're also ideal for any group celebration including birthdays, reunions, stag dos, and special occasions. Our ${destination.name} houses are designed for groups who want to celebrate together in a private, comfortable setting with excellent amenities.`
+    },
+    {
+      question: `Can you help arrange activities and experiences in ${destination.name}?`,
+      answer: `Yes! We partner with local experience providers to offer activities like cocktail making classes, spa treatments, private chefs, butlers in the buff, life drawing, and more. ${destination.name} also has fantastic restaurants, bars, and attractions. We're happy to provide recommendations and help book experiences to make your hen party extra special.`
     }
   ];
 
