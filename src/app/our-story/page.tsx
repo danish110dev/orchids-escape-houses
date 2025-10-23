@@ -14,7 +14,7 @@ export default function OurStoryPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')",
+            backgroundImage: "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-country-house-with-outdoor-hot-249dad12-20251023182040.jpg')",
           }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-text-primary)]/70 to-[var(--color-text-primary)]/50"></div>
