@@ -420,6 +420,119 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          {/* Image Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-e0d237d8-20251023182535.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold text-sm">Handpicked Properties</p>
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-party-plannin-d89e9075-20251023182534.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold text-sm">Complete Party Planning</p>
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-large-group-o-63176ec6-20251023182534.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold text-sm">Flexible Group Sizes</p>
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-showcasing-uk-wi-7248fc36-20251023182534.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold text-sm">UK-Wide Coverage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Showcase Section */}
+      <section className="py-20 bg-white scroll-reveal">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
+              Experience Luxury Group Living
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+              From stunning exteriors to luxurious interiors, every property is designed for unforgettable celebrations
+            </p>
+          </div>
+
+          {/* Main Hero Image */}
+          <div className="mb-6 rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
+              alt="Luxury UK manor house with hot tub at golden hour"
+              className="w-full h-[400px] sm:h-[500px] object-cover"
+            />
+          </div>
+
+          {/* Grid of Feature Images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-sp-11b5bc9b-20251023182557.jpg"
+                alt="Spacious luxury living room perfect for groups"
+                className="w-full h-[280px] object-cover"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-27088aeb-20251023182556.jpg"
+                alt="Outdoor swimming pool at luxury UK cottage"
+                className="w-full h-[280px] object-cover"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-game-9e0269c6-20251023182557.jpg"
+                alt="Games room with pool table for entertainment"
+                className="w-full h-[280px] object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Bottom Split Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-f40eb3c6-20251023182556.jpg"
+                alt="Group of friends celebrating at hot tub"
+                className="w-full h-[320px] object-cover"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxurious-u-d0aaf124-20251023182549.jpg"
+                alt="Elegant dining room for group celebrations"
+                className="w-full h-[320px] object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

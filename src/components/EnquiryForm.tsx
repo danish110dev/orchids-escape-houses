@@ -178,22 +178,32 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         {/* Add-ons */}
         <div>
           <Label className="text-sm font-medium mb-3 block">Add experiences (optional)</Label>
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {[
               "Cocktail Masterclass",
               "Butlers in the Buff",
               "Life Drawing",
               "Private Chef",
               "Spa Treatments",
+              "Brunch Package",
+              "Bottomless Brunch",
+              "Decorations & Balloons",
+              "Photography Package",
+              "Afternoon Tea",
+              "Wine Tasting",
+              "Yoga Session",
+              "Prosecco Reception"
             ].map((addon) => (
-              <label key={addon} className="flex items-center gap-3 cursor-pointer">
+              <label key={addon} className="flex items-center gap-3 cursor-pointer group">
                 <input
                   type="checkbox"
                   name="addons"
                   value={addon}
-                  className="w-4 h-4 rounded accent-[var(--color-accent-pink)]"
+                  className="w-4 h-4 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-pink)] cursor-pointer transition-all"
                 />
-                <span className="text-sm">{addon}</span>
+                <span className="text-sm group-hover:text-[var(--color-accent-pink)] transition-colors">
+                  {addon}
+                </span>
               </label>
             ))}
           </div>
