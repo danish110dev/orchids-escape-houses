@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Calendar } from "lucide-react";
+import { Calendar, ExternalLink } from "lucide-react";
 
 interface EnquiryFormProps {
   propertyTitle?: string;
@@ -15,6 +16,11 @@ interface EnquiryFormProps {
 export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Helper function to convert experience name to URL slug
+  const experienceToSlug = (name: string) => {
+    return name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -216,9 +222,16 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                   value={addon}
                   className="w-4 h-4 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-pink)] cursor-pointer transition-all"
                 />
-                <span className="text-sm group-hover:text-[var(--color-accent-pink)] transition-colors">
+                <Link
+                  href={`/experiences/${experienceToSlug(addon)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm group-hover:text-[var(--color-accent-pink)] transition-colors flex items-center gap-1.5 flex-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {addon}
-                </span>
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
               </label>
             ))}
           </div>
