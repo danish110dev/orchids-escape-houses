@@ -655,7 +655,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "East Midlands Airport 20 minutes away" }
       ],
       nightlife: [
-        { name: "Stealth", description: "Multi-room club with varied music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Stealth", description: "Multi-room club with varied music", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-stealth-night-2b473176-20251023164756.jpg" },
         { name: "Hockley Arts Club", description: "Independent music and arts venue", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "Tilt", description: "Board game bar and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
