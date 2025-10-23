@@ -669,7 +669,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8 mb-12">
             {[
               {
                 step: "1",
@@ -719,6 +719,41 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Visual Process Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group h-80">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-lifestyle-photograph-of-wom-bd1db51d-20251023182535.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  Browse & Choose
+                </h3>
+                <p className="text-white/90 text-base">
+                  Explore our collection of handpicked luxury party houses across the UK with detailed photos and information
+                </p>
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-xl group h-80">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-group-adding--45a650b3-20251023182534.jpg')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  Personalize Your Experience
+                </h3>
+                <p className="text-white/90 text-base">
+                  Add cocktail masterclasses, private chefs, spa treatments and more to create your perfect celebration
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
