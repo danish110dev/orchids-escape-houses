@@ -294,7 +294,7 @@ export default function DestinationDetailPage() {
       name: "Bournemouth",
       region: "Dorset",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-smooth-tracking-shot-gliding-along-bo-a75e4726-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-aerial-drone-shot-sweeping-over-dabe5bff-20251023160417.mp4",
       overview: "Bournemouth offers beautiful sandy beaches, vibrant nightlife, and stunning clifftop walks. Perfect for hen parties wanting beach club days, lively entertainment, and coastal charm all in one fantastic seaside destination.",
       quickFacts: {
         fromLondon: "2 hours by train",
