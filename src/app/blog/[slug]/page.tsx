@@ -17,39 +17,39 @@ const posts = [
     date: "15 Jan 2025",
     slug: "alternative-hen-party-ideas",
     content: `
-      <p>Planning a hen party and tired of the same old spa day suggestions? You're not alone. While there's nothing wrong with a relaxing spa treatment, today's hen parties are all about creating unique memories that reflect the bride's personality.</p>
+      <p>Planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a> and tired of the same old spa day suggestions? You're not alone. While there's nothing wrong with a relaxing <a href="/spa-treatments" style="color: var(--color-accent-sage); text-decoration: underline;">spa treatment</a>, today's hen parties are all about creating unique memories that reflect the bride's personality.</p>
       
       <h2>1. Cocktail Making Masterclass</h2>
-      <p>Learn to shake, stir, and muddle like a pro. A cocktail making class is interactive, fun, and gives everyone new skills to show off at future parties. Plus, you get to drink your creations.</p>
+      <p>Learn to shake, stir, and muddle like a pro. A <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">cocktail making class</a> is interactive, fun, and gives everyone new skills to show off at future parties. Plus, you get to drink your creations. Available at most of our <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">hen party houses</a>, this activity works brilliantly in <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton</a> or <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a>.</p>
       
       <h2>2. Life Drawing with a Twist</h2>
-      <p>Whether it's a professional model or one of the classic 'butler in the buff' sessions, life drawing adds a cheeky edge to your hen party. It's surprisingly relaxing and guaranteed to create some hilarious moments.</p>
+      <p>Whether it's a professional model or one of the classic '<a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">butler in the buff</a>' sessions, life drawing adds a cheeky edge to your hen party. It's surprisingly relaxing and guaranteed to create some hilarious moments. This is one of our most popular <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">hen party experiences</a>.</p>
       
       <h2>3. Dance Workshop</h2>
-      <p>From burlesque to street dance, learning a routine together is a brilliant bonding experience. Many instructors can even choreograph something special for the bride.</p>
+      <p>From burlesque to street dance, learning a routine together is a brilliant bonding experience. Many instructors can even choreograph something special for the bride. Check our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences page</a> for available dance workshops in your chosen destination.</p>
       
       <h2>4. Private Chef Experience</h2>
-      <p>Why go out when you can bring a Michelin-trained chef to your holiday house? Enjoy restaurant-quality food without leaving your pyjamas.</p>
+      <p>Why go out when you can bring a Michelin-trained chef to your <a href="/house-styles/luxury-houses" style="color: var(--color-accent-sage); text-decoration: underline;">holiday house</a>? Enjoy restaurant-quality food without leaving your pyjamas. Our <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef service</a> is perfect for groups who want to enjoy fine dining in the comfort of their own space.</p>
       
       <h2>5. Outdoor Adventures</h2>
-      <p>For the active bride, consider coasteering, paddleboarding, or even a wild swimming session followed by hot chocolate and cake.</p>
+      <p>For the active bride, consider coasteering, paddleboarding, or even a wild swimming session followed by hot chocolate and cake. Our properties in <a href="/destinations/bournemouth" style="color: var(--color-accent-sage); text-decoration: underline;">Bournemouth</a> and <a href="/destinations/cornwall" style="color: var(--color-accent-sage); text-decoration: underline;">Cornwall</a> are perfect for outdoor activities.</p>
       
       <h2>6. Perfume Making Workshop</h2>
-      <p>Create a signature scent that will forever remind you of this special weekend. It's creative, luxurious, and everyone leaves with a unique gift.</p>
+      <p>Create a signature scent that will forever remind you of this special weekend. It's creative, luxurious, and everyone leaves with a unique gift. This activity works particularly well in cities like <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a> with its spa heritage.</p>
       
       <h2>7. Food Tours</h2>
-      <p>Explore a new city through its food scene. From Brighton's indie cafes to Bath's historic tea rooms, a guided food tour combines sightseeing with eating.</p>
+      <p>Explore a new city through its food scene. From <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton's indie cafes</a> to <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath's historic tea rooms</a>, a guided food tour combines sightseeing with eating. <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Read our Brighton guide</a> for the best food spots.</p>
       
       <h2>8. Glamping Experience</h2>
-      <p>Luxury camping with proper beds, hot tubs, and fire pits. It's the perfect middle ground between adventure and comfort.</p>
+      <p>Luxury camping with proper beds, <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tubs</a>, and fire pits. It's the perfect middle ground between adventure and comfort. Browse our <a href="/house-styles/unusual-and-quirky" style="color: var(--color-accent-sage); text-decoration: underline;">unusual and quirky properties</a> for unique glamping options.</p>
       
       <h2>9. Pottery or Art Class</h2>
-      <p>Channel your inner artist. Whether it's throwing pots or painting canvases, creative activities are wonderfully therapeutic and you'll have keepsakes to take home.</p>
+      <p>Channel your inner artist. Whether it's throwing pots or painting canvases, creative activities are wonderfully therapeutic and you'll have keepsakes to take home. Many of our <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">group houses</a> can arrange art workshops.</p>
       
       <h2>10. Murder Mystery Evening</h2>
-      <p>Turn your hen party into an interactive whodunnit. Professional companies will come to your holiday house and transform your evening into an immersive theatre experience.</p>
+      <p>Turn your hen party into an interactive whodunnit. Professional companies will come to your <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">holiday house</a> and transform your evening into an immersive theatre experience. Perfect for houses with <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games rooms</a>.</p>
       
-      <p>The best hen parties are the ones that reflect who the bride really is. Don't feel pressured to follow trends – pick activities that will make your group laugh, bond, and create memories that last long after the wedding.</p>
+      <p>The best hen parties are the ones that reflect who the bride really is. Don't feel pressured to follow trends – pick activities that will make your group laugh, bond, and create memories that last long after the wedding. Need help planning? Check out our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete hen party planning checklist</a> or learn about <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how to book your perfect house</a>.</p>
     `,
   },
   {
@@ -61,10 +61,10 @@ const posts = [
     date: "12 Jan 2025",
     slug: "brighton-hen-do-guide",
     content: `
-      <p>Brighton has earned its reputation as the UK's hen party capital, and for good reason. This vibrant seaside city combines beach vibes with city energy, quirky independent shops with high-end boutiques, and a nightlife scene that caters to every taste.</p>
+      <p>Brighton has earned its reputation as the UK's <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party capital</a>, and for good reason. This vibrant seaside city combines beach vibes with city energy, quirky independent shops with high-end boutiques, and a nightlife scene that caters to every taste.</p>
       
       <h2>Where to Stay</h2>
-      <p>Brighton and the surrounding areas offer some of the best hen party houses in the UK. Look for properties in Hove for a quieter vibe, or stay central in Brighton for easy access to everything. Must-have features include hot tubs, spacious living areas, and walking distance to the seafront.</p>
+      <p>Brighton and the surrounding areas offer some of the <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">best hen party houses in the UK</a>. Look for <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">properties</a> in Hove for a quieter vibe, or stay central in Brighton for easy access to everything. Must-have features include <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tubs</a>, spacious living areas, and walking distance to the seafront. Our <a href="/house-styles/luxury-houses" style="color: var(--color-accent-sage); text-decoration: underline;">luxury houses</a> in Brighton sleep 12-20 guests comfortably.</p>
       
       <h2>Brunch Spots</h2>
       <p><strong>The Ivy in the Lanes</strong> - Classic and elegant, perfect for a civilised start to the day.</p>
@@ -72,18 +72,19 @@ const posts = [
       <p><strong>Mange Tout</strong> - Cosy cafe with excellent vegetarian options and the best coffee in town.</p>
       
       <h2>Afternoon Activities</h2>
-      <p>Explore the famous Lanes for vintage shopping and independent boutiques. Walk the pier for classic seaside fun. Book a cocktail making class or life drawing session at one of the many venues that specialise in hen parties.</p>
+      <p>Explore the famous Lanes for vintage shopping and independent boutiques. Walk the pier for classic seaside fun. Book a <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">cocktail making class</a> or <a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">life drawing session</a> at one of the many venues that specialise in hen parties. Check out our <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a> for more inspiration.</p>
       
       <h2>Dinner Destinations</h2>
       <p><strong>The Coal Shed</strong> - Upscale steakhouse perfect for a celebration meal.</p>
       <p><strong>Terre à Terre</strong> - Renowned vegetarian restaurant that even meat-eaters rave about.</p>
       <p><strong>The Salt Room</strong> - Seafood restaurant with stunning views of the pier.</p>
+      <p>Can't decide where to go? Consider booking a <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a> to cook at your <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">party house</a> instead.</p>
       
       <h2>Nightlife</h2>
       <p>Brighton's nightlife is legendary. Start with cocktails at The Plotting Parlour or Bohemia. Move on to Patterns for dancing, or Revolution for a livelier crowd. End the night at Pryzm or Coalition for proper club vibes.</p>
       
       <h2>Sunday Recovery</h2>
-      <p>Head to Hove for a gentler Sunday. Walk along the seafront, grab fish and chips, and maybe brave a dip in the sea if you're feeling adventurous. The Urchin pub does an excellent roast dinner.</p>
+      <p>Head to Hove for a gentler Sunday. Walk along the seafront, grab fish and chips, and maybe brave a dip in the sea if you're feeling adventurous. The Urchin pub does an excellent roast dinner. Return to your house with a <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tub</a> for the ultimate recovery session.</p>
       
       <h2>Top Tips</h2>
       <ul>
@@ -93,7 +94,7 @@ const posts = [
         <li>Brighton Pride is in August - avoid that weekend unless you want to join the party</li>
       </ul>
       
-      <p>Brighton is the perfect hen party destination because it genuinely has something for everyone. Whether your group wants to party all night or prefer boutique shopping and afternoon tea, this city delivers.</p>
+      <p>Brighton is the perfect hen party destination because it genuinely has something for everyone. Whether your group wants to party all night or prefer boutique shopping and afternoon tea, this city delivers. Still deciding between cities? Read our <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Check out <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a> or <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">browse our Brighton properties</a>.</p>
     `,
   },
   {
@@ -105,10 +106,10 @@ const posts = [
     date: "8 Jan 2025",
     slug: "split-costs-hen-weekend",
     content: `
-      <p>Let's talk about the most awkward part of planning a hen party: money. Getting the finances right can make or break the weekend, but with clear communication and fair systems, it doesn't have to be stressful.</p>
+      <p>Let's talk about the most awkward part of planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a>: money. Getting the finances right can make or break the weekend, but with clear communication and fair systems, it doesn't have to be stressful. This guide complements our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a>.</p>
       
       <h2>Set a Budget Early</h2>
-      <p>Before booking anything, poll the group. What's everyone comfortable spending? Be honest about the fact that hen parties aren't cheap, but also make sure no one feels pressured to go beyond their means.</p>
+      <p>Before <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">booking anything</a>, poll the group. What's everyone comfortable spending? Be honest about the fact that hen parties aren't cheap, but also make sure no one feels pressured to go beyond their means. Check our <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">booking guide</a> to understand typical costs.</p>
       
       <h2>The Bride Shouldn't Pay</h2>
       <p>This is standard practice. Split the bride's share between the other guests. If there are 10 people total, each guest pays 1/9th of the total costs, not 1/10th.</p>
@@ -116,9 +117,9 @@ const posts = [
       <h2>Break Down the Costs</h2>
       <p>Be transparent from the start:</p>
       <ul>
-        <li><strong>Accommodation</strong> - Usually the biggest expense</li>
-        <li><strong>Activities</strong> - Cocktail classes, life drawing, etc.</li>
-        <li><strong>Group meals</strong> - Dinner, brunch</li>
+        <li><strong>Accommodation</strong> - Usually the biggest expense. Our <a href="/house-styles/luxury-houses" style="color: var(--color-accent-sage); text-decoration: underline;">luxury houses</a> range from £2,000-£5,000 for a weekend.</li>
+        <li><strong>Activities</strong> - <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">Cocktail classes</a>, <a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">life drawing</a>, etc.</li>
+        <li><strong>Group meals</strong> - Dinner, brunch, or a <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a></li>
         <li><strong>Decorations and supplies</strong> - Balloons, sashes, games</li>
         <li><strong>Shared transport</strong> - If hiring a minibus</li>
       </ul>
@@ -127,13 +128,13 @@ const posts = [
       <p>Apps like Splitwise or Monzo's group tabs make tracking expenses much easier. Everyone can see what's been paid and what they owe in real time.</p>
       
       <h2>Deposit Strategy</h2>
-      <p>Collect deposits early – ideally 50% when booking and the balance 6-8 weeks before the event. This gives people time to budget rather than hitting them with a large bill all at once.</p>
+      <p>Collect deposits early – ideally 50% when booking and the balance 6-8 weeks before the event. This gives people time to budget rather than hitting them with a large bill all at once. Learn more about our <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">payment terms and deposit schedule</a>.</p>
       
       <h2>Optional Add-Ons</h2>
       <p>Not everyone will want (or can afford) every activity. Make some things optional. For example:</p>
       <ul>
-        <li>Core package: accommodation, Saturday dinner, one activity</li>
-        <li>Optional extras: spa treatments, additional activities, upgraded rooms</li>
+        <li>Core package: <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">accommodation</a>, Saturday dinner, one activity</li>
+        <li>Optional extras: <a href="/spa-treatments" style="color: var(--color-accent-sage); text-decoration: underline;">spa treatments</a>, additional <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a>, upgraded rooms</li>
       </ul>
       
       <h2>The Organiser's Expenses</h2>
@@ -148,12 +149,12 @@ const posts = [
       </ul>
       
       <h2>Cancellation Scenario</h2>
-      <p>Have a plan for what happens if someone drops out. Most house bookings have strict cancellation policies, so the group needs to know whether they'll absorb that person's share or if deposits are non-refundable.</p>
+      <p>Have a plan for what happens if someone drops out. Most <a href="/booking-terms" style="color: var(--color-accent-sage); text-decoration: underline;">house bookings</a> have strict cancellation policies, so the group needs to know whether they'll absorb that person's share or if deposits are non-refundable.</p>
       
       <h2>Final Payment Deadline</h2>
       <p>Set a clear deadline for final payments – at least a month before the trip. This gives you time to chase any stragglers without last-minute stress.</p>
       
-      <p>The key to avoiding money drama is overcommunication. Send clear breakdowns, set expectations early, and make sure everyone knows what they're signing up for before they commit.</p>
+      <p>The key to avoiding money drama is overcommunication. Send clear breakdowns, set expectations early, and make sure everyone knows what they're signing up for before they commit. For a complete overview of planning timelines and costs, see our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">hen party planning checklist</a>. Ready to start planning? <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">Get in touch</a> with our team for a personalised quote.</p>
     `,
   },
   {
