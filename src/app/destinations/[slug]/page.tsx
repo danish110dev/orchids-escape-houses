@@ -218,7 +218,7 @@ export default function DestinationDetailPage() {
       name: "York",
       region: "North Yorkshire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-of-york-s-histor-76fe58e8-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-sweeping-ove-f36426ad-20251023160703.mp4",
       overview: "York is a stunning medieval city with cobbled streets, historic walls, and charming riverside pubs. Perfect for hen parties seeking history, culture, and traditional English charm combined with modern entertainment and excellent dining.",
       quickFacts: {
         fromLondon: "2 hours by train",
