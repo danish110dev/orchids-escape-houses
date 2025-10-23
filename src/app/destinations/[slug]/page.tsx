@@ -503,7 +503,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bristol Airport 20 minutes from city centre" }
       ],
       nightlife: [
-        { name: "Motion", description: "Legendary club with international DJs", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Motion", description: "Legendary club with international DJs", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-motion-nightc-31081129-20251023164257.jpg" },
         { name: "Thekla", description: "Nightclub on a converted ship", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "Bambalan", description: "Caribbean-inspired cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
@@ -513,8 +513,8 @@ export default function DestinationDetailPage() {
         { name: "No. 1 Harbourside", description: "Fine dining overlooking the water", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Street Art Tours", description: "Explore Banksy and street art scene", image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800&q=80" },
-        { name: "Clifton Suspension Bridge", description: "Iconic Victorian engineering marvel", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" },
+        { name: "Street Art Tours", description: "Explore Banksy and street art scene", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bristol-stree-d121d751-20251023164258.jpg" },
+        { name: "Clifton Suspension Bridge", description: "Iconic Victorian engineering marvel", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-clifton-suspe-11fe7a52-20251023164256.jpg" },
         { name: "St Nicholas Market", description: "Historic covered market with food stalls", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" }
       ]
     },
