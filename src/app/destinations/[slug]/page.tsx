@@ -446,7 +446,7 @@ export default function DestinationDetailPage() {
       name: "Newquay",
       region: "Cornwall",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-sweeping-aerial-view-over-newquay-s-g-00a6f8fa-20251022110443.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-swe-47e54cae-20251023163601.mp4",
       overview: "Newquay is Cornwall's surf capital with stunning beaches, coastal walks, and vibrant nightlife. Perfect for hen parties combining beach days, water sports, and evening entertainment in this beautiful seaside town.",
       quickFacts: {
         fromLondon: "5 hours by train",
@@ -465,7 +465,7 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express services via Plymouth" }
       ],
       nightlife: [
-        { name: "Sailors", description: "Legendary nightclub and live music venue", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Sailors", description: "Legendary nightclub and live music venue", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-sailors-night-26dfa53f-20251023163540.jpg" },
         { name: "Bertie's Nightclub", description: "Waterfront club with sea views", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "Koola", description: "Beach club with DJ sets and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
