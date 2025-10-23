@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2 } from "lucide-react";
+import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin } from "lucide-react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -125,6 +125,15 @@ export default function ExperiencesPage() {
       answer:
         "Most experiences run for 1.5-2 hours (cocktail masterclasses, life drawing), though some like private chefs and butlers can be booked for longer periods. Specific durations are shown on each experience card and can often be extended for an additional fee.",
     },
+  ];
+
+  const destinations = [
+    { name: "Brighton", slug: "brighton", image: "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=800" },
+    { name: "Bath", slug: "bath", image: "https://images.unsplash.com/photo-1566510224904-a6b733e0d0fa?w=800" },
+    { name: "Bournemouth", slug: "bournemouth", image: "https://images.unsplash.com/photo-1580837119756-563d608dd119?w=800" },
+    { name: "York", slug: "york", image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800" },
+    { name: "Manchester", slug: "manchester", image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=800" },
+    { name: "Cardiff", slug: "cardiff", image: "https://images.unsplash.com/photo-1570936885323-16be1d36f92d?w=800" },
   ];
 
   // Draggable carousel component
@@ -458,6 +467,87 @@ export default function ExperiencesPage() {
               }}
             >
               <Link href="/contact">Contact Our Team</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Browse by Destination */}
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+              🗺️ Explore Experiences by Destination
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+              Each destination offers unique venues and providers for your perfect hen weekend. Browse by location to see what's available in your chosen area.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {destinations.map((destination, idx) => (
+              <motion.div
+                key={destination.slug}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Link
+                  href={`/destinations/${destination.slug}`}
+                  className="group block relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-64"
+                >
+                  <img
+                    src={destination.image}
+                    alt={`${destination.name} hen party experiences`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                    <MapPin className="w-8 h-8 mb-3 transition-transform duration-300 group-hover:scale-110" />
+                    <h3 className="text-3xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                      {destination.name}
+                    </h3>
+                    <span className="text-sm opacity-90 transition-opacity duration-300 group-hover:opacity-100">
+                      View Properties & Experiences →
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+              style={{
+                borderColor: "var(--color-accent-sage)",
+                color: "var(--color-text-primary)",
+              }}
+            >
+              <Link href="/destinations">View All Destinations</Link>
             </Button>
           </div>
         </div>
