@@ -731,12 +731,12 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Exeter Airport with UK and European connections" }
       ],
       nightlife: [
-        { name: "Timepiece", description: "Multi-level nightclub with varied music", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Timepiece", description: "Multi-level nightclub with varied music", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-timepiece-nig-39ae38b5-20251023165128.jpg" },
         { name: "The Old Firehouse", description: "Quirky bar and events venue", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
         { name: "Vaults", description: "Underground bar in historic vaults", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
       ],
       brunch: [
-        { name: "The Cosy Club", description: "Eclectic dining in converted cinema", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "The Cosy Club", description: "Eclectic dining in converted cinema", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-cosy-club-9d99debc-20251023165128.jpg", link: "#" },
         { name: "Lloyd's Kitchen", description: "Contemporary British dining", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
         { name: "Harry's Restaurant", description: "Fine dining with tasting menus", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
