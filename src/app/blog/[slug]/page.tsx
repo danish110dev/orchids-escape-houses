@@ -166,21 +166,21 @@ const posts = [
     date: "5 Jan 2025",
     slug: "brighton-manor-spotlight",
     content: `
-      <p>We're pulling back the curtain on one of our most-booked hen party houses: The Brighton Manor. This stunning property consistently gets 5-star reviews, and after spending a weekend there, we can see exactly why.</p>
+      <p>We're pulling back the curtain on one of our most-booked <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party houses</a>: The Brighton Manor. This stunning property consistently gets 5-star reviews, and after spending a weekend there, we can see exactly why. Looking for more <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton properties</a>? Check out our complete guide.</p>
       
       <h2>First Impressions</h2>
-      <p>Located in a quiet residential street just 10 minutes' walk from Brighton seafront, the house strikes the perfect balance between peaceful retreat and city access. The Victorian exterior is elegant without being stuffy.</p>
+      <p>Located in a quiet residential street just 10 minutes' walk from <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton</a> seafront, the house strikes the perfect balance between peaceful retreat and city access. The Victorian exterior is elegant without being stuffy. This is exactly the kind of <a href="/house-styles/luxury-houses" style="color: var(--color-accent-sage); text-decoration: underline;">luxury house</a> that makes hen weekends special.</p>
       
       <h2>Inside the Property</h2>
-      <p><strong>Sleeping Arrangements</strong> - Eight bedrooms sleeping up to 16 guests. Mix of doubles, twins, and bunk rooms. Every bedroom has its own character, from the master suite with en-suite bathroom to the cosy attic rooms with sea glimpses.</p>
+      <p><strong>Sleeping Arrangements</strong> - Eight bedrooms sleeping up to 16 guests. Mix of doubles, twins, and bunk rooms. Every bedroom has its own character, from the master suite with en-suite bathroom to the cosy attic rooms with sea glimpses. See our <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">booking guide</a> to understand how group sizes work.</p>
       
-      <p><strong>Living Spaces</strong> - The real star is the open-plan kitchen-living area. It's huge. There's a 12-seater dining table, comfy sofas arranged around a feature fireplace, and a kitchen that would make any chef happy. Bi-fold doors open onto the garden when the weather's nice.</p>
+      <p><strong>Living Spaces</strong> - The real star is the open-plan kitchen-living area. It's huge. There's a 12-seater dining table, comfy sofas arranged around a feature fireplace, and a kitchen that would make any <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a> happy. Bi-fold doors open onto the garden when the weather's nice.</p>
       
       <h2>The Game Changer: Outdoor Hot Tub</h2>
-      <p>Positioned in a private corner of the garden, the hot tub seats eight comfortably. It's heated, lit with mood lighting, and surrounded by screens for privacy. This is where most groups spend their Friday night, prosecco in hand.</p>
+      <p>Positioned in a private corner of the garden, the <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tub</a> seats eight comfortably. It's heated, lit with mood lighting, and surrounded by screens for privacy. This is where most groups spend their Friday night, prosecco in hand. See all our <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">houses with hot tubs</a>.</p>
       
       <h2>Entertainment Options</h2>
-      <p>The basement games room includes a pool table, table football, and a cocktail bar setup. There's also a Smart TV and sound system for karaoke or movie nights. WiFi throughout is fast and reliable.</p>
+      <p>The basement <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games room</a> includes a pool table, table football, and a cocktail bar setup. There's also a Smart TV and sound system for karaoke or movie nights. WiFi throughout is fast and reliable. Perfect for booking a <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">cocktail masterclass</a> in-house.</p>
       
       <h2>Little Luxuries</h2>
       <ul>
@@ -192,7 +192,7 @@ const posts = [
       </ul>
       
       <h2>Location Benefits</h2>
-      <p>The real win is the location. You're close enough to walk into town (or Uber for £5), but the street itself is quiet and residential. Perfect for groups who want to party but also need somewhere to recover.</p>
+      <p>The real win is the location. You're close enough to walk into town (or Uber for £5), but the street itself is quiet and residential. Perfect for groups who want to <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">party</a> but also need somewhere to recover. Read our full <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton hen do guide</a> for area tips.</p>
       
       <p>Within walking distance:</p>
       <ul>
@@ -203,7 +203,7 @@ const posts = [
       </ul>
       
       <h2>Hen Party Friendly Features</h2>
-      <p>The owners genuinely welcome hen parties (not all properties do). They've thought about what groups need: plenty of fridge space, a big dining table for group meals, a sound system that actually works, and enough bathrooms that there's never a queue.</p>
+      <p>The owners genuinely welcome hen parties (not all properties do). They've thought about what groups need: plenty of fridge space, a big dining table for group meals, a sound system that actually works, and enough bathrooms that there's never a queue. Check our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">planning checklist</a> for what to look for in a house.</p>
       
       <h2>Booking Details</h2>
       <p><strong>Sleeps:</strong> 16 guests<br>
@@ -212,12 +212,12 @@ const posts = [
       <strong>Weekend (Fri-Sun):</strong> From £2,400<br>
       <strong>Midweek (Mon-Fri):</strong> From £1,800</p>
       
-      <p>When you break down the weekend rate between 15 guests (remember, the bride doesn't pay), it works out to £160 per person for two nights in a gorgeous property. Factor in that you're not paying for hotels, and it's excellent value.</p>
+      <p>When you break down the weekend rate between 15 guests (remember, the bride doesn't pay), it works out to £160 per person for two nights in a gorgeous property. Factor in that you're not paying for hotels, and it's excellent value. See our guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">how to split costs fairly</a>.</p>
       
       <h2>Guest Reviews</h2>
       <p>"Perfect house for our hen do. The hot tub was the highlight, and the games room kept us entertained when we needed a quieter night." - Sarah's hen party, March 2024</p>
       
-      <p>The Brighton Manor is popular for a reason. It delivers on space, style, location, and those little extras that transform a good hen weekend into a great one. Book well in advance – weekends get snapped up quickly.</p>
+      <p>The Brighton Manor is popular for a reason. It delivers on space, style, location, and those little extras that transform a good hen weekend into a great one. Book well in advance – weekends get snapped up quickly. Ready to book? Learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a> or <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">browse all properties</a>. Want to add extras? Explore our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a>.</p>
     `,
   },
   {
@@ -229,30 +229,30 @@ const posts = [
     date: "2 Jan 2025",
     slug: "bath-vs-brighton",
     content: `
-      <p>Two of the UK's most popular hen party destinations couldn't be more different. Bath brings Georgian elegance and spa culture, while Brighton delivers beach vibes and big nightlife. We're breaking down both to help you decide.</p>
+      <p>Two of the UK's most popular <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party destinations</a> couldn't be more different. <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a> brings Georgian elegance and spa culture, while <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton</a> delivers beach vibes and big nightlife. We're breaking down both to help you decide. Already decided? Read our detailed <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton guide</a>.</p>
       
       <h2>The Vibe</h2>
-      <p><strong>Bath</strong> - Sophisticated, cultured, and undeniably pretty. This is the choice for groups who want beautiful surroundings, historic charm, and a more refined pace.</p>
+      <p><strong>Bath</strong> - Sophisticated, cultured, and undeniably pretty. This is the choice for groups who want beautiful surroundings, historic charm, and a more refined pace. Browse our <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath properties</a>.</p>
       
-      <p><strong>Brighton</strong> - Energetic, eclectic, and party-ready. Choose Brighton if your group loves nightlife, wants beach access, and enjoys a more alternative, quirky atmosphere.</p>
+      <p><strong>Brighton</strong> - Energetic, eclectic, and party-ready. Choose Brighton if your group loves nightlife, wants beach access, and enjoys a more alternative, quirky atmosphere. See our <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton houses</a>.</p>
       
       <h2>Accommodation</h2>
-      <p><strong>Bath</strong> - Georgian townhouses with period features. Expect high ceilings, sash windows, and elegant interiors. Properties tend to be in the city or surrounding Cotswold villages.</p>
+      <p><strong>Bath</strong> - Georgian townhouses with period features. Expect high ceilings, sash windows, and elegant interiors. Properties tend to be in the city or surrounding Cotswold villages. Our <a href="/house-styles/manor-houses" style="color: var(--color-accent-sage); text-decoration: underline;">manor houses</a> work beautifully here.</p>
       
-      <p><strong>Brighton</strong> - More variety, from Victorian villas to modern apartments. Often come with hot tubs and games rooms. Easy to find places within walking distance of everything.</p>
+      <p><strong>Brighton</strong> - More variety, from Victorian villas to modern apartments. Often come with <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tubs</a> and <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games rooms</a>. Easy to find places within walking distance of everything. Browse our <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">party houses</a>.</p>
       
       <h2>Food Scene</h2>
-      <p><strong>Bath</strong> - Fine dining and afternoon tea reign supreme. The Ivy, The Pump Room, and Sotto Sotto for Italian. Excellent brunch spots in the Lanes.</p>
+      <p><strong>Bath</strong> - Fine dining and afternoon tea reign supreme. The Ivy, The Pump Room, and Sotto Sotto for Italian. Excellent brunch spots in the Lanes. Consider booking a <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a> for a special meal.</p>
       
       <p><strong>Brighton</strong> - More casual and diverse. Brilliant vegetarian scene, fantastic brunches, street food markets, and everything from fish and chips to Michelin-starred restaurants.</p>
       
       <h2>Activities</h2>
       <p><strong>Bath</strong></p>
       <ul>
-        <li>Thermae Bath Spa (the rooftop pool is Instagram gold)</li>
+        <li>Thermae Bath Spa (the rooftop pool is Instagram gold) - perfect for <a href="/spa-treatments" style="color: var(--color-accent-sage); text-decoration: underline;">spa treatments</a></li>
         <li>Roman Baths tour</li>
         <li>Afternoon tea experiences</li>
-        <li>Cocktail making classes</li>
+        <li><a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">Cocktail making classes</a></li>
         <li>Countryside walks in the Cotswolds</li>
       </ul>
       
@@ -260,9 +260,9 @@ const posts = [
       <ul>
         <li>Beach and pier activities</li>
         <li>Lanes shopping</li>
-        <li>Life drawing classes</li>
-        <li>Cocktail making</li>
-        <li>Burlesque or dance workshops</li>
+        <li><a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">Life drawing classes</a></li>
+        <li><a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">Cocktail making</a></li>
+        <li>Burlesque or dance workshops - see all our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a></li>
       </ul>
       
       <h2>Nightlife</h2>
@@ -281,7 +281,7 @@ const posts = [
       <p><strong>Brighton</strong> - Better in good weather when you can enjoy the beach and seafront. Still fun in winter but the experience is different.</p>
       
       <h2>Budget</h2>
-      <p><strong>Bath</strong> - Generally more expensive. Accommodation, restaurants, and activities tend to cost more. Budget £300-400 per person for a weekend.</p>
+      <p><strong>Bath</strong> - Generally more expensive. Accommodation, restaurants, and activities tend to cost more. Budget £300-400 per person for a weekend. Read our guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs fairly</a>.</p>
       
       <p><strong>Brighton</strong> - More options across price ranges. Easier to do Brighton on a budget if needed. Expect £250-350 per person.</p>
       
@@ -289,7 +289,7 @@ const posts = [
       <p><strong>Choose Bath if:</strong></p>
       <ul>
         <li>Your group prefers elegant and sophisticated</li>
-        <li>Spa experiences appeal more than nightclubs</li>
+        <li><a href="/spa-treatments" style="color: var(--color-accent-sage); text-decoration: underline;">Spa experiences</a> appeal more than nightclubs</li>
         <li>You want beautiful, Instagrammable surroundings</li>
         <li>The bride isn't into big party vibes</li>
       </ul>
@@ -298,12 +298,12 @@ const posts = [
       <ul>
         <li>Nightlife is a priority</li>
         <li>Your group loves the beach</li>
-        <li>You want more variety in activities and food</li>
+        <li>You want more variety in <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities</a> and food</li>
         <li>Budget is a concern</li>
         <li>Accessibility matters (it's easier to get to)</li>
       </ul>
       
-      <p>Honestly, both cities are brilliant for hen parties. The "right" choice depends entirely on your group's personality and what kind of weekend you want. Can't decide? Bath for a refined celebration, Brighton for a party weekend.</p>
+      <p>Honestly, both cities are brilliant for hen parties. The "right" choice depends entirely on your group's personality and what kind of weekend you want. Can't decide? Bath for a refined celebration, Brighton for a party weekend. Need more help planning? Check our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a> or learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how booking works</a>. Ready to start? <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">Browse all properties</a> or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">contact our team</a> for personalised recommendations.</p>
     `,
   },
   {
@@ -315,7 +315,7 @@ const posts = [
     date: "29 Dec 2024",
     slug: "hen-party-checklist",
     content: `
-      <p>Planning a hen party can feel overwhelming, but breaking it down into manageable steps makes the whole process much easier. Here's your complete checklist to ensure nothing gets forgotten.</p>
+      <p>Planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a> can feel overwhelming, but breaking it down into manageable steps makes the whole process much easier. Here's your complete checklist to ensure nothing gets forgotten. Complement this with our guides on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs</a> and <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">alternative activities</a>.</p>
       
       <h2>6-8 Months Before</h2>
       
@@ -323,33 +323,34 @@ const posts = [
       <ul>
         <li>Talk to the bride about her vision (or surprise her, if that's the plan)</li>
         <li>Confirm the guest list</li>
-        <li>Set a realistic budget</li>
+        <li>Set a realistic budget - see our <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">budgeting guide</a></li>
         <li>Choose dates (send out a poll to find what works for most people)</li>
-        <li>Decide on destination</li>
+        <li>Decide on destination - compare <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton</a> or browse all <a href="/destinations" style="color: var(--color-accent-sage); text-decoration: underline;">destinations</a></li>
       </ul>
       
       <h3>Accommodation</h3>
       <ul>
-        <li>Research properties that fit your group size and budget</li>
+        <li>Research <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">properties</a> that fit your group size and budget</li>
         <li>Check availability for your preferred dates</li>
         <li>Read reviews carefully</li>
-        <li>Book the house and pay deposit</li>
-        <li>Add booking protection/cancellation insurance if offered</li>
+        <li>Book the house and pay deposit - understand our <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">booking process</a></li>
+        <li>Add booking protection/cancellation insurance if offered - check <a href="/booking-terms" style="color: var(--color-accent-sage); text-decoration: underline;">booking terms</a></li>
       </ul>
       
       <h2>4-6 Months Before</h2>
       
       <h3>Activities & Experiences</h3>
       <ul>
-        <li>Research and book activities (cocktail classes, spa treatments, life drawing)</li>
-        <li>Reserve group dining for Saturday night</li>
+        <li>Research and book activities - explore our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences page</a></li>
+        <li><a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">Cocktail classes</a>, <a href="/spa-treatments" style="color: var(--color-accent-sage); text-decoration: underline;">spa treatments</a>, <a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">life drawing</a></li>
+        <li>Reserve group dining for Saturday night or book a <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a></li>
         <li>Look into hen party packages or add-ons</li>
         <li>Book any transport needed (minibus, taxi for activities)</li>
       </ul>
       
       <h3>Money Management</h3>
       <ul>
-        <li>Create a detailed budget breakdown</li>
+        <li>Create a detailed budget breakdown - full guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">cost splitting</a></li>
         <li>Set up a group payment system (Splitwise, Monzo, etc.)</li>
         <li>Collect initial deposits from guests</li>
         <li>Keep receipts for everything</li>
@@ -361,7 +362,7 @@ const posts = [
       <ul>
         <li>Confirm final guest numbers</li>
         <li>Collect remaining payments from everyone</li>
-        <li>Make final payment on accommodation</li>
+        <li>Make final payment on accommodation - review <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">payment schedule</a></li>
         <li>Confirm all activity bookings</li>
         <li>Sort room allocations (who's sharing with who)</li>
       </ul>
@@ -369,7 +370,7 @@ const posts = [
       <h3>Extras & Decorations</h3>
       <ul>
         <li>Order personalised items (sashes, t-shirts if wanted)</li>
-        <li>Plan decorations for the house</li>
+        <li>Plan decorations for the house - great for houses with <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games rooms</a></li>
         <li>Organise party games or activities for downtime</li>
         <li>Create playlist for the house</li>
       </ul>
@@ -408,7 +409,7 @@ const posts = [
       <ul>
         <li>Print any tickets or confirmations needed</li>
         <li>Create emergency contact list</li>
-        <li>Check house rules and note check-in/check-out times</li>
+        <li>Check house rules and note check-in/check-out times - review <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">house rules</a></li>
         <li>Prepare games and activities for the house</li>
       </ul>
       
@@ -430,7 +431,7 @@ const posts = [
         <li>Put up decorations</li>
         <li>Assign rooms</li>
         <li>Do welcome drinks</li>
-        <li>Brief everyone on the schedule</li>
+        <li>Brief everyone on the schedule and <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities planned</a></li>
         <li>Start making memories!</li>
       </ul>
       
@@ -451,22 +452,22 @@ const posts = [
         <li>Share photos with the group</li>
         <li>Settle any outstanding expenses</li>
         <li>Send thank you message to hosts/venues if appropriate</li>
-        <li>Leave reviews for the property and any suppliers</li>
+        <li>Leave <a href="/reviews" style="color: var(--color-accent-sage); text-decoration: underline;">reviews</a> for the property and any suppliers</li>
         <li>Create photo album or gift for the bride</li>
       </ul>
       
       <h2>Top Tips</h2>
       
       <ul>
-        <li><strong>Start early</strong> - Popular houses and weekends book up fast</li>
+        <li><strong>Start early</strong> - Popular houses and weekends book up fast. Browse <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">available properties</a> now.</li>
         <li><strong>Overcommunicate</strong> - Keep everyone in the loop about costs and plans</li>
-        <li><strong>Build in downtime</strong> - Don't overschedule every minute</li>
+        <li><strong>Build in downtime</strong> - Don't overschedule every minute. Houses with <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tubs</a> are perfect for relaxing.</li>
         <li><strong>Have backup plans</strong> - Weather, cancellations, or people running late</li>
         <li><strong>Designate a co-organiser</strong> - Don't try to do everything solo</li>
         <li><strong>Remember the bride</strong> - This is about her, so include what she'd love</li>
       </ul>
       
-      <p>Planning a hen party takes organisation, but following this checklist means you won't miss anything important. The key is starting early and keeping track of everything in one place. Your future self (and the bride) will thank you.</p>
+      <p>Planning a hen party takes organisation, but following this checklist means you won't miss anything important. The key is starting early and keeping track of everything in one place. Your future self (and the bride) will thank you. Need inspiration? Read our guide to <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a>. Deciding between cities? Check our <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a>, explore our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a>, or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">get in touch</a> for personalised help.</p>
     `,
   },
 ];
