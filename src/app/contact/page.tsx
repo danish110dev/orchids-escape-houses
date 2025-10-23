@@ -18,6 +18,7 @@ export default function ContactPage() {
     groupSize: "",
     dates: "",
     location: "",
+    experience: "",
     message: "",
   });
   const [showCalendar, setShowCalendar] = useState(false);
@@ -267,6 +268,42 @@ export default function ContactPage() {
                         <option value="york">York</option>
                       </select>
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Add Experience (Optional)</label>
+                    <select
+                      value={formData.experience}
+                      onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
+                    >
+                      <option value="">Select an experience</option>
+                      <option value="cocktail-masterclass">Cocktail Masterclass</option>
+                      <option value="butlers-in-the-buff">Butlers in the Buff</option>
+                      <option value="life-drawing">Life Drawing</option>
+                      <option value="private-chef">Private Chef</option>
+                      <option value="spa-treatments">Spa Treatments</option>
+                      <option value="mobile-beauty-bar">Mobile Beauty Bar</option>
+                      <option value="make-up-artist">Make-up Artist</option>
+                      <option value="hair-styling">Hair Styling</option>
+                      <option value="pamper-party-package">Pamper Party Package</option>
+                      <option value="personalised-robes">Personalised Robes</option>
+                      <option value="prosecco-reception">Prosecco Reception</option>
+                      <option value="afternoon-tea">Afternoon Tea</option>
+                      <option value="bbq-catering">BBQ Catering</option>
+                      <option value="pizza-making-class">Pizza Making Class</option>
+                      <option value="bottomless-brunch">Bottomless Brunch</option>
+                      <option value="gin-tasting">Gin Tasting</option>
+                      <option value="wine-tasting">Wine Tasting</option>
+                      <option value="flower-crown-making">Flower Crown Making</option>
+                      <option value="dance-class">Dance Class</option>
+                      <option value="karaoke-night">Karaoke Night</option>
+                      <option value="yoga-session">Yoga Session</option>
+                      <option value="photography-package">Photography Package</option>
+                      <option value="dj-entertainment">DJ Entertainment</option>
+                      <option value="games-activities-pack">Games & Activities Pack</option>
+                      <option value="decorations-balloons">Decorations & Balloons</option>
+                    </select>
                   </div>
 
                   <div>
