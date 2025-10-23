@@ -104,7 +104,7 @@ export default function DestinationDetailPage() {
       name: "London",
       region: "Greater London",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/an-iconic-aerial-shot-rising-over-the-t-35bfa6c0-20251022110441.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-soaring-over-eab71258-20251023160205.mp4",
       overview: "London is the ultimate hen party destination with world-class entertainment, dining, and iconic landmarks. From West End shows to rooftop bars, Michelin-starred restaurants to hidden speakeasies, the capital offers endless possibilities for an unforgettable celebration.",
       quickFacts: {
         fromLondon: "You're here!",
