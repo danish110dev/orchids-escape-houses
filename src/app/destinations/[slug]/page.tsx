@@ -693,12 +693,12 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Doncaster Sheffield Airport" }
       ],
       nightlife: [
-        { name: "Corporation", description: "Multi-room rock and alternative club", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Corporation", description: "Multi-room rock and alternative club", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-corporation-n-5ef9596b-20251023164944.jpg" },
         { name: "The Leadmill", description: "Iconic live music venue since 1980", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "Bloo88", description: "Trendy cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
       brunch: [
-        { name: "Craft & Dough", description: "Pizza and bottomless brunch", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Craft & Dough", description: "Pizza and bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-craft-dough-r-267bd7b2-20251023164945.jpg", link: "#" },
         { name: "Tamper Coffee", description: "Award-winning coffee and brunch", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
         { name: "Jöro", description: "Michelin-starred tasting menus", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
