@@ -66,6 +66,38 @@ export default function OurStoryPage() {
               </p>
             </div>
 
+            {/* Property Showcase Gallery */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-stone-cottage-in-the-cotswolds-wi-67216eb4-20251023182252.jpg"
+                  alt="Luxury Cotswolds cottage with hot tub"
+                  className="w-full h-[300px] object-cover"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/modern-luxury-manor-house-with-outdoor-h-b62da5c9-20251023182252.jpg"
+                  alt="Modern luxury manor house with hot tub"
+                  className="w-full h-[300px] object-cover"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/beachfront-villa-in-brighton-with-hot-tu-ddcc4ed4-20251023182243.jpg"
+                  alt="Brighton beachfront villa with hot tub"
+                  className="w-full h-[300px] object-cover"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/converted-barn-in-countryside-with-outdo-bf036188-20251023182253.jpg"
+                  alt="Converted barn with hot tub"
+                  className="w-full h-[300px] object-cover"
+                />
+              </div>
+            </div>
+
             <AnimatedStats />
 
             <div>
