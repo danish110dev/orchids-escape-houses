@@ -313,7 +313,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bournemouth Airport with European connections" }
       ],
       nightlife: [
-        { name: "Aruba", description: "Beach club and nightclub with DJ sets", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Aruba", description: "Beach club and nightclub with DJ sets", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-vibrant-bea-7dca7b21-20251023161457.jpg" },
         { name: "Ojo Rojo", description: "Beach club with sea views and cocktails", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
         { name: "The Old Fire Station", description: "Multi-level bar with rooftop terrace", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" }
       ],
@@ -324,7 +324,7 @@ export default function DestinationDetailPage() {
       ],
       activities: [
         { name: "Beach Clubs", description: "Sun loungers, cocktails and DJ sets", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
-        { name: "Water Sports", description: "Paddleboarding, surfing and jet skiing", image: "https://images.unsplash.com/photo-1476400935293-0404fce16baa?w=800&q=80" },
+        { name: "Water Sports", description: "Paddleboarding, surfing and jet skiing", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-action-photograph-of-water--8a2389a2-20251023161455.jpg" },
         { name: "Coastal Walks", description: "Stunning clifftop paths with sea views", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
       ]
     },
