@@ -256,7 +256,7 @@ export default function DestinationDetailPage() {
       name: "Cardiff",
       region: "South Wales",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-cinematic-aerial-establishing-shot-of-8ee20d4a-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-soa-e077764b-20251023162007.mp4",
       overview: "Cardiff is Wales' vibrant capital offering fantastic value, warm Welsh hospitality, and stunning Cardiff Bay. With a thriving nightlife scene, excellent shopping, and beautiful waterfront, it's perfect for hen parties seeking a lively celebration with great prices.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -275,9 +275,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Cardiff Airport with connections to major cities" }
       ],
       nightlife: [
-        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
-        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
-        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+        { name: "Clwb Ifor Bach", description: "Iconic Welsh music and club venue", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-clwb-ifor-bac-44ae0181-20251023161956.jpg" },
+        { name: "Lab 22", description: "Underground cocktail bar and club", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-lab-22-underg-05e667b7-20251023161954.jpg" },
+        { name: "The Dead Canary", description: "Award-winning speakeasy cocktail bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-dead-cana-b4c59d94-20251023161957.jpg" }
       ],
       brunch: [
         { name: "Milkwood", description: "Stylish bar and kitchen in Cardiff Bay", image: "https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?w=800&q=80", link: "#" },
@@ -285,9 +285,9 @@ export default function DestinationDetailPage() {
         { name: "Bill's Cardiff", description: "Quirky dining with bottomless brunch", image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&q=80" },
-        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80" },
-        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=800&q=80" }
+        { name: "Cardiff Castle", description: "Historic castle in the city centre", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cardiff-castl-2274b175-20251023161955.jpg" },
+        { name: "Principality Stadium Tour", description: "Behind-the-scenes rugby stadium tour", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-principality--9504fcea-20251023161956.jpg" },
+        { name: "Cardiff Bay", description: "Waterfront dining and entertainment", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cardiff-bay-w-1adce638-20251023161957.jpg" }
       ]
     },
     bournemouth: {
