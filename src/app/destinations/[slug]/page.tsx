@@ -370,7 +370,7 @@ export default function DestinationDetailPage() {
       name: "Newcastle",
       region: "Tyne and Wear",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-striking-aerial-view-rising-over-newc-0c1d67be-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-swe-2e241ed1-20251023162728.mp4",
       overview: "Newcastle is famous for legendary nightlife, friendly locals, and stunning quayside architecture. The Geordie spirit of fun combined with excellent value makes it a top choice for unforgettable hen celebrations.",
       quickFacts: {
         fromLondon: "3 hours by train",
@@ -389,7 +389,7 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express services from major cities" }
       ],
       nightlife: [
-        { name: "House of Smith", description: "Multi-floor venue with DJs and live acts", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "House of Smith", description: "Multi-floor venue with DJs and live acts", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-vibrant-mul-495189b3-20251023162657.jpg" },
         { name: "Digital", description: "Underground club with top electronic music", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "The Botanist", description: "Botanical bar and restaurant", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" }
       ],
