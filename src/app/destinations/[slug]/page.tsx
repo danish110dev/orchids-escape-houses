@@ -332,7 +332,7 @@ export default function DestinationDetailPage() {
       name: "Liverpool",
       region: "Merseyside",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-liverpool-wat-563898e7-20251019170646.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/a-majestic-aerial-shot-rising-over-live-19f38bc2-20251022110442.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-swe-e7e7b7d3-20251023163139.mp4",
       overview: "Liverpool combines iconic waterfront views, legendary nightlife, and rich Beatles heritage. With warm Scouse hospitality, fantastic value, and a vibrant atmosphere, it's perfect for hen parties seeking authentic Northern charm.",
       quickFacts: {
         fromLondon: "2.5 hours by train",
@@ -351,7 +351,7 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "Regular coach services from major cities" }
       ],
       nightlife: [
-        { name: "The Cavern Club", description: "Legendary music venue where Beatles played", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "The Cavern Club", description: "Legendary music venue where Beatles played", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-cavern-cl-42a42f19-20251023163114.jpg" },
         { name: "Santa Chupitos", description: "Shot bar with theatrical serves", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" },
         { name: "The Merchant", description: "Rooftop bar with city views", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
