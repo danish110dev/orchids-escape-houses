@@ -20,7 +20,8 @@ const experiencesData: Record<string, any> = {
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-eb946e05-20251024112454.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-3f1464a0-20251024112454.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-3f1464a0-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-23564d70-20251024130257.jpg"
     ],
     icon: ChefHat,
     description:
@@ -113,7 +114,8 @@ const experiencesData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mobile--5f90d17a-20251024112456.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beauty--59094aa7-20251024112454.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beauty--59094aa7-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mobile--f3198bce-20251024130302.jpg"
     ],
     icon: Sparkles,
     description:
@@ -155,7 +157,9 @@ const experiencesData: Record<string, any> = {
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-tre-e0b84486-20251024112455.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-tre-e0b84486-20251024112455.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-pamper--f416465a-20251024130258.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-the-5093c326-20251024130301.jpg"
     ],
     icon: Heart,
     description:
@@ -198,7 +202,9 @@ const experiencesData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-persona-2842c40c-20251024112454.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-close-u-4f4b8465-20251024112456.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-close-u-4f4b8465-20251024112456.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-persona-4d1e93b1-20251024130302.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-w-e55983b7-20251024130301.jpg"
     ],
     icon: Gift,
     description:
@@ -238,7 +244,9 @@ const experiencesData: Record<string, any> = {
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-prosecc-497946e6-20251024112454.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-prosecc-497946e6-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-prosecc-59f650b8-20251024130302.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-t-1f3b1568-20251024130301.jpg"
     ],
     icon: Wine,
     description:
@@ -278,7 +286,8 @@ const experiencesData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=800&q=80",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-traditi-02d702c5-20251024112454.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-2ebb58a2-20251024112456.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-2ebb58a2-20251024112456.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-afterno-65c29e68-20251024130301.jpg"
     ],
     icon: Coffee,
     description:
@@ -364,7 +373,8 @@ const experiencesData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hands-s-220d515e-20251024112453.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-freshly-c80c7cd1-20251024112453.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-freshly-c80c7cd1-20251024112453.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hands-s-cc707a95-20251024130301.jpg"
     ],
     icon: ChefHat,
     description:
@@ -666,7 +676,8 @@ const experiencesData: Record<string, any> = {
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-p-27b172b0-20251024112629.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-complet-e0ce6a07-20251024112629.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-complet-e0ce6a07-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-p-ebf36c6a-20251024130301.jpg"
     ],
     icon: Palette,
     description:
@@ -813,7 +824,8 @@ const experiencesData: Record<string, any> = {
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-the-d886efae-20251024112712.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-facial--d2f444fe-20251024112712.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-facial--d2f444fe-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-the-6c79a436-20251024130301.jpg"
     ],
     icon: Sparkles,
     description:
@@ -986,7 +998,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-25 guests",
     image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
-    gallery: [],
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-d-ac8318fa-20251024130301.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-profess-19424adf-20251024130302.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-d-a6af1156-20251024130301.jpg"
+    ],
     icon: Music,
     description:
       "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving. Perfect for active groups!",
@@ -1069,7 +1085,9 @@ const experiencesData: Record<string, any> = {
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-makeup--3bdaf416-20251024112746.jpg"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-makeup--3bdaf416-20251024112746.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-makeup--076efab7-20251024130300.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-3e332488-20251024130257.jpg"
     ],
     icon: Sparkles,
     description:
