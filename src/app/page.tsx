@@ -352,126 +352,126 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-[var(--color-bg-secondary)] scroll-reveal">
+      <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-6 text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
               Why Choose Group Escape Houses?
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
-              We're the UK's leading provider of luxury group accommodation for hen parties, celebrations, and special occasions
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto leading-relaxed">
+              The UK's leading provider of luxury group accommodation for unforgettable celebrations
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            <div className="group relative bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
-                  <HomeIcon className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-4">
+                  <HomeIcon className="w-6 h-6 text-[var(--color-accent-sage)]" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
                   Handpicked Properties
                 </h3>
               </div>
-              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
-                Every house in our collection is personally inspected and verified. We only feature properties with exceptional facilities including <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">hot tubs</Link>, <Link href="/features/swimming-pool" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">pools</Link>, <Link href="/features/games-room" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">games rooms</Link>, and luxury amenities perfect for group celebrations.
+              <p className="text-[var(--color-neutral-dark)] text-base leading-relaxed">
+                Personally inspected properties with <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">pools</Link>, and <Link href="/features/games-room" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">games rooms</Link>.
               </p>
             </div>
 
-            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
-                  <Sparkles className="w-7 h-7 text-[var(--color-accent-gold)]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-4">
+                  <Sparkles className="w-6 h-6 text-[var(--color-accent-gold)]" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
                   Complete Party Planning
                 </h3>
               </div>
-              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
-                From <Link href="/experiences" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">cocktail masterclasses</Link> to <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">private chefs</Link> and <Link href="/experiences/spa-treatments" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">spa treatments</Link>, we handle all the details so you can focus on celebrating. Our UK team manages everything from booking to check-out.
+              <p className="text-[var(--color-neutral-dark)] text-base leading-relaxed">
+                From <Link href="/experiences" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">cocktail classes</Link> to <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">private chefs</Link>, we handle everything.
               </p>
             </div>
 
-            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
-                  <Users className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-[var(--color-accent-sage)]" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
                   Flexible Group Sizes
                 </h3>
               </div>
-              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
-                Whether you're a group of 8 close friends or 30+ guests, we have the perfect property. All our <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">party houses</Link> are designed for large groups with multiple bedrooms, spacious living areas, and entertainment facilities.
+              <p className="text-[var(--color-neutral-dark)] text-base leading-relaxed">
+                Perfect for 8 close friends or 30+ guests. All <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">party houses</Link> designed for large groups.
               </p>
             </div>
 
-            <div className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-5">
-                  <HomeIcon className="w-7 h-7 text-[var(--color-accent-gold)]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent-sage)]/20 to-[var(--color-accent-gold)]/20 flex items-center justify-center mb-4">
+                  <HomeIcon className="w-6 h-6 text-[var(--color-accent-gold)]" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
                   UK-Wide Coverage
                 </h3>
               </div>
-              <p className="text-[var(--color-neutral-dark)] text-lg leading-relaxed">
-                Properties across all major UK destinations including <Link href="/destinations/brighton" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Brighton</Link>, <Link href="/destinations/bath" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Bath</Link>, <Link href="/destinations/manchester" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">Manchester</Link>, <Link href="/destinations/london" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted underline-offset-4">London</Link>, and more. Every location offers great nightlife, restaurants, and attractions for your celebration.
+              <p className="text-[var(--color-neutral-dark)] text-base leading-relaxed">
+                Properties in <Link href="/destinations/brighton" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">Brighton</Link>, <Link href="/destinations/bath" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">Bath</Link>, <Link href="/destinations/manchester" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">Manchester</Link>, and <Link href="/destinations/london" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">London</Link>.
               </p>
             </div>
           </div>
 
-          {/* Image Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+          {/* Image Gallery Grid - Integrated */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-e0d237d8-20251023182535.jpg')` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-semibold text-sm">Handpicked Properties</p>
+              <div className="absolute bottom-3 left-3 right-3">
+                <p className="text-white font-medium text-sm">Handpicked Properties</p>
               </div>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+            <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-party-plannin-d89e9075-20251023182534.jpg')` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-semibold text-sm">Complete Party Planning</p>
+              <div className="absolute bottom-3 left-3 right-3">
+                <p className="text-white font-medium text-sm">Complete Party Planning</p>
               </div>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+            <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-large-group-o-63176ec6-20251023182534.jpg')` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-semibold text-sm">Flexible Group Sizes</p>
+              <div className="absolute bottom-3 left-3 right-3">
+                <p className="text-white font-medium text-sm">Flexible Group Sizes</p>
               </div>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64 group">
+            <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-showcasing-uk-wi-7248fc36-20251023182534.jpg')` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-semibold text-sm">UK-Wide Coverage</p>
+              <div className="absolute bottom-3 left-3 right-3">
+                <p className="text-white font-medium text-sm">UK-Wide Coverage</p>
               </div>
             </div>
           </div>
