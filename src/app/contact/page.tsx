@@ -27,6 +27,17 @@ export default function ContactPage() {
   const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Only these experiences have actual pages
+  const experiencesWithPages = [
+    "cocktail-masterclass",
+    "sip-and-paint",
+    "private-chef",
+    "spa-treatments",
+    "hair-styling",
+    "karaoke-night",
+    "flower-crown-making"
+  ];
+
   const experienceOptions = [
     { value: "cocktail-masterclass", label: "Cocktail Masterclass" },
     { value: "sip-and-paint", label: "Sip & Paint" },
@@ -383,16 +394,18 @@ export default function ContactPage() {
                               {option.label}
                             </span>
                           </label>
-                          <Link
-                            href={`/experiences/${option.value}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="flex-shrink-0 p-1.5 rounded hover:bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-                            title={`View ${option.label} details`}
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                          </Link>
+                          {experiencesWithPages.includes(option.value) && (
+                            <Link
+                              href={`/experiences/${option.value}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex-shrink-0 p-1.5 rounded hover:bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                              title={`View ${option.label} details`}
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                            </Link>
+                          )}
                         </div>
                       ))}
                     </div>
