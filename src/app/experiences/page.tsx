@@ -5,62 +5,107 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin } from "lucide-react";
-import { motion, useMotionValue, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ExperiencesPage() {
-  const chilledExperiences = [
+  // Organized by search popularity - most popular first
+  const allExperiences = [
+    {
+      title: "Cocktail Masterclass",
+      description: "Learn to shake, stir, and sip like pros with our expert mixologists. Perfect ice-breaker for your group.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
+      icon: Wine,
+      category: "fun",
+      popular: true,
+    },
     {
       title: "Private Chef Dining",
       description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-0a38cf4c-20251021222802.jpg",
       icon: ChefHat,
+      category: "relaxed",
+      popular: true,
     },
     {
       title: "Spa Treatments",
       description: "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house.",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
       icon: Waves,
-    },
-    {
-      title: "Yoga & Pilates Classes",
-      description: "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
-      icon: Heart,
-    },
-    {
-      title: "Wellness Workshops",
-      description: "Meditation, sound baths, or aromatherapy – for a restorative, bonding experience.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-med-b1dcd986-20251021222802.jpg",
-      icon: Sparkles,
-    },
-  ];
-
-  const funExperiences = [
-    {
-      title: "Pizza Party Night",
-      description: "Make, bake, and top your own creations. Dough, laughter, and a lot of prosecco.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-fun-pizza-ma-4a0f37e9-20251021222802.jpg",
-      icon: Pizza,
-    },
-    {
-      title: "Murder Mystery Dinner",
-      description: "Transform your dinner into a night of intrigue and laughter. Dress up, play your part, and see who can uncover the culprit first.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-3f806f2a-20251021222805.jpg",
-      icon: Users,
-    },
-    {
-      title: "Cocktail Masterclass",
-      description: "Learn to shake, stir, and sip like pros with our expert mixologists.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
-      icon: Wine,
+      category: "relaxed",
+      popular: true,
     },
     {
       title: "Life Drawing & Cheeky Butlers",
       description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
       icon: Palette,
+      category: "fun",
+      popular: true,
+    },
+    {
+      title: "Yoga & Pilates Classes",
+      description: "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
+      icon: Heart,
+      category: "relaxed",
+      popular: false,
+    },
+    {
+      title: "Pizza Party Night",
+      description: "Make, bake, and top your own creations. Dough, laughter, and a lot of prosecco.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-fun-pizza-ma-4a0f37e9-20251021222802.jpg",
+      icon: Pizza,
+      category: "fun",
+      popular: false,
+    },
+    {
+      title: "Bottomless Brunch",
+      description: "Start your day with unlimited prosecco, delicious food, and great vibes. The perfect hen party tradition.",
+      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+      icon: Utensils,
+      category: "fun",
+      popular: true,
+    },
+    {
+      title: "Murder Mystery Dinner",
+      description: "Transform your dinner into a night of intrigue and laughter. Dress up, play your part, and see who can uncover the culprit first.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-3f806f2a-20251021222805.jpg",
+      icon: Users,
+      category: "fun",
+      popular: false,
+    },
+    {
+      title: "Wellness Workshops",
+      description: "Meditation, sound baths, or aromatherapy – for a restorative, bonding experience.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-med-b1dcd986-20251021222802.jpg",
+      icon: Sparkles,
+      category: "relaxed",
+      popular: false,
+    },
+    {
+      title: "Dance Class",
+      description: "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving.",
+      image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
+      icon: Music,
+      category: "fun",
+      popular: false,
+    },
+    {
+      title: "Photography Package",
+      description: "Capture your special weekend with a professional photographer. Candid moments and group shots you'll treasure forever.",
+      image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&q=80",
+      icon: Camera,
+      category: "relaxed",
+      popular: false,
+    },
+    {
+      title: "Flower Crown Making",
+      description: "Get creative and make beautiful flower crowns for your group. Perfect Instagram moment included.",
+      image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+      icon: Flower2,
+      category: "relaxed",
+      popular: false,
     },
   ];
 
@@ -136,103 +181,6 @@ export default function ExperiencesPage() {
     { name: "Cardiff", slug: "cardiff", image: "https://images.unsplash.com/photo-1570936885323-16be1d36f92d?w=800" },
   ];
 
-  // Draggable carousel component
-  const DraggableCarousel = ({ experiences, bgColor }: { experiences: typeof chilledExperiences, bgColor: string }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
-    const x = useMotionValue(0);
-    const controls = useAnimation();
-
-    // Auto-scroll animation
-    useEffect(() => {
-      if (isHovered || isDragging) {
-        controls.stop();
-        return;
-      }
-
-      const animate = async () => {
-        const scrollWidth = (320 + 24) * experiences.length; // card width + gap
-        await controls.start({
-          x: -scrollWidth,
-          transition: {
-            duration: 40,
-            ease: "linear",
-            repeat: Infinity,
-          },
-        });
-      };
-
-      animate();
-    }, [isHovered, isDragging, controls, experiences.length]);
-
-    return (
-      <div 
-        className="mt-12 relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="overflow-hidden -mx-6 md:mx-0" ref={containerRef}>
-          <motion.div
-            ref={contentRef}
-            className="flex gap-6 px-6 md:px-0 cursor-grab active:cursor-grabbing"
-            drag="x"
-            dragConstraints={{ left: -8000, right: 0 }}
-            dragElastic={0}
-            dragMomentum={true}
-            dragTransition={{ 
-              power: 1.5,
-              timeConstant: 700,
-              restDelta: 0.01,
-              modifyTarget: (target) => {
-                // Infinite loop effect - reset position when reaching end
-                const cardWidth = 320 + 24;
-                const totalWidth = cardWidth * experiences.length;
-                if (target < -totalWidth) {
-                  return target + totalWidth;
-                }
-                return target;
-              }
-            }}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={() => setIsDragging(false)}
-            style={{ x }}
-            animate={controls}
-          >
-            {[...experiences, ...experiences, ...experiences, ...experiences, ...experiences].map((experience, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0 w-[320px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                style={{ backgroundColor: bgColor }}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    draggable={false}
-                  />
-                  <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                    <experience.icon className="w-5 h-5" style={{ color: "var(--color-accent-sage)" }} />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm" style={{ color: "var(--color-neutral-dark)" }}>
-                    {experience.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -274,7 +222,7 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-      {/* Chilled & Relaxed */}
+      {/* Most Popular Experiences */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
@@ -282,19 +230,65 @@ export default function ExperiencesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-6"
+            className="text-center mb-12"
           >
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              🌿 Chilled & Relaxed
+              ⭐ Most Popular Experiences
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              For hens who love the idea of a weekend that feels like a mini-retreat. Think self-care, slow mornings, and indulgence done right.
+              Our most searched and booked activities. These crowd-pleasers are guaranteed to make your hen weekend unforgettable.
             </p>
           </motion.div>
 
-          <DraggableCarousel experiences={chilledExperiences} bgColor="white" />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+          >
+            {allExperiences.filter(exp => exp.popular).map((experience, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={experience.image}
+                    alt={experience.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                    <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
+                  </div>
+                  <div className="absolute top-4 right-4 bg-[var(--color-accent-gold)] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    Popular
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                    {experience.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                    {experience.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          <div className="text-center mt-12">
+          <div className="text-center">
             <Button
               asChild
               size="lg"
@@ -304,13 +298,13 @@ export default function ExperiencesPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Enquire About Wellness Experiences</Link>
+              <Link href="/contact">Book Popular Experiences</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Fun & Interactive */}
+      {/* All Other Experiences */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
@@ -318,19 +312,62 @@ export default function ExperiencesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-6"
+            className="text-center mb-12"
           >
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              🍕 Fun & Interactive
+              More Amazing Experiences
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              For when you want to add a little energy and entertainment to the weekend.
+              Browse our full collection of activities to create your perfect hen weekend itinerary.
             </p>
           </motion.div>
 
-          <DraggableCarousel experiences={funExperiences} bgColor="var(--color-neutral-light)" />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.08,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+          >
+            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="group bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={experience.image}
+                    alt={experience.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                    <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                    {experience.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                    {experience.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          <div className="text-center mt-12">
+          <div className="text-center">
             <Button
               asChild
               size="lg"
@@ -340,7 +377,7 @@ export default function ExperiencesPage() {
                 color: "white",
               }}
             >
-              <Link href="/contact">Add a Fun Activity to Your Stay</Link>
+              <Link href="/contact">Enquire About All Experiences</Link>
             </Button>
           </div>
         </div>
@@ -554,7 +591,7 @@ export default function ExperiencesPage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[var(--color-bg-secondary)]">
+      <section className="py-24 bg-white">
         <div className="max-w-[800px] mx-auto px-6">
           <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
             Experience FAQs
