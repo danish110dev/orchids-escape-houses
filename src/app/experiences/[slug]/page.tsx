@@ -581,20 +581,22 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
               className="object-contain bg-gray-100" 
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
               <div className="flex items-center gap-3 mb-4">
-                <Icon className="w-8 h-8" />
-                <h1 className="mb-0" style={{ fontFamily: "var(--font-display)" }}>
+                <div className="p-2 rounded-full bg-white/20 backdrop-blur-sm">
+                  <Icon className="w-8 h-8" />
+                </div>
+                <h1 className="mb-0 drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
                   {experience.title}
                 </h1>
               </div>
-              <div className="flex flex-wrap gap-6 text-lg">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-wrap gap-6 text-lg drop-shadow-md">
+                <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Clock className="w-5 h-5" />
                   <span>{experience.duration}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Users className="w-5 h-5" />
                   <span>{experience.groupSize}</span>
                 </div>
