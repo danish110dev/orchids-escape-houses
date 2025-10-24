@@ -1149,9 +1149,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Exeter Airport 1 hour away" }
       ],
       nightlife: [
-        { name: "Barbican venues", description: "Historic waterfront bars", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Pryzm", description: "Large nightclub with multiple rooms", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
-        { name: "The Treasury", description: "Cocktail bar in former bank", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
+        { name: "Barbican venues", description: "Historic waterfront bars", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-historic-plym-8a7d2159-20251024141736.jpg" },
+        { name: "Pryzm", description: "Large nightclub with multiple rooms", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-pryzm-nightcl-acfb3c5e-20251024141737.jpg" },
+        { name: "The Treasury", description: "Cocktail bar in former bank", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-treasury--7d2b6855-20251024141737.jpg" }
       ],
       brunch: [
         { name: "The Stable", description: "Cider and pizza restaurant", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -1159,9 +1159,9 @@ export default function DestinationDetailPage() {
         { name: "The Boathouse", description: "Waterfront dining", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "The Barbican", description: "Historic harbour area", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" },
-        { name: "National Marine Aquarium", description: "UK's largest aquarium", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
-        { name: "Coastal Walks", description: "South West Coast Path", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "The Barbican", description: "Historic harbour area", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-plymouth-barb-9c3e104f-20251024141737.jpg" },
+        { name: "National Marine Aquarium", description: "UK's largest aquarium", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-national-mari-623e1ca6-20251024141736.jpg" },
+        { name: "Coastal Walks", description: "South West Coast Path", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-landscape-photograph-of-sou-b24d00e7-20251024141736.jpg" }
       ]
     },
     cheltenham: {
