@@ -357,7 +357,16 @@ export default function ContactPage() {
                           key={option.value}
                           className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors group"
                         >
-                          <label className="flex items-center gap-3 cursor-pointer flex-1">
+                          <label 
+                            className="flex items-center gap-3 cursor-pointer flex-1"
+                            onClick={(e) => {
+                              // Prevent label click from interfering with link
+                              const target = e.target as HTMLElement;
+                              if (target.tagName === 'A' || target.closest('a')) {
+                                e.preventDefault();
+                              }
+                            }}
+                          >
                             <div className="relative">
                               <input
                                 type="checkbox"
@@ -385,7 +394,8 @@ export default function ContactPage() {
                             href={`/experiences/${option.value}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-shrink-0 p-1 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex-shrink-0 p-1.5 rounded hover:bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
                             title={`View ${option.label} details`}
                           >
                             <ExternalLink className="w-4 h-4" />
