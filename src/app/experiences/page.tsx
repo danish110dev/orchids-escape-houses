@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2 } from "lucide-react";
+import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2, Mic2, Scissors } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ExperiencesPage() {
@@ -14,18 +14,20 @@ export default function ExperiencesPage() {
     {
       title: "Cocktail Masterclass",
       description: "Learn to shake, stir, and sip like pros with our expert mixologists. Perfect ice-breaker for your group.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
       icon: Wine,
       category: "fun",
       popular: true,
+      slug: "cocktail-masterclass",
     },
     {
       title: "Private Chef Dining",
       description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-0a38cf4c-20251021222802.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
       icon: ChefHat,
       category: "relaxed",
       popular: true,
+      slug: "private-chef",
     },
     {
       title: "Spa Treatments",
@@ -34,14 +36,16 @@ export default function ExperiencesPage() {
       icon: Waves,
       category: "relaxed",
       popular: true,
+      slug: null,
     },
     {
-      title: "Life Drawing & Cheeky Butlers",
-      description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
+      title: "Sip & Paint",
+      description: "Unleash your inner artist with painting, prosecco, and plenty of laughs. No experience needed!",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
       icon: Palette,
       category: "fun",
       popular: true,
+      slug: "sip-and-paint",
     },
     {
       title: "Yoga & Pilates Classes",
@@ -50,6 +54,7 @@ export default function ExperiencesPage() {
       icon: Heart,
       category: "relaxed",
       popular: false,
+      slug: null,
     },
     {
       title: "Pizza Party Night",
@@ -58,6 +63,7 @@ export default function ExperiencesPage() {
       icon: Pizza,
       category: "fun",
       popular: false,
+      slug: null,
     },
     {
       title: "Bottomless Brunch",
@@ -65,7 +71,8 @@ export default function ExperiencesPage() {
       image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
       icon: Utensils,
       category: "fun",
-      popular: true,
+      popular: false,
+      slug: null,
     },
     {
       title: "Murder Mystery Dinner",
@@ -74,6 +81,7 @@ export default function ExperiencesPage() {
       icon: Users,
       category: "fun",
       popular: false,
+      slug: null,
     },
     {
       title: "Wellness Workshops",
@@ -82,14 +90,25 @@ export default function ExperiencesPage() {
       icon: Sparkles,
       category: "relaxed",
       popular: false,
+      slug: null,
     },
     {
-      title: "Dance Class",
-      description: "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving.",
+      title: "Karaoke Night",
+      description: "Belt out your favourite tunes with professional equipment and endless song choices. Perfect for a laugh!",
       image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
-      icon: Music,
+      icon: Mic2,
       category: "fun",
       popular: false,
+      slug: "karaoke-night",
+    },
+    {
+      title: "Hair Styling",
+      description: "Get glammed up with professional stylists creating stunning looks for your entire group.",
+      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80",
+      icon: Scissors,
+      category: "relaxed",
+      popular: false,
+      slug: "hair-styling",
     },
     {
       title: "Photography Package",
@@ -98,6 +117,7 @@ export default function ExperiencesPage() {
       icon: Camera,
       category: "relaxed",
       popular: false,
+      slug: null,
     },
     {
       title: "Flower Crown Making",
@@ -106,6 +126,7 @@ export default function ExperiencesPage() {
       icon: Flower2,
       category: "relaxed",
       popular: false,
+      slug: null,
     },
   ];
 
@@ -253,39 +274,52 @@ export default function ExperiencesPage() {
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            {allExperiences.filter(exp => exp.popular).map((experience, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                    <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
-                  </div>
-                  <div className="absolute top-4 right-4 bg-[var(--color-accent-gold)] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Popular
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                    {experience.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {allExperiences.filter(exp => exp.popular).map((experience, idx) => {
+              const CardWrapper = experience.slug ? Link : 'div';
+              const wrapperProps = experience.slug ? { href: `/experiences/${experience.slug}` } : {};
+              
+              return (
+                <motion.div
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  <CardWrapper {...wrapperProps} className={experience.slug ? "block" : ""}>
+                    <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                      <div className="relative h-56 overflow-hidden">
+                        <img
+                          src={experience.image}
+                          alt={experience.title}
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                          <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
+                        </div>
+                        <div className="absolute top-4 right-4 bg-[var(--color-accent-gold)] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                          Popular
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                          {experience.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                          {experience.description}
+                        </p>
+                        {experience.slug && (
+                          <div className="mt-4 text-[var(--color-accent-sage)] text-sm font-medium group-hover:text-[var(--color-accent-gold)] transition-colors">
+                            View Details →
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </CardWrapper>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           <div className="text-center">
@@ -335,36 +369,49 @@ export default function ExperiencesPage() {
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={experience.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                    <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                    {experience.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => {
+              const CardWrapper = experience.slug ? Link : 'div';
+              const wrapperProps = experience.slug ? { href: `/experiences/${experience.slug}` } : {};
+              
+              return (
+                <motion.div
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  <CardWrapper {...wrapperProps} className={experience.slug ? "block" : ""}>
+                    <div className="group bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                      <div className="relative h-56 overflow-hidden">
+                        <img
+                          src={experience.image}
+                          alt={experience.title}
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                          <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
+                          {experience.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                          {experience.description}
+                        </p>
+                        {experience.slug && (
+                          <div className="mt-4 text-[var(--color-accent-sage)] text-sm font-medium group-hover:text-[var(--color-accent-gold)] transition-colors">
+                            View Details →
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </CardWrapper>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           <div className="text-center">

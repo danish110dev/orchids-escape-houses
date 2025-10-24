@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2 } from "lucide-react";
+import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2, Scissors } from "lucide-react";
 import Link from "next/link";
 
 // Experience data
@@ -187,6 +187,53 @@ const experiencesData: Record<string, any> = {
         answer: "Yes, if you let us know in advance, we can usually source specific tracks and add them to the system before your event."
       }
     ]
+  },
+  "hair-styling": {
+    title: "Hair Styling",
+    duration: "2-3 hours",
+    priceFrom: 35,
+    groupSize: "6-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    icon: Scissors,
+    description:
+      "Get glammed up for your big night out with our professional hair styling experience. Our talented stylists will come to your property and create stunning looks for your entire group, from elegant updos to bouncy blow-drys. Whether you want festival braids, glamorous curls, or a chic bridal party look, our team will have everyone looking and feeling fabulous. Perfect for hen parties who want to look their best without the stress of salon appointments!",
+    included: [
+      "Professional hair stylist team for 2-3 hours",
+      "Individual styling consultation for each guest",
+      "All styling tools, products, and equipment",
+      "Choice of hairstyles from our portfolio",
+      "Hair accessories and finishing touches",
+      "Photos of finished looks for reference",
+    ],
+    whatToProvide: [
+      "Space with good lighting and mirrors",
+      "Chairs for styling stations",
+      "Power outlets for styling tools",
+      "Let us know preferred styles or inspiration photos in advance",
+    ],
+    pricing: [
+      { size: "6-10 guests", price: 40 },
+      { size: "11-15 guests", price: 37 },
+      { size: "16-20 guests", price: 35 },
+    ],
+    faqs: [
+      {
+        question: "How long does each person's hair take?",
+        answer: "Depending on hair length and style complexity, each person typically takes 15-30 minutes. We bring multiple stylists for larger groups to ensure everyone is ready on time!"
+      },
+      {
+        question: "What styles can you create?",
+        answer: "We can create anything from simple blow-drys and curls to intricate updos, braids, and festival-inspired looks. Send us inspiration photos beforehand and we'll make it happen!"
+      },
+      {
+        question: "Do I need to wash my hair before?",
+        answer: "For best results, we recommend washing your hair the night before or morning of the styling session. This gives your hair the perfect texture for styling and helps styles last longer."
+      },
+      {
+        question: "Can you work with all hair types?",
+        answer: "Absolutely! Our stylists are experienced with all hair types and textures, from fine and straight to thick, curly, and afro hair. We bring appropriate products and tools for everyone."
+      }
+    ]
   }
 };
 
@@ -230,6 +277,14 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
       slug: "karaoke-night",
     },
+    {
+      title: "Hair Styling",
+      duration: "2-3 hours",
+      priceFrom: 35,
+      groupSize: "6-20 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+      slug: "hair-styling",
+    },
   ];
 
   const relatedExperiences = allExperiences
@@ -244,7 +299,13 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
         {/* Hero Image */}
         <div className="max-w-[1400px] mx-auto px-6 mb-12">
           <div className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden">
-            <Image src={experience.image} alt={experience.title} fill className="object-cover" />
+            <Image 
+              src={experience.image} 
+              alt={experience.title} 
+              fill 
+              className="object-cover object-top"
+              priority
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
               <div className="flex items-center gap-3 mb-4">
