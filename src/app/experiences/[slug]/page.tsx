@@ -64,11 +64,11 @@ const experiencesData: Record<string, any> = {
     duration: "2-3 hours",
     priceFrom: 55,
     groupSize: "8-20 guests",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
+    image: "https://butlersinthebuff.com.au/wp-content/uploads/2023/10/543843566-buff-butler-gallery-40.jpg",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-handsom-485e3c2b-20251024112453.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-butler--1a615133-20251024112453.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-c95b2bec-20251024112457.jpg"
+      "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/games_included.jpg.webp",
+      "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/buff-butler-gallery-7.jpg.webp",
+      "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/buff-butler-gallery-23.jpg.webp"
     ],
     icon: Sparkles,
     description:
@@ -714,7 +714,7 @@ const experiencesData: Record<string, any> = {
     duration: "2 hours",
     priceFrom: 50,
     groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    image: "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/fun_friendly.jpg.webp",
     gallery: [
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mixolog-3d5c2392-20251024112629.jpg",
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-colorfu-ec9d0377-20251024112629.jpg"
