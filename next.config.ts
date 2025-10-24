@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'butlersinthebuff.com.au',
       },
+      {
+        protocol: 'https',
+        hostname: 'butlersinthebuff.co.uk',
+      },
     ],
   },
   typescript: {
