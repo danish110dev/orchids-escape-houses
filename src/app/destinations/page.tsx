@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function DestinationsPage() {
@@ -684,6 +684,59 @@ export default function DestinationsPage() {
 
                 <Link href="/contact">Get a Quote</Link>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Opening Hours Section */}
+      <section className="py-12 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-4">
+                <Clock className="w-4 h-4 text-[var(--color-accent-pink)]" />
+                <span className="text-sm font-medium">Office Hours</span>
+              </div>
+              <h2 className="text-3xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                Opening Hours
+              </h2>
+              <p className="text-[var(--color-neutral-dark)]">
+                Our team is available to help with your enquiries during the following times
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center pb-4 border-b border-[var(--color-bg-secondary)]">
+                  <span className="font-medium text-[var(--color-text-primary)]">Monday - Friday</span>
+                  <span className="text-[var(--color-neutral-dark)]">9am - 8pm</span>
+                </div>
+                <div className="flex justify-between items-center pb-4 border-b border-[var(--color-bg-secondary)]">
+                  <span className="font-medium text-[var(--color-text-primary)]">Saturday</span>
+                  <span className="text-[var(--color-neutral-dark)]">10am - 6pm</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium text-[var(--color-text-primary)]">Sunday</span>
+                  <span className="text-[var(--color-neutral-dark)]">10am - 6pm</span>
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-[var(--color-bg-secondary)] text-center">
+                <p className="text-sm text-[var(--color-neutral-dark)] mb-4">
+                  Need to get in touch?
+                </p>
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-2xl px-8 py-3 font-medium transition-all duration-200"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white"
+                  }}>
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
