@@ -5,8 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2, Mic2, Scissors } from "lucide-react";
+import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2, Scissors, Mic2, Gift } from "lucide-react";
 import { motion } from "framer-motion";
+import ExperienceCard from "@/components/ExperienceCard";
 
 export default function ExperiencesPage() {
   // Organized by search popularity - most popular first
@@ -14,20 +15,26 @@ export default function ExperiencesPage() {
     {
       title: "Cocktail Masterclass",
       description: "Learn to shake, stir, and sip like pros with our expert mixologists. Perfect ice-breaker for your group.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
       icon: Wine,
       category: "fun",
       popular: true,
       slug: "cocktail-masterclass",
+      duration: "2 hours",
+      priceFrom: 50,
+      groupSize: "8-20 guests",
     },
     {
       title: "Private Chef Dining",
       description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-0a38cf4c-20251021222802.jpg",
       icon: ChefHat,
       category: "relaxed",
       popular: true,
       slug: "private-chef",
+      duration: "3-4 hours",
+      priceFrom: 65,
+      groupSize: "8-24 guests",
     },
     {
       title: "Spa Treatments",
@@ -36,16 +43,22 @@ export default function ExperiencesPage() {
       icon: Waves,
       category: "relaxed",
       popular: true,
-      slug: null,
+      slug: "spa-treatments",
+      duration: "2-3 hours",
+      priceFrom: 75,
+      groupSize: "8-20 guests",
     },
     {
-      title: "Sip & Paint",
-      description: "Unleash your inner artist with painting, prosecco, and plenty of laughs. No experience needed!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
+      title: "Life Drawing & Cheeky Butlers",
+      description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
       icon: Palette,
       category: "fun",
       popular: true,
-      slug: "sip-and-paint",
+      slug: "life-drawing",
+      duration: "2 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
     },
     {
       title: "Yoga & Pilates Classes",
@@ -54,7 +67,10 @@ export default function ExperiencesPage() {
       icon: Heart,
       category: "relaxed",
       popular: false,
-      slug: null,
+      slug: "yoga-session",
+      duration: "1.5-2 hours",
+      priceFrom: 40,
+      groupSize: "8-20 guests",
     },
     {
       title: "Pizza Party Night",
@@ -63,7 +79,10 @@ export default function ExperiencesPage() {
       icon: Pizza,
       category: "fun",
       popular: false,
-      slug: null,
+      slug: "pizza-party",
+      duration: "2-3 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
     },
     {
       title: "Bottomless Brunch",
@@ -71,8 +90,11 @@ export default function ExperiencesPage() {
       image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
       icon: Utensils,
       category: "fun",
-      popular: false,
-      slug: null,
+      popular: true,
+      slug: "bottomless-brunch",
+      duration: "2-3 hours",
+      priceFrom: 35,
+      groupSize: "8-30 guests",
     },
     {
       title: "Murder Mystery Dinner",
@@ -81,7 +103,10 @@ export default function ExperiencesPage() {
       icon: Users,
       category: "fun",
       popular: false,
-      slug: null,
+      slug: "murder-mystery",
+      duration: "3-4 hours",
+      priceFrom: 50,
+      groupSize: "10-30 guests",
     },
     {
       title: "Wellness Workshops",
@@ -90,25 +115,22 @@ export default function ExperiencesPage() {
       icon: Sparkles,
       category: "relaxed",
       popular: false,
-      slug: null,
+      slug: "wellness-workshops",
+      duration: "2-3 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
     },
     {
-      title: "Karaoke Night",
-      description: "Belt out your favourite tunes with professional equipment and endless song choices. Perfect for a laugh!",
+      title: "Dance Class",
+      description: "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving.",
       image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
-      icon: Mic2,
+      icon: Music,
       category: "fun",
       popular: false,
-      slug: "karaoke-night",
-    },
-    {
-      title: "Hair Styling",
-      description: "Get glammed up with professional stylists creating stunning looks for your entire group.",
-      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80",
-      icon: Scissors,
-      category: "relaxed",
-      popular: false,
-      slug: "hair-styling",
+      slug: "dance-class",
+      duration: "1.5-2 hours",
+      priceFrom: 40,
+      groupSize: "8-25 guests",
     },
     {
       title: "Photography Package",
@@ -117,7 +139,10 @@ export default function ExperiencesPage() {
       icon: Camera,
       category: "relaxed",
       popular: false,
-      slug: null,
+      slug: "photography-package",
+      duration: "2-3 hours",
+      priceFrom: 150,
+      groupSize: "Any size",
     },
     {
       title: "Flower Crown Making",
@@ -126,7 +151,58 @@ export default function ExperiencesPage() {
       icon: Flower2,
       category: "relaxed",
       popular: false,
-      slug: null,
+      slug: "flower-crown-making",
+      duration: "1.5-2 hours",
+      priceFrom: 35,
+      groupSize: "8-20 guests",
+    },
+    {
+      title: "Hair Styling",
+      description: "Professional hair styling for your entire group. From elegant updos to beachy waves, look picture-perfect.",
+      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+      icon: Scissors,
+      category: "relaxed",
+      popular: false,
+      slug: "hair-styling",
+      duration: "2-3 hours",
+      priceFrom: 35,
+      groupSize: "8-20 guests",
+    },
+    {
+      title: "Make-up Artist",
+      description: "Professional make-up application for your entire group. From natural glam to full glam, look your absolute best.",
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
+      icon: Sparkles,
+      category: "relaxed",
+      popular: false,
+      slug: "make-up-artist",
+      duration: "2-3 hours",
+      priceFrom: 40,
+      groupSize: "8-20 guests",
+    },
+    {
+      title: "Karaoke Night",
+      description: "Belt out your favourite tunes with professional karaoke equipment. Guaranteed laughs and unforgettable memories.",
+      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+      icon: Mic2,
+      category: "fun",
+      popular: false,
+      slug: "karaoke-night",
+      duration: "3-4 hours",
+      priceFrom: 40,
+      groupSize: "8-30 guests",
+    },
+    {
+      title: "Sip & Paint",
+      description: "Unleash your inner artist while sipping your favourite drinks. Create masterpieces with professional guidance.",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
+      icon: Palette,
+      category: "fun",
+      popular: false,
+      slug: "sip-and-paint",
+      duration: "2-3 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
     },
   ];
 
@@ -238,7 +314,7 @@ export default function ExperiencesPage() {
       <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-            At <strong>Group Escape Houses</strong>, we make <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">hen party weekends</Link> feel effortless. Our curated activities bring together everything you love – indulgent food, pampering, laughter, and a sprinkle of luxury. Choose from <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">chef dining</Link>, <Link href="/experiences/spa-treatments" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">spa treatments</Link>, <Link href="/experiences/yoga-session" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">yoga sessions</Link>, or something a little cheekier like <Link href="/experiences/butlers-in-the-buff" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">butlers in the buff</Link>. Available at our <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">luxury party houses across the UK</Link> – you tell us the vibe, and we'll make it happen.
+            At <strong>Group Escape Houses</strong>, we make <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">hen party weekends</Link> feel effortless. Our curated activities bring together everything you love – indulgent food, pampering, laughter, and a sprinkle of luxury. Choose from <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">chef dining</Link>, <Link href="/experiences/spa-treatments" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">spa treatments</Link>, <Link href="/experiences/yoga-session" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">yoga sessions</Link>, or something a little cheekier like <Link href="/experiences/life-drawing" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">life drawing</Link>. Available at our <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">luxury party houses across the UK</Link> – you tell us the vibe, and we'll make it happen.
           </p>
         </div>
       </section>
@@ -274,52 +350,17 @@ export default function ExperiencesPage() {
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            {allExperiences.filter(exp => exp.popular).map((experience, idx) => {
-              const CardWrapper = experience.slug ? Link : 'div';
-              const wrapperProps = experience.slug ? { href: `/experiences/${experience.slug}` } : {};
-              
-              return (
-                <motion.div
-                  key={idx}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  <CardWrapper {...wrapperProps} className={experience.slug ? "block" : ""}>
-                    <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                      <div className="relative h-56 overflow-hidden">
-                        <img
-                          src={experience.image}
-                          alt={experience.title}
-                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                          <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
-                        </div>
-                        <div className="absolute top-4 right-4 bg-[var(--color-accent-gold)] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                          Popular
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                          {experience.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                          {experience.description}
-                        </p>
-                        {experience.slug && (
-                          <div className="mt-4 text-[var(--color-accent-sage)] text-sm font-medium group-hover:text-[var(--color-accent-gold)] transition-colors">
-                            View Details →
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </CardWrapper>
-                </motion.div>
-              );
-            })}
+            {allExperiences.filter(exp => exp.popular).map((experience, idx) => (
+              <ExperienceCard
+                key={idx}
+                title={experience.title}
+                duration={experience.duration}
+                priceFrom={experience.priceFrom}
+                groupSize={experience.groupSize}
+                image={experience.image}
+                slug={experience.slug}
+              />
+            ))}
           </motion.div>
 
           <div className="text-center">
@@ -369,49 +410,17 @@ export default function ExperiencesPage() {
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => {
-              const CardWrapper = experience.slug ? Link : 'div';
-              const wrapperProps = experience.slug ? { href: `/experiences/${experience.slug}` } : {};
-              
-              return (
-                <motion.div
-                  key={idx}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  <CardWrapper {...wrapperProps} className={experience.slug ? "block" : ""}>
-                    <div className="group bg-[var(--color-neutral-light)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                      <div className="relative h-56 overflow-hidden">
-                        <img
-                          src={experience.image}
-                          alt={experience.title}
-                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                          <experience.icon className="w-6 h-6" style={{ color: "var(--color-accent-sage)" }} />
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--color-text-primary)" }}>
-                          {experience.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                          {experience.description}
-                        </p>
-                        {experience.slug && (
-                          <div className="mt-4 text-[var(--color-accent-sage)] text-sm font-medium group-hover:text-[var(--color-accent-gold)] transition-colors">
-                            View Details →
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </CardWrapper>
-                </motion.div>
-              );
-            })}
+            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => (
+              <ExperienceCard
+                key={idx}
+                title={experience.title}
+                duration={experience.duration}
+                priceFrom={experience.priceFrom}
+                groupSize={experience.groupSize}
+                image={experience.image}
+                slug={experience.slug}
+              />
+            ))}
           </motion.div>
 
           <div className="text-center">
