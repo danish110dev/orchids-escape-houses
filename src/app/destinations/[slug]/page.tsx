@@ -1046,8 +1046,8 @@ export default function DestinationDetailPage() {
       ],
       activities: [
         { name: "Porthminster Beach", description: "Beautiful golden sand beach", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
-        { name: "Tate St Ives", description: "Modern art gallery", image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800&q=80" },
-        { name: "Coastal Path Walk", description: "Stunning clifftop walks", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "Tate St Ives", description: "Modern art gallery", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-architectural-photograph-of-5c0f6123-20251024135527.jpg" },
+        { name: "Coastal Path Walk", description: "Stunning clifftop walks", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-stunning-sout-ab875efe-20251024135526.jpg" }
       ]
     },
     windsor: {
@@ -2124,7 +2124,7 @@ export default function DestinationDetailPage() {
         sleeps: 14,
         bedrooms: 7,
         priceFrom: 98,
-        image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-lu-6d16f567-20251024135529.jpg",
         features: ["Hot Tub", "Harbour Views", "Beach Access"],
         slug: "st-ives-harbour-house",
       },
