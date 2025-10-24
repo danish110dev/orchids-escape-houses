@@ -68,7 +68,9 @@ const experiencesData: Record<string, any> = {
     gallery: [
       "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/games_included.jpg.webp",
       "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/buff-butler-gallery-7.jpg.webp",
-      "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/buff-butler-gallery-23.jpg.webp"
+      "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/buff-butler-gallery-23.jpg.webp",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-hands-2c8eecb5-20251024121343.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-male--f79d9b5c-20251024121343.jpg"
     ],
     icon: Sparkles,
     description:
