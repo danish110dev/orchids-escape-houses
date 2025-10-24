@@ -985,11 +985,7 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-25 guests",
     image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
-    gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-dance-i-08b3f3a5-20251024112745.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-7063e1b4-20251024112742.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-dance-c-480deef0-20251024112745.jpg"
-    ],
+    gallery: [],
     icon: Music,
     description:
       "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving. Perfect for active groups!",
