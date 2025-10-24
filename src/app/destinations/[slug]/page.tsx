@@ -2229,7 +2229,7 @@ export default function DestinationDetailPage() {
         sleeps: 14,
         bedrooms: 7,
         priceFrom: 82,
-        image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-lu-d39fc8a9-20251024142257.jpg",
         features: ["Hot Tub", "Harbour Views", "Modern"],
         slug: "plymouth-waterfront-house",
       },
