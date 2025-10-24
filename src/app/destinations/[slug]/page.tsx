@@ -427,7 +427,7 @@ export default function DestinationDetailPage() {
         { icon: Bus, text: "National Express hub with extensive services" }
       ],
       nightlife: [
-        { name: "Snobs", description: "Iconic indie club since 1993", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Snobs", description: "Iconic indie club since 1993", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-snobs-nightcl-e17f02f4-20251024124424.jpg" },
         { name: "Lab 11", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
         { name: "The Jekyll & Hyde", description: "Multi-level themed bar and club", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
