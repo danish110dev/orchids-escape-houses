@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2, Scissors } from "lucide-react";
+import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2, Sparkles, Camera, Heart, Coffee, Gift, Music, PartyPopper, Flower2, Scissors } from "lucide-react";
 import Link from "next/link";
 
 // Experience data
@@ -52,6 +52,49 @@ const experiencesData: Record<string, any> = {
       {
         question: "Does the price include drinks?",
         answer: "The price includes all food and chef service. Drinks are not included, but we can arrange wine pairing recommendations or beverage delivery services for an additional cost."
+      }
+    ]
+  },
+  "hair-styling": {
+    title: "Hair Styling",
+    duration: "2-3 hours",
+    priceFrom: 35,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    icon: Scissors,
+    description:
+      "Get glammed up with professional hair styling for your entire group. Our mobile hair stylists bring salon-quality services to your door, creating gorgeous hairstyles perfect for your celebration. From elegant updos to beachy waves, bouncy blowouts to intricate braids, we'll make sure everyone looks picture-perfect.",
+    included: [
+      "Professional mobile hair stylist",
+      "Individual consultation for each guest",
+      "Choice of styling (updos, curls, braids, blowouts)",
+      "All styling tools and products provided",
+      "Touch-up tips and hairspray for the day",
+      "Group photo session after styling",
+    ],
+    whatToProvide: [
+      "Space with good lighting and mirrors",
+      "Chairs for styling area",
+      "Power outlets for styling tools",
+      "Hair washed and dried beforehand (optional)",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 40 },
+      { size: "13-16 guests", price: 37 },
+      { size: "17-20 guests", price: 35 },
+    ],
+    faqs: [
+      {
+        question: "Should we wash our hair before the stylist arrives?",
+        answer: "Clean, dry hair works best for most styles. However, the stylist can work with damp or day-old hair too. We'll provide guidance based on your chosen styles when you book."
+      },
+      {
+        question: "How long does each person take?",
+        answer: "Simple styles take 15-20 minutes, while intricate updos or braids can take 30-40 minutes per person. We'll schedule enough time for everyone based on your chosen styles."
+      },
+      {
+        question: "Can we try different styles?",
+        answer: "Yes! Each guest can choose their preferred style. We recommend deciding in advance to make the most of your session time."
       }
     ]
   },
@@ -150,7 +193,7 @@ const experiencesData: Record<string, any> = {
     duration: "3-4 hours",
     priceFrom: 40,
     groupSize: "8-30 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
     icon: Mic2,
     description:
       "Belt out your favourite tunes with our fully equipped karaoke experience. We'll set up professional sound equipment, lighting, and a vast library of songs for an unforgettable singing session. Whether your group are closet divas or just fancy a laugh, karaoke is guaranteed to get everyone involved and create brilliant memories. Perfect for hen parties who want to let loose and have a proper sing-song!",
@@ -188,50 +231,274 @@ const experiencesData: Record<string, any> = {
       }
     ]
   },
-  "hair-styling": {
-    title: "Hair Styling",
+  "spa-treatments": {
+    title: "Spa Treatments",
     duration: "2-3 hours",
-    priceFrom: 35,
-    groupSize: "6-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
-    icon: Scissors,
+    priceFrom: 75,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
+    icon: Sparkles,
     description:
-      "Get glammed up for your big night out with our professional hair styling experience. Our talented stylists will come to your property and create stunning looks for your entire group, from elegant updos to bouncy blow-drys. Whether you want festival braids, glamorous curls, or a chic bridal party look, our team will have everyone looking and feeling fabulous. Perfect for hen parties who want to look their best without the stress of salon appointments!",
+      "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house. Perfect for a relaxing afternoon or recovery session.",
     included: [
-      "Professional hair stylist team for 2-3 hours",
-      "Individual styling consultation for each guest",
-      "All styling tools, products, and equipment",
-      "Choice of hairstyles from our portfolio",
-      "Hair accessories and finishing touches",
-      "Photos of finished looks for reference",
+      "Professional mobile therapists",
+      "Choice of treatments (massage, facial, manicure)",
+      "All equipment and products",
+      "Relaxing music and ambiance",
+      "Treatment consultation",
+      "Take-home aftercare advice",
     ],
     whatToProvide: [
-      "Space with good lighting and mirrors",
-      "Chairs for styling stations",
-      "Power outlets for styling tools",
-      "Let us know preferred styles or inspiration photos in advance",
+      "Quiet space for treatments",
+      "Comfortable seating or massage area",
+      "Towels and robes (optional)",
+      "Relaxing atmosphere",
     ],
     pricing: [
-      { size: "6-10 guests", price: 40 },
-      { size: "11-15 guests", price: 37 },
-      { size: "16-20 guests", price: 35 },
+      { size: "8-12 guests", price: 80 },
+      { size: "13-16 guests", price: 77 },
+      { size: "17-20 guests", price: 75 },
     ],
     faqs: [
       {
-        question: "How long does each person's hair take?",
-        answer: "Depending on hair length and style complexity, each person typically takes 15-30 minutes. We bring multiple stylists for larger groups to ensure everyone is ready on time!"
+        question: "What treatments are available?",
+        answer: "We offer massages (back, shoulder, full body), facials, manicures, pedicures, and more. You can mix and match treatments for your group."
       },
       {
-        question: "What styles can you create?",
-        answer: "We can create anything from simple blow-drys and curls to intricate updos, braids, and festival-inspired looks. Send us inspiration photos beforehand and we'll make it happen!"
+        question: "How long is each treatment?",
+        answer: "Individual treatments typically last 30-45 minutes. We'll schedule the session to accommodate your entire group."
+      }
+    ]
+  },
+  "yoga-session": {
+    title: "Yoga & Pilates Classes",
+    duration: "1.5-2 hours",
+    priceFrom: 40,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
+    icon: Heart,
+    description:
+      "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone. Perfect for a morning or recovery session.",
+    included: [
+      "Professional yoga/pilates instructor",
+      "Mats and equipment provided",
+      "Tailored session for all fitness levels",
+      "Relaxation and breathing exercises",
+      "Post-class refreshments guidance",
+      "Group photo opportunity",
+    ],
+    whatToProvide: [
+      "Large open space",
+      "Good ventilation",
+      "Water for participants",
+      "Comfortable workout clothes",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 45 },
+      { size: "13-16 guests", price: 42 },
+      { size: "17-20 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "Do we need yoga experience?",
+        answer: "Not at all! Our instructors tailor the class to your group's ability level, from complete beginners to experienced yogis."
       },
       {
-        question: "Do I need to wash my hair before?",
-        answer: "For best results, we recommend washing your hair the night before or morning of the styling session. This gives your hair the perfect texture for styling and helps styles last longer."
+        question: "What should we wear?",
+        answer: "Comfortable, stretchy clothing that allows movement. We recommend leggings and a fitted top."
+      }
+    ]
+  },
+  "life-drawing": {
+    title: "Life Drawing",
+    duration: "2 hours",
+    priceFrom: 45,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
+    icon: Paintbrush,
+    description:
+      "Add some giggles with a classy-but-fun experience that everyone will remember. Professional life drawing session with a cheeky twist!",
+    included: [
+      "Professional art instructor",
+      "Life drawing model",
+      "All art supplies (paper, charcoal, pencils)",
+      "Step-by-step guidance",
+      "Take-home artwork",
+      "Lots of laughter!",
+    ],
+    whatToProvide: [
+      "Space with good lighting",
+      "Tables or easels for drawing",
+      "Chairs for participants",
+      "Open-minded attitude!",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 50 },
+      { size: "13-16 guests", price: 47 },
+      { size: "17-20 guests", price: 45 },
+    ],
+    faqs: [
+      {
+        question: "Do we need drawing experience?",
+        answer: "Absolutely not! This is all about fun and laughter. The instructor will guide you through basic techniques."
       },
       {
-        question: "Can you work with all hair types?",
-        answer: "Absolutely! Our stylists are experienced with all hair types and textures, from fine and straight to thick, curly, and afro hair. We bring appropriate products and tools for everyone."
+        question: "What should we expect?",
+        answer: "A professional, fun atmosphere with a cheeky model. It's tasteful but guaranteed to create hilarious memories!"
+      }
+    ]
+  },
+  "flower-crown-making": {
+    title: "Flower Crown Making",
+    duration: "1.5-2 hours",
+    priceFrom: 35,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+    icon: Flower2,
+    description:
+      "Get creative and make beautiful flower crowns for your group. Perfect Instagram moment included. Take home your handmade creations!",
+    included: [
+      "Professional florist instructor",
+      "Fresh flowers and greenery",
+      "All crafting materials and tools",
+      "Step-by-step guidance",
+      "Take-home flower crowns",
+      "Group photo session with crowns",
+    ],
+    whatToProvide: [
+      "Table space for crafting",
+      "Good natural lighting",
+      "Chairs for participants",
+      "Enthusiasm and creativity!",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 40 },
+      { size: "13-16 guests", price: 37 },
+      { size: "17-20 guests", price: 35 },
+    ],
+    faqs: [
+      {
+        question: "How long do the crowns last?",
+        answer: "Fresh flower crowns last 1-2 days with proper care. We'll provide tips to keep them looking their best!"
+      },
+      {
+        question: "Can we choose the flowers?",
+        answer: "Yes! We can tailor the color scheme and flower types to match your group's preferences and wedding colors."
+      }
+    ]
+  },
+  "dance-class": {
+    title: "Dance Class",
+    duration: "1.5-2 hours",
+    priceFrom: 40,
+    groupSize: "8-25 guests",
+    image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
+    icon: Music,
+    description:
+      "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving. Perfect for active groups!",
+    included: [
+      "Professional dance instructor",
+      "Choreographed routine tailored to your group",
+      "Music and sound system",
+      "Step-by-step breakdown",
+      "Final performance video",
+      "Lots of fun and energy!",
+    ],
+    whatToProvide: [
+      "Large open space for dancing",
+      "Good flooring (not carpet)",
+      "Power outlet for sound system",
+      "Comfortable clothing and trainers",
+    ],
+    pricing: [
+      { size: "8-15 guests", price: 45 },
+      { size: "16-20 guests", price: 42 },
+      { size: "21-25 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "What dance styles are available?",
+        answer: "We offer everything from hip-hop and street dance to burlesque, salsa, and even Spice Girls routines! Choose what suits your group."
+      },
+      {
+        question: "Do we need dance experience?",
+        answer: "Not at all! The instructor will adapt the routine to your group's ability. It's all about having fun!"
+      }
+    ]
+  },
+  "photography-package": {
+    title: "Photography Package",
+    duration: "2-3 hours",
+    priceFrom: 150,
+    groupSize: "Any size",
+    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&q=80",
+    icon: Camera,
+    description:
+      "Capture your special weekend with a professional photographer. Candid moments and group shots you'll treasure forever.",
+    included: [
+      "Professional photographer for 2-3 hours",
+      "Candid and posed shots",
+      "Edited digital images (100-200 photos)",
+      "Online gallery for sharing",
+      "Print rights included",
+      "Fast turnaround (7-14 days)",
+    ],
+    whatToProvide: [
+      "Your beautiful group!",
+      "Location ideas (indoor/outdoor)",
+      "Willingness to have fun on camera",
+      "Any specific shots you'd like",
+    ],
+    pricing: [
+      { size: "Any group size", price: 150 },
+    ],
+    faqs: [
+      {
+        question: "How many photos do we receive?",
+        answer: "You'll receive 100-200 professionally edited digital images, depending on the session length. All photos come with print rights."
+      },
+      {
+        question: "Can we have both candid and posed shots?",
+        answer: "Absolutely! The photographer will capture both natural moments and organize group photos to ensure you get a great mix."
+      }
+    ]
+  },
+  "make-up-artist": {
+    title: "Make-up Artist",
+    duration: "2-3 hours",
+    priceFrom: 40,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
+    icon: Sparkles,
+    description:
+      "Professional make-up application for your entire group. From natural glam to full glam, look your absolute best!",
+    included: [
+      "Professional make-up artist",
+      "Individual consultation for each guest",
+      "High-quality products and tools",
+      "Choice of look (natural, glam, dramatic)",
+      "Lashes application (if desired)",
+      "Touch-up tips for the day",
+    ],
+    whatToProvide: [
+      "Well-lit space with mirrors",
+      "Chairs for make-up area",
+      "Clean faces (moisturized)",
+      "Any specific product preferences",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 45 },
+      { size: "13-16 guests", price: 42 },
+      { size: "17-20 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "How long does each person take?",
+        answer: "Natural looks take 20-30 minutes, while full glam can take 40-45 minutes per person. We'll schedule accordingly."
+      },
+      {
+        question: "What should we do before the artist arrives?",
+        answer: "Arrive with clean, moisturized skin. Remove any existing make-up beforehand."
       }
     ]
   }
@@ -270,26 +537,34 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
       slug: "sip-and-paint",
     },
     {
+      title: "Hair Styling",
+      duration: "2-3 hours",
+      priceFrom: 35,
+      groupSize: "8-20 guests",
+      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+      slug: "hair-styling",
+    },
+    {
       title: "Karaoke Night",
       duration: "3-4 hours",
       priceFrom: 40,
       groupSize: "8-30 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
       slug: "karaoke-night",
     },
     {
-      title: "Hair Styling",
+      title: "Spa Treatments",
       duration: "2-3 hours",
-      priceFrom: 35,
-      groupSize: "6-20 guests",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
-      slug: "hair-styling",
+      priceFrom: 75,
+      groupSize: "8-20 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
+      slug: "spa-treatments",
     },
   ];
 
   const relatedExperiences = allExperiences
     .filter(exp => exp.slug !== params.slug)
-    .slice(0, 2);
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
@@ -303,7 +578,7 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
               src={experience.image} 
               alt={experience.title} 
               fill 
-              className="object-cover object-top"
+              className="object-contain bg-gray-100" 
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
