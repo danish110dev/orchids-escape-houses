@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette } from "lucide-react";
+import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2 } from "lucide-react";
 import Link from "next/link";
 
 // Experience data
@@ -144,6 +144,49 @@ const experiencesData: Record<string, any> = {
         answer: "Yes! We can create mocktail versions of all cocktails, or run a fully alcohol-free session if preferred."
       }
     ]
+  },
+  "karaoke-night": {
+    title: "Karaoke Night",
+    duration: "3-4 hours",
+    priceFrom: 40,
+    groupSize: "8-30 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    icon: Mic2,
+    description:
+      "Belt out your favourite tunes with our fully equipped karaoke experience. We'll set up professional sound equipment, lighting, and a vast library of songs for an unforgettable singing session. Whether your group are closet divas or just fancy a laugh, karaoke is guaranteed to get everyone involved and create brilliant memories. Perfect for hen parties who want to let loose and have a proper sing-song!",
+    included: [
+      "Professional karaoke setup with speakers and microphones",
+      "Lighting package to set the party mood",
+      "Extensive song library (thousands of tracks)",
+      "Technical support and equipment setup",
+      "Multiple microphones for duets and group performances",
+      "Request system for your favourite songs",
+    ],
+    whatToProvide: [
+      "Space for singing and audience seating",
+      "Power outlets for equipment",
+      "Your enthusiasm and favourite songs in mind",
+      "Drinks to loosen those vocal cords (optional but recommended)",
+    ],
+    pricing: [
+      { size: "8-15 guests", price: 45 },
+      { size: "16-22 guests", price: 42 },
+      { size: "23-30 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "What songs are available?",
+        answer: "We have thousands of tracks from every decade and genre – from classic anthems to the latest chart hits. You can send us a playlist of must-haves before the event!"
+      },
+      {
+        question: "Do we need to be able to sing?",
+        answer: "Absolutely not! Karaoke is all about having fun, not winning X Factor. The worse you are, the more entertaining it usually is!"
+      },
+      {
+        question: "Can we add songs that aren't in the library?",
+        answer: "Yes, if you let us know in advance, we can usually source specific tracks and add them to the system before your event."
+      }
+    ]
   }
 };
 
@@ -153,7 +196,8 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
   const experience = experiencesData[params.slug] || experiencesData["private-chef"];
   const Icon = experience.icon;
 
-  const relatedExperiences = [
+  // Generate related experiences dynamically, excluding current one
+  const allExperiences = [
     {
       title: "Cocktail Masterclass",
       duration: "2 hours",
@@ -166,7 +210,7 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
       title: "Private Chef Experience",
       duration: "3-4 hours",
       priceFrom: 65,
-      groupSize: "Any size",
+      groupSize: "8-24 guests",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
       slug: "private-chef",
     },
@@ -178,7 +222,19 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
       slug: "sip-and-paint",
     },
-  ].filter(exp => exp.slug !== params.slug).slice(0, 2);
+    {
+      title: "Karaoke Night",
+      duration: "3-4 hours",
+      priceFrom: 40,
+      groupSize: "8-30 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+      slug: "karaoke-night",
+    },
+  ];
+
+  const relatedExperiences = allExperiences
+    .filter(exp => exp.slug !== params.slug)
+    .slice(0, 2);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
