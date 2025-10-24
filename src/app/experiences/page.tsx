@@ -194,10 +194,10 @@ export default function ExperiencesPage() {
       >
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Experiences at Orchids – Relax, Laugh, Celebrate
+            Hen Party Experiences UK – Unforgettable Activities for Your Celebration
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto mb-8">
-            Create your dream hen weekend with spa treatments, chef-cooked meals, yoga mornings, and unforgettable moments. Whether you're here to unwind or get the giggles flowing, we've got you covered.
+            Create your dream <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen weekend</Link> with <Link href="/experiences/spa-treatments" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">spa treatments</Link>, <Link href="/experiences/private-chef" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">private chef dining</Link>, <Link href="/experiences/yoga-session" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">yoga mornings</Link>, and unforgettable moments. Whether you're here to unwind or get the giggles flowing with <Link href="/experiences/cocktail-masterclass" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">cocktail masterclasses</Link>, we've got you covered across the UK.
           </p>
           <Button
             asChild
@@ -216,8 +216,8 @@ export default function ExperiencesPage() {
       {/* Intro Paragraph */}
       <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-lg text-center max-w-4xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-            At Orchids, we make hen weekends feel effortless. Our curated activities bring together everything you love – indulgent food, pampering, laughter, and a sprinkle of luxury. Choose from chef dining, spa treatments, yoga sessions, or something a little cheekier. You tell us the vibe, and we'll make it happen.
+          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+            At <strong>Group Escape Houses</strong>, we make <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">hen party weekends</Link> feel effortless. Our curated activities bring together everything you love – indulgent food, pampering, laughter, and a sprinkle of luxury. Choose from <Link href="/experiences/private-chef" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">chef dining</Link>, <Link href="/experiences/spa-treatments" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">spa treatments</Link>, <Link href="/experiences/yoga-session" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">yoga sessions</Link>, or something a little cheekier like <Link href="/experiences/butlers-in-the-buff" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">butlers in the buff</Link>. Available at our <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">luxury party houses across the UK</Link> – you tell us the vibe, and we'll make it happen.
           </p>
         </div>
       </section>
@@ -233,10 +233,10 @@ export default function ExperiencesPage() {
             className="text-center mb-12"
           >
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              ⭐ Most Popular Experiences
+              ⭐ Most Popular Hen Party Experiences
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              Our most searched and booked activities. These crowd-pleasers are guaranteed to make your hen weekend unforgettable.
+              Our most searched and booked activities for <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen parties</Link> and <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">group celebrations</Link>. These crowd-pleasers are guaranteed to make your weekend unforgettable at any of our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK party houses</Link>.
             </p>
           </motion.div>
 
@@ -393,7 +393,7 @@ export default function ExperiencesPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-6"
             style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            ✨ How It Works
+            ✨ How Experience Booking Works
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -403,7 +403,7 @@ export default function ExperiencesPage() {
             className="text-center text-lg max-w-3xl mx-auto mb-12"
             style={{ color: "var(--color-neutral-dark)" }}
           >
-            All experiences are optional add-ons that can be arranged before or after booking. Our team takes care of everything – timings, setup, and suppliers – so all you need to do is relax and enjoy.
+            All experiences are optional add-ons that can be arranged when you <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">book your party house</Link> or added later. Our UK-based team at <Link href="/our-story" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">Group Escape Houses</Link> takes care of everything – timings, setup, and suppliers – so all you need to do is relax and enjoy. See our full <Link href="/how-it-works" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">booking process here</Link>.
           </motion.p>
 
           <motion.div
@@ -469,7 +469,7 @@ export default function ExperiencesPage() {
             className="mb-6"
             style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
           >
-            💕 Make It Yours
+            💕 Personalise Your Hen Weekend Experience
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -479,7 +479,7 @@ export default function ExperiencesPage() {
             className="text-lg max-w-3xl mx-auto mb-8"
             style={{ color: "var(--color-neutral-dark)" }}
           >
-            Every hen group is different, and that's what we love. Whether you're planning a wellness retreat or a cocktail-filled celebration, Orchids can be customised to match your perfect vibe.
+            Every <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen party group</Link> is different, and that's what we love. Whether you're planning a <Link href="/experiences/yoga-session" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">wellness retreat</Link> or a <Link href="/experiences/cocktail-masterclass" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">cocktail-filled celebration</Link>, Group Escape Houses can be customised to match your perfect vibe. Combine experiences at our <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">luxury houses with hot tubs</Link>, <Link href="/features/swimming-pool" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">pools</Link>, and <Link href="/features/games-room" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">games rooms</Link> across the UK.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -520,10 +520,10 @@ export default function ExperiencesPage() {
             className="text-center mb-12"
           >
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              🗺️ Explore Experiences by Destination
+              🗺️ Hen Party Experiences by UK Destination
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              Each destination offers unique venues and providers for your perfect hen weekend. Browse by location to see what's available in your chosen area.
+              Each destination offers unique venues and providers for your perfect <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen party weekend</Link>. Browse <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">party houses</Link> and experiences by location to see what's available in your chosen area. All our properties feature <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hot tubs</Link>, luxury amenities, and easy access to local providers.
             </p>
           </motion.div>
 
@@ -593,9 +593,12 @@ export default function ExperiencesPage() {
       {/* FAQs */}
       <section className="py-24 bg-white">
         <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Experience FAQs
+          <h2 className="text-center mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+            Hen Party Experience FAQs
           </h2>
+          <p className="text-center text-lg text-[var(--color-neutral-dark)] mb-12 max-w-2xl mx-auto">
+            Everything you need to know about booking experiences with Group Escape Houses. For questions about <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">property bookings</Link>, see our <Link href="/how-it-works" className="underline hover:text-[var(--color-accent-gold)] transition-colors">how it works page</Link>.
+          </p>
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
