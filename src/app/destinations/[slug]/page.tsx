@@ -883,7 +883,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Blackpool Airport and Manchester Airport nearby" }
       ],
       nightlife: [
-        { name: "Funny Girls", description: "Famous cabaret and drag shows", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "Funny Girls", description: "Famous cabaret and drag shows", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-funny-girls-c-77af8830-20251024134341.jpg" },
         { name: "The Syndicate", description: "Multi-room nightclub", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "Promenade Bars", description: "Seafront entertainment venues", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
@@ -1984,7 +1984,7 @@ export default function DestinationDetailPage() {
         sleeps: 16,
         bedrooms: 8,
         priceFrom: 75,
-        image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-lu-de9befb4-20251024134339.jpg",
         features: ["Hot Tub", "Sea Views", "Games Room"],
         slug: "blackpool-seafront-house",
       },
