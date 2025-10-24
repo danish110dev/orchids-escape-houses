@@ -326,15 +326,15 @@ export default function Home() {
               <p className="text-[var(--color-neutral-dark)]">Trusted by thousands of happy guests across the UK.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-pink)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '600ms' }}>
-                <Users className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" style={{ color: "var(--color-accent-pink)" }} />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '600ms' }}>
+                <Users className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold mb-2">UK Support Team</h3>
               <p className="text-[var(--color-neutral-dark)]">Brighton-based team ready to help plan your perfect stay.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '900ms' }}>
-                <Clock className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '900ms' }}>
+                <Clock className="w-8 h-8 text-[var(--color-accent-gold)] transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold mb-2">24-Hour Response</h3>
               <p className="text-[var(--color-neutral-dark)]">Fast replies to all enquiries. No waiting around.</p>
@@ -839,7 +839,7 @@ export default function Home() {
       </section>
 
       {/* Instagram Section */}
-      <section className="py-12 sm:py-16 md:py-20 scroll-reveal" style={{ background: "var(--color-accent-pink)" }}>
+      <section className="py-12 sm:py-16 md:py-20 scroll-reveal" style={{ background: "var(--color-bg-secondary)" }}>
         <div className="max-w-full">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
             <h2 
@@ -886,7 +886,7 @@ export default function Home() {
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-pink)" }} />
+                      <Instagram className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-sage)" }} />
                     </div>
                   </div>
                 </a>
@@ -915,7 +915,7 @@ export default function Home() {
                   ></div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Instagram className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-pink)" }} />
+                      <Instagram className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: "var(--color-accent-sage)" }} />
                     </div>
                   </div>
                 </a>
