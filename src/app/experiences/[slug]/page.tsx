@@ -5,19 +5,20 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
+import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils } from "lucide-react";
+import { Clock, Users, Check, Calendar, MessageCircle, ChefHat, Utensils, Paintbrush, Wine, Palette } from "lucide-react";
 import Link from "next/link";
 
-export default function ExperienceDetailPage() {
-  const [isEnquiring, setIsEnquiring] = useState(false);
-
-  const experience = {
+// Experience data
+const experiencesData: Record<string, any> = {
+  "private-chef": {
     title: "Private Chef Experience",
     duration: "3-4 hours",
     priceFrom: 65,
     groupSize: "8-24 guests",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+    icon: ChefHat,
     description:
       "Treat your group to a restaurant-quality dining experience in the comfort of your own property. Our professional chefs will arrive with all ingredients, prepare a stunning three-course meal tailored to your preferences, and handle all the clearing up. It's the perfect way to enjoy gourmet food without lifting a finger, leaving you free to focus on celebrating with your guests.",
     included: [
@@ -39,26 +40,145 @@ export default function ExperienceDetailPage() {
       { size: "13-18 guests", price: 68 },
       { size: "19-24 guests", price: 65 },
     ],
-  };
+    faqs: [
+      {
+        question: "Can we customise the menu?",
+        answer: "Absolutely! Our chefs will work with you to create a menu that suits your group's preferences and dietary requirements. We can accommodate vegetarian, vegan, gluten-free, and other dietary needs."
+      },
+      {
+        question: "What time does the chef arrive?",
+        answer: "The chef typically arrives 1-2 hours before your preferred dining time to prepare. We'll coordinate the exact timing with you when booking."
+      },
+      {
+        question: "Does the price include drinks?",
+        answer: "The price includes all food and chef service. Drinks are not included, but we can arrange wine pairing recommendations or beverage delivery services for an additional cost."
+      }
+    ]
+  },
+  "sip-and-paint": {
+    title: "Sip & Paint",
+    duration: "2-3 hours",
+    priceFrom: 45,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
+    icon: Palette,
+    description:
+      "Unleash your inner artist with our popular Sip & Paint experience. A professional art instructor will guide your group through creating your own masterpiece while you enjoy your favourite drinks. No experience needed – just bring your enthusiasm and creativity! Perfect for a fun, relaxed afternoon or evening activity that everyone will love. Take home your unique artwork as a memento of your celebration.",
+    included: [
+      "Professional art instructor for 2-3 hours",
+      "All painting supplies (canvas, brushes, paints, aprons)",
+      "Step-by-step guidance suitable for all skill levels",
+      "Individual easels and workspace setup",
+      "Choice of painting theme or design",
+      "Take-home canvas and memories",
+    ],
+    whatToProvide: [
+      "Space with tables and chairs for the group",
+      "Good lighting in the painting area",
+      "Drinks and refreshments for your group",
+      "Floor covering or drop cloths (optional, for extra protection)",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 50 },
+      { size: "13-16 guests", price: 47 },
+      { size: "17-20 guests", price: 45 },
+    ],
+    faqs: [
+      {
+        question: "Do we need any painting experience?",
+        answer: "Not at all! Our instructors specialise in guiding complete beginners. They'll break down each painting into simple, easy-to-follow steps. Everyone creates something they're proud of!"
+      },
+      {
+        question: "What kind of paintings can we create?",
+        answer: "We offer a variety of designs from landscapes and florals to abstract art and seasonal themes. You can choose from our popular designs or request something specific for your group."
+      },
+      {
+        question: "How long does the paint take to dry?",
+        answer: "Acrylic paints dry relatively quickly (1-2 hours), but we recommend letting your masterpiece dry overnight before transporting it home. We'll provide tips for safe transport."
+      },
+      {
+        question: "Can we drink alcohol during the session?",
+        answer: "Yes! That's the 'Sip' part. We encourage you to have your favourite drinks on hand – prosecco, wine, or cocktails pair perfectly with painting. Just remember to drink responsibly!"
+      },
+      {
+        question: "What should we wear?",
+        answer: "We provide aprons, but we recommend wearing casual clothes you don't mind getting a tiny bit of paint on, just in case! Acrylic paint washes out easily from most fabrics."
+      }
+    ]
+  },
+  "cocktail-masterclass": {
+    title: "Cocktail Masterclass",
+    duration: "2 hours",
+    priceFrom: 50,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    icon: Wine,
+    description:
+      "Learn to shake, stir, and muddle like a pro with our cocktail masterclass. An expert mixologist will teach your group how to create 3-4 classic and contemporary cocktails, sharing tips, tricks, and the stories behind each drink. Perfect for getting the party started!",
+    included: [
+      "Professional mixologist for 2 hours",
+      "All ingredients for 3-4 cocktails per person",
+      "Bar equipment and glassware",
+      "Recipe cards to take home",
+      "Cocktail-making techniques and tips",
+      "Fun competitions and games",
+    ],
+    whatToProvide: [
+      "Table or bar area for mixing",
+      "Ice and refrigeration",
+      "Kitchen access for preparation",
+      "Snacks to accompany the cocktails (optional)",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 55 },
+      { size: "13-16 guests", price: 52 },
+      { size: "17-20 guests", price: 50 },
+    ],
+    faqs: [
+      {
+        question: "What cocktails will we learn to make?",
+        answer: "Typically 3-4 cocktails including classics like Mojitos, Espresso Martinis, or Aperol Spritz. We can tailor the selection to your group's preferences!"
+      },
+      {
+        question: "Is this suitable for non-drinkers?",
+        answer: "Yes! We can create mocktail versions of all cocktails, or run a fully alcohol-free session if preferred."
+      }
+    ]
+  }
+};
+
+export default function ExperienceDetailPage({ params }: { params: { slug: string } }) {
+  const [isEnquiring, setIsEnquiring] = useState(false);
+  
+  const experience = experiencesData[params.slug] || experiencesData["private-chef"];
+  const Icon = experience.icon;
 
   const relatedExperiences = [
     {
       title: "Cocktail Masterclass",
       duration: "2 hours",
-      priceFrom: 45,
+      priceFrom: 50,
       groupSize: "8-20 guests",
-      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
       slug: "cocktail-masterclass",
     },
     {
-      title: "Bottomless Brunch",
-      duration: "2 hours",
-      priceFrom: 40,
+      title: "Private Chef Experience",
+      duration: "3-4 hours",
+      priceFrom: 65,
       groupSize: "Any size",
-      image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80",
-      slug: "bottomless-brunch",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+      slug: "private-chef",
     },
-  ];
+    {
+      title: "Sip & Paint",
+      duration: "2-3 hours",
+      priceFrom: 45,
+      groupSize: "8-20 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
+      slug: "sip-and-paint",
+    },
+  ].filter(exp => exp.slug !== params.slug).slice(0, 2);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
@@ -72,7 +192,7 @@ export default function ExperienceDetailPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
               <div className="flex items-center gap-3 mb-4">
-                <ChefHat className="w-8 h-8" />
+                <Icon className="w-8 h-8" />
                 <h1 className="mb-0" style={{ fontFamily: "var(--font-display)" }}>
                   {experience.title}
                 </h1>
@@ -109,13 +229,13 @@ export default function ExperienceDetailPage() {
               {/* What's Included */}
               <div className="bg-white rounded-2xl p-8 mb-8 shadow-md border-2 border-[var(--color-accent-gold)]">
                 <div className="flex items-center gap-3 mb-6">
-                  <Utensils className="w-6 h-6 text-[var(--color-accent-gold)]" />
+                  <Check className="w-6 h-6 text-[var(--color-accent-gold)]" />
                   <h3 className="text-2xl font-semibold mb-0" style={{ fontFamily: "var(--font-body)" }}>
                     What's included
                   </h3>
                 </div>
                 <ul className="space-y-4">
-                  {experience.included.map((item, index) => (
+                  {experience.included.map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-0.5" />
                       <span className="text-[var(--color-neutral-dark)]">{item}</span>
@@ -130,7 +250,7 @@ export default function ExperienceDetailPage() {
                   What you need to provide
                 </h3>
                 <ul className="space-y-4">
-                  {experience.whatToProvide.map((item, index) => (
+                  {experience.whatToProvide.map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-[var(--color-accent-gold)] text-xl mt-0.5">•</span>
                       <span className="text-[var(--color-neutral-dark)]">{item}</span>
@@ -140,12 +260,12 @@ export default function ExperienceDetailPage() {
               </div>
 
               {/* Pricing */}
-              <div className="bg-white rounded-2xl p-8 shadow-md">
+              <div className="bg-white rounded-2xl p-8 shadow-md mb-8">
                 <h3 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-body)" }}>
                   Pricing
                 </h3>
                 <div className="space-y-4">
-                  {experience.pricing.map((tier, index) => (
+                  {experience.pricing.map((tier: any, index: number) => (
                     <div
                       key={index}
                       className="flex items-center justify-between p-4 rounded-xl border-2 border-[var(--color-accent-gold)] bg-gradient-to-r from-[var(--color-bg-primary)] to-white"
@@ -164,9 +284,19 @@ export default function ExperienceDetailPage() {
                   ))}
                 </div>
                 <p className="text-sm text-[var(--color-neutral-dark)] mt-6">
-                  Prices are per person and include all food, ingredients, chef service, and cleanup. Wine pairing and upgraded menus available on request.
+                  All prices include materials, instructor/provider fees, and setup. Book alongside your property for the best experience.
                 </p>
               </div>
+
+              {/* FAQs */}
+              {experience.faqs && experience.faqs.length > 0 && (
+                <div className="bg-[var(--color-bg-secondary)] rounded-2xl p-8">
+                  <h3 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-body)" }}>
+                    Frequently Asked Questions
+                  </h3>
+                  <FAQAccordion faqs={experience.faqs} />
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -194,8 +324,8 @@ export default function ExperienceDetailPage() {
                     <span className="text-sm">Available any day of the week</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <ChefHat className="w-5 h-5 text-[var(--color-accent-gold)]" />
-                    <span className="text-sm">Menu customised to your taste</span>
+                    <Icon className="w-5 h-5 text-[var(--color-accent-gold)]" />
+                    <span className="text-sm">All materials included</span>
                   </div>
                 </div>
 
@@ -217,28 +347,30 @@ export default function ExperienceDetailPage() {
                 >
                   <Link href="/contact">
                     <MessageCircle className="w-4 h-4 mr-2" />
-                    Discuss Menu Options
+                    Ask a Question
                   </Link>
                 </Button>
 
                 <p className="text-xs text-center text-[var(--color-neutral-dark)] mt-6">
-                  Book alongside your property for the best rates. Our chefs will work with you to create the perfect menu.
+                  Book alongside your property for the best rates. Our team will coordinate everything for you.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Related Experiences */}
-          <div className="mt-24">
-            <h3 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
-              You might also like
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {relatedExperiences.map((exp) => (
-                <ExperienceCard key={exp.slug} {...exp} />
-              ))}
+          {relatedExperiences.length > 0 && (
+            <div className="mt-24">
+              <h3 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
+                You might also like
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {relatedExperiences.map((exp) => (
+                  <ExperienceCard key={exp.slug} {...exp} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
