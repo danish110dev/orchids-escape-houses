@@ -55,6 +55,496 @@ const experiencesData: Record<string, any> = {
       }
     ]
   },
+  "butlers-in-the-buff": {
+    title: "Butlers in the Buff",
+    duration: "2-3 hours",
+    priceFrom: 55,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
+    icon: Sparkles,
+    description:
+      "Add a cheeky twist to your celebration with our professional Butlers in the Buff! These handsome, polite gentlemen will serve drinks, canapés, and plenty of laughs while wearing nothing but an apron and bow tie. It's the ultimate hen party experience that's tasteful, fun, and guaranteed to create hilarious memories. Perfect for getting the party started!",
+    included: [
+      "Professional butler(s) in signature apron and bow tie",
+      "Drinks and canapé service throughout",
+      "Party games and entertainment",
+      "Photo opportunities with the group",
+      "Professional, friendly, and fun attitude",
+      "Memories that'll last forever!",
+    ],
+    whatToProvide: [
+      "Drinks and canapés for serving",
+      "Space for mingling and serving",
+      "Cameras ready for photos!",
+      "Open-minded fun attitude",
+    ],
+    pricing: [
+      { size: "8-15 guests", price: 60 },
+      { size: "16-20 guests", price: 55 },
+    ],
+    faqs: [
+      {
+        question: "How revealing is the outfit?",
+        answer: "Our butlers wear a collar, bow tie, cuffs, and a front apron. It's cheeky and fun but always tasteful and professional."
+      },
+      {
+        question: "What do the butlers do?",
+        answer: "They'll serve drinks, canapés, host games, pose for photos, and keep the party atmosphere fun and lively. They're professional entertainers first and foremost!"
+      }
+    ]
+  },
+  "mobile-beauty-bar": {
+    title: "Mobile Beauty Bar",
+    duration: "2-3 hours",
+    priceFrom: 45,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+    icon: Sparkles,
+    description:
+      "Transform your venue into a luxurious beauty salon with our mobile beauty bar. Our professional beauty therapists bring everything needed for mini makeovers, nail treatments, and pampering sessions. Perfect for getting glammed up together before a night out or as a relaxing afternoon activity.",
+    included: [
+      "Professional beauty therapists",
+      "Mini facials and skin treatments",
+      "Express manicures or nail art",
+      "Make-up touch-ups and advice",
+      "All products and equipment",
+      "Relaxing pamper atmosphere",
+    ],
+    whatToProvide: [
+      "Tables and chairs for beauty stations",
+      "Good lighting in treatment area",
+      "Power outlets for equipment",
+      "Towels for treatments",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 50 },
+      { size: "13-16 guests", price: 47 },
+      { size: "17-20 guests", price: 45 },
+    ],
+    faqs: [
+      {
+        question: "What treatments are available?",
+        answer: "Mini facials, express manicures, nail art, make-up application, and skin consultations. Each person typically receives 2-3 mini treatments."
+      },
+      {
+        question: "How long does each person get?",
+        answer: "Each guest receives approximately 20-30 minutes of pampering. We rotate through the group to ensure everyone is treated."
+      }
+    ]
+  },
+  "pamper-party-package": {
+    title: "Pamper Party Package",
+    duration: "3-4 hours",
+    priceFrom: 65,
+    groupSize: "8-20 guests",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg",
+    icon: Heart,
+    description:
+      "The ultimate pampering experience! This package combines multiple treatments for a full afternoon of indulgence. Enjoy massages, facials, manicures, and more. Perfect for a relaxing hen party or recovery session after a night out. Our mobile therapists bring the spa to you!",
+    included: [
+      "Multiple professional therapists",
+      "Choice of 2-3 treatments per person",
+      "Mini massages, facials, manicures, or pedicures",
+      "All spa products and equipment",
+      "Relaxing music and ambiance setup",
+      "Refreshments guidance",
+    ],
+    whatToProvide: [
+      "Quiet, comfortable space",
+      "Seating and reclining areas",
+      "Towels and robes (optional)",
+      "Background music system",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 70 },
+      { size: "13-16 guests", price: 67 },
+      { size: "17-20 guests", price: 65 },
+    ],
+    faqs: [
+      {
+        question: "What's included in the package?",
+        answer: "Each guest chooses from mini massage, facial, manicure, or pedicure treatments. The package includes 2-3 treatments per person over 3-4 hours."
+      },
+      {
+        question: "Can we customize the treatments?",
+        answer: "Yes! We'll work with you beforehand to understand preferences and create a schedule that works for your group."
+      }
+    ]
+  },
+  "personalised-robes": {
+    title: "Personalised Robes",
+    duration: "Delivered before arrival",
+    priceFrom: 25,
+    groupSize: "Any size",
+    image: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80",
+    icon: Gift,
+    description:
+      "Make your hen weekend extra special with personalized robes for the whole group! Each robe is embroidered with names or fun titles. Perfect for photos, getting ready together, and as memorable keepsakes. Available in various colors and styles to match your hen party theme.",
+    included: [
+      "Soft, luxury robes for each guest",
+      "Personalized embroidery (name or nickname)",
+      "Choice of colors and styles",
+      "Delivered before your arrival",
+      "Gift wrapping option available",
+      "Keepsake to take home",
+    ],
+    whatToProvide: [
+      "Guest names and preferred titles",
+      "Color preferences",
+      "Delivery address and date",
+      "Sizes for each person",
+    ],
+    pricing: [
+      { size: "Per robe", price: 25 },
+    ],
+    faqs: [
+      {
+        question: "How long does delivery take?",
+        answer: "We need 2-3 weeks' notice for personalization. We can rush orders for an additional fee with at least 1 week's notice."
+      },
+      {
+        question: "What can we have embroidered?",
+        answer: "Names, nicknames, or fun titles like 'Bride Tribe', 'Maid of Honor', etc. Up to 15 characters per robe."
+      }
+    ]
+  },
+  "prosecco-reception": {
+    title: "Prosecco Reception",
+    duration: "1-2 hours",
+    priceFrom: 15,
+    groupSize: "Any size",
+    image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80",
+    icon: Wine,
+    description:
+      "Start your celebration in style with a prosecco reception! We'll deliver chilled prosecco, elegant glasses, and all the extras needed for a sophisticated welcome. Perfect for kicking off your hen weekend or celebrating arrival at your property.",
+    included: [
+      "Chilled prosecco bottles (calculated for group)",
+      "Elegant prosecco flutes or coupes",
+      "Fresh fruit garnishes (strawberries, raspberries)",
+      "Ice buckets and napkins",
+      "Delivery and setup at your property",
+      "Collection of glassware after event",
+    ],
+    whatToProvide: [
+      "Fridge space for chilling",
+      "Table or bar area for setup",
+      "Your excited group!",
+    ],
+    pricing: [
+      { size: "Per person", price: 15 },
+    ],
+    faqs: [
+      {
+        question: "How much prosecco is included?",
+        answer: "Approximately 1-1.5 glasses per person (150-200ml). We can provide additional bottles at cost price."
+      },
+      {
+        question: "Can we upgrade to champagne?",
+        answer: "Yes! We can provide champagne instead for an additional cost. Contact us for pricing."
+      }
+    ]
+  },
+  "afternoon-tea": {
+    title: "Afternoon Tea",
+    duration: "2 hours",
+    priceFrom: 30,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=800&q=80",
+    icon: Coffee,
+    description:
+      "Enjoy a delightful afternoon tea delivered to your property. Featuring delicious finger sandwiches, freshly baked scones with jam and cream, and an assortment of sweet treats. A quintessentially British experience perfect for a sophisticated hen celebration!",
+    included: [
+      "Finger sandwiches (various fillings)",
+      "Freshly baked scones with jam and clotted cream",
+      "Selection of cakes and pastries",
+      "Tea, coffee, and soft drinks",
+      "China tea sets or elegant disposable ware",
+      "Setup and presentation",
+    ],
+    whatToProvide: [
+      "Dining space and seating",
+      "Table setup for afternoon tea service",
+      "Refrigeration if needed",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 35 },
+      { size: "13-16 guests", price: 32 },
+      { size: "17-20 guests", price: 30 },
+    ],
+    faqs: [
+      {
+        question: "Can we add prosecco?",
+        answer: "Yes! We offer an upgrade to include prosecco or champagne for an additional £10-15 per person."
+      },
+      {
+        question: "What about dietary requirements?",
+        answer: "We can cater for vegetarian, vegan, gluten-free, and other dietary needs. Just let us know when booking."
+      }
+    ]
+  },
+  "bbq-catering": {
+    title: "BBQ Catering",
+    duration: "3-4 hours",
+    priceFrom: 25,
+    groupSize: "10-30 guests",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    icon: Utensils,
+    description:
+      "Sizzling BBQ brought to you! Our catering team sets up a full BBQ spread at your property with delicious grilled meats, veggie options, sides, and salads. Perfect for a summer hen party or outdoor celebration. Includes setup, cooking, serving, and cleanup.",
+    included: [
+      "Professional BBQ chef and server",
+      "Selection of meats (burgers, sausages, chicken)",
+      "Vegetarian and vegan options",
+      "Fresh salads and side dishes",
+      "Buns, condiments, and sauces",
+      "All equipment, setup, and cleanup",
+    ],
+    whatToProvide: [
+      "Outdoor space for BBQ (garden, patio)",
+      "Tables and seating for dining",
+      "Plates and cutlery (or we can provide)",
+    ],
+    pricing: [
+      { size: "10-15 guests", price: 30 },
+      { size: "16-22 guests", price: 27 },
+      { size: "23-30 guests", price: 25 },
+    ],
+    faqs: [
+      {
+        question: "What if it rains?",
+        answer: "We can BBQ under cover if you have a gazebo or covered area. For indoor venues, we can arrange alternative catering."
+      },
+      {
+        question: "What's on the menu?",
+        answer: "Typically burgers, sausages, chicken, halloumi, salads, coleslaw, and bread. We can customize the menu to your preferences!"
+      }
+    ]
+  },
+  "pizza-making-class": {
+    title: "Pizza Making Class",
+    duration: "2-3 hours",
+    priceFrom: 40,
+    groupSize: "8-16 guests",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+    icon: ChefHat,
+    description:
+      "Get hands-on and create your own delicious pizzas! A professional pizza chef teaches you dough-making, sauce preparation, and topping techniques. Then enjoy eating your creations together. Fun, interactive, and delicious!",
+    included: [
+      "Professional pizza chef instructor",
+      "All ingredients (flour, toppings, cheese, sauce)",
+      "Pizza-making equipment and tools",
+      "Dough preparation demonstration",
+      "Individual pizzas for each guest",
+      "Cooking and eating together",
+    ],
+    whatToProvide: [
+      "Kitchen with oven access",
+      "Work surfaces for dough preparation",
+      "Dining area for eating pizzas",
+      "Aprons (optional)",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 45 },
+      { size: "13-16 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "Do we need cooking experience?",
+        answer: "Not at all! The chef guides you through every step. It's all about having fun and getting creative with toppings!"
+      },
+      {
+        question: "What toppings are available?",
+        answer: "A wide selection including meats, vegetables, and cheeses. We can accommodate dietary requirements and preferences."
+      }
+    ]
+  },
+  "bottomless-brunch": {
+    title: "Bottomless Brunch",
+    duration: "2 hours",
+    priceFrom: 35,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80",
+    icon: Coffee,
+    description:
+      "The perfect way to start your celebration! Enjoy unlimited prosecco, mimosas, or cocktails alongside a delicious brunch spread. Delivered and served at your property for a stress-free morning of indulgence.",
+    included: [
+      "2 hours of unlimited prosecco or mimosas",
+      "Full brunch spread (pastries, eggs, bacon, fruits)",
+      "Servers for drinks and food",
+      "Juice, tea, and coffee",
+      "Setup and cleanup",
+    ],
+    whatToProvide: [
+      "Dining space and tables",
+      "Plates and cutlery (or we can provide)",
+      "Ready appetites!",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 40 },
+      { size: "13-16 guests", price: 37 },
+      { size: "17-20 guests", price: 35 },
+    ],
+    faqs: [
+      {
+        question: "Is it really unlimited drinks?",
+        answer: "Yes! For the full 2 hours. We serve responsibly and want everyone to have a great time safely."
+      },
+      {
+        question: "What's included in the food?",
+        answer: "Pastries, eggs, bacon, sausages, fruits, toast, and condiments. We can adapt for dietary requirements."
+      }
+    ]
+  },
+  "gin-tasting": {
+    title: "Gin Tasting",
+    duration: "1.5-2 hours",
+    priceFrom: 45,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+    icon: Wine,
+    description:
+      "Discover the world of craft gin with our guided tasting experience. Sample 5-6 premium gins, learn about botanicals and production, and find your perfect serve. Perfect for gin lovers!",
+    included: [
+      "Professional gin expert host",
+      "5-6 premium gin tastings",
+      "Tonic pairings and garnishes",
+      "Botanical education session",
+      "Tasting notes and recommendations",
+      "Recipe cards for favorite serves",
+    ],
+    whatToProvide: [
+      "Table space for tasting setup",
+      "Glasses (or we can provide)",
+      "Ice and refrigeration",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 50 },
+      { size: "13-16 guests", price: 47 },
+      { size: "17-20 guests", price: 45 },
+    ],
+    faqs: [
+      {
+        question: "Which gins will we taste?",
+        answer: "We feature a mix of classic and craft gins from UK distilleries. We can tailor the selection to your preferences!"
+      },
+      {
+        question: "How much gin do we drink?",
+        answer: "Each tasting is approximately 25ml, totaling about 1.5 drinks worth over the session. It's about savoring, not getting drunk!"
+      }
+    ]
+  },
+  "wine-tasting": {
+    title: "Wine Tasting",
+    duration: "1.5-2 hours",
+    priceFrom: 40,
+    groupSize: "8-20 guests",
+    image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
+    icon: Wine,
+    description:
+      "Explore wines from around the world with a professional sommelier. Taste 5-6 wines, learn about regions and grapes, and discover what you love. Sophisticated and fun!",
+    included: [
+      "Professional sommelier guide",
+      "5-6 wine tastings (reds, whites, rosé)",
+      "Tasting notes and pairing advice",
+      "Cheese and crackers to accompany",
+      "Wine education and fun facts",
+      "Recommendations for future purchases",
+    ],
+    whatToProvide: [
+      "Table space for tasting",
+      "Wine glasses (or we can provide)",
+      "Water for palate cleansing",
+    ],
+    pricing: [
+      { size: "8-12 guests", price: 45 },
+      { size: "13-16 guests", price: 42 },
+      { size: "17-20 guests", price: 40 },
+    ],
+    faqs: [
+      {
+        question: "What wines will we try?",
+        answer: "A curated selection from different regions and styles. We typically include sparkling, white, rosé, and red wines."
+      },
+      {
+        question: "Is food included?",
+        answer: "Yes, we provide cheese, crackers, and accompaniments to complement the wines."
+      }
+    ]
+  },
+  "games-activities-pack": {
+    title: "Games & Activities Pack",
+    duration: "All weekend",
+    priceFrom: 20,
+    groupSize: "Any size",
+    image: "https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?w=800&q=80",
+    icon: PartyPopper,
+    description:
+      "Keep the fun going all weekend with our curated games and activities pack! Includes hen party games, challenges, props, and entertainment to keep everyone laughing. Delivered to your property.",
+    included: [
+      "Hen party game cards and challenges",
+      "Props and accessories",
+      "Truth or dare cards",
+      "Drinking games (optional)",
+      "Photo booth props",
+      "Activity ideas and suggestions",
+    ],
+    whatToProvide: [
+      "Space to play and have fun",
+      "Your sense of humor",
+      "Camera for capturing moments",
+    ],
+    pricing: [
+      { size: "Per pack", price: 20 },
+    ],
+    faqs: [
+      {
+        question: "What's in the pack?",
+        answer: "A curated selection of 10-15 different games, challenges, props, and activities. Perfect for a full weekend of entertainment!"
+      },
+      {
+        question: "Are the games appropriate?",
+        answer: "We offer different pack styles from tame to cheeky. Choose what suits your group's vibe!"
+      }
+    ]
+  },
+  "decorations-balloons": {
+    title: "Decorations & Balloons",
+    duration: "Setup before arrival",
+    priceFrom: 50,
+    groupSize: "Any size",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
+    icon: PartyPopper,
+    description:
+      "Transform your property into a party paradise! We'll set up beautiful decorations, balloon displays, banners, and party supplies before you arrive. Choose from our themed packages or create a custom look.",
+    included: [
+      "Balloon arrangements and arches",
+      "Banners and bunting",
+      "Table decorations",
+      "Photo backdrop setup",
+      "Setup before your arrival",
+      "Collection after your stay",
+    ],
+    whatToProvide: [
+      "Access to property for setup",
+      "Space preferences for decorations",
+      "Color scheme or theme preferences",
+    ],
+    pricing: [
+      { size: "Basic package", price: 50 },
+      { size: "Standard package", price: 85 },
+      { size: "Premium package", price: 150 },
+    ],
+    faqs: [
+      {
+        question: "Can we customize colors and themes?",
+        answer: "Absolutely! We'll work with you to create the perfect look based on your color preferences and party theme."
+      },
+      {
+        question: "When is setup done?",
+        answer: "We coordinate with the property to set up on your arrival day before check-in time, so everything is ready when you arrive!"
+      }
+    ]
+  },
   "hair-styling": {
     title: "Hair Styling",
     duration: "2-3 hours",
