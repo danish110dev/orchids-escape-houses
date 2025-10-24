@@ -85,20 +85,20 @@ const experiencesData: Record<string, any> = {
     ],
     faqs: [
       {
-        question: "Do we need any painting experience?",
-        answer: "Not at all! Our instructors specialise in guiding complete beginners. They'll break down each painting into simple, easy-to-follow steps. Everyone creates something they're proud of!"
+        question: "Can we drink alcohol during the session?",
+        answer: "Yes! That's the 'Sip' part. We encourage you to have your favourite drinks on hand – prosecco, wine, or cocktails pair perfectly with painting. Just remember to drink responsibly!"
       },
       {
-        question: "What kind of paintings can we create?",
-        answer: "We offer a variety of designs from landscapes and florals to abstract art and seasonal themes. You can choose from our popular designs or request something specific for your group."
+        question: "Do we need any painting experience?",
+        answer: "Not at all! Our instructors specialise in guiding complete beginners. They'll break down each painting into simple, easy-to-follow steps. Everyone creates something they're proud of!"
       },
       {
         question: "How long does the paint take to dry?",
         answer: "Acrylic paints dry relatively quickly (1-2 hours), but we recommend letting your masterpiece dry overnight before transporting it home. We'll provide tips for safe transport."
       },
       {
-        question: "Can we drink alcohol during the session?",
-        answer: "Yes! That's the 'Sip' part. We encourage you to have your favourite drinks on hand – prosecco, wine, or cocktails pair perfectly with painting. Just remember to drink responsibly!"
+        question: "What kind of paintings can we create?",
+        answer: "We offer a variety of designs from landscapes and florals to abstract art and seasonal themes. You can choose from our popular designs or request something specific for your group."
       },
       {
         question: "What should we wear?",
