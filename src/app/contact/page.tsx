@@ -359,13 +359,6 @@ export default function ContactPage() {
                         >
                           <label 
                             className="flex items-center gap-3 cursor-pointer flex-1"
-                            onClick={(e) => {
-                              // Prevent label click from interfering with link
-                              const target = e.target as HTMLElement;
-                              if (target.tagName === 'A' || target.closest('a')) {
-                                e.preventDefault();
-                              }
-                            }}
                           >
                             <div className="relative">
                               <input
