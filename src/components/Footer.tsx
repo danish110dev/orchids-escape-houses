@@ -87,7 +87,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
             <div className="grid grid-cols-3 gap-3">
               <a
-                href="https://instagram.com/groupescapehouses"
+                href="https://www.instagram.com/groupescapehouses/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
@@ -96,7 +96,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5 text-white" />
               </a>
               <a
-                href="https://facebook.com/groupescapehouses"
+                href="https://www.facebook.com/profile.php?id=61580927195664"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
@@ -105,16 +105,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5 text-white" />
               </a>
               <a
-                href="https://twitter.com/groupescapehouses"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://tiktok.com/@groupescapehouses"
+                href="https://www.tiktok.com/@groupescapehouses"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
@@ -125,16 +116,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://youtube.com/@groupescapehouses"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://pinterest.com/groupescapehouses"
+                href="https://www.pinterest.com/groupescapehouses"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
