@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'v3b.fal.media',
       },
+      {
+        protocol: 'https',
+        hostname: 'butlersinthebuff.com.au',
+      },
     ],
   },
   typescript: {
