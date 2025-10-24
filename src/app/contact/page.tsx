@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock, Calendar, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
@@ -352,33 +353,44 @@ export default function ContactPage() {
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[400px] overflow-y-auto p-4 bg-white rounded-xl border border-gray-300">
                       {experienceOptions.map((option) => (
-                        <label
+                        <div
                           key={option.value}
-                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--color-bg-primary)] cursor-pointer transition-colors group"
+                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors group"
                         >
-                          <div className="relative">
-                            <input
-                              type="checkbox"
-                              checked={formData.experiences.includes(option.value)}
-                              onChange={() => handleExperienceToggle(option.value)}
-                              className="sr-only"
-                            />
-                            <div
-                              className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
-                                formData.experiences.includes(option.value)
-                                  ? "bg-[var(--color-accent-sage)] border-[var(--color-accent-sage)]"
-                                  : "border-gray-300 group-hover:border-[var(--color-accent-sage)]"
-                              }`}
-                            >
-                              {formData.experiences.includes(option.value) && (
-                                <Check className="w-3 h-3 text-white" />
-                              )}
+                          <label className="flex items-center gap-3 cursor-pointer flex-1">
+                            <div className="relative">
+                              <input
+                                type="checkbox"
+                                checked={formData.experiences.includes(option.value)}
+                                onChange={() => handleExperienceToggle(option.value)}
+                                className="sr-only"
+                              />
+                              <div
+                                className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                                  formData.experiences.includes(option.value)
+                                    ? "bg-[var(--color-accent-sage)] border-[var(--color-accent-sage)]"
+                                    : "border-gray-300 group-hover:border-[var(--color-accent-sage)]"
+                                }`}
+                              >
+                                {formData.experiences.includes(option.value) && (
+                                  <Check className="w-3 h-3 text-white" />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-sm text-[var(--color-neutral-dark)] group-hover:text-[var(--color-text-primary)]">
-                            {option.label}
-                          </span>
-                        </label>
+                            <span className="text-sm text-[var(--color-neutral-dark)] group-hover:text-[var(--color-text-primary)]">
+                              {option.label}
+                            </span>
+                          </label>
+                          <Link
+                            href={`/experiences/${option.value}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-shrink-0 p-1 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                            title={`View ${option.label} details`}
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </Link>
+                        </div>
                       ))}
                     </div>
                   </div>
