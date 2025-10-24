@@ -849,7 +849,7 @@ export default function Home() {
               We're on Instagram
             </h2>
             <a
-              href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
+              href="https://www.instagram.com/groupescapehouses/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold hover:opacity-80 transition-opacity"
@@ -875,7 +875,7 @@ export default function Home() {
               ].map((image, index) => (
                 <a
                   key={index}
-                  href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
+                  href="https://www.instagram.com/groupescapehouses/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative flex-shrink-0 w-72 h-72 sm:w-80 sm:h-80 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
@@ -904,7 +904,7 @@ export default function Home() {
               ].map((image, index) => (
                 <a
                   key={`duplicate-${index}`}
-                  href="https://www.instagram.com/groupescapehouses?igsh=cnh5emtidjR0cnB5"
+                  href="https://www.instagram.com/groupescapehouses/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative flex-shrink-0 w-72 h-72 sm:w-80 sm:h-80 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
