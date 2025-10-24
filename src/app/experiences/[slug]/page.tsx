@@ -18,6 +18,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 65,
     groupSize: "8-24 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-eb946e05-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-3f1464a0-20251024112454.jpg"
+    ],
     icon: ChefHat,
     description:
       "Treat your group to a restaurant-quality dining experience in the comfort of your own property. Our professional chefs will arrive with all ingredients, prepare a stunning three-course meal tailored to your preferences, and handle all the clearing up. It's the perfect way to enjoy gourmet food without lifting a finger, leaving you free to focus on celebrating with your guests.",
@@ -61,6 +65,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 55,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-handsom-485e3c2b-20251024112453.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-butler--1a615133-20251024112453.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-c95b2bec-20251024112457.jpg"
+    ],
     icon: Sparkles,
     description:
       "Add a cheeky twist to your celebration with our professional Butlers in the Buff! These handsome, polite gentlemen will serve drinks, canapés, and plenty of laughs while wearing nothing but an apron and bow tie. It's the ultimate hen party experience that's tasteful, fun, and guaranteed to create hilarious memories. Perfect for getting the party started!",
@@ -99,6 +108,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 45,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mobile--5f90d17a-20251024112456.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beauty--59094aa7-20251024112454.jpg"
+    ],
     icon: Sparkles,
     description:
       "Transform your venue into a luxurious beauty salon with our mobile beauty bar. Our professional beauty therapists bring everything needed for mini makeovers, nail treatments, and pampering sessions. Perfect for getting glammed up together before a night out or as a relaxing afternoon activity.",
@@ -138,6 +151,9 @@ const experiencesData: Record<string, any> = {
     priceFrom: 65,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-tre-e0b84486-20251024112455.jpg"
+    ],
     icon: Heart,
     description:
       "The ultimate pampering experience! This package combines multiple treatments for a full afternoon of indulgence. Enjoy massages, facials, manicures, and more. Perfect for a relaxing hen party or recovery session after a night out. Our mobile therapists bring the spa to you!",
@@ -177,6 +193,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 25,
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-persona-2842c40c-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-close-u-4f4b8465-20251024112456.jpg"
+    ],
     icon: Gift,
     description:
       "Make your hen weekend extra special with personalized robes for the whole group! Each robe is embroidered with names or fun titles. Perfect for photos, getting ready together, and as memorable keepsakes. Available in various colors and styles to match your hen party theme.",
@@ -214,6 +234,9 @@ const experiencesData: Record<string, any> = {
     priceFrom: 15,
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-prosecc-497946e6-20251024112454.jpg"
+    ],
     icon: Wine,
     description:
       "Start your celebration in style with a prosecco reception! We'll deliver chilled prosecco, elegant glasses, and all the extras needed for a sophisticated welcome. Perfect for kicking off your hen weekend or celebrating arrival at your property.",
@@ -250,6 +273,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 30,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-traditi-02d702c5-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-2ebb58a2-20251024112456.jpg"
+    ],
     icon: Coffee,
     description:
       "Enjoy a delightful afternoon tea delivered to your property. Featuring delicious finger sandwiches, freshly baked scones with jam and cream, and an assortment of sweet treats. A quintessentially British experience perfect for a sophisticated hen celebration!",
@@ -288,6 +315,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 25,
     groupSize: "10-30 guests",
     image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-chef-gr-a9661c49-20251024112454.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-bbq-foo-2803659b-20251024112455.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-f38980b2-20251024112457.jpg"
+    ],
     icon: Utensils,
     description:
       "Sizzling BBQ brought to you! Our catering team sets up a full BBQ spread at your property with delicious grilled meats, veggie options, sides, and salads. Perfect for a summer hen party or outdoor celebration. Includes setup, cooking, serving, and cleanup.",
@@ -326,6 +358,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-16 guests",
     image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hands-s-220d515e-20251024112453.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-freshly-c80c7cd1-20251024112453.jpg"
+    ],
     icon: ChefHat,
     description:
       "Get hands-on and create your own delicious pizzas! A professional pizza chef teaches you dough-making, sauce preparation, and topping techniques. Then enjoy eating your creations together. Fun, interactive, and delicious!",
@@ -364,6 +400,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 35,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-bottoml-fc09e26b-20251024112456.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mimosas-99c33b58-20251024112455.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-68f2d5cf-20251024112456.jpg"
+    ],
     icon: Coffee,
     description:
       "The perfect way to start your celebration! Enjoy unlimited prosecco, mimosas, or cocktails alongside a delicious brunch spread. Delivered and served at your property for a stress-free morning of indulgence.",
@@ -401,6 +442,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 45,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-gin-tas-252ece50-20251024112544.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-gin-exp-42a06db0-20251024112545.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-96800ca2-20251024112545.jpg"
+    ],
     icon: Wine,
     description:
       "Discover the world of craft gin with our guided tasting experience. Sample 5-6 premium gins, learn about botanicals and production, and find your perfect serve. Perfect for gin lovers!",
@@ -439,6 +485,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-wine-ta-53b9a52e-20251024112544.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-sommeli-49e9de23-20251024112544.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-elegant-62888f9b-20251024112544.jpg"
+    ],
     icon: Wine,
     description:
       "Explore wines from around the world with a professional sommelier. Taste 5-6 wines, learn about regions and grapes, and discover what you love. Sophisticated and fun!",
@@ -477,6 +528,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 20,
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hen-par-91c7762f-20251024112547.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-cdb32043-20251024112545.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hen-par-e7234a31-20251024112544.jpg"
+    ],
     icon: PartyPopper,
     description:
       "Keep the fun going all weekend with our curated games and activities pack! Includes hen party games, challenges, props, and entertainment to keep everyone laughing. Delivered to your property.",
@@ -513,6 +569,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 50,
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-balloon-bbe753a4-20251024112544.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-party-r-a98e5dcf-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-decorat-fefb43ff-20251024112629.jpg"
+    ],
     icon: PartyPopper,
     description:
       "Transform your property into a party paradise! We'll set up beautiful decorations, balloon displays, banners, and party supplies before you arrive. Choose from our themed packages or create a custom look.",
@@ -551,6 +612,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 35,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-hair-st-adf721fe-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-4762c97e-20251024112628.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mobile--9e9ed63c-20251024112629.jpg"
+    ],
     icon: Scissors,
     description:
       "Get glammed up with professional hair styling for your entire group. Our mobile hair stylists bring salon-quality services to your door, creating gorgeous hairstyles perfect for your celebration. From elegant updos to beachy waves, bouncy blowouts to intricate braids, we'll make sure everyone looks picture-perfect.",
@@ -594,6 +660,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 45,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-p-27b172b0-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-complet-e0ce6a07-20251024112629.jpg"
+    ],
     icon: Palette,
     description:
       "Unleash your inner artist with our popular Sip & Paint experience. A professional art instructor will guide your group through creating your own masterpiece while you enjoy your favourite drinks. No experience needed – just bring your enthusiasm and creativity! Perfect for a fun, relaxed afternoon or evening activity that everyone will love. Take home your unique artwork as a memento of your celebration.",
@@ -645,6 +715,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 50,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mixolog-3d5c2392-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-colorfu-ec9d0377-20251024112629.jpg"
+    ],
     icon: Wine,
     description:
       "Learn to shake, stir, and muddle like a pro with our cocktail masterclass. An expert mixologist will teach your group how to create 3-4 classic and contemporary cocktails, sharing tips, tricks, and the stories behind each drink. Perfect for getting the party started!",
@@ -684,6 +758,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-30 guests",
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-s-d368537d-20251024112629.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-karaoke-d1eb945a-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-woman-s-a4bccd8c-20251024112712.jpg"
+    ],
     icon: Mic2,
     description:
       "Belt out your favourite tunes with our fully equipped karaoke experience. We'll set up professional sound equipment, lighting, and a vast library of songs for an unforgettable singing session. Whether your group are closet divas or just fancy a laugh, karaoke is guaranteed to get everyone involved and create brilliant memories. Perfect for hen parties who want to let loose and have a proper sing-song!",
@@ -727,6 +806,10 @@ const experiencesData: Record<string, any> = {
     priceFrom: 75,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-spa-the-d886efae-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-facial--d2f444fe-20251024112712.jpg"
+    ],
     icon: Sparkles,
     description:
       "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house. Perfect for a relaxing afternoon or recovery session.",
@@ -766,6 +849,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-y-d9dc8ad2-20251024112705.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-yoga-in-463cc609-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-i-110aa8da-20251024112711.jpg"
+    ],
     icon: Heart,
     description:
       "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone. Perfect for a morning or recovery session.",
@@ -805,6 +893,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 45,
     groupSize: "8-20 guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-life-dr-7a29e634-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-c848469a-20251024112712.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-life-dr-3a547e81-20251024112711.jpg"
+    ],
     icon: Paintbrush,
     description:
       "Add some giggles with a classy-but-fun experience that everyone will remember. Professional life drawing session with a cheeky twist!",
@@ -844,6 +937,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 35,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-women-m-ae355045-20251024112745.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-6e71a563-20251024112747.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-c6f54c3e-20251024112747.jpg"
+    ],
     icon: Flower2,
     description:
       "Get creative and make beautiful flower crowns for your group. Perfect Instagram moment included. Take home your handmade creations!",
@@ -883,6 +981,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-25 guests",
     image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-dance-i-08b3f3a5-20251024112745.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-7063e1b4-20251024112742.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-dance-c-480deef0-20251024112745.jpg"
+    ],
     icon: Music,
     description:
       "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving. Perfect for active groups!",
@@ -922,6 +1025,11 @@ const experiencesData: Record<string, any> = {
     priceFrom: 150,
     groupSize: "Any size",
     image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-photogr-1ceb4c7a-20251024112746.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-p-8e93c1f7-20251024112747.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-profess-092b6919-20251024112745.jpg"
+    ],
     icon: Camera,
     description:
       "Capture your special weekend with a professional photographer. Candid moments and group shots you'll treasure forever.",
@@ -959,6 +1067,9 @@ const experiencesData: Record<string, any> = {
     priceFrom: 40,
     groupSize: "8-20 guests",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
+    gallery: [
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-makeup--3bdaf416-20251024112746.jpg"
+    ],
     icon: Sparkles,
     description:
       "Professional make-up application for your entire group. From natural glam to full glam, look your absolute best!",
@@ -1094,6 +1205,24 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
             </div>
           </div>
         </div>
+
+        {/* Gallery Section */}
+        {experience.gallery && experience.gallery.length > 0 && (
+          <div className="max-w-[1400px] mx-auto px-6 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {experience.gallery.map((img: string, index: number) => (
+                <div key={index} className="relative h-[200px] md:h-[280px] rounded-xl overflow-hidden">
+                  <Image 
+                    src={img} 
+                    alt={`${experience.title} - Image ${index + 1}`}
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-300" 
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Content */}
         <div className="max-w-[1200px] mx-auto px-6 pb-24">
