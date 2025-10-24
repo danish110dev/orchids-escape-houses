@@ -75,7 +75,7 @@ export default function SpaPage() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-0db740ac-20251018122325.jpg?"
-            alt="Spa Treatments at Orchids"
+            alt="Mobile spa treatments for hen parties at Group Escape Houses"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/95 to-[var(--color-bg-secondary)]/90"></div>
@@ -83,10 +83,10 @@ export default function SpaPage() {
 
         <div className="max-w-[1200px] mx-auto px-6 text-center relative z-10">
           <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Spa Treatments at Orchids – Relax, Unwind & Feel Fabulous
+            Mobile Spa Treatments UK – Luxury Pampering at Your Party House
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto mb-8">
-            The ultimate pamper session, brought straight to your door. From massages to facials, our mobile spa team creates the perfect chilled-out experience for your hen weekend.
+            The ultimate <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen party pamper session</Link>, brought straight to your <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">luxury rental house</Link>. From massages to facials, our mobile spa team creates the perfect chilled-out experience for your celebration at any of our <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK destinations</Link>.
           </p>
           <Button
             asChild
@@ -102,6 +102,15 @@ export default function SpaPage() {
         </div>
       </motion.section>
 
+      {/* Intro Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+            At <strong>Group Escape Houses</strong>, we bring luxury spa experiences directly to your <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">party house rental</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen weekends</Link>, <Link href="/occasions/special-celebrations" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">birthday celebrations</Link>, and group getaways across the UK. Our professional mobile therapists arrive with premium equipment, creating a relaxing spa atmosphere in the comfort of your own accommodation.
+          </p>
+        </div>
+      </section>
+
       {/* What's Included */}
       <section className="py-16 bg-gradient-to-br from-[#F2C6C2]/20 to-[#E5D8C5]/30">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -113,8 +122,11 @@ export default function SpaPage() {
             className="text-center mb-12"
           >
             <h2 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              What's Included
+              What's Included in Our Mobile Spa Service
             </h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+              Professional spa treatments delivered to any of our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">luxury group houses</Link> across the UK
+            </p>
           </motion.div>
 
           <motion.div
@@ -180,10 +192,10 @@ export default function SpaPage() {
             className="text-center mb-12"
           >
             <h2 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              Luxury Pampering, Wherever You Stay
+              Luxury Pampering at Your UK Party House
             </h2>
             <p className="text-lg max-w-3xl mx-auto mb-8" style={{ color: "var(--color-neutral-dark)" }}>
-              At Orchids, we bring the spa to you. Whether it's a morning of calm before cocktails or a full afternoon of indulgence, our experienced therapists arrive with everything needed to transform your space into a private retreat.
+              At <strong>Group Escape Houses</strong>, we bring the spa to you. Whether it's a morning of calm before <Link href="/experiences/cocktail-masterclass" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">cocktails</Link> or a full afternoon of indulgence at your <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">luxury house with hot tub</Link>, our experienced therapists arrive with everything needed to transform your space into a private retreat.
             </p>
           </motion.div>
 
@@ -274,28 +286,28 @@ export default function SpaPage() {
               Available Across the UK
             </h2>
             <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-              Our mobile spa teams cover the most popular hen destinations.
+              Our mobile spa teams cover the most popular <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen party destinations</Link> in England, Wales and Scotland
             </p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {[
-              "Bath",
-              "Birmingham",
-              "Blackpool",
-              "Bournemouth",
-              "Brighton",
-              "Bristol",
-              "Cambridge",
-              "Cardiff",
+              { name: "Bath", slug: "bath" },
+              { name: "Birmingham", slug: "birmingham" },
+              { name: "Blackpool", slug: "blackpool" },
+              { name: "Bournemouth", slug: "bournemouth" },
+              { name: "Brighton", slug: "brighton" },
+              { name: "Bristol", slug: "bristol" },
+              { name: "Cambridge", slug: "cambridge" },
+              { name: "Cardiff", slug: "cardiff" },
             ].map((location, idx) => (
               <Link
                 key={idx}
-                href="/destinations"
+                href={`/destinations/${location.slug}`}
                 className="px-6 py-3 bg-white rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-all duration-200 shadow-sm"
                 style={{ color: "var(--color-text-primary)" }}
               >
-                {location}
+                {location.name}
               </Link>
             ))}
           </div>
@@ -545,9 +557,12 @@ export default function SpaPage() {
       {/* FAQs */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="text-center mb-12" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Spa Treatment FAQs
+          <h2 className="text-center mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+            Mobile Spa Treatment FAQs
           </h2>
+          <p className="text-center text-lg text-[var(--color-neutral-dark)] mb-12 max-w-2xl mx-auto">
+            Everything you need to know about booking mobile spa treatments with Group Escape Houses. For general booking questions, see our <Link href="/how-it-works" className="underline hover:text-[var(--color-accent-gold)] transition-colors">how it works page</Link>.
+          </p>
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
