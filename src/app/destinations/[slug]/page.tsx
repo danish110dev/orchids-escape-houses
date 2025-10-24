@@ -1168,7 +1168,7 @@ export default function DestinationDetailPage() {
       name: "Cheltenham",
       region: "Gloucestershire",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cheltenham-to-be3b5273-20251019170915.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/elegant-aerial-view-of-cheltenham-regenc-2956678a-20251022200310.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/sweeping-cinematic-aerial-drone-shot-ove-5f97556f-20251024142038.mp4",
       overview: "Cheltenham is a Regency spa town famous for festivals and elegant architecture. With horse racing heritage, beautiful gardens and sophisticated atmosphere, it's perfect for refined hen celebrations.",
       quickFacts: {
         fromLondon: "2 hours by train",
@@ -1187,9 +1187,9 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "Bristol and Birmingham airports nearby" }
       ],
       nightlife: [
-        { name: "Subtone", description: "Cocktail bar and nightclub", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
-        { name: "The Scandinavian Coffee Pod", description: "Quirky bar and café", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-        { name: "Moo Moo", description: "Stylish wine and cocktail bar", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" }
+        { name: "Subtone", description: "Cocktail bar and nightclub", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-subtone-night-c6240747-20251024142019.jpg" },
+        { name: "The Scandinavian Coffee Pod", description: "Quirky bar and café", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-scandinav-c41ac42a-20251024142016.jpg" },
+        { name: "Moo Moo", description: "Stylish wine and cocktail bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-moo-moo-cockt-6212ce3f-20251024142020.jpg" }
       ],
       brunch: [
         { name: "The Ivy Montpellier Brasserie", description: "Elegant all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
@@ -1197,9 +1197,9 @@ export default function DestinationDetailPage() {
         { name: "The Coconut Tree", description: "Sri Lankan street food", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Cheltenham Racecourse", description: "Horse racing events", image: "https://images.unsplash.com/photo-1577223625816-7546f9142bb2?w=800&q=80" },
-        { name: "Montpellier District", description: "Shopping and wine bars", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
-        { name: "Pittville Pump Room", description: "Regency spa building and park", image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80" }
+        { name: "Cheltenham Racecourse", description: "Horse racing events", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cheltenham-ra-d060cd8b-20251024142016.jpg" },
+        { name: "Montpellier District", description: "Shopping and wine bars", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-montpellier-d-b724c78f-20251024142018.jpg" },
+        { name: "Pittville Pump Room", description: "Regency spa building and park", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-architectural-photograph-of-d946dcb9-20251024142018.jpg" }
       ]
     }
   };
