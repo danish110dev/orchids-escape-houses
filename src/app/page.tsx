@@ -49,6 +49,17 @@ const featuredProperties = [
     features: ["Hot Tub", "BBQ"],
     slug: "manchester-party-house",
   },
+  {
+    id: "4",
+    title: "York Georgian House",
+    location: "York, North Yorkshire",
+    sleeps: 18,
+    bedrooms: 9,
+    priceFrom: 85,
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-360aceae-20251018171413.jpg?",
+    features: ["Hot Tub", "Games Room"],
+    slug: "york-georgian-house",
+  },
 ];
 
 const experiences = [
