@@ -717,10 +717,11 @@ const experiencesData: Record<string, any> = {
     duration: "2 hours",
     priceFrom: 50,
     groupSize: "8-20 guests",
-    image: "https://butlersinthebuff.com.au/wp-content/uploads/2023/05/fun_friendly.jpg.webp",
+    image: "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/fun_friendly.jpg.webp",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-mixolog-3d5c2392-20251024112629.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-colorfu-ec9d0377-20251024112629.jpg"
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/bitb_cocktail_shaking.jpg.webp",
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/great_tasting_cocktails.jpg.webp",
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/games_included.jpg.webp"
     ],
     icon: Wine,
     description:
@@ -895,11 +896,11 @@ const experiencesData: Record<string, any> = {
     duration: "2 hours",
     priceFrom: 45,
     groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
+    image: "https://butlersinthebuff.co.uk/wp-content/uploads/2022/12/life-drawing7-276x267.png",
     gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-life-dr-7a29e634-20251024112712.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-group-o-c848469a-20251024112712.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-life-dr-3a547e81-20251024112711.jpg"
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2022/12/life-drawing1-400x267.jpg",
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/bitb_service1.jpg.webp",
+      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/buff-butler-gallery-7.jpg.webp"
     ],
     icon: Paintbrush,
     description:
