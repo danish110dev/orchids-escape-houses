@@ -1083,9 +1083,9 @@ export default function DestinationDetailPage() {
         { name: "The Duchess of Cambridge", description: "Traditional British pub", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Windsor Castle", description: "Royal residence tours", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
-        { name: "Thames River Cruise", description: "Boat trips along the river", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" },
-        { name: "Windsor Great Park", description: "Royal parkland walks", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "Windsor Castle", description: "Royal residence tours", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-windsor-castl-339f0a4d-20251024135809.jpg" },
+        { name: "Thames River Cruise", description: "Boat trips along the river", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-thames-river--8b114eaa-20251024135809.jpg" },
+        { name: "Windsor Great Park", description: "Royal parkland walks", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-landscape-photograph-of-win-7dd82fc8-20251024135809.jpg" }
       ]
     },
     "stratford-upon-avon": {
