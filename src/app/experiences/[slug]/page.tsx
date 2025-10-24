@@ -1188,18 +1188,18 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
                 <div className="p-2 rounded-full bg-white/20 backdrop-blur-sm">
                   <Icon className="w-8 h-8" />
                 </div>
-                <h1 className="mb-0 drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
+                <h1 className="mb-0 drop-shadow-lg text-white" style={{ fontFamily: "var(--font-display)", color: "white" }}>
                   {experience.title}
                 </h1>
               </div>
-              <div className="flex flex-wrap gap-6 text-lg drop-shadow-md">
+              <div className="flex flex-wrap gap-6 text-lg drop-shadow-md text-white">
                 <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Clock className="w-5 h-5" />
-                  <span>{experience.duration}</span>
+                  <span className="text-white">{experience.duration}</span>
                 </div>
                 <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Users className="w-5 h-5" />
-                  <span>{experience.groupSize}</span>
+                  <span className="text-white">{experience.groupSize}</span>
                 </div>
               </div>
             </div>
