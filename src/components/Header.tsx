@@ -96,6 +96,24 @@ export default function Header() {
     { title: "Spa Treatments", slug: "spa-treatments" },
     { title: "Mobile Beauty Bar", slug: "mobile-beauty-bar" },
     { title: "Pamper Party Package", slug: "pamper-party-package" },
+    { title: "Make-up Artist", slug: "make-up-artist" },
+    { title: "Hair Styling", slug: "hair-styling" },
+    { title: "Personalised Robes", slug: "personalised-robes" },
+    { title: "Prosecco Reception", slug: "prosecco-reception" },
+    { title: "Afternoon Tea", slug: "afternoon-tea" },
+    { title: "BBQ Catering", slug: "bbq-catering" },
+    { title: "Pizza Making Class", slug: "pizza-making-class" },
+    { title: "Bottomless Brunch", slug: "bottomless-brunch" },
+    { title: "Gin Tasting", slug: "gin-tasting" },
+    { title: "Wine Tasting", slug: "wine-tasting" },
+    { title: "Flower Crown Making", slug: "flower-crown-making" },
+    { title: "Dance Class", slug: "dance-class" },
+    { title: "Karaoke Night", slug: "karaoke-night" },
+    { title: "Yoga Session", slug: "yoga-session" },
+    { title: "Photography Package", slug: "photography-package" },
+    { title: "DJ Entertainment", slug: "dj-entertainment" },
+    { title: "Games & Activities Pack", slug: "games-activities-pack" },
+    { title: "Decorations & Balloons", slug: "decorations-balloons" },
   ];
 
   return (
@@ -264,22 +282,36 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {isExperiencesOpen && (
-                  <div className="absolute top-full left-0 w-[360px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                  <div className="absolute top-full left-0 w-[480px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
                     <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
                       Add To Your Stay
                     </h3>
-                    <ul className="space-y-2.5">
-                      {experiences.map((experience) => (
-                        <li key={experience.slug}>
-                          <Link
-                            href={`/experiences/${experience.slug}`}
-                            className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
-                          >
-                            {experience.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="grid grid-cols-2 gap-x-6 max-h-[420px] overflow-y-auto pr-2 scrollbar-hide">
+                      <ul className="space-y-2.5">
+                        {experiences.slice(0, Math.ceil(experiences.length / 2)).map((experience) => (
+                          <li key={experience.slug}>
+                            <Link
+                              href={`/experiences/${experience.slug}`}
+                              className="text-[14px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
+                            >
+                              {experience.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                      <ul className="space-y-2.5">
+                        {experiences.slice(Math.ceil(experiences.length / 2)).map((experience) => (
+                          <li key={experience.slug}>
+                            <Link
+                              href={`/experiences/${experience.slug}`}
+                              className="text-[14px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
+                            >
+                              {experience.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
                     {/* View All Link */}
                     <div className="mt-6 pt-5 border-t border-gray-100">
