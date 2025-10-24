@@ -1121,9 +1121,9 @@ export default function DestinationDetailPage() {
         { name: "Lambs", description: "Fine dining in Tudor building", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
       ],
       activities: [
-        { name: "Royal Shakespeare Theatre", description: "World-class theatre performances", image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80" },
-        { name: "Shakespeare's Birthplace", description: "Historic house museum", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
-        { name: "River Avon Walk", description: "Scenic riverside paths", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+        { name: "Royal Shakespeare Theatre", description: "World-class theatre performances", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-royal-sha-cb0520ba-20251024140754.jpg" },
+        { name: "Shakespeare's Birthplace", description: "Historic house museum", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-shakespeare-s-630aa4bc-20251024140755.jpg" },
+        { name: "River Avon Walk", description: "Scenic riverside paths", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-landscape-photograph-of-riv-a4e07409-20251024140754.jpg" }
       ]
     },
     plymouth: {
