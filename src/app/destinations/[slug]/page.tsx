@@ -959,7 +959,7 @@ export default function DestinationDetailPage() {
         { icon: Plane, text: "London Gatwick 2 hours away" }
       ],
       nightlife: [
-        { name: "The Lighthouse Bar", description: "Seafront cocktail bar", image: "https://images.unsplash.com/photo-1598387846026-40c22a0a5dc0?w=800&q=80" },
+        { name: "The Lighthouse Bar", description: "Seafront cocktail bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-the-lighthous-c2deb5ed-20251024134657.jpg" },
         { name: "The Cuban Bar", description: "Latin-inspired cocktails and music", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
         { name: "The Spread Eagle", description: "Historic pub with live music", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
@@ -970,7 +970,7 @@ export default function DestinationDetailPage() {
       ],
       activities: [
         { name: "Main Sands Beach", description: "Beautiful sandy beach", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" },
-        { name: "Turner Contemporary", description: "Free art gallery", image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800&q=80" },
+        { name: "Turner Contemporary", description: "Free art gallery", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-turner-contem-24973ad3-20251024134700.jpg" },
         { name: "Vintage Shopping", description: "Retro and vintage boutiques", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" }
       ]
     },
@@ -2054,7 +2054,7 @@ export default function DestinationDetailPage() {
         sleeps: 14,
         bedrooms: 7,
         priceFrom: 82,
-        image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-lu-79d6f51b-20251024134657.jpg",
         features: ["Hot Tub", "Sea Views", "Modern"],
         slug: "margate-beach-house",
       },
