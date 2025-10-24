@@ -4,11 +4,12 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Calendar, Check } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
+import { toast } from "sonner";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,11 +19,41 @@ export default function ContactPage() {
     groupSize: "",
     dates: "",
     location: "",
-    experience: "",
+    experiences: [] as string[],
     message: "",
   });
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const experienceOptions = [
+    { value: "cocktail-masterclass", label: "Cocktail Masterclass" },
+    { value: "sip-and-paint", label: "Sip & Paint" },
+    { value: "butlers-in-the-buff", label: "Butlers in the Buff" },
+    { value: "life-drawing", label: "Life Drawing" },
+    { value: "private-chef", label: "Private Chef" },
+    { value: "spa-treatments", label: "Spa Treatments" },
+    { value: "mobile-beauty-bar", label: "Mobile Beauty Bar" },
+    { value: "make-up-artist", label: "Make-up Artist" },
+    { value: "hair-styling", label: "Hair Styling" },
+    { value: "pamper-party-package", label: "Pamper Party Package" },
+    { value: "personalised-robes", label: "Personalised Robes" },
+    { value: "prosecco-reception", label: "Prosecco Reception" },
+    { value: "afternoon-tea", label: "Afternoon Tea" },
+    { value: "bbq-catering", label: "BBQ Catering" },
+    { value: "pizza-making-class", label: "Pizza Making Class" },
+    { value: "bottomless-brunch", label: "Bottomless Brunch" },
+    { value: "gin-tasting", label: "Gin Tasting" },
+    { value: "wine-tasting", label: "Wine Tasting" },
+    { value: "flower-crown-making", label: "Flower Crown Making" },
+    { value: "dance-class", label: "Dance Class" },
+    { value: "karaoke-night", label: "Karaoke Night" },
+    { value: "yoga-session", label: "Yoga Session" },
+    { value: "photography-package", label: "Photography Package" },
+    { value: "dj-entertainment", label: "DJ Entertainment" },
+    { value: "games-activities-pack", label: "Games & Activities Pack" },
+    { value: "decorations-balloons", label: "Decorations & Balloons" },
+  ];
 
   const handleDateSelect = (range: { from?: Date; to?: Date } | undefined) => {
     if (range) {
@@ -37,10 +68,50 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleExperienceToggle = (experienceValue: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      experiences: prev.experiences.includes(experienceValue)
+        ? prev.experiences.filter((exp) => exp !== experienceValue)
+        : [...prev.experiences, experienceValue],
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission
+    setIsSubmitting(true);
+
+    try {
+      // Log form data for debugging
+      console.log("Form Data Submitted:", {
+        ...formData,
+        experiencesCount: formData.experiences.length,
+        experiencesSelected: formData.experiences,
+      });
+
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      toast.success("Enquiry sent successfully! We'll be in touch within 2 hours.");
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        groupSize: "",
+        dates: "",
+        location: "",
+        experiences: [],
+        message: "",
+      });
+      setDateRange({});
+    } catch (error) {
+      toast.error("Failed to send enquiry. Please try again.");
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -271,39 +342,45 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Add Experience (Optional)</label>
-                    <select
-                      value={formData.experience}
-                      onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                    >
-                      <option value="">Select an experience</option>
-                      <option value="cocktail-masterclass">Cocktail Masterclass</option>
-                      <option value="butlers-in-the-buff">Butlers in the Buff</option>
-                      <option value="life-drawing">Life Drawing</option>
-                      <option value="private-chef">Private Chef</option>
-                      <option value="spa-treatments">Spa Treatments</option>
-                      <option value="mobile-beauty-bar">Mobile Beauty Bar</option>
-                      <option value="make-up-artist">Make-up Artist</option>
-                      <option value="hair-styling">Hair Styling</option>
-                      <option value="pamper-party-package">Pamper Party Package</option>
-                      <option value="personalised-robes">Personalised Robes</option>
-                      <option value="prosecco-reception">Prosecco Reception</option>
-                      <option value="afternoon-tea">Afternoon Tea</option>
-                      <option value="bbq-catering">BBQ Catering</option>
-                      <option value="pizza-making-class">Pizza Making Class</option>
-                      <option value="bottomless-brunch">Bottomless Brunch</option>
-                      <option value="gin-tasting">Gin Tasting</option>
-                      <option value="wine-tasting">Wine Tasting</option>
-                      <option value="flower-crown-making">Flower Crown Making</option>
-                      <option value="dance-class">Dance Class</option>
-                      <option value="karaoke-night">Karaoke Night</option>
-                      <option value="yoga-session">Yoga Session</option>
-                      <option value="photography-package">Photography Package</option>
-                      <option value="dj-entertainment">DJ Entertainment</option>
-                      <option value="games-activities-pack">Games & Activities Pack</option>
-                      <option value="decorations-balloons">Decorations & Balloons</option>
-                    </select>
+                    <label className="block text-sm font-medium mb-3">
+                      Add Experiences (Optional) 
+                      {formData.experiences.length > 0 && (
+                        <span className="ml-2 text-[var(--color-accent-sage)]">
+                          ({formData.experiences.length} selected)
+                        </span>
+                      )}
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[400px] overflow-y-auto p-4 bg-white rounded-xl border border-gray-300">
+                      {experienceOptions.map((option) => (
+                        <label
+                          key={option.value}
+                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--color-bg-primary)] cursor-pointer transition-colors group"
+                        >
+                          <div className="relative">
+                            <input
+                              type="checkbox"
+                              checked={formData.experiences.includes(option.value)}
+                              onChange={() => handleExperienceToggle(option.value)}
+                              className="sr-only"
+                            />
+                            <div
+                              className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                                formData.experiences.includes(option.value)
+                                  ? "bg-[var(--color-accent-sage)] border-[var(--color-accent-sage)]"
+                                  : "border-gray-300 group-hover:border-[var(--color-accent-sage)]"
+                              }`}
+                            >
+                              {formData.experiences.includes(option.value) && (
+                                <Check className="w-3 h-3 text-white" />
+                              )}
+                            </div>
+                          </div>
+                          <span className="text-sm text-[var(--color-neutral-dark)] group-hover:text-[var(--color-text-primary)]">
+                            {option.label}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
                   <div>
@@ -320,13 +397,14 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full rounded-2xl py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
+                    disabled={isSubmitting}
+                    className="w-full rounded-2xl py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{
                       background: "var(--color-accent-sage)",
                       color: "white",
                     }}
                   >
-                    Send Enquiry
+                    {isSubmitting ? "Sending..." : "Send Enquiry"}
                   </Button>
 
                   <p className="text-sm text-[var(--color-neutral-dark)] text-center">
