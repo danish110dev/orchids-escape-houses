@@ -12,10 +12,12 @@ export default function Header() {
   const [isHousesOpen, setIsHousesOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [isOccasionsOpen, setIsOccasionsOpen] = useState(false);
+  const [isExperiencesOpen, setIsExperiencesOpen] = useState(false);
   const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
   const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
   const [isMobileOccasionsOpen, setIsMobileOccasionsOpen] = useState(false);
+  const [isMobileExperiencesOpen, setIsMobileExperiencesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,7 @@ export default function Header() {
       setIsMobileFeaturesOpen(false);
       setIsMobileDestinationsOpen(false);
       setIsMobileOccasionsOpen(false);
+      setIsMobileExperiencesOpen(false);
     }
     return () => {
       document.body.style.overflow = "";
@@ -82,6 +85,17 @@ export default function Header() {
     { title: "Special Celebrations", slug: "special-celebrations", description: "Birthdays & milestones" },
     { title: "Christmas", slug: "christmas", description: "Festive gatherings" },
     { title: "New Year", slug: "new-year", description: "Ring in the new year" },
+  ];
+
+  const experiences = [
+    { title: "Cocktail Masterclass", slug: "cocktail-masterclass" },
+    { title: "Sip & Paint", slug: "sip-and-paint" },
+    { title: "Butlers in the Buff", slug: "butlers-in-the-buff" },
+    { title: "Life Drawing", slug: "life-drawing" },
+    { title: "Private Chef", slug: "private-chef" },
+    { title: "Spa Treatments", slug: "spa-treatments" },
+    { title: "Mobile Beauty Bar", slug: "mobile-beauty-bar" },
+    { title: "Pamper Party Package", slug: "pamper-party-package" },
   ];
 
   return (
@@ -181,7 +195,7 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Occasions Dropdown - NEW HIGH-CONVERSION SECTION */}
+              {/* Occasions Dropdown */}
               <div
                 className="relative"
                 onMouseEnter={() => setIsOccasionsOpen(true)}
@@ -233,15 +247,52 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Experiences Link */}
-              <Link
-                href="/experiences"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
-                style={{ fontFamily: "var(--font-body)" }}
+              {/* Experiences Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsExperiencesOpen(true)}
+                onMouseLeave={() => setIsExperiencesOpen(false)}
               >
-                Experiences
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-              </Link>
+                <button
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Experiences
+                  <ChevronDown className="w-4 h-4" />
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isExperiencesOpen && (
+                  <div className="absolute top-full left-0 w-[360px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
+                      Add To Your Stay
+                    </h3>
+                    <ul className="space-y-2.5">
+                      {experiences.map((experience) => (
+                        <li key={experience.slug}>
+                          <Link
+                            href={`/experiences/${experience.slug}`}
+                            className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
+                          >
+                            {experience.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* View All Link */}
+                    <div className="mt-6 pt-5 border-t border-gray-100">
+                      <Link
+                        href="/experiences"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        View All Experiences →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Destinations Dropdown */}
               <div
@@ -419,7 +470,7 @@ export default function Header() {
                   )}
                 </div>
 
-                {/* Occasions Dropdown - NEW */}
+                {/* Occasions Dropdown */}
                 <div className="space-y-3">
                   <Link
                     href="/occasions"
@@ -453,14 +504,39 @@ export default function Header() {
                   )}
                 </div>
 
-                <Link
-                  href="/experiences"
-                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
-                  style={{ fontFamily: "var(--font-display)" }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Experiences
-                </Link>
+                {/* Experiences Dropdown */}
+                <div className="space-y-3">
+                  <Link
+                    href="/experiences"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    style={{ fontFamily: "var(--font-display)" }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Experiences
+                  </Link>
+                  
+                  <button
+                    onClick={() => setIsMobileExperiencesOpen(!isMobileExperiencesOpen)}
+                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                  >
+                    Popular Experiences
+                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileExperiencesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {isMobileExperiencesOpen && (
+                    <div className="pl-4 space-y-2 text-white/70">
+                      {experiences.map((experience) => (
+                        <Link
+                          key={experience.slug}
+                          href={`/experiences/${experience.slug}`}
+                          className="block py-1 hover:text-white transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {experience.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 {/* Destinations with Dropdown */}
                 <div className="space-y-3">
