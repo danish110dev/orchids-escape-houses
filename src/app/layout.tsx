@@ -39,19 +39,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/simple-minimal-favicon-design-with-geh-l-daddfc8e-20251022102448.jpg",
+        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/simple-clean-favicon-icon-design-with-ge-3ce8a169-20251025163612.jpg",
         sizes: "32x32",
         type: "image/jpeg",
       },
       {
-        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/simple-minimal-favicon-design-with-geh-l-daddfc8e-20251022102448.jpg",
+        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/simple-clean-favicon-icon-design-with-ge-3ce8a169-20251025163612.jpg",
         sizes: "16x16",
         type: "image/jpeg",
       },
     ],
     apple: [
       {
-        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/apple-touch-icon-design-with-geh-initial-98df5adc-20251022102449.jpg",
+        url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/apple-touch-icon-design-with-geh-elegant-1ad874b8-20251025163612.jpg",
         sizes: "180x180",
         type: "image/jpeg",
       },
