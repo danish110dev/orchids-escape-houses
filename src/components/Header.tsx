@@ -182,7 +182,7 @@ export default function Header() {
 
                       {/* Must-Have Features Column */}
                       <div>
-                        <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-gold)] uppercase tracking-wide">
+                        <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                           Must-Have Features
                         </h3>
                         <ul className="space-y-2.5">
@@ -190,7 +190,7 @@ export default function Header() {
                             <li key={feature.slug}>
                               <Link
                                 href={`/features/${feature.slug}`}
-                                className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-gold)] transition-colors block py-1.5"
+                                className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
                               >
                                 {feature.title}
                               </Link>
@@ -231,7 +231,7 @@ export default function Header() {
                 {/* Dropdown Menu */}
                 {isOccasionsOpen && (
                   <div className="absolute top-full left-0 w-[420px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
-                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
+                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                       Perfect For Your Celebration
                     </h3>
                     <ul className="space-y-3">
