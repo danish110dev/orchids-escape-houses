@@ -2718,11 +2718,8 @@ export default function DestinationDetailPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.brunch.map((venue: any, index: number) => (
-              <a
+              <div
                 key={index}
-                href={venue.link}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
               >
                 {!imageErrors[`brunch-${index}`] ? (
@@ -2742,15 +2739,9 @@ export default function DestinationDetailPage() {
                 )}
                 <div className="p-6">
                   <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
-                  <p className="text-sm text-[var(--color-neutral-dark)] mb-3">{venue.description}</p>
-                  <span className="text-[var(--color-accent-sage)] hover:underline text-sm font-medium inline-flex items-center gap-1">
-                    Visit Website
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </span>
+                  <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
