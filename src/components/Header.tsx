@@ -283,7 +283,7 @@ export default function Header() {
                 {/* Dropdown Menu */}
                 {isExperiencesOpen && (
                   <div className="absolute top-full left-0 w-[480px] bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
-                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-pink)] uppercase tracking-wide">
+                    <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                       Add To Your Stay
                     </h3>
                     <div className="grid grid-cols-2 gap-x-6 max-h-[420px] overflow-y-auto pr-2 scrollbar-hide">
