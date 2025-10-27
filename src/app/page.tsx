@@ -286,14 +286,6 @@ export default function Home() {
             >
               Luxury Party Houses UK with Hot Tubs & Pools
             </h1>
-            <p
-              className="text-white text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-7 md:mb-8 max-w-3xl drop-shadow-md"
-              style={{
-                textShadow: "0 1px 4px rgba(0,0,0,0.5)"
-              }}
-            >
-              Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
-            </p>
 
             {/* CTA Buttons - Responsive for both Mobile & Desktop */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md sm:max-w-none">
@@ -321,6 +313,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Hero Description - Below Video */}
+      <section className="py-8 sm:py-10 md:py-12 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <p className="text-center text-base sm:text-lg md:text-xl lg:text-2xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
+            Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
+          </p>
         </div>
       </section>
 
