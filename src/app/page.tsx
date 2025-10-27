@@ -274,19 +274,9 @@ export default function Home() {
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
-        {/* Content - Responsive for both Mobile & Desktop */}
+        {/* Content - Only CTA Buttons */}
         <div className="relative z-10 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-8 sm:pb-10 md:pb-12">
-            <h1
-              className="mb-4 sm:mb-5 md:mb-6 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight drop-shadow-lg"
-              style={{
-                fontFamily: "var(--font-display)",
-                textShadow: "0 2px 8px rgba(0,0,0,0.5)"
-              }}
-            >
-              Luxury Party Houses UK with Hot Tubs & Pools
-            </h1>
-
             {/* CTA Buttons - Responsive for both Mobile & Desktop */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md sm:max-w-none">
               <Button
@@ -319,6 +309,15 @@ export default function Home() {
       {/* Hero Description - Below Video */}
       <section className="py-8 sm:py-10 md:py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <h1
+            className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight text-center"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--color-text-primary)"
+            }}
+          >
+            Luxury Party Houses UK with Hot Tubs & Pools
+          </h1>
           <p className="text-center text-base sm:text-lg md:text-xl lg:text-2xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
             Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
           </p>
