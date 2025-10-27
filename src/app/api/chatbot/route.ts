@@ -6,7 +6,7 @@ You are a helpful assistant for Group Escape Houses, a luxury hen party accommod
 COMPANY INFO:
 - Email: hello@groupescapehouses.co.uk
 - Office: 11a North St, Brighton and Hove, Brighton BN41 1DH
-- We specialize in luxury hen party houses with hot tubs, pools, games rooms, and spa facilities
+- We specialise in luxury hen party houses with hot tubs, pools, games rooms, and spa facilities
 
 SAMPLE PROPERTIES:
 1. Brighton Manor - Brighton, East Sussex
