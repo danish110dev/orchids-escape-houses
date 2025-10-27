@@ -240,21 +240,38 @@ export default function Home() {
 
       {/* Hero Section - Optimized */}
       <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background video with lazy loading optimization */}
+        {/* Desktop Background video */}
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
           style={{
             transform: "translateZ(0)",
-            willChange: "transform" // GPU acceleration hint
+            willChange: "transform"
           }}
         >
-          <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-slowly-appro-759de154-20251022202429.mp4" type="video/mp4" />
+          <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Desktop%20Size%20Final%20Last.mp4" type="video/mp4" />
         </video>
+        
+        {/* Mobile Background video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover"
+          style={{
+            transform: "translateZ(0)",
+            willChange: "transform"
+          }}
+        >
+          <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
+        </video>
+        
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/80 to-[var(--color-bg-secondary)]/70"></div>
 
         {/* Content - Improved Mobile Layout */}
