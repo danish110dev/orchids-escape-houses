@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import ExperienceCard from "@/components/ExperienceCard";
 
 export default function ExperiencesPage() {
-  // Organized by search popularity - most popular first
+  // Organised by search popularity - most popular first
   const allExperiences = [
     {
       title: "Cocktail Masterclass",
