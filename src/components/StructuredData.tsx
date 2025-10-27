@@ -99,7 +99,7 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     name: "Group Escape Houses",
-    description: "Premium vacation rental agency specializing in luxury group accommodation, hen party houses, and celebration properties across the UK",
+    description: "Premium vacation rental agency specialising in luxury group accommodation, hen party houses, and celebration properties across the UK",
     url: "https://groupescapehouses.co.uk",
     telephone: "+44-XXXX-XXXXXX",
     email: "hello@groupescapehouses.co.uk",
