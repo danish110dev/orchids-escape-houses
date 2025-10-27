@@ -271,8 +271,6 @@ export default function Home() {
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
         </video>
-        
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
         {/* Content - Only CTA Buttons */}
         <div className="relative z-10 w-full">
