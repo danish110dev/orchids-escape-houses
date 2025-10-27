@@ -277,7 +277,7 @@ export default function WeddingsPage() {
                 Get a Quote
               </h3>
               <p className="text-[var(--color-neutral-dark)]">
-                Contact us with your wedding dates and requirements for an instant quote and availability check
+                Contact us with your wedding dates and requirements for availability check and personalised recommendations
               </p>
             </div>
 
