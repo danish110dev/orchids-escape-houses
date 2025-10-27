@@ -764,7 +764,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-white text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                  Personalize Your Experience
+                  Personalise Your Experience
                 </h3>
                 <p className="text-white/90 text-base">
                   Add cocktail masterclasses, private chefs, spa treatments and more to create your perfect celebration
