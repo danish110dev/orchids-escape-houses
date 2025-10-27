@@ -239,7 +239,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Optimized */}
-      <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] mt-20 flex items-end overflow-hidden">
         {/* Desktop Background video */}
         <video
           autoPlay
@@ -272,54 +272,54 @@ export default function Home() {
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/80 to-[var(--color-bg-secondary)]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
         {/* Content - Improved Mobile Layout */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
-          <h1
-            className="mb-4 sm:mb-6 animate-fade-up text-3xl sm:text-5xl md:text-6xl lg:text-[64px] leading-tight"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text-primary)",
-            }}
-          >
-            Luxury Party Houses UK with Hot Tubs & Pools
-          </h1>
-          <p
-            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto animate-fade-up px-4"
-            style={{
-              color: "var(--color-neutral-dark)",
-              animationDelay: "100ms",
-            }}
-          >
-            Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
-          </p>
+        <div className="relative z-10 w-full">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
+            <h1
+              className="mb-4 sm:mb-6 text-white text-3xl sm:text-5xl md:text-6xl lg:text-[64px] leading-tight drop-shadow-lg"
+              style={{
+                fontFamily: "var(--font-display)",
+                textShadow: "0 2px 8px rgba(0,0,0,0.5)"
+              }}
+            >
+              Luxury Party Houses UK with Hot Tubs & Pools
+            </h1>
+            <p
+              className="text-white text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-8 max-w-3xl px-0 drop-shadow-md"
+              style={{
+                textShadow: "0 1px 4px rgba(0,0,0,0.5)"
+              }}
+            >
+              Book party houses for groups across the UK. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">celebration accommodation</Link> with hot tubs, games rooms, and unforgettable <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">experiences</Link>.
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-up max-w-md sm:max-w-none mx-auto px-4" style={{ animationDelay: "200ms" }}>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/properties">Browse Houses</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)] w-full sm:w-auto"
-              style={{
-                borderColor: "var(--color-accent-gold)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/contact">Book Now</Link>
-            </Button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md sm:max-w-none">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/properties">Browse Houses</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)] w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white"
+                style={{
+                  borderColor: "white",
+                }}
+              >
+                <Link href="/contact">Book Now</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
