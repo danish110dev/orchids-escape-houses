@@ -38,16 +38,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://groupescapehouses.co.uk/",
   },
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", sizes: "any" }
-    ],
-    shortcut: ["/icon.svg"],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
-    ],
-  },
+  // Icons are automatically generated from icon.tsx and apple-icon.tsx
   openGraph: {
     title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
     description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
@@ -92,9 +83,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/icon.svg" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
         <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
