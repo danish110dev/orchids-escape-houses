@@ -280,7 +280,7 @@ export default function Home() {
         </video>
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-6">
           {/* Hero Title */}
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
@@ -291,6 +291,19 @@ export default function Home() {
           >
             Your Perfect Group Escape Starts Here
           </h1>
+
+          {/* CTA Button */}
+          <Button
+            asChild
+            size="lg"
+            className="rounded-2xl px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+            style={{
+              background: "var(--color-accent-sage)",
+              color: "white",
+            }}
+          >
+            <Link href="/properties">Browse Our Houses</Link>
+          </Button>
         </div>
       </section>
 
