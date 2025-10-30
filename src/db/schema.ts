@@ -1,1 +1,25 @@
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, integer, text, real } from 'drizzle-orm/sqlite-core';
+
+export const bookings = sqliteTable('bookings', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  propertyName: text('property_name').notNull(),
+  propertyLocation: text('property_location'),
+  guestName: text('guest_name').notNull(),
+  guestEmail: text('guest_email').notNull(),
+  guestPhone: text('guest_phone').notNull(),
+  checkInDate: text('check_in_date').notNull(),
+  checkOutDate: text('check_out_date').notNull(),
+  numberOfGuests: integer('number_of_guests').notNull(),
+  occasion: text('occasion'),
+  bookingStatus: text('booking_status').notNull().default('pending'),
+  totalPrice: real('total_price'),
+  depositAmount: real('deposit_amount'),
+  depositPaid: integer('deposit_paid', { mode: 'boolean' }).default(false),
+  balanceAmount: real('balance_amount'),
+  balancePaid: integer('balance_paid', { mode: 'boolean' }).default(false),
+  specialRequests: text('special_requests'),
+  experiencesSelected: text('experiences_selected', { mode: 'json' }),
+  adminNotes: text('admin_notes'),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
