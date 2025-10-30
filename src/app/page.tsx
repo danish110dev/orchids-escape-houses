@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CalendarComponent } from "@/components/ui/calendar";
+import { format } from "date-fns";
 
 // Move static data outside component to prevent re-creation on each render
 const featuredProperties = [
@@ -178,6 +180,11 @@ export default function Home() {
   const [infants, setInfants] = useState(0);
   const [pets, setPets] = useState(0);
   const [guestsOpen, setGuestsOpen] = useState(false);
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({
+    from: undefined,
+    to: undefined,
+  });
 
   // Optimized Intersection Observer
   useEffect(() => {
@@ -262,6 +269,21 @@ export default function Home() {
     window.location.href = `/properties?${params.toString()}`;
   };
 
+  const handleDateSelect = (range: { from: Date | undefined; to: Date | undefined }) => {
+    setDateRange(range);
+    if (range.from) {
+      setCheckInDate(format(range.from, 'yyyy-MM-dd'));
+    }
+    if (range.to) {
+      setCheckOutDate(format(range.to, 'yyyy-MM-dd'));
+    }
+    
+    // Auto-close when both dates are selected
+    if (range.from && range.to) {
+      setDatePickerOpen(false);
+    }
+  };
+
   const totalGuests = adults + children + infants;
   const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
 
@@ -326,22 +348,32 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Enter dates"
-                    value={checkInDate && checkOutDate ? `${checkInDate} - ${checkOutDate}` : ""}
-                    readOnly
-                    className="pl-10 h-12 cursor-pointer"
-                    onClick={() => {
-                      const today = new Date().toISOString().split('T')[0];
-                      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
-                      setCheckInDate(today);
-                      setCheckOutDate(tomorrow);
-                    }}
-                  />
-                </div>
+                <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="w-full h-12 justify-start text-left font-normal"
+                    >
+                      <Calendar className="w-5 h-5 text-gray-400 mr-2" />
+                      {checkInDate && checkOutDate ? (
+                        <span className="text-gray-900">
+                          {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
+                        </span>
+                      ) : (
+                        <span className="text-gray-500">Select dates</span>
+                      )}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <CalendarComponent
+                      mode="range"
+                      selected={dateRange}
+                      onSelect={(range) => handleDateSelect(range || { from: undefined, to: undefined })}
+                      numberOfMonths={2}
+                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
 
               {/* Destination Selector */}
@@ -358,12 +390,30 @@ export default function Home() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Locations</SelectItem>
-                    <SelectItem value="brighton">Brighton</SelectItem>
-                    <SelectItem value="bath">Bath</SelectItem>
-                    <SelectItem value="manchester">Manchester</SelectItem>
-                    <SelectItem value="london">London</SelectItem>
-                    <SelectItem value="newquay">Newquay</SelectItem>
-                    <SelectItem value="liverpool">Liverpool</SelectItem>
+                    
+                    {/* South England */}
+                    <SelectItem value="brighton">Brighton & Hove</SelectItem>
+                    <SelectItem value="bath">Bath & Somerset</SelectItem>
+                    <SelectItem value="bournemouth">Bournemouth & Dorset</SelectItem>
+                    <SelectItem value="london">London & South East</SelectItem>
+                    
+                    {/* North England */}
+                    <SelectItem value="manchester">Manchester & Lancashire</SelectItem>
+                    <SelectItem value="liverpool">Liverpool & Merseyside</SelectItem>
+                    <SelectItem value="york">York & Yorkshire</SelectItem>
+                    <SelectItem value="newcastle">Newcastle & North East</SelectItem>
+                    
+                    {/* Wales & Scotland */}
+                    <SelectItem value="cardiff">Cardiff & South Wales</SelectItem>
+                    <SelectItem value="highlands">Scottish Highlands</SelectItem>
+                    <SelectItem value="edinburgh">Edinburgh & Lowlands</SelectItem>
+                    <SelectItem value="snowdonia">Snowdonia & North Wales</SelectItem>
+                    
+                    {/* Additional Popular Locations */}
+                    <SelectItem value="newquay">Newquay & Cornwall</SelectItem>
+                    <SelectItem value="devon">Devon & South West</SelectItem>
+                    <SelectItem value="cotswolds">Cotswolds</SelectItem>
+                    <SelectItem value="lake-district">Lake District</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
