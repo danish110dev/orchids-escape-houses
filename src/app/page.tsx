@@ -210,7 +210,11 @@ export default function Home() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ 
+          email,
+          honeypot, // Bot trap
+          timestamp: formLoadTime.toString() // Time-based check
+        })
       });
       
       const data = await response.json();
