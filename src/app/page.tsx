@@ -164,10 +164,13 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [formLoadTime, setFormLoadTime] = useState<number>(0);
+  const [honeypot, setHoneypot] = useState("");
 
   // Optimized Intersection Observer
   useEffect(() => {
     setMounted(true);
+    setFormLoadTime(Date.now()); // Track when form loaded
 
     const observerOptions = {
       threshold: 0.1,
