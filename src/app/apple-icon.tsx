@@ -4,34 +4,17 @@ export const runtime = 'edge';
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 
-export default function AppleIcon() {
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#F5F3F0',
-        }}
-      >
-        <img
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/stacked_logo-1760785640378-2-1761832743005.webp?width=512&height=512&resize=contain"
-          alt="Group Escape Houses Logo"
-          width="180"
-          height="180"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-          }}
-        />
-      </div>
-    ),
-    {
-      ...size,
-    }
-  );
+export default async function AppleIcon() {
+  // Fetch the logo image directly
+  const logoUrl = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/stacked_logo-1760785640378-2-1761832743005.webp?width=180&height=180&resize=contain';
+  
+  const response = await fetch(logoUrl);
+  const imageBuffer = await response.arrayBuffer();
+  
+  return new Response(imageBuffer, {
+    headers: {
+      'Content-Type': 'image/png',
+      'Cache-Control': 'public, max-age=31536000, immutable',
+    },
+  });
 }
