@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -28,20 +29,68 @@ import {
 import { motion } from "framer-motion";
 
 export default function PropertiesPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
   const [displayedCount, setDisplayedCount] = useState(6);
   const [filters, setFilters] = useState({
-    location: "",
+    location: searchParams.get("location") || "",
     groupSize: 0,
     priceMin: 50,
     priceMax: 3000,
     features: [] as string[],
   });
 
+  // Update URL when location filter changes
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (filters.location) {
+      params.set("location", filters.location);
+    } else {
+      params.delete("location");
+    }
+    router.replace(`/properties?${params.toString()}`, { scroll: false });
+  }, [filters.location]);
+
   // Reset displayedCount when filters change
   useEffect(() => {
     setDisplayedCount(6);
   }, [filters]);
+
+  // Destinations list matching the destinations page
+  const destinations = [
+    { name: "Bath", slug: "bath" },
+    { name: "Birmingham", slug: "birmingham" },
+    { name: "Blackpool", slug: "blackpool" },
+    { name: "Bournemouth", slug: "bournemouth" },
+    { name: "Brighton", slug: "brighton" },
+    { name: "Bristol", slug: "bristol" },
+    { name: "Cambridge", slug: "cambridge" },
+    { name: "Canterbury", slug: "canterbury" },
+    { name: "Cardiff", slug: "cardiff" },
+    { name: "Cheltenham", slug: "cheltenham" },
+    { name: "Chester", slug: "chester" },
+    { name: "Cotswolds", slug: "cotswolds" },
+    { name: "Durham", slug: "durham" },
+    { name: "Exeter", slug: "exeter" },
+    { name: "Harrogate", slug: "harrogate" },
+    { name: "Lake District", slug: "lake-district" },
+    { name: "Leeds", slug: "leeds" },
+    { name: "Liverpool", slug: "liverpool" },
+    { name: "London", slug: "london" },
+    { name: "Manchester", slug: "manchester" },
+    { name: "Margate", slug: "margate" },
+    { name: "Newcastle", slug: "newcastle" },
+    { name: "Newquay", slug: "newquay" },
+    { name: "Nottingham", slug: "nottingham" },
+    { name: "Oxford", slug: "oxford" },
+    { name: "Plymouth", slug: "plymouth" },
+    { name: "Sheffield", slug: "sheffield" },
+    { name: "St Ives", slug: "st-ives" },
+    { name: "Stratford-upon-Avon", slug: "stratford-upon-avon" },
+    { name: "Windsor", slug: "windsor" },
+    { name: "York", slug: "york" },
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   const properties = [
     {
@@ -412,37 +461,11 @@ export default function PropertiesPage() {
                       onChange={(e) => setFilters({ ...filters, location: e.target.value })}
                     >
                       <option value="">All locations</option>
-                      <option value="london">London</option>
-                      <option value="brighton">Brighton</option>
-                      <option value="bath">Bath</option>
-                      <option value="manchester">Manchester</option>
-                      <option value="newquay">Newquay</option>
-                      <option value="lake-district">Lake District</option>
-                      <option value="york">York</option>
-                      <option value="bournemouth">Bournemouth</option>
-                      <option value="liverpool">Liverpool</option>
-                      <option value="bristol">Bristol</option>
-                      <option value="newcastle">Newcastle</option>
-                      <option value="cambridge">Cambridge</option>
-                      <option value="oxford">Oxford</option>
-                      <option value="leeds">Leeds</option>
-                      <option value="nottingham">Nottingham</option>
-                      <option value="birmingham">Birmingham</option>
-                      <option value="sheffield">Sheffield</option>
-                      <option value="exeter">Exeter</option>
-                      <option value="chester">Chester</option>
-                      <option value="durham">Durham</option>
-                      <option value="canterbury">Canterbury</option>
-                      <option value="blackpool">Blackpool</option>
-                      <option value="cotswolds">Cotswolds</option>
-                      <option value="margate">Margate</option>
-                      <option value="harrogate">Harrogate</option>
-                      <option value="st-ives">St Ives</option>
-                      <option value="windsor">Windsor</option>
-                      <option value="stratford-upon-avon">Stratford-upon-Avon</option>
-                      <option value="plymouth">Plymouth</option>
-                      <option value="cheltenham">Cheltenham</option>
-                      <option value="cardiff">Cardiff</option>
+                      {destinations.map((destination) => (
+                        <option key={destination.slug} value={destination.slug}>
+                          {destination.name}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
