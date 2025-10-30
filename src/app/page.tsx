@@ -371,6 +371,20 @@ export default function Home() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
+                    <div className="p-3 border-b flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-700">Select dates</p>
+                      {(checkInDate || checkOutDate) && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={handleDateReset}
+                          className="h-8 px-2 text-xs hover:bg-gray-100"
+                        >
+                          <X className="w-4 h-4 mr-1" />
+                          Reset
+                        </Button>
+                      )}
+                    </div>
                     <CalendarComponent
                       mode="range"
                       selected={dateRange}
