@@ -246,7 +246,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Optimized */}
-      <section className="relative h-[500px] mt-20 flex items-end overflow-hidden">
+      <section className="relative h-[500px] mt-36 flex items-end overflow-hidden">
         {/* Desktop Background video */}
         <video
           autoPlay
