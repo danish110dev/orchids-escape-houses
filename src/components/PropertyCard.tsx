@@ -110,7 +110,7 @@ export default function PropertyCard({
         <div className="flex items-center justify-between pt-4 border-t border-[var(--color-bg-secondary)]">
           <div>
             <p className="text-sm text-[var(--color-neutral-dark)]">From</p>
-            <p className="text-2xl font-semibold" style={{ color: "var(--color-accent-pink)" }}>
+            <p className="text-2xl font-semibold" style={{ color: "var(--color-accent-sage)" }}>
               £{priceFrom}
             </p>
             <p className="text-xs text-[var(--color-neutral-dark)]">per night</p>
