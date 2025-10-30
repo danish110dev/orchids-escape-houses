@@ -348,9 +348,9 @@ export default function Home() {
 
           {/* Search Bar */}
           <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-4 md:p-6">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-3 items-stretch md:items-end">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-end">
               {/* Date Picker */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
@@ -366,7 +366,7 @@ export default function Home() {
                           {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
                         </span>
                       ) : (
-                        <span className="text-gray-500 truncate">Select dates</span>
+                        <span className="text-gray-500">Select dates</span>
                       )}
                     </Button>
                   </PopoverTrigger>
@@ -397,7 +397,7 @@ export default function Home() {
               </div>
 
               {/* Destination Selector */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
@@ -439,7 +439,7 @@ export default function Home() {
               </div>
 
               {/* Guests Selector */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Guests
                 </label>
@@ -566,14 +566,14 @@ export default function Home() {
               </div>
 
               {/* Search Button */}
-              <div className="flex-shrink-0 md:w-auto">
+              <div className="flex-shrink-0 md:flex-1">
                 <label className="hidden md:block text-sm font-medium text-gray-700 mb-2 invisible">
                   Search
                 </label>
                 <Button
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full md:w-auto h-12 px-8 rounded-xl text-base font-semibold whitespace-nowrap"
+                  className="w-full h-12 rounded-xl text-base md:text-lg font-semibold"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
