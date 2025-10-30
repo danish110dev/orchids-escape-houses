@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarComponent } from "@/components/ui/calendar";
+import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
 
 // Move static data outside component to prevent re-creation on each render
