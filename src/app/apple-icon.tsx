@@ -15,34 +15,19 @@ export default function AppleIcon() {
           alignItems: 'center',
           justifyContent: 'center',
           background: '#F5F3F0',
-          position: 'relative',
         }}
       >
-        {/* Decorative circle */}
-        <div
+        <img
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/stacked_logo-1760785640378-2-1761832743005.webp?width=512&height=512&resize=contain"
+          alt="Group Escape Houses Logo"
+          width="180"
+          height="180"
           style={{
-            position: 'absolute',
-            width: '156px',
-            height: '156px',
-            border: '3px solid #C6A76D',
-            borderRadius: '50%',
-            opacity: 0.3,
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
           }}
         />
-        {/* GEH text */}
-        <div
-          style={{
-            fontSize: '72px',
-            fontWeight: 700,
-            color: '#89A38F',
-            fontFamily: 'Georgia, serif',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          GEH
-        </div>
       </div>
     ),
     {
