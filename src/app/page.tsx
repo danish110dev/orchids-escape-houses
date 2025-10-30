@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, memo } from "react";
 import Link from "next/link";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, MapPin, Calendar } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -167,6 +167,11 @@ export default function Home() {
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
 
+  // Search bar state
+  const [destination, setDestination] = useState("");
+  const [dates, setDates] = useState("");
+  const [guests, setGuests] = useState("2 guests");
+
   // Optimized Intersection Observer
   useEffect(() => {
     setMounted(true);
@@ -239,6 +244,15 @@ export default function Home() {
     }
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (destination) params.set('location', destination);
+    if (dates) params.set('dates', dates);
+    if (guests) params.set('guests', guests);
+    window.location.href = `/properties?${params.toString()}`;
+  };
+
   return (
     <div className="min-h-screen">
       <StructuredData type="home" />
@@ -246,7 +260,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Optimized */}
-      <section className="relative h-[500px] mt-44 flex items-end overflow-hidden">
+      <section className="relative h-[500px] mt-52 flex items-end overflow-hidden">
         {/* Desktop Background video */}
         <video
           autoPlay
@@ -278,6 +292,79 @@ export default function Home() {
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
         </video>
+
+        {/* Hero Content Overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6">
+          {/* Hero Title */}
+          <h1
+            className="mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
+            style={{
+              fontFamily: "var(--font-display)",
+              textShadow: "0 2px 4px rgba(0,0,0,0.3)"
+            }}
+          >
+            Discover Your Perfect Cottage Holiday
+          </h1>
+
+          {/* Search Bar */}
+          <form 
+            onSubmit={handleSearch} 
+            className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-4 sm:p-6"
+          >
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Location Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Enter destination"
+                  value={destination}
+                  onChange={(e) => setDestination(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px] text-gray-700"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Dates Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <Calendar className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Enter dates"
+                  value={dates}
+                  onChange={(e) => setDates(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px] text-gray-700"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Guests Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <Users className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                <input
+                  type="text"
+                  placeholder="2 guests"
+                  value={guests}
+                  onChange={(e) => setGuests(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px] text-gray-700"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Search Button */}
+              <Button
+                type="submit"
+                className="rounded-lg px-8 py-6 text-white font-semibold transition-all duration-200 hover:shadow-lg whitespace-nowrap"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                Search
+              </Button>
+            </div>
+          </form>
+        </div>
       </section>
 
       {/* Hero Description - Below Video */}
