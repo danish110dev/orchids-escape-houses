@@ -15,34 +15,19 @@ export default function Icon() {
           alignItems: 'center',
           justifyContent: 'center',
           background: '#F5F3F0',
-          position: 'relative',
         }}
       >
-        {/* Decorative circle */}
-        <div
+        <img
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/stacked_logo-1760785640378-2-1761832743005.webp?width=256&height=256&resize=contain"
+          alt="Group Escape Houses Logo"
+          width="32"
+          height="32"
           style={{
-            position: 'absolute',
-            width: '28px',
-            height: '28px',
-            border: '0.5px solid #C6A76D',
-            borderRadius: '50%',
-            opacity: 0.3,
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
           }}
         />
-        {/* GEH text */}
-        <div
-          style={{
-            fontSize: '16px',
-            fontWeight: 700,
-            color: '#89A38F',
-            fontFamily: 'Georgia, serif',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          GEH
-        </div>
       </div>
     ),
     {
