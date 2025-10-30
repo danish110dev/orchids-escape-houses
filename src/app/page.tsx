@@ -278,37 +278,6 @@ export default function Home() {
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
         </video>
-
-        {/* Content - Only CTA Buttons */}
-        <div className="relative z-10 w-full">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-8 sm:pb-10 md:pb-12">
-            {/* CTA Buttons - Responsive for both Mobile & Desktop */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md sm:max-w-none">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-2xl px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-base sm:text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
-                style={{
-                  background: "var(--color-accent-sage)",
-                  color: "white",
-                }}
-              >
-                <Link href="/properties">Browse Houses</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-2xl px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-base sm:text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)] w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white"
-                style={{
-                  borderColor: "white",
-                }}
-              >
-                <Link href="/contact">Book Now</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Hero Description - Below Video */}
