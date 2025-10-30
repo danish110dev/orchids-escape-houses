@@ -497,6 +497,9 @@ export default function Home() {
 
               {/* Search Button */}
               <div className="md:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2 invisible">
+                  Search
+                </label>
                 <Button
                   size="lg"
                   onClick={handleSearch}
