@@ -36,6 +36,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Group Escape Houses | Luxury Hen Party Houses UK",
     description: "Book luxury hen party houses and large group accommodation across the UK. Hot tubs, pools, games rooms. Perfect for celebrations.",
