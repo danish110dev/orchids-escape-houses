@@ -961,6 +961,22 @@ export default function Home() {
           </p>
 
           <form className="flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={handleEmailSubmit}>
+            {/* Honeypot field - hidden from users, bots will fill it */}
+            <input
+              type="text"
+              name="website"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              style={{ 
+                position: 'absolute', 
+                left: '-9999px',
+                width: '1px',
+                height: '1px'
+              }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <Input
               type="email"
               placeholder="Enter your email"
