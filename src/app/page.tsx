@@ -347,10 +347,10 @@ export default function Home() {
           </h1>
 
           {/* Search Bar */}
-          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-4 md:p-6">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-3 items-stretch md:items-end">
               {/* Date Picker */}
-              <div className="md:col-span-3">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
@@ -360,13 +360,13 @@ export default function Home() {
                       variant="outline"
                       className="w-full h-12 justify-start text-left font-normal"
                     >
-                      <Calendar className="w-5 h-5 text-gray-400 mr-2" />
+                      <Calendar className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
                       {checkInDate && checkOutDate ? (
-                        <span className="text-gray-900">
+                        <span className="text-gray-900 truncate">
                           {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
                         </span>
                       ) : (
-                        <span className="text-gray-500">Select dates</span>
+                        <span className="text-gray-500 truncate">Select dates</span>
                       )}
                     </Button>
                   </PopoverTrigger>
@@ -397,14 +397,14 @@ export default function Home() {
               </div>
 
               {/* Destination Selector */}
-              <div className="md:col-span-3">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
                 <Select value={destination} onValueChange={setDestination}>
                   <SelectTrigger className="h-12">
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-5 h-5 text-gray-400" />
+                      <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
                       <SelectValue placeholder="Choose location" />
                     </div>
                   </SelectTrigger>
@@ -439,7 +439,7 @@ export default function Home() {
               </div>
 
               {/* Guests Selector */}
-              <div className="md:col-span-3">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Guests
                 </label>
@@ -449,8 +449,8 @@ export default function Home() {
                       variant="outline"
                       className="w-full h-12 justify-start text-left font-normal"
                     >
-                      <User className="w-5 h-5 text-gray-400 mr-2" />
-                      <span className="text-gray-900">{guestsSummary}</span>
+                      <User className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
+                      <span className="text-gray-900 truncate">{guestsSummary}</span>
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-80 p-6" align="start">
@@ -566,14 +566,14 @@ export default function Home() {
               </div>
 
               {/* Search Button */}
-              <div className="md:col-span-3">
-                <label className="block text-sm font-medium text-gray-700 mb-2 invisible">
+              <div className="flex-shrink-0 md:w-auto">
+                <label className="hidden md:block text-sm font-medium text-gray-700 mb-2 invisible">
                   Search
                 </label>
                 <Button
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full h-12 rounded-xl text-lg font-semibold"
+                  className="w-full md:w-auto h-12 px-8 rounded-xl text-base font-semibold whitespace-nowrap"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
