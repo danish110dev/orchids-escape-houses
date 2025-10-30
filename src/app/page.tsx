@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, memo } from "react";
 import Link from "next/link";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -13,6 +13,8 @@ import LoadingScreen from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // Move static data outside component to prevent re-creation on each render
 const featuredProperties = [
@@ -167,6 +169,16 @@ export default function Home() {
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
 
+  // Search form state
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
+  const [destination, setDestination] = useState("");
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
+  const [infants, setInfants] = useState(0);
+  const [pets, setPets] = useState(0);
+  const [guestsOpen, setGuestsOpen] = useState(false);
+
   // Optimized Intersection Observer
   useEffect(() => {
     setMounted(true);
@@ -239,6 +251,20 @@ export default function Home() {
     }
   };
 
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (destination) params.set('destination', destination);
+    if (checkInDate) params.set('checkIn', checkInDate);
+    if (checkOutDate) params.set('checkOut', checkOutDate);
+    params.set('guests', String(adults + children));
+    if (pets > 0) params.set('pets', String(pets));
+    
+    window.location.href = `/properties?${params.toString()}`;
+  };
+
+  const totalGuests = adults + children + infants;
+  const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
+
   return (
     <div className="min-h-screen">
       <StructuredData type="home" />
@@ -246,7 +272,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Optimized */}
-      <section className="relative h-[600px] md:h-[700px] mt-52 flex items-center overflow-hidden">
+      <section className="relative h-[700px] md:h-[800px] mt-52 flex items-center overflow-hidden">
         {/* Desktop Background video */}
         <video
           autoPlay
@@ -280,7 +306,7 @@ export default function Home() {
         </video>
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-6">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8">
           {/* Hero Title */}
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
@@ -292,18 +318,199 @@ export default function Home() {
             Your Perfect Group Escape Starts Here
           </h1>
 
-          {/* CTA Button */}
-          <Button
-            asChild
-            size="lg"
-            className="rounded-2xl px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
-            style={{
-              background: "var(--color-accent-sage)",
-              color: "white",
-            }}
-          >
-            <Link href="/properties">Browse Our Houses</Link>
-          </Button>
+          {/* Search Bar */}
+          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+              {/* Date Picker */}
+              <div className="md:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Check-in / Check-out
+                </label>
+                <div className="relative">
+                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Input
+                    type="text"
+                    placeholder="Enter dates"
+                    value={checkInDate && checkOutDate ? `${checkInDate} - ${checkOutDate}` : ""}
+                    readOnly
+                    className="pl-10 h-12 cursor-pointer"
+                    onClick={() => {
+                      const today = new Date().toISOString().split('T')[0];
+                      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+                      setCheckInDate(today);
+                      setCheckOutDate(tomorrow);
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Destination Selector */}
+              <div className="md:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Destination
+                </label>
+                <Select value={destination} onValueChange={setDestination}>
+                  <SelectTrigger className="h-12">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-5 h-5 text-gray-400" />
+                      <SelectValue placeholder="Choose location" />
+                    </div>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Locations</SelectItem>
+                    <SelectItem value="brighton">Brighton</SelectItem>
+                    <SelectItem value="bath">Bath</SelectItem>
+                    <SelectItem value="manchester">Manchester</SelectItem>
+                    <SelectItem value="london">London</SelectItem>
+                    <SelectItem value="newquay">Newquay</SelectItem>
+                    <SelectItem value="liverpool">Liverpool</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Guests Selector */}
+              <div className="md:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Guests
+                </label>
+                <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="w-full h-12 justify-start text-left font-normal"
+                    >
+                      <User className="w-5 h-5 text-gray-400 mr-2" />
+                      <span className="text-gray-900">{guestsSummary}</span>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 p-6" align="start">
+                    <div className="space-y-4">
+                      {/* Adults */}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold">Adults</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setAdults(Math.max(1, adults - 1))}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center font-semibold">{adults}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setAdults(adults + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Children */}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold">Children</div>
+                          <div className="text-sm text-gray-500">Aged 3-17</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setChildren(Math.max(0, children - 1))}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center font-semibold">{children}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setChildren(children + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Infants */}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold">Infants</div>
+                          <div className="text-sm text-gray-500">Aged up to 2</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setInfants(Math.max(0, infants - 1))}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center font-semibold">{infants}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setInfants(infants + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Pets */}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold">Pets</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setPets(Math.max(0, pets - 1))}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center font-semibold">{pets}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
+                            onClick={() => setPets(pets + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              {/* Search Button */}
+              <div className="md:col-span-3">
+                <Button
+                  size="lg"
+                  onClick={handleSearch}
+                  className="w-full h-12 rounded-xl text-lg font-semibold"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  Search
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
