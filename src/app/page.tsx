@@ -303,7 +303,7 @@ export default function Home() {
               textShadow: "0 2px 4px rgba(0,0,0,0.3)"
             }}
           >
-            Discover Your Perfect Cottage Holiday
+            Your Perfect Group Escape Starts Here
           </h1>
 
           {/* Search Bar */}
