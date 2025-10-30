@@ -284,6 +284,12 @@ export default function Home() {
     }
   };
 
+  const handleDateReset = () => {
+    setDateRange({ from: undefined, to: undefined });
+    setCheckInDate("");
+    setCheckOutDate("");
+  };
+
   const totalGuests = adults + children + infants;
   const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
 
