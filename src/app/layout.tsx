@@ -7,8 +7,8 @@ import Script from "next/script";
 
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 export const metadata: Metadata = {
-  title: "Group Escape Houses | Luxury Hen Party Houses UK with Hot Tubs & Pools",
-  description: "Book luxury hen party houses across the UK. Large group accommodation with hot tubs, pools, games rooms. Perfect for hen weekends, birthdays & celebrations. Instant enquiry available.",
+  title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
+  description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
   keywords: [
     "hen party houses UK",
     "hen do accommodation",
@@ -22,7 +22,9 @@ export const metadata: Metadata = {
     "celebration accommodation",
     "birthday party houses",
     "houses with pools UK",
-    "party houses with games rooms"
+    "party houses with games rooms",
+    "large group accommodation UK",
+    "luxury hen party houses"
   ],
   authors: [{ name: "Group Escape Houses" }],
   creator: "Group Escape Houses",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://groupescapehouses.co.uk"),
   alternates: {
-    canonical: "/",
+    canonical: "https://groupescapehouses.co.uk/",
   },
   icons: {
     icon: [
@@ -45,8 +47,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Group Escape Houses | Luxury Hen Party Houses UK",
-    description: "Book luxury hen party houses and large group accommodation across the UK. Hot tubs, pools, games rooms. Perfect for celebrations.",
+    title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
+    description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
     url: "https://groupescapehouses.co.uk",
     siteName: "Group Escape Houses",
     locale: "en_GB",
@@ -62,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Group Escape Houses | Luxury Hen Party Houses UK",
-    description: "Book luxury hen party houses across the UK with hot tubs, pools & games rooms.",
+    title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
+    description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
     images: ["https://groupescapehouses.co.uk/twitter-image.jpg"],
     creator: "@groupescapehouses",
   },
