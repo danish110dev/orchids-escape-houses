@@ -452,7 +452,7 @@ export default function Header() {
         </div>
 
         {/* Search Bar - Below Navigation */}
-        <div className="border-t border-gray-100 bg-white/98 backdrop-blur-sm">
+        <div className="hidden lg:block border-t border-gray-100 bg-white/98 backdrop-blur-sm">
           <div className="max-w-[1200px] mx-auto px-6 py-4">
             <form onSubmit={handleSearch} className="flex items-center gap-3">
               {/* Location Input */}
@@ -497,7 +497,7 @@ export default function Header() {
               {/* Search Button */}
               <Button
                 type="submit"
-                className="rounded-lg px-8 py-6 text-white font-medium transition-all duration-200 hover:shadow-lg"
+                className="rounded-lg px-8 py-6 text-white font-medium transition-all duration-200 hover:shadow-lg whitespace-nowrap"
                 style={{
                   background: "var(--color-accent-sage)",
                   fontFamily: "var(--font-body)",
