@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useState, useEffect, useMemo, memo } from "react";
 import Link from "next/link";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock } from "lucide-react";
@@ -159,22 +158,6 @@ const destinations = [
   { name: "Newquay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?" },
   { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
 ];
-
-export const metadata: Metadata = {
-  title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
-  description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
-  alternates: {
-    canonical: "https://groupescapehouses.co.uk/",
-  },
-  openGraph: {
-    title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
-    description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
-    url: "https://groupescapehouses.co.uk/",
-    siteName: "Group Escape Houses",
-    locale: "en_GB",
-    type: "website",
-  },
-};
 
 export default function Home() {
   const [email, setEmail] = useState("");
