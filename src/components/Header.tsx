@@ -392,6 +392,16 @@ export default function Header() {
                 How It Works
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
               </Link>
+
+              {/* Admin Link */}
+              <Link
+                href="/admin/bookings"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Admin
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
             </nav>
 
             {/* CTA Button - Desktop */}
@@ -621,6 +631,14 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   How It Works
+                </Link>
+
+                <Link
+                  href="/admin/bookings"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Admin Dashboard
                 </Link>
 
                 <Link
