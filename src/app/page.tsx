@@ -347,10 +347,10 @@ export default function Home() {
           </h1>
 
           {/* Search Bar */}
-          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-4 md:p-6">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-end">
+          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
+            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
               {/* Date Picker */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
@@ -358,7 +358,7 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-12 justify-start text-left font-normal"
+                      className="w-full h-14 justify-start text-left font-normal"
                     >
                       <Calendar className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
                       {checkInDate && checkOutDate ? (
@@ -397,12 +397,12 @@ export default function Home() {
               </div>
 
               {/* Destination Selector */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
                 <Select value={destination} onValueChange={setDestination}>
-                  <SelectTrigger className="h-12">
+                  <SelectTrigger className="h-14">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
                       <SelectValue placeholder="Choose location" />
@@ -410,36 +410,47 @@ export default function Home() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Locations</SelectItem>
-                    
-                    {/* South England */}
-                    <SelectItem value="brighton">Brighton & Hove</SelectItem>
-                    <SelectItem value="bath">Bath & Somerset</SelectItem>
-                    <SelectItem value="bournemouth">Bournemouth & Dorset</SelectItem>
-                    <SelectItem value="london">London & South East</SelectItem>
-                    
-                    {/* North England */}
-                    <SelectItem value="manchester">Manchester & Lancashire</SelectItem>
-                    <SelectItem value="liverpool">Liverpool & Merseyside</SelectItem>
-                    <SelectItem value="york">York & Yorkshire</SelectItem>
-                    <SelectItem value="newcastle">Newcastle & North East</SelectItem>
-                    
-                    {/* Wales & Scotland */}
-                    <SelectItem value="cardiff">Cardiff & South Wales</SelectItem>
+                    <SelectItem value="brighton">Brighton</SelectItem>
+                    <SelectItem value="bath">Bath</SelectItem>
+                    <SelectItem value="bournemouth">Bournemouth</SelectItem>
+                    <SelectItem value="london">London</SelectItem>
+                    <SelectItem value="manchester">Manchester</SelectItem>
+                    <SelectItem value="liverpool">Liverpool</SelectItem>
+                    <SelectItem value="york">York</SelectItem>
+                    <SelectItem value="newcastle">Newcastle</SelectItem>
+                    <SelectItem value="cardiff">Cardiff</SelectItem>
+                    <SelectItem value="edinburgh">Edinburgh</SelectItem>
                     <SelectItem value="highlands">Scottish Highlands</SelectItem>
-                    <SelectItem value="edinburgh">Edinburgh & Lowlands</SelectItem>
-                    <SelectItem value="snowdonia">Snowdonia & North Wales</SelectItem>
-                    
-                    {/* Additional Popular Locations */}
-                    <SelectItem value="newquay">Newquay & Cornwall</SelectItem>
-                    <SelectItem value="devon">Devon & South West</SelectItem>
+                    <SelectItem value="snowdonia">Snowdonia</SelectItem>
+                    <SelectItem value="newquay">Newquay</SelectItem>
+                    <SelectItem value="devon">Devon</SelectItem>
                     <SelectItem value="cotswolds">Cotswolds</SelectItem>
                     <SelectItem value="lake-district">Lake District</SelectItem>
+                    <SelectItem value="birmingham">Birmingham</SelectItem>
+                    <SelectItem value="blackpool">Blackpool</SelectItem>
+                    <SelectItem value="bristol">Bristol</SelectItem>
+                    <SelectItem value="cambridge">Cambridge</SelectItem>
+                    <SelectItem value="canterbury">Canterbury</SelectItem>
+                    <SelectItem value="cheltenham">Cheltenham</SelectItem>
+                    <SelectItem value="chester">Chester</SelectItem>
+                    <SelectItem value="durham">Durham</SelectItem>
+                    <SelectItem value="exeter">Exeter</SelectItem>
+                    <SelectItem value="harrogate">Harrogate</SelectItem>
+                    <SelectItem value="leeds">Leeds</SelectItem>
+                    <SelectItem value="margate">Margate</SelectItem>
+                    <SelectItem value="nottingham">Nottingham</SelectItem>
+                    <SelectItem value="oxford">Oxford</SelectItem>
+                    <SelectItem value="plymouth">Plymouth</SelectItem>
+                    <SelectItem value="sheffield">Sheffield</SelectItem>
+                    <SelectItem value="st-ives">St Ives</SelectItem>
+                    <SelectItem value="stratford-upon-avon">Stratford-upon-Avon</SelectItem>
+                    <SelectItem value="windsor">Windsor</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               {/* Guests Selector */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Guests
                 </label>
@@ -447,7 +458,7 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-12 justify-start text-left font-normal"
+                      className="w-full h-14 justify-start text-left font-normal"
                     >
                       <User className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
@@ -566,14 +577,14 @@ export default function Home() {
               </div>
 
               {/* Search Button */}
-              <div className="flex-shrink-0 md:flex-1">
+              <div className="w-full md:w-auto md:min-w-[140px]">
                 <label className="hidden md:block text-sm font-medium text-gray-700 mb-2 invisible">
                   Search
                 </label>
                 <Button
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full h-12 rounded-xl text-base md:text-lg font-semibold"
+                  className="w-full h-14 rounded-xl text-base font-semibold"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
