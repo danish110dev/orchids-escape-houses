@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -18,6 +18,11 @@ export default function Header() {
   const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
   const [isMobileOccasionsOpen, setIsMobileOccasionsOpen] = useState(false);
   const [isMobileExperiencesOpen, setIsMobileExperiencesOpen] = useState(false);
+
+  // Search bar state
+  const [destination, setDestination] = useState("");
+  const [dates, setDates] = useState("");
+  const [guests, setGuests] = useState("2 guests - 0 pets");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +49,16 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Navigate to properties page with search params
+    const params = new URLSearchParams();
+    if (destination) params.set('location', destination);
+    if (dates) params.set('dates', dates);
+    if (guests) params.set('guests', guests);
+    window.location.href = `/properties?${params.toString()}`;
+  };
 
   const houseStyles = [
     { title: "Manor Houses", slug: "manor-houses" },
@@ -433,6 +448,64 @@ export default function Header() {
                 {isMobileMenuOpen ? "Close" : "Menu"}
               </span>
             </button>
+          </div>
+        </div>
+
+        {/* Search Bar - Below Navigation */}
+        <div className="border-t border-gray-100 bg-white/98 backdrop-blur-sm">
+          <div className="max-w-[1200px] mx-auto px-6 py-4">
+            <form onSubmit={handleSearch} className="flex items-center gap-3">
+              {/* Location Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <MapPin className="w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Enter destination"
+                  value={destination}
+                  onChange={(e) => setDestination(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px]"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Dates Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <Calendar className="w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Enter dates"
+                  value={dates}
+                  onChange={(e) => setDates(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px]"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Guests Input */}
+              <div className="flex-1 flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[var(--color-accent-sage)] transition-colors">
+                <Users className="w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="2 guests - 0 pets"
+                  value={guests}
+                  onChange={(e) => setGuests(e.target.value)}
+                  className="flex-1 outline-none bg-transparent text-[15px]"
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
+              </div>
+
+              {/* Search Button */}
+              <Button
+                type="submit"
+                className="rounded-lg px-8 py-6 text-white font-medium transition-all duration-200 hover:shadow-lg"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                Search
+              </Button>
+            </form>
           </div>
         </div>
       </header>
