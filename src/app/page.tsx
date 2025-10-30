@@ -358,9 +358,9 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal"
+                      className="w-full h-14 justify-start text-left font-normal px-4"
                     >
-                      <Calendar className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
+                      <Calendar className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       {checkInDate && checkOutDate ? (
                         <span className="text-gray-900 truncate">
                           {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
@@ -371,14 +371,14 @@ export default function Home() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
-                    <div className="p-3 border-b flex items-center justify-between">
+                    <div className="p-4 border-b flex items-center justify-between">
                       <p className="text-sm font-medium text-gray-700">Select dates</p>
                       {(checkInDate || checkOutDate) && (
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={handleDateReset}
-                          className="h-8 px-2 text-xs hover:bg-gray-100"
+                          className="h-8 px-3 text-xs hover:bg-gray-100"
                         >
                           <X className="w-4 h-4 mr-1" />
                           Reset
@@ -402,8 +402,8 @@ export default function Home() {
                   Destination
                 </label>
                 <Select value={destination} onValueChange={setDestination}>
-                  <SelectTrigger className="h-14">
-                    <div className="flex items-center gap-2">
+                  <SelectTrigger className="h-14 px-4">
+                    <div className="flex items-center gap-3 w-full">
                       <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
                       <SelectValue placeholder="Choose location" />
                     </div>
@@ -458,9 +458,9 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal"
+                      className="w-full h-14 justify-start text-left font-normal px-4"
                     >
-                      <User className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
+                      <User className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
                     </Button>
                   </PopoverTrigger>
