@@ -272,7 +272,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Optimized */}
-      <section className="relative h-[700px] md:h-[800px] mt-52 flex items-center overflow-hidden">
+      <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
         {/* Desktop Background video */}
         <video
           autoPlay
