@@ -173,6 +173,46 @@ const popularDestinations = [
   "Edinburgh"
 ];
 
+// All destinations for the dropdown
+const allDestinations = [
+  "All Locations",
+  "Brighton",
+  "Bath",
+  "Bournemouth",
+  "London",
+  "Manchester",
+  "Liverpool",
+  "York",
+  "Newcastle",
+  "Cardiff",
+  "Edinburgh",
+  "Scottish Highlands",
+  "Snowdonia",
+  "Newquay",
+  "Devon",
+  "Cotswolds",
+  "Lake District",
+  "Birmingham",
+  "Blackpool",
+  "Bristol",
+  "Cambridge",
+  "Canterbury",
+  "Cheltenham",
+  "Chester",
+  "Durham",
+  "Exeter",
+  "Harrogate",
+  "Leeds",
+  "Margate",
+  "Nottingham",
+  "Oxford",
+  "Plymouth",
+  "Sheffield",
+  "St Ives",
+  "Stratford-upon-Avon",
+  "Windsor"
+];
+
 type DatePickerState = "idle" | "pickingStart" | "pickingEnd" | "complete";
 
 export default function Home() {
