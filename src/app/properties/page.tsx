@@ -61,7 +61,7 @@ export default function PropertiesPage() {
       params.delete("location");
     }
     router.replace(`/properties?${params.toString()}`, { scroll: false });
-  }, [filters.location, router, searchParams]);
+  }, [filters.location, router]);
 
   // Reset displayedCount when filters change
   useEffect(() => {
