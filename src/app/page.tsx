@@ -427,11 +427,74 @@ export default function Home() {
           setDatePickerState("idle");
         }
       }
+      
+      // Handle Escape for destination dropdown
+      if (e.key === "Escape" && destinationOpen) {
+        setDestinationOpen(false);
+        setFocusedDestinationIndex(-1);
+      }
     };
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [datePickerOpen, datePickerState]);
+  }, [datePickerOpen, datePickerState, destinationOpen]);
+
+  // Keyboard navigation for destination dropdown
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!destinationOpen) return;
+
+      const allDests = [...popularDestinations, ...allDestinations];
+      
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setFocusedDestinationIndex((prev) => {
+          const next = prev + 1 >= allDests.length ? 0 : prev + 1;
+          destinationButtonsRef.current[next]?.focus();
+          return next;
+        });
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setFocusedDestinationIndex((prev) => {
+          const next = prev - 1 < 0 ? allDests.length - 1 : prev - 1;
+          destinationButtonsRef.current[next]?.focus();
+          return next;
+        });
+      } else if (e.key === "Enter" && focusedDestinationIndex >= 0) {
+        e.preventDefault();
+        const selected = allDests[focusedDestinationIndex];
+        if (selected) {
+          setDestination(selected.toLowerCase().replace(/\s+/g, '-'));
+          setDestinationOpen(false);
+          setFocusedDestinationIndex(-1);
+          announce(`${selected} selected`);
+        }
+      }
+    };
+
+    if (destinationOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [destinationOpen, focusedDestinationIndex]);
+
+  // Handle destination dropdown open
+  const handleDestinationOpenChange = (open: boolean) => {
+    setDestinationOpen(open);
+    if (!open) {
+      setFocusedDestinationIndex(-1);
+    } else {
+      announce("Destination dropdown opened. Use arrow keys to navigate, Enter to select.");
+    }
+  };
+
+  const handleDestinationSelect = (dest: string) => {
+    setDestination(dest.toLowerCase().replace(/\s+/g, '-'));
+    setDestinationOpen(false);
+    setFocusedDestinationIndex(-1);
+    announce(`${dest} selected`);
+  };
 
   // Format date range display
   const dateRangeDisplay = checkInDate && checkOutDate
@@ -615,7 +678,7 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
-                <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
+                <Popover open={destinationOpen} onOpenChange={handleDestinationOpenChange}>
                   <PopoverTrigger asChild>
                     <Button
                       id="ge-destination"
