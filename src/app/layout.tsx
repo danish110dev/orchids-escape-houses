@@ -3,6 +3,7 @@ import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import CookieConsent from "@/components/CookieConsent";
 import WhatsAppChatbot from "@/components/WhatsAppChatbot";
+import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
@@ -104,6 +105,7 @@ export default function RootLayout({
         {children}
         <WhatsAppChatbot />
         <CookieConsent />
+        <Toaster />
       
         <VisualEditsMessenger />
       </body>
