@@ -721,14 +721,14 @@ export default function Home() {
                       {/* Popular Destinations Section */}
                       <div className="p-4 border-b bg-white sticky top-0 z-10">
                         <p className="text-sm font-semibold text-gray-900 mb-3">Popular Destinations</p>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <div className="grid grid-cols-2 gap-2">
                           {popularDestinations.map((dest, index) => (
                             <button
                               key={dest}
                               ref={(el) => { destinationButtonsRef.current[index] = el; }}
                               onClick={() => handleDestinationSelect(dest)}
                               onMouseEnter={() => setFocusedDestinationIndex(index)}
-                              className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
+                              className={`px-3 py-2.5 text-sm font-medium text-left rounded-lg transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                                 focusedDestinationIndex === index
                                   ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
                                   : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
@@ -744,7 +744,7 @@ export default function Home() {
                       {/* All Destinations Section */}
                       <div className="p-4">
                         <p className="text-sm font-semibold text-gray-900 mb-3">All Destinations</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        <div className="flex flex-col gap-1">
                           {allDestinations.map((dest, index) => {
                             const actualIndex = index + popularDestinations.length;
                             return (
@@ -753,7 +753,7 @@ export default function Home() {
                                 ref={(el) => { destinationButtonsRef.current[actualIndex] = el; }}
                                 onClick={() => handleDestinationSelect(dest)}
                                 onMouseEnter={() => setFocusedDestinationIndex(actualIndex)}
-                                className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
+                                className={`px-3 py-2.5 text-sm font-medium text-left rounded-lg transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                                   focusedDestinationIndex === actualIndex
                                     ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
                                     : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
