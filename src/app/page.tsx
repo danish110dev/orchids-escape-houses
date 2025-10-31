@@ -278,7 +278,7 @@ export default function Home() {
       setCheckOutDate(format(range.to, 'yyyy-MM-dd'));
     }
     
-    // Auto-close when both dates are selected
+    // Only close when both dates are selected
     if (range.from && range.to) {
       setDatePickerOpen(false);
     }
@@ -290,12 +290,11 @@ export default function Home() {
     setCheckOutDate("");
   };
 
-  // Handle date picker popover open/close
+  // Handle date picker popover open/close - prevent closing if only first date selected
   const handleDatePickerOpenChange = (open: boolean) => {
-    // Only allow closing if both dates are selected or if explicitly closing (like clicking outside)
+    // If trying to close but only first date is selected, keep it open
     if (!open && dateRange.from && !dateRange.to) {
-      // Don't close if only first date is selected
-      return;
+      return; // Don't close - wait for second date
     }
     setDatePickerOpen(open);
   };
