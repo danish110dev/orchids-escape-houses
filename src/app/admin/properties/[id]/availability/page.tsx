@@ -90,13 +90,17 @@ export default function PropertyAvailabilityPage() {
   const fetchAvailability = async () => {
     setLoading(true);
     try {
-      const data = await GEH_API.get<{ events: AvailabilityEvent[] }>(
+      const data = await GEH_API.get<AvailabilityEvent[] | { events: AvailabilityEvent[] }>(
         `/properties/${propertyId}/availability`
       );
 
+      // Handle both array response and object with events property
+      const eventsArray = Array.isArray(data) ? data : data.events || [];
+
       // Map events with proper colors
-      const mappedEvents = data.events.map((event) => ({
+      const mappedEvents = eventsArray.map((event) => ({
         ...event,
+        title: event.title || (event.type === "blackout" ? "Blackout" : event.type === "booking_hold" ? "Booking Hold" : "Booked"),
         backgroundColor:
           event.type === "blackout"
             ? "#ef4444"
@@ -115,6 +119,7 @@ export default function PropertyAvailabilityPage() {
     } catch (error) {
       console.error("Failed to fetch availability:", error);
       toast.error("Failed to load availability");
+      setEvents([]);
     } finally {
       setLoading(false);
     }
@@ -164,7 +169,7 @@ export default function PropertyAvailabilityPage() {
         start_date: formData.start_date,
         end_date: formData.end_date,
         type: formData.type,
-        notes: formData.notes,
+        notes: formData.notes || undefined,
       });
 
       toast.success(
