@@ -339,13 +339,12 @@ export default function Home() {
       announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
     } else if (datePickerState === "pickingEnd" && checkInDate) {
       if (date >= checkInDate) {
-        // Valid checkout date
+        // Valid checkout date - set both dates and close immediately
         setCheckOutDate(date);
-        setDatePickerState("complete");
         announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')}`);
-        // Close immediately after both dates selected
-        setDatePickerOpen(false);
+        // Close immediately by resetting state to idle
         setDatePickerState("idle");
+        setDatePickerOpen(false);
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
@@ -367,18 +366,18 @@ export default function Home() {
   const handleDatePickerOpenChange = (open: boolean) => {
     if (open) {
       // Opening calendar
-      if (datePickerState === "complete" || datePickerState === "idle") {
+      if (datePickerState === "idle") {
         setDatePickerState("pickingStart");
       }
       setDatePickerOpen(true);
       announce("Calendar opened. Select your check in date.");
     } else {
-      // Trying to close - only allow if complete
-      if (datePickerState === "complete") {
+      // Trying to close
+      if (datePickerState === "idle") {
+        // Both dates selected or user cancelled - allow close
         setDatePickerOpen(false);
-        setDatePickerState("idle");
       } else {
-        // Don't close if picking dates
+        // Still picking dates - don't close
         triggerShake();
       }
     }
