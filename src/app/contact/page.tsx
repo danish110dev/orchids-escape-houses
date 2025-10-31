@@ -301,13 +301,30 @@ export default function ContactPage() {
                             onSelect={handleDateSelect}
                             disabled={{ before: new Date() }}
                           />
-                          <button
-                            type="button"
-                            onClick={() => setShowCalendar(false)}
-                            className="mt-2 w-full px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg"
-                          >
-                            Close
-                          </button>
+                          <div className="mt-3 flex gap-2">
+                            {dateRange.from && dateRange.to && (
+                              <button
+                                type="button"
+                                onClick={() => setShowCalendar(false)}
+                                className="flex-1 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors"
+                                style={{
+                                  background: "var(--color-accent-sage)",
+                                }}
+                              >
+                                Confirm Dates
+                              </button>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setDateRange({});
+                                setFormData({ ...formData, dates: "" });
+                              }}
+                              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+                            >
+                              Clear
+                            </button>
+                          </div>
                         </div>
                       )}
                     </div>
