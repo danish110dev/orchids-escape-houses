@@ -163,6 +163,16 @@ const destinations = [
   { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
 ];
 
+// Popular destinations for the dropdown
+const popularDestinations = [
+  "Brighton",
+  "Bath",
+  "Manchester",
+  "London",
+  "Liverpool",
+  "Edinburgh"
+];
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -181,6 +191,7 @@ export default function Home() {
   const [pets, setPets] = useState(0);
   const [guestsOpen, setGuestsOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [destinationOpen, setDestinationOpen] = useState(false);
   const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({
     from: undefined,
     to: undefined,
@@ -276,11 +287,8 @@ export default function Home() {
     }
     if (range.to) {
       setCheckOutDate(format(range.to, 'yyyy-MM-dd'));
-    }
-    
-    // Only close when both dates are selected
-    if (range.from && range.to) {
-      setDatePickerOpen(false);
+      // Close after both dates selected with smooth transition
+      setTimeout(() => setDatePickerOpen(false), 150);
     }
   };
 
@@ -355,7 +363,7 @@ export default function Home() {
             Your Perfect Group Escape Starts Here
           </h1>
 
-          {/* Search Bar */}
+          {/* Search Bar - Enhanced with consistent styling and hover effects */}
           <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
             <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
               {/* Date Picker */}
@@ -371,7 +379,7 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal px-4"
+                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
                     >
                       <Calendar className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       {checkInDate && checkOutDate ? (
@@ -394,7 +402,7 @@ export default function Home() {
                     }}
                   >
                     <div className="p-4 border-b flex items-center justify-between">
-                      <p className="text-sm font-medium text-gray-700">Select dates</p>
+                      <p className="text-sm font-medium text-gray-700">Select your dates</p>
                       {(checkInDate || checkOutDate) && (
                         <Button
                           variant="ghost"
@@ -407,69 +415,111 @@ export default function Home() {
                         </Button>
                       )}
                     </div>
-                    <CalendarComponent
-                      mode="range"
-                      selected={dateRange}
-                      onSelect={(range) => handleDateSelect(range || { from: undefined, to: undefined })}
-                      numberOfMonths={2}
-                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
-                    />
+                    <div className="date-range-calendar">
+                      <CalendarComponent
+                        mode="range"
+                        selected={dateRange}
+                        onSelect={(range) => handleDateSelect(range || { from: undefined, to: undefined })}
+                        numberOfMonths={2}
+                        disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                        classNames={{
+                          day_range_middle: "bg-[var(--color-accent-sage)]/20 text-gray-900",
+                          day_selected: "bg-[var(--color-accent-sage)] text-white hover:bg-[var(--color-accent-sage)] hover:text-white",
+                          day_range_start: "bg-[var(--color-accent-sage)] text-white rounded-l-md",
+                          day_range_end: "bg-[var(--color-accent-sage)] text-white rounded-r-md"
+                        }}
+                      />
+                    </div>
                   </PopoverContent>
                 </Popover>
               </div>
 
-              {/* Destination Selector */}
+              {/* Destination Selector - Enhanced with popular destinations */}
               <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
-                <Select value={destination} onValueChange={setDestination}>
-                  <SelectTrigger className="h-14 px-4">
-                    <MapPin className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
-                    <SelectValue placeholder="Choose location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Locations</SelectItem>
-                    <SelectItem value="brighton">Brighton</SelectItem>
-                    <SelectItem value="bath">Bath</SelectItem>
-                    <SelectItem value="bournemouth">Bournemouth</SelectItem>
-                    <SelectItem value="london">London</SelectItem>
-                    <SelectItem value="manchester">Manchester</SelectItem>
-                    <SelectItem value="liverpool">Liverpool</SelectItem>
-                    <SelectItem value="york">York</SelectItem>
-                    <SelectItem value="newcastle">Newcastle</SelectItem>
-                    <SelectItem value="cardiff">Cardiff</SelectItem>
-                    <SelectItem value="edinburgh">Edinburgh</SelectItem>
-                    <SelectItem value="highlands">Scottish Highlands</SelectItem>
-                    <SelectItem value="snowdonia">Snowdonia</SelectItem>
-                    <SelectItem value="newquay">Newquay</SelectItem>
-                    <SelectItem value="devon">Devon</SelectItem>
-                    <SelectItem value="cotswolds">Cotswolds</SelectItem>
-                    <SelectItem value="lake-district">Lake District</SelectItem>
-                    <SelectItem value="birmingham">Birmingham</SelectItem>
-                    <SelectItem value="blackpool">Blackpool</SelectItem>
-                    <SelectItem value="bristol">Bristol</SelectItem>
-                    <SelectItem value="cambridge">Cambridge</SelectItem>
-                    <SelectItem value="canterbury">Canterbury</SelectItem>
-                    <SelectItem value="cheltenham">Cheltenham</SelectItem>
-                    <SelectItem value="chester">Chester</SelectItem>
-                    <SelectItem value="durham">Durham</SelectItem>
-                    <SelectItem value="exeter">Exeter</SelectItem>
-                    <SelectItem value="harrogate">Harrogate</SelectItem>
-                    <SelectItem value="leeds">Leeds</SelectItem>
-                    <SelectItem value="margate">Margate</SelectItem>
-                    <SelectItem value="nottingham">Nottingham</SelectItem>
-                    <SelectItem value="oxford">Oxford</SelectItem>
-                    <SelectItem value="plymouth">Plymouth</SelectItem>
-                    <SelectItem value="sheffield">Sheffield</SelectItem>
-                    <SelectItem value="st-ives">St Ives</SelectItem>
-                    <SelectItem value="stratford-upon-avon">Stratford-upon-Avon</SelectItem>
-                    <SelectItem value="windsor">Windsor</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                    >
+                      <MapPin className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                      <span className={destination ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
+                        {destination ? destinations.find(d => d.name.toLowerCase() === destination)?.name || "Choose location" : "Choose location"}
+                      </span>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 p-0" align="start">
+                    <div className="p-4 border-b">
+                      <p className="text-sm font-medium text-gray-700 mb-3">Popular Destinations</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {popularDestinations.map((dest) => (
+                          <button
+                            key={dest}
+                            onClick={() => {
+                              setDestination(dest.toLowerCase());
+                              setDestinationOpen(false);
+                            }}
+                            className="px-3 py-2 text-sm text-left rounded-lg hover:bg-[var(--color-accent-sage)]/10 transition-colors duration-200 border border-gray-200 hover:border-[var(--color-accent-sage)]"
+                          >
+                            {dest}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="p-2 max-h-60 overflow-y-auto">
+                      <p className="text-xs font-medium text-gray-500 px-2 py-2">All Locations</p>
+                      <Select value={destination} onValueChange={(value) => {
+                        setDestination(value);
+                        setDestinationOpen(false);
+                      }}>
+                        <SelectContent>
+                          <SelectItem value="all">All Locations</SelectItem>
+                          <SelectItem value="brighton">Brighton</SelectItem>
+                          <SelectItem value="bath">Bath</SelectItem>
+                          <SelectItem value="bournemouth">Bournemouth</SelectItem>
+                          <SelectItem value="london">London</SelectItem>
+                          <SelectItem value="manchester">Manchester</SelectItem>
+                          <SelectItem value="liverpool">Liverpool</SelectItem>
+                          <SelectItem value="york">York</SelectItem>
+                          <SelectItem value="newcastle">Newcastle</SelectItem>
+                          <SelectItem value="cardiff">Cardiff</SelectItem>
+                          <SelectItem value="edinburgh">Edinburgh</SelectItem>
+                          <SelectItem value="highlands">Scottish Highlands</SelectItem>
+                          <SelectItem value="snowdonia">Snowdonia</SelectItem>
+                          <SelectItem value="newquay">Newquay</SelectItem>
+                          <SelectItem value="devon">Devon</SelectItem>
+                          <SelectItem value="cotswolds">Cotswolds</SelectItem>
+                          <SelectItem value="lake-district">Lake District</SelectItem>
+                          <SelectItem value="birmingham">Birmingham</SelectItem>
+                          <SelectItem value="blackpool">Blackpool</SelectItem>
+                          <SelectItem value="bristol">Bristol</SelectItem>
+                          <SelectItem value="cambridge">Cambridge</SelectItem>
+                          <SelectItem value="canterbury">Canterbury</SelectItem>
+                          <SelectItem value="cheltenham">Cheltenham</SelectItem>
+                          <SelectItem value="chester">Chester</SelectItem>
+                          <SelectItem value="durham">Durham</SelectItem>
+                          <SelectItem value="exeter">Exeter</SelectItem>
+                          <SelectItem value="harrogate">Harrogate</SelectItem>
+                          <SelectItem value="leeds">Leeds</SelectItem>
+                          <SelectItem value="margate">Margate</SelectItem>
+                          <SelectItem value="nottingham">Nottingham</SelectItem>
+                          <SelectItem value="oxford">Oxford</SelectItem>
+                          <SelectItem value="plymouth">Plymouth</SelectItem>
+                          <SelectItem value="sheffield">Sheffield</SelectItem>
+                          <SelectItem value="st-ives">St Ives</SelectItem>
+                          <SelectItem value="stratford-upon-avon">Stratford-upon-Avon</SelectItem>
+                          <SelectItem value="windsor">Windsor</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
 
-              {/* Guests Selector */}
+              {/* Guests Selector - Enhanced with hover effect */}
               <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Guests
@@ -478,7 +528,7 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal px-4"
+                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
                     >
                       <User className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
@@ -604,7 +654,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full h-14 rounded-xl font-semibold"
+                  className="w-full h-14 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
