@@ -1,23 +1,25 @@
 "use client";
 
-import { useState, useEffect, useMemo, memo, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, X, Youtube } from "lucide-react";
+import dynamic from "next/dynamic";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, Youtube } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import ExperienceCard from "@/components/ExperienceCard";
-import ReviewSlider from "@/components/ReviewSlider";
-import FAQSection from "@/components/FAQSection";
-import LoadingScreen from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
+
+// Lazy load non-critical components
+const ExperienceCard = dynamic(() => import("@/components/ExperienceCard"), { ssr: false });
+const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { ssr: false });
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
+const LoadingScreen = dynamic(() => import("@/components/LoadingScreen"), { ssr: false });
 
 // Move static data outside component to prevent re-creation on each render
 const featuredProperties = [
