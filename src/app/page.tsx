@@ -1155,18 +1155,30 @@ export default function Home() {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl m-0 text-center md:text-left" 
               style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
             >
-              We're on Instagram
+              Follow Our Journey
             </h2>
-            <a
-              href="https://www.instagram.com/groupescapehouses/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold hover:opacity-80 transition-opacity"
-              style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-            >
-              <Instagram className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-              @groupescapehouses
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+              <a
+                href="https://www.instagram.com/groupescapehouses/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
+                style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+              >
+                <Instagram className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
+                @groupescapehouses
+              </a>
+              <a
+                href="https://www.youtube.com/@GroupEscapeHouses"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
+                style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+              >
+                <Youtube className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
+                @GroupEscapeHouses
+              </a>
+            </div>
           </div>
 
           <div className="overflow-x-auto scrollbar-hide">
