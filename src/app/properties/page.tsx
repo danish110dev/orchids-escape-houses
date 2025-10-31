@@ -51,13 +51,17 @@ export default function PropertiesPage() {
   // Update URL when location filter changes
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
+    
+    // Remove old destination param to avoid conflicts
+    params.delete("destination");
+    
     if (filters.location) {
       params.set("location", filters.location);
     } else {
       params.delete("location");
     }
     router.replace(`/properties?${params.toString()}`, { scroll: false });
-  }, [filters.location]);
+  }, [filters.location, router, searchParams]);
 
   // Reset displayedCount when filters change
   useEffect(() => {
