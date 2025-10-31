@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, memo, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, X, Youtube } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -504,14 +505,17 @@ export default function Home() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23F5F3F0' width='1920' height='1080'/%3E%3C/svg%3E"
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
           style={{
             transform: "translateZ(0)",
             willChange: "transform"
           }}
+          aria-label="Background video showcasing luxury group accommodation"
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Desktop%20Size%20Final%20Last.mp4" type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English captions" />
         </video>
         
         {/* Mobile Background video */}
@@ -520,14 +524,17 @@ export default function Home() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 768 1024'%3E%3Crect fill='%23F5F3F0' width='768' height='1024'/%3E%3C/svg%3E"
           className="block md:hidden absolute inset-0 w-full h-full object-cover"
           style={{
             transform: "translateZ(0)",
             willChange: "transform"
           }}
+          aria-label="Background video showcasing luxury group accommodation"
         >
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English captions" />
         </video>
 
         {/* Hero Content Overlay */}
@@ -895,7 +902,7 @@ export default function Home() {
       {/* Hero Description - Below Video */}
       <section className="py-8 sm:py-10 md:py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <h1
+          <h2
             className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight text-center"
             style={{
               fontFamily: "var(--font-display)",
@@ -903,7 +910,7 @@ export default function Home() {
             }}
           >
             Luxury Large Group Accommodation Across the UK
-          </h1>
+          </h2>
           <p className="text-center text-base sm:text-lg md:text-xl lg:text-2xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
             Stay in style with Group Escape Houses. Perfect <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors">luxury hen party houses</Link> and large group accommodation with hot tubs, pools, and stylish interiors for <Link href="/experiences" className="underline hover:text-[var(--color-accent-gold)] transition-colors">unforgettable celebrations</Link>.
           </p>
@@ -1024,13 +1031,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Image Gallery Grid - Integrated */}
+          {/* Image Gallery Grid - Optimized with Next.js Image */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-e0d237d8-20251023182535.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-e0d237d8-20251023182535.jpg"
+                alt="Handpicked luxury properties with premium amenities"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
                 <p className="text-white font-medium text-sm">Handpicked Properties</p>
@@ -1038,10 +1049,14 @@ export default function Home() {
             </div>
 
             <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-party-plannin-d89e9075-20251023182534.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-party-plannin-d89e9075-20251023182534.jpg"
+                alt="Complete party planning services and experiences"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
                 <p className="text-white font-medium text-sm">Complete Party Planning</p>
@@ -1049,10 +1064,14 @@ export default function Home() {
             </div>
 
             <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-large-group-o-63176ec6-20251023182534.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-large-group-o-63176ec6-20251023182534.jpg"
+                alt="Flexible group sizes from 8 to 30+ guests"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
                 <p className="text-white font-medium text-sm">Flexible Group Sizes</p>
@@ -1060,10 +1079,14 @@ export default function Home() {
             </div>
 
             <div className="relative rounded-xl overflow-hidden shadow-md h-48 group cursor-pointer">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-showcasing-uk-wi-7248fc36-20251023182534.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-showcasing-uk-wi-7248fc36-20251023182534.jpg"
+                alt="UK-wide coverage across major cities and destinations"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
                 <p className="text-white font-medium text-sm">UK-Wide Coverage</p>
@@ -1073,7 +1096,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Visual Showcase Section */}
+      {/* Visual Showcase Section - Optimized */}
       <section className="py-16 bg-white scroll-reveal">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
@@ -1086,53 +1109,71 @@ export default function Home() {
           </div>
 
           {/* Main Hero Image */}
-          <div className="mb-4 rounded-2xl overflow-hidden shadow-xl">
-            <img
+          <div className="mb-4 rounded-2xl overflow-hidden shadow-xl relative h-[300px] sm:h-[400px]">
+            <Image
               src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
               alt="Luxury UK manor house with hot tub at golden hour"
-              className="w-full h-[300px] sm:h-[400px] object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="object-cover"
+              priority
             />
           </div>
 
           {/* Grid of Feature Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative h-[200px]">
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-sp-11b5bc9b-20251023182557.jpg"
                 alt="Spacious luxury living room perfect for groups"
-                className="w-full h-[200px] object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative h-[200px]">
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-27088aeb-20251023182556.jpg"
                 alt="Outdoor swimming pool at luxury UK cottage"
-                className="w-full h-[200px] object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative h-[200px]">
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-c769dd2c-20251024124605.jpg"
                 alt="Games room with pool table for entertainment"
-                className="w-full h-[200px] object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
           </div>
 
           {/* Bottom Split Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative h-[240px]">
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-f40eb3c6-20251023182556.jpg"
                 alt="Group of friends celebrating at hot tub"
-                className="w-full h-[240px] object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative h-[240px]">
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxurious-u-d0aaf124-20251023182549.jpg"
                 alt="Elegant dining room for group celebrations"
-                className="w-full h-[240px] object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
           </div>
@@ -1324,13 +1365,17 @@ export default function Home() {
             })}
           </div>
 
-          {/* Visual Process Images */}
+          {/* Visual Process Images - Optimized */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             <div className="relative rounded-2xl overflow-hidden shadow-xl group h-80">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-lifestyle-photograph-of-wom-bd1db51d-20251023182535.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-lifestyle-photograph-of-wom-bd1db51d-20251023182535.jpg"
+                alt="Women browsing and choosing luxury party houses on laptop"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-white text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
@@ -1343,10 +1388,14 @@ export default function Home() {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl group h-80">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-group-adding--45a650b3-20251023182534.jpg')` }}
-              ></div>
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-group-adding--45a650b3-20251023182534.jpg"
+                alt="Group adding experiences and personalizing their celebration package"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-white text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
@@ -1379,11 +1428,16 @@ export default function Home() {
                 key={destination.name}
                 href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                 className="group relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+                aria-label={`View ${destination.name} party houses and hen do accommodation`}
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
+                <Image
+                  src={destination.image}
+                  alt={`${destination.name} luxury group accommodation and party houses`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 400px"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-white/90 backdrop-blur-sm">
                   <h3
