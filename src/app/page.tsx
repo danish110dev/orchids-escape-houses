@@ -290,6 +290,16 @@ export default function Home() {
     setCheckOutDate("");
   };
 
+  // Handle date picker popover open/close
+  const handleDatePickerOpenChange = (open: boolean) => {
+    // Only allow closing if both dates are selected or if explicitly closing (like clicking outside)
+    if (!open && dateRange.from && !dateRange.to) {
+      // Don't close if only first date is selected
+      return;
+    }
+    setDatePickerOpen(open);
+  };
+
   const totalGuests = adults + children + infants;
   const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
 
@@ -354,7 +364,7 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
-                <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
+                <Popover open={datePickerOpen} onOpenChange={handleDatePickerOpenChange}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
