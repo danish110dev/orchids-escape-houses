@@ -54,10 +54,6 @@ export const free = product({
   is_default: true,
   items: [
     featureItem({
-      feature_id: propertyBookings.id,
-      included_usage: 0,
-    }),
-    featureItem({
       feature_id: browseProperties.id,
     }),
     featureItem({
