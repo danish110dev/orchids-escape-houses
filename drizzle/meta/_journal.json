@@ -8,6 +8,13 @@
       "when": 1761838754424,
       "tag": "0000_left_patriot",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1761912784112,
+      "tag": "0001_graceful_lorna_dane",
+      "breakpoints": true
     }
   ]
 }
