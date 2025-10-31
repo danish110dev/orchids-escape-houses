@@ -347,8 +347,8 @@ export default function Home() {
           </h1>
 
           {/* Search Bar */}
-          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-4 sm:p-6">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-end">
+          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
+            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
               {/* Date Picker */}
               <div className="flex-1 min-w-0">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -358,15 +358,15 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-12 sm:h-14 justify-start text-left font-normal px-3 sm:px-4"
+                      className="w-full h-14 justify-start text-left font-normal px-4"
                     >
-                      <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
+                      <Calendar className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       {checkInDate && checkOutDate ? (
-                        <span className="text-gray-900 truncate text-sm sm:text-base">
+                        <span className="text-gray-900 truncate">
                           {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
                         </span>
                       ) : (
-                        <span className="text-gray-500 text-sm sm:text-base">Select dates</span>
+                        <span className="text-gray-500">Select dates</span>
                       )}
                     </Button>
                   </PopoverTrigger>
@@ -402,9 +402,9 @@ export default function Home() {
                   Destination
                 </label>
                 <Select value={destination} onValueChange={setDestination}>
-                  <SelectTrigger className="h-12 sm:h-14 px-3 sm:px-4">
-                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
-                    <SelectValue placeholder="Choose location" className="text-sm sm:text-base" />
+                  <SelectTrigger className="h-14 px-4">
+                    <MapPin className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                    <SelectValue placeholder="Choose location" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Locations</SelectItem>
@@ -456,10 +456,10 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full h-12 sm:h-14 justify-start text-left font-normal px-3 sm:px-4"
+                      className="w-full h-14 justify-start text-left font-normal px-4"
                     >
-                      <User className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
-                      <span className="text-gray-900 truncate text-sm sm:text-base">{guestsSummary}</span>
+                      <User className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                      <span className="text-gray-900 truncate">{guestsSummary}</span>
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-80 p-6" align="start">
@@ -575,14 +575,14 @@ export default function Home() {
               </div>
 
               {/* Search Button */}
-              <div className="w-full md:w-auto md:min-w-[120px]">
+              <div className="w-full md:w-auto md:min-w-[140px]">
                 <label className="hidden md:block text-sm font-medium text-gray-700 mb-2 invisible">
                   Search
                 </label>
                 <Button
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full h-12 sm:h-14 rounded-xl text-sm sm:text-base font-semibold"
+                  className="w-full h-14 rounded-xl font-semibold"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
