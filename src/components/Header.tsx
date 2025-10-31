@@ -3,15 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, LogOut, User as UserIcon } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, User as UserIcon, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useCustomer } from "autumn-js/react";
 
 export default function Header() {
   const router = useRouter();
   const { data: session, isPending, refetch } = useSession();
+  const { customer, isLoading: isCustomerLoading } = useCustomer();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHousesOpen, setIsHousesOpen] = useState(false);
@@ -23,6 +25,10 @@ export default function Header() {
   const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
   const [isMobileOccasionsOpen, setIsMobileOccasionsOpen] = useState(false);
   const [isMobileExperiencesOpen, setIsMobileExperiencesOpen] = useState(false);
+
+  // Get current plan name
+  const currentPlan = customer?.products?.at(-1);
+  const planName = currentPlan?.name || "Free Plan";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -434,10 +440,21 @@ export default function Header() {
 
             {/* Auth & CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-3">
-              {isPending ? (
+              {isPending || isCustomerLoading ? (
                 <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
               ) : session?.user ? (
                 <>
+                  {/* Plan Badge - MANDATORY: Constantly visible */}
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-2 px-3 py-1.5 bg-[var(--color-accent-sage)]/10 hover:bg-[var(--color-accent-sage)]/20 rounded-full transition-all duration-200 border border-[var(--color-accent-sage)]/20"
+                  >
+                    <CreditCard className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                    <span className="text-sm font-medium text-[var(--color-accent-sage)]">
+                      {planName}
+                    </span>
+                  </Link>
+                  
                   <div className="flex items-center gap-2 px-4 py-2 bg-[var(--color-bg-secondary)] rounded-xl">
                     <UserIcon className="w-4 h-4 text-[var(--color-accent-sage)]" />
                     <span className="text-sm font-medium text-[var(--color-text-primary)]">
@@ -732,10 +749,24 @@ export default function Header() {
 
           {/* Bottom CTA with Auth */}
           <div className="border-t border-white/20 px-8 py-6 bg-[#E5D8C5] space-y-3">
-            {isPending ? (
+            {isPending || isCustomerLoading ? (
               <div className="w-full h-12 rounded-2xl bg-white/50 animate-pulse"></div>
             ) : session?.user ? (
               <>
+                {/* Plan Badge - Mobile */}
+                <Link
+                  href="/pricing"
+                  className="flex items-center justify-between p-4 bg-white/90 rounded-xl hover:bg-white transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <CreditCard className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                    <span className="font-medium text-[var(--color-text-primary)]">
+                      {planName}
+                    </span>
+                  </div>
+                  <span className="text-sm text-[var(--color-accent-sage)]">Manage →</span>
+                </Link>
+                
                 <div className="flex items-center justify-between p-4 bg-white/90 rounded-xl">
                   <div className="flex items-center gap-2">
                     <UserIcon className="w-5 h-5 text-[var(--color-accent-sage)]" />
