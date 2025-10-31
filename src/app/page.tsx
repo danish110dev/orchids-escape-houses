@@ -594,7 +594,7 @@ export default function Home() {
                       aria-expanded={datePickerOpen}
                       aria-describedby="date-picker-instructions"
                     >
-                      <Calendar className="w-[18px] h-[18px] text-gray-400 mr-2 flex-shrink-0" />
+                      <Calendar className="text-gray-400 mr-2 flex-shrink-0" />
                       <span className={checkInDate ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
                         {dateRangeDisplay}
                       </span>
@@ -687,7 +687,7 @@ export default function Home() {
                       aria-label="Select destination"
                       aria-expanded={destinationOpen}
                     >
-                      <MapPin className="w-[18px] h-[18px] text-gray-400 mr-2 flex-shrink-0" />
+                      <MapPin className="text-gray-400 mr-2 flex-shrink-0" />
                       <span className={destination ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
                         {destination ? allDestinations.find(d => d.toLowerCase().replace(/\s+/g, '-') === destination) || "Choose location" : "Choose location"}
                       </span>
@@ -767,9 +767,9 @@ export default function Home() {
                     <Button
                       id="ge-guests"
                       variant="outline"
-                      className="ge-input w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
                     >
-                      <User className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                      <User className="text-gray-400 mr-2 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
                     </Button>
                   </PopoverTrigger>
@@ -894,7 +894,7 @@ export default function Home() {
                   id="ge-search"
                   size="lg"
                   onClick={handleSearch}
-                  className="ge-input w-full h-14 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                  className="ge-input w-full rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
