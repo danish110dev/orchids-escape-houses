@@ -593,7 +593,7 @@ export default function Home() {
                     align="start"
                     sideOffset={4}
                     onInteractOutside={(e) => {
-                      if (datePickerState !== "complete") {
+                      if (datePickerState === "pickingStart" || datePickerState === "pickingEnd") {
                         e.preventDefault();
                         triggerShake();
                       }
