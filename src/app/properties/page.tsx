@@ -33,9 +33,16 @@ export default function PropertiesPage() {
   const searchParams = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
   const [displayedCount, setDisplayedCount] = useState(6);
+  
+  // Read search params from homepage (destination, checkIn, checkOut, guests, pets)
+  const destinationParam = searchParams.get("destination") || searchParams.get("location") || "";
+  const guestsParam = searchParams.get("guests") || "0";
+  const checkInParam = searchParams.get("checkIn") || "";
+  const checkOutParam = searchParams.get("checkOut") || "";
+  
   const [filters, setFilters] = useState({
-    location: searchParams.get("location") || "",
-    groupSize: 0,
+    location: destinationParam,
+    groupSize: parseInt(guestsParam),
     priceMin: 50,
     priceMax: 3000,
     features: [] as string[],
