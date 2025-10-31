@@ -678,82 +678,80 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Destination
                 </label>
-                <Popover open={destinationOpen} onOpenChange={handleDestinationOpenChange}>
+                <Popover open={destinationOpen} onOpenChange={handleDestinationOpenChange} modal={false}>
                   <PopoverTrigger asChild>
                     <Button
                       id="ge-destination"
                       variant="outline"
-                      className="ge-input w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      aria-label="Select destination"
+                      aria-expanded={destinationOpen}
                     >
-                      <MapPin className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                      <MapPin className="w-[18px] h-[18px] text-gray-400 mr-2 flex-shrink-0" />
                       <span className={destination ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
-                        {destination ? destinations.find(d => d.name.toLowerCase() === destination)?.name || "Choose location" : "Choose location"}
+                        {destination ? allDestinations.find(d => d.toLowerCase().replace(/\s+/g, '-') === destination) || "Choose location" : "Choose location"}
                       </span>
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-80 p-0" align="start">
-                    <div className="p-4 border-b">
-                      <p className="text-sm font-medium text-gray-700 mb-3">Popular Destinations</p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {popularDestinations.map((dest) => (
-                          <button
-                            key={dest}
-                            onClick={() => {
-                              setDestination(dest.toLowerCase());
-                              setDestinationOpen(false);
-                            }}
-                            className="px-3 py-2 text-sm text-left rounded-lg hover:bg-[var(--color-accent-sage)]/10 transition-colors duration-200 border border-gray-200 hover:border-[var(--color-accent-sage)]"
-                          >
-                            {dest}
-                          </button>
-                        ))}
+                  <PopoverContent 
+                    className="w-[var(--radix-popover-trigger-width)] p-0 transition-opacity duration-150" 
+                    align="start"
+                    sideOffset={4}
+                    onInteractOutside={(e) => {
+                      // Only close on outside click
+                      setDestinationOpen(false);
+                      setFocusedDestinationIndex(-1);
+                    }}
+                  >
+                    <div className="max-h-[380px] overflow-y-auto smooth-scroll">
+                      {/* Popular Destinations Section */}
+                      <div className="p-4 border-b bg-white sticky top-0 z-10">
+                        <p className="text-sm font-semibold text-gray-900 mb-3">Popular Destinations</p>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                          {popularDestinations.map((dest, index) => (
+                            <button
+                              key={dest}
+                              ref={(el) => { destinationButtonsRef.current[index] = el; }}
+                              onClick={() => handleDestinationSelect(dest)}
+                              onMouseEnter={() => setFocusedDestinationIndex(index)}
+                              className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate ${
+                                focusedDestinationIndex === index
+                                  ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
+                                  : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
+                              }`}
+                              tabIndex={destinationOpen ? 0 : -1}
+                            >
+                              {dest}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-2 max-h-60 overflow-y-auto">
-                      <p className="text-xs font-medium text-gray-500 px-2 py-2">All Locations</p>
-                      <Select value={destination} onValueChange={(value) => {
-                        setDestination(value);
-                        setDestinationOpen(false);
-                      }}>
-                        <SelectContent>
-                          <SelectItem value="all">All Locations</SelectItem>
-                          <SelectItem value="brighton">Brighton</SelectItem>
-                          <SelectItem value="bath">Bath</SelectItem>
-                          <SelectItem value="bournemouth">Bournemouth</SelectItem>
-                          <SelectItem value="london">London</SelectItem>
-                          <SelectItem value="manchester">Manchester</SelectItem>
-                          <SelectItem value="liverpool">Liverpool</SelectItem>
-                          <SelectItem value="york">York</SelectItem>
-                          <SelectItem value="newcastle">Newcastle</SelectItem>
-                          <SelectItem value="cardiff">Cardiff</SelectItem>
-                          <SelectItem value="edinburgh">Edinburgh</SelectItem>
-                          <SelectItem value="highlands">Scottish Highlands</SelectItem>
-                          <SelectItem value="snowdonia">Snowdonia</SelectItem>
-                          <SelectItem value="newquay">Newquay</SelectItem>
-                          <SelectItem value="devon">Devon</SelectItem>
-                          <SelectItem value="cotswolds">Cotswolds</SelectItem>
-                          <SelectItem value="lake-district">Lake District</SelectItem>
-                          <SelectItem value="birmingham">Birmingham</SelectItem>
-                          <SelectItem value="blackpool">Blackpool</SelectItem>
-                          <SelectItem value="bristol">Bristol</SelectItem>
-                          <SelectItem value="cambridge">Cambridge</SelectItem>
-                          <SelectItem value="canterbury">Canterbury</SelectItem>
-                          <SelectItem value="cheltenham">Cheltenham</SelectItem>
-                          <SelectItem value="chester">Chester</SelectItem>
-                          <SelectItem value="durham">Durham</SelectItem>
-                          <SelectItem value="exeter">Exeter</SelectItem>
-                          <SelectItem value="harrogate">Harrogate</SelectItem>
-                          <SelectItem value="leeds">Leeds</SelectItem>
-                          <SelectItem value="margate">Margate</SelectItem>
-                          <SelectItem value="nottingham">Nottingham</SelectItem>
-                          <SelectItem value="oxford">Oxford</SelectItem>
-                          <SelectItem value="plymouth">Plymouth</SelectItem>
-                          <SelectItem value="sheffield">Sheffield</SelectItem>
-                          <SelectItem value="st-ives">St Ives</SelectItem>
-                          <SelectItem value="stratford-upon-avon">Stratford-upon-Avon</SelectItem>
-                          <SelectItem value="windsor">Windsor</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      
+                      {/* All Destinations Section */}
+                      <div className="p-4">
+                        <p className="text-sm font-semibold text-gray-900 mb-3">All Destinations</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                          {allDestinations.map((dest, index) => {
+                            const actualIndex = index + popularDestinations.length;
+                            return (
+                              <button
+                                key={dest}
+                                ref={(el) => { destinationButtonsRef.current[actualIndex] = el; }}
+                                onClick={() => handleDestinationSelect(dest)}
+                                onMouseEnter={() => setFocusedDestinationIndex(actualIndex)}
+                                className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate ${
+                                  focusedDestinationIndex === actualIndex
+                                    ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
+                                    : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
+                                }`}
+                                tabIndex={destinationOpen ? 0 : -1}
+                              >
+                                {dest}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </div>
                   </PopoverContent>
                 </Popover>
