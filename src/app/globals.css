@@ -428,9 +428,82 @@
     animation: scrollDown 2s ease-in-out infinite;
   }
   
+  /* Shake animation for date field */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-4px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(4px);
+    }
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  }
+  
   /* Smooth transitions for all interactive elements */
   a, button {
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  /* Shared input class for consistent sizing */
+  .ge-input {
+    height: 48px;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .ge-input svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Date picker calendar custom styles */
+  .ge-date-start {
+    background: var(--color-accent-sage) !important;
+    color: white !important;
+    font-weight: 600;
+    border: 2px solid var(--color-accent-sage) !important;
+    border-radius: 8px;
+  }
+  
+  .ge-date-end {
+    background: var(--color-accent-sage) !important;
+    color: white !important;
+    font-weight: 600;
+    border: 2px solid var(--color-accent-sage) !important;
+    border-radius: 8px;
+  }
+  
+  .ge-date-in-range {
+    background: rgba(137, 163, 143, 0.12) !important;
+    color: #1F2937 !important;
+  }
+  
+  .ge-date-hover-range {
+    background: rgba(137, 163, 143, 0.08) !important;
+    border: 1px dotted var(--color-accent-sage) !important;
+    color: #1F2937 !important;
+  }
+  
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
   
   /* Respect reduced motion */
@@ -442,7 +515,8 @@
     .scroll-reveal,
     .animate-fade-up,
     .animate-float,
-    .scroll-indicator {
+    .scroll-indicator,
+    .animate-shake {
       opacity: 1;
       transform: none;
       transition: none;
