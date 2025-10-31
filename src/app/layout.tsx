@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
+import CustomAutumnProvider from "@/lib/autumn-provider";
 export const metadata: Metadata = {
   title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
   description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
@@ -102,7 +103,9 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        {children}
+        <CustomAutumnProvider>
+          {children}
+        </CustomAutumnProvider>
         <WhatsAppChatbot />
         <CookieConsent />
         <Toaster />
