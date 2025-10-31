@@ -452,9 +452,9 @@
   
   /* Shared input class for consistent sizing */
   .ge-input {
-    height: 56px;
+    height: 48px;
     border-radius: 12px;
-    padding: 12px;
+    padding: 12px 14px;
     display: flex;
     align-items: center;
     gap: 8px;
