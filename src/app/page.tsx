@@ -352,11 +352,14 @@ export default function Home() {
         // Valid checkout date
         setCheckOutDate(date);
         setDatePickerState("complete");
-        announce(`Range ${format(checkInDate, 'd')} to ${format(date, 'd MMMM yyyy')}`);
+        announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')}`);
         // Close with fade after 150ms
-        setTimeout(() => setDatePickerOpen(false), 150);
+        setTimeout(() => {
+          setDatePickerOpen(false);
+          setDatePickerState("idle");
+        }, 150);
       } else {
-        // Date before checkIn - treat as new checkIn
+        // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
         setCheckOutDate(undefined);
         setDatePickerState("pickingEnd");
@@ -376,16 +379,13 @@ export default function Home() {
   const handleDatePickerOpenChange = (open: boolean) => {
     if (open) {
       // Opening calendar
-      if (datePickerState === "complete") {
-        // Reopening after complete - reset to pickingEnd to allow editing
-        setDatePickerState("pickingEnd");
-      } else if (datePickerState === "idle") {
+      if (datePickerState === "complete" || datePickerState === "idle") {
         setDatePickerState("pickingStart");
       }
       setDatePickerOpen(true);
       announce("Calendar opened. Select your check in date.");
     } else {
-      // Trying to close
+      // Trying to close - only allow if complete
       if (datePickerState === "complete") {
         setDatePickerOpen(false);
         setDatePickerState("idle");
@@ -398,15 +398,9 @@ export default function Home() {
 
   // Handle click trigger
   const handleDateFieldClick = () => {
-    if (datePickerState === "complete") {
-      // Reopen with existing range shown
-      setDatePickerOpen(true);
-      setDatePickerState("pickingEnd");
-    } else {
-      setDatePickerOpen(true);
-      if (datePickerState === "idle") {
-        setDatePickerState("pickingStart");
-      }
+    setDatePickerOpen(true);
+    if (datePickerState === "idle" || datePickerState === "complete") {
+      setDatePickerState("pickingStart");
     }
   };
 
@@ -415,12 +409,8 @@ export default function Home() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && datePickerOpen) {
         if (datePickerState === "pickingStart" || datePickerState === "pickingEnd") {
-          // Cancel selection, keep previously confirmed values
+          // Cancel selection, close calendar
           setDatePickerOpen(false);
-          if (datePickerState === "pickingStart") {
-            setCheckInDate(undefined);
-            setCheckOutDate(undefined);
-          }
           setDatePickerState("idle");
         } else if (datePickerState === "complete") {
           setDatePickerOpen(false);
@@ -587,9 +577,21 @@ export default function Home() {
                       id="ge-dates"
                       variant="outline"
                       onClick={handleDateFieldClick}
-                      className={`ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md ${
+                      className={`ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                         shouldShake ? 'animate-shake' : ''
                       }`}
+                      style={{
+                        boxShadow: 'none',
+                        borderColor: '#e5e7eb'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                        e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#e5e7eb';
+                      }}
                       aria-label="Select check-in and check-out dates"
                       aria-expanded={datePickerOpen}
                       aria-describedby="date-picker-instructions"
@@ -602,16 +604,14 @@ export default function Home() {
                   </PopoverTrigger>
                   <PopoverContent 
                     id="ge-calendar"
-                    className="w-auto p-0" 
+                    className="w-auto p-0 z-[1000]" 
                     align="start"
+                    sideOffset={4}
                     onInteractOutside={(e) => {
                       if (datePickerState !== "complete") {
                         e.preventDefault();
                         triggerShake();
                       }
-                    }}
-                    onEscapeKeyDown={(e) => {
-                      // Handled by global listener
                     }}
                   >
                     <div className="p-4 border-b flex items-center justify-between">
@@ -642,7 +642,14 @@ export default function Home() {
                           }
                         }}
                         numberOfMonths={2}
-                        disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                        disabled={(date) => {
+                          const today = new Date(new Date().setHours(0, 0, 0, 0));
+                          // Only disable past dates and dates before check-in when picking end date
+                          if (datePickerState === "pickingEnd" && checkInDate) {
+                            return date < checkInDate;
+                          }
+                          return date < today;
+                        }}
                         modifiers={{
                           checkIn: checkInDate ? [checkInDate] : [],
                           checkOut: checkOutDate ? [checkOutDate] : [],
@@ -683,7 +690,19 @@ export default function Home() {
                     <Button
                       id="ge-destination"
                       variant="outline"
-                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)]"
+                      style={{
+                        boxShadow: 'none',
+                        borderColor: '#e5e7eb'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                        e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#e5e7eb';
+                      }}
                       aria-label="Select destination"
                       aria-expanded={destinationOpen}
                     >
@@ -694,16 +713,11 @@ export default function Home() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent 
-                    className="w-[var(--radix-popover-trigger-width)] p-0 transition-opacity duration-150" 
+                    className="w-[var(--radix-popover-trigger-width)] p-0 transition-opacity duration-150 z-[1000]" 
                     align="start"
                     sideOffset={4}
-                    onInteractOutside={(e) => {
-                      // Only close on outside click
-                      setDestinationOpen(false);
-                      setFocusedDestinationIndex(-1);
-                    }}
                   >
-                    <div className="max-h-[380px] overflow-y-auto smooth-scroll">
+                    <div className="max-h-[400px] overflow-y-auto smooth-scroll">
                       {/* Popular Destinations Section */}
                       <div className="p-4 border-b bg-white sticky top-0 z-10">
                         <p className="text-sm font-semibold text-gray-900 mb-3">Popular Destinations</p>
@@ -714,7 +728,7 @@ export default function Home() {
                               ref={(el) => { destinationButtonsRef.current[index] = el; }}
                               onClick={() => handleDestinationSelect(dest)}
                               onMouseEnter={() => setFocusedDestinationIndex(index)}
-                              className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate ${
+                              className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                                 focusedDestinationIndex === index
                                   ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
                                   : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
@@ -730,7 +744,7 @@ export default function Home() {
                       {/* All Destinations Section */}
                       <div className="p-4">
                         <p className="text-sm font-semibold text-gray-900 mb-3">All Destinations</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                           {allDestinations.map((dest, index) => {
                             const actualIndex = index + popularDestinations.length;
                             return (
@@ -739,7 +753,7 @@ export default function Home() {
                                 ref={(el) => { destinationButtonsRef.current[actualIndex] = el; }}
                                 onClick={() => handleDestinationSelect(dest)}
                                 onMouseEnter={() => setFocusedDestinationIndex(actualIndex)}
-                                className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate ${
+                                className={`px-4 py-2.5 text-sm font-medium text-center rounded-full transition-all duration-200 border truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                                   focusedDestinationIndex === actualIndex
                                     ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
                                     : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
@@ -767,13 +781,25 @@ export default function Home() {
                     <Button
                       id="ge-guests"
                       variant="outline"
-                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)]"
+                      style={{
+                        boxShadow: 'none',
+                        borderColor: '#e5e7eb'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                        e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#e5e7eb';
+                      }}
                     >
                       <User className="text-gray-400 mr-2 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-80 p-6" align="start">
+                  <PopoverContent className="w-80 p-6 z-[1000]" align="start">
                     <div className="space-y-4">
                       {/* Adults */}
                       <div className="flex items-center justify-between">
