@@ -3,10 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, User as UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { authClient, useSession } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Header() {
+  const router = useRouter();
+  const { data: session, isPending, refetch } = useSession();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHousesOpen, setIsHousesOpen] = useState(false);
@@ -44,6 +49,27 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
+
+  const handleSignOut = async () => {
+    const token = localStorage.getItem("bearer_token");
+    
+    const { error } = await authClient.signOut({
+      fetchOptions: {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    });
+    
+    if (error?.code) {
+      toast.error("Error signing out");
+    } else {
+      localStorage.removeItem("bearer_token");
+      refetch();
+      toast.success("Signed out successfully");
+      router.push("/");
+    }
+  };
 
   const houseStyles = [
     { title: "Manor Houses", slug: "manor-houses" },
@@ -393,29 +419,65 @@ export default function Header() {
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
               </Link>
 
-              {/* Admin Link */}
-              <Link
-                href="/admin/bookings"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Admin
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-              </Link>
+              {/* Admin Link - Only show if authenticated */}
+              {session?.user && (
+                <Link
+                  href="/admin/bookings"
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Admin
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </Link>
+              )}
             </nav>
 
-            {/* CTA Button - Desktop */}
-            <div className="hidden lg:block">
-              <Button
-                asChild
-                className="rounded-2xl px-9 py-3 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-                style={{
-                  background: "var(--color-accent-gold)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <Link href="/contact">Book Now</Link>
-              </Button>
+            {/* Auth & CTA Buttons - Desktop */}
+            <div className="hidden lg:flex items-center gap-3">
+              {isPending ? (
+                <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
+              ) : session?.user ? (
+                <>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[var(--color-bg-secondary)] rounded-xl">
+                    <UserIcon className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                    <span className="text-sm font-medium text-[var(--color-text-primary)]">
+                      {session.user.name}
+                    </span>
+                  </div>
+                  <Button
+                    onClick={handleSignOut}
+                    variant="outline"
+                    className="rounded-xl px-4 py-2 font-medium border-2 transition-all duration-200 hover:bg-red-50 hover:border-red-500 hover:text-red-600"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="rounded-xl px-6 py-2 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+                    style={{
+                      borderColor: "var(--color-accent-sage)",
+                      color: "var(--color-text-primary)",
+                    }}
+                  >
+                    <Link href="/login">Log In</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    className="rounded-xl px-6 py-2 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                    style={{
+                      background: "var(--color-accent-gold)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    <Link href="/register">Sign Up</Link>
+                  </Button>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -668,19 +730,76 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="border-t border-white/20 px-8 py-8 bg-[#E5D8C5]">
-            <Button
-              asChild
-              size="lg"
-              className="w-full md:w-auto rounded-2xl px-8 py-3 font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/contact">Check Availability and Book</Link>
-            </Button>
+          {/* Bottom CTA with Auth */}
+          <div className="border-t border-white/20 px-8 py-6 bg-[#E5D8C5] space-y-3">
+            {isPending ? (
+              <div className="w-full h-12 rounded-2xl bg-white/50 animate-pulse"></div>
+            ) : session?.user ? (
+              <>
+                <div className="flex items-center justify-between p-4 bg-white/90 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <UserIcon className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                    <span className="font-medium text-[var(--color-text-primary)]">
+                      {session.user.name}
+                    </span>
+                  </div>
+                  <Button
+                    onClick={handleSignOut}
+                    size="sm"
+                    variant="outline"
+                    className="rounded-lg border-red-500 text-red-600 hover:bg-red-50"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </Button>
+                </div>
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full rounded-2xl px-8 py-3 font-medium"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  <Link href="/contact">Check Availability and Book</Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-3">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-2xl px-6 py-3 font-medium bg-white border-2 border-[var(--color-accent-sage)]"
+                  >
+                    <Link href="/login">Log In</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-2xl px-6 py-3 font-medium"
+                    style={{
+                      background: "var(--color-accent-gold)",
+                      color: "white",
+                    }}
+                  >
+                    <Link href="/register">Sign Up</Link>
+                  </Button>
+                </div>
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full rounded-2xl px-8 py-3 font-medium"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  <Link href="/contact">Check Availability and Book</Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       )}
