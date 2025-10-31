@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, memo } from "react";
+import { useState, useEffect, useMemo, memo, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, X, Youtube } from "lucide-react";
 import Header from "@/components/Header";
@@ -173,6 +173,8 @@ const popularDestinations = [
   "Edinburgh"
 ];
 
+type DatePickerState = "idle" | "pickingStart" | "pickingEnd" | "complete";
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -182,8 +184,8 @@ export default function Home() {
   const [honeypot, setHoneypot] = useState("");
 
   // Search form state
-  const [checkInDate, setCheckInDate] = useState("");
-  const [checkOutDate, setCheckOutDate] = useState("");
+  const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
+  const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
   const [destination, setDestination] = useState("");
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
@@ -192,10 +194,12 @@ export default function Home() {
   const [guestsOpen, setGuestsOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const [destinationOpen, setDestinationOpen] = useState(false);
-  const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({
-    from: undefined,
-    to: undefined,
-  });
+  const [datePickerState, setDatePickerState] = useState<DatePickerState>("idle");
+  const [hoveredDate, setHoveredDate] = useState<Date | undefined>(undefined);
+  const [shouldShake, setShouldShake] = useState(false);
+  
+  const dateFieldRef = useRef<HTMLButtonElement>(null);
+  const announcementRef = useRef<HTMLDivElement>(null);
 
   // Optimized Intersection Observer
   useEffect(() => {
@@ -227,6 +231,19 @@ export default function Home() {
       observer.disconnect();
     };
   }, []);
+
+  // Announce to screen readers
+  const announce = (message: string) => {
+    if (announcementRef.current) {
+      announcementRef.current.textContent = message;
+    }
+  };
+
+  // Handle shake animation
+  const triggerShake = () => {
+    setShouldShake(true);
+    setTimeout(() => setShouldShake(false), 500);
+  };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -272,40 +289,114 @@ export default function Home() {
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (destination) params.set('destination', destination);
-    if (checkInDate) params.set('checkIn', checkInDate);
-    if (checkOutDate) params.set('checkOut', checkOutDate);
+    if (checkInDate) params.set('checkIn', format(checkInDate, 'yyyy-MM-dd'));
+    if (checkOutDate) params.set('checkOut', format(checkOutDate, 'yyyy-MM-dd'));
     params.set('guests', String(adults + children));
     if (pets > 0) params.set('pets', String(pets));
     
     window.location.href = `/properties?${params.toString()}`;
   };
 
-  const handleDateSelect = (range: { from: Date | undefined; to: Date | undefined }) => {
-    setDateRange(range);
-    if (range.from) {
-      setCheckInDate(format(range.from, 'yyyy-MM-dd'));
-    }
-    if (range.to) {
-      setCheckOutDate(format(range.to, 'yyyy-MM-dd'));
-      // Close after both dates selected with smooth transition
-      setTimeout(() => setDatePickerOpen(false), 150);
+  const handleDateSelect = (date: Date | undefined) => {
+    if (!date) return;
+
+    if (datePickerState === "pickingStart") {
+      setCheckInDate(date);
+      setCheckOutDate(undefined);
+      setDatePickerState("pickingEnd");
+      announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
+    } else if (datePickerState === "pickingEnd" && checkInDate) {
+      if (date >= checkInDate) {
+        // Valid checkout date
+        setCheckOutDate(date);
+        setDatePickerState("complete");
+        announce(`Range ${format(checkInDate, 'd')} to ${format(date, 'd MMMM yyyy')}`);
+        // Close with fade after 150ms
+        setTimeout(() => setDatePickerOpen(false), 150);
+      } else {
+        // Date before checkIn - treat as new checkIn
+        setCheckInDate(date);
+        setCheckOutDate(undefined);
+        setDatePickerState("pickingEnd");
+        announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
+      }
     }
   };
 
   const handleDateReset = () => {
-    setDateRange({ from: undefined, to: undefined });
-    setCheckInDate("");
-    setCheckOutDate("");
+    setCheckInDate(undefined);
+    setCheckOutDate(undefined);
+    setDatePickerState("pickingStart");
+    announce("Dates cleared. Select a check in date.");
   };
 
-  // Handle date picker popover open/close - prevent closing if only first date selected
+  // Handle date picker open/close
   const handleDatePickerOpenChange = (open: boolean) => {
-    // If trying to close but only first date is selected, keep it open
-    if (!open && dateRange.from && !dateRange.to) {
-      return; // Don't close - wait for second date
+    if (open) {
+      // Opening calendar
+      if (datePickerState === "complete") {
+        // Reopening after complete - reset to pickingEnd to allow editing
+        setDatePickerState("pickingEnd");
+      } else if (datePickerState === "idle") {
+        setDatePickerState("pickingStart");
+      }
+      setDatePickerOpen(true);
+      announce("Calendar opened. Select your check in date.");
+    } else {
+      // Trying to close
+      if (datePickerState === "complete") {
+        setDatePickerOpen(false);
+        setDatePickerState("idle");
+      } else {
+        // Don't close if picking dates
+        triggerShake();
+      }
     }
-    setDatePickerOpen(open);
   };
+
+  // Handle click trigger
+  const handleDateFieldClick = () => {
+    if (datePickerState === "complete") {
+      // Reopen with existing range shown
+      setDatePickerOpen(true);
+      setDatePickerState("pickingEnd");
+    } else {
+      setDatePickerOpen(true);
+      if (datePickerState === "idle") {
+        setDatePickerState("pickingStart");
+      }
+    }
+  };
+
+  // Handle Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && datePickerOpen) {
+        if (datePickerState === "pickingStart" || datePickerState === "pickingEnd") {
+          // Cancel selection, keep previously confirmed values
+          setDatePickerOpen(false);
+          if (datePickerState === "pickingStart") {
+            setCheckInDate(undefined);
+            setCheckOutDate(undefined);
+          }
+          setDatePickerState("idle");
+        } else if (datePickerState === "complete") {
+          setDatePickerOpen(false);
+          setDatePickerState("idle");
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [datePickerOpen, datePickerState]);
+
+  // Format date range display
+  const dateRangeDisplay = checkInDate && checkOutDate
+    ? `${format(checkInDate, 'dd MMM')} → ${format(checkOutDate, 'dd MMM')}`
+    : checkInDate
+    ? `${format(checkInDate, 'dd MMM')} → ?`
+    : "Select dates";
 
   const totalGuests = adults + children + infants;
   const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
@@ -315,6 +406,15 @@ export default function Home() {
       <StructuredData type="home" />
       <LoadingScreen />
       <Header />
+
+      {/* Screen reader live region for announcements */}
+      <div
+        ref={announcementRef}
+        className="sr-only"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      />
 
       {/* Hero Section - Optimized */}
       <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
@@ -363,12 +463,12 @@ export default function Home() {
             Your Perfect Group Escape Starts Here
           </h1>
 
-          {/* Search Bar - Enhanced with consistent styling and hover effects */}
+          {/* Search Bar - Enhanced with consistent styling */}
           <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
             <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-              {/* Date Picker */}
+              {/* Date Picker with State Machine */}
               <div className="flex-1 min-w-0">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="ge-dates" className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
                 <Popover 
@@ -378,60 +478,94 @@ export default function Home() {
                 >
                   <PopoverTrigger asChild>
                     <Button
+                      ref={dateFieldRef}
+                      id="ge-dates"
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      onClick={handleDateFieldClick}
+                      className={`ge-input w-full justify-start text-left font-normal transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md ${
+                        shouldShake ? 'animate-shake' : ''
+                      }`}
+                      aria-label="Select check-in and check-out dates"
+                      aria-expanded={datePickerOpen}
+                      aria-describedby="date-picker-instructions"
                     >
-                      <Calendar className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
-                      {checkInDate && checkOutDate ? (
-                        <span className="text-gray-900 truncate">
-                          {format(new Date(checkInDate), 'MMM dd')} - {format(new Date(checkOutDate), 'MMM dd')}
-                        </span>
-                      ) : (
-                        <span className="text-gray-500">Select dates</span>
-                      )}
+                      <Calendar className="w-[18px] h-[18px] text-gray-400 mr-2 flex-shrink-0" />
+                      <span className={checkInDate ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
+                        {dateRangeDisplay}
+                      </span>
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent 
+                    id="ge-calendar"
                     className="w-auto p-0" 
                     align="start"
                     onInteractOutside={(e) => {
-                      // Prevent closing when only first date is selected
-                      if (dateRange.from && !dateRange.to) {
+                      if (datePickerState !== "complete") {
                         e.preventDefault();
+                        triggerShake();
                       }
+                    }}
+                    onEscapeKeyDown={(e) => {
+                      // Handled by global listener
                     }}
                   >
                     <div className="p-4 border-b flex items-center justify-between">
-                      <p className="text-sm font-medium text-gray-700">Select your dates</p>
-                      {(checkInDate || checkOutDate) && (
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={handleDateReset}
-                          className="h-8 px-3 text-xs hover:bg-gray-100"
-                        >
-                          <X className="w-4 h-4 mr-1" />
-                          Reset
-                        </Button>
-                      )}
+                      <p className="text-sm font-medium text-gray-700">
+                        {datePickerState === "pickingStart" && "Select check-in date"}
+                        {datePickerState === "pickingEnd" && "Select check-out date"}
+                        {datePickerState === "complete" && "Your dates"}
+                      </p>
+                      <button
+                        onClick={handleDateReset}
+                        className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
+                        type="button"
+                      >
+                        Clear dates
+                      </button>
                     </div>
-                    <div className="date-range-calendar">
+                    <div 
+                      className="date-range-calendar"
+                      onMouseLeave={() => setHoveredDate(undefined)}
+                    >
                       <CalendarComponent
-                        mode="range"
-                        selected={dateRange}
-                        onSelect={(range) => handleDateSelect(range || { from: undefined, to: undefined })}
+                        mode="single"
+                        selected={checkInDate}
+                        onSelect={handleDateSelect}
+                        onDayMouseEnter={(date) => {
+                          if (datePickerState === "pickingEnd" && checkInDate) {
+                            setHoveredDate(date);
+                          }
+                        }}
                         numberOfMonths={2}
                         disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
-                        classNames={{
-                          day_range_middle: "bg-[var(--color-accent-sage)]/20 text-gray-900",
-                          day_selected: "bg-[var(--color-accent-sage)] text-white hover:bg-[var(--color-accent-sage)] hover:text-white",
-                          day_range_start: "bg-[var(--color-accent-sage)] text-white rounded-l-md",
-                          day_range_end: "bg-[var(--color-accent-sage)] text-white rounded-r-md"
+                        modifiers={{
+                          checkIn: checkInDate ? [checkInDate] : [],
+                          checkOut: checkOutDate ? [checkOutDate] : [],
+                          inRange: checkInDate && checkOutDate
+                            ? (date) => date > checkInDate && date < checkOutDate
+                            : () => false,
+                          hoverRange: checkInDate && hoveredDate && datePickerState === "pickingEnd"
+                            ? (date) => {
+                                if (!checkInDate || !hoveredDate) return false;
+                                const start = checkInDate;
+                                const end = hoveredDate >= checkInDate ? hoveredDate : checkInDate;
+                                return date > start && date < end;
+                              }
+                            : () => false,
+                        }}
+                        modifiersClassNames={{
+                          checkIn: "ge-date-start",
+                          checkOut: "ge-date-end",
+                          inRange: "ge-date-in-range",
+                          hoverRange: "ge-date-hover-range",
                         }}
                       />
                     </div>
                   </PopoverContent>
                 </Popover>
+                <span id="date-picker-instructions" className="sr-only">
+                  Use arrow keys to navigate dates. Press Enter to select. Press Escape to close.
+                </span>
               </div>
 
               {/* Destination Selector - Enhanced with popular destinations */}
@@ -442,8 +576,9 @@ export default function Home() {
                 <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
                   <PopoverTrigger asChild>
                     <Button
+                      id="ge-destination"
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
                     >
                       <MapPin className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       <span className={destination ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
@@ -527,8 +662,9 @@ export default function Home() {
                 <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
                   <PopoverTrigger asChild>
                     <Button
+                      id="ge-guests"
                       variant="outline"
-                      className="w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
+                      className="ge-input w-full h-14 justify-start text-left font-normal px-4 transition-all duration-200 hover:border-[var(--color-accent-sage)] hover:shadow-md"
                     >
                       <User className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
                       <span className="text-gray-900 truncate">{guestsSummary}</span>
@@ -652,9 +788,10 @@ export default function Home() {
                   Search
                 </label>
                 <Button
+                  id="ge-search"
                   size="lg"
                   onClick={handleSearch}
-                  className="w-full h-14 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                  className="ge-input w-full h-14 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
