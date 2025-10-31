@@ -163,16 +163,6 @@ const destinations = [
   { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
 ];
 
-// Popular destinations for the dropdown
-const popularDestinations = [
-  "Brighton",
-  "Bath",
-  "Manchester",
-  "London",
-  "Liverpool",
-  "Edinburgh"
-];
-
 // All destinations for the dropdown
 const allDestinations = [
   "All Locations",
@@ -431,26 +421,24 @@ export default function Home() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!destinationOpen) return;
-
-      const allDests = [...popularDestinations, ...allDestinations];
       
       if (e.key === "ArrowDown") {
         e.preventDefault();
         setFocusedDestinationIndex((prev) => {
-          const next = prev + 1 >= allDests.length ? 0 : prev + 1;
+          const next = prev + 1 >= allDestinations.length ? 0 : prev + 1;
           destinationButtonsRef.current[next]?.focus();
           return next;
         });
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         setFocusedDestinationIndex((prev) => {
-          const next = prev - 1 < 0 ? allDests.length - 1 : prev - 1;
+          const next = prev - 1 < 0 ? allDestinations.length - 1 : prev - 1;
           destinationButtonsRef.current[next]?.focus();
           return next;
         });
       } else if (e.key === "Enter" && focusedDestinationIndex >= 0) {
         e.preventDefault();
-        const selected = allDests[focusedDestinationIndex];
+        const selected = allDestinations[focusedDestinationIndex];
         if (selected) {
           setDestination(selected.toLowerCase().replace(/\s+/g, '-'));
           setDestinationOpen(false);
@@ -716,11 +704,10 @@ export default function Home() {
                     sideOffset={4}
                   >
                     <div className="max-h-[400px] overflow-y-auto smooth-scroll">
-                      {/* Popular Destinations Section */}
-                      <div className="p-4 border-b bg-white sticky top-0 z-10">
-                        <p className="text-sm font-semibold text-gray-900 mb-3">Popular Destinations</p>
-                        <div className="grid grid-cols-2 gap-2">
-                          {popularDestinations.map((dest, index) => (
+                      <div className="p-4">
+                        <p className="text-sm font-semibold text-gray-900 mb-3">Choose Destination</p>
+                        <div className="flex flex-col gap-1">
+                          {allDestinations.map((dest, index) => (
                             <button
                               key={dest}
                               ref={(el) => { destinationButtonsRef.current[index] = el; }}
@@ -736,32 +723,6 @@ export default function Home() {
                               {dest}
                             </button>
                           ))}
-                        </div>
-                      </div>
-                      
-                      {/* All Destinations Section */}
-                      <div className="p-4">
-                        <p className="text-sm font-semibold text-gray-900 mb-3">All Destinations</p>
-                        <div className="flex flex-col gap-1">
-                          {allDestinations.map((dest, index) => {
-                            const actualIndex = index + popularDestinations.length;
-                            return (
-                              <button
-                                key={dest}
-                                ref={(el) => { destinationButtonsRef.current[actualIndex] = el; }}
-                                onClick={() => handleDestinationSelect(dest)}
-                                onMouseEnter={() => setFocusedDestinationIndex(actualIndex)}
-                                className={`px-3 py-2.5 text-sm font-medium text-left rounded-lg transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
-                                  focusedDestinationIndex === actualIndex
-                                    ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
-                                    : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-700'
-                                }`}
-                                tabIndex={destinationOpen ? 0 : -1}
-                              >
-                                {dest}
-                              </button>
-                            );
-                          })}
                         </div>
                       </div>
                     </div>
