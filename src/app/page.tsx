@@ -237,9 +237,11 @@ export default function Home() {
   const [datePickerState, setDatePickerState] = useState<DatePickerState>("idle");
   const [hoveredDate, setHoveredDate] = useState<Date | undefined>(undefined);
   const [shouldShake, setShouldShake] = useState(false);
+  const [focusedDestinationIndex, setFocusedDestinationIndex] = useState(-1);
   
   const dateFieldRef = useRef<HTMLButtonElement>(null);
   const announcementRef = useRef<HTMLDivElement>(null);
+  const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
   // Optimized Intersection Observer
   useEffect(() => {
