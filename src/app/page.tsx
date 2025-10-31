@@ -363,7 +363,11 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in / Check-out
                 </label>
-                <Popover open={datePickerOpen} onOpenChange={handleDatePickerOpenChange}>
+                <Popover 
+                  open={datePickerOpen} 
+                  onOpenChange={handleDatePickerOpenChange}
+                  modal={false}
+                >
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
@@ -379,7 +383,16 @@ export default function Home() {
                       )}
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
+                  <PopoverContent 
+                    className="w-auto p-0" 
+                    align="start"
+                    onInteractOutside={(e) => {
+                      // Prevent closing when only first date is selected
+                      if (dateRange.from && !dateRange.to) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
                     <div className="p-4 border-b flex items-center justify-between">
                       <p className="text-sm font-medium text-gray-700">Select dates</p>
                       {(checkInDate || checkOutDate) && (
