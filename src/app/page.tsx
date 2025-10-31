@@ -353,11 +353,9 @@ export default function Home() {
         setCheckOutDate(date);
         setDatePickerState("complete");
         announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')}`);
-        // Close with fade after 150ms
-        setTimeout(() => {
-          setDatePickerOpen(false);
-          setDatePickerState("idle");
-        }, 150);
+        // Close immediately after both dates selected
+        setDatePickerOpen(false);
+        setDatePickerState("idle");
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
