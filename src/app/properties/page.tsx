@@ -6,12 +6,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
-import { Select } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   SlidersHorizontal, 
-  X, 
   MapPin, 
   Users, 
   PoundSterling,
@@ -23,10 +22,278 @@ import {
   Clapperboard,
   Flame,
   Trees,
-  Check,
-  Loader2
+  Check
 } from "lucide-react";
-import { motion } from "framer-motion";
+
+// Move properties data outside component to prevent re-creation on every render
+const properties = [
+  {
+    id: "1",
+    title: "The Brighton Manor",
+    location: "Brighton, East Sussex",
+    sleeps: 16,
+    bedrooms: 8,
+    priceFrom: 89,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Pool", "Games Room"],
+    slug: "brighton-manor",
+  },
+  {
+    id: "1b",
+    title: "Brighton Seafront Villa",
+    location: "Brighton, East Sussex",
+    sleeps: 12,
+    bedrooms: 6,
+    priceFrom: 79,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&auto=format&fit=crop&q=80",
+    features: ["Sea View", "Hot Tub", "BBQ"],
+    slug: "brighton-seafront-villa",
+  },
+  {
+    id: "1c",
+    title: "The Lanes Townhouse",
+    location: "Brighton, East Sussex",
+    sleeps: 10,
+    bedrooms: 5,
+    priceFrom: 69,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop&q=80",
+    features: ["City Centre", "Roof Terrace", "Games Room"],
+    slug: "the-lanes-townhouse",
+  },
+  {
+    id: "2",
+    title: "Bath Spa Retreat",
+    location: "Bath, Somerset",
+    sleeps: 20,
+    bedrooms: 10,
+    priceFrom: 95,
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&auto=format&fit=crop&q=80",
+    features: ["Games Room", "Cinema", "Hot Tub"],
+    slug: "bath-spa-retreat",
+  },
+  {
+    id: "3",
+    title: "Manchester Party House",
+    location: "Manchester, Greater Manchester",
+    sleeps: 14,
+    bedrooms: 7,
+    priceFrom: 79,
+    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "BBQ", "Garden"],
+    slug: "manchester-party-house",
+  },
+  {
+    id: "4",
+    title: "York Georgian Townhouse",
+    location: "York, North Yorkshire",
+    sleeps: 18,
+    bedrooms: 9,
+    priceFrom: 85,
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Pet Friendly", "Parking"],
+    slug: "york-townhouse",
+  },
+  {
+    id: "5",
+    title: "Bournemouth Beach House",
+    location: "Bournemouth, Dorset",
+    sleeps: 12,
+    bedrooms: 6,
+    priceFrom: 75,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&auto=format&fit=crop&q=80",
+    features: ["Pool", "Sea View", "BBQ"],
+    slug: "bournemouth-beach",
+  },
+  {
+    id: "6",
+    title: "Cardiff City Penthouse",
+    location: "Cardiff, South Wales",
+    sleeps: 10,
+    bedrooms: 5,
+    priceFrom: 69,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop&q=80",
+    features: ["Roof Terrace", "City Views", "Games Room"],
+    slug: "cardiff-penthouse",
+  },
+  {
+    id: "7",
+    title: "London Luxury Loft",
+    location: "London, Greater London",
+    sleeps: 22,
+    bedrooms: 11,
+    priceFrom: 125,
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=80",
+    features: ["Cinema", "Hot Tub", "Roof Terrace"],
+    slug: "london-luxury-loft",
+  },
+  {
+    id: "8",
+    title: "Liverpool Dockside Retreat",
+    location: "Liverpool, Merseyside",
+    sleeps: 16,
+    bedrooms: 8,
+    priceFrom: 82,
+    image: "https://images.unsplash.com/photo-1600607687644-aab4f92099c2?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Games Room", "City Views"],
+    slug: "liverpool-dockside",
+  },
+  {
+    id: "9",
+    title: "Cotswolds Country Estate",
+    location: "Cotswolds, Gloucestershire",
+    sleeps: 24,
+    bedrooms: 12,
+    priceFrom: 110,
+    image: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&auto=format&fit=crop&q=80",
+    features: ["Pool", "Hot Tub", "Garden", "Cinema"],
+    slug: "cotswolds-estate",
+  },
+  {
+    id: "10",
+    title: "Newcastle Quayside House",
+    location: "Newcastle, Tyne and Wear",
+    sleeps: 14,
+    bedrooms: 7,
+    priceFrom: 77,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "BBQ", "Pet Friendly"],
+    slug: "newcastle-quayside",
+  },
+  {
+    id: "11",
+    title: "Cambridge Riverside Manor",
+    location: "Cambridge, Cambridgeshire",
+    sleeps: 18,
+    bedrooms: 9,
+    priceFrom: 92,
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&auto=format&fit=crop&q=80",
+    features: ["Garden", "Games Room", "Cinema"],
+    slug: "cambridge-riverside",
+  },
+  {
+    id: "12",
+    title: "Bristol Harbour House",
+    location: "Bristol, South West England",
+    sleeps: 15,
+    bedrooms: 8,
+    priceFrom: 84,
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Roof Terrace", "BBQ"],
+    slug: "bristol-harbour",
+  },
+  {
+    id: "13",
+    title: "Oxford Historic Mansion",
+    location: "Oxford, Oxfordshire",
+    sleeps: 20,
+    bedrooms: 10,
+    priceFrom: 98,
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&auto=format&fit=crop&q=80",
+    features: ["Pool", "Cinema", "Garden"],
+    slug: "oxford-mansion",
+  },
+  {
+    id: "14",
+    title: "Lake District Lodge",
+    location: "Lake District, Cumbria",
+    sleeps: 16,
+    bedrooms: 8,
+    priceFrom: 88,
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Garden", "Pet Friendly"],
+    slug: "lake-district-lodge",
+  },
+  {
+    id: "15",
+    title: "Newquay Coastal Villa",
+    location: "Newquay, Cornwall",
+    sleeps: 12,
+    bedrooms: 6,
+    priceFrom: 79,
+    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Sea View", "BBQ"],
+    slug: "newquay-coastal",
+  },
+  {
+    id: "16",
+    title: "Edinburgh Castle View House",
+    location: "Edinburgh, Scotland",
+    sleeps: 18,
+    bedrooms: 9,
+    priceFrom: 95,
+    image: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "City Views", "Games Room"],
+    slug: "edinburgh-castle-view",
+  },
+  {
+    id: "17",
+    title: "Leeds City Centre Loft",
+    location: "Leeds, West Yorkshire",
+    sleeps: 14,
+    bedrooms: 7,
+    priceFrom: 74,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80",
+    features: ["Hot Tub", "Roof Terrace", "Cinema"],
+    slug: "leeds-city-loft",
+  },
+  {
+    id: "18",
+    title: "Birmingham Grand House",
+    location: "Birmingham, West Midlands",
+    sleeps: 20,
+    bedrooms: 10,
+    priceFrom: 87,
+    image: "https://images.unsplash.com/photo-1600566752229-250ed79470d8?w=800&auto=format&fit=crop&q=80",
+    features: ["Pool", "Hot Tub", "Games Room"],
+    slug: "birmingham-grand",
+  },
+];
+
+// Destinations list
+const destinations = [
+  { name: "Bath", slug: "bath" },
+  { name: "Birmingham", slug: "birmingham" },
+  { name: "Blackpool", slug: "blackpool" },
+  { name: "Bournemouth", slug: "bournemouth" },
+  { name: "Brighton", slug: "brighton" },
+  { name: "Bristol", slug: "bristol" },
+  { name: "Cambridge", slug: "cambridge" },
+  { name: "Canterbury", slug: "canterbury" },
+  { name: "Cardiff", slug: "cardiff" },
+  { name: "Cheltenham", slug: "cheltenham" },
+  { name: "Chester", slug: "chester" },
+  { name: "Cotswolds", slug: "cotswolds" },
+  { name: "Durham", slug: "durham" },
+  { name: "Exeter", slug: "exeter" },
+  { name: "Harrogate", slug: "harrogate" },
+  { name: "Lake District", slug: "lake-district" },
+  { name: "Leeds", slug: "leeds" },
+  { name: "Liverpool", slug: "liverpool" },
+  { name: "London", slug: "london" },
+  { name: "Manchester", slug: "manchester" },
+  { name: "Margate", slug: "margate" },
+  { name: "Newcastle", slug: "newcastle" },
+  { name: "Newquay", slug: "newquay" },
+  { name: "Nottingham", slug: "nottingham" },
+  { name: "Oxford", slug: "oxford" },
+  { name: "Plymouth", slug: "plymouth" },
+  { name: "Sheffield", slug: "sheffield" },
+  { name: "St Ives", slug: "st-ives" },
+  { name: "Stratford-upon-Avon", slug: "stratford-upon-avon" },
+  { name: "Windsor", slug: "windsor" },
+  { name: "York", slug: "york" },
+].sort((a, b) => a.name.localeCompare(b.name));
+
+const featureOptions = [
+  { icon: Waves, label: "Hot Tub" },
+  { icon: Waves, label: "Pool" },
+  { icon: Gamepad2, label: "Games Room" },
+  { icon: PawPrint, label: "Pet Friendly" },
+  { icon: Accessibility, label: "Accessible" },
+  { icon: Clapperboard, label: "Cinema" },
+  { icon: Flame, label: "BBQ" },
+  { icon: Trees, label: "Garden" },
+];
 
 export default function PropertiesPage() {
   const router = useRouter();
@@ -37,8 +304,6 @@ export default function PropertiesPage() {
   // Read search params from homepage (destination, checkIn, checkOut, guests, pets)
   const destinationParam = searchParams.get("destination") || searchParams.get("location") || "";
   const guestsParam = searchParams.get("guests") || "0";
-  const checkInParam = searchParams.get("checkIn") || "";
-  const checkOutParam = searchParams.get("checkOut") || "";
   
   const [filters, setFilters] = useState({
     location: destinationParam,
@@ -67,275 +332,6 @@ export default function PropertiesPage() {
   useEffect(() => {
     setDisplayedCount(6);
   }, [filters]);
-
-  // Destinations list matching the destinations page
-  const destinations = [
-    { name: "Bath", slug: "bath" },
-    { name: "Birmingham", slug: "birmingham" },
-    { name: "Blackpool", slug: "blackpool" },
-    { name: "Bournemouth", slug: "bournemouth" },
-    { name: "Brighton", slug: "brighton" },
-    { name: "Bristol", slug: "bristol" },
-    { name: "Cambridge", slug: "cambridge" },
-    { name: "Canterbury", slug: "canterbury" },
-    { name: "Cardiff", slug: "cardiff" },
-    { name: "Cheltenham", slug: "cheltenham" },
-    { name: "Chester", slug: "chester" },
-    { name: "Cotswolds", slug: "cotswolds" },
-    { name: "Durham", slug: "durham" },
-    { name: "Exeter", slug: "exeter" },
-    { name: "Harrogate", slug: "harrogate" },
-    { name: "Lake District", slug: "lake-district" },
-    { name: "Leeds", slug: "leeds" },
-    { name: "Liverpool", slug: "liverpool" },
-    { name: "London", slug: "london" },
-    { name: "Manchester", slug: "manchester" },
-    { name: "Margate", slug: "margate" },
-    { name: "Newcastle", slug: "newcastle" },
-    { name: "Newquay", slug: "newquay" },
-    { name: "Nottingham", slug: "nottingham" },
-    { name: "Oxford", slug: "oxford" },
-    { name: "Plymouth", slug: "plymouth" },
-    { name: "Sheffield", slug: "sheffield" },
-    { name: "St Ives", slug: "st-ives" },
-    { name: "Stratford-upon-Avon", slug: "stratford-upon-avon" },
-    { name: "Windsor", slug: "windsor" },
-    { name: "York", slug: "york" },
-  ].sort((a, b) => a.name.localeCompare(b.name));
-
-  const properties = [
-    {
-      id: "1",
-      title: "The Brighton Manor",
-      location: "Brighton, East Sussex",
-      sleeps: 16,
-      bedrooms: 8,
-      priceFrom: 89,
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Pool", "Games Room"],
-      slug: "brighton-manor",
-    },
-    {
-      id: "1b",
-      title: "Brighton Seafront Villa",
-      location: "Brighton, East Sussex",
-      sleeps: 12,
-      bedrooms: 6,
-      priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&auto=format&fit=crop&q=80",
-      features: ["Sea View", "Hot Tub", "BBQ"],
-      slug: "brighton-seafront-villa",
-    },
-    {
-      id: "1c",
-      title: "The Lanes Townhouse",
-      location: "Brighton, East Sussex",
-      sleeps: 10,
-      bedrooms: 5,
-      priceFrom: 69,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop&q=80",
-      features: ["City Centre", "Roof Terrace", "Games Room"],
-      slug: "the-lanes-townhouse",
-    },
-    {
-      id: "2",
-      title: "Bath Spa Retreat",
-      location: "Bath, Somerset",
-      sleeps: 20,
-      bedrooms: 10,
-      priceFrom: 95,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&auto=format&fit=crop&q=80",
-      features: ["Games Room", "Cinema", "Hot Tub"],
-      slug: "bath-spa-retreat",
-    },
-    {
-      id: "3",
-      title: "Manchester Party House",
-      location: "Manchester, Greater Manchester",
-      sleeps: 14,
-      bedrooms: 7,
-      priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "BBQ", "Garden"],
-      slug: "manchester-party-house",
-    },
-    {
-      id: "4",
-      title: "York Georgian Townhouse",
-      location: "York, North Yorkshire",
-      sleeps: 18,
-      bedrooms: 9,
-      priceFrom: 85,
-      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Pet Friendly", "Parking"],
-      slug: "york-townhouse",
-    },
-    {
-      id: "5",
-      title: "Bournemouth Beach House",
-      location: "Bournemouth, Dorset",
-      sleeps: 12,
-      bedrooms: 6,
-      priceFrom: 75,
-      image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&auto=format&fit=crop&q=80",
-      features: ["Pool", "Sea View", "BBQ"],
-      slug: "bournemouth-beach",
-    },
-    {
-      id: "6",
-      title: "Cardiff City Penthouse",
-      location: "Cardiff, South Wales",
-      sleeps: 10,
-      bedrooms: 5,
-      priceFrom: 69,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop&q=80",
-      features: ["Roof Terrace", "City Views", "Games Room"],
-      slug: "cardiff-penthouse",
-    },
-    {
-      id: "7",
-      title: "London Luxury Loft",
-      location: "London, Greater London",
-      sleeps: 22,
-      bedrooms: 11,
-      priceFrom: 125,
-      image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=80",
-      features: ["Cinema", "Hot Tub", "Roof Terrace"],
-      slug: "london-luxury-loft",
-    },
-    {
-      id: "8",
-      title: "Liverpool Dockside Retreat",
-      location: "Liverpool, Merseyside",
-      sleeps: 16,
-      bedrooms: 8,
-      priceFrom: 82,
-      image: "https://images.unsplash.com/photo-1600607687644-aab4f92099c2?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Games Room", "City Views"],
-      slug: "liverpool-dockside",
-    },
-    {
-      id: "9",
-      title: "Cotswolds Country Estate",
-      location: "Cotswolds, Gloucestershire",
-      sleeps: 24,
-      bedrooms: 12,
-      priceFrom: 110,
-      image: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&auto=format&fit=crop&q=80",
-      features: ["Pool", "Hot Tub", "Garden", "Cinema"],
-      slug: "cotswolds-estate",
-    },
-    {
-      id: "10",
-      title: "Newcastle Quayside House",
-      location: "Newcastle, Tyne and Wear",
-      sleeps: 14,
-      bedrooms: 7,
-      priceFrom: 77,
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "BBQ", "Pet Friendly"],
-      slug: "newcastle-quayside",
-    },
-    {
-      id: "11",
-      title: "Cambridge Riverside Manor",
-      location: "Cambridge, Cambridgeshire",
-      sleeps: 18,
-      bedrooms: 9,
-      priceFrom: 92,
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&auto=format&fit=crop&q=80",
-      features: ["Garden", "Games Room", "Cinema"],
-      slug: "cambridge-riverside",
-    },
-    {
-      id: "12",
-      title: "Bristol Harbour House",
-      location: "Bristol, South West England",
-      sleeps: 15,
-      bedrooms: 8,
-      priceFrom: 84,
-      image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Roof Terrace", "BBQ"],
-      slug: "bristol-harbour",
-    },
-    {
-      id: "13",
-      title: "Oxford Historic Mansion",
-      location: "Oxford, Oxfordshire",
-      sleeps: 20,
-      bedrooms: 10,
-      priceFrom: 98,
-      image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&auto=format&fit=crop&q=80",
-      features: ["Pool", "Cinema", "Garden"],
-      slug: "oxford-mansion",
-    },
-    {
-      id: "14",
-      title: "Lake District Lodge",
-      location: "Lake District, Cumbria",
-      sleeps: 16,
-      bedrooms: 8,
-      priceFrom: 88,
-      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Garden", "Pet Friendly"],
-      slug: "lake-district-lodge",
-    },
-    {
-      id: "15",
-      title: "Newquay Coastal Villa",
-      location: "Newquay, Cornwall",
-      sleeps: 12,
-      bedrooms: 6,
-      priceFrom: 79,
-      image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Sea View", "BBQ"],
-      slug: "newquay-coastal",
-    },
-    {
-      id: "16",
-      title: "Edinburgh Castle View House",
-      location: "Edinburgh, Scotland",
-      sleeps: 18,
-      bedrooms: 9,
-      priceFrom: 95,
-      image: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "City Views", "Games Room"],
-      slug: "edinburgh-castle-view",
-    },
-    {
-      id: "17",
-      title: "Leeds City Centre Loft",
-      location: "Leeds, West Yorkshire",
-      sleeps: 14,
-      bedrooms: 7,
-      priceFrom: 74,
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80",
-      features: ["Hot Tub", "Roof Terrace", "Cinema"],
-      slug: "leeds-city-loft",
-    },
-    {
-      id: "18",
-      title: "Birmingham Grand House",
-      location: "Birmingham, West Midlands",
-      sleeps: 20,
-      bedrooms: 10,
-      priceFrom: 87,
-      image: "https://images.unsplash.com/photo-1600566752229-250ed79470d8?w=800&auto=format&fit=crop&q=80",
-      features: ["Pool", "Hot Tub", "Games Room"],
-      slug: "birmingham-grand",
-    },
-  ];
-
-  const featureOptions = [
-    { icon: Waves, label: "Hot Tub" },
-    { icon: Waves, label: "Pool" },
-    { icon: Gamepad2, label: "Games Room" },
-    { icon: PawPrint, label: "Pet Friendly" },
-    { icon: Accessibility, label: "Accessible" },
-    { icon: Clapperboard, label: "Cinema" },
-    { icon: Flame, label: "BBQ" },
-    { icon: Trees, label: "Garden" },
-  ];
 
   const toggleFeature = (feature: string) => {
     setFilters((prev) => ({
@@ -386,29 +382,6 @@ export default function PropertiesPage() {
     setDisplayedCount(prev => Math.min(prev + 6, filteredProperties.length));
   };
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.19, 1, 0.22, 1]
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -416,18 +389,14 @@ export default function PropertiesPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-          >
+          <div>
             <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
               Hen Party Houses to Rent
             </h1>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
               Luxury group accommodation across the UK with hot tubs, pools, and amazing features
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -451,12 +420,7 @@ export default function PropertiesPage() {
 
           <div className="flex flex-col md:flex-row gap-8">
             {/* Filters Sidebar */}
-            <motion.div 
-              className={`md:w-80 ${showFilters ? "block" : "hidden md:block"}`}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className={`md:w-80 ${showFilters ? "block" : "hidden md:block"}`}>
               <div className="bg-white rounded-2xl p-6 shadow-md sticky top-24">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-xl font-semibold flex items-center gap-2" style={{ fontFamily: "var(--font-body)" }}>
@@ -544,11 +508,9 @@ export default function PropertiesPage() {
                       {featureOptions.map((feature) => {
                         const Icon = feature.icon;
                         return (
-                          <motion.label 
+                          <label 
                             key={feature.label} 
                             className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors"
-                            whileHover={{ x: 4 }}
-                            transition={{ duration: 0.2 }}
                           >
                             <input
                               type="checkbox"
@@ -558,7 +520,7 @@ export default function PropertiesPage() {
                             />
                             <Icon className="w-4 h-4 text-[var(--color-accent-sage)]" />
                             <span className="text-sm">{feature.label}</span>
-                          </motion.label>
+                          </label>
                         );
                       })}
                     </div>
@@ -566,10 +528,8 @@ export default function PropertiesPage() {
 
                   {/* Instant Enquiry Only */}
                   <div>
-                    <motion.label 
+                    <label 
                       className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors"
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
                     >
                       <input
                         type="checkbox"
@@ -577,21 +537,16 @@ export default function PropertiesPage() {
                       />
                       <Check className="w-4 h-4 text-[var(--color-accent-gold)]" />
                       <span className="text-sm font-medium">Instant enquiry only</span>
-                    </motion.label>
+                    </label>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Property Grid */}
             <div className="flex-1">
               {/* Sort and Count */}
-              <motion.div 
-                className="flex items-center justify-between mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
+              <div className="flex items-center justify-between mb-8">
                 <p className="text-[var(--color-neutral-dark)] flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-[var(--color-accent-gold)]" />
                   Showing {visibleProperties.length} of {filteredProperties.length} properties
@@ -602,24 +557,15 @@ export default function PropertiesPage() {
                   <option>Sort by: Sleeps (Most first)</option>
                   <option>Sort by: Newest</option>
                 </select>
-              </motion.div>
+              </div>
 
               {/* Property Cards */}
-              <motion.div 
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-              >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {visibleProperties.length > 0 ? (
                   visibleProperties.map((property) => (
-                    <motion.div
-                      key={property.id}
-                      variants={itemVariants}
-                      whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                    >
+                    <div key={property.id}>
                       <PropertyCard {...property} />
-                    </motion.div>
+                    </div>
                   ))
                 ) : (
                   <div className="col-span-2 text-center py-12">
@@ -628,16 +574,11 @@ export default function PropertiesPage() {
                     </p>
                   </div>
                 )}
-              </motion.div>
+              </div>
 
               {/* Load More */}
               {hasMore && (
-                <motion.div 
-                  className="text-center mt-12"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
+                <div className="text-center mt-12">
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button
                       onClick={loadMore}
@@ -663,7 +604,7 @@ export default function PropertiesPage() {
                       <Link href="/contact">Request a Quote</Link>
                     </Button>
                   </div>
-                </motion.div>
+                </div>
               )}
             </div>
           </div>
