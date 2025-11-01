@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import CookieConsent from "@/components/CookieConsent";
-import WhatsAppChatbot from "@/components/WhatsAppChatbot";
+import WhatsAppChat from "@/components/WhatsAppChat";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
@@ -106,7 +106,7 @@ export default function RootLayout({
         <CustomAutumnProvider>
           {children}
         </CustomAutumnProvider>
-        <WhatsAppChatbot />
+        <WhatsAppChat />
         <CookieConsent />
         <Toaster />
       
