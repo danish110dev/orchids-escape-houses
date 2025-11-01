@@ -112,7 +112,7 @@ export default function SpaPage() {
       </section>
 
       {/* What's Included */}
-      <section className="py-16 bg-gradient-to-br from-[#F2C6C2]/20 to-[#E5D8C5]/30">
+      <section className="py-16 bg-gradient-to-br from-[#89A38F]/20 to-[#E5D8C5]/30">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
