@@ -530,7 +530,6 @@ export default function Home() {
                         ref={dateFieldRef}
                         id="ge-dates"
                         variant="outline"
-                        onClick={handleDateFieldClick}
                         className={`ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
                           shouldShake ? 'animate-shake' : ''
                         }`}
@@ -561,21 +560,19 @@ export default function Home() {
                       className="w-auto p-0 z-[1000]" 
                       align="start"
                       sideOffset={4}
-                      onInteractOutside={(e) => {
-                        if (datePickerState === "pickingStart" || datePickerState === "pickingEnd") {
-                          e.preventDefault();
-                          triggerShake();
-                        }
-                      }}
                     >
                       <div className="p-4 border-b flex items-center justify-between">
                         <p className="text-sm font-medium text-gray-900">
-                          {datePickerState === "pickingStart" && "Select check-in date"}
-                          {datePickerState === "pickingEnd" && "Select check-out date"}
-                          {datePickerState === "complete" && "Your dates"}
+                          {!checkInDate && "Select check-in date"}
+                          {checkInDate && !checkOutDate && "Select check-out date"}
+                          {checkInDate && checkOutDate && "Your dates"}
                         </p>
                         <button
-                          onClick={handleDateReset}
+                          onClick={() => {
+                            setCheckInDate(undefined);
+                            setCheckOutDate(undefined);
+                            announce("Dates cleared. Select your dates.");
+                          }}
                           className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
                           type="button"
                           aria-label="Clear selected dates"
@@ -601,15 +598,16 @@ export default function Home() {
                             
                             // Handle range object from react-day-picker
                             if ('from' in range && range.from) {
-                              if (!range.to) {
-                                // Only start date selected
-                                handleDateSelect(range.from);
-                              } else {
-                                // Both dates selected - set them directly
-                                setCheckInDate(range.from);
+                              setCheckInDate(range.from);
+                              
+                              if (range.to) {
+                                // Both dates selected
                                 setCheckOutDate(range.to);
-                                setDatePickerState("idle");
                                 announce(`Range ${format(range.from, 'd MMM')} to ${format(range.to, 'd MMM')} selected`);
+                              } else {
+                                // Only start date selected
+                                setCheckOutDate(undefined);
+                                announce(`Check-in ${format(range.from, 'd MMM')} selected. Select check-out date.`);
                               }
                             }
                           }}
