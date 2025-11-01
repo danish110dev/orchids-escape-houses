@@ -216,7 +216,7 @@ export default function Home() {
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
 
-  // Search form state - SIMPLIFIED
+  // Search form state - COMPLETELY SIMPLIFIED
   const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
   const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
   const [destination, setDestination] = useState("");
@@ -329,39 +329,15 @@ export default function Home() {
     window.location.href = `/properties?${params.toString()}`;
   };
 
-  // COMPLETELY NEW: Simple date selection handler
-  const handleDateSelect = (selectedRange: any) => {
-    if (!selectedRange) {
-      return;
+  // Auto-close calendar when both dates are selected
+  useEffect(() => {
+    if (checkInDate && checkOutDate && datePickerOpen) {
+      const timer = setTimeout(() => {
+        setDatePickerOpen(false);
+      }, 300);
+      return () => clearTimeout(timer);
     }
-
-    // If it's a DateRange object with from/to
-    if ('from' in selectedRange) {
-      if (selectedRange.from && !selectedRange.to) {
-        // Only start date selected
-        setCheckInDate(selectedRange.from);
-        setCheckOutDate(undefined);
-        announce(`Check-in date selected: ${format(selectedRange.from, 'd MMMM yyyy')}. Please select check-out date.`);
-      } else if (selectedRange.from && selectedRange.to) {
-        // Both dates selected
-        setCheckInDate(selectedRange.from);
-        setCheckOutDate(selectedRange.to);
-        announce(`Dates selected: ${format(selectedRange.from, 'd MMMM')} to ${format(selectedRange.to, 'd MMMM')}`);
-        
-        // Auto-close after both dates selected
-        setTimeout(() => {
-          setDatePickerOpen(false);
-        }, 300);
-      }
-    }
-  };
-
-  // Clear dates handler
-  const handleClearDates = () => {
-    setCheckInDate(undefined);
-    setCheckOutDate(undefined);
-    announce("Dates cleared. Select your dates.");
-  };
+  }, [checkInDate, checkOutDate, datePickerOpen]);
 
   // Handle date picker open/close
   const handleDatePickerOpenChange = (open: boolean) => {
@@ -536,14 +512,14 @@ export default function Home() {
             {/* Search Bar - COMPLETELY REBUILT */}
             <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
               <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-                {/* Date Picker - REBUILT FROM SCRATCH */}
+                {/* Date Picker - COMPLETELY NEW SIMPLE VERSION */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-dates" className="block text-sm font-medium text-gray-900 mb-2">
                     Check-in / Check-out
                   </label>
                   <Popover 
                     open={datePickerOpen} 
-                    onOpenChange={handleDatePickerOpenChange}
+                    onOpenChange={setDatePickerOpen}
                     modal={false}
                   >
                     <PopoverTrigger asChild>
@@ -551,23 +527,10 @@ export default function Home() {
                         ref={dateFieldRef}
                         id="ge-dates"
                         variant="outline"
-                        className="ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)]"
-                        style={{
-                          boxShadow: 'none',
-                          borderColor: '#e5e7eb'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-                          e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = 'none';
-                          e.currentTarget.style.borderColor = '#e5e7eb';
-                        }}
-                        aria-label={`Select check-in and check-out dates. Currently selected: ${dateRangeDisplay}`}
-                        aria-expanded={datePickerOpen}
+                        className="ge-input w-full justify-start text-left font-normal"
+                        aria-label={`Select dates. ${dateRangeDisplay}`}
                       >
-                        <Calendar className="text-gray-400 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <Calendar className="text-gray-400 mr-2 flex-shrink-0" />
                         <span className={checkInDate ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
                           {dateRangeDisplay}
                         </span>
@@ -582,15 +545,17 @@ export default function Home() {
                         <p className="text-sm font-medium text-gray-900">
                           {!checkInDate && "Select check-in date"}
                           {checkInDate && !checkOutDate && "Select check-out date"}
-                          {checkInDate && checkOutDate && "Your dates"}
+                          {checkInDate && checkOutDate && "Dates selected"}
                         </p>
                         <button
-                          onClick={handleClearDates}
+                          onClick={() => {
+                            setCheckInDate(undefined);
+                            setCheckOutDate(undefined);
+                          }}
                           className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
                           type="button"
-                          aria-label="Clear selected dates"
                         >
-                          Clear dates
+                          Clear
                         </button>
                       </div>
                       <CalendarComponent
@@ -602,13 +567,14 @@ export default function Home() {
                             ? { from: checkInDate, to: undefined }
                             : undefined
                         }
-                        onSelect={handleDateSelect}
-                        numberOfMonths={2}
-                        disabled={(date) => {
-                          const today = new Date();
-                          today.setHours(0, 0, 0, 0);
-                          return date < today;
+                        onSelect={(range) => {
+                          if (range?.from) {
+                            setCheckInDate(range.from);
+                            setCheckOutDate(range.to);
+                          }
                         }}
+                        numberOfMonths={2}
+                        disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                         modifiersClassNames={{
                           range_start: "ge-date-start",
                           range_end: "ge-date-end",
@@ -617,9 +583,6 @@ export default function Home() {
                       />
                     </PopoverContent>
                   </Popover>
-                  <span id="date-picker-instructions" className="sr-only">
-                    Use arrow keys to navigate dates. Press Enter to select. Press Escape to close.
-                  </span>
                 </div>
 
                 {/* Destination Selector - Enhanced with popular destinations */}
