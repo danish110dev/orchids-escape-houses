@@ -106,6 +106,7 @@ export default function RootLayout({
         <CustomAutumnProvider>
           {children}
         </CustomAutumnProvider>
+        <WhatsAppChatbot />
         <CookieConsent />
         <Toaster />
       
