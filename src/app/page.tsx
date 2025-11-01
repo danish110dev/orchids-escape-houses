@@ -344,13 +344,11 @@ export default function Home() {
       if (date >= checkInDate) {
         // Valid checkout date - set both dates
         setCheckOutDate(date);
-        announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
         setDatePickerState("idle");
+        announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
         
-        // Close the picker after a brief delay to ensure state updates complete
-        setTimeout(() => {
-          setDatePickerOpen(false);
-        }, 150);
+        // Close immediately without timeout
+        setDatePickerOpen(false);
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
