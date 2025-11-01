@@ -344,8 +344,12 @@ export default function Home() {
       if (date >= checkInDate) {
         // Valid checkout date
         setCheckOutDate(date);
+        setDatePickerState("idle");
         announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
-        // Don't close immediately - let useEffect handle it after state settles
+        // Close after brief delay to show selection
+        setTimeout(() => {
+          setDatePickerOpen(false);
+        }, 150);
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
@@ -355,18 +359,6 @@ export default function Home() {
       }
     }
   };
-
-  // Auto-close calendar when both dates are selected
-  useEffect(() => {
-    if (checkInDate && checkOutDate && datePickerState === "pickingEnd") {
-      // Both dates selected, close the calendar
-      const timer = setTimeout(() => {
-        setDatePickerState("idle");
-        setDatePickerOpen(false);
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [checkInDate, checkOutDate, datePickerState]);
 
   const handleDateReset = () => {
     setCheckInDate(undefined);
@@ -649,42 +641,16 @@ export default function Home() {
                         onMouseLeave={() => setHoveredDate(undefined)}
                       >
                         <CalendarComponent
-                          mode="range"
-                          selected={
-                            checkInDate && checkOutDate
-                              ? { from: checkInDate, to: checkOutDate }
-                              : checkInDate
-                              ? { from: checkInDate, to: undefined }
-                              : undefined
-                          }
-                          onSelect={(range) => {
-                            if (!range) return;
-                            
-                            // Handle range selection
-                            if ('from' in range) {
-                              if (range.from && !range.to) {
-                                // Only start date selected
-                                setCheckInDate(range.from);
-                                setCheckOutDate(undefined);
-                                setDatePickerState("pickingEnd");
-                                announce(`Check in ${format(range.from, 'd MMMM yyyy')} selected. Select a check out date.`);
-                              } else if (range.from && range.to) {
-                                // Both dates selected
-                                setCheckInDate(range.from);
-                                setCheckOutDate(range.to);
-                                announce(`Range ${format(range.from, 'd MMM')} to ${format(range.to, 'd MMM')} selected`);
-                              }
-                            }
-                          }}
+                          mode="single"
+                          selected={checkOutDate || checkInDate}
+                          onSelect={handleDateSelect}
                           numberOfMonths={2}
                           disabled={(date) => {
                             const today = new Date(new Date().setHours(0, 0, 0, 0));
                             return date < today;
                           }}
                           modifiersClassNames={{
-                            range_start: "ge-date-start",
-                            range_end: "ge-date-end",
-                            range_middle: "ge-date-in-range",
+                            selected: checkInDate && !checkOutDate ? "ge-date-start" : checkOutDate ? "ge-date-end" : "",
                           }}
                         />
                       </div>
