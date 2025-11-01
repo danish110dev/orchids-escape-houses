@@ -4,8 +4,8 @@ import { Instagram, Facebook, Twitter, Youtube, Linkedin, Phone } from "lucide-r
 export default function Footer() {
   return (
     <footer className="bg-[var(--color-text-primary)] text-[var(--color-bg-primary)] pt-16 pb-8">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Logo and Tagline */}
           <div className="col-span-1">
             <h3
@@ -59,6 +59,28 @@ export default function Footer() {
               <li>
                 <Link href="/contact" className="hover:text-[var(--color-accent-sage)] transition-colors">
                   Contact & Enquiries
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Admin Dashboard */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white">Admin Dashboard</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  Manage Properties
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/bookings" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  Manage Bookings
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/properties/new" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  Add New Property
                 </Link>
               </li>
             </ul>
