@@ -342,23 +342,28 @@ export default function Home() {
       announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
     } else if (datePickerState === "pickingEnd" && checkInDate) {
       if (date >= checkInDate) {
-        // Valid checkout date
+        // Valid checkout date - set it and mark as idle
         setCheckOutDate(date);
         setDatePickerState("idle");
         announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
-        // Close after brief delay to show selection
-        setTimeout(() => {
-          setDatePickerOpen(false);
-        }, 150);
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
         setCheckOutDate(undefined);
-        setDatePickerState("pickingEnd");
         announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
       }
     }
   };
+
+  // Auto-close when both dates are selected
+  useEffect(() => {
+    if (checkInDate && checkOutDate && datePickerState === "idle") {
+      const timer = setTimeout(() => {
+        setDatePickerOpen(false);
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [checkInDate, checkOutDate, datePickerState]);
 
   const handleDateReset = () => {
     setCheckInDate(undefined);
