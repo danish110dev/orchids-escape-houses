@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import CookieConsent from "@/components/CookieConsent";
-// Temporarily commented to clear HMR cache
-// import WhatsAppChatbot from "@/components/WhatsAppChatbot";
+import WhatsAppChatbot from "@/components/WhatsAppChatbot";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
