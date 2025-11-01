@@ -227,7 +227,6 @@ export default function Home() {
   const [guestsOpen, setGuestsOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const [destinationOpen, setDestinationOpen] = useState(false);
-  const [datePickerState, setDatePickerState] = useState<DatePickerState>("idle");
   const [hoveredDate, setHoveredDate] = useState<Date | undefined>(undefined);
   const [shouldShake, setShouldShake] = useState(false);
   const [focusedDestinationIndex, setFocusedDestinationIndex] = useState(-1);
@@ -332,72 +331,22 @@ export default function Home() {
     window.location.href = `/properties?${params.toString()}`;
   };
 
-  const handleDateSelect = (date: Date | undefined) => {
-    if (!date) return;
-
-    if (datePickerState === "pickingStart") {
-      setCheckInDate(date);
-      setCheckOutDate(undefined);
-      setDatePickerState("pickingEnd");
-      announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
-    } else if (datePickerState === "pickingEnd" && checkInDate) {
-      if (date >= checkInDate) {
-        // Valid checkout date - set it and mark as idle
-        setCheckOutDate(date);
-        setDatePickerState("idle");
-        announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
-      } else {
-        // Date before checkIn - treat as new checkIn and reset
-        setCheckInDate(date);
-        setCheckOutDate(undefined);
-        announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
-      }
-    }
-  };
-
   // Auto-close when both dates are selected
   useEffect(() => {
-    if (checkInDate && checkOutDate && datePickerState === "idle") {
+    if (checkInDate && checkOutDate && datePickerOpen) {
       const timer = setTimeout(() => {
         setDatePickerOpen(false);
-      }, 200);
+        announce(`Dates selected: ${format(checkInDate, 'd MMM')} to ${format(checkOutDate, 'd MMM')}`);
+      }, 300);
       return () => clearTimeout(timer);
     }
-  }, [checkInDate, checkOutDate, datePickerState]);
-
-  const handleDateReset = () => {
-    setCheckInDate(undefined);
-    setCheckOutDate(undefined);
-    setDatePickerState("pickingStart");
-    announce("Dates cleared. Select a check in date.");
-  };
+  }, [checkInDate, checkOutDate, datePickerOpen]);
 
   // Handle date picker open/close
   const handleDatePickerOpenChange = (open: boolean) => {
+    setDatePickerOpen(open);
     if (open) {
-      // Opening calendar
-      if (datePickerState === "idle") {
-        setDatePickerState("pickingStart");
-      }
-      setDatePickerOpen(true);
-      announce("Calendar opened. Select your check in date.");
-    } else {
-      // Trying to close
-      if (datePickerState === "idle") {
-        // Both dates selected or user cancelled - allow close
-        setDatePickerOpen(false);
-      } else {
-        // Still picking dates - don't close
-        triggerShake();
-      }
-    }
-  };
-
-  // Handle click trigger
-  const handleDateFieldClick = () => {
-    setDatePickerOpen(true);
-    if (datePickerState === "idle" || datePickerState === "complete") {
-      setDatePickerState("pickingStart");
+      announce("Calendar opened. Select your check in and check out dates.");
     }
   };
 
@@ -405,14 +354,7 @@ export default function Home() {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && datePickerOpen) {
-        if (datePickerState === "pickingStart" || datePickerState === "pickingEnd") {
-          // Cancel selection, close calendar
-          setDatePickerOpen(false);
-          setDatePickerState("idle");
-        } else if (datePickerState === "complete") {
-          setDatePickerOpen(false);
-          setDatePickerState("idle");
-        }
+        setDatePickerOpen(false);
       }
       
       // Handle Escape for destination dropdown
@@ -424,7 +366,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [datePickerOpen, datePickerState, destinationOpen]);
+  }, [datePickerOpen, destinationOpen]);
 
   // Keyboard navigation for destination dropdown
   useEffect(() => {
