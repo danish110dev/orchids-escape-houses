@@ -126,7 +126,7 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 required
                 className="rounded-xl text-base py-6"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-pink)]" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
             </div>
             <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
               Check-in from 4pm
@@ -144,7 +144,7 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 required
                 className="rounded-xl text-base py-6"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-pink)]" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
             </div>
             <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
               Check-out by 10am · 3 night minimum
@@ -220,13 +220,13 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                   type="checkbox"
                   name="addons"
                   value={addon}
-                  className="w-4 h-4 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-pink)] cursor-pointer transition-all"
+                  className="w-4 h-4 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-sage)] cursor-pointer transition-all"
                 />
                 <Link
                   href={`/experiences/${experienceToSlug(addon)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm group-hover:text-[var(--color-accent-pink)] transition-colors flex items-center gap-1.5 flex-1"
+                  className="text-sm group-hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-1.5 flex-1"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {addon}
@@ -257,8 +257,8 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
           disabled={isSubmitting}
           className="w-full rounded-2xl py-6 text-base font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
           style={{
-            background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-pink)",
-            color: "var(--color-text-primary)",
+            background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage)",
+            color: "white",
           }}
         >
           {isSubmitting ? "Sending..." : "Send Enquiry"}
