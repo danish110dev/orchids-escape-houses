@@ -646,16 +646,40 @@ export default function Home() {
                         onMouseLeave={() => setHoveredDate(undefined)}
                       >
                         <CalendarComponent
-                          mode="single"
-                          selected={checkOutDate || checkInDate}
-                          onSelect={handleDateSelect}
+                          mode="range"
+                          selected={
+                            checkInDate && checkOutDate
+                              ? { from: checkInDate, to: checkOutDate }
+                              : checkInDate
+                              ? { from: checkInDate, to: undefined }
+                              : undefined
+                          }
+                          onSelect={(range) => {
+                            if (!range) return;
+                            
+                            // Handle range object from react-day-picker
+                            if ('from' in range && range.from) {
+                              if (!range.to) {
+                                // Only start date selected
+                                handleDateSelect(range.from);
+                              } else {
+                                // Both dates selected - set them directly
+                                setCheckInDate(range.from);
+                                setCheckOutDate(range.to);
+                                setDatePickerState("idle");
+                                announce(`Range ${format(range.from, 'd MMM')} to ${format(range.to, 'd MMM')} selected`);
+                              }
+                            }
+                          }}
                           numberOfMonths={2}
                           disabled={(date) => {
                             const today = new Date(new Date().setHours(0, 0, 0, 0));
                             return date < today;
                           }}
                           modifiersClassNames={{
-                            selected: checkInDate && !checkOutDate ? "ge-date-start" : checkOutDate ? "ge-date-end" : "",
+                            range_start: "ge-date-start",
+                            range_end: "ge-date-end",
+                            range_middle: "ge-date-in-range",
                           }}
                         />
                       </div>
