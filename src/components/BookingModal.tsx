@@ -32,22 +32,6 @@ export default function BookingModal({
   const [guestsOpen, setGuestsOpen] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const handleDateSelect = (date: Date | undefined) => {
-    if (!date) return;
-
-    if (!checkInDate) {
-      setCheckInDate(date);
-    } else if (!checkOutDate && date > checkInDate) {
-      setCheckOutDate(date);
-      // Close immediately when both dates are selected
-      setDatePickerOpen(false);
-    } else {
-      // Reset and start over
-      setCheckInDate(date);
-      setCheckOutDate(undefined);
-    }
-  };
-
   const handleBookNow = async () => {
     if (!checkInDate || !checkOutDate) {
       toast.error("Please select check-in and check-out dates");
@@ -146,12 +130,22 @@ export default function BookingModal({
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
-                <div className="p-4 border-b">
+                <div className="p-4 border-b flex items-center justify-between">
                   <p className="text-sm font-medium text-gray-700">
                     {!checkInDate && "Select check-in date"}
                     {checkInDate && !checkOutDate && "Select check-out date"}
                     {checkInDate && checkOutDate && "Your dates"}
                   </p>
+                  <button
+                    onClick={() => {
+                      setCheckInDate(undefined);
+                      setCheckOutDate(undefined);
+                    }}
+                    className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
+                    type="button"
+                  >
+                    Clear dates
+                  </button>
                 </div>
                 <CalendarComponent
                   mode="range"
