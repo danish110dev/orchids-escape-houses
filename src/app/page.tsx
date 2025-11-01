@@ -649,43 +649,42 @@ export default function Home() {
                         onMouseLeave={() => setHoveredDate(undefined)}
                       >
                         <CalendarComponent
-                          mode="single"
-                          selected={checkInDate}
-                          onSelect={handleDateSelect}
-                          onDayMouseEnter={(date) => {
-                            if (datePickerState === "pickingEnd" && checkInDate) {
-                              setHoveredDate(date);
+                          mode="range"
+                          selected={
+                            checkInDate && checkOutDate
+                              ? { from: checkInDate, to: checkOutDate }
+                              : checkInDate
+                              ? { from: checkInDate, to: undefined }
+                              : undefined
+                          }
+                          onSelect={(range) => {
+                            if (!range) return;
+                            
+                            // Handle range selection
+                            if ('from' in range) {
+                              if (range.from && !range.to) {
+                                // Only start date selected
+                                setCheckInDate(range.from);
+                                setCheckOutDate(undefined);
+                                setDatePickerState("pickingEnd");
+                                announce(`Check in ${format(range.from, 'd MMMM yyyy')} selected. Select a check out date.`);
+                              } else if (range.from && range.to) {
+                                // Both dates selected
+                                setCheckInDate(range.from);
+                                setCheckOutDate(range.to);
+                                announce(`Range ${format(range.from, 'd MMM')} to ${format(range.to, 'd MMM')} selected`);
+                              }
                             }
                           }}
                           numberOfMonths={2}
                           disabled={(date) => {
                             const today = new Date(new Date().setHours(0, 0, 0, 0));
-                            // Only disable past dates and dates before check-in when picking end date
-                            if (datePickerState === "pickingEnd" && checkInDate) {
-                              return date < checkInDate;
-                            }
                             return date < today;
                           }}
-                          modifiers={{
-                            checkIn: checkInDate ? [checkInDate] : [],
-                            checkOut: checkOutDate ? [checkOutDate] : [],
-                            inRange: checkInDate && checkOutDate
-                              ? (date) => date > checkInDate && date < checkOutDate
-                              : () => false,
-                            hoverRange: checkInDate && hoveredDate && datePickerState === "pickingEnd"
-                              ? (date) => {
-                                  if (!checkInDate || !hoveredDate) return false;
-                                  const start = checkInDate;
-                                  const end = hoveredDate >= checkInDate ? hoveredDate : checkInDate;
-                                  return date > start && date < end;
-                                }
-                              : () => false,
-                          }}
                           modifiersClassNames={{
-                            checkIn: "ge-date-start",
-                            checkOut: "ge-date-end",
-                            inRange: "ge-date-in-range",
-                            hoverRange: "ge-date-hover-range",
+                            range_start: "ge-date-start",
+                            range_end: "ge-date-end",
+                            range_middle: "ge-date-in-range",
                           }}
                         />
                       </div>
