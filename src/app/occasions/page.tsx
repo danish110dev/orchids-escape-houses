@@ -30,7 +30,7 @@ export default function OccasionsPage() {
       icon: Sparkles,
       description: "Birthdays, anniversaries, and milestone moments",
       image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop",
-      color: "#F2C6C2"
+      color: "#89A38F"
     },
     {
       title: "Hen Party Houses",
@@ -62,7 +62,7 @@ export default function OccasionsPage() {
       icon: PartyPopper,
       description: "Ring in the New Year in style",
       image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&auto=format&fit=crop",
-      color: "#F2C6C2"
+      color: "#89A38F"
     },
     {
       title: "Easter",
