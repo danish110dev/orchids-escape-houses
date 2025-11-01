@@ -10,8 +10,8 @@ type Message = {
 };
 
 /**
- * WhatsApp Logo Component
- * Official WhatsApp branding
+ * WhatsApp Logo - Official SVG
+ * Using WhatsApp brand green: #25D366
  */
 const WhatsAppLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
   <svg
@@ -169,7 +169,7 @@ export default function WhatsAppChatbot() {
         </div>
       )}
 
-      {/* Floating Button */}
+      {/* Floating Button - WhatsApp Green */}
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
