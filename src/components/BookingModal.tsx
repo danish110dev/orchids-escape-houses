@@ -39,6 +39,7 @@ export default function BookingModal({
       setCheckInDate(date);
     } else if (!checkOutDate && date > checkInDate) {
       setCheckOutDate(date);
+      // Close immediately when both dates are selected
       setDatePickerOpen(false);
     } else {
       // Reset and start over
