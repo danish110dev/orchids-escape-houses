@@ -342,13 +342,10 @@ export default function Home() {
       announce(`Check in ${format(date, 'd MMMM yyyy')} selected. Select a check out date.`);
     } else if (datePickerState === "pickingEnd" && checkInDate) {
       if (date >= checkInDate) {
-        // Valid checkout date - set both dates
+        // Valid checkout date
         setCheckOutDate(date);
-        setDatePickerState("idle");
         announce(`Range ${format(checkInDate, 'd MMM')} to ${format(date, 'd MMM')} selected`);
-        
-        // Close immediately without timeout
-        setDatePickerOpen(false);
+        // Don't close immediately - let useEffect handle it after state settles
       } else {
         // Date before checkIn - treat as new checkIn and reset
         setCheckInDate(date);
@@ -358,6 +355,18 @@ export default function Home() {
       }
     }
   };
+
+  // Auto-close calendar when both dates are selected
+  useEffect(() => {
+    if (checkInDate && checkOutDate && datePickerState === "pickingEnd") {
+      // Both dates selected, close the calendar
+      const timer = setTimeout(() => {
+        setDatePickerState("idle");
+        setDatePickerOpen(false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [checkInDate, checkOutDate, datePickerState]);
 
   const handleDateReset = () => {
     setCheckInDate(undefined);
