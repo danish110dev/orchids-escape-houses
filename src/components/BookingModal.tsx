@@ -154,29 +154,38 @@ export default function BookingModal({
                   </p>
                 </div>
                 <CalendarComponent
-                  mode="single"
-                  selected={checkInDate}
-                  onSelect={handleDateSelect}
+                  mode="range"
+                  selected={
+                    checkInDate && checkOutDate
+                      ? { from: checkInDate, to: checkOutDate }
+                      : checkInDate
+                      ? { from: checkInDate, to: undefined }
+                      : undefined
+                  }
+                  onSelect={(range) => {
+                    if (!range) return;
+                    
+                    if ('from' in range && range.from) {
+                      setCheckInDate(range.from);
+                      
+                      if (range.to) {
+                        setCheckOutDate(range.to);
+                        // Close when both dates selected
+                        setTimeout(() => setDatePickerOpen(false), 300);
+                      } else {
+                        setCheckOutDate(undefined);
+                      }
+                    }
+                  }}
                   numberOfMonths={2}
                   disabled={(date) => {
                     const today = new Date(new Date().setHours(0, 0, 0, 0));
-                    if (checkInDate && !checkOutDate) {
-                      return date <= checkInDate;
-                    }
                     return date < today;
                   }}
-                  modifiers={{
-                    checkIn: checkInDate ? [checkInDate] : [],
-                    checkOut: checkOutDate ? [checkOutDate] : [],
-                    inRange:
-                      checkInDate && checkOutDate
-                        ? (date) => date > checkInDate && date < checkOutDate
-                        : () => false,
-                  }}
                   modifiersClassNames={{
-                    checkIn: "ge-date-start",
-                    checkOut: "ge-date-end",
-                    inRange: "ge-date-in-range",
+                    range_start: "ge-date-start",
+                    range_end: "ge-date-end",
+                    range_middle: "ge-date-in-range",
                   }}
                 />
               </PopoverContent>
