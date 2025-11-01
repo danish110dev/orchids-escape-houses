@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, Send, Loader2 } from "lucide-react";
+import { X, Send, Loader2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Message = {
@@ -36,6 +36,12 @@ export default function WhatsAppChat() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // WhatsApp Business Number - UPDATE THIS WITH YOUR ACTUAL NUMBER
+  // Format: country code + number (no spaces, dashes, or plus sign)
+  // Example: "447123456789" for UK number
+  const WHATSAPP_NUMBER = "447123456789"; // REPLACE WITH YOUR WHATSAPP BUSINESS NUMBER
+  const WHATSAPP_MESSAGE = "Hi! I'm interested in learning more about your hen party houses.";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -80,6 +86,11 @@ export default function WhatsAppChat() {
     }
   };
 
+  const handleRealWhatsApp = () => {
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <>
       {/* Chat Window */}
@@ -94,10 +105,10 @@ export default function WhatsAppChat() {
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <WhatsAppLogo className="w-6 h-6 text-[#25D366]" />
+                <MessageCircle className="w-6 h-6 text-[var(--color-accent-sage)]" />
               </div>
               <div>
-                <h3 className="font-semibold text-[var(--color-text-primary)]">Group Escape Houses</h3>
+                <h3 className="font-semibold text-[var(--color-text-primary)]">AI Assistant</h3>
                 <p className="text-xs text-[var(--color-neutral-dark)]">Ask us anything!</p>
               </div>
             </div>
@@ -169,35 +180,69 @@ export default function WhatsAppChat() {
         </div>
       )}
 
-      {/* Floating Button - WhatsApp Green */}
-      <div className="fixed bottom-6 right-6 z-50">
+      {/* Floating Buttons Container - Bottom Right */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        {/* Real WhatsApp Button - Top */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleRealWhatsApp}
           className="group relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
           style={{
             background: "#25D366",
           }}
-          aria-label="Chat with us on WhatsApp"
+          aria-label="Message us on WhatsApp"
+        >
+          <WhatsAppLogo className="w-9 h-9 text-white" />
+
+          {/* Pulse animation */}
+          <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#25D366]" />
+
+          {/* Tooltip */}
+          <div className="absolute right-full mr-4 px-4 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            <p className="text-sm font-medium text-[var(--color-text-primary)]">
+              Message on WhatsApp
+            </p>
+            <p className="text-xs text-[var(--color-neutral-dark)]">
+              Chat with our team directly
+            </p>
+            <div
+              className="absolute top-1/2 -right-2 w-0 h-0 -translate-y-1/2"
+              style={{
+                borderTop: "8px solid transparent",
+                borderBottom: "8px solid transparent",
+                borderLeft: "8px solid white",
+              }}
+            />
+          </div>
+        </button>
+
+        {/* AI Chatbot Button - Bottom */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="group relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
+          style={{
+            background: "linear-gradient(135deg, #89A38F 0%, #C6A76D 100%)",
+          }}
+          aria-label="Chat with AI assistant"
         >
           {isOpen ? (
             <X className="w-8 h-8 text-white" />
           ) : (
-            <WhatsAppLogo className="w-9 h-9 text-white" />
+            <MessageCircle className="w-9 h-9 text-white" />
           )}
 
           {/* Pulse animation */}
           {!isOpen && (
-            <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#25D366]" />
+            <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[var(--color-accent-sage)]" />
           )}
 
           {/* Tooltip */}
           {!isOpen && (
             <div className="absolute right-full mr-4 px-4 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
               <p className="text-sm font-medium text-[var(--color-text-primary)]">
-                Chat with us on WhatsApp
+                Chat with AI Assistant
               </p>
               <p className="text-xs text-[var(--color-neutral-dark)]">
-                Ask about properties, experiences & bookings
+                Get instant answers 24/7
               </p>
               <div
                 className="absolute top-1/2 -right-2 w-0 h-0 -translate-y-1/2"
