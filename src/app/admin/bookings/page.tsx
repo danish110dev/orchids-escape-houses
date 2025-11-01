@@ -262,7 +262,7 @@ export default function AdminBookingsPage() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium">Pending Bookings</CardTitle>
-                <Users className="w-4 h-4 text-[var(--color-accent-pink)]" />
+                <Users className="w-4 h-4 text-[var(--color-accent-sage)]" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{stats.pendingBookings}</div>
