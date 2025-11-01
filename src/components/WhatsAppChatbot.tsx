@@ -73,12 +73,12 @@ export default function WhatsAppChatbot() {
           <div
             className="p-4 text-white flex items-center justify-between"
             style={{
-              background: "linear-gradient(135deg, #F2C6C2 0%, #E5D8C5 100%)",
+              background: "linear-gradient(135deg, #89A38F 0%, #E5D8C5 100%)",
             }}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <MessageCircle className="w-6 h-6 text-[#F2C6C2]" />
+                <MessageCircle className="w-6 h-6 text-[#89A38F]" />
               </div>
               <div>
                 <h3 className="font-semibold text-[var(--color-text-primary)]">Group Escape Houses</h3>
@@ -104,7 +104,7 @@ export default function WhatsAppChatbot() {
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl ${
                     msg.role === "user"
-                      ? "bg-[var(--color-accent-pink)] text-[var(--color-text-primary)]"
+                      ? "bg-[var(--color-accent-sage)] text-white"
                       : "bg-white text-[var(--color-text-primary)] shadow-sm"
                   }`}
                 >
@@ -115,7 +115,7 @@ export default function WhatsAppChatbot() {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-white p-3 rounded-2xl shadow-sm">
-                  <Loader2 className="w-5 h-5 animate-spin text-[var(--color-accent-pink)]" />
+                  <Loader2 className="w-5 h-5 animate-spin text-[var(--color-accent-sage)]" />
                 </div>
               </div>
             )}
@@ -131,7 +131,7 @@ export default function WhatsAppChatbot() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Type your question..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-pink)] text-sm"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-sage)] text-sm"
                 disabled={isLoading}
               />
               <Button
@@ -139,8 +139,8 @@ export default function WhatsAppChatbot() {
                 disabled={!input.trim() || isLoading}
                 className="rounded-xl px-4"
                 style={{
-                  background: "var(--color-accent-pink)",
-                  color: "var(--color-text-primary)",
+                  background: "var(--color-accent-sage)",
+                  color: "white",
                 }}
               >
                 <Send className="w-4 h-4" />
@@ -159,19 +159,19 @@ export default function WhatsAppChatbot() {
           onClick={() => setIsOpen(!isOpen)}
           className="group relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
           style={{
-            background: "linear-gradient(135deg, #F2C6C2 0%, #E5D8C5 100%)",
+            background: "linear-gradient(135deg, #89A38F 0%, #E5D8C5 100%)",
           }}
           aria-label="Open chat"
         >
           {isOpen ? (
-            <X className="w-8 h-8 text-[var(--color-text-primary)]" />
+            <X className="w-8 h-8 text-white" />
           ) : (
-            <MessageCircle className="w-8 h-8 text-[var(--color-text-primary)]" />
+            <MessageCircle className="w-8 h-8 text-white" />
           )}
 
           {/* Pulse animation */}
           {!isOpen && (
-            <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#F2C6C2]" />
+            <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#89A38F]" />
           )}
 
           {/* Tooltip */}

@@ -38,7 +38,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
               className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${
                 openIndex === index ? "rotate-180" : ""
               }`}
-              style={{ color: "var(--color-accent-pink)" }}
+              style={{ color: "var(--color-accent-sage)" }}
             />
           </button>
 

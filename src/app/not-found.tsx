@@ -36,8 +36,8 @@ export default function NotFound() {
             size="lg"
             className="rounded-2xl px-10 py-6 text-lg font-medium"
             style={{
-              background: "var(--color-accent-pink)",
-              color: "var(--color-text-primary)",
+              background: "var(--color-accent-sage)",
+              color: "white",
             }}
           >
             <Link href="/">
