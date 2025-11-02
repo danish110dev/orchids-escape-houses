@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useState, useMemo, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
@@ -22,7 +23,8 @@ import {
   Clapperboard,
   Flame,
   Trees,
-  Check
+  Check,
+  Loader2
 } from "lucide-react";
 
 // Move properties data outside component to prevent re-creation on every render
@@ -295,7 +297,8 @@ const featureOptions = [
   { icon: Trees, label: "Garden" },
 ];
 
-export default function PropertiesPage() {
+// Extract the main content into a separate component that uses useSearchParams
+function PropertiesContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
@@ -383,9 +386,7 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <Header />
-
+    <>
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -610,7 +611,29 @@ export default function PropertiesPage() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
 
+// Loading fallback component
+function PropertiesLoading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="w-12 h-12 text-[var(--color-accent-sage)] animate-spin mx-auto mb-4" />
+        <p className="text-lg text-[var(--color-neutral-dark)]">Loading properties...</p>
+      </div>
+    </div>
+  );
+}
+
+export default function PropertiesPage() {
+  return (
+    <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <Header />
+      <Suspense fallback={<PropertiesLoading />}>
+        <PropertiesContent />
+      </Suspense>
       <Footer />
     </div>
   );
