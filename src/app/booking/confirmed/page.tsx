@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle2, Home, Mail, Calendar, Users, MapPin, Loader2 } from "lucide-react";
@@ -21,7 +20,7 @@ interface BookingDetails {
   status: string;
 }
 
-// Extract the main content into a separate component that uses useSearchParams
+// Separate component that uses useSearchParams
 function BookingConfirmedContent() {
   const searchParams = useSearchParams();
   const bookingId = searchParams.get("bid");
