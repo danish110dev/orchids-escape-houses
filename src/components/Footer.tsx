@@ -107,7 +107,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="https://www.instagram.com/groupescapehouses/"
                 target="_blank"
