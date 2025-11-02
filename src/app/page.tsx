@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, Youtube } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, Youtube, TikTok } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -1450,6 +1450,16 @@ export default function Home() {
                   style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
                 >
                   <Instagram className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
+                  @groupescapehouses
+                </a>
+                <a
+                  href="https://www.tiktok.com/@groupescapehouses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
+                  style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
+                >
+                  <TikTokIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
                   @groupescapehouses
                 </a>
                 <a
