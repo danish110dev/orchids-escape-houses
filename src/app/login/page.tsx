@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
@@ -18,11 +18,8 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    
     // Show success message if redirected from registration
     if (searchParams.get("registered") === "true") {
       toast.success("Account created successfully! Please log in.");
@@ -65,10 +62,6 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -198,5 +191,20 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[var(--color-bg-primary)] flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[var(--color-accent-sage)] border-r-transparent"></div>
+          <p className="mt-4 text-[var(--color-neutral-dark)]">Loading...</p>
+        </div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }
