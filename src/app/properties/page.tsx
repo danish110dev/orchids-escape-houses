@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -297,7 +296,7 @@ const featureOptions = [
   { icon: Trees, label: "Garden" },
 ];
 
-// Extract the main content into a separate component that uses useSearchParams
+// Separate component that uses useSearchParams
 function PropertiesContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -329,7 +328,7 @@ function PropertiesContent() {
       params.delete("location");
     }
     router.replace(`/properties?${params.toString()}`, { scroll: false });
-  }, [filters.location, router]);
+  }, [filters.location, router, searchParams]);
 
   // Reset displayedCount when filters change
   useEffect(() => {
@@ -618,12 +617,28 @@ function PropertiesContent() {
 // Loading fallback component
 function PropertiesLoading() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <Loader2 className="w-12 h-12 text-[var(--color-accent-sage)] animate-spin mx-auto mb-4" />
-        <p className="text-lg text-[var(--color-neutral-dark)]">Loading properties...</p>
-      </div>
-    </div>
+    <>
+      <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div>
+            <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party Houses to Rent
+            </h1>
+            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
+              Luxury group accommodation across the UK with hot tubs, pools, and amazing features
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-12 pb-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="w-12 h-12 text-[var(--color-accent-sage)] animate-spin" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
