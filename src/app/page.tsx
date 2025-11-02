@@ -1436,43 +1436,11 @@ export default function Home() {
           <div className="max-w-full">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
               <h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl m-0 text-center md:text-left" 
+                className="mb-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center md:text-left" 
                 style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
               >
                 Follow Our Journey
               </h2>
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-                <a
-                  href="https://www.instagram.com/groupescapehouses/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-                >
-                  <Instagram className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
-                  @groupescapehouses
-                </a>
-                <a
-                  href="https://www.tiktok.com/@groupescapehouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-                >
-                  <TikTokIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
-                  @groupescapehouses
-                </a>
-                <a
-                  href="https://www.youtube.com/@GroupEscapeHouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}
-                >
-                  <Youtube className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9" />
-                  @GroupEscapeHouses
-                </a>
-              </div>
             </div>
 
             <div className="overflow-x-auto scrollbar-hide">
