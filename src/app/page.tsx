@@ -27,11 +27,21 @@ const TikTokIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Lazy load non-critical components
-const ExperienceCard = dynamic(() => import("@/components/ExperienceCard"), { ssr: false });
-const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { ssr: false });
-const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
-const LoadingScreen = dynamic(() => import("@/components/LoadingScreen"), { ssr: false });
+// Lazy load non-critical components with better error handling
+const ExperienceCard = dynamic(() => import("@/components/ExperienceCard"), { 
+  ssr: false,
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
+});
+
+const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { 
+  ssr: false,
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-2xl" />
+});
+
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { 
+  ssr: false,
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
+});
 
 // Move static data outside component to prevent re-creation on each render
 const featuredProperties = [
