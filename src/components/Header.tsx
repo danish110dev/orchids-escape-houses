@@ -526,7 +526,7 @@ export default function Header() {
               <nav className="space-y-6">
                 <Link
                   href="/"
-                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   style={{ fontFamily: "var(--font-display)" }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -537,7 +537,7 @@ export default function Header() {
                 <div className="space-y-3">
                   <Link
                     href="/properties"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                     style={{ fontFamily: "var(--font-display)" }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -547,18 +547,18 @@ export default function Header() {
                   {/* House Styles Submenu */}
                   <button
                     onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
-                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
                   >
                     House Styles
                     <ChevronDown className={`w-5 h-5 transition-transform ${isMobileStylesOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isMobileStylesOpen && (
-                    <div className="pl-4 space-y-2 text-white/70">
+                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
                       {houseStyles.map((style) => (
                         <Link
                           key={style.slug}
                           href={`/house-styles/${style.slug}`}
-                          className="block py-1 hover:text-white transition-colors"
+                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {style.title}
@@ -570,18 +570,18 @@ export default function Header() {
                   {/* Features Submenu */}
                   <button
                     onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
-                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
                   >
                     Must-Have Features
                     <ChevronDown className={`w-5 h-5 transition-transform ${isMobileFeaturesOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isMobileFeaturesOpen && (
-                    <div className="pl-4 space-y-2 text-white/70">
+                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
                       {features.map((feature) => (
                         <Link
                           key={feature.slug}
                           href={`/features/${feature.slug}`}
-                          className="block py-1 hover:text-white transition-colors"
+                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {feature.title}
@@ -595,7 +595,7 @@ export default function Header() {
                 <div className="space-y-3">
                   <Link
                     href="/occasions"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                     style={{ fontFamily: "var(--font-display)" }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -604,18 +604,18 @@ export default function Header() {
                   
                   <button
                     onClick={() => setIsMobileOccasionsOpen(!isMobileOccasionsOpen)}
-                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
                   >
                     View By Occasion
                     <ChevronDown className={`w-5 h-5 transition-transform ${isMobileOccasionsOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isMobileOccasionsOpen && (
-                    <div className="pl-4 space-y-2 text-white/70">
+                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
                       {occasions.map((occasion) => (
                         <Link
                           key={occasion.slug}
                           href={`/occasions/${occasion.slug}`}
-                          className="block py-1 hover:text-white transition-colors"
+                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {occasion.title}
@@ -629,7 +629,7 @@ export default function Header() {
                 <div className="space-y-3">
                   <Link
                     href="/experiences"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                     style={{ fontFamily: "var(--font-display)" }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -638,18 +638,18 @@ export default function Header() {
                   
                   <button
                     onClick={() => setIsMobileExperiencesOpen(!isMobileExperiencesOpen)}
-                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
                   >
                     Popular Experiences
                     <ChevronDown className={`w-5 h-5 transition-transform ${isMobileExperiencesOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isMobileExperiencesOpen && (
-                    <div className="pl-4 space-y-2 text-white/70">
+                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
                       {experiences.map((experience) => (
                         <Link
                           key={experience.slug}
                           href={`/experiences/${experience.slug}`}
-                          className="block py-1 hover:text-white transition-colors"
+                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {experience.title}
@@ -663,7 +663,7 @@ export default function Header() {
                 <div className="space-y-3">
                   <Link
                     href="/destinations"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                     style={{ fontFamily: "var(--font-display)" }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -672,18 +672,18 @@ export default function Header() {
                   
                   <button
                     onClick={() => setIsMobileDestinationsOpen(!isMobileDestinationsOpen)}
-                    className="flex items-center gap-2 text-lg text-white/80 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
                   >
                     Popular Locations
                     <ChevronDown className={`w-5 h-5 transition-transform ${isMobileDestinationsOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isMobileDestinationsOpen && (
-                    <div className="pl-4 space-y-2 text-white/70">
+                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
                       {destinations.map((destination) => (
                         <Link
                           key={destination.slug}
                           href={`/destinations/${destination.slug}`}
-                          className="block py-1 hover:text-white transition-colors"
+                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {destination.title}
@@ -698,7 +698,7 @@ export default function Header() {
               <nav className="space-y-4 md:pt-0 pt-8">
                 <Link
                   href="/reviews"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Reviews
@@ -706,7 +706,7 @@ export default function Header() {
 
                 <Link
                   href="/how-it-works"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   How It Works
@@ -714,7 +714,7 @@ export default function Header() {
 
                 <Link
                   href="/admin/bookings"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Admin Dashboard
@@ -722,7 +722,7 @@ export default function Header() {
 
                 <Link
                   href="/our-story"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Our Story
@@ -730,7 +730,7 @@ export default function Header() {
 
                 <Link
                   href="/contact"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact Us
@@ -738,7 +738,7 @@ export default function Header() {
 
                 <Link
                   href="/blog"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-gold)] transition-colors text-white"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Inspiration
@@ -748,7 +748,7 @@ export default function Header() {
           </div>
 
           {/* Bottom CTA with Auth */}
-          <div className="border-t border-white/20 px-8 py-6 bg-[#E5D8C5] space-y-3">
+          <div className="border-t border-[var(--color-text-primary)]/20 px-8 py-6 bg-[#E5D8C5] space-y-3">
             {isPending || isCustomerLoading ? (
               <div className="w-full h-12 rounded-2xl bg-white/50 animate-pulse"></div>
             ) : session?.user ? (
