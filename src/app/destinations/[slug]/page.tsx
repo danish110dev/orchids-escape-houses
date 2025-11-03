@@ -31,14 +31,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-gli-b539c0a2-20251023164106.mp4",
       overview: "The Lake District is England's most stunning national park, offering breathtaking landscapes, luxury lodges, and peaceful mountain retreats perfect for group celebrations. With dramatic fells, pristine lakes, and charming villages, it's the ideal destination for groups seeking natural beauty combined with luxury accommodation.",
       quickFacts: {
-        fromLondon: "4-5 hours by train or car",
-        bestTime: "Year-round, Spring and Summer for hiking",
-        nightlife: "Cosy pubs and country inns",
-        dining: "Traditional pubs and fine dining restaurants",
-        beachAccess: "No beach access, stunning lakes and mountains",
-        accommodation: "Luxury lodges with hot tubs and lake views",
-        priceRange: "£80-£120 per night",
-        activities: "Hiking, boat trips, spa treatments, scenic walks"
+        fromLondon: "4-5 hours by train to Windermere or 5-6 hours by car via M6",
+        bestTime: "May to September for hiking and boat trips, winter for cosy retreats with log fires",
+        nightlife: "Traditional Lakeland pubs with local ales, cosy inns with live folk music",
+        dining: "Award-winning gastropubs, Michelin-starred restaurants, traditional afternoon tea with lake views",
+        beachAccess: "No beaches but 16 stunning lakes including Windermere, Ullswater and Derwentwater for boat trips",
+        accommodation: "Luxury lakeside lodges with hot tubs, mountain-view retreats, converted barns with spa facilities",
+        priceRange: "£80-£120 per night with premium lodges featuring private hot tubs and saunas",
+        activities: "Lake cruises, fell walking, spa treatments, kayaking, scenic drives, mountain biking"
       },
       gettingThere: [
         { icon: Train, text: "Regular train services to Windermere and Penrith from London Euston (4-5 hours)" },
@@ -69,14 +69,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-establishing-shot-of-brig-8a8e78c4-20251022152555.mp4",
       overview: "Brighton is the UK's premier hen party destination, combining stunning Regency architecture with legendary nightlife, a vibrant beach scene, and endless entertainment options. From cocktail bars to beachfront clubs, this seaside city offers the perfect blend of sophistication and fun for unforgettable group celebrations.",
       quickFacts: {
-        fromLondon: "1 hour by train",
-        bestTime: "Year-round, May-September for beach weather",
-        nightlife: "Legendary nightlife and club scene",
-        dining: "Outstanding restaurants and brunch spots",
-        beachAccess: "Direct beach access with pier and promenade",
-        accommodation: "Luxury houses with hot tubs and sea views",
-        priceRange: "£75-£110 per night",
-        activities: "Beach clubs, spa treatments, shopping, water sports"
+        fromLondon: "Just 1 hour by direct train from Victoria or London Bridge - perfect for quick escapes",
+        bestTime: "Year-round destination! May-September for beach clubs and seafront, October-April for cheaper rates",
+        nightlife: "Legendary! Coalition (5 floors), Patterns seafront club, The Arch cocktail bar, PRYZM superclub",
+        dining: "Outstanding seafood at Riddle & Finns, The Ivy in the Lanes, bottomless brunch at Plateau",
+        beachAccess: "Direct beach access! 5 miles of pebble beach, Brighton Pier, beach volleyball, water sports",
+        accommodation: "Regency townhouses with hot tubs, seafront villas with games rooms, modern lofts near The Lanes",
+        priceRange: "£75-£110 per night, split between groups makes it very affordable",
+        activities: "Beach clubs, The Lanes shopping, Brighton Pier rides, paddleboarding, comedy clubs, cocktail classes"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Victoria or London Bridge (1 hour)" },
@@ -107,14 +107,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-soaring-over-eab71258-20251023160205.mp4",
       overview: "London is the ultimate hen party destination with world-class entertainment, dining, and iconic landmarks. From West End shows to rooftop bars, Michelin-starred restaurants to hidden speakeasies, the capital offers endless possibilities for an unforgettable celebration.",
       quickFacts: {
-        fromLondon: "You're here!",
-        bestTime: "Year-round destination",
-        nightlife: "World-class clubs and bars",
-        dining: "Michelin-starred to street food",
-        beachAccess: "No beach, but Thames riverside",
-        accommodation: "Luxury townhouses and penthouses",
-        priceRange: "£100-£150 per night",
-        activities: "Shows, museums, shopping, afternoon tea"
+        fromLondon: "You're already here! Easy access from all London airports and train stations",
+        bestTime: "Year-round with endless indoor options - Christmas markets (Nov-Jan) and summer rooftops (Jun-Aug) are highlights",
+        nightlife: "World-class! Cirque le Soir, XOYO Shoreditch, Sky Garden rooftop, Mahiki Mayfair, Ministry of Sound",
+        dining: "Michelin stars to street food - Sketch afternoon tea, Dishoom breakfast, The Ivy, Borough Market",
+        beachAccess: "No beaches but beautiful Thames riverside walks, boat cruises, and summer beach bars",
+        accommodation: "Luxury Kensington townhouses, Shoreditch lofts, Chelsea manor houses with hot tubs and cinema rooms",
+        priceRange: "£100-£150 per night, premium but unmatched amenities and entertainment options",
+        activities: "West End shows, Thames cruises, afternoon tea, shopping Oxford Street, museums, rooftop bars, spa days"
       },
       gettingThere: [
         { icon: Train, text: "Multiple train stations connecting to all major UK cities" },
@@ -145,14 +145,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-gli-8ac50973-20251023155918.mp4",
       overview: "Bath is a stunning UNESCO World Heritage city combining Roman history, Georgian elegance, and world-class spa experiences. Perfect for sophisticated hen parties seeking culture, relaxation, and refined entertainment in one of England's most beautiful cities.",
       quickFacts: {
-        fromLondon: "1.5 hours by train",
-        bestTime: "Year-round, Spring for festivals",
-        nightlife: "Sophisticated bars and wine venues",
-        dining: "Fine dining and traditional tea rooms",
-        beachAccess: "No beach, riverside walks",
-        accommodation: "Georgian townhouses with period features",
-        priceRange: "£85-£120 per night",
-        activities: "Spa treatments, historical tours, afternoon tea"
+        fromLondon: "Just 1.5 hours by direct train from Paddington - ideal for elegant weekend escapes",
+        bestTime: "Year-round elegance! Spring (Apr-May) for festivals, December for Christmas markets and lights",
+        nightlife: "Sophisticated scene - Sub 13 underground cocktails, The Dark Horse speakeasy, champagne at The Bath Priory",
+        dining: "Fine dining capital! The Pump Room in Roman Baths, Sally Lunn's historic buns, Society Café bottomless brunch",
+        beachAccess: "No beach but beautiful River Avon walks, punting, and the stunning Royal Crescent gardens",
+        accommodation: "Georgian townhouses with period features, luxury spas with hot tubs, Bath stone manors with games rooms",
+        priceRange: "£85-£120 per night for authentic Georgian properties with modern luxury",
+        activities: "Thermae Bath Spa rooftop pools, Roman Baths tours, Jane Austen Centre, afternoon tea, boutique shopping"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Paddington (1.5 hours)" },
@@ -183,14 +183,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
       overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality. From the trendy Northern Quarter to iconic music venues, Manchester offers an electric atmosphere perfect for unforgettable hen celebrations.",
       quickFacts: {
-        fromLondon: "2 hours by train",
-        bestTime: "Year-round, Summer for outdoor venues",
-        nightlife: "Legendary music and club scene",
-        dining: "Diverse restaurants and trendy eateries",
-        beachAccess: "No beach, canal-side walkways",
-        accommodation: "Modern lofts and warehouse conversions",
-        priceRange: "£70-£95 per night",
-        activities: "Shopping, live music, food markets, cocktail bars"
+        fromLondon: "Just 2 hours by direct train from Euston - easy Northern escape with big city energy",
+        bestTime: "Year-round party city! Summer (Jun-Aug) for rooftop bars, any weekend for legendary nightlife",
+        nightlife: "Legendary music scene! The Warehouse Project, Refuge grand hotel bar, Cloud 23 rooftop, Deansgate Locks",
+        dining: "Diverse and trendy - Beautif NQ brunch, The Ivy Spinningfields, Street food at Mackie Mayor, Federal Bar",
+        beachAccess: "No beach but vibrant canal-side bars, Castlefield waterfront, and nearby Peak District countryside",
+        accommodation: "Industrial loft conversions with hot tubs, Northern Quarter warehouses, modern city centre apartments",
+        priceRange: "£70-£95 per night - amazing value for a major city with top facilities",
+        activities: "Shopping Trafford Centre, Northern Quarter street art, Altrincham Market, Old Trafford tours, live music"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Euston (2 hours)" },
@@ -221,14 +221,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/cinematic-aerial-drone-shot-sweeping-ove-f36426ad-20251023160703.mp4",
       overview: "York is a stunning medieval city with cobbled streets, historic walls, and charming riverside pubs. Perfect for hen parties seeking history, culture, and traditional English charm combined with modern entertainment and excellent dining.",
       quickFacts: {
-        fromLondon: "2 hours by train",
-        bestTime: "Year-round, Summer for outdoor terraces",
-        nightlife: "Traditional pubs and cocktail bars",
-        dining: "Historic pubs and fine dining restaurants",
-        beachAccess: "No beach, riverside walks",
-        accommodation: "Period townhouses and modern homes",
-        priceRange: "£75-£100 per night",
-        activities: "Historical tours, river cruises, afternoon tea"
+        fromLondon: "2 hours by direct train from Kings Cross - medieval charm meets modern celebration",
+        bestTime: "Year-round magic! Summer (Jun-Aug) for outdoor terraces, December for Christmas markets in Shambles",
+        nightlife: "Historic meets trendy - The Botanist cocktails, House of Trembling Madness beer hall, Evil Eye Lounge",
+        dining: "Charming and diverse - Ate O'Clock Shambles brunch, The Ivy St Helen's Square, Mannion & Co modern British",
+        beachAccess: "No beach but beautiful River Ouse walks, boat cruises, and the stunning Minster gardens",
+        accommodation: "Medieval townhouses with modern luxuries, Georgian properties with hot tubs, river-view cottages",
+        priceRange: "£75-£100 per night for characterful properties in the historic centre",
+        activities: "York Minster tours, Shambles medieval shopping, Jorvik Viking Centre, river cruises, afternoon tea, ghost walks"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Kings Cross (2 hours)" },
@@ -259,14 +259,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-soa-e077764b-20251023162007.mp4",
       overview: "Cardiff is Wales' vibrant capital offering fantastic value, warm Welsh hospitality, and stunning Cardiff Bay. With a thriving nightlife scene, excellent shopping, and beautiful waterfront, it's perfect for hen parties seeking a lively celebration with great prices.",
       quickFacts: {
-        fromLondon: "2 hours by train",
-        bestTime: "Year-round, Summer for bay activities",
-        nightlife: "Lively bars and clubs scene",
-        dining: "Welsh cuisine and international restaurants",
-        beachAccess: "No beach, stunning bay waterfront",
-        accommodation: "Modern apartments and bay-view properties",
-        priceRange: "£65-£90 per night",
-        activities: "Shopping, castle tours, bay walks, stadium tours"
+        fromLondon: "2 hours by direct train from Paddington - fantastic value capital city experience",
+        bestTime: "Year-round Welsh warmth! Summer (Jun-Sep) for Cardiff Bay waterfront, Six Nations rugby (Feb-Mar)",
+        nightlife: "Lively and affordable! Clwb Ifor Bach Welsh venue, Lab 22 underground club, The Dead Canary cocktails",
+        dining: "Welsh cuisine and international - Milkwood Cardiff Bay, The Ivy Cardiff, Bill's bottomless brunch",
+        beachAccess: "No beach but stunning Cardiff Bay waterfront with restaurants, bars, and the Wales Millennium Centre",
+        accommodation: "Modern bay-view apartments with hot tubs, city centre Georgian townhouses, Victorian properties with games rooms",
+        priceRange: "£65-£90 per night - incredible value for a capital city with excellent facilities",
+        activities: "Cardiff Castle tours, Principality Stadium behind-scenes, Cardiff Bay waterfront, shopping arcades, Doctor Who tours"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
@@ -297,14 +297,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-aerial-drone-shot-sweeping-over-dabe5bff-20251023160417.mp4",
       overview: "Bournemouth offers beautiful sandy beaches, vibrant nightlife, and stunning clifftop walks. Perfect for hen parties wanting beach club days, lively entertainment, and coastal charm all in one fantastic seaside destination.",
       quickFacts: {
-        fromLondon: "2 hours by train",
-        bestTime: "May-September for beach weather",
-        nightlife: "Beach clubs and vibrant bar scene",
-        dining: "Seafood restaurants and beach cafés",
-        beachAccess: "7 miles of golden sandy beaches",
-        accommodation: "Beach-view houses and modern apartments",
-        priceRange: "£75-£105 per night",
-        activities: "Beach clubs, water sports, coastal walks"
+        fromLondon: "2 hours by direct train from Waterloo - 7 miles of golden beaches await!",
+        bestTime: "May to September for beach clubs and water sports, year-round for nightlife and clifftop walks",
+        nightlife: "Beach party central! Aruba beach club with DJs, Ojo Rojo seafront cocktails, The Old Fire Station rooftop",
+        dining: "Seafood and beachfront - Urban Beach bottomless brunch, The Larder House wine bar, Neo Restaurant sea views",
+        beachAccess: "7 miles of award-winning sandy beaches! Beach volleyball, paddleboarding, pier, beach clubs with DJ sets",
+        accommodation: "Beachfront houses with hot tubs and sea views, modern apartments near the pier, clifftop villas with games rooms",
+        priceRange: "£75-£105 per night for beach-view properties with hot tubs and BBQ areas",
+        activities: "Beach clubs with day beds, water sports, surfing lessons, Boscombe Pier, coastal cliff walks, Oceanarium"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Waterloo (2 hours)" },
@@ -335,14 +335,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-swe-e7e7b7d3-20251023163139.mp4",
       overview: "Liverpool combines iconic waterfront views, legendary nightlife, and rich Beatles heritage. With warm Scouse hospitality, fantastic value, and a vibrant atmosphere, it's perfect for hen parties seeking authentic Northern charm.",
       quickFacts: {
-        fromLondon: "2.5 hours by train",
-        bestTime: "Year-round, Summer for waterfront",
-        nightlife: "Famous nightlife and live music",
-        dining: "Diverse restaurants and Albert Dock eateries",
-        beachAccess: "No beach, stunning waterfront",
-        accommodation: "Converted warehouses and modern apartments",
-        priceRange: "£70-£95 per night",
-        activities: "Beatles tours, shopping, waterfront walks"
+        fromLondon: "2.5 hours by direct train from Euston - UNESCO waterfront and legendary Scouse welcome",
+        bestTime: "Year-round Scouse party spirit! Summer (Jun-Aug) for Albert Dock outdoor dining, Beatles Week (Aug)",
+        nightlife: "Famous party city! The Cavern Club live music, Santa Chupitos theatrical shots, The Merchant rooftop views",
+        dining: "Waterfront dining - The Ivy Liverpool elegant, Maray Middle Eastern plates, 92 Degrees coffee and brunch",
+        beachAccess: "No beach but UNESCO Albert Dock waterfront, Mersey ferry cruises, and nearby Formby beaches (30 mins)",
+        accommodation: "Converted waterfront warehouses with hot tubs, Georgian townhouses, modern apartments near Cavern Quarter",
+        priceRange: "£70-£95 per night - excellent value with warm Northern hospitality",
+        activities: "Beatles Story museum, Albert Dock shopping, Mersey ferry sightseeing, Anfield stadium tour, nightlife crawls"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Euston (2.5 hours)" },
@@ -373,14 +373,14 @@ export default function DestinationDetailPage() {
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-swe-2e241ed1-20251023162728.mp4",
       overview: "Newcastle is famous for legendary nightlife, friendly locals, and stunning quayside architecture. The Geordie spirit of fun combined with excellent value makes it a top choice for unforgettable hen celebrations.",
       quickFacts: {
-        fromLondon: "3 hours by train",
-        bestTime: "Year-round, famous for winter nightlife",
-        nightlife: "Legendary Geordie nightlife scene",
-        dining: "Modern restaurants and traditional pubs",
-        beachAccess: "Nearby Tynemouth beach (20 mins)",
-        accommodation: "Quayside apartments and modern houses",
-        priceRange: "£65-£90 per night",
-        activities: "Shopping, quayside walks, coastal trips"
+        fromLondon: "3 hours by direct train from Kings Cross - legendary Geordie nightlife and warmth awaits",
+        bestTime: "Year-round party town! Famous for winter nightlife, summer (Jun-Aug) for quayside outdoor bars",
+        nightlife: "LEGENDARY! House of Smith multi-floor venue, Digital underground club, The Botanist cocktails, Tup Tup Palace",
+        dining: "Geordie food scene! Pleased To Meet You rooftop dining, The Forth chef's table, The Patricia bistro",
+        beachAccess: "Stunning Tynemouth beach just 20 minutes away - Victorian pier, surf, and seaside charm",
+        accommodation: "Quayside warehouse apartments with hot tubs, modern city centre houses, riverside properties with Tyne Bridge views",
+        priceRange: "£65-£90 per night - incredible value with famous Geordie hospitality",
+        activities: "Quayside Sunday market, Angel of the North photo op, Eldon Square shopping, Tynemouth beach trips, nightlife crawls"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Kings Cross (3 hours)" },

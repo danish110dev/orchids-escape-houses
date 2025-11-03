@@ -180,12 +180,36 @@ const reviews = [
 ];
 
 const destinations = [
-  { name: "London", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg?" },
-  { name: "Brighton", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg" },
-  { name: "Bath", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg" },
-  { name: "Manchester", image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png" },
-  { name: "Newquay", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?" },
-  { name: "Liverpool", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
+  { 
+    name: "London", 
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg?",
+    description: "Iconic attractions & world-class nightlife"
+  },
+  { 
+    name: "Brighton", 
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg",
+    description: "Seaside fun with vibrant beach bars"
+  },
+  { 
+    name: "Bath", 
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg",
+    description: "Georgian elegance & thermal spas"
+  },
+  { 
+    name: "Manchester", 
+    image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png",
+    description: "Northern vibes & legendary nightlife"
+  },
+  { 
+    name: "Newquay", 
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?",
+    description: "Surf beaches & coastal adventures"
+  },
+  { 
+    name: "Liverpool", 
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    description: "Beatles heritage & waterfront bars"
+  },
 ];
 
 // All destinations for the dropdown
@@ -291,12 +315,6 @@ export default function Home() {
     if (announcementRef.current) {
       announcementRef.current.textContent = message;
     }
-  };
-
-  // Handle shake animation
-  const triggerShake = () => {
-    setShouldShake(true);
-    setTimeout(() => setShouldShake(false), 500);
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -455,7 +473,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <StructuredData type="home" />
-      <LoadingScreen />
       <Header />
 
       {/* Screen reader live region for announcements */}
@@ -1393,7 +1410,7 @@ export default function Home() {
                       {destination.name}
                     </h3>
                     <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)] flex items-center gap-1">
-                      View Properties & Experiences
+                      {destination.description}
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                     </p>
                   </div>
