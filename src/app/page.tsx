@@ -1384,19 +1384,18 @@ export default function Home() {
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                    <MapPin className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-3 drop-shadow-lg" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-white/95 backdrop-blur-sm">
                     <h3
-                      className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-2 drop-shadow-lg"
+                      className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-text-primary)] leading-tight mb-1"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {destination.name}
                     </h3>
-                    <span className="text-sm sm:text-base text-white/90 flex items-center gap-2 drop-shadow-lg">
+                    <p className="text-xs sm:text-sm text-[var(--color-neutral-dark)] flex items-center gap-1">
                       View Properties & Experiences
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </p>
                   </div>
                 </Link>
               ))}
