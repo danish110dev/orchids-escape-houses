@@ -9,6 +9,9 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { GEH_API } from "@/lib/api-client";
 
+// Force dynamic rendering since this page uses searchParams
+export const dynamic = 'force-dynamic';
+
 interface BookingDetails {
   id: string;
   property_title: string;
