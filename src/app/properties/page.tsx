@@ -26,6 +26,9 @@ import {
   Loader2
 } from "lucide-react";
 
+// Force dynamic rendering since this page uses searchParams
+export const dynamic = 'force-dynamic';
+
 // Move properties data outside component to prevent re-creation on every render
 const properties = [
   {
