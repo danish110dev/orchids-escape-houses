@@ -274,6 +274,7 @@ export default function Home() {
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const [destinationOpen, setDestinationOpen] = useState(false);
   const [focusedDestinationIndex, setFocusedDestinationIndex] = useState(-1);
+  const [isMobile, setIsMobile] = useState(false);
   
   const dateFieldRef = useRef<HTMLButtonElement>(null);
   const announcementRef = useRef<HTMLDivElement>(null);
@@ -282,23 +283,29 @@ export default function Home() {
   // Optimized Intersection Observer
   useEffect(() => {
     setMounted(true);
-    setFormLoadTime(Date.now()); // Track when form loaded
+    setFormLoadTime(Date.now());
+    
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
 
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "50px 0px -50px 0px" // Start animation slightly before element enters viewport
+      rootMargin: "50px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-in");
-          observer.unobserve(entry.target); // Stop observing once animated
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Observe all scroll-reveal elements with slight delay
     const timeoutId = setTimeout(() => {
       const elements = document.querySelectorAll(".scroll-reveal");
       elements.forEach(el => observer.observe(el));
@@ -307,6 +314,7 @@ export default function Home() {
     return () => {
       clearTimeout(timeoutId);
       observer.disconnect();
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
@@ -551,7 +559,7 @@ export default function Home() {
             {/* Search Bar - COMPLETELY REBUILT */}
             <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
               <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-                {/* Date Picker - COMPLETELY NEW SIMPLE VERSION */}
+                {/* Date Picker - RESPONSIVE VERSION */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-dates" className="block text-sm font-medium text-gray-900 mb-2">
                     Check-in / Check-out
@@ -612,7 +620,7 @@ export default function Home() {
                             setCheckOutDate(range.to);
                           }
                         }}
-                        numberOfMonths={2}
+                        numberOfMonths={isMobile ? 1 : 2}
                         disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                         modifiersClassNames={{
                           range_start: "ge-date-start",
