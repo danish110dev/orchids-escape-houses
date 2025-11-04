@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
+import type { DateRange } from "react-day-picker";
 
 // TikTok Icon Component (lucide-react doesn't include TikTok)
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -262,9 +263,8 @@ export default function Home() {
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
 
-  // Search form state - COMPLETELY SIMPLIFIED
-  const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
-  const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
+  // Search form state - with DateRange type
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [destination, setDestination] = useState("");
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
@@ -369,8 +369,8 @@ export default function Home() {
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (destination) params.set('destination', destination);
-    if (checkInDate) params.set('checkIn', format(checkInDate, 'yyyy-MM-dd'));
-    if (checkOutDate) params.set('checkOut', format(checkOutDate, 'yyyy-MM-dd'));
+    if (dateRange?.from) params.set('checkIn', format(dateRange.from, 'yyyy-MM-dd'));
+    if (dateRange?.to) params.set('checkOut', format(dateRange.to, 'yyyy-MM-dd'));
     params.set('guests', String(adults + children));
     if (pets > 0) params.set('pets', String(pets));
     
@@ -379,13 +379,14 @@ export default function Home() {
 
   // Auto-close calendar when both dates are selected
   useEffect(() => {
-    if (checkInDate && checkOutDate && datePickerOpen) {
+    if (dateRange?.from && dateRange?.to && datePickerOpen) {
       const timer = setTimeout(() => {
         setDatePickerOpen(false);
+        announce("Dates selected");
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [checkInDate, checkOutDate, datePickerOpen]);
+  }, [dateRange, datePickerOpen]);
 
   // Handle date picker open/close
   const handleDatePickerOpenChange = (open: boolean) => {
@@ -469,10 +470,10 @@ export default function Home() {
   };
 
   // Format date range display
-  const dateRangeDisplay = checkInDate && checkOutDate
-    ? `${format(checkInDate, 'dd MMM')} → ${format(checkOutDate, 'dd MMM')}`
-    : checkInDate
-    ? `${format(checkInDate, 'dd MMM')} → ?`
+  const dateRangeDisplay = dateRange?.from && dateRange?.to
+    ? `${format(dateRange.from, 'dd MMM')} → ${format(dateRange.to, 'dd MMM')}`
+    : dateRange?.from
+    ? `${format(dateRange.from, 'dd MMM')} → ?`
     : "Select dates";
 
   const totalGuests = adults + children + infants;
@@ -493,7 +494,7 @@ export default function Home() {
       />
 
       <main>
-        {/* Hero Section - Optimized */}
+        {/* Hero Section */}
         <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
           {/* Desktop Background video */}
           <video
@@ -556,10 +557,10 @@ export default function Home() {
               Your Perfect Group Escape Starts Here
             </h1>
 
-            {/* Search Bar - COMPLETELY REBUILT */}
+            {/* Search Bar - FIXED DATE PICKER */}
             <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
               <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-                {/* Date Picker - RESPONSIVE VERSION */}
+                {/* Date Picker - FIXED */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-dates" className="block text-sm font-medium text-gray-900 mb-2">
                     Check-in / Check-out
@@ -578,7 +579,7 @@ export default function Home() {
                         aria-label={`Select dates. ${dateRangeDisplay}`}
                       >
                         <Calendar className="text-gray-400 mr-2 flex-shrink-0" />
-                        <span className={checkInDate ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
+                        <span className={dateRange?.from ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
                           {dateRangeDisplay}
                         </span>
                       </Button>
@@ -590,14 +591,14 @@ export default function Home() {
                     >
                       <div className="p-4 border-b flex items-center justify-between">
                         <p className="text-sm font-medium text-gray-900">
-                          {!checkInDate && "Select check-in date"}
-                          {checkInDate && !checkOutDate && "Select check-out date"}
-                          {checkInDate && checkOutDate && "Dates selected"}
+                          {!dateRange?.from && "Select check-in date"}
+                          {dateRange?.from && !dateRange?.to && "Select check-out date"}
+                          {dateRange?.from && dateRange?.to && "Dates selected"}
                         </p>
                         <button
                           onClick={() => {
-                            setCheckInDate(undefined);
-                            setCheckOutDate(undefined);
+                            setDateRange(undefined);
+                            announce("Dates cleared");
                           }}
                           className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
                           type="button"
@@ -607,25 +608,19 @@ export default function Home() {
                       </div>
                       <CalendarComponent
                         mode="range"
-                        selected={
-                          checkInDate && checkOutDate
-                            ? { from: checkInDate, to: checkOutDate }
-                            : checkInDate
-                            ? { from: checkInDate, to: undefined }
-                            : undefined
-                        }
-                        onSelect={(range) => {
-                          if (range?.from) {
-                            setCheckInDate(range.from);
-                            setCheckOutDate(range.to);
+                        selected={dateRange}
+                        onSelect={(range: DateRange | undefined) => {
+                          setDateRange(range);
+                          if (range?.from && range?.to) {
+                            announce(`Selected ${format(range.from, 'MMMM dd')} to ${format(range.to, 'MMMM dd')}`);
                           }
                         }}
                         numberOfMonths={isMobile ? 1 : 2}
                         disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
-                        modifiersClassNames={{
-                          range_start: "ge-date-start",
-                          range_end: "ge-date-end",
-                          range_middle: "ge-date-in-range",
+                        classNames={{
+                          day_range_start: "ge-date-start",
+                          day_range_end: "ge-date-end",
+                          day_range_middle: "ge-date-in-range",
                         }}
                       />
                     </PopoverContent>
