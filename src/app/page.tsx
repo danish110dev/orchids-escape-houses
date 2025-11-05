@@ -8,6 +8,7 @@ import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPop
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
+import ExperienceCard from "@/components/ExperienceCard";
 import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,11 +30,6 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 // Lazy load non-critical components with better error handling
-const ExperienceCard = dynamic(() => import("@/components/ExperienceCard"), { 
-  ssr: false,
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
-});
-
 const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { 
   ssr: false,
   loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-2xl" />
