@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, LogOut, User as UserIcon, CreditCard } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, User as UserIcon, CreditCard, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
@@ -440,6 +440,18 @@ export default function Header() {
 
             {/* Auth & CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-3">
+              {/* Phone Number - Always visible */}
+              <a
+                href="tel:+441273569301"
+                className="flex items-center gap-2 px-4 py-2 bg-[var(--color-accent-sage)]/10 hover:bg-[var(--color-accent-sage)] hover:text-white rounded-xl transition-all duration-200 border border-[var(--color-accent-sage)]/20"
+                aria-label="Call us at 01273 569301"
+              >
+                <Phone className="w-4 h-4 text-[var(--color-accent-sage)] group-hover:text-white" />
+                <span className="text-sm font-medium text-[var(--color-accent-sage)] hover:text-white">
+                  01273 569301
+                </span>
+              </a>
+              
               {isPending || isCustomerLoading ? (
                 <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
               ) : session?.user ? (
