@@ -89,23 +89,23 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
-            <ul className="space-y-2 text-sm text-[var(--color-bg-secondary)]">
+            <ul className="space-y-3 text-sm text-[var(--color-bg-secondary)]">
               <li>Office, 11a North Street</li>
               <li>Brighton</li>
               <li>BN41 1DH</li>
               <li className="pt-2">
                 <a
                   href="tel:+441273569301"
-                  className="hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-2"
+                  className="hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-2 font-medium"
                 >
-                  <Phone className="w-4 h-4" />
-                  01273 569301
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span>01273 569301</span>
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:hello@groupescapehouses.co.uk"
-                  className="hover:text-[var(--color-accent-sage)] transition-colors"
+                  className="hover:text-[var(--color-accent-sage)] transition-colors block"
                 >
                   hello@groupescapehouses.co.uk
                 </a>
