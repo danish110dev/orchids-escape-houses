@@ -443,11 +443,11 @@ export default function Header() {
               {/* Phone Number - Always visible */}
               <a
                 href="tel:+441273569301"
-                className="flex items-center gap-2 px-4 py-2 bg-[var(--color-accent-sage)]/10 hover:bg-[var(--color-accent-sage)] hover:text-white rounded-xl transition-all duration-200 border border-[var(--color-accent-sage)]/20"
+                className="group flex items-center gap-2 px-4 py-2 bg-[var(--color-accent-sage)]/10 hover:bg-[var(--color-accent-sage)] rounded-xl transition-all duration-200 border border-[var(--color-accent-sage)]/20"
                 aria-label="Call us at 01273 569301"
               >
                 <Phone className="w-4 h-4 text-[var(--color-accent-sage)] group-hover:text-white" />
-                <span className="text-sm font-medium text-[var(--color-accent-sage)] hover:text-white">
+                <span className="text-sm font-medium text-[var(--color-accent-sage)] group-hover:text-white">
                   01273 569301
                 </span>
               </a>
