@@ -95,6 +95,15 @@ export default function Footer() {
               <li>BN41 1DH</li>
               <li className="pt-2">
                 <a
+                  href="tel:+441273569301"
+                  className="hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-2"
+                >
+                  <Phone className="w-4 h-4" />
+                  01273 569301
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:hello@groupescapehouses.co.uk"
                   className="hover:text-[var(--color-accent-sage)] transition-colors"
                 >
