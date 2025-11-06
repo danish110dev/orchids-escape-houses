@@ -24,7 +24,7 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+44-XXXX-XXXXXX",
+      telephone: "+44-1273-569301",
       email: "hello@groupescapehouses.co.uk",
       contactType: "Customer Service",
       areaServed: "GB",
@@ -61,7 +61,7 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
       latitude: "50.8225",
       longitude: "-0.1372"
     },
-    telephone: "+44-XXXX-XXXXXX",
+    telephone: "+44-1273-569301",
     email: "hello@groupescapehouses.co.uk",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -101,7 +101,7 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     name: "Group Escape Houses",
     description: "Premium vacation rental agency specialising in luxury group accommodation, hen party houses, and celebration properties across the UK",
     url: "https://groupescapehouses.co.uk",
-    telephone: "+44-XXXX-XXXXXX",
+    telephone: "+44-1273-569301",
     email: "hello@groupescapehouses.co.uk",
     areaServed: [
       {
