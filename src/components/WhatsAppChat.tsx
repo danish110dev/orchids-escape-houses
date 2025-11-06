@@ -40,7 +40,7 @@ export default function WhatsAppChat() {
   // WhatsApp Business Number - UPDATE THIS WITH YOUR ACTUAL NUMBER
   // Format: country code + number (no spaces, dashes, or plus sign)
   // Example: "447123456789" for UK number
-  const WHATSAPP_NUMBER = "447123456789"; // REPLACE WITH YOUR WHATSAPP BUSINESS NUMBER
+  const WHATSAPP_NUMBER = "447454253313"; // Group Escape Houses WhatsApp number
   const WHATSAPP_MESSAGE = "Hi! I'm interested in learning more about your hen party houses.";
 
   const scrollToBottom = () => {
