@@ -158,6 +158,24 @@ export default function ContactPage() {
                       className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ background: "var(--color-accent-sage)" }}
                     >
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Phone</h3>
+                      <a
+                        href="tel:+441273569301"
+                        className="text-[var(--color-accent-sage)] hover:underline"
+                      >
+                        01273 569301
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: "var(--color-accent-sage)" }}
+                    >
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
