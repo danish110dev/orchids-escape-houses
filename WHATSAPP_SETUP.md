@@ -9,7 +9,7 @@ Your website now has an AI-powered WhatsApp chatbot that can answer questions ab
 - Green WhatsApp button appears in the bottom-right corner of every page
 - Animated with pulse effect
 - Shows tooltip on hover with chatbot description
-- Clicking opens WhatsApp with your business number
+- Clicking opens WhatsApp with your business number: **07454253313**
 
 ### 2. AI-Powered Chatbot Backend
 - Uses OpenAI (GPT-4) to provide intelligent responses
@@ -34,9 +34,11 @@ Your website now has an AI-powered WhatsApp chatbot that can answer questions ab
 4. Get your WhatsApp Business number
 
 ### Step 2: Update WhatsApp Number
-Edit `src/components/WhatsAppChatbot.tsx` and replace the phone number:
+The WhatsApp number has been set to **07454253313** (447454253313 in international format).
+
+If you need to change it in the future, edit `src/components/WhatsAppChat.tsx`:
 ```typescript
-const whatsappNumber = "447123456789"; // Replace with YOUR WhatsApp Business number
+const WHATSAPP_NUMBER = "447454253313"; // Your WhatsApp Business number
 ```
 
 ### Step 3: Configure Twilio Webhook
