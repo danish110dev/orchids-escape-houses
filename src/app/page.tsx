@@ -543,7 +543,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden" ref={heroRef}>
+        <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
           {/* Desktop Background video */}
           <video
             autoPlay
@@ -559,7 +559,6 @@ export default function Home() {
             }}
             aria-label="Background video showcasing luxury group accommodation"
             onError={(e) => {
-              // Fallback to poster on video error
               const video = e.currentTarget;
               video.style.display = 'none';
             }}
@@ -583,7 +582,6 @@ export default function Home() {
             }}
             aria-label="Background video showcasing luxury group accommodation"
             onError={(e) => {
-              // Fallback to poster on video error
               const video = e.currentTarget;
               video.style.display = 'none';
             }}
@@ -592,9 +590,8 @@ export default function Home() {
             <track kind="captions" srcLang="en" label="English captions" />
           </video>
 
-          {/* Hero Content Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8">
-            {/* Hero Title */}
+          {/* Hero Content Overlay - WITH REF FOR SCALING */}
+          <div ref={heroRef as any} className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8 scale-on-scroll">
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
               style={{
@@ -605,7 +602,6 @@ export default function Home() {
               Your Perfect Group Escape Starts Here
             </h1>
 
-            {/* Search Bar - FIXED DATE PICKER */}
             <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
               <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
                 {/* Date Picker - FIXED */}
@@ -913,8 +909,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Hero Description - Below Video */}
-        <section className="py-8 sm:py-10 md:py-12 bg-white">
+        {/* Hero Description - Below Video - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[0] = el; }} className="py-8 sm:py-10 md:py-12 bg-white scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <h2
               className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight text-center"
@@ -931,8 +927,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Trust Signals Section */}
-        <section className="py-16 bg-white">
+        {/* Trust Signals Section - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[1] = el; }} className="py-16 bg-white scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
@@ -967,8 +963,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal">
+        {/* Why Choose Us Section - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[2] = el; }} className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1110,8 +1106,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Visual Showcase Section - Optimized */}
-        <section className="py-16 bg-white scroll-reveal">
+        {/* Visual Showcase Section - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[3] = el; }} className="py-16 bg-white scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-8">
               <h2 className="mb-3 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1194,8 +1190,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Properties */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        {/* Featured Properties - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[4] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1228,8 +1224,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Service Areas Section */}
-        <section className="py-20 bg-white scroll-reveal">
+        {/* Service Areas Section - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[5] = el; }} className="py-20 bg-white scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1284,8 +1280,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experiences */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        {/* Experiences - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[6] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-[42px] px-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -1315,8 +1311,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        {/* How It Works - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[7] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1424,8 +1420,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Destinations */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        {/* Destinations - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[8] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1497,8 +1493,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Reviews */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+        {/* Reviews - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[9] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1513,8 +1509,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Instagram Section */}
-        <section className="py-12 sm:py-16 md:py-20 scroll-reveal" style={{ background: "var(--color-bg-secondary)" }}>
+        {/* Instagram Section - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[10] = el; }} className="py-12 sm:py-16 md:py-20 scroll-reveal scale-on-scroll" style={{ background: "var(--color-bg-secondary)" }}>
           <div className="max-w-full">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
               <h2 
@@ -1593,8 +1589,8 @@ export default function Home() {
         {/* FAQ Section */}
         <FAQSection />
 
-        {/* Email Capture */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
+        {/* Email Capture - ADD TO sectionsRef */}
+        <section ref={(el) => { sectionsRef.current[11] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               Get Party Planning Tips
