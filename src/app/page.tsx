@@ -276,7 +276,11 @@ export default function Home() {
   const announcementRef = useRef<HTMLDivElement>(null);
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Optimized Intersection Observer
+  // NEW: Refs for scroll-based scaling
+  const heroRef = useRef<HTMLElement>(null);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+
+  // Optimized Intersection Observer + NEW: Scroll-based scaling
   useEffect(() => {
     setMounted(true);
     setFormLoadTime(Date.now());
@@ -307,10 +311,58 @@ export default function Home() {
       elements.forEach(el => observer.observe(el));
     }, 100);
 
+    // NEW: Scroll-based scaling effect
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Scale hero content based on scroll
+      if (heroRef.current) {
+        const heroProgress = Math.min(scrollY / windowHeight, 1);
+        const scale = 1 - heroProgress * 0.1; // Scale down from 1 to 0.9
+        const opacity = 1 - heroProgress * 0.5; // Fade out
+        heroRef.current.style.transform = `scale(${scale})`;
+        heroRef.current.style.opacity = `${opacity}`;
+      }
+
+      // Scale sections as they come into view
+      sectionsRef.current.forEach((section) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = rect.top;
+          const sectionHeight = rect.height;
+          
+          // Calculate how much of the section is visible
+          if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+            // Section is in viewport
+            const visibleAmount = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
+            const scale = 0.95 + (visibleAmount * 0.05); // Scale from 0.95 to 1
+            section.style.transform = `scale(${Math.min(scale, 1)})`;
+            section.style.opacity = `${Math.min(visibleAmount * 2, 1)}`;
+          }
+        }
+      });
+    };
+
+    // Throttle scroll handler for performance
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', scrollListener, { passive: true });
+
     return () => {
       clearTimeout(timeoutId);
       observer.disconnect();
       window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('scroll', scrollListener);
     };
   }, []);
 
@@ -491,7 +543,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
+        <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden" ref={heroRef}>
           {/* Desktop Background video */}
           <video
             autoPlay
