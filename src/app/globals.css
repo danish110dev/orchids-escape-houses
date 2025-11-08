@@ -433,17 +433,49 @@
     opacity: 0;
   }
   
-  /* Enhanced scroll reveal animations - More visible */
+  /* NEW: Scale-in animation for scroll reveals */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+  
+  /* Enhanced scroll reveal animations - More visible with scale */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(60px);
+    transform: scale(0.95) translateY(60px);
     transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), 
                 transform 1s cubic-bezier(0.19, 1, 0.22, 1);
   }
   
   .scroll-reveal.animate-fade-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
+  }
+  
+  /* NEW: Scale on scroll for hero sections */
+  .scale-on-scroll {
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+  }
+  
+  /* NEW: Card hover with scale */
+  .card-scale-hover {
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .card-scale-hover:hover {
+    transform: scale(1.02);
   }
   
   /* Floating animation for icons */
@@ -616,7 +648,10 @@
     .animate-fade-up,
     .animate-float,
     .scroll-indicator,
-    .animate-shake {
+    .animate-shake,
+    .animate-scale-in,
+    .scale-on-scroll,
+    .card-scale-hover {
       opacity: 1;
       transform: none;
       transition: none;
