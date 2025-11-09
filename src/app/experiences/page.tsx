@@ -1,210 +1,59 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChefHat, Waves, Heart, Palette, Pizza, Users, Wine, CheckCircle2, MapPin, Utensils, Music, Camera, Flower2, Scissors, Mic2, Gift } from "lucide-react";
+import { Sparkles, CheckCircle2, MapPin, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import ExperienceCard from "@/components/ExperienceCard";
 
 export default function ExperiencesPage() {
-  // Organised by search popularity - most popular first
-  const allExperiences = [
-    {
-      title: "Cocktail Masterclass",
-      description: "Learn to shake, stir, and sip like pros with our expert mixologists. Perfect ice-breaker for your group.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-cocktail-mas-1a8ca804-20251021222811.jpg",
-      icon: Wine,
-      category: "fun",
-      popular: true,
-      slug: "cocktail-masterclass",
-      duration: "2 hours",
-      priceFrom: 50,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Private Chef Dining",
-      description: "Enjoy a gourmet meal in your own space, cooked by one of our talented local chefs. Perfect for a Friday night feast or Sunday brunch.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-0a38cf4c-20251021222802.jpg",
-      icon: ChefHat,
-      category: "relaxed",
-      popular: true,
-      slug: "private-chef",
-      duration: "3-4 hours",
-      priceFrom: 65,
-      groupSize: "8-24 guests",
-    },
-    {
-      title: "Spa Treatments",
-      description: "Mobile therapists bring massages, facials, and pamper sessions straight to you. Bliss without leaving the house.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-15d1f1e0-20251021222805.jpg",
-      icon: Waves,
-      category: "relaxed",
-      popular: true,
-      slug: "spa-treatments",
-      duration: "2-3 hours",
-      priceFrom: 75,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Life Drawing & Cheeky Butlers",
-      description: "Add some giggles with a classy-but-fun experience that everyone will remember.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-life-drawing-ec9a158b-20251021222812.jpg",
-      icon: Palette,
-      category: "fun",
-      popular: true,
-      slug: "life-drawing",
-      duration: "2 hours",
-      priceFrom: 45,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Yoga & Pilates Classes",
-      description: "Flow into the weekend with a private group class led by a professional instructor. Ideal for setting a calm, happy tone.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-group-yoga-c-bd43fc48-20251021222800.jpg",
-      icon: Heart,
-      category: "relaxed",
-      popular: false,
-      slug: "yoga-session",
-      duration: "1.5-2 hours",
-      priceFrom: 40,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Pizza Party Night",
-      description: "Make, bake, and top your own creations. Dough, laughter, and a lot of prosecco.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-fun-pizza-ma-4a0f37e9-20251021222802.jpg",
-      icon: Pizza,
-      category: "fun",
-      popular: false,
-      slug: "pizza-party",
-      duration: "2-3 hours",
-      priceFrom: 45,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Bottomless Brunch",
-      description: "Start your day with unlimited prosecco, delicious food, and great vibes. The perfect hen party tradition.",
-      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
-      icon: Utensils,
-      category: "fun",
-      popular: true,
-      slug: "bottomless-brunch",
-      duration: "2-3 hours",
-      priceFrom: 35,
-      groupSize: "8-30 guests",
-    },
-    {
-      title: "Murder Mystery Dinner",
-      description: "Transform your dinner into a night of intrigue and laughter. Dress up, play your part, and see who can uncover the culprit first.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-3f806f2a-20251021222805.jpg",
-      icon: Users,
-      category: "fun",
-      popular: false,
-      slug: "murder-mystery",
-      duration: "3-4 hours",
-      priceFrom: 50,
-      groupSize: "10-30 guests",
-    },
-    {
-      title: "Wellness Workshops",
-      description: "Meditation, sound baths, or aromatherapy – for a restorative, bonding experience.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-wellness-med-b1dcd986-20251021222802.jpg",
-      icon: Sparkles,
-      category: "relaxed",
-      popular: false,
-      slug: "wellness-workshops",
-      duration: "2-3 hours",
-      priceFrom: 45,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Dance Class",
-      description: "Learn a choreographed routine with your group. From hip-hop to burlesque, we'll get everyone moving.",
-      image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&q=80",
-      icon: Music,
-      category: "fun",
-      popular: false,
-      slug: "dance-class",
-      duration: "1.5-2 hours",
-      priceFrom: 40,
-      groupSize: "8-25 guests",
-    },
-    {
-      title: "Photography Package",
-      description: "Capture your special weekend with a professional photographer. Candid moments and group shots you'll treasure forever.",
-      image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&q=80",
-      icon: Camera,
-      category: "relaxed",
-      popular: false,
-      slug: "photography-package",
-      duration: "2-3 hours",
-      priceFrom: 150,
-      groupSize: "Any size",
-    },
-    {
-      title: "Flower Crown Making",
-      description: "Get creative and make beautiful flower crowns for your group. Perfect Instagram moment included.",
-      image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
-      icon: Flower2,
-      category: "relaxed",
-      popular: false,
-      slug: "flower-crown-making",
-      duration: "1.5-2 hours",
-      priceFrom: 35,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Hair Styling",
-      description: "Professional hair styling for your entire group. From elegant updos to beachy waves, look picture-perfect.",
-      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
-      icon: Scissors,
-      category: "relaxed",
-      popular: false,
-      slug: "hair-styling",
-      duration: "2-3 hours",
-      priceFrom: 35,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Make-up Artist",
-      description: "Professional make-up application for your entire group. From natural glam to full glam, look your absolute best.",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
-      icon: Sparkles,
-      category: "relaxed",
-      popular: false,
-      slug: "make-up-artist",
-      duration: "2-3 hours",
-      priceFrom: 40,
-      groupSize: "8-20 guests",
-    },
-    {
-      title: "Karaoke Night",
-      description: "Belt out your favourite tunes with professional karaoke equipment. Guaranteed laughs and unforgettable memories.",
-      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
-      icon: Mic2,
-      category: "fun",
-      popular: false,
-      slug: "karaoke-night",
-      duration: "3-4 hours",
-      priceFrom: 40,
-      groupSize: "8-30 guests",
-    },
-    {
-      title: "Sip & Paint",
-      description: "Unleash your inner artist while sipping your favourite drinks. Create masterpieces with professional guidance.",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
-      icon: Palette,
-      category: "fun",
-      popular: false,
-      slug: "sip-and-paint",
-      duration: "2-3 hours",
-      priceFrom: 45,
-      groupSize: "8-20 guests",
-    },
-  ];
+  // State for dynamic data
+  const [experiences, setExperiences] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch experiences from database
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const response = await fetch('/api/experiences?isPublished=true');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch experiences');
+        }
+
+        const data = await response.json();
+
+        // Transform experiences data to match component props
+        const transformedExperiences = data.map((exp: any) => ({
+          title: exp.title,
+          duration: exp.duration,
+          priceFrom: exp.priceFrom,
+          groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
+          image: exp.heroImage,
+          slug: exp.slug,
+          popular: exp.featured || false, // Use featured field for popular
+        }));
+
+        setExperiences(transformedExperiences);
+      } catch (error) {
+        console.error('Error fetching experiences:', error);
+        setError('Unable to load experiences. Please refresh the page.');
+        setExperiences([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchExperiences();
+  }, []);
 
   const faqs = [
     {
@@ -278,6 +127,9 @@ export default function ExperiencesPage() {
     { name: "Cardiff", slug: "cardiff", image: "https://images.unsplash.com/photo-1570936885323-16be1d36f92d?w=800" },
   ];
 
+  const popularExperiences = experiences.filter(exp => exp.popular);
+  const otherExperiences = experiences.filter(exp => !exp.popular);
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -319,125 +171,148 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-      {/* Most Popular Experiences */}
-      <section className="py-24 bg-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              ⭐ Most Popular Hen Party Experiences
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              Our most searched and booked activities for <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen parties</Link> and <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">group celebrations</Link>. These crowd-pleasers are guaranteed to make your weekend unforgettable at any of our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK party houses</Link>.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
-          >
-            {allExperiences.filter(exp => exp.popular).map((experience, idx) => (
-              <ExperienceCard
-                key={idx}
-                title={experience.title}
-                duration={experience.duration}
-                priceFrom={experience.priceFrom}
-                groupSize={experience.groupSize}
-                image={experience.image}
-                slug={experience.slug}
-              />
-            ))}
-          </motion.div>
-
-          <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/contact">Book Popular Experiences</Link>
-            </Button>
+      {/* Loading State */}
+      {isLoading && (
+        <section className="py-24 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center min-h-[400px]">
+            <Loader2 className="w-12 h-12 text-[var(--color-accent-sage)] animate-spin" />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <section className="py-24 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6 text-center">
+            <p className="text-red-600 mb-4">{error}</p>
+            <Button onClick={() => window.location.reload()}>Refresh Page</Button>
+          </div>
+        </section>
+      )}
+
+      {/* Most Popular Experiences */}
+      {!isLoading && !error && popularExperiences.length > 0 && (
+        <section className="py-24 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+                ⭐ Most Popular Hen Party Experiences
+              </h2>
+              <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+                Our most searched and booked activities for <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen parties</Link> and <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">group celebrations</Link>. These crowd-pleasers are guaranteed to make your weekend unforgettable at any of our <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK party houses</Link>.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+            >
+              {popularExperiences.map((experience, idx) => (
+                <ExperienceCard
+                  key={idx}
+                  title={experience.title}
+                  duration={experience.duration}
+                  priceFrom={experience.priceFrom}
+                  groupSize={experience.groupSize}
+                  image={experience.image}
+                  slug={experience.slug}
+                />
+              ))}
+            </motion.div>
+
+            <div className="text-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/contact">Book Popular Experiences</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* All Other Experiences */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-              More Amazing Experiences
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
-              Browse our full collection of activities to create your perfect hen weekend itinerary.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.08,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
-          >
-            {allExperiences.filter(exp => !exp.popular).map((experience, idx) => (
-              <ExperienceCard
-                key={idx}
-                title={experience.title}
-                duration={experience.duration}
-                priceFrom={experience.priceFrom}
-                groupSize={experience.groupSize}
-                image={experience.image}
-                slug={experience.slug}
-              />
-            ))}
-          </motion.div>
-
-          <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
+      {!isLoading && !error && otherExperiences.length > 0 && (
+        <section className="py-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
             >
-              <Link href="/contact">Enquire About All Experiences</Link>
-            </Button>
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
+                More Amazing Experiences
+              </h2>
+              <p className="text-lg max-w-3xl mx-auto" style={{ color: "var(--color-neutral-dark)" }}>
+                Browse our full collection of activities to create your perfect hen weekend itinerary.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+            >
+              {otherExperiences.map((experience, idx) => (
+                <ExperienceCard
+                  key={idx}
+                  title={experience.title}
+                  duration={experience.duration}
+                  priceFrom={experience.priceFrom}
+                  groupSize={experience.groupSize}
+                  image={experience.image}
+                  slug={experience.slug}
+                />
+              ))}
+            </motion.div>
+
+            <div className="text-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/contact">Enquire About All Experiences</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* How It Works */}
       <section className="py-24 bg-[var(--color-bg-secondary)]">
