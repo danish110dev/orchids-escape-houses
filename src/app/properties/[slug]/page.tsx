@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -24,192 +24,99 @@ import {
   Share2,
   Heart,
   Calendar,
+  Loader2,
 } from "lucide-react";
-
-// Property database
-const propertiesData: Record<string, any> = {
-  "brighton-manor": {
-    title: "The Brighton Manor",
-    location: "Brighton, East Sussex",
-    sleeps: 16,
-    bedrooms: 8,
-    bathrooms: 6,
-    priceWeekend: 1200,
-    priceMidweek: 950,
-    images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
-    ],
-    description:
-      "A stunning Georgian manor house in the heart of Brighton, perfect for unforgettable hen celebrations. This luxurious property features a private hot tub, heated indoor pool, games room with pool table, and beautifully landscaped gardens. With 8 spacious bedrooms and 6 modern bathrooms, there's plenty of room for your whole group to relax in style.",
-    features: [
-      { icon: Waves, label: "Hot Tub" },
-      { icon: Waves, label: "Indoor Pool" },
-      { icon: Music, label: "Games Room" },
-      { icon: Wifi, label: "Fast Wi-Fi" },
-      { icon: Car, label: "Free Parking" },
-      { icon: Flame, label: "BBQ Area" },
-      { icon: ChefHat, label: "Gourmet Kitchen" },
-      { icon: Music, label: "Sound System" },
-    ],
-    houseRules: [
-      "Check-in: 4pm",
-      "Check-out: 10am",
-      "No smoking inside",
-      "Quiet hours: 11pm - 8am",
-      "Maximum occupancy: 16 guests",
-      "Damage deposit: £500 (refundable)",
-    ],
-  },
-  "bath-spa-retreat": {
-    title: "Bath Spa Retreat",
-    location: "Bath, Somerset",
-    sleeps: 20,
-    bedrooms: 10,
-    bathrooms: 8,
-    priceWeekend: 1500,
-    priceMidweek: 1200,
-    images: [
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
-    ],
-    description:
-      "An elegant Victorian property in the historic city of Bath. This magnificent retreat boasts a private cinema room, professional games room with pool table, and stunning period features throughout. With 10 luxurious bedrooms and modern amenities, it's the perfect backdrop for your special celebration.",
-    features: [
-      { icon: Music, label: "Games Room" },
-      { icon: Music, label: "Cinema" },
-      { icon: Wifi, label: "Fast Wi-Fi" },
-      { icon: Car, label: "Free Parking" },
-      { icon: Flame, label: "BBQ Area" },
-      { icon: ChefHat, label: "Gourmet Kitchen" },
-      { icon: Waves, label: "Hot Tub" },
-      { icon: Music, label: "Sound System" },
-    ],
-    houseRules: [
-      "Check-in: 4pm",
-      "Check-out: 10am",
-      "No smoking inside",
-      "Quiet hours: 11pm - 8am",
-      "Maximum occupancy: 20 guests",
-      "Damage deposit: £600 (refundable)",
-    ],
-  },
-  "manchester-party-house": {
-    title: "Manchester Party House",
-    location: "Manchester, Greater Manchester",
-    sleeps: 14,
-    bedrooms: 7,
-    bathrooms: 5,
-    priceWeekend: 1100,
-    priceMidweek: 850,
-    images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
-    ],
-    description:
-      "A contemporary party house in the vibrant heart of Manchester. This stylish property features a luxury hot tub, BBQ area, and open-plan living spaces perfect for group celebrations. With 7 beautifully designed bedrooms and modern bathrooms, your group will love this urban retreat.",
-    features: [
-      { icon: Waves, label: "Hot Tub" },
-      { icon: Flame, label: "BBQ" },
-      { icon: Wifi, label: "Fast Wi-Fi" },
-      { icon: Car, label: "Free Parking" },
-      { icon: Music, label: "Sound System" },
-      { icon: ChefHat, label: "Modern Kitchen" },
-      { icon: Music, label: "Games Area" },
-      { icon: Waves, label: "Garden" },
-    ],
-    houseRules: [
-      "Check-in: 4pm",
-      "Check-out: 10am",
-      "No smoking inside",
-      "Quiet hours: 11pm - 8am",
-      "Maximum occupancy: 14 guests",
-      "Damage deposit: £500 (refundable)",
-    ],
-  },
-  "leeds-city-loft": {
-    title: "Leeds City Loft",
-    location: "Leeds, West Yorkshire",
-    sleeps: 12,
-    bedrooms: 6,
-    bathrooms: 4,
-    priceWeekend: 950,
-    priceMidweek: 750,
-    images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
-    ],
-    description:
-      "A stunning modern loft in Leeds city centre. This industrial-chic property features exposed brick, high ceilings, and contemporary furnishings throughout. Perfect for hen parties wanting to be close to Leeds' famous nightlife while having a stylish home base to return to.",
-    features: [
-      { icon: Wifi, label: "Fast Wi-Fi" },
-      { icon: Music, label: "Sound System" },
-      { icon: ChefHat, label: "Designer Kitchen" },
-      { icon: Car, label: "Secure Parking" },
-      { icon: Music, label: "Entertainment Area" },
-      { icon: Flame, label: "Rooftop Terrace" },
-      { icon: Waves, label: "City Views" },
-      { icon: Music, label: "Smart TV" },
-    ],
-    houseRules: [
-      "Check-in: 4pm",
-      "Check-out: 10am",
-      "No smoking inside",
-      "Quiet hours: 11pm - 8am",
-      "Maximum occupancy: 12 guests",
-      "Damage deposit: £450 (refundable)",
-    ],
-  },
-};
 
 export default function PropertyDetailPage({ params }: { params: { slug: string } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
+  const [property, setProperty] = useState<any>(null);
+  const [relatedProperties, setRelatedProperties] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const property = propertiesData[params.slug];
+  // Fetch property data from database
+  useEffect(() => {
+    const fetchPropertyData = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
 
-  // If property not found, show error
-  if (!property) {
-    return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)]">
-        <Header />
-        <div className="pt-24 pb-24 text-center">
-          <h1 className="mb-4">Property Not Found</h1>
-          <p className="mb-8">Sorry, we couldn't find the property you're looking for.</p>
-          <Link href="/properties">
-            <Button>Browse All Properties</Button>
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+        // Fetch the specific property by slug
+        const propertyResponse = await fetch(`/api/properties?slug=${params.slug}`);
+        
+        if (!propertyResponse.ok) {
+          throw new Error('Failed to fetch property');
+        }
 
-  // Get related properties (exclude current property)
-  const allPropertySlugs = Object.keys(propertiesData);
-  const relatedPropertySlugs = allPropertySlugs
-    .filter((slug) => slug !== params.slug)
-    .slice(0, 2);
+        const propertyData = await propertyResponse.json();
+        
+        if (!propertyData || propertyData.length === 0) {
+          setError('Property not found');
+          return;
+        }
 
-  const relatedProperties = relatedPropertySlugs.map((slug) => ({
-    id: slug,
-    slug: slug,
-    title: propertiesData[slug].title,
-    location: propertiesData[slug].location,
-    sleeps: propertiesData[slug].sleeps,
-    bedrooms: propertiesData[slug].bedrooms,
-    priceFrom: Math.round(propertiesData[slug].priceMidweek / 3),
-    image: propertiesData[slug].images[0],
-    features: propertiesData[slug].features.slice(0, 2).map((f: any) => f.label),
-  }));
+        const prop = propertyData[0];
+
+        // Transform property data
+        const transformedProperty = {
+          id: prop.id,
+          title: prop.title,
+          location: prop.location,
+          sleeps: prop.sleepsMax,
+          bedrooms: prop.bedrooms,
+          bathrooms: prop.bathrooms,
+          priceWeekend: prop.priceFromWeekend,
+          priceMidweek: prop.priceFromMidweek,
+          images: [prop.heroImage], // TODO: Add gallery images from property_images
+          description: prop.description,
+          features: [], // TODO: Add features from property_features
+          houseRules: [
+            `Check-in: ${prop.checkInTime || '4pm'}`,
+            `Check-out: ${prop.checkOutTime || '10am'}`,
+            "No smoking inside",
+            "Quiet hours: 11pm - 8am",
+            `Maximum occupancy: ${prop.sleepsMax} guests`,
+            "Damage deposit: £500 (refundable)",
+          ],
+          slug: prop.slug,
+        };
+
+        setProperty(transformedProperty);
+
+        // Fetch related properties (same location, exclude current)
+        const relatedResponse = await fetch(`/api/properties?isPublished=true&limit=3`);
+        
+        if (relatedResponse.ok) {
+          const relatedData = await relatedResponse.json();
+          
+          const transformedRelated = relatedData
+            .filter((p: any) => p.slug !== params.slug)
+            .slice(0, 2)
+            .map((p: any) => ({
+              id: p.id.toString(),
+              title: p.title,
+              location: p.location,
+              sleeps: p.sleepsMax,
+              bedrooms: p.bedrooms,
+              priceFrom: Math.round(p.priceFromMidweek / 3),
+              image: p.heroImage,
+              features: [],
+              slug: p.slug,
+            }));
+          
+          setRelatedProperties(transformedRelated);
+        }
+      } catch (error) {
+        console.error('Error fetching property:', error);
+        setError('Unable to load property. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPropertyData();
+  }, [params.slug]);
 
   const faqs = [
     {
@@ -234,6 +141,36 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
     },
   ];
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
+        <div className="pt-24 pb-24 flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="w-12 h-12 text-[var(--color-accent-sage)] animate-spin" />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !property) {
+    return (
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
+        <div className="pt-24 pb-24 text-center">
+          <h1 className="mb-4">Property Not Found</h1>
+          <p className="mb-8">Sorry, we couldn't find the property you're looking for.</p>
+          <Link href="/properties">
+            <Button>Browse All Properties</Button>
+          </Link>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
@@ -251,7 +188,7 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {property.images.slice(1).map((image: string, index: number) => (
+              {property.images.slice(1, 4).map((image: string, index: number) => (
                 <div key={index} className="relative h-[190px] md:h-[290px] cursor-pointer">
                   <Image
                     src={image}
@@ -262,6 +199,13 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
                   />
                 </div>
               ))}
+              {property.images.length < 4 && (
+                <>
+                  {[...Array(4 - property.images.length)].map((_, index) => (
+                    <div key={`placeholder-${index}`} className="relative h-[190px] md:h-[290px] bg-gray-200"></div>
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -368,7 +312,15 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
                   Features
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {property.features.map((feature: any, index: number) => {
+                  {/* Default features - will be replaced with dynamic features later */}
+                  {[
+                    { icon: Waves, label: "Hot Tub" },
+                    { icon: Wifi, label: "Fast Wi-Fi" },
+                    { icon: Car, label: "Free Parking" },
+                    { icon: Flame, label: "BBQ Area" },
+                    { icon: ChefHat, label: "Gourmet Kitchen" },
+                    { icon: Music, label: "Sound System" },
+                  ].map((feature, index) => {
                     const Icon = feature.icon;
                     return (
                       <div key={index} className="text-center">
@@ -423,16 +375,18 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
           </div>
 
           {/* Related Properties */}
-          <div className="mt-24">
-            <h3 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
-              Similar Properties
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {relatedProperties.map((property) => (
-                <PropertyCard key={property.id} {...property} />
-              ))}
+          {relatedProperties.length > 0 && (
+            <div className="mt-24">
+              <h3 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
+                Similar Properties
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {relatedProperties.map((relatedProperty) => (
+                  <PropertyCard key={relatedProperty.id} {...relatedProperty} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
