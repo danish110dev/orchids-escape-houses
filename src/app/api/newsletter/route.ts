@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 // In-memory rate limiting (use Redis in production)
 const submissions = new Map<string, { count: number; timestamp: number; emails: Set<string> }>();
+const ipBlacklist = new Set<string>(); // IPs that failed too many times
 
-// Expanded list of disposable email domains
+// MASSIVELY expanded disposable email list (100+ domains)
 const disposableEmailDomains = [
   'tempmail.com', 'guerrillamail.com', '10minutemail.com', 'throwaway.email',
   'mailinator.com', 'maildrop.cc', 'yopmail.com', 'temp-mail.org',
@@ -13,21 +14,53 @@ const disposableEmailDomains = [
   'mohmal.com', 'guerrillamailblock.com', 'tmpeml.info', 'cuvox.de',
   'disposableemailaddresses.com', 'emailtemporario.com.br', 'anonymbox.com',
   'burnermail.io', 'getairmail.com', 'mailsac.com', 'armyspy.com',
-  'cuvox.de', 'dayrep.com', 'einrot.com', 'fleckens.hu', 'gustr.com',
-  'jourrapide.com', 'rhyta.com', 'superrito.com', 'teleworm.us'
+  'dayrep.com', 'einrot.com', 'fleckens.hu', 'gustr.com',
+  'jourrapide.com', 'rhyta.com', 'superrito.com', 'teleworm.us',
+  // Additional 60+ domains
+  'inbox.com', 'dropmail.me', 'spambox.us', 'fakemail.net', 'throwawaymail.com',
+  '33mail.com', 'guerrillamail.biz', 'guerrillamail.de', 'spam4.me', 'grr.la',
+  'guerrillamail.net', 'guerrillamail.org', 'guerrillamailblock.com', 'pokemail.net',
+  'spam.la', 'tempail.com', 'tempemail.net', '10minutemail.net', '20minutemail.com',
+  'emailsensei.com', 'trashcanmail.com', 'emailgo.de', 'kickassideas.com',
+  'getonemail.com', 'mytempemail.com', 'mailcatch.com', 'emailias.com',
+  'mailexpire.com', 'rcpt.at', 'trashmail.net', 'wegwerfmail.de', 'trashmail.ws',
+  'mailforspam.com', 'fudgerub.com', 'lookugly.com', 'spamavert.com',
+  'spamfree24.org', 'spamgourmet.org', 'kasmail.com', 'spamhereplease.com',
+  'bccto.me', 'mailhazard.com', 'sogetthis.com', 'spambox.info', 'tempemail.biz',
+  'jetable.org', 'link2mail.net', 'meltmail.com', 'mt2014.com', 'trbvm.com',
+  'digitalsanctuary.com', 'brefmail.com', 'ovpn.to', 'emltmp.com', 'incognitomail.org',
+  'mailtemp.info', 'spamcon.org', 'luxusmail.org', 'zippymail.info', 'iroid.com',
+  'spamthisplease.com', 'mailimate.com', 'guerrillamail.info', 'poofy.org',
+  'mfsa.ru', 'notsharingmy.info', 'vomoto.com', 'spamoff.de', 'spam.su'
 ];
 
-// Suspicious email patterns
+// Enhanced suspicious patterns - MORE AGGRESSIVE
 const suspiciousPatterns = [
-  /^[a-z]{20,}@/i, // Very long random letters
-  /^\d{10,}@/, // Too many numbers at start
-  /^[a-z0-9]{30,}@/i, // Extremely long alphanumeric
+  /^[a-z]{15,}@/i, // Long random letters (reduced from 20 to 15)
+  /^\d{8,}@/, // Many numbers (reduced from 10 to 8)
+  /^[a-z0-9]{25,}@/i, // Long alphanumeric (reduced from 30 to 25)
   /test\d+@/i, // test1@, test123@
   /spam@/i, // Contains 'spam'
   /noreply@/i, // noreply addresses
   /^admin@/i, // admin addresses
-  /^info@/i, // info addresses
-  /^[a-z]\d+[a-z]\d+@/i, // Alternating letters/numbers pattern
+  /^info@/i, // info addresses  
+  /^[a-z]\d+[a-z]\d+@/i, // Alternating letters/numbers
+  /^support@/i, // support addresses
+  /^sales@/i, // sales addresses
+  /^contact@/i, // contact addresses
+  /^\d+@/, // Starts with numbers
+  /^[a-z]{1,2}@/i, // Very short local part (1-2 chars)
+  /^[^@]+\d{5,}@/, // Ends with many numbers before @
+  /^[a-z0-9._-]{50,}@/i, // Extremely long local part
+  /\.ru$/, // Russian domains (often spam)
+  /\.tk$/, // Tokelau domains (often spam)
+  /\.ga$/, // Gabon domains (often spam)
+  /\.ml$/, // Mali domains (often spam)
+  /\.cf$/, // Central African Republic (often spam)
+  /\.gq$/, // Equatorial Guinea (often spam)
+  /\+.*@/, // Plus addressing (often used by spammers)
+  /^[0-9a-f]{32}@/i, // MD5-like hash
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}@/i, // UUID format
 ];
 
 function cleanupOldSubmissions() {
@@ -43,7 +76,8 @@ function cleanupOldSubmissions() {
 
 function isDisposableEmail(email: string): boolean {
   const domain = email.split('@')[1]?.toLowerCase();
-  return disposableEmailDomains.some(disposable => domain === disposable);
+  if (!domain) return true;
+  return disposableEmailDomains.some(disposable => domain === disposable || domain.endsWith('.' + disposable));
 }
 
 function isSuspiciousEmail(email: string): boolean {
@@ -59,19 +93,49 @@ function getClientIP(request: NextRequest): string {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, honeypot, timestamp, challenge } = body;
+    const { email, honeypot, timestamp, challenge, userInteraction } = body;
 
-    // 1. HONEYPOT CHECK - Bot trap
+    const clientIP = getClientIP(request);
+
+    // 0. CHECK IP BLACKLIST
+    if (ipBlacklist.has(clientIP)) {
+      console.log("Spam detected: Blacklisted IP -", clientIP);
+      return NextResponse.json(
+        { error: "Too many failed attempts" },
+        { status: 403 }
+      );
+    }
+
+    // 1. HONEYPOT CHECK
     if (honeypot) {
       console.log("Spam detected: Honeypot filled");
+      ipBlacklist.add(clientIP); // Blacklist this IP
       return NextResponse.json(
         { error: "Invalid submission" },
         { status: 400 }
       );
     }
 
-    // 2. JAVASCRIPT CHALLENGE - Verify client-side calculation
-    const expectedChallenge = Math.floor(Date.now() / 10000); // Changes every 10 seconds
+    // 2. USER INTERACTION CHECK - Must have clicked/typed
+    if (!userInteraction || !userInteraction.clicks || !userInteraction.keystrokes) {
+      console.log("Spam detected: No user interaction");
+      return NextResponse.json(
+        { error: "Please interact with the form" },
+        { status: 400 }
+      );
+    }
+
+    // Verify reasonable interaction (at least 2 clicks and some typing)
+    if (userInteraction.clicks < 2 || userInteraction.keystrokes < 5) {
+      console.log("Spam detected: Insufficient user interaction");
+      return NextResponse.json(
+        { error: "Please complete the form properly" },
+        { status: 400 }
+      );
+    }
+
+    // 3. JAVASCRIPT CHALLENGE
+    const expectedChallenge = Math.floor(Date.now() / 10000);
     if (!challenge || Math.abs(parseInt(challenge) - expectedChallenge) > 2) {
       console.log("Spam detected: Failed JavaScript challenge");
       return NextResponse.json(
@@ -80,7 +144,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 3. VALIDATE EMAIL
+    // 4. VALIDATE EMAIL
     if (!email || typeof email !== "string") {
       return NextResponse.json(
         { error: "Email is required" },
@@ -88,9 +152,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Email must be lowercase for consistency
     const normalizedEmail = email.toLowerCase().trim();
 
+    // Basic format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(normalizedEmail)) {
       return NextResponse.json(
@@ -99,7 +163,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 4. CHECK DISPOSABLE EMAIL
+    // 5. CHECK DISPOSABLE EMAIL
     if (isDisposableEmail(normalizedEmail)) {
       console.log("Spam detected: Disposable email -", normalizedEmail);
       return NextResponse.json(
@@ -108,7 +172,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. CHECK SUSPICIOUS PATTERNS
+    // 6. CHECK SUSPICIOUS PATTERNS
     if (isSuspiciousEmail(normalizedEmail)) {
       console.log("Spam detected: Suspicious pattern -", normalizedEmail);
       return NextResponse.json(
@@ -117,23 +181,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 6. TIME-BASED CHECK - Form filled too quickly (increased to 5 seconds)
+    // 7. TIME-BASED CHECK (increased to 8 seconds minimum)
     if (timestamp) {
       const submitTime = Date.now();
       const formLoadTime = parseInt(timestamp);
       const timeDiff = submitTime - formLoadTime;
       
-      // If form submitted in less than 5 seconds, likely a bot
-      if (timeDiff < 5000) {
-        console.log("Spam detected: Form submitted too quickly");
+      // Must take at least 8 seconds
+      if (timeDiff < 8000) {
+        console.log("Spam detected: Form submitted too quickly -", timeDiff, "ms");
         return NextResponse.json(
           { error: "Please take your time filling the form" },
           { status: 400 }
         );
       }
 
-      // Also check if form was open for suspiciously long (> 30 minutes)
-      if (timeDiff > 1800000) {
+      // Max 20 minutes (reduced from 30)
+      if (timeDiff > 1200000) {
         console.log("Spam detected: Form open too long");
         return NextResponse.json(
           { error: "Form expired. Please refresh and try again." },
@@ -142,11 +206,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 7. RATE LIMITING - IP-based (reduced to 2 per hour)
+    // 8. RATE LIMITING - REDUCED TO 1 PER HOUR
     cleanupOldSubmissions();
-    const clientIP = getClientIP(request);
     const now = Date.now();
-    const oneHour = 60 * 60 * 1000;
     
     const ipData = submissions.get(clientIP) || { 
       count: 0, 
@@ -154,7 +216,7 @@ export async function POST(request: NextRequest) {
       emails: new Set() 
     };
 
-    // Check if this email was already submitted from this IP recently
+    // Check if email already subscribed from this IP
     if (ipData.emails.has(normalizedEmail)) {
       return NextResponse.json(
         { error: "This email is already subscribed" },
@@ -162,52 +224,64 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Allow max 2 submissions per hour per IP (reduced from 3)
-    if (ipData.count >= 2) {
+    // ONLY 1 SUBMISSION PER HOUR PER IP
+    if (ipData.count >= 1) {
       console.log("Spam detected: Rate limit exceeded for IP", clientIP);
       return NextResponse.json(
-        { error: "Too many subscription attempts. Please try again later." },
+        { error: "Too many subscription attempts. Please try again in 1 hour." },
         { status: 429 }
       );
     }
 
-    // Update rate limiting data
+    // Update rate limiting
     ipData.count += 1;
     ipData.timestamp = now;
     ipData.emails.add(normalizedEmail);
     submissions.set(clientIP, ipData);
 
-    // 8. EMAIL LENGTH CHECK
-    if (normalizedEmail.length > 100 || normalizedEmail.length < 5) {
+    // 9. EMAIL LENGTH CHECK (stricter)
+    if (normalizedEmail.length > 80 || normalizedEmail.length < 6) {
       return NextResponse.json(
         { error: "Invalid email address" },
         { status: 400 }
       );
     }
 
-    // 9. DOMAIN VALIDATION - Must have valid TLD
+    // 10. DOMAIN VALIDATION
     const domain = normalizedEmail.split('@')[1];
-    if (!domain || !domain.includes('.') || domain.endsWith('.')) {
+    if (!domain || !domain.includes('.') || domain.endsWith('.') || domain.startsWith('.')) {
       return NextResponse.json(
         { error: "Invalid email domain" },
         { status: 400 }
       );
     }
 
-    // TODO: Store email in your database or email marketing service
-    console.log("✅ Valid newsletter subscription:", normalizedEmail);
+    // 11. CHECK FOR COMMON LEGITIMATE DOMAINS (whitelist approach)
+    const trustedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'protonmail.com', 'aol.com', 'live.com', 'msn.com', 'me.com'];
+    const isTrustedDomain = trustedDomains.some(trusted => domain === trusted || domain.endsWith('.' + trusted));
     
-    // In production, you would:
-    // 1. Store in database
-    // 2. Or send to email marketing service (Mailchimp, ConvertKit, etc.)
-    // 3. Send confirmation email
+    // If not a trusted domain, apply extra scrutiny
+    if (!isTrustedDomain) {
+      // Check if domain has valid TLD (at least 2 chars)
+      const tld = domain.split('.').pop();
+      if (!tld || tld.length < 2 || tld.length > 6) {
+        console.log("Spam detected: Invalid TLD -", domain);
+        return NextResponse.json(
+          { error: "Invalid email domain" },
+          { status: 400 }
+        );
+      }
+    }
+
+    console.log("✅ Valid newsletter subscription:", normalizedEmail, "from IP:", clientIP);
     
-    // Example with database (uncomment when ready):
+    // TODO: Store in database
     // await db.insert(newsletterSubscriptions).values({
     //   email: normalizedEmail,
     //   subscribedAt: new Date(),
     //   source: 'homepage',
-    //   ipAddress: clientIP
+    //   ipAddress: clientIP,
+    //   userAgent: request.headers.get('user-agent')
     // });
 
     return NextResponse.json(
