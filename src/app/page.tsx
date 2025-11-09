@@ -188,7 +188,7 @@ export default function Home() {
           bedrooms: prop.bedrooms,
           priceFrom: prop.priceFromWeekend,
           image: prop.heroImage,
-          features: [], // Will be fetched separately if needed
+          features: [],
           slug: prop.slug,
         }));
 
@@ -208,7 +208,7 @@ export default function Home() {
           rating: review.rating,
           comment: review.comment,
           date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-          property: review.propertyId ? 'Property' : undefined, // Will need to fetch property name if needed
+          property: review.propertyId ? 'Property' : undefined,
           image: review.guestImage,
         }));
 
@@ -218,7 +218,6 @@ export default function Home() {
       } catch (error) {
         console.error('Error fetching data:', error);
         setDataError('Unable to load some content. Please refresh the page.');
-        // Keep empty arrays as fallback
         setFeaturedProperties([]);
         setExperiences([]);
         setReviews([]);
