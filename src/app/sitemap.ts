@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://groupescapehouses.co.uk';
+  // Use localhost for internal API calls during build
+  const apiBaseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const currentDate = new Date().toISOString();
   
   // Static routes with optimized priorities for AI search
@@ -95,8 +97,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic properties from database
   let propertyRoutes: MetadataRoute.Sitemap = [];
   try {
-    const propertiesRes = await fetch(`${baseUrl}/api/properties?isPublished=true`, {
-      cache: 'no-store'
+    const propertiesRes = await fetch(`${apiBaseUrl}/api/properties?isPublished=true`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (propertiesRes.ok) {
       const properties = await propertiesRes.json();
@@ -114,8 +119,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic experiences from database
   let experienceRoutes: MetadataRoute.Sitemap = [];
   try {
-    const experiencesRes = await fetch(`${baseUrl}/api/experiences?isPublished=true`, {
-      cache: 'no-store'
+    const experiencesRes = await fetch(`${apiBaseUrl}/api/experiences?isPublished=true`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (experiencesRes.ok) {
       const experiences = await experiencesRes.json();
@@ -133,8 +141,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic destinations from database
   let destinationRoutes: MetadataRoute.Sitemap = [];
   try {
-    const destinationsRes = await fetch(`${baseUrl}/api/destinations?isPublished=true`, {
-      cache: 'no-store'
+    const destinationsRes = await fetch(`${apiBaseUrl}/api/destinations?isPublished=true`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (destinationsRes.ok) {
       const destinations = await destinationsRes.json();
@@ -152,8 +163,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic blog posts from database
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
-    const blogRes = await fetch(`${baseUrl}/api/blog?isPublished=true`, {
-      cache: 'no-store'
+    const blogRes = await fetch(`${apiBaseUrl}/api/blog?isPublished=true`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (blogRes.ok) {
       const blogPosts = await blogRes.json();
