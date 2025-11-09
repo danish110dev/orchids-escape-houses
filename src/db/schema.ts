@@ -24,7 +24,6 @@ export const bookings = sqliteTable('bookings', {
   updatedAt: text('updated_at').notNull(),
 });
 
-
 // Auth tables for better-auth
 export const user = sqliteTable("user", {
   id: text("id").primaryKey(),
@@ -88,4 +87,177 @@ export const verification = sqliteTable("verification", {
   updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(
     () => new Date(),
   ),
+});
+
+// CMS Tables
+
+// Properties table
+export const properties = sqliteTable('properties', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  slug: text('slug').notNull().unique(),
+  location: text('location').notNull(),
+  region: text('region').notNull(),
+  sleepsMin: integer('sleeps_min').notNull(),
+  sleepsMax: integer('sleeps_max').notNull(),
+  bedrooms: integer('bedrooms').notNull(),
+  bathrooms: integer('bathrooms').notNull(),
+  priceFromMidweek: real('price_from_midweek').notNull(),
+  priceFromWeekend: real('price_from_weekend').notNull(),
+  description: text('description').notNull(),
+  houseRules: text('house_rules'),
+  checkInOut: text('check_in_out'),
+  iCalURL: text('ical_url'),
+  heroImage: text('hero_image').notNull(),
+  heroVideo: text('hero_video'),
+  floorplanURL: text('floorplan_url'),
+  mapLat: real('map_lat'),
+  mapLng: real('map_lng'),
+  ownerContact: text('owner_contact'),
+  featured: integer('featured', { mode: 'boolean' }).default(false),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(true),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// Property images table
+export const propertyImages = sqliteTable('property_images', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  propertyId: integer('property_id').notNull().references(() => properties.id, { onDelete: 'cascade' }),
+  imageURL: text('image_url').notNull(),
+  caption: text('caption'),
+  orderIndex: integer('order_index').default(0),
+  createdAt: text('created_at').notNull(),
+});
+
+// Property features table
+export const propertyFeatures = sqliteTable('property_features', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  propertyId: integer('property_id').notNull().references(() => properties.id, { onDelete: 'cascade' }),
+  featureName: text('feature_name').notNull(),
+  createdAt: text('created_at').notNull(),
+});
+
+// Experiences table
+export const experiences = sqliteTable('experiences', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  slug: text('slug').notNull().unique(),
+  duration: text('duration').notNull(),
+  groupSizeMin: integer('group_size_min').notNull(),
+  groupSizeMax: integer('group_size_max').notNull(),
+  priceFrom: real('price_from').notNull(),
+  description: text('description').notNull(),
+  included: text('included', { mode: 'json' }),
+  whatToProvide: text('what_to_provide', { mode: 'json' }),
+  heroImage: text('hero_image').notNull(),
+  category: text('category'),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(true),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// Experience images table
+export const experienceImages = sqliteTable('experience_images', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  experienceId: integer('experience_id').notNull().references(() => experiences.id, { onDelete: 'cascade' }),
+  imageURL: text('image_url').notNull(),
+  orderIndex: integer('order_index').default(0),
+  createdAt: text('created_at').notNull(),
+});
+
+// Experience FAQs table
+export const experienceFaqs = sqliteTable('experience_faqs', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  experienceId: integer('experience_id').notNull().references(() => experiences.id, { onDelete: 'cascade' }),
+  question: text('question').notNull(),
+  answer: text('answer').notNull(),
+  orderIndex: integer('order_index').default(0),
+  createdAt: text('created_at').notNull(),
+});
+
+// Destinations table
+export const destinations = sqliteTable('destinations', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  cityName: text('city_name').notNull(),
+  slug: text('slug').notNull().unique(),
+  region: text('region').notNull(),
+  overview: text('overview').notNull(),
+  travelTips: text('travel_tips'),
+  topVenues: text('top_venues', { mode: 'json' }),
+  heroImage: text('hero_image').notNull(),
+  mapArea: text('map_area'),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(true),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// Destination images table
+export const destinationImages = sqliteTable('destination_images', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  destinationId: integer('destination_id').notNull().references(() => destinations.id, { onDelete: 'cascade' }),
+  imageURL: text('image_url').notNull(),
+  caption: text('caption'),
+  orderIndex: integer('order_index').default(0),
+  createdAt: text('created_at').notNull(),
+});
+
+// Reviews table
+export const reviews = sqliteTable('reviews', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  guestName: text('guest_name').notNull(),
+  rating: integer('rating').notNull(),
+  comment: text('comment').notNull(),
+  propertyId: integer('property_id').references(() => properties.id),
+  reviewDate: text('review_date').notNull(),
+  guestImage: text('guest_image'),
+  isApproved: integer('is_approved', { mode: 'boolean' }).default(false),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(false),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// Blog posts table
+export const blogPosts = sqliteTable('blog_posts', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  slug: text('slug').notNull().unique(),
+  excerpt: text('excerpt').notNull(),
+  body: text('body').notNull(),
+  featuredImage: text('featured_image').notNull(),
+  category: text('category').notNull(),
+  tags: text('tags', { mode: 'json' }),
+  author: text('author').notNull(),
+  seoTitle: text('seo_title'),
+  seoDescription: text('seo_description'),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(false),
+  publishedAt: text('published_at'),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// FAQs table
+export const faqs = sqliteTable('faqs', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  question: text('question').notNull(),
+  answer: text('answer').notNull(),
+  category: text('category').notNull(),
+  orderIndex: integer('order_index').default(0),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(true),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
+});
+
+// Partners table
+export const partners = sqliteTable('partners', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  name: text('name').notNull(),
+  type: text('type').notNull(),
+  region: text('region'),
+  website: text('website'),
+  contactEmail: text('contact_email'),
+  commissionNotes: text('commission_notes'),
+  isActive: integer('is_active', { mode: 'boolean' }).default(true),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at').notNull(),
 });
