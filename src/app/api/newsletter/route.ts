@@ -3,11 +3,31 @@ import { NextRequest, NextResponse } from "next/server";
 // In-memory rate limiting (use Redis in production)
 const submissions = new Map<string, { count: number; timestamp: number; emails: Set<string> }>();
 
-// List of common disposable email domains
+// Expanded list of disposable email domains
 const disposableEmailDomains = [
   'tempmail.com', 'guerrillamail.com', '10minutemail.com', 'throwaway.email',
   'mailinator.com', 'maildrop.cc', 'yopmail.com', 'temp-mail.org',
-  'trashmail.com', 'getnada.com', 'fakeinbox.com', 'sharklasers.com'
+  'trashmail.com', 'getnada.com', 'fakeinbox.com', 'sharklasers.com',
+  'temp-mail.io', 'mintemail.com', 'emailondeck.com', 'tempinbox.com',
+  'discard.email', 'spamgourmet.com', 'mailnesia.com', 'mytrashmail.com',
+  'mohmal.com', 'guerrillamailblock.com', 'tmpeml.info', 'cuvox.de',
+  'disposableemailaddresses.com', 'emailtemporario.com.br', 'anonymbox.com',
+  'burnermail.io', 'getairmail.com', 'mailsac.com', 'armyspy.com',
+  'cuvox.de', 'dayrep.com', 'einrot.com', 'fleckens.hu', 'gustr.com',
+  'jourrapide.com', 'rhyta.com', 'superrito.com', 'teleworm.us'
+];
+
+// Suspicious email patterns
+const suspiciousPatterns = [
+  /^[a-z]{20,}@/i, // Very long random letters
+  /^\d{10,}@/, // Too many numbers at start
+  /^[a-z0-9]{30,}@/i, // Extremely long alphanumeric
+  /test\d+@/i, // test1@, test123@
+  /spam@/i, // Contains 'spam'
+  /noreply@/i, // noreply addresses
+  /^admin@/i, // admin addresses
+  /^info@/i, // info addresses
+  /^[a-z]\d+[a-z]\d+@/i, // Alternating letters/numbers pattern
 ];
 
 function cleanupOldSubmissions() {
@@ -26,6 +46,10 @@ function isDisposableEmail(email: string): boolean {
   return disposableEmailDomains.some(disposable => domain === disposable);
 }
 
+function isSuspiciousEmail(email: string): boolean {
+  return suspiciousPatterns.some(pattern => pattern.test(email));
+}
+
 function getClientIP(request: NextRequest): string {
   return request.headers.get('x-forwarded-for')?.split(',')[0] || 
          request.headers.get('x-real-ip') || 
@@ -35,7 +59,7 @@ function getClientIP(request: NextRequest): string {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, honeypot, timestamp } = body;
+    const { email, honeypot, timestamp, challenge } = body;
 
     // 1. HONEYPOT CHECK - Bot trap
     if (honeypot) {
@@ -46,7 +70,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. VALIDATE EMAIL
+    // 2. JAVASCRIPT CHALLENGE - Verify client-side calculation
+    const expectedChallenge = Math.floor(Date.now() / 10000); // Changes every 10 seconds
+    if (!challenge || Math.abs(parseInt(challenge) - expectedChallenge) > 2) {
+      console.log("Spam detected: Failed JavaScript challenge");
+      return NextResponse.json(
+        { error: "Security verification failed" },
+        { status: 400 }
+      );
+    }
+
+    // 3. VALIDATE EMAIL
     if (!email || typeof email !== "string") {
       return NextResponse.json(
         { error: "Email is required" },
@@ -54,40 +88,61 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Email must be lowercase for consistency
+    const normalizedEmail = email.toLowerCase().trim();
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(normalizedEmail)) {
       return NextResponse.json(
         { error: "Invalid email format" },
         { status: 400 }
       );
     }
 
-    // 3. CHECK DISPOSABLE EMAIL
-    if (isDisposableEmail(email)) {
-      console.log("Spam detected: Disposable email -", email);
+    // 4. CHECK DISPOSABLE EMAIL
+    if (isDisposableEmail(normalizedEmail)) {
+      console.log("Spam detected: Disposable email -", normalizedEmail);
       return NextResponse.json(
         { error: "Please use a permanent email address" },
         { status: 400 }
       );
     }
 
-    // 4. TIME-BASED CHECK - Form filled too quickly
+    // 5. CHECK SUSPICIOUS PATTERNS
+    if (isSuspiciousEmail(normalizedEmail)) {
+      console.log("Spam detected: Suspicious pattern -", normalizedEmail);
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    // 6. TIME-BASED CHECK - Form filled too quickly (increased to 5 seconds)
     if (timestamp) {
       const submitTime = Date.now();
       const formLoadTime = parseInt(timestamp);
       const timeDiff = submitTime - formLoadTime;
       
-      // If form submitted in less than 3 seconds, likely a bot
-      if (timeDiff < 3000) {
+      // If form submitted in less than 5 seconds, likely a bot
+      if (timeDiff < 5000) {
         console.log("Spam detected: Form submitted too quickly");
         return NextResponse.json(
           { error: "Please take your time filling the form" },
           { status: 400 }
         );
       }
+
+      // Also check if form was open for suspiciously long (> 30 minutes)
+      if (timeDiff > 1800000) {
+        console.log("Spam detected: Form open too long");
+        return NextResponse.json(
+          { error: "Form expired. Please refresh and try again." },
+          { status: 400 }
+        );
+      }
     }
 
-    // 5. RATE LIMITING - IP-based
+    // 7. RATE LIMITING - IP-based (reduced to 2 per hour)
     cleanupOldSubmissions();
     const clientIP = getClientIP(request);
     const now = Date.now();
@@ -100,15 +155,15 @@ export async function POST(request: NextRequest) {
     };
 
     // Check if this email was already submitted from this IP recently
-    if (ipData.emails.has(email)) {
+    if (ipData.emails.has(normalizedEmail)) {
       return NextResponse.json(
         { error: "This email is already subscribed" },
         { status: 400 }
       );
     }
 
-    // Allow max 3 submissions per hour per IP
-    if (ipData.count >= 3) {
+    // Allow max 2 submissions per hour per IP (reduced from 3)
+    if (ipData.count >= 2) {
       console.log("Spam detected: Rate limit exceeded for IP", clientIP);
       return NextResponse.json(
         { error: "Too many subscription attempts. Please try again later." },
@@ -119,19 +174,28 @@ export async function POST(request: NextRequest) {
     // Update rate limiting data
     ipData.count += 1;
     ipData.timestamp = now;
-    ipData.emails.add(email);
+    ipData.emails.add(normalizedEmail);
     submissions.set(clientIP, ipData);
 
-    // 6. EMAIL LENGTH CHECK
-    if (email.length > 100) {
+    // 8. EMAIL LENGTH CHECK
+    if (normalizedEmail.length > 100 || normalizedEmail.length < 5) {
       return NextResponse.json(
-        { error: "Email address too long" },
+        { error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    // 9. DOMAIN VALIDATION - Must have valid TLD
+    const domain = normalizedEmail.split('@')[1];
+    if (!domain || !domain.includes('.') || domain.endsWith('.')) {
+      return NextResponse.json(
+        { error: "Invalid email domain" },
         { status: 400 }
       );
     }
 
     // TODO: Store email in your database or email marketing service
-    console.log("✅ Valid newsletter subscription:", email);
+    console.log("✅ Valid newsletter subscription:", normalizedEmail);
     
     // In production, you would:
     // 1. Store in database
@@ -140,7 +204,7 @@ export async function POST(request: NextRequest) {
     
     // Example with database (uncomment when ready):
     // await db.insert(newsletterSubscriptions).values({
-    //   email,
+    //   email: normalizedEmail,
     //   subscribedAt: new Date(),
     //   source: 'homepage',
     //   ipAddress: clientIP
