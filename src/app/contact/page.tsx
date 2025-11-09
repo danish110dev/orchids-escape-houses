@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,6 +26,36 @@ export default function ContactPage() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Spam protection state
+  const [formLoadTime, setFormLoadTime] = useState<number>(0);
+  const [honeypot, setHoneypot] = useState("");
+  const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Track form load time
+  useEffect(() => {
+    setFormLoadTime(Date.now());
+
+    // Track user interaction
+    const trackClick = () => {
+      setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
+    };
+
+    const trackKeypress = () => {
+      setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
+    };
+
+    if (formRef.current) {
+      formRef.current.addEventListener('click', trackClick);
+      formRef.current.addEventListener('keydown', trackKeypress);
+      
+      return () => {
+        formRef.current?.removeEventListener('click', trackClick);
+        formRef.current?.removeEventListener('keydown', trackKeypress);
+      };
+    }
+  }, []);
 
   // Only these experiences have actual pages
   const experiencesWithPages = [
@@ -94,15 +124,26 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // Log form data for debugging
-      console.log("Form Data Submitted:", {
-        ...formData,
-        experiencesCount: formData.experiences.length,
-        experiencesSelected: formData.experiences,
+      // Generate JavaScript challenge
+      const challenge = Math.floor(Date.now() / 10000).toString();
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          honeypot,
+          timestamp: formLoadTime.toString(),
+          challenge,
+          userInteraction
+        })
       });
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send enquiry');
+      }
 
       toast.success("Enquiry sent successfully! We'll be in touch within 2 hours.");
       
@@ -118,8 +159,9 @@ export default function ContactPage() {
         message: "",
       });
       setDateRange({});
+      setUserInteraction({ clicks: 0, keystrokes: 0 });
     } catch (error) {
-      toast.error("Failed to send enquiry. Please try again.");
+      toast.error(error instanceof Error ? error.message : "Failed to send enquiry. Please try again.");
       console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
@@ -239,7 +281,24 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)" }}>
                   Send Us an Enquiry
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field - hidden from users */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    style={{ 
+                      position: 'absolute', 
+                      left: '-9999px',
+                      width: '1px',
+                      height: '1px'
+                    }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2">Your Name *</label>

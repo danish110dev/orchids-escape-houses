@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Calendar, ExternalLink } from "lucide-react";
+import { toast } from "sonner";
 
 interface EnquiryFormProps {
   propertyTitle?: string;
@@ -16,6 +17,35 @@ interface EnquiryFormProps {
 export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  // Spam protection state
+  const [formLoadTime, setFormLoadTime] = useState<number>(0);
+  const [honeypot, setHoneypot] = useState("");
+  const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Track form load time and user interaction
+  useEffect(() => {
+    setFormLoadTime(Date.now());
+
+    const trackClick = () => {
+      setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
+    };
+
+    const trackKeypress = () => {
+      setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
+    };
+
+    if (formRef.current) {
+      formRef.current.addEventListener('click', trackClick);
+      formRef.current.addEventListener('keydown', trackKeypress);
+      
+      return () => {
+        formRef.current?.removeEventListener('click', trackClick);
+        formRef.current?.removeEventListener('keydown', trackKeypress);
+      };
+    }
+  }, []);
 
   // Helper function to convert experience name to URL slug
   const experienceToSlug = (name: string) => {
@@ -26,11 +56,49 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const addons = formData.getAll('addons');
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      // Generate JavaScript challenge
+      const challenge = Math.floor(Date.now() / 10000).toString();
+
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          checkin: formData.get('checkin'),
+          checkout: formData.get('checkout'),
+          groupSize: formData.get('groupSize'),
+          occasion: formData.get('occasion'),
+          addons,
+          message: formData.get('message'),
+          propertyTitle,
+          propertySlug,
+          honeypot,
+          timestamp: formLoadTime.toString(),
+          challenge,
+          userInteraction
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send enquiry');
+      }
+
+      setIsSubmitted(true);
+      toast.success("Enquiry sent successfully! Our team will get back to you within 24 hours.");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to send enquiry. Please try again.");
+      console.error("Enquiry submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -67,7 +135,24 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         Check dates and enquire
       </h3>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot field - hidden from users */}
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          style={{ 
+            position: 'absolute', 
+            left: '-9999px',
+            width: '1px',
+            height: '1px'
+          }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
         {/* Name */}
         <div>
           <Label htmlFor="name" className="text-sm font-medium mb-2 block">
