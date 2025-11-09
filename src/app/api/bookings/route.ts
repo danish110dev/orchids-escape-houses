@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { bookings } from '@/db/schema';
 import { eq, like, and, or, desc, asc, gte, lte } from 'drizzle-orm';
+import { checkForSpam, type SpamCheckData } from '@/lib/spam-protection';
 
 // Email validation regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -159,6 +160,25 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid email format', code: 'INVALID_EMAIL' },
         { status: 400 }
+      );
+    }
+
+    // Run comprehensive spam check
+    const spamCheckData: SpamCheckData = {
+      email: guestEmail,
+      honeypot: body.honeypot,
+      timestamp: body.timestamp,
+      challenge: body.challenge,
+      userInteraction: body.userInteraction
+    };
+
+    const spamCheck = await checkForSpam(request, spamCheckData);
+
+    if (spamCheck.isSpam) {
+      console.log(`🚫 Booking spam blocked: ${spamCheck.reason}`);
+      return NextResponse.json(
+        { error: spamCheck.reason || 'Submission rejected', code: 'SPAM_DETECTED' },
+        { status: 429 }
       );
     }
 
