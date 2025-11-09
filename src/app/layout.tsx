@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://groupescapehouses.co.uk/",
   },
+  verification: {
+    google: "your-google-verification-code-here", // Replace with your actual code
+  },
   // Icons are automatically generated from icon.tsx and apple-icon.tsx
   openGraph: {
     title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
@@ -90,6 +93,61 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+        
+        {/* Organization Schema */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Group Escape Houses",
+              "url": "https://groupescapehouses.co.uk",
+              "logo": "https://groupescapehouses.co.uk/logo.png",
+              "description": "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "11a North St, Brighton and Hove",
+                "addressLocality": "Brighton",
+                "postalCode": "BN41 1DH",
+                "addressCountry": "GB"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+44-xxx-xxx-xxxx",
+                "contactType": "customer service",
+                "email": "hello@groupescapehouses.co.uk",
+                "areaServed": "GB",
+                "availableLanguage": "en"
+              },
+              "sameAs": [
+                "https://www.instagram.com/groupescapehouses/",
+                "https://www.tiktok.com/@groupescapehouses",
+                "https://www.pinterest.com/groupescapehouses"
+              ]
+            })
+          }}
+        />
+        
+        {/* Website Schema */}
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Group Escape Houses",
+              "url": "https://groupescapehouses.co.uk",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://groupescapehouses.co.uk/properties?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </head>
       <body className="antialiased">
         <ErrorReporter />
