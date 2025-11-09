@@ -4,19 +4,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://groupescapehouses.co.uk';
   const currentDate = new Date().toISOString();
   
-  // Static routes
+  // Static routes with optimized priorities for AI search
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily', // Homepage changes daily
       priority: 1.0,
     },
     {
       url: `${baseUrl}/properties`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      changeFrequency: 'daily', // Properties update frequently
+      priority: 0.9, // Very important for conversions
     },
     {
       url: `${baseUrl}/experiences`,
@@ -31,25 +31,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/how-it-works`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/reviews`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.7, // Important for trust signals
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.7, // Good for content SEO
     },
     {
       url: `${baseUrl}/our-story`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/house-styles-and-features`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -72,15 +90,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-    {
-      url: `${baseUrl}/house-styles-and-features`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
   ];
 
-  // Property pages
+  // Property pages - HIGH PRIORITY for conversions
   const propertyRoutes: MetadataRoute.Sitemap = [
     'brighton-manor',
     'bath-spa-retreat',
@@ -89,13 +101,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/properties/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
-    priority: 0.7,
+    priority: 0.8, // Individual properties are high value
   }));
 
   // Experience pages
   const experienceRoutes: MetadataRoute.Sitemap = [
     'private-chef',
     'cocktail-masterclass',
+    'sip-and-paint', // Added missing experience
     'spa-treatments',
     'pamper-party',
     'yoga-class',
@@ -107,7 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Destination pages
+  // Destination pages - HIGH PRIORITY for local SEO
   const destinationRoutes: MetadataRoute.Sitemap = [
     'brighton',
     'bath',
@@ -119,11 +132,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'newcastle',
     'cardiff',
     'bournemouth',
+    'edinburgh',
+    'scottish-highlands',
+    'snowdonia',
+    'devon',
+    'cotswolds',
+    'lake-district',
+    'birmingham',
+    'blackpool',
+    'bristol',
+    'cambridge',
+    'canterbury',
+    'cheltenham',
+    'chester',
+    'durham',
+    'exeter',
+    'harrogate',
+    'leeds',
+    'margate',
+    'nottingham',
+    'oxford',
+    'plymouth',
+    'sheffield',
+    'st-ives',
+    'stratford-upon-avon',
+    'windsor',
   ].map((slug) => ({
     url: `${baseUrl}/destinations/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.8, // Very important for location-based searches
   }));
 
   // Feature pages
@@ -179,7 +217,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/occasions/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.7, // Important for occasion-based searches
   }));
 
   // Direct occasion routes (without /occasions/ prefix)
@@ -196,7 +234,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.7,
   }));
 
   return [
