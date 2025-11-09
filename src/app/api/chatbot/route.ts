@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkForSpam, getClientIP } from "@/lib/spam-protection";
 
 const WEBSITE_CONTEXT = `
 You are a helpful assistant for Group Escape Houses, a luxury hen party accommodation provider in the UK.
@@ -49,9 +50,75 @@ HOUSE RULES (typical):
 Be friendly, helpful, and encourage enquiries. Always mention they can email hello@groupescapehouses.co.uk or visit the website for more details.
 `;
 
+// Rate limiting for chatbot (prevent spam)
+const chatRateLimits = new Map<string, { count: number; resetTime: number }>();
+const MAX_MESSAGES_PER_MINUTE = 10;
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+
+function checkChatRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const limit = chatRateLimits.get(ip);
+
+  if (!limit || now > limit.resetTime) {
+    // Reset or initialize
+    chatRateLimits.set(ip, {
+      count: 1,
+      resetTime: now + RATE_LIMIT_WINDOW_MS
+    });
+    return true;
+  }
+
+  if (limit.count >= MAX_MESSAGES_PER_MINUTE) {
+    return false; // Rate limit exceeded
+  }
+
+  limit.count++;
+  return true;
+}
+
+// Clean up old rate limit entries every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, limit] of chatRateLimits.entries()) {
+    if (now > limit.resetTime) {
+      chatRateLimits.delete(ip);
+    }
+  }
+}, 5 * 60 * 1000);
+
 export async function POST(req: NextRequest) {
   try {
     const { message, history } = await req.json();
+
+    // Basic validation
+    if (!message || typeof message !== 'string' || message.trim() === '') {
+      return NextResponse.json(
+        { reply: "Please enter a message." },
+        { status: 400 }
+      );
+    }
+
+    // Rate limiting
+    const ip = getClientIP(req);
+    if (!checkChatRateLimit(ip)) {
+      console.log(`🚫 Chatbot rate limit exceeded for IP: ${ip}`);
+      return NextResponse.json(
+        {
+          reply: "You're sending messages too quickly. Please slow down and try again in a moment.",
+        },
+        { status: 429 }
+      );
+    }
+
+    // Check message length (prevent extremely long messages)
+    if (message.length > 500) {
+      return NextResponse.json(
+        {
+          reply: "Your message is too long. Please keep it under 500 characters.",
+        },
+        { status: 400 }
+      );
+    }
 
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
