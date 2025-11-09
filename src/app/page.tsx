@@ -258,6 +258,8 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
+  // NEW: Track user interaction for spam prevention
+  const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
 
   // Search form state - with DateRange type
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
