@@ -415,7 +415,8 @@ export default function Home() {
           email,
           honeypot, // Bot trap
           timestamp: formLoadTime.toString(), // Time-based check
-          challenge // JavaScript verification
+          challenge, // JavaScript verification
+          userInteraction // User interaction tracking
         })
       });
       
@@ -427,6 +428,8 @@ export default function Home() {
       
       setSubmitStatus("success");
       setEmail("");
+      // Reset interaction tracking
+      setUserInteraction({ clicks: 0, keystrokes: 0 });
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
