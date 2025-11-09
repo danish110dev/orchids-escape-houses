@@ -277,6 +277,7 @@ export default function Home() {
   const dateFieldRef = useRef<HTMLButtonElement>(null);
   const announcementRef = useRef<HTMLDivElement>(null);
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const newsletterFormRef = useRef<HTMLFormElement>(null);
 
   // NEW: Refs for scroll-based scaling
   const heroRef = useRef<HTMLElement>(null);
@@ -1605,7 +1606,7 @@ export default function Home() {
               Subscribe for exclusive deals, house spotlights, and planning inspiration delivered to your inbox
             </p>
 
-            <form className="flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={handleEmailSubmit}>
+            <form className="flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={handleEmailSubmit} ref={newsletterFormRef}>
               {/* Honeypot field - hidden from users, bots will fill it */}
               <input
                 type="text"
