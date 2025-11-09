@@ -314,6 +314,20 @@ export default function Home() {
       elements.forEach(el => observer.observe(el));
     }, 100);
 
+    // NEW: Track user interaction on newsletter form for spam prevention
+    const trackClick = () => {
+      setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
+    };
+
+    const trackKeypress = () => {
+      setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
+    };
+
+    if (newsletterFormRef.current) {
+      newsletterFormRef.current.addEventListener('click', trackClick);
+      newsletterFormRef.current.addEventListener('keydown', trackKeypress);
+    }
+
     // NEW: Scroll-based scaling effect
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -366,6 +380,12 @@ export default function Home() {
       observer.disconnect();
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('scroll', scrollListener);
+      
+      // Cleanup interaction tracking
+      if (newsletterFormRef.current) {
+        newsletterFormRef.current.removeEventListener('click', trackClick);
+        newsletterFormRef.current.removeEventListener('keydown', trackKeypress);
+      }
     };
   }, []);
 
