@@ -43,142 +43,7 @@ const FAQSection = dynamic(() => import("@/components/FAQSection").catch(() => {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
 });
 
-// Move static data outside component to prevent re-creation on each render
-const featuredProperties = [
-  {
-    id: "1",
-    title: "The Brighton Manor",
-    location: "Brighton, East Sussex",
-    sleeps: 16,
-    bedrooms: 8,
-    priceFrom: 89,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-b6c21bf3-20251018131712.jpg",
-    features: ["Hot Tub", "Pool"],
-    slug: "brighton-manor",
-  },
-  {
-    id: "2",
-    title: "Bath Spa Retreat",
-    location: "Bath, Somerset",
-    sleeps: 20,
-    bedrooms: 10,
-    priceFrom: 95,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-71429268-20251018131719.jpg",
-    features: ["Games Room", "Cinema"],
-    slug: "bath-spa-retreat",
-  },
-  {
-    id: "3",
-    title: "Manchester Party House",
-    location: "Manchester, Greater Manchester",
-    sleeps: 14,
-    bedrooms: 7,
-    priceFrom: 79,
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-303caf30-20251018131730.jpg",
-    features: ["Hot Tub", "BBQ"],
-    slug: "manchester-party-house",
-  },
-];
-
-const experiences = [
-  {
-    title: "Private Chef Experience",
-    duration: "3-4 hours",
-    priceFrom: 55,
-    groupSize: "Any size",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
-    slug: "private-chef",
-  },
-  {
-    title: "Cocktail Masterclass",
-    duration: "2-3 hours",
-    priceFrom: 50,
-    groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/hen-party-cocktail-classes-4-e1657801576427.jpg-1760963913852.webp",
-    slug: "cocktail-masterclass",
-  },
-  {
-    title: "Sip & Paint",
-    duration: "2-3 hours",
-    priceFrom: 45,
-    groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-sip-a-b0921423-20251024095025.jpg",
-    slug: "sip-and-paint",
-  },
-  {
-    title: "Pamper Party",
-    duration: "2-3 hours",
-    priceFrom: 65,
-    groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-pamper-party-b3bca2c7-20251018123229.jpg?",
-    slug: "pamper-party",
-  },
-  {
-    title: "Yoga & Wellness Class",
-    duration: "1.5-2 hours",
-    priceFrom: 40,
-    groupSize: "8-20 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-yoga-class-i-48b5a9ef-20251018105055.jpg",
-    slug: "yoga-class",
-  },
-  {
-    title: "Murder Mystery Night",
-    duration: "3-4 hours",
-    priceFrom: 50,
-    groupSize: "10-30 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-murder-myste-09ddcc62-20251018105103.jpg",
-    slug: "murder-mystery",
-  },
-];
-
-const reviews = [
-  {
-    name: "Sophie M",
-    rating: 5,
-    comment: "Absolutely incredible weekend! The house was stunning, hot tub was perfect, and the cocktail class was so much fun. Can't recommend enough for hen parties!",
-    date: "January 2025",
-    property: "Brighton Manor",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-  },
-  {
-    name: "Emma L",
-    rating: 5,
-    comment: "Best hen do ever! The team were so helpful from start to finish. The house had everything we needed and more. The private chef was a lovely touch!",
-    date: "December 2024",
-    property: "Bath Spa Retreat",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-  },
-  {
-    name: "Rachel K",
-    rating: 5,
-    comment: "Planning was so easy and the house exceeded expectations. Games room kept us entertained for hours. Would definitely book again!",
-    date: "November 2024",
-    property: "Manchester Party House",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-  },
-  {
-    name: "Lucy T",
-    rating: 5,
-    comment: "The perfect hen weekend venue. Beautiful house, great location, and the add-on experiences made it extra special. Highly recommend!",
-    date: "October 2024",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
-  },
-  {
-    name: "Hannah P",
-    rating: 5,
-    comment: "Fantastic service from booking to checkout. The house was immaculate and had all the facilities we needed. Will be back!",
-    date: "September 2024",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
-  },
-  {
-    name: "Olivia S",
-    rating: 5,
-    comment: "Could not fault anything. The house was gorgeous, pool was amazing, and the whole experience was seamless. Thank you!",
-    date: "August 2024",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-  },
-];
-
+// Static destinations data for homepage showcase (not fetched from DB for homepage hero)
 const destinations = [
   { 
     name: "London", 
@@ -261,10 +126,16 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
-  // NEW: Track user interaction for spam prevention
   const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
 
-  // Search form state - with DateRange type
+  // NEW: Dynamic data from database
+  const [featuredProperties, setFeaturedProperties] = useState<any[]>([]);
+  const [experiences, setExperiences] = useState<any[]>([]);
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [isLoadingData, setIsLoadingData] = useState(true);
+  const [dataError, setDataError] = useState<string | null>(null);
+
+  // Search form state
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [destination, setDestination] = useState("");
   const [adults, setAdults] = useState(2);
@@ -281,12 +152,85 @@ export default function Home() {
   const announcementRef = useRef<HTMLDivElement>(null);
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const newsletterFormRef = useRef<HTMLFormElement>(null);
-
-  // NEW: Refs for scroll-based scaling
   const heroRef = useRef<HTMLElement>(null);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  // Optimized Intersection Observer + NEW: Scroll-based scaling
+  // Fetch dynamic data from database
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoadingData(true);
+        setDataError(null);
+
+        // Fetch featured properties, experiences, and reviews in parallel
+        const [propertiesRes, experiencesRes, reviewsRes] = await Promise.all([
+          fetch('/api/properties?featured=true&isPublished=true&limit=3'),
+          fetch('/api/experiences?isPublished=true&limit=6'),
+          fetch('/api/reviews?isApproved=true&isPublished=true&limit=6&sort=reviewDate&order=desc')
+        ]);
+
+        if (!propertiesRes.ok || !experiencesRes.ok || !reviewsRes.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const [propertiesData, experiencesData, reviewsData] = await Promise.all([
+          propertiesRes.json(),
+          experiencesRes.json(),
+          reviewsRes.json()
+        ]);
+
+        // Transform properties data to match PropertyCard props
+        const transformedProperties = propertiesData.map((prop: any) => ({
+          id: prop.id.toString(),
+          title: prop.title,
+          location: prop.location,
+          sleeps: prop.sleepsMax,
+          bedrooms: prop.bedrooms,
+          priceFrom: prop.priceFromWeekend,
+          image: prop.heroImage,
+          features: [], // Will be fetched separately if needed
+          slug: prop.slug,
+        }));
+
+        // Transform experiences data to match ExperienceCard props
+        const transformedExperiences = experiencesData.map((exp: any) => ({
+          title: exp.title,
+          duration: exp.duration,
+          priceFrom: exp.priceFrom,
+          groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
+          image: exp.heroImage,
+          slug: exp.slug,
+        }));
+
+        // Transform reviews data to match ReviewSlider props
+        const transformedReviews = reviewsData.map((review: any) => ({
+          name: review.guestName,
+          rating: review.rating,
+          comment: review.comment,
+          date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+          property: review.propertyId ? 'Property' : undefined, // Will need to fetch property name if needed
+          image: review.guestImage,
+        }));
+
+        setFeaturedProperties(transformedProperties);
+        setExperiences(transformedExperiences);
+        setReviews(transformedReviews);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setDataError('Unable to load some content. Please refresh the page.');
+        // Keep empty arrays as fallback
+        setFeaturedProperties([]);
+        setExperiences([]);
+        setReviews([]);
+      } finally {
+        setIsLoadingData(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Optimized Intersection Observer + Scroll-based scaling
   useEffect(() => {
     setMounted(true);
     setFormLoadTime(Date.now());
@@ -317,7 +261,7 @@ export default function Home() {
       elements.forEach(el => observer.observe(el));
     }, 100);
 
-    // NEW: Track user interaction on newsletter form for spam prevention
+    // Track user interaction on newsletter form for spam prevention
     const trackClick = () => {
       setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
     };
@@ -331,7 +275,7 @@ export default function Home() {
       newsletterFormRef.current.addEventListener('keydown', trackKeypress);
     }
 
-    // NEW: Scroll-based scaling effect
+    // Scroll-based scaling effect
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -339,8 +283,8 @@ export default function Home() {
       // Scale hero content based on scroll
       if (heroRef.current) {
         const heroProgress = Math.min(scrollY / windowHeight, 1);
-        const scale = 1 - heroProgress * 0.1; // Scale down from 1 to 0.9
-        const opacity = 1 - heroProgress * 0.5; // Fade out
+        const scale = 1 - heroProgress * 0.1;
+        const opacity = 1 - heroProgress * 0.5;
         heroRef.current.style.transform = `scale(${scale})`;
         heroRef.current.style.opacity = `${opacity}`;
       }
@@ -352,11 +296,9 @@ export default function Home() {
           const sectionTop = rect.top;
           const sectionHeight = rect.height;
           
-          // Calculate how much of the section is visible
           if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-            // Section is in viewport
             const visibleAmount = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
-            const scale = 0.95 + (visibleAmount * 0.05); // Scale from 0.95 to 1
+            const scale = 0.95 + (visibleAmount * 0.05);
             section.style.transform = `scale(${Math.min(scale, 1)})`;
             section.style.opacity = `${Math.min(visibleAmount * 2, 1)}`;
           }
@@ -384,7 +326,6 @@ export default function Home() {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('scroll', scrollListener);
       
-      // Cleanup interaction tracking
       if (newsletterFormRef.current) {
         newsletterFormRef.current.removeEventListener('click', trackClick);
         newsletterFormRef.current.removeEventListener('keydown', trackKeypress);
@@ -408,7 +349,6 @@ export default function Home() {
     setSubmitStatus("idle");
     
     try {
-      // Generate JavaScript challenge (must match backend calculation)
       const challenge = Math.floor(Date.now() / 10000).toString();
       
       const response = await fetch('/api/newsletter', {
@@ -416,10 +356,10 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           email,
-          honeypot, // Bot trap
-          timestamp: formLoadTime.toString(), // Time-based check
-          challenge, // JavaScript verification
-          userInteraction // User interaction tracking
+          honeypot,
+          timestamp: formLoadTime.toString(),
+          challenge,
+          userInteraction
         })
       });
       
@@ -431,16 +371,12 @@ export default function Home() {
       
       setSubmitStatus("success");
       setEmail("");
-      // Reset interaction tracking
       setUserInteraction({ clicks: 0, keystrokes: 0 });
       
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
       console.error("Subscription error:", error);
       setSubmitStatus("error");
-      
-      // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
       setIsSubmitting(false);
@@ -484,7 +420,6 @@ export default function Home() {
         setDatePickerOpen(false);
       }
       
-      // Handle Escape for destination dropdown
       if (e.key === "Escape" && destinationOpen) {
         setDestinationOpen(false);
         setFocusedDestinationIndex(-1);
@@ -1223,7 +1158,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Properties - ADD TO sectionsRef */}
+        {/* Featured Properties - NOW DYNAMIC */}
         <section ref={(el) => { sectionsRef.current[4] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
@@ -1235,11 +1170,23 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              {featuredProperties.map((property) => (
-                <PropertyCard key={property.id} {...property} />
-              ))}
-            </div>
+            {isLoadingData ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-96"></div>
+                ))}
+              </div>
+            ) : featuredProperties.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                {featuredProperties.map((property) => (
+                  <PropertyCard key={property.id} {...property} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-[var(--color-neutral-dark)]">No featured properties available at the moment.</p>
+              </div>
+            )}
 
             <div className="text-center">
               <Button
@@ -1313,7 +1260,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experiences - ADD TO sectionsRef */}
+        {/* Experiences - NOW DYNAMIC */}
         <section ref={(el) => { sectionsRef.current[6] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
@@ -1322,11 +1269,23 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              {experiences.map((experience) => (
-                <ExperienceCard key={experience.slug} {...experience} />
-              ))}
-            </div>
+            {isLoadingData ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-80"></div>
+                ))}
+              </div>
+            ) : experiences.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                {experiences.map((experience) => (
+                  <ExperienceCard key={experience.slug} {...experience} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-[var(--color-neutral-dark)]">No experiences available at the moment.</p>
+              </div>
+            )}
 
             <div className="text-center">
               <Button
@@ -1453,7 +1412,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Destinations - ADD TO sectionsRef */}
+        {/* Destinations - KEEP STATIC for hero showcase */}
         <section ref={(el) => { sectionsRef.current[8] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
@@ -1526,7 +1485,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Reviews - ADD TO sectionsRef */}
+        {/* Reviews - NOW DYNAMIC */}
         <section ref={(el) => { sectionsRef.current[9] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
@@ -1538,7 +1497,15 @@ export default function Home() {
               </p>
             </div>
 
-            <ReviewSlider reviews={reviews} />
+            {isLoadingData ? (
+              <div className="h-64 bg-gray-100 animate-pulse rounded-2xl"></div>
+            ) : reviews.length > 0 ? (
+              <ReviewSlider reviews={reviews} />
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-[var(--color-neutral-dark)]">No reviews available yet.</p>
+              </div>
+            )}
           </div>
         </section>
 
@@ -1556,7 +1523,6 @@ export default function Home() {
 
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-3 sm:gap-4 animate-slide-left">
-                {/* First set of images */}
                 {[
                   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-1043bcfc-20251018173502.jpg?",
                   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-i-de445ee3-20251018173511.jpg?",
@@ -1585,7 +1551,6 @@ export default function Home() {
                     </div>
                   </a>
                 ))}
-                {/* Duplicate set for seamless loop */}
                 {[
                   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-p-1043bcfc-20251018173502.jpg?",
                   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-young-women-i-de445ee3-20251018173511.jpg?",
