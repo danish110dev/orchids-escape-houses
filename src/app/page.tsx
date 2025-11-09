@@ -35,7 +35,10 @@ const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), {
   loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-2xl" />
 });
 
-const FAQSection = dynamic(() => import("@/components/FAQSection"), { 
+const FAQSection = dynamic(() => import("@/components/FAQSection").catch(() => {
+  // Fallback component if FAQSection fails to load
+  return { default: () => <div className="text-center py-8">FAQ section temporarily unavailable</div> };
+}), { 
   ssr: false,
   loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
 });
