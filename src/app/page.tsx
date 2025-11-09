@@ -382,13 +382,17 @@ export default function Home() {
     setSubmitStatus("idle");
     
     try {
+      // Generate JavaScript challenge (must match backend calculation)
+      const challenge = Math.floor(Date.now() / 10000).toString();
+      
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           email,
           honeypot, // Bot trap
-          timestamp: formLoadTime.toString() // Time-based check
+          timestamp: formLoadTime.toString(), // Time-based check
+          challenge // JavaScript verification
         })
       });
       
