@@ -530,7 +530,7 @@ export default function Home() {
               video.style.display = 'none';
             }}
           >
-            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Desktop%20Size%20Final%20Last.mp4" type="video/mp4" />
+            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
             <track kind="captions" srcLang="en" label="English captions" />
           </video>
           
@@ -553,7 +553,7 @@ export default function Home() {
               video.style.display = 'none';
             }}
           >
-            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Mobile%20Version_Final%20Last%201.mp4" type="video/mp4" />
+            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
             <track kind="captions" srcLang="en" label="English captions" />
           </video>
 
