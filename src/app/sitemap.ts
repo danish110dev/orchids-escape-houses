@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { db } from '@/db';
-import { properties, experiences, destinations, blog } from '@/db/schema';
+import { properties, experiences, destinations, blogPosts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -154,8 +154,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const publishedBlogPosts = await db
       .select()
-      .from(blog)
-      .where(eq(blog.isPublished, true));
+      .from(blogPosts)
+      .where(eq(blogPosts.isPublished, true));
     
     blogRoutes = publishedBlogPosts.map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
