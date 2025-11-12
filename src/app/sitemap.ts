@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { db } from '@/db';
+import { properties, experiences, destinations, blog } from '@/db/schema';
+import { eq } from 'drizzle-orm';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://groupescapehouses.co.uk';
-  // Use localhost for internal API calls during build
-  const apiBaseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const currentDate = new Date().toISOString();
   
   // Static routes with optimized priorities for AI search
@@ -94,90 +95,74 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Fetch dynamic properties from database
+  // Fetch dynamic properties directly from database
   let propertyRoutes: MetadataRoute.Sitemap = [];
   try {
-    const propertiesRes = await fetch(`${apiBaseUrl}/api/properties?isPublished=true`, {
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (propertiesRes.ok) {
-      const properties = await propertiesRes.json();
-      propertyRoutes = properties.map((property: any) => ({
-        url: `${baseUrl}/properties/${property.slug}`,
-        lastModified: property.updatedAt || currentDate,
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }));
-    }
+    const publishedProperties = await db
+      .select()
+      .from(properties)
+      .where(eq(properties.isPublished, true));
+    
+    propertyRoutes = publishedProperties.map((property) => ({
+      url: `${baseUrl}/properties/${property.slug}`,
+      lastModified: property.updatedAt || currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
   } catch (error) {
     console.error('Error fetching properties for sitemap:', error);
   }
 
-  // Fetch dynamic experiences from database
+  // Fetch dynamic experiences directly from database
   let experienceRoutes: MetadataRoute.Sitemap = [];
   try {
-    const experiencesRes = await fetch(`${apiBaseUrl}/api/experiences?isPublished=true`, {
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (experiencesRes.ok) {
-      const experiences = await experiencesRes.json();
-      experienceRoutes = experiences.map((experience: any) => ({
-        url: `${baseUrl}/experiences/${experience.slug}`,
-        lastModified: experience.updatedAt || currentDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      }));
-    }
+    const publishedExperiences = await db
+      .select()
+      .from(experiences)
+      .where(eq(experiences.isPublished, true));
+    
+    experienceRoutes = publishedExperiences.map((experience) => ({
+      url: `${baseUrl}/experiences/${experience.slug}`,
+      lastModified: experience.updatedAt || currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
   } catch (error) {
     console.error('Error fetching experiences for sitemap:', error);
   }
 
-  // Fetch dynamic destinations from database
+  // Fetch dynamic destinations directly from database
   let destinationRoutes: MetadataRoute.Sitemap = [];
   try {
-    const destinationsRes = await fetch(`${apiBaseUrl}/api/destinations?isPublished=true`, {
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (destinationsRes.ok) {
-      const destinations = await destinationsRes.json();
-      destinationRoutes = destinations.map((destination: any) => ({
-        url: `${baseUrl}/destinations/${destination.slug}`,
-        lastModified: destination.updatedAt || currentDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.8,
-      }));
-    }
+    const publishedDestinations = await db
+      .select()
+      .from(destinations)
+      .where(eq(destinations.isPublished, true));
+    
+    destinationRoutes = publishedDestinations.map((destination) => ({
+      url: `${baseUrl}/destinations/${destination.slug}`,
+      lastModified: destination.updatedAt || currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }));
   } catch (error) {
     console.error('Error fetching destinations for sitemap:', error);
   }
 
-  // Fetch dynamic blog posts from database
+  // Fetch dynamic blog posts directly from database
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
-    const blogRes = await fetch(`${apiBaseUrl}/api/blog?isPublished=true`, {
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (blogRes.ok) {
-      const blogPosts = await blogRes.json();
-      blogRoutes = blogPosts.map((post: any) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.updatedAt || post.publishDate || currentDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-      }));
-    }
+    const publishedBlogPosts = await db
+      .select()
+      .from(blog)
+      .where(eq(blog.isPublished, true));
+    
+    blogRoutes = publishedBlogPosts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.updatedAt || post.publishedAt || currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error);
   }
