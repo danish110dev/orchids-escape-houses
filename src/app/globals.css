@@ -1,226 +1,4 @@
-/* Updated: 2025-11-13T11:18:05.607Z */
 /* Updated: 2025-11-12T13:19:20.614Z */
-/* Updated: 2025-11-12T13:16:24.189Z */
-/* Updated: 2025-11-12T12:44:34.438Z */
-/* Updated: 2025-11-12T12:18:16.865Z */
-/* Updated: 2025-11-10T11:30:09.047Z */
-/* Updated: 2025-11-10T08:52:56.900Z */
-/* Updated: 2025-11-09T20:51:35.446Z */
-/* Updated: 2025-11-09T17:32:13.567Z */
-/* Updated: 2025-11-08T19:06:38.414Z */
-/* Updated: 2025-11-06T15:09:02.874Z */
-/* Updated: 2025-11-06T14:26:53.856Z */
-/* Updated: 2025-11-06T14:25:10.087Z */
-/* Updated: 2025-11-06T14:18:59.840Z */
-/* Updated: 2025-11-06T13:57:26.638Z */
-/* Updated: 2025-11-06T12:59:01.656Z */
-/* Updated: 2025-11-06T12:10:23.624Z */
-/* Updated: 2025-11-05T15:14:14.980Z */
-/* Updated: 2025-11-04T19:59:58.874Z */
-/* Updated: 2025-11-04T19:59:57.781Z */
-/* Updated: 2025-11-04T19:59:10.991Z */
-/* Updated: 2025-11-03T21:35:55.306Z */
-/* Updated: 2025-11-03T15:02:48.546Z */
-/* Updated: 2025-11-03T11:38:43.459Z */
-/* Updated: 2025-11-03T11:16:11.201Z */
-/* Updated: 2025-11-03T09:49:28.910Z */
-/* Updated: 2025-11-03T09:29:09.966Z */
-/* Updated: 2025-11-03T09:27:37.410Z */
-/* Updated: 2025-11-02T14:03:27.293Z */
-/* Updated: 2025-11-02T13:52:36.411Z */
-/* Updated: 2025-11-02T13:37:22.300Z */
-/* Updated: 2025-11-01T21:06:20.643Z */
-/* Updated: 2025-11-01T21:00:07.626Z */
-/* Updated: 2025-11-01T20:54:34.934Z */
-/* Updated: 2025-11-01T20:52:24.402Z */
-/* Updated: 2025-11-01T20:48:11.055Z */
-/* Updated: 2025-11-01T20:22:17.183Z */
-/* Updated: 2025-11-01T20:14:59.067Z */
-/* Updated: 2025-11-01T20:14:13.804Z */
-/* Updated: 2025-11-01T18:13:54.359Z */
-/* Updated: 2025-11-01T17:48:21.323Z */
-/* Updated: 2025-11-01T17:17:31.121Z */
-/* Updated: 2025-10-31T15:48:19.582Z */
-/* Updated: 2025-10-31T15:48:18.087Z */
-/* Updated: 2025-10-31T15:48:16.626Z */
-/* Updated: 2025-10-31T15:48:16.392Z */
-/* Updated: 2025-10-31T15:46:58.293Z */
-/* Updated: 2025-10-31T15:46:57.842Z */
-/* Updated: 2025-10-31T15:46:57.394Z */
-/* Updated: 2025-10-31T14:47:02.872Z */
-/* Updated: 2025-10-31T14:46:57.048Z */
-/* Updated: 2025-10-31T14:18:35.939Z */
-/* Updated: 2025-10-31T14:16:04.651Z */
-/* Updated: 2025-10-31T14:15:57.664Z */
-/* Updated: 2025-10-31T14:15:57.303Z */
-/* Updated: 2025-10-31T14:15:56.840Z */
-/* Updated: 2025-10-31T14:11:40.051Z */
-/* Updated: 2025-10-31T14:11:35.604Z */
-/* Updated: 2025-10-31T14:11:35.250Z */
-/* Updated: 2025-10-31T13:50:47.756Z */
-/* Updated: 2025-10-31T13:50:43.237Z */
-/* Updated: 2025-10-31T13:50:42.495Z */
-/* Updated: 2025-10-31T13:45:04.114Z */
-/* Updated: 2025-10-31T13:44:59.123Z */
-/* Updated: 2025-10-31T13:44:58.722Z */
-/* Updated: 2025-10-31T13:44:58.422Z */
-/* Updated: 2025-10-31T13:17:56.124Z */
-/* Updated: 2025-10-31T13:17:55.459Z */
-/* Updated: 2025-10-31T13:17:55.059Z */
-/* Updated: 2025-10-31T13:17:54.501Z */
-/* Updated: 2025-10-31T13:17:52.860Z */
-/* Updated: 2025-10-31T13:17:36.138Z */
-/* Updated: 2025-10-31T13:12:39.161Z */
-/* Updated: 2025-10-31T13:12:31.492Z */
-/* Updated: 2025-10-31T13:12:30.131Z */
-/* Updated: 2025-10-31T13:12:29.216Z */
-/* Updated: 2025-10-31T12:56:22.629Z */
-/* Updated: 2025-10-31T12:56:21.727Z */
-/* Updated: 2025-10-31T12:41:17.584Z */
-/* Updated: 2025-10-31T12:41:14.564Z */
-/* Updated: 2025-10-31T12:41:13.058Z */
-/* Updated: 2025-10-31T12:41:12.707Z */
-/* Updated: 2025-10-31T12:40:08.987Z */
-/* Updated: 2025-10-31T12:39:56.439Z */
-/* Updated: 2025-10-31T12:11:33.670Z */
-/* Updated: 2025-10-31T10:53:59.581Z */
-/* Updated: 2025-10-31T09:56:15.441Z */
-/* Updated: 2025-10-31T09:37:06.287Z */
-/* Updated: 2025-10-31T02:43:45.248Z */
-/* Updated: 2025-10-31T02:39:46.345Z */
-/* Updated: 2025-10-31T02:33:20.668Z */
-/* Updated: 2025-10-30T18:37:05.429Z */
-/* Updated: 2025-10-30T18:32:54.456Z */
-/* Updated: 2025-10-30T18:32:41.707Z */
-/* Updated: 2025-10-30T17:50:38.278Z */
-/* Updated: 2025-10-30T17:20:13.528Z */
-/* Updated: 2025-10-30T16:32:27.727Z */
-/* Updated: 2025-10-30T15:16:37.516Z */
-/* Updated: 2025-10-30T14:16:57.709Z */
-/* Updated: 2025-10-30T13:56:17.873Z */
-/* Updated: 2025-10-30T13:16:51.792Z */
-/* Updated: 2025-10-30T12:56:34.187Z */
-/* Updated: 2025-10-30T12:42:05.198Z */
-/* Updated: 2025-10-30T11:13:43.699Z */
-/* Updated: 2025-10-27T16:33:05.334Z */
-/* Updated: 2025-10-27T13:21:02.780Z */
-/* Updated: 2025-10-27T13:14:51.120Z */
-/* Updated: 2025-10-27T12:50:57.985Z */
-/* Updated: 2025-10-27T12:49:18.471Z */
-/* Updated: 2025-10-27T12:47:05.027Z */
-/* Updated: 2025-10-27T10:08:55.574Z */
-/* Updated: 2025-10-27T10:06:18.069Z */
-/* Updated: 2025-10-27T09:35:54.721Z */
-/* Updated: 2025-10-27T09:35:54.215Z */
-/* Updated: 2025-10-27T09:32:32.728Z */
-/* Updated: 2025-10-27T09:32:31.196Z */
-/* Updated: 2025-10-27T09:32:25.641Z */
-/* Updated: 2025-10-27T09:28:16.776Z */
-/* Updated: 2025-10-27T09:28:13.647Z */
-/* Updated: 2025-10-27T09:26:59.715Z */
-/* Updated: 2025-10-27T09:21:13.436Z */
-/* Updated: 2025-10-27T09:16:28.220Z */
-/* Updated: 2025-10-25T16:16:57.046Z */
-/* Updated: 2025-10-25T15:24:46.287Z */
-/* Updated: 2025-10-24T18:37:36.857Z */
-/* Updated: 2025-10-24T16:26:45.173Z */
-/* Updated: 2025-10-24T15:45:33.708Z */
-/* Updated: 2025-10-24T15:44:02.109Z */
-/* Updated: 2025-10-24T15:42:04.292Z */
-/* Updated: 2025-10-24T15:29:37.353Z */
-/* Updated: 2025-10-24T14:38:47.824Z */
-/* Updated: 2025-10-24T14:30:37.110Z */
-/* Updated: 2025-10-24T14:22:47.550Z */
-/* Updated: 2025-10-24T13:53:35.573Z */
-/* Updated: 2025-10-24T13:51:47.004Z */
-/* Updated: 2025-10-24T13:17:21.330Z */
-/* Updated: 2025-10-24T11:01:38.758Z */
-/* Updated: 2025-10-24T09:49:19.909Z */
-/* Updated: 2025-10-23T18:09:41.809Z */
-/* Updated: 2025-10-23T15:52:01.445Z */
-/* Updated: 2025-10-23T15:39:03.609Z */
-/* Updated: 2025-10-23T13:49:16.484Z */
-/* Updated: 2025-10-22T20:23:20.699Z */
-/* Updated: 2025-10-22T19:06:01.891Z */
-/* Updated: 2025-10-22T19:05:58.670Z */
-/* Updated: 2025-10-22T18:16:39.289Z */
-/* Updated: 2025-10-22T18:00:01.014Z */
-/* Updated: 2025-10-22T17:42:55.008Z */
-/* Updated: 2025-10-22T17:25:39.144Z */
-/* Updated: 2025-10-22T17:09:01.599Z */
-/* Updated: 2025-10-22T16:51:53.824Z */
-/* Updated: 2025-10-22T16:25:37.603Z */
-/* Updated: 2025-10-22T16:08:58.453Z */
-/* Updated: 2025-10-22T16:02:55.589Z */
-/* Updated: 2025-10-22T15:53:51.579Z */
-/* Updated: 2025-10-22T15:36:43.258Z */
-/* Updated: 2025-10-22T15:27:48.581Z */
-/* Updated: 2025-10-22T15:24:09.350Z */
-/* Updated: 2025-10-22T14:54:48.048Z */
-/* Updated: 2025-10-22T14:37:05.325Z */
-/* Updated: 2025-10-22T14:12:17.210Z */
-/* Updated: 2025-10-22T14:01:16.966Z */
-/* Updated: 2025-10-22T13:42:49.363Z */
-/* Updated: 2025-10-22T13:31:54.383Z */
-/* Updated: 2025-10-22T13:09:25.730Z */
-/* Updated: 2025-10-22T11:36:53.231Z */
-/* Updated: 2025-10-22T11:22:46.425Z */
-/* Updated: 2025-10-22T11:03:35.931Z */
-/* Updated: 2025-10-22T10:40:23.377Z */
-/* Updated: 2025-10-22T09:51:40.397Z */
-/* Updated: 2025-10-22T09:40:20.898Z */
-/* Updated: 2025-10-22T07:35:19.869Z */
-/* Updated: 2025-10-21T22:11:18.551Z */
-/* Updated: 2025-10-21T22:09:34.732Z */
-/* Updated: 2025-10-21T22:04:21.175Z */
-/* Updated: 2025-10-21T17:57:52.228Z */
-/* Updated: 2025-10-21T12:22:14.761Z */
-/* Updated: 2025-10-21T10:57:14.817Z */
-/* Updated: 2025-10-21T10:20:34.363Z */
-/* Updated: 2025-10-21T09:54:32.532Z */
-/* Updated: 2025-10-21T09:01:18.287Z */
-/* Updated: 2025-10-21T08:43:32.707Z */
-/* Updated: 2025-10-21T08:35:55.123Z */
-/* Updated: 2025-10-21T08:19:57.072Z */
-/* Updated: 2025-10-21T08:06:15.646Z */
-/* Updated: 2025-10-21T07:53:47.748Z */
-/* Updated: 2025-10-21T07:50:06.148Z */
-/* Updated: 2025-10-21T07:46:33.815Z */
-/* Updated: 2025-10-20T17:29:46.487Z */
-/* Updated: 2025-10-20T17:26:42.553Z */
-/* Updated: 2025-10-20T13:26:48.076Z */
-/* Updated: 2025-10-20T13:09:27.750Z */
-/* Updated: 2025-10-20T12:31:18.978Z */
-/* Updated: 2025-10-19T18:08:39.748Z */
-/* Updated: 2025-10-19T18:00:16.602Z */
-/* Updated: 2025-10-19T17:59:42.926Z */
-/* Updated: 2025-10-19T17:58:55.198Z */
-/* Updated: 2025-10-19T17:04:30.952Z */
-/* Updated: 2025-10-19T17:03:06.762Z */
-/* Updated: 2025-10-19T16:54:28.952Z */
-/* Updated: 2025-10-19T16:04:28.345Z */
-/* Updated: 2025-10-19T14:13:58.369Z */
-/* Updated: 2025-10-19T08:44:15.922Z */
-/* Updated: 2025-10-18T21:38:01.213Z */
-/* Updated: 2025-10-18T21:38:00.156Z */
-/* Updated: 2025-10-18T16:41:47.039Z */
-/* Updated: 2025-10-18T16:39:20.615Z */
-/* Updated: 2025-10-18T15:02:14.115Z */
-/* Updated: 2025-10-18T14:40:14.081Z */
-/* Updated: 2025-10-18T14:39:23.499Z */
-/* Updated: 2025-10-18T14:26:08.490Z */
-/* Updated: 2025-10-18T13:08:59.680Z */
-/* Updated: 2025-10-18T13:08:30.561Z */
-/* Updated: 2025-10-18T12:19:59.393Z */
-/* Updated: 2025-10-18T10:46:04.047Z */
-/* Updated: 2025-10-18T09:33:23.321Z */
-/* Updated: 2025-10-17T20:12:32.040Z */
-/* Updated: 2025-10-17T19:51:34.412Z */
-/* Updated: 2025-10-17T18:55:19.002Z */
-/* Updated: 2025-10-17T16:58:12.951Z */
-/* Updated: 2025-10-17T16:47:06.492Z */
-/* Updated: 2025-10-17T16:36:16.178Z */
-/* Updated: 2025-10-17T16:11:08.599Z */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
@@ -365,36 +143,23 @@
     scroll-padding-top: 100px;
   }
   
-  /* Enhanced smooth scrolling with momentum */
-  @supports (scroll-behavior: smooth) {
-    html {
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
-    }
-    
-    /* Smoother scrolling on all scrollable elements */
-    * {
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-  
   body {
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.7;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
   }
   
   /* Hide scrollbar utility */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
+    display: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -425,83 +190,35 @@
     color: var(--color-neutral-dark);
   }
   
-  /* Hero fade-up animation */
-  @keyframes fadeUp {
+  /* OPTIMIZED: Lightweight fade-in only */
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(40px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
   
-  .animate-fade-up {
-    animation: fadeUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    opacity: 0;
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
   }
   
-  /* NEW: Scale-in animation for scroll reveals */
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95) translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-  
-  .animate-scale-in {
-    animation: scaleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  }
-  
-  /* Enhanced scroll reveal animations - More visible with scale */
-  .scroll-reveal {
-    opacity: 0;
-    transform: scale(0.95) translateY(60px);
-    transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), 
-                transform 1s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  
-  .scroll-reveal.animate-fade-in {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-  
-  /* NEW: Scale on scroll for hero sections */
-  .scale-on-scroll {
-    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: transform;
-  }
-  
-  /* NEW: Card hover with scale */
-  .card-scale-hover {
-    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
-                box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  
-  .card-scale-hover:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Floating animation for icons */
+  /* OPTIMIZED: Simplified float - less GPU intensive */
   @keyframes float {
     0%, 100% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
     }
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
   
-  /* Sliding animation for Instagram carousel */
+  /* OPTIMIZED: Simplified slide animation */
   @keyframes slide-left {
     0% {
       transform: translateX(0);
@@ -512,62 +229,22 @@
   }
   
   .animate-slide-left {
-    animation: slide-left 40s linear infinite;
+    animation: slide-left 60s linear infinite;
     display: flex;
     width: max-content;
+    will-change: transform;
   }
   
-  /* Pause animation on hover */
   .animate-slide-left:hover {
     animation-play-state: paused;
   }
   
-  /* Smooth scroll parallax effect */
-  @keyframes smoothScroll {
-    to {
-      transform: translateY(-5px);
-    }
-  }
-  
-  /* Modern scroll indicator */
-  @keyframes scrollDown {
-    0%, 100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(10px);
-      opacity: 0.5;
-    }
-  }
-  
-  .scroll-indicator {
-    animation: scrollDown 2s ease-in-out infinite;
-  }
-  
-  /* Shake animation for date field */
-  @keyframes shake {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    10%, 30%, 50%, 70%, 90% {
-      transform: translateX(-4px);
-    }
-    20%, 40%, 60%, 80% {
-      transform: translateX(4px);
-    }
-  }
-  
-  .animate-shake {
-    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-  }
-  
-  /* Smooth transitions for all interactive elements */
+  /* Smooth transitions - OPTIMIZED */
   a, button {
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
   
-  /* Shared input class for consistent sizing */
+  /* Input styling */
   .ge-input {
     height: 48px;
     border-radius: 12px;
@@ -582,7 +259,7 @@
     height: 18px;
   }
   
-  /* Date picker calendar custom styles */
+  /* Date picker styles */
   .ge-date-start {
     background: var(--color-accent-sage) !important;
     color: white !important;
@@ -604,13 +281,7 @@
     color: #1F2937 !important;
   }
   
-  .ge-date-hover-range {
-    background: rgba(137, 163, 143, 0.08) !important;
-    border: 1px dotted var(--color-accent-sage) !important;
-    color: #1F2937 !important;
-  }
-  
-  /* Screen reader only class */
+  /* Screen reader only */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -623,7 +294,7 @@
     border-width: 0;
   }
   
-  /* Smooth scroll for dropdown containers */
+  /* Smooth scroll for dropdown */
   .smooth-scroll {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -653,20 +324,6 @@
       scroll-behavior: auto;
     }
     
-    .scroll-reveal,
-    .animate-fade-up,
-    .animate-float,
-    .scroll-indicator,
-    .animate-shake,
-    .animate-scale-in,
-    .scale-on-scroll,
-    .card-scale-hover {
-      opacity: 1;
-      transform: none;
-      transition: none;
-      animation: none;
-    }
-    
     * {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
@@ -693,7 +350,7 @@
   }
 }
 
-/* Hide Next.js error overlay portal */
+/* Hide Next.js error overlay */
 nextjs-portal {
   display: none !important;
 }
