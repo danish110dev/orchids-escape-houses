@@ -17,15 +17,15 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import type { DateRange } from "react-day-picker";
 
-// Lazy load non-critical components
+// Lazy load non-critical components with no SSR
 const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { 
   ssr: false,
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-2xl" />
+  loading: () => <div className="h-64 bg-gray-100 rounded-2xl" />
 });
 
 const FAQSection = dynamic(() => import("@/components/FAQSection"), { 
   ssr: false,
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
+  loading: () => <div className="h-96 bg-gray-100 rounded-2xl" />
 });
 
 // Static destinations data
@@ -86,6 +86,9 @@ export default function Home() {
   const [reviews, setReviews] = useState<any[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
 
+  // Video lazy loading state
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
   // Search form state
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [destination, setDestination] = useState("");
@@ -103,93 +106,109 @@ export default function Home() {
   const announcementRef = useRef<HTMLDivElement>(null);
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const newsletterFormRef = useRef<HTMLFormElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Fetch data with proper error handling
+  // Fetch data with proper error handling - DEFER to reduce initial load
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoadingData(true);
+    const timer = setTimeout(() => {
+      const fetchData = async () => {
+        try {
+          setIsLoadingData(true);
 
-        const [propertiesRes, experiencesRes, reviewsRes] = await Promise.all([
-          fetch('/api/properties?featured=true&isPublished=true&limit=3'),
-          fetch('/api/experiences?isPublished=true&limit=6'),
-          fetch('/api/reviews?isApproved=true&isPublished=true&limit=6&sort=reviewDate&order=desc')
-        ]);
+          const [propertiesRes, experiencesRes, reviewsRes] = await Promise.all([
+            fetch('/api/properties?featured=true&isPublished=true&limit=3'),
+            fetch('/api/experiences?isPublished=true&limit=6'),
+            fetch('/api/reviews?isApproved=true&isPublished=true&limit=6&sort=reviewDate&order=desc')
+          ]);
 
-        if (!propertiesRes.ok || !experiencesRes.ok || !reviewsRes.ok) {
-          throw new Error('Failed to fetch data');
+          if (!propertiesRes.ok || !experiencesRes.ok || !reviewsRes.ok) {
+            throw new Error('Failed to fetch data');
+          }
+
+          const [propertiesData, experiencesData, reviewsData] = await Promise.all([
+            propertiesRes.json(),
+            experiencesRes.json(),
+            reviewsRes.json()
+          ]);
+
+          setFeaturedProperties(propertiesData.map((prop: any) => ({
+            id: prop.id.toString(),
+            title: prop.title,
+            location: prop.location,
+            sleeps: prop.sleepsMax,
+            bedrooms: prop.bedrooms,
+            priceFrom: prop.priceFromWeekend,
+            image: prop.heroImage,
+            features: [],
+            slug: prop.slug,
+          })));
+
+          setExperiences(experiencesData.map((exp: any) => ({
+            title: exp.title,
+            duration: exp.duration,
+            priceFrom: exp.priceFrom,
+            groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
+            image: exp.heroImage,
+            slug: exp.slug,
+          })));
+
+          setReviews(reviewsData.map((review: any) => ({
+            name: review.guestName,
+            rating: review.rating,
+            comment: review.comment,
+            date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+            property: review.propertyId ? 'Property' : undefined,
+            image: review.guestImage,
+          })));
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          setFeaturedProperties([]);
+          setExperiences([]);
+          setReviews([]);
+        } finally {
+          setIsLoadingData(false);
         }
+      };
 
-        const [propertiesData, experiencesData, reviewsData] = await Promise.all([
-          propertiesRes.json(),
-          experiencesRes.json(),
-          reviewsRes.json()
-        ]);
+      fetchData();
+    }, 100); // Defer by 100ms to prioritize initial render
 
-        setFeaturedProperties(propertiesData.map((prop: any) => ({
-          id: prop.id.toString(),
-          title: prop.title,
-          location: prop.location,
-          sleeps: prop.sleepsMax,
-          bedrooms: prop.bedrooms,
-          priceFrom: prop.priceFromWeekend,
-          image: prop.heroImage,
-          features: [],
-          slug: prop.slug,
-        })));
-
-        setExperiences(experiencesData.map((exp: any) => ({
-          title: exp.title,
-          duration: exp.duration,
-          priceFrom: exp.priceFrom,
-          groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
-          image: exp.heroImage,
-          slug: exp.slug,
-        })));
-
-        setReviews(reviewsData.map((review: any) => ({
-          name: review.guestName,
-          rating: review.rating,
-          comment: review.comment,
-          date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-          property: review.propertyId ? 'Property' : undefined,
-          image: review.guestImage,
-        })));
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setFeaturedProperties([]);
-        setExperiences([]);
-        setReviews([]);
-      } finally {
-        setIsLoadingData(false);
-      }
-    };
-
-    fetchData();
+    return () => clearTimeout(timer);
   }, []);
 
-  // Optimized setup - removed heavy scroll listeners
+  // Lazy load video after initial page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 500); // Load video after 500ms
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Minimal setup
   useEffect(() => {
     setMounted(true);
     
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener('resize', checkMobile, { passive: true });
+    const handleResize = () => checkMobile();
+    window.addEventListener('resize', handleResize, { passive: true });
 
     // Lightweight interaction tracking
     const trackClick = () => setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
     const trackKeypress = () => setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
 
-    if (newsletterFormRef.current) {
-      newsletterFormRef.current.addEventListener('click', trackClick);
-      newsletterFormRef.current.addEventListener('keydown', trackKeypress);
+    const formElement = newsletterFormRef.current;
+    if (formElement) {
+      formElement.addEventListener('click', trackClick, { passive: true });
+      formElement.addEventListener('keydown', trackKeypress, { passive: true });
     }
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
-      if (newsletterFormRef.current) {
-        newsletterFormRef.current.removeEventListener('click', trackClick);
-        newsletterFormRef.current.removeEventListener('keydown', trackKeypress);
+      window.removeEventListener('resize', handleResize);
+      if (formElement) {
+        formElement.removeEventListener('click', trackClick);
+        formElement.removeEventListener('keydown', trackKeypress);
       }
     };
   }, []);
@@ -349,36 +368,44 @@ export default function Home() {
       />
 
       <main>
-        {/* Hero Section - OPTIMIZED */}
+        {/* Hero Section - OPTIMIZED with lazy video */}
         <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
           {/* Background videos - lazy loaded */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover"
-            aria-label="Background video showcasing luxury group accommodation"
-          >
-            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
-          </video>
-          
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
-            className="block md:hidden absolute inset-0 w-full h-full object-cover"
-            aria-label="Background video showcasing luxury group accommodation"
-          >
-            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
-          </video>
+          {shouldLoadVideo ? (
+            <>
+              <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
+                className="hidden md:block absolute inset-0 w-full h-full object-cover"
+                aria-label="Background video showcasing luxury group accommodation"
+              >
+                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
+              </video>
+              
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
+                className="block md:hidden absolute inset-0 w-full h-full object-cover"
+                aria-label="Background video showcasing luxury group accommodation"
+              >
+                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
+              </video>
+            </>
+          ) : (
+            <div 
+              className="absolute inset-0 w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: 'url(https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg)' }}
+            />
+          )}
 
-          {/* Hero Content - REMOVED SCALING ANIMATIONS */}
+          {/* Hero Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8">
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
