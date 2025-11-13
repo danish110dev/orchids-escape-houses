@@ -694,8 +694,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Hero Description - Below Video - ADD TO sectionsRef */}
-        <section className="py-8 sm:py-10 md:py-12 bg-white scale-on-scroll">
+        {/* Hero Description - Below Video */}
+        <section className="py-8 sm:py-10 md:py-12 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <h2
               className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight text-center"
@@ -712,34 +712,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Trust Signals Section - ADD TO sectionsRef */}
-        <section className="py-16 bg-white scale-on-scroll">
+        {/* Trust Signals Section */}
+        <section className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '0ms' }}>
-                  <Shield className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-[var(--color-accent-sage)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Safe & Secure</h3>
                 <p className="text-[var(--color-neutral-dark)]">Protected payments via Stripe. Your booking is safe with us.</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '300ms' }}>
-                  <Award className="w-8 h-8 text-[var(--color-accent-gold)] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-[var(--color-accent-gold)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">3,000+ 5-Star Reviews</h3>
                 <p className="text-[var(--color-neutral-dark)]">Trusted by thousands of happy guests across the UK.</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '600ms' }}>
-                  <Users className="w-8 h-8 text-[var(--color-accent-sage)] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-[var(--color-accent-sage)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">UK Support Team</h3>
                 <p className="text-[var(--color-neutral-dark)]">Brighton-based team ready to help plan your perfect stay.</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center animate-float" style={{ animationDelay: '900ms' }}>
-                  <Clock className="w-8 h-8 text-[var(--color-accent-gold)] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-accent-gold)]/10 flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-[var(--color-accent-gold)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">24-Hour Response</h3>
                 <p className="text-[var(--color-neutral-dark)]">Fast replies to all enquiries. No waiting around.</p>
@@ -748,8 +748,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Us Section - ADD TO sectionsRef */}
-        <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        {/* Why Choose Us Section */}
+        <section className="py-16 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -891,8 +891,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Visual Showcase Section - ADD TO sectionsRef */}
-        <section className="py-16 bg-white scroll-reveal scale-on-scroll">
+        {/* Visual Showcase Section */}
+        <section className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-8">
               <h2 className="mb-3 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -976,7 +976,7 @@ export default function Home() {
         </section>
 
         {/* Featured Properties - NOW DYNAMIC */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1021,8 +1021,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Service Areas Section - ADD TO sectionsRef */}
-        <section className="py-20 bg-white scroll-reveal scale-on-scroll">
+        {/* Service Areas Section */}
+        <section className="py-20 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1078,7 +1078,7 @@ export default function Home() {
         </section>
 
         {/* Experiences - NOW DYNAMIC */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-[42px] px-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -1120,8 +1120,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works - ADD TO sectionsRef */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        {/* How It Works */}
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1163,11 +1163,10 @@ export default function Home() {
                 return (
                   <div key={item.step} className="text-center relative group">
                     <div
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-4 sm:mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg animate-float"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-4 sm:mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
                       style={{
                         background: "var(--color-accent-sage)",
                         color: "white",
-                        animationDelay: `${parseInt(item.step) * 100}ms`,
                       }}
                     >
                       <Icon className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
@@ -1230,7 +1229,7 @@ export default function Home() {
         </section>
 
         {/* Destinations - KEEP STATIC for hero showcase */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1303,7 +1302,7 @@ export default function Home() {
         </section>
 
         {/* Reviews - NOW DYNAMIC */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1326,8 +1325,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Instagram Section - ADD TO sectionsRef */}
-        <section className="py-12 sm:py-16 md:py-20 scroll-reveal scale-on-scroll" style={{ background: "var(--color-bg-secondary)" }}>
+        {/* Instagram Section */}
+        <section className="py-12 sm:py-16 md:py-20" style={{ background: "var(--color-bg-secondary)" }}>
           <div className="max-w-full">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
               <h2 
@@ -1404,8 +1403,8 @@ export default function Home() {
         {/* FAQ Section */}
         <FAQSection />
 
-        {/* Email Capture - ADD TO sectionsRef */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        {/* Email Capture */}
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)]">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               Get Party Planning Tips
