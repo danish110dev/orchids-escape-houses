@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus, Youtube, TikTok } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -17,33 +17,18 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import type { DateRange } from "react-day-picker";
 
-// TikTok Icon Component (lucide-react doesn't include TikTok)
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-);
-
-// Lazy load non-critical components with better error handling
+// Lazy load non-critical components
 const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { 
   ssr: false,
   loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-2xl" />
 });
 
-const FAQSection = dynamic(() => import("@/components/FAQSection").catch(() => {
-  // Fallback component if FAQSection fails to load
-  return { default: () => <div className="text-center py-8">FAQ section temporarily unavailable</div> };
-}), { 
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { 
   ssr: false,
   loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-2xl" />
 });
 
-// Static destinations data for homepage showcase (not fetched from DB for homepage hero)
+// Static destinations data
 const destinations = [
   { 
     name: "London", 
@@ -77,63 +62,29 @@ const destinations = [
   },
 ];
 
-// All destinations for the dropdown
+// All destinations for dropdown
 const allDestinations = [
-  "All Locations",
-  "Brighton",
-  "Bath",
-  "Bournemouth",
-  "London",
-  "Manchester",
-  "Liverpool",
-  "York",
-  "Newcastle",
-  "Cardiff",
-  "Edinburgh",
-  "Scottish Highlands",
-  "Snowdonia",
-  "Newquay",
-  "Devon",
-  "Cotswolds",
-  "Lake District",
-  "Birmingham",
-  "Blackpool",
-  "Bristol",
-  "Cambridge",
-  "Canterbury",
-  "Cheltenham",
-  "Chester",
-  "Durham",
-  "Exeter",
-  "Harrogate",
-  "Leeds",
-  "Margate",
-  "Nottingham",
-  "Oxford",
-  "Plymouth",
-  "Sheffield",
-  "St Ives",
-  "Stratford-upon-Avon",
-  "Windsor"
+  "All Locations", "Brighton", "Bath", "Bournemouth", "London", "Manchester", "Liverpool", "York", 
+  "Newcastle", "Cardiff", "Edinburgh", "Scottish Highlands", "Snowdonia", "Newquay", "Devon", 
+  "Cotswolds", "Lake District", "Birmingham", "Blackpool", "Bristol", "Cambridge", "Canterbury", 
+  "Cheltenham", "Chester", "Durham", "Exeter", "Harrogate", "Leeds", "Margate", "Nottingham", 
+  "Oxford", "Plymouth", "Sheffield", "St Ives", "Stratford-upon-Avon", "Windsor"
 ];
-
-type DatePickerState = "idle" | "pickingStart" | "pickingEnd" | "complete";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-  const [formLoadTime, setFormLoadTime] = useState<number>(0);
+  const [formLoadTime] = useState<number>(Date.now());
   const [honeypot, setHoneypot] = useState("");
   const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
 
-  // NEW: Dynamic data from database
+  // Dynamic data
   const [featuredProperties, setFeaturedProperties] = useState<any[]>([]);
   const [experiences, setExperiences] = useState<any[]>([]);
   const [reviews, setReviews] = useState<any[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
-  const [dataError, setDataError] = useState<string | null>(null);
 
   // Search form state
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
@@ -152,17 +103,13 @@ export default function Home() {
   const announcementRef = useRef<HTMLDivElement>(null);
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const newsletterFormRef = useRef<HTMLFormElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  // Fetch dynamic data from database
+  // Fetch data with proper error handling
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoadingData(true);
-        setDataError(null);
 
-        // Fetch featured properties, experiences, and reviews in parallel
         const [propertiesRes, experiencesRes, reviewsRes] = await Promise.all([
           fetch('/api/properties?featured=true&isPublished=true&limit=3'),
           fetch('/api/experiences?isPublished=true&limit=6'),
@@ -179,8 +126,7 @@ export default function Home() {
           reviewsRes.json()
         ]);
 
-        // Transform properties data to match PropertyCard props
-        const transformedProperties = propertiesData.map((prop: any) => ({
+        setFeaturedProperties(propertiesData.map((prop: any) => ({
           id: prop.id.toString(),
           title: prop.title,
           location: prop.location,
@@ -190,34 +136,27 @@ export default function Home() {
           image: prop.heroImage,
           features: [],
           slug: prop.slug,
-        }));
+        })));
 
-        // Transform experiences data to match ExperienceCard props
-        const transformedExperiences = experiencesData.map((exp: any) => ({
+        setExperiences(experiencesData.map((exp: any) => ({
           title: exp.title,
           duration: exp.duration,
           priceFrom: exp.priceFrom,
           groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
           image: exp.heroImage,
           slug: exp.slug,
-        }));
+        })));
 
-        // Transform reviews data to match ReviewSlider props
-        const transformedReviews = reviewsData.map((review: any) => ({
+        setReviews(reviewsData.map((review: any) => ({
           name: review.guestName,
           rating: review.rating,
           comment: review.comment,
           date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
           property: review.propertyId ? 'Property' : undefined,
           image: review.guestImage,
-        }));
-
-        setFeaturedProperties(transformedProperties);
-        setExperiences(transformedExperiences);
-        setReviews(transformedReviews);
+        })));
       } catch (error) {
         console.error('Error fetching data:', error);
-        setDataError('Unable to load some content. Please refresh the page.');
         setFeaturedProperties([]);
         setExperiences([]);
         setReviews([]);
@@ -229,102 +168,25 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // Optimized Intersection Observer + Scroll-based scaling
+  // Optimized setup - removed heavy scroll listeners
   useEffect(() => {
     setMounted(true);
-    setFormLoadTime(Date.now());
     
-    // Check if mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener('resize', checkMobile, { passive: true });
 
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "50px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const timeoutId = setTimeout(() => {
-      const elements = document.querySelectorAll(".scroll-reveal");
-      elements.forEach(el => observer.observe(el));
-    }, 100);
-
-    // Track user interaction on newsletter form for spam prevention
-    const trackClick = () => {
-      setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
-    };
-
-    const trackKeypress = () => {
-      setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
-    };
+    // Lightweight interaction tracking
+    const trackClick = () => setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
+    const trackKeypress = () => setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
 
     if (newsletterFormRef.current) {
       newsletterFormRef.current.addEventListener('click', trackClick);
       newsletterFormRef.current.addEventListener('keydown', trackKeypress);
     }
 
-    // Scroll-based scaling effect
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      // Scale hero content based on scroll
-      if (heroRef.current) {
-        const heroProgress = Math.min(scrollY / windowHeight, 1);
-        const scale = 1 - heroProgress * 0.1;
-        const opacity = 1 - heroProgress * 0.5;
-        heroRef.current.style.transform = `scale(${scale})`;
-        heroRef.current.style.opacity = `${opacity}`;
-      }
-
-      // Scale sections as they come into view
-      sectionsRef.current.forEach((section) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = rect.top;
-          const sectionHeight = rect.height;
-          
-          if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-            const visibleAmount = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
-            const scale = 0.95 + (visibleAmount * 0.05);
-            section.style.transform = `scale(${Math.min(scale, 1)})`;
-            section.style.opacity = `${Math.min(visibleAmount * 2, 1)}`;
-          }
-        }
-      });
-    };
-
-    // Throttle scroll handler for performance
-    let ticking = false;
-    const scrollListener = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', scrollListener, { passive: true });
-
     return () => {
-      clearTimeout(timeoutId);
-      observer.disconnect();
       window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('scroll', scrollListener);
-      
       if (newsletterFormRef.current) {
         newsletterFormRef.current.removeEventListener('click', trackClick);
         newsletterFormRef.current.removeEventListener('keydown', trackKeypress);
@@ -332,7 +194,6 @@ export default function Home() {
     };
   }, []);
 
-  // Announce to screen readers
   const announce = (message: string) => {
     if (announcementRef.current) {
       announcementRef.current.textContent = message;
@@ -393,7 +254,7 @@ export default function Home() {
     window.location.href = `/properties?${params.toString()}`;
   };
 
-  // Auto-close calendar when both dates are selected
+  // Auto-close calendar
   useEffect(() => {
     if (dateRange?.from && dateRange?.to && datePickerOpen) {
       const timer = setTimeout(() => {
@@ -404,24 +265,15 @@ export default function Home() {
     }
   }, [dateRange, datePickerOpen]);
 
-  // Handle date picker open/close
-  const handleDatePickerOpenChange = (open: boolean) => {
-    setDatePickerOpen(open);
-    if (open) {
-      announce("Calendar opened. Select your check in and check out dates.");
-    }
-  };
-
   // Handle Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && datePickerOpen) {
-        setDatePickerOpen(false);
-      }
-      
-      if (e.key === "Escape" && destinationOpen) {
-        setDestinationOpen(false);
-        setFocusedDestinationIndex(-1);
+      if (e.key === "Escape") {
+        if (datePickerOpen) setDatePickerOpen(false);
+        if (destinationOpen) {
+          setDestinationOpen(false);
+          setFocusedDestinationIndex(-1);
+        }
       }
     };
 
@@ -429,7 +281,7 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, [datePickerOpen, destinationOpen]);
 
-  // Keyboard navigation for destination dropdown
+  // Keyboard navigation for destination
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!destinationOpen) return;
@@ -467,16 +319,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [destinationOpen, focusedDestinationIndex]);
 
-  // Handle destination dropdown open
-  const handleDestinationOpenChange = (open: boolean) => {
-    setDestinationOpen(open);
-    if (!open) {
-      setFocusedDestinationIndex(-1);
-    } else {
-      announce("Destination dropdown opened. Use arrow keys to navigate, Enter to select.");
-    }
-  };
-
   const handleDestinationSelect = (dest: string) => {
     setDestination(dest.toLowerCase().replace(/\s+/g, '-'));
     setDestinationOpen(false);
@@ -484,7 +326,6 @@ export default function Home() {
     announce(`${dest} selected`);
   };
 
-  // Format date range display
   const dateRangeDisplay = dateRange?.from && dateRange?.to
     ? `${format(dateRange.from, 'dd MMM')} → ${format(dateRange.to, 'dd MMM')}`
     : dateRange?.from
@@ -499,7 +340,6 @@ export default function Home() {
       <StructuredData type="home" />
       <Header />
 
-      {/* Screen reader live region for announcements */}
       <div
         ref={announcementRef}
         className="sr-only"
@@ -509,56 +349,37 @@ export default function Home() {
       />
 
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - OPTIMIZED */}
         <section className="relative h-[700px] md:h-[800px] flex items-center overflow-hidden">
-          {/* Desktop Background video */}
+          {/* Background videos - lazy loaded */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="none"
             poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
             className="hidden md:block absolute inset-0 w-full h-full object-cover"
-            style={{
-              transform: "translateZ(0)",
-              willChange: "transform"
-            }}
             aria-label="Background video showcasing luxury group accommodation"
-            onError={(e) => {
-              const video = e.currentTarget;
-              video.style.display = 'none';
-            }}
           >
             <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
-            <track kind="captions" srcLang="en" label="English captions" />
           </video>
           
-          {/* Mobile Background video */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="none"
             poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-f1760adc-20251023182556.jpg"
             className="block md:hidden absolute inset-0 w-full h-full object-cover"
-            style={{
-              transform: "translateZ(0)",
-              willChange: "transform"
-            }}
             aria-label="Background video showcasing luxury group accommodation"
-            onError={(e) => {
-              const video = e.currentTarget;
-              video.style.display = 'none';
-            }}
           >
             <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
-            <track kind="captions" srcLang="en" label="English captions" />
           </video>
 
-          {/* Hero Content Overlay - WITH REF FOR SCALING */}
-          <div ref={heroRef as any} className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8 scale-on-scroll">
+          {/* Hero Content - REMOVED SCALING ANIMATIONS */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 gap-8">
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold drop-shadow-lg"
               style={{
@@ -571,7 +392,7 @@ export default function Home() {
 
             <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-6">
               <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-                {/* Date Picker - FIXED */}
+                {/* Date Picker */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-dates" className="block text-sm font-medium text-gray-900 mb-2">
                     Check-in / Check-out
@@ -638,43 +459,26 @@ export default function Home() {
                   </Popover>
                 </div>
 
-                {/* Destination Selector - Enhanced with popular destinations */}
+                {/* Destination Selector */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-destination" className="block text-sm font-medium text-gray-900 mb-2">
                     Destination
                   </label>
-                  <Popover open={destinationOpen} onOpenChange={handleDestinationOpenChange} modal={false}>
+                  <Popover open={destinationOpen} onOpenChange={setDestinationOpen} modal={false}>
                     <PopoverTrigger asChild>
                       <Button
                         id="ge-destination"
                         variant="outline"
-                        className="ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)]"
-                        style={{
-                          boxShadow: 'none',
-                          borderColor: '#e5e7eb'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-                          e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = 'none';
-                          e.currentTarget.style.borderColor = '#e5e7eb';
-                        }}
+                        className="ge-input w-full justify-start text-left font-normal"
                         aria-label={`Select destination. Currently: ${destination ? allDestinations.find(d => d.toLowerCase().replace(/\s+/g, '-') === destination) || "Choose location" : "Choose location"}`}
-                        aria-expanded={destinationOpen}
                       >
-                        <MapPin className="text-gray-400 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <MapPin className="text-gray-400 mr-2 flex-shrink-0" />
                         <span className={destination ? "text-gray-900 truncate" : "text-gray-500 truncate"}>
                           {destination ? allDestinations.find(d => d.toLowerCase().replace(/\s+/g, '-') === destination) || "Choose location" : "Choose location"}
                         </span>
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent 
-                      className="w-[var(--radix-popover-trigger-width)] p-0 transition-opacity duration-150 z-[1000]" 
-                      align="start"
-                      sideOffset={4}
-                    >
+                    <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 z-[1000]" align="start">
                       <div className="max-h-[400px] overflow-y-auto smooth-scroll">
                         <div className="p-4">
                           <p className="text-sm font-semibold text-gray-900 mb-3">Choose Destination</p>
@@ -685,13 +489,12 @@ export default function Home() {
                                 ref={(el) => { destinationButtonsRef.current[index] = el; }}
                                 onClick={() => handleDestinationSelect(dest)}
                                 onMouseEnter={() => setFocusedDestinationIndex(index)}
-                                className={`px-3 py-2.5 text-sm font-medium text-left rounded-lg transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)] ${
+                                className={`px-3 py-2.5 text-sm font-medium text-left rounded-lg transition-colors border ${
                                   focusedDestinationIndex === index
                                     ? 'bg-[var(--color-accent-sage)]/10 border-[var(--color-accent-sage)] text-gray-900'
                                     : 'bg-white border-gray-200 hover:border-[var(--color-accent-sage)] hover:bg-gray-50 text-gray-900'
                                 }`}
                                 tabIndex={destinationOpen ? 0 : -1}
-                                aria-label={`Select ${dest} as destination`}
                               >
                                 {dest}
                               </button>
@@ -703,7 +506,7 @@ export default function Home() {
                   </Popover>
                 </div>
 
-                {/* Guests Selector - Enhanced with hover effect */}
+                {/* Guests Selector */}
                 <div className="flex-1 min-w-0">
                   <label htmlFor="ge-guests" className="block text-sm font-medium text-gray-900 mb-2">
                     Guests
@@ -713,22 +516,10 @@ export default function Home() {
                       <Button
                         id="ge-guests"
                         variant="outline"
-                        className="ge-input w-full justify-start text-left font-normal transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-sage)]"
-                        style={{
-                          boxShadow: 'none',
-                          borderColor: '#e5e7eb'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-                          e.currentTarget.style.borderColor = 'var(--color-accent-sage)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = 'none';
-                          e.currentTarget.style.borderColor = '#e5e7eb';
-                        }}
+                        className="ge-input w-full justify-start text-left font-normal"
                         aria-label={`Select guests. Currently: ${guestsSummary}`}
                       >
-                        <User className="text-gray-400 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <User className="text-gray-400 mr-2 flex-shrink-0" />
                         <span className="text-gray-900 truncate">{guestsSummary}</span>
                       </Button>
                     </PopoverTrigger>
@@ -747,7 +538,7 @@ export default function Home() {
                               onClick={() => setAdults(Math.max(1, adults - 1))}
                               aria-label="Decrease number of adults"
                             >
-                              <Minus className="h-4 w-4" aria-hidden="true" />
+                              <Minus className="h-4 w-4" />
                             </Button>
                             <span className="w-8 text-center font-semibold text-gray-900" aria-live="polite">{adults}</span>
                             <Button
@@ -757,7 +548,7 @@ export default function Home() {
                               onClick={() => setAdults(adults + 1)}
                               aria-label="Increase number of adults"
                             >
-                              <Plus className="h-4 w-4" aria-hidden="true" />
+                              <Plus className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -776,7 +567,7 @@ export default function Home() {
                               onClick={() => setChildren(Math.max(0, children - 1))}
                               aria-label="Decrease number of children"
                             >
-                              <Minus className="h-4 w-4" aria-hidden="true" />
+                              <Minus className="h-4 w-4" />
                             </Button>
                             <span className="w-8 text-center font-semibold text-gray-900" aria-live="polite">{children}</span>
                             <Button
@@ -786,7 +577,7 @@ export default function Home() {
                               onClick={() => setChildren(children + 1)}
                               aria-label="Increase number of children"
                             >
-                              <Plus className="h-4 w-4" aria-hidden="true" />
+                              <Plus className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -805,7 +596,7 @@ export default function Home() {
                               onClick={() => setInfants(Math.max(0, infants - 1))}
                               aria-label="Decrease number of infants"
                             >
-                              <Minus className="h-4 w-4" aria-hidden="true" />
+                              <Minus className="h-4 w-4" />
                             </Button>
                             <span className="w-8 text-center font-semibold text-gray-900" aria-live="polite">{infants}</span>
                             <Button
@@ -815,7 +606,7 @@ export default function Home() {
                               onClick={() => setInfants(infants + 1)}
                               aria-label="Increase number of infants"
                             >
-                              <Plus className="h-4 w-4" aria-hidden="true" />
+                              <Plus className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -833,7 +624,7 @@ export default function Home() {
                               onClick={() => setPets(Math.max(0, pets - 1))}
                               aria-label="Decrease number of pets"
                             >
-                              <Minus className="h-4 w-4" aria-hidden="true" />
+                              <Minus className="h-4 w-4" />
                             </Button>
                             <span className="w-8 text-center font-semibold text-gray-900" aria-live="polite">{pets}</span>
                             <Button
@@ -843,7 +634,7 @@ export default function Home() {
                               onClick={() => setPets(pets + 1)}
                               aria-label="Increase number of pets"
                             >
-                              <Plus className="h-4 w-4" aria-hidden="true" />
+                              <Plus className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -854,19 +645,19 @@ export default function Home() {
 
                 {/* Search Button */}
                 <div className="w-full md:w-auto md:min-w-[140px]">
-                  <label className="hidden md:block text-sm font-medium text-gray-900 mb-2 invisible" htmlFor="ge-search-hidden">
+                  <label className="hidden md:block text-sm font-medium text-gray-900 mb-2 invisible">
                     Search
                   </label>
                   <Button
                     id="ge-search"
                     size="lg"
                     onClick={handleSearch}
-                    className="ge-input w-full rounded-xl font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                    className="ge-input w-full rounded-xl font-semibold"
                     style={{
                       background: "var(--color-accent-sage)",
                       color: "white",
                     }}
-                    aria-label="Search for properties with selected criteria"
+                    aria-label="Search for properties"
                   >
                     Search
                   </Button>
@@ -877,7 +668,7 @@ export default function Home() {
         </section>
 
         {/* Hero Description - Below Video - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[0] = el; }} className="py-8 sm:py-10 md:py-12 bg-white scale-on-scroll">
+        <section className="py-8 sm:py-10 md:py-12 bg-white scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <h2
               className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight text-center"
@@ -895,7 +686,7 @@ export default function Home() {
         </section>
 
         {/* Trust Signals Section - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[1] = el; }} className="py-16 bg-white scale-on-scroll">
+        <section className="py-16 bg-white scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
@@ -931,7 +722,7 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us Section - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[2] = el; }} className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1074,7 +865,7 @@ export default function Home() {
         </section>
 
         {/* Visual Showcase Section - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[3] = el; }} className="py-16 bg-white scroll-reveal scale-on-scroll">
+        <section className="py-16 bg-white scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-8">
               <h2 className="mb-3 text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1158,7 +949,7 @@ export default function Home() {
         </section>
 
         {/* Featured Properties - NOW DYNAMIC */}
-        <section ref={(el) => { sectionsRef.current[4] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1204,7 +995,7 @@ export default function Home() {
         </section>
 
         {/* Service Areas Section - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[5] = el; }} className="py-20 bg-white scroll-reveal scale-on-scroll">
+        <section className="py-20 bg-white scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4 text-4xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -1260,7 +1051,7 @@ export default function Home() {
         </section>
 
         {/* Experiences - NOW DYNAMIC */}
-        <section ref={(el) => { sectionsRef.current[6] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-[42px] px-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -1303,7 +1094,7 @@ export default function Home() {
         </section>
 
         {/* How It Works - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[7] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1412,7 +1203,7 @@ export default function Home() {
         </section>
 
         {/* Destinations - KEEP STATIC for hero showcase */}
-        <section ref={(el) => { sectionsRef.current[8] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1485,7 +1276,7 @@ export default function Home() {
         </section>
 
         {/* Reviews - NOW DYNAMIC */}
-        <section ref={(el) => { sectionsRef.current[9] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-primary)] scroll-reveal scale-on-scroll">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
@@ -1509,7 +1300,7 @@ export default function Home() {
         </section>
 
         {/* Instagram Section - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[10] = el; }} className="py-12 sm:py-16 md:py-20 scroll-reveal scale-on-scroll" style={{ background: "var(--color-bg-secondary)" }}>
+        <section className="py-12 sm:py-16 md:py-20 scroll-reveal scale-on-scroll" style={{ background: "var(--color-bg-secondary)" }}>
           <div className="max-w-full">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8 sm:mb-12 gap-3 sm:gap-4 max-w-[1400px] mx-auto px-4 sm:px-6">
               <h2 
@@ -1587,7 +1378,7 @@ export default function Home() {
         <FAQSection />
 
         {/* Email Capture - ADD TO sectionsRef */}
-        <section ref={(el) => { sectionsRef.current[11] = el; }} className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--color-bg-secondary)] scroll-reveal scale-on-scroll">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-[42px]" style={{ fontFamily: "var(--font-display)" }}>
               Get Party Planning Tips
