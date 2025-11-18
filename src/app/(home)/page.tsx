@@ -315,7 +315,7 @@ export default function Home() {
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         setFocusedDestinationIndex((prev) => {
-          const next = prev - 1 < 0 : allDestinations.length - 1 : prev - 1;
+          const next = prev - 1 < 0 ? allDestinations.length - 1 : prev - 1;
           destinationButtonsRef.current[next]?.focus();
           return next;
         });
