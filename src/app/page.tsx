@@ -72,6 +72,16 @@ const allDestinations = [
 ];
 
 export default function Home() {
+  // Set page metadata dynamically for homepage
+  useEffect(() => {
+    document.title = "Luxury Hen Party Houses UK | Large Group Accommodation with Hot Tubs | Group Escape Houses";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Book luxury hen party houses across the UK. Stunning large group accommodation with hot tubs, pools, games rooms. Perfect for celebrations. 3,000+ 5-star reviews. Brighton-based team.');
+    }
+  }, []);
+
   const [email, setEmail] = useState("");
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
