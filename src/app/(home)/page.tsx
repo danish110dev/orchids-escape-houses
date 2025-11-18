@@ -171,7 +171,7 @@ export default function Home() {
       };
 
       fetchData();
-    }, 100); // Defer by 100ms to prioritize initial render
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);
@@ -180,7 +180,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoadVideo(true);
-    }, 500); // Load video after 500ms
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -194,7 +194,6 @@ export default function Home() {
     const handleResize = () => checkMobile();
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Lightweight interaction tracking
     const trackClick = () => setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
     const trackKeypress = () => setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
 
@@ -273,7 +272,6 @@ export default function Home() {
     window.location.href = `/properties?${params.toString()}`;
   };
 
-  // Auto-close calendar
   useEffect(() => {
     if (dateRange?.from && dateRange?.to && datePickerOpen) {
       const timer = setTimeout(() => {
@@ -284,7 +282,6 @@ export default function Home() {
     }
   }, [dateRange, datePickerOpen]);
 
-  // Handle Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -300,7 +297,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, [datePickerOpen, destinationOpen]);
 
-  // Keyboard navigation for destination
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!destinationOpen) return;
@@ -368,9 +364,659 @@ export default function Home() {
       />
 
       <main>
-        {/* SEO content note: Server-side metadata is in src/app/(home)/layout.tsx */}
-        
-        {/* Render rest of homepage exactly as before - keeping all ~1000 lines */}
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+          {shouldLoadVideo && (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-20"
+              poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+            >
+              <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/videos/luma_video_1729107219.mp4" type="video/mp4" />
+            </video>
+          )}
+
+          <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
+            <h1 className="mb-6 text-white drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party Houses Designed for the Ultimate Weekend
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+              Luxury homes, hot tubs, and experiences for unforgettable hen celebrations across the UK
+            </p>
+
+            {/* Search Form */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Destination */}
+                <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    >
+                      <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-500">Where</span>
+                        <span className="text-sm font-medium">{destination || "Search destinations"}</span>
+                      </div>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
+                    <div className="space-y-2">
+                      {allDestinations.map((dest, index) => (
+                        <button
+                          key={dest}
+                          ref={(el) => { destinationButtonsRef.current[index] = el; }}
+                          onClick={() => handleDestinationSelect(dest)}
+                          className="w-full text-left px-4 py-2 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors"
+                        >
+                          {dest}
+                        </button>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
+
+                {/* Dates */}
+                <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      ref={dateFieldRef}
+                      variant="outline"
+                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    >
+                      <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-500">When</span>
+                        <span className="text-sm font-medium">{dateRangeDisplay}</span>
+                      </div>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <CalendarComponent
+                      mode="range"
+                      selected={dateRange}
+                      onSelect={setDateRange}
+                      numberOfMonths={isMobile ? 1 : 2}
+                      disabled={(date) => date < new Date()}
+                    />
+                  </PopoverContent>
+                </Popover>
+
+                {/* Guests */}
+                <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    >
+                      <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-500">Who</span>
+                        <span className="text-sm font-medium">{guestsSummary}</span>
+                      </div>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80" align="start">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">Adults</div>
+                          <div className="text-sm text-gray-500">Age 13+</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setAdults(Math.max(1, adults - 1))}
+                            disabled={adults <= 1}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center">{adults}</span>
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setAdults(adults + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">Children</div>
+                          <div className="text-sm text-gray-500">Age 2-12</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setChildren(Math.max(0, children - 1))}
+                            disabled={children <= 0}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center">{children}</span>
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setChildren(children + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">Infants</div>
+                          <div className="text-sm text-gray-500">Under 2</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setInfants(Math.max(0, infants - 1))}
+                            disabled={infants <= 0}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center">{infants}</span>
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setInfants(infants + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">Pets</div>
+                          <div className="text-sm text-gray-500">Bring a pet</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setPets(Math.max(0, pets - 1))}
+                            disabled={pets <= 0}
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center">{pets}</span>
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            className="h-8 w-8 rounded-full"
+                            onClick={() => setPets(pets + 1)}
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+
+                {/* Search Button */}
+                <Button
+                  onClick={handleSearch}
+                  size="lg"
+                  className="h-16 rounded-2xl font-semibold text-lg transition-all hover:scale-[1.02]"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Search
+                </Button>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link href="/properties">
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-8 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-pink)",
+                    color: "var(--color-text-primary)",
+                  }}
+                >
+                  Browse Houses
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-8 py-6 font-medium border-2 transition-all hover:bg-white"
+                  style={{
+                    borderColor: "var(--color-accent-gold)",
+                    color: "var(--color-text-primary)",
+                  }}
+                >
+                  Get Instant Quote
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Signals */}
+        <section className="py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="transition-transform hover:scale-105">
+                <Award className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-gold)]" />
+                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>3,000+</div>
+                <div className="text-[var(--color-neutral-dark)]">5 Star Reviews</div>
+              </div>
+              <div className="transition-transform hover:scale-105">
+                <Shield className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-sage)]" />
+                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Secure</div>
+                <div className="text-[var(--color-neutral-dark)]">Safe Payments</div>
+              </div>
+              <div className="transition-transform hover:scale-105">
+                <Users className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-pink)]" />
+                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>UK Team</div>
+                <div className="text-[var(--color-neutral-dark)]">Expert Support</div>
+              </div>
+              <div className="transition-transform hover:scale-105">
+                <Clock className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-gold)]" />
+                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Fast</div>
+                <div className="text-[var(--color-neutral-dark)]">Quick Response</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Properties */}
+        <section className="py-20 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Featured Hen Party Houses
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Hand-picked luxury properties perfect for your hen weekend
+              </p>
+            </div>
+
+            {isLoadingData ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-96"></div>
+                ))}
+              </div>
+            ) : featuredProperties.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {featuredProperties.map((property) => (
+                  <PropertyCard key={property.id} {...property} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-xl text-[var(--color-neutral-dark)]">
+                  No featured properties available at the moment.
+                </p>
+              </div>
+            )}
+
+            <div className="text-center mt-12">
+              <Link href="/properties">
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  View All Properties
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Experiences */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Add Unforgettable Experiences
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Take your hen party to the next level with our curated activities
+              </p>
+            </div>
+
+            {isLoadingData ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-80"></div>
+                ))}
+              </div>
+            ) : experiences.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {experiences.map((experience) => (
+                  <ExperienceCard key={experience.slug} {...experience} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-xl text-[var(--color-neutral-dark)]">
+                  No experiences available at the moment.
+                </p>
+              </div>
+            )}
+
+            <div className="text-center mt-12">
+              <Link href="/experiences">
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-pink)",
+                    color: "var(--color-text-primary)",
+                  }}
+                >
+                  View All Experiences
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Destinations */}
+        <section className="py-20 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Explore Top Destinations
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                From vibrant cities to coastal escapes
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {destinations.map((destination) => (
+                <Link
+                  key={destination.name}
+                  href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group relative overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                >
+                  <Image
+                    src={destination.image}
+                    alt={destination.name}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                      {destination.name}
+                    </h3>
+                    <p className="text-sm opacity-90">{destination.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/destinations">
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  View All Destinations
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                How It Works
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Booking your perfect hen weekend is simple
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center transition-transform hover:scale-105">
+                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-pink)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                  1
+                </div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  Choose House
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">
+                  Browse our luxury properties and find your perfect match
+                </p>
+              </div>
+
+              <div className="text-center transition-transform hover:scale-105">
+                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-sage)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                  2
+                </div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  Add Experiences
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">
+                  Select from cocktail classes, butlers, life drawing and more
+                </p>
+              </div>
+
+              <div className="text-center transition-transform hover:scale-105">
+                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-gold)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                  3
+                </div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  Pay Deposit
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">
+                  Secure your booking with a deposit, final balance due later
+                </p>
+              </div>
+
+              <div className="text-center transition-transform hover:scale-105">
+                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-pink)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                  4
+                </div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  Enjoy Your Stay
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">
+                  Relax and celebrate with your group in style
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/how-it-works">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-10 py-6 font-medium border-2 transition-all hover:bg-[var(--color-bg-primary)]"
+                  style={{
+                    borderColor: "var(--color-accent-sage)",
+                    color: "var(--color-text-primary)",
+                  }}
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Reviews */}
+        <section className="py-20 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                What Our Guests Say
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Over 3,000 five-star reviews from happy hen parties
+              </p>
+            </div>
+
+            {mounted && <ReviewSlider reviews={reviews} isLoading={isLoadingData} />}
+
+            <div className="text-center mt-12">
+              <Link href="/reviews">
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  Read All Reviews
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Frequently Asked Questions
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Everything you need to know about booking with us
+              </p>
+            </div>
+
+            {mounted && <FAQSection />}
+          </div>
+        </section>
+
+        {/* Newsletter */}
+        <section className="py-20 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-3xl p-12 text-center text-white">
+              <PartyPopper className="w-16 h-16 mx-auto mb-6" />
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Get Hen Party Inspiration
+              </h2>
+              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Subscribe for exclusive deals, new properties, and planning tips
+              </p>
+
+              <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex gap-4">
+                <input
+                  type="text"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  style={{ position: 'absolute', left: '-9999px' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                  className="flex-1 h-14 rounded-2xl border-2 border-white/30 bg-white/10 text-white placeholder:text-white/60 focus:bg-white/20"
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting || !email}
+                  className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "white",
+                    color: "var(--color-accent-sage)",
+                  }}
+                >
+                  {isSubmitting ? "Subscribing..." : "Subscribe"}
+                </Button>
+              </form>
+
+              {submitStatus === "success" && (
+                <p className="mt-4 text-white font-medium">Thanks for subscribing! Check your inbox.</p>
+              )}
+              {submitStatus === "error" && (
+                <p className="mt-4 text-white font-medium">Something went wrong. Please try again.</p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Instagram */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6 text-center">
+            <Instagram className="w-12 h-12 mx-auto mb-4 text-[var(--color-accent-pink)]" />
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Follow Us on Instagram
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+              Get daily inspiration and see our houses in action
+            </p>
+            <a
+              href="https://www.instagram.com/groupescapehouses/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                style={{
+                  background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                  color: "white",
+                }}
+              >
+                @groupescapehouses
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+          </div>
+        </section>
       </main>
 
       <Footer />
