@@ -8,65 +8,21 @@ import Script from "next/script";
 
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import CustomAutumnProvider from "@/lib/autumn-provider";
+
+// Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
-  title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
-  description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
-  keywords: [
-    "hen party houses UK",
-    "hen do accommodation",
-    "party houses for groups",
-    "large group cottages",
-    "hen weekend houses",
-    "houses with hot tubs UK",
-    "luxury party houses",
-    "group accommodation UK",
-    "large holiday homes",
-    "celebration accommodation",
-    "birthday party houses",
-    "houses with pools UK",
-    "party houses with games rooms",
-    "large group accommodation UK",
-    "luxury hen party houses"
-  ],
-  authors: [{ name: "Group Escape Houses" }],
-  creator: "Group Escape Houses",
-  publisher: "Group Escape Houses",
+  title: {
+    default: "Group Escape Houses | Luxury Group Accommodation UK",
+    template: "%s | Group Escape Houses"
+  },
+  description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
+  metadataBase: new URL("https://groupescapehouses.co.uk"),
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://groupescapehouses.co.uk"),
-  alternates: {
-    canonical: "https://groupescapehouses.co.uk/",
-  },
-  verification: {
-    google: "your-google-verification-code-here", // Replace with your actual code
-  },
   // Icons are automatically generated from icon.tsx and apple-icon.tsx
-  openGraph: {
-    title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
-    description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Perfect for hen parties, birthdays, and weekend getaways.",
-    url: "https://groupescapehouses.co.uk",
-    siteName: "Group Escape Houses",
-    locale: "en_GB",
-    type: "website",
-    images: [
-      {
-        url: "https://groupescapehouses.co.uk/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Group Escape Houses - Luxury Party Houses UK",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Group Escape Houses | Large Group Accommodation UK | Luxury Hen Party Houses",
-    description: "Stay in style with Group Escape Houses. Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-    images: ["https://groupescapehouses.co.uk/twitter-image.jpg"],
-    creator: "@groupescapehouses",
-  },
   robots: {
     index: true,
     follow: true,
