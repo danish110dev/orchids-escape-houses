@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
     url: "https://groupescapehouses.co.uk/blog",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/blog",
+  },
 };
 
 export default function BlogLayout({
