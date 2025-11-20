@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Private chefs, cocktail classes, spa days & wellness. Prices from £40pp.",
     url: "https://groupescapehouses.co.uk/experiences",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/experiences",
+  },
 };
 
 export default function ExperiencesLayout({
