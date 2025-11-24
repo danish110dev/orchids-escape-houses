@@ -1006,31 +1006,64 @@ export default function Home() {
 
         {/* Instagram */}
         <section className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6 text-center">
-            <Instagram className="w-12 h-12 mx-auto mb-4 text-[var(--color-accent-pink)]" />
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Follow Us on Instagram
-            </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
-              Get daily inspiration and see our houses in action
-            </p>
-            <a
-              href="https://www.instagram.com/groupescapehouses/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                style={{
-                  background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                  color: "white",
-                }}
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <Instagram className="w-12 h-12 mx-auto mb-4 text-[var(--color-accent-pink)]" />
+              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Follow Us on Instagram
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+                Get daily inspiration and see our houses in action
+              </p>
+              <a
+                href="https://www.instagram.com/groupescapehouses/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                @groupescapehouses
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </a>
+                <Button
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                    color: "white",
+                  }}
+                >
+                  @groupescapehouses
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
+            </div>
+
+            {/* Instagram Image Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-12">
+              {[
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-b6c21bf3-20251018131712.jpg",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-71429268-20251018131719.jpg",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-303caf30-20251018131730.jpg",
+                "https://images.unsplash.com/photo-1626995216005-51fce6be8f73?w=800&q=90",
+                "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=90",
+                "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg",
+              ].map((img, index) => (
+                <a
+                  key={index}
+                  href="https://www.instagram.com/groupescapehouses/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02]"
+                >
+                  <Image
+                    src={img}
+                    alt={`Instagram post ${index + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Instagram className="w-8 h-8 text-white" />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       </main>
