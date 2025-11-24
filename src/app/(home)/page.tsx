@@ -918,11 +918,7 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <section className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            {mounted && <FAQSection />}
-          </div>
-        </section>
+        {mounted && <FAQSection />}
 
         {/* Newsletter */}
         <section className="py-20 bg-[var(--color-bg-primary)]">
