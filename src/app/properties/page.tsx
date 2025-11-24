@@ -215,10 +215,10 @@ function PropertiesContent() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div>
             <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Hen Party Houses to Rent
+              Luxury Group Houses to Rent
             </h1>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
-              Luxury group accommodation across the UK with hot tubs, pools, and amazing features
+              Perfect for hen parties, weddings, celebrations, and group getaways across the UK
             </p>
           </div>
         </div>
