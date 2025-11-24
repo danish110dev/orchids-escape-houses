@@ -75,7 +75,7 @@ export default function SpaPage() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-0db740ac-20251018122325.jpg?"
-            alt="Mobile spa treatments for hen parties at Group Escape Houses"
+            alt="Mobile spa treatments for group celebrations at Group Escape Houses"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/95 to-[var(--color-bg-secondary)]/90"></div>
@@ -83,10 +83,10 @@ export default function SpaPage() {
 
         <div className="max-w-[1200px] mx-auto px-6 text-center relative z-10">
           <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)" }}>
-            Mobile Spa Treatments UK – Luxury Pampering at Your Party House
+            Mobile Spa Treatments UK – Luxury Pampering for Group Celebrations
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto mb-8">
-            The ultimate <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen party pamper session</Link>, brought straight to your <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">luxury rental house</Link>. From massages to facials, our mobile spa team creates the perfect chilled-out experience for your celebration at any of our <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK destinations</Link>.
+            The ultimate pamper experience, brought straight to your <Link href="/properties" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">luxury rental house</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen parties</Link>, <Link href="/occasions/weddings" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">weddings</Link>, <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">birthdays</Link>, and group getaways at any of our <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">UK destinations</Link>.
           </p>
           <Button
             asChild
@@ -106,7 +106,7 @@ export default function SpaPage() {
       <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-            At <strong>Group Escape Houses</strong>, we bring luxury spa experiences directly to your <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">party house rental</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen weekends</Link>, <Link href="/occasions/special-celebrations" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">birthday celebrations</Link>, and group getaways across the UK. Our professional mobile therapists arrive with premium equipment, creating a relaxing spa atmosphere in the comfort of your own accommodation.
+            At <strong>Group Escape Houses</strong>, we bring luxury spa experiences directly to your <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">party house rental</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen weekends</Link>, <Link href="/occasions/weddings" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">wedding celebrations</Link>, <Link href="/occasions/special-celebrations" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">birthday parties</Link>, and group getaways across the UK. Our professional mobile therapists arrive with premium equipment, creating a relaxing spa atmosphere in the comfort of your own accommodation.
           </p>
         </div>
       </section>
@@ -286,7 +286,7 @@ export default function SpaPage() {
               Available Across the UK
             </h2>
             <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-              Our mobile spa teams cover the most popular <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">hen party destinations</Link> in England, Wales and Scotland
+              Our mobile spa teams cover the most popular <Link href="/destinations" className="underline hover:text-[var(--color-accent-gold)] transition-colors font-medium">group celebration destinations</Link> in England, Wales and Scotland
             </p>
           </motion.div>
 
