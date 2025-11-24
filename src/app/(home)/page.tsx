@@ -750,7 +750,7 @@ export default function Home() {
         </section>
 
         {/* Destinations */}
-        <section className="py-20 bg-[var(--color-bg-secondary)]">
+        <section className="py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -761,29 +761,58 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {destinations.map((destination) => (
-                <Link
-                  key={destination.name}
-                  href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group relative overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
-                >
-                  <Image
-                    src={destination.image}
-                    alt={destination.name}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                      {destination.name}
-                    </h3>
-                    <p className="text-sm opacity-90">{destination.description}</p>
-                  </div>
-                </Link>
-              ))}
+            {/* Scrolling Carousel */}
+            <div className="relative">
+              <div className="overflow-hidden">
+                <div className="flex gap-6 animate-slide-left">
+                  {/* First set of destinations */}
+                  {destinations.map((destination, index) => (
+                    <Link
+                      key={`set1-${destination.name}-${index}`}
+                      href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                    >
+                      <Image
+                        src={destination.image}
+                        alt={destination.name}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-110"
+                        sizes="400px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
+                          {destination.name}
+                        </h3>
+                        <p className="text-sm text-white opacity-90">{destination.description}</p>
+                      </div>
+                    </Link>
+                  ))}
+                  {/* Duplicate set for seamless loop */}
+                  {destinations.map((destination, index) => (
+                    <Link
+                      key={`set2-${destination.name}-${index}`}
+                      href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                    >
+                      <Image
+                        src={destination.image}
+                        alt={destination.name}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-110"
+                        sizes="400px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
+                          {destination.name}
+                        </h3>
+                        <p className="text-sm text-white opacity-90">{destination.description}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="text-center mt-12">
