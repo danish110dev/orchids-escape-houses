@@ -382,10 +382,10 @@ export default function Home() {
 
           <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
             <h1 className="mb-6 text-white drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
-              Hen Party Houses Designed for the Ultimate Weekend
+              Luxury Group Houses for Unforgettable Celebrations
             </h1>
             <p className="text-xl md:text-2xl mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Luxury homes, hot tubs, and experiences for unforgettable hen celebrations across the UK
+              Perfect for hen parties, weddings, birthdays, and group getaways across the UK
             </p>
 
             {/* Search Form */}
@@ -654,10 +654,10 @@ export default function Home() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Featured Hen Party Houses
+                Featured Luxury Group Houses
               </h2>
               <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Hand-picked luxury properties perfect for your hen weekend
+                Hand-picked luxury properties perfect for celebrations and group getaways
               </p>
             </div>
 
@@ -707,7 +707,7 @@ export default function Home() {
                 Add Unforgettable Experiences
               </h2>
               <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Take your hen party to the next level with our curated activities
+                Elevate your celebration with our curated activities
               </p>
             </div>
 
@@ -812,7 +812,7 @@ export default function Home() {
                 How It Works
               </h2>
               <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Booking your perfect hen weekend is simple
+                Booking your perfect group celebration is simple
               </p>
             </div>
 
@@ -893,7 +893,7 @@ export default function Home() {
                 What Our Guests Say
               </h2>
               <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Over 3,000 five-star reviews from happy hen parties
+                Over 3,000 five-star reviews from happy groups
               </p>
             </div>
 
@@ -926,7 +926,7 @@ export default function Home() {
             <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-3xl p-12 text-center text-white">
               <PartyPopper className="w-16 h-16 mx-auto mb-6" />
               <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Get Hen Party Inspiration
+                Get Celebration Inspiration
               </h2>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                 Subscribe for exclusive deals, new properties, and planning tips
