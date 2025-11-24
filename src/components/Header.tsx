@@ -405,16 +405,6 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Reviews Link - Social Proof */}
-              <Link
-                href="/reviews"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Reviews
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-              </Link>
-
               {/* How It Works Link */}
               <Link
                 href="/how-it-works"
@@ -708,14 +698,6 @@ export default function Header() {
 
               {/* Right Column - Secondary Navigation */}
               <nav className="space-y-4 md:pt-0 pt-8">
-                <Link
-                  href="/reviews"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Reviews
-                </Link>
-
                 <Link
                   href="/how-it-works"
                   className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"

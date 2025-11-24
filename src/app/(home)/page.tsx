@@ -920,15 +920,6 @@ export default function Home() {
         {/* FAQ */}
         <section className="py-20 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Frequently Asked Questions
-              </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Everything you need to know about booking with us
-              </p>
-            </div>
-
             {mounted && <FAQSection />}
           </div>
         </section>
