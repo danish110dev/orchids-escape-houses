@@ -717,6 +717,14 @@ export default function Header() {
                 </Link>
 
                 <Link
+                  href="/advertise"
+                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Advertise Your Property
+                </Link>
+
+                <Link
                   href="/admin/bookings"
                   className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
