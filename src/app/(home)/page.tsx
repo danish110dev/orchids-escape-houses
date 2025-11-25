@@ -385,7 +385,7 @@ export default function Home() {
               Luxury Group Houses for Unforgettable Celebrations
             </h1>
             <p className="text-xl md:text-2xl mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Perfect for hen parties, weddings, birthdays, and group getaways across the UK
+              Perfect for weddings, birthdays, hen parties, and group getaways across the UK
             </p>
 
             {/* Search Form */}
