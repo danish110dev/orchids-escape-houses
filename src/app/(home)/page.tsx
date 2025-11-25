@@ -1008,7 +1008,14 @@ export default function Home() {
         <section className="py-20 bg-white overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="text-center mb-12">
-              <Instagram className="w-12 h-12 mx-auto mb-4 text-[var(--color-accent-pink)]" />
+              <div className="flex items-center justify-center mb-4">
+                <Instagram className="w-16 h-16 text-transparent" style={{
+                  background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                }} />
+              </div>
               <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Follow Us on Instagram
               </h2>
@@ -1022,10 +1029,9 @@ export default function Home() {
               >
                 <Button
                   size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] text-white border-0"
                   style={{
                     background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                    color: "white",
                   }}
                 >
                   @groupescapehouses
@@ -1052,7 +1058,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
@@ -1060,9 +1066,12 @@ export default function Home() {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                         sizes="280px"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <Instagram className="w-8 h-8 text-white" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
+                          <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
+                        </div>
                       </div>
                     </a>
                   ))}
@@ -1080,7 +1089,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
@@ -1088,9 +1097,12 @@ export default function Home() {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                         sizes="280px"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <Instagram className="w-8 h-8 text-white" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
+                          <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
+                        </div>
                       </div>
                     </a>
                   ))}
