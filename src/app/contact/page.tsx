@@ -32,6 +32,8 @@ export default function ContactPage() {
   const [honeypot, setHoneypot] = useState("");
   const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
   const formRef = useRef<HTMLFormElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   // Track form load time
   useEffect(() => {
@@ -55,6 +57,14 @@ export default function ContactPage() {
         formRef.current?.removeEventListener('keydown', trackKeypress);
       };
     }
+  }, []);
+
+  // Lazy load video
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   // Only these experiences have actual pages
@@ -173,13 +183,27 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] overflow-hidden">
+        {shouldLoadVideo && (
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+          >
+            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/videos/luma_video_1729107219.mp4" type="video/mp4" />
+          </video>
+        )}
+        
+        <div className="max-w-[1200px] mx-auto px-6 text-center relative z-10">
           <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
             Get in Touch
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-            Ready to book your perfect hen weekend? Our UK team is here to help with any questions.
+            Ready to book your perfect group celebration? Our UK team is here to help with any questions.
           </p>
         </div>
       </section>
