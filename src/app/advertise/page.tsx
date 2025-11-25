@@ -34,7 +34,7 @@ export default function AdvertisePage() {
     {
       icon: Users,
       title: "Reach Thousands of Group Guests",
-      description: "Connect with hen parties, celebrations, and weekend groups actively searching for luxury accommodation across the UK."
+      description: "Connect with weddings, celebrations, and weekend groups actively searching for luxury accommodation across the UK."
     },
     {
       icon: TrendingUp,
@@ -145,7 +145,7 @@ export default function AdvertisePage() {
               </h1>
               
               <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed">
-                Join the UK's leading platform for luxury group accommodation. Reach thousands of guests looking for hen parties, celebrations, and unforgettable weekends.
+                Join the UK's leading platform for luxury group accommodation. Reach thousands of guests looking for weddings, celebrations, and unforgettable weekends.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
