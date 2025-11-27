@@ -429,7 +429,7 @@ export default function Header() {
 
               {/* Advertise Link */}
               <Link
-                href="/advertise"
+                href="/advertise-with-us"
                 className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
                 style={{ fontFamily: "var(--font-body)" }}
               >
@@ -717,7 +717,7 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/advertise"
+                  href="/advertise-with-us"
                   className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
