@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { formatDatabaseDateToUK } from "@/lib/date-utils";
 
 interface Booking {
   id: number;
@@ -196,8 +197,8 @@ export default function AdminBookingsPage() {
       b.guestName,
       b.guestEmail,
       b.propertyName,
-      b.checkInDate,
-      b.checkOutDate,
+      formatDatabaseDateToUK(b.checkInDate),
+      formatDatabaseDateToUK(b.checkOutDate),
       b.numberOfGuests,
       `£${b.totalPrice}`,
       b.bookingStatus
@@ -408,10 +409,10 @@ export default function AdminBookingsPage() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {booking.checkInDate}
+                            {formatDatabaseDateToUK(booking.checkInDate)}
                           </div>
                           <div className="text-sm text-gray-500">
-                            to {booking.checkOutDate}
+                            to {formatDatabaseDateToUK(booking.checkOutDate)}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -541,13 +542,13 @@ export default function AdminBookingsPage() {
                   <div>
                     <Label className="text-sm font-semibold">Check In</Label>
                     <p className="text-sm">
-                      {selectedBooking.checkInDate}
+                      {formatDatabaseDateToUK(selectedBooking.checkInDate)}
                     </p>
                   </div>
                   <div>
                     <Label className="text-sm font-semibold">Check Out</Label>
                     <p className="text-sm">
-                      {selectedBooking.checkOutDate}
+                      {formatDatabaseDateToUK(selectedBooking.checkOutDate)}
                     </p>
                   </div>
                 </div>
