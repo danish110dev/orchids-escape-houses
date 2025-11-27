@@ -574,9 +574,23 @@ export default function AdvertiseWithUs() {
                     <Star key={i} className="w-5 h-5 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
                   ))}
                 </div>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-4">
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-6">
                   "Set up was quick, the listing looks great and our annual membership paid for itself in the first week with confirmed bookings."
                 </p>
+                <div className="flex items-center gap-4 pt-4 border-t border-[var(--color-bg-secondary)]">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-co-c2a10f6e-20251127184832.jpg"
+                      alt="Sarah Mitchell"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[var(--color-text-primary)]">Sarah Mitchell</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">Manor House Owner, Cotswolds</p>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -585,9 +599,23 @@ export default function AdvertiseWithUs() {
                     <Star key={i} className="w-5 h-5 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
                   ))}
                 </div>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-4">
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-6">
                   "We get regular enquiries for large groups and the team are always helpful and proactive."
                 </p>
+                <div className="flex items-center gap-4 pt-4 border-t border-[var(--color-bg-secondary)]">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-fr-81c7fcec-20251127184832.jpg"
+                      alt="James Thornton"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[var(--color-text-primary)]">James Thornton</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">Estate Owner, Lake District</p>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -596,9 +624,23 @@ export default function AdvertiseWithUs() {
                     <Star key={i} className="w-5 h-5 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
                   ))}
                 </div>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-4">
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed italic mb-6">
                   "Professional support from start to finish. The commission-free model makes so much more sense for our business."
                 </p>
+                <div className="flex items-center gap-4 pt-4 border-t border-[var(--color-bg-secondary)]">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-su-474d0a6c-20251127184832.jpg"
+                      alt="Emma Richardson"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[var(--color-text-primary)]">Emma Richardson</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">Country House Owner, Yorkshire</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
