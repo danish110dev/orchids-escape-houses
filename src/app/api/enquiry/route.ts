@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { checkForSpam, type SpamCheckData } from "@/lib/spam-protection";
+import { sendEnquiryEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -49,7 +50,26 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Send email notification or save to database
+    // Send email notification
+    try {
+      await sendEnquiryEmail({
+        name,
+        email,
+        phone,
+        checkin,
+        checkout,
+        groupSize,
+        occasion,
+        addons,
+        message,
+        propertyTitle,
+        propertySlug
+      });
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // Continue even if email fails - don't block the user
+    }
+
     console.log('✅ Property enquiry submission:', {
       name,
       email,
