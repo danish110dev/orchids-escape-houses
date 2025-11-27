@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { formatDateWithMonth } from "@/lib/date-utils";
 import { Calendar as CalendarIcon, Loader2, CreditCard } from "lucide-react";
 import { toast } from "sonner";
 
@@ -175,7 +175,7 @@ export default function BookingCheckout({
                       className="w-full justify-start text-left font-normal"
                     >
                       <CalendarIcon className="mr-2 h-4 w-4" />
-                      {checkInDate ? format(checkInDate, "PPP") : "Select date"}
+                      {checkInDate ? formatDateWithMonth(checkInDate) : "Select date"}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
@@ -199,7 +199,7 @@ export default function BookingCheckout({
                       className="w-full justify-start text-left font-normal"
                     >
                       <CalendarIcon className="mr-2 h-4 w-4" />
-                      {checkOutDate ? format(checkOutDate, "PPP") : "Select date"}
+                      {checkOutDate ? formatDateWithMonth(checkOutDate) : "Select date"}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
@@ -280,14 +280,14 @@ export default function BookingCheckout({
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Check-in:</span>
                 <span className="font-medium">
-                  {checkInDate ? format(checkInDate, "PPP") : "-"}
+                  {checkInDate ? formatDateWithMonth(checkInDate) : "-"}
                 </span>
               </div>
 
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Check-out:</span>
                 <span className="font-medium">
-                  {checkOutDate ? format(checkOutDate, "PPP") : "-"}
+                  {checkOutDate ? formatDateWithMonth(checkOutDate) : "-"}
                 </span>
               </div>
 
