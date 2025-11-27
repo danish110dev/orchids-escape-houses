@@ -13,7 +13,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { formatDatabaseDateToUK } from "@/lib/date-utils";
 
 interface Booking {
   id: number;
@@ -197,8 +196,8 @@ export default function AdminBookingsPage() {
       b.guestName,
       b.guestEmail,
       b.propertyName,
-      formatDatabaseDateToUK(b.checkInDate),
-      formatDatabaseDateToUK(b.checkOutDate),
+      b.checkInDate,
+      b.checkOutDate,
       b.numberOfGuests,
       `£${b.totalPrice}`,
       b.bookingStatus
@@ -213,7 +212,7 @@ export default function AdminBookingsPage() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bookings-${formatDatabaseDateToUK(new Date().toISOString().split('T')[0]).replace(/\//g, '-')}.csv`;
+    a.download = `bookings-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     toast.success("Bookings exported successfully");
   };
@@ -409,10 +408,10 @@ export default function AdminBookingsPage() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {formatDatabaseDateToUK(booking.checkInDate)}
+                            {booking.checkInDate}
                           </div>
                           <div className="text-sm text-gray-500">
-                            to {formatDatabaseDateToUK(booking.checkOutDate)}
+                            to {booking.checkOutDate}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -542,13 +541,13 @@ export default function AdminBookingsPage() {
                   <div>
                     <Label className="text-sm font-semibold">Check In</Label>
                     <p className="text-sm">
-                      {formatDatabaseDateToUK(selectedBooking.checkInDate)}
+                      {selectedBooking.checkInDate}
                     </p>
                   </div>
                   <div>
                     <Label className="text-sm font-semibold">Check Out</Label>
                     <p className="text-sm">
-                      {formatDatabaseDateToUK(selectedBooking.checkOutDate)}
+                      {selectedBooking.checkOutDate}
                     </p>
                   </div>
                 </div>
@@ -608,11 +607,11 @@ export default function AdminBookingsPage() {
                 <div className="grid grid-cols-2 gap-4 text-xs text-gray-500">
                   <div>
                     <Label className="text-xs font-semibold">Created</Label>
-                    <p>{formatDatabaseDateToUK(new Date(selectedBooking.createdAt))} {new Date(selectedBooking.createdAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p>{new Date(selectedBooking.createdAt).toLocaleString('en-GB')}</p>
                   </div>
                   <div>
                     <Label className="text-xs font-semibold">Last Updated</Label>
-                    <p>{formatDatabaseDateToUK(new Date(selectedBooking.updatedAt))} {new Date(selectedBooking.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p>{new Date(selectedBooking.updatedAt).toLocaleString('en-GB')}</p>
                   </div>
                 </div>
               </div>
