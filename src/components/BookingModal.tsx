@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar, User, Minus, Plus } from "lucide-react";
-import { formatDateUK } from "@/lib/date-utils";
+import { formatDateUKLong } from "@/lib/date-utils";
 import { GEH_API } from "@/lib/api-client";
 import { toast } from "sonner";
 
@@ -97,9 +97,9 @@ export default function BookingModal({
 
   const dateRangeDisplay =
     checkInDate && checkOutDate
-      ? `${formatDateUK(checkInDate)} → ${formatDateUK(checkOutDate)}`
+      ? `${formatDateUKLong(checkInDate)} → ${formatDateUKLong(checkOutDate)}`
       : checkInDate
-      ? `${formatDateUK(checkInDate)} → ?`
+      ? `${formatDateUKLong(checkInDate)} → ?`
       : "Select dates";
 
   return (
