@@ -111,12 +111,12 @@ export default function Header() {
   ];
 
   const occasions = [
-    { title: "Hen Party Houses", slug: "hen-party-houses", description: "Perfect for hen weekends" },
-    { title: "Weddings", slug: "weddings", description: "Celebrate your special day" },
+    { title: "Weddings & Celebrations", slug: "weddings", description: "Perfect for your special day" },
     { title: "Weekend Breaks", slug: "weekend-breaks", description: "Relaxing group getaways" },
     { title: "Special Celebrations", slug: "special-celebrations", description: "Birthdays & milestones" },
-    { title: "Christmas", slug: "christmas", description: "Festive gatherings" },
-    { title: "New Year", slug: "new-year", description: "Ring in the new year" },
+    { title: "Hen Parties", slug: "hen-party-houses", description: "Memorable hen weekends" },
+    { title: "Christmas Gatherings", slug: "christmas", description: "Festive celebrations" },
+    { title: "New Year Events", slug: "new-year", description: "Ring in the new year" },
   ];
 
   const experiences = [
@@ -429,7 +429,7 @@ export default function Header() {
 
               {/* Advertise Link */}
               <Link
-                href="/advertise"
+                href="/advertise-with-us"
                 className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
                 style={{ fontFamily: "var(--font-body)" }}
               >
@@ -717,7 +717,7 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/advertise"
+                  href="/advertise-with-us"
                   className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

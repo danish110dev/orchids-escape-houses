@@ -1,23 +1,23 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Luxury Hen Party Houses UK | Large Group Accommodation with Hot Tubs | Group Escape Houses",
-  description: "Book luxury hen party houses across the UK. Stunning large group accommodation with hot tubs, pools, games rooms. Perfect for celebrations. 3,000+ 5-star reviews. Brighton-based team.",
+  title: "Large Group Accommodation UK | Luxury Houses for 10-40 Guests | Group Escape Houses",
+  description: "Book exceptional large group accommodation across the UK. Luxury houses sleeping 10-40 guests with hot tubs, pools, games rooms. Perfect for celebrations, reunions & group holidays. 3,000+ 5-star reviews.",
   keywords: [
-    "hen party houses UK",
-    "luxury hen do accommodation",
     "large group accommodation UK",
-    "party houses with hot tubs",
-    "houses with swimming pools UK",
-    "group celebration houses",
-    "hen weekend houses",
+    "group holiday houses",
+    "luxury group accommodation",
+    "houses for large groups",
+    "group holiday rentals UK",
     "large holiday homes UK",
-    "luxury party houses",
-    "group getaway accommodation"
+    "group getaway accommodation",
+    "houses with hot tubs UK",
+    "group houses with pools",
+    "celebration venues UK"
   ],
   openGraph: {
-    title: "Luxury Hen Party Houses UK | Group Escape Houses",
-    description: "Book luxury hen party houses across the UK. Stunning large group accommodation with hot tubs, pools, games rooms. Perfect for celebrations.",
+    title: "Large Group Accommodation UK | Group Escape Houses",
+    description: "Book exceptional large group accommodation across the UK. Luxury houses sleeping 10-40 guests with hot tubs, pools, games rooms.",
     url: "https://groupescapehouses.co.uk",
     siteName: "Group Escape Houses",
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "https://groupescapehouses.co.uk/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Luxury UK hen party houses with hot tubs and swimming pools",
+        alt: "Luxury UK group accommodation with hot tubs and swimming pools",
       },
     ],
     locale: "en_GB",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luxury Hen Party Houses UK | Group Escape Houses",
-    description: "Book luxury hen party houses across the UK. Stunning large group accommodation with hot tubs, pools, games rooms.",
+    title: "Large Group Accommodation UK | Group Escape Houses",
+    description: "Book exceptional large group accommodation across the UK. Luxury houses sleeping 10-40 guests with hot tubs, pools, games rooms.",
     images: ["https://groupescapehouses.co.uk/twitter-image.jpg"],
   },
   alternates: {

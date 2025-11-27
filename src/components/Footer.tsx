@@ -15,7 +15,7 @@ export default function Footer() {
               Group Escape Houses
             </h3>
             <p className="text-sm text-[var(--color-bg-secondary)] leading-relaxed mb-4">
-              Luxury hen party houses and group accommodation across the UK with hot tubs, pools, and games rooms.
+              Exceptional large group accommodation across the UK with premium facilities and outstanding service.
             </p>
             <Link href="/our-story" className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">
               Read our story →
@@ -28,12 +28,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Hen Party Houses
+                  Browse Properties
                 </Link>
               </li>
               <li>
                 <Link href="/experiences" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Experiences & Activities
+                  Activities & Services
                 </Link>
               </li>
               <li>
@@ -64,23 +64,28 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Admin Dashboard */}
+          {/* Property Owners */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Admin Dashboard</h4>
+            <h4 className="font-semibold mb-4 text-white">Property Owners</h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/advertise-with-us" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  List Your Property
+                </Link>
+              </li>
+              <li>
+                <Link href="/advertise-with-us#benefits" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  Owner Benefits
+                </Link>
+              </li>
+              <li>
+                <Link href="/advertise-with-us#pricing" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                  Commission Structure
+                </Link>
+              </li>
+              <li>
                 <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Manage Properties
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin/bookings" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Manage Bookings
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin/properties/new" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Add New Property
+                  Owner Dashboard
                 </Link>
               </li>
             </ul>
