@@ -5,15 +5,14 @@ export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
 
 export default async function Icon() {
-  // Fetch the Group Escape Houses logo
-  const imageUrl = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot-2025-09-17-at-21.50.52-1761922960864.png?width=8000&height=8000&resize=contain';
+  // Fetch the Group Escape Houses stacked logo
+  const logoUrl = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/stacked_logo-1760785640378-2-1761832743005.webp?width=32&height=32&resize=contain';
   
   try {
-    const response = await fetch(imageUrl);
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const response = await fetch(logoUrl);
+    const imageBuffer = await response.arrayBuffer();
     
-    return new Response(buffer, {
+    return new Response(imageBuffer, {
       headers: {
         'Content-Type': 'image/png',
         'Cache-Control': 'public, max-age=31536000, immutable',
