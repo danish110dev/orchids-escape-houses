@@ -1,550 +1,532 @@
+import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle, TrendingUp, Users, Shield, Clock, Award, ArrowRight, Phone, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { 
+  MessageSquare,
+  CreditCard,
+  BarChart3,
+  FileEdit,
+  Bell,
+  HeartHandshake,
+  Sparkles,
+  ArrowRight,
+  Star,
+  Check,
+  X
+} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Advertise Your Property on Group Escape Houses",
+  description: "No hidden costs. No hidden surprises. List your luxury holiday property with a straightforward annual subscription. No commission fees, just direct bookings.",
+  openGraph: {
+    title: "Advertise Your Property on Group Escape Houses",
+    description: "No hidden costs. No hidden surprises. Commission-free bookings with annual membership.",
+    type: "website",
+  },
+};
 
 export default function AdvertiseWithUs() {
+  const benefits = [
+    {
+      icon: MessageSquare,
+      title: "Direct Contact with Guests",
+      description: "We're all about direct bookings. Prospective guests can contact you directly through your page making it easier for everyone - and of course, there is no commission to pay."
+    },
+    {
+      icon: CreditCard,
+      title: "Commission-Free Bookings",
+      description: "We simply charge a simple annual subscription to list on the site; there's no commission to pay. Just take direct bookings."
+    },
+    {
+      icon: BarChart3,
+      title: "Owner's Dashboard",
+      description: "You have access to a dashboard where you can monitor enquiries and stats for your listing."
+    },
+    {
+      icon: FileEdit,
+      title: "Unique Property Page",
+      description: "You have full control over your own property listing page. Make edits, update photos, and share deals and availability."
+    },
+    {
+      icon: Bell,
+      title: "Free Late Availability Feature",
+      description: "You can populate your late availability entries for up to three months ahead. As premium slots, Christmas and New Year are always there as they are important to fill as early as possible."
+    },
+    {
+      icon: HeartHandshake,
+      title: "Dedicated Team Support",
+      description: "Our production team are on hand to support you at every step - from building your property page to securing more enquiries."
+    }
+  ];
+
+  const membershipTiers = [
+    {
+      name: "Bronze",
+      annualPrice: "£450",
+      monthlyPrice: "£40",
+      totalMonthly: "£480",
+      savings: null,
+      features: [
+        { name: "Annual Membership with Fully Optimised Listing", value: "£450", included: true },
+        { name: "Page Build and Ongoing Production Support", value: "£100", included: false },
+        { name: "Social Media Promotion, inc Late Deals", value: "£100", included: false },
+        { name: "Themed Blog Feature", value: "£100", included: false },
+        { name: "3 x Holiday Focus Pages", value: "£150", included: false },
+        { name: "Homepage Features", value: "£150", included: false },
+        { name: "Specialist Page (Weddings, Youth or Business)", value: "£150", included: false }
+      ]
+    },
+    {
+      name: "Silver",
+      annualPrice: "£650",
+      monthlyPrice: "£57",
+      totalMonthly: "£684",
+      savings: "£300",
+      totalValue: "£950",
+      popular: true,
+      features: [
+        { name: "Annual Membership with Fully Optimised Listing", value: "£450", included: true },
+        { name: "Page Build and Ongoing Production Support", value: "£100", included: true },
+        { name: "Social Media Promotion, inc Late Deals", value: "£100", included: true },
+        { name: "Themed Blog Feature", value: "£100", included: false },
+        { name: "3 x Holiday Focus Pages", value: "£150", included: false },
+        { name: "Homepage Features", value: "£150", included: false },
+        { name: "Specialist Page (Weddings, Youth or Business)", value: "£150", included: false }
+      ]
+    },
+    {
+      name: "Gold",
+      annualPrice: "£850",
+      monthlyPrice: "£75",
+      totalMonthly: "£900",
+      savings: "£400",
+      totalValue: "£1250",
+      features: [
+        { name: "Annual Membership with Fully Optimised Listing", value: "£450", included: true },
+        { name: "Page Build and Ongoing Production Support", value: "£100", included: true },
+        { name: "Social Media Promotion, inc Late Deals", value: "£100", included: true },
+        { name: "Themed Blog Feature", value: "£100", included: true },
+        { name: "3 x Holiday Focus Pages", value: "£150", included: true },
+        { name: "Homepage Features", value: "£150", included: true },
+        { name: "Specialist Page (Weddings, Youth or Business)", value: "£150", included: true }
+      ]
+    }
+  ];
+
+  const membershipIncludes = [
+    "Direct enquiries with no commission charged; all enquiries go straight to you",
+    "Dedicated support via phone or email from our team",
+    "Direct link to your own booking system or website through seamless integration",
+    "Live availability through iCal feed connections for real-time updates",
+    "Rich media gallery to showcase your property with images, videos, and floorplans",
+    "Market insights and regular guidance on market trends and booking behavior"
+  ];
+
+  const standardMarketing = [
+    "SEO optimization",
+    "Unlimited listings",
+    "PR outreach",
+    "New property features"
+  ];
+
+  const testimonials = [
+    {
+      quote: "A great company to work with. Set up the profile quickly and to a high quality - the whole process could not be easier. Within 24 hours we were getting enquiries leading to bookings, paying back the annual subscription immediately.",
+      author: "Graeme McFall",
+      property: "The Hollies, Argyll, Bute"
+    },
+    {
+      quote: "What an amazing year we have had with Group Escape Houses. A day doesn't go by without an enquiry and we are pleased with our conversion rate. Their site is so user-friendly also and the team always greets you personally. Keep up the good work.",
+      author: "Sharon",
+      property: "Walnut Barn Estate"
+    },
+    {
+      quote: "We finally joined in late February 23 and - wow! We are so pleased at the responses we have had in only 2 months and confirmed bookings. The team are easy to work with and we are excited to be onboard and work with them in the future.",
+      author: "Tony",
+      property: "Radcliffes Lodge"
+    }
+  ];
+
+  const resources = [
+    { title: "Meet the Team", href: "/our-story" },
+    { title: "Properties Recently Joined", href: "/properties" },
+    { title: "Property Types", href: "/house-styles" },
+    { title: "Read Owner Feedback", href: "#testimonials" },
+    { title: "Success Stories", href: "#testimonials" },
+    { title: "Owner Guides", href: "#resources" }
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
 
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]"></div>
+          
+          <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Advertise Your Property on Group Escape Houses
+              </h1>
+              
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full border-2 border-[var(--color-accent-sage)] mb-8">
+                <Sparkles className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                <span className="text-lg font-semibold text-[var(--color-text-primary)]">
+                  No Hidden Costs. No Hidden Surprises.
+                </span>
+              </div>
+              
+              <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed mb-10">
+                If you're looking for more control, more flexibility to do what you want, and a straightforward partner with no hidden fees, then Group Escape Houses could be just the thing for your luxury holiday property.
+              </p>
+              
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                style={{ background: "var(--color-accent-sage)" }}
+              >
+                <Link href="#pricing">
+                  Register Now
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                What you get with your listing on Group Escape Houses
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index}
+                  className="group p-8 rounded-2xl bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-secondary)] transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <benefit.icon className="w-7 h-7 text-[var(--color-accent-sage)]" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                    {benefit.title}
+                  </h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Button 
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-6 text-lg font-medium border-2"
+                style={{ borderColor: "var(--color-accent-sage)" }}
+              >
+                <Link href="/our-story">About Us</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Different Section */}
+        <section className="py-20 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="text-center max-w-4xl mx-auto">
-              <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                List Your Property with Group Escape Houses
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-[var(--color-neutral-dark)]">
-                Join our network of premium group accommodation providers and reach thousands of group travellers across the UK
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="rounded-2xl px-8 py-6 font-medium transition-all hover:scale-[1.05]"
-                    style={{
-                      background: "var(--color-accent-sage)",
-                      color: "white",
-                    }}
-                  >
-                    Get Started Today
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+441273569301">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-2xl px-8 py-6 font-medium border-2 transition-all hover:bg-white"
-                    style={{
-                      borderColor: "var(--color-accent-gold)",
-                      color: "var(--color-text-primary)",
-                    }}
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call 01273 569301
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why List With Us */}
-        <section id="benefits" className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Why List Your Property with Us
+              <h2 className="text-4xl lg:text-5xl font-bold mb-8" style={{ fontFamily: "var(--font-display)" }}>
+                Why is Group Escape Houses different?
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                We connect property owners with quality group bookings across the UK
+              <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed">
+                Group Escape Houses puts you back in control. We don't charge any commission, just an annual subscription fee. You dictate your prices, have complete control over your calendar and have unfettered access to your potential guests.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <TrendingUp className="w-12 h-12 mb-4 text-[var(--color-accent-sage)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Increased Bookings
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Access our established customer base actively searching for large group accommodation
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <Users className="w-12 h-12 mb-4 text-[var(--color-accent-pink)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Quality Guests
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  We pre-screen enquiries and match your property with suitable groups
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <Shield className="w-12 h-12 mb-4 text-[var(--color-accent-gold)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Secure Payments
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  We handle payment processing, deposits, and damage protection on your behalf
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <Clock className="w-12 h-12 mb-4 text-[var(--color-accent-sage)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Time Saving
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Our team handles enquiries, bookings, and guest communications
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <Award className="w-12 h-12 mb-4 text-[var(--color-accent-pink)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Professional Marketing
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Professional photography, listing optimization, and targeted advertising
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-[var(--color-bg-primary)] transition-transform hover:scale-105">
-                <CheckCircle className="w-12 h-12 mb-4 text-[var(--color-accent-gold)]" />
-                <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  No Upfront Costs
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Commission-based model means you only pay when you get bookings
-                </p>
-              </div>
+              <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed mt-6">
+                If you need a hand with your marketing or listing, our experienced team is ready to help increase the visibility of your amazing property and increase your bookings.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="py-20 bg-[var(--color-bg-secondary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                How It Works
-              </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Getting your property listed is simple and straightforward
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-sage)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-                  1
-                </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Contact Us
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Get in touch via phone or email to discuss your property
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-pink)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-                  2
-                </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Property Review
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  We assess your property and discuss commission terms
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-gold)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-                  3
-                </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Create Listing
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Professional photos taken and your listing goes live
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-sage)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-                  4
-                </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Start Earning
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  We manage bookings and you receive payments directly
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Commission Structure */}
+        {/* Membership Pricing Section */}
         <section id="pricing" className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-[1400px] mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Transparent Commission Structure
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Membership & Pricing Options
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Simple, fair pricing with no hidden fees or charges
-              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {membershipTiers.map((tier, index) => (
+                <div 
+                  key={index}
+                  className={`relative rounded-3xl p-8 border-2 ${
+                    tier.popular 
+                      ? 'border-[var(--color-accent-sage)] shadow-2xl scale-105 bg-white' 
+                      : 'border-gray-200 bg-[var(--color-bg-primary)]'
+                  }`}
+                >
+                  {tier.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-[var(--color-accent-sage)] text-white px-6 py-2 rounded-full text-sm font-bold">
+                        MOST POPULAR
+                      </span>
+                    </div>
+                  )}
+                  
+                  <div className="text-center mb-8">
+                    <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                      {tier.name}
+                    </h3>
+                    {tier.totalValue && (
+                      <p className="text-sm text-[var(--color-neutral-dark)] mb-2">
+                        Total Value {tier.totalValue}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-3 mb-8">
+                    {tier.features.map((feature, fIndex) => (
+                      <div key={fIndex} className="flex items-start gap-3">
+                        {feature.included ? (
+                          <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
+                        ) : (
+                          <X className="w-5 h-5 flex-shrink-0 mt-0.5 text-gray-300" />
+                        )}
+                        <div className="flex-1">
+                          <p className={`text-sm ${feature.included ? 'text-[var(--color-text-primary)] font-medium' : 'text-gray-400'}`}>
+                            {feature.name}
+                          </p>
+                          <p className="text-xs text-[var(--color-neutral-dark)] mt-0.5">
+                            {feature.value}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="border-t-2 pt-6 mb-6">
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold mb-2">Pay Annually</p>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                          {tier.annualPrice}
+                        </span>
+                        <span className="text-[var(--color-neutral-dark)]">+ VAT</span>
+                      </div>
+                      {tier.savings && (
+                        <p className="text-sm font-bold text-[var(--color-accent-sage)] mt-1">
+                          YOU SAVE {tier.savings}
+                        </p>
+                      )}
+                    </div>
+                    
+                    <div>
+                      <p className="text-sm font-semibold mb-2">Pay Monthly</p>
+                      <p className="text-sm text-[var(--color-neutral-dark)]">
+                        {tier.monthlyPrice} ({tier.totalMonthly} Total)
+                      </p>
+                      <p className="text-xs text-[var(--color-neutral-dark)] mt-1">
+                        One Year Minimum Membership
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    asChild
+                    size="lg"
+                    className={`w-full rounded-2xl px-8 py-6 font-semibold transition-all hover:-translate-y-0.5 ${
+                      tier.popular 
+                        ? 'bg-[var(--color-accent-sage)] text-white hover:bg-[var(--color-accent-sage)]/90' 
+                        : 'bg-white text-[var(--color-accent-sage)] border-2 border-[var(--color-accent-sage)]'
+                    }`}
+                  >
+                    <Link href="#contact">
+                      Get Started
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+              ))}
             </div>
 
-            <div className="max-w-3xl mx-auto bg-[var(--color-bg-primary)] rounded-3xl p-12">
-              <div className="text-center mb-8">
-                <div className="text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}>
-                  15-20%
-                </div>
-                <p className="text-xl text-[var(--color-neutral-dark)]">
-                  Commission on confirmed bookings
-                </p>
+            {/* Membership Includes */}
+            <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  Your annual Group Escape Houses membership includes:
+                </h3>
+                <ul className="space-y-3">
+                  {membershipIncludes.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
+                      <span className="text-[var(--color-neutral-dark)]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <p className="text-[var(--color-neutral-dark)]">
-                    <strong>No upfront costs</strong> – You only pay when you get bookings
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <p className="text-[var(--color-neutral-dark)]">
-                    <strong>No monthly fees</strong> – Commission-only model
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <p className="text-[var(--color-neutral-dark)]">
-                    <strong>Professional photography</strong> – Included in service
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <p className="text-[var(--color-neutral-dark)]">
-                    <strong>Marketing support</strong> – SEO, social media, and advertising
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <p className="text-[var(--color-neutral-dark)]">
-                    <strong>Full booking management</strong> – We handle everything
-                  </p>
-                </div>
+              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  Our standard marketing support for all properties:
+                </h3>
+                <ul className="space-y-3">
+                  {standardMarketing.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
+                      <span className="text-[var(--color-neutral-dark)]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Property Requirements */}
+        {/* CTA Download Section */}
         <section className="py-20 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Property Requirements
+            <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-3xl p-12 text-center text-white">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Take More Direct Bookings
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                We work with properties that meet our quality standards
+              <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+                Want to learn more about working with Group Escape Houses to take more direct bookings? Our owners guide provides more information on how we can work for your property.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "var(--font-body)" }}>
-                  Ideal Properties Include
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Sleeps 10+ guests comfortably</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">High-quality interiors and furnishings</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Premium amenities (hot tub, pool, games room)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Well-maintained with excellent reviews</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Located in popular UK destinations</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "var(--font-body)" }}>
-                  What We Look For
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Responsive and professional owners</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Clear availability calendar</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Competitive pricing for the market</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Flexible booking terms</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
-                    <span className="text-[var(--color-neutral-dark)]">Commitment to guest satisfaction</span>
-                  </li>
-                </ul>
-              </div>
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white text-[var(--color-accent-sage)] hover:bg-white/90 transition-all hover:-translate-y-0.5"
+              >
+                <Link href="#contact">
+                  Download
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* What We Provide */}
+        {/* Owner Resources */}
         <section className="py-20 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                What We Provide for You
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Owner Resources
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Comprehensive support to maximize your property's potential
-              </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}>
-                  Marketing & Exposure
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-sage)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Professional property photography and videography</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-sage)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Featured placement on our website</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-sage)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">SEO optimization for search engines</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-sage)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Social media promotion to 20,000+ followers</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-sage)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Email marketing to our subscriber base</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-pink)" }}>
-                  Booking Management
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-pink)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">24/7 enquiry handling and response</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-pink)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Guest vetting and screening process</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-pink)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Secure payment processing and deposits</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-pink)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Contract management and documentation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-accent-pink)] flex-shrink-0 mt-2"></div>
-                    <span className="text-[var(--color-neutral-dark)]">Post-booking guest support</span>
-                  </li>
-                </ul>
-              </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {resources.map((resource, index) => (
+                <Link 
+                  key={index}
+                  href={resource.href}
+                  className="group p-6 rounded-2xl bg-[var(--color-bg-primary)] hover:bg-[var(--color-accent-sage)] transition-all hover:shadow-lg text-center"
+                >
+                  <h3 className="font-semibold text-[var(--color-text-primary)] group-hover:text-white transition-colors">
+                    {resource.title}
+                  </h3>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="py-20 bg-[var(--color-bg-primary)]">
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-20 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-5xl font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}>
-                  3,000+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-2xl p-8 shadow-lg"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
+                    ))}
+                  </div>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-[var(--color-text-primary)]">{testimonial.author}</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{testimonial.property}</p>
+                  </div>
                 </div>
-                <p className="text-[var(--color-neutral-dark)]">5 Star Reviews</p>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-pink)" }}>
-                  50+
-                </div>
-                <p className="text-[var(--color-neutral-dark)]">Listed Properties</p>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-gold)" }}>
-                  20K+
-                </div>
-                <p className="text-[var(--color-neutral-dark)]">Social Followers</p>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-sage)" }}>
-                  10+
-                </div>
-                <p className="text-[var(--color-neutral-dark)]">Years Experience</p>
-              </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 text-lg font-medium text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                style={{ background: "var(--color-accent-sage)" }}
+              >
+                <Link href="/reviews">
+                  View Success Stories
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* FAQs */}
-        <section className="py-20 bg-white">
-          <div className="max-w-[900px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Frequently Asked Questions
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  What type of properties do you accept?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  We specialize in large group accommodation sleeping 10 or more guests. Properties should have high-quality interiors and desirable amenities such as hot tubs, pools, or games rooms. Location matters too – we focus on popular UK destinations with good transport links.
-                </p>
-              </div>
-
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  How does the commission structure work?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Our commission ranges from 15-20% depending on the property and booking volume. There are no upfront costs, monthly fees, or hidden charges. You only pay commission on confirmed bookings. We handle all payment processing and deposit management.
-                </p>
-              </div>
-
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Do I need to be exclusive with Group Escape Houses?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  No, you can list your property on other platforms. However, we require accurate availability management to avoid double bookings. We provide calendar syncing tools to make this easier.
-                </p>
-              </div>
-
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  How long does it take to get my property live?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Once approved, we arrange professional photography within 1-2 weeks. Your listing typically goes live within 2-3 weeks of initial contact. We can work faster for urgent cases.
-                </p>
-              </div>
-
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  What support do you provide?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Our Brighton-based team handles all guest enquiries, booking management, payment processing, and post-booking support. You maintain control of your calendar and pricing while we handle the operational work.
-                </p>
-              </div>
-
-              <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Can I set my own pricing?
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Yes, you set your own rates. We provide market insights and pricing recommendations to help you stay competitive, but the final decision is always yours.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-[var(--color-accent-sage)] to-[var(--color-accent-gold)]">
-          <div className="max-w-[900px] mx-auto px-6 text-center text-white">
-            <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Ready to List Your Property?
+        {/* Final CTA Section */}
+        <section id="contact" className="py-20 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6 text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Join Group Escape Houses Today
             </h2>
-            <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
-              Join our network of successful property owners and start receiving quality bookings
+            <p className="text-xl text-[var(--color-neutral-dark)] mb-12 max-w-3xl mx-auto">
+              Ready to elevate your property's potential? Partner with us for luxury group bookings and seamless management.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <Phone className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-                <a
-                  href="tel:+441273569301"
-                  className="text-lg hover:text-[var(--color-accent-gold)] transition-colors"
-                >
-                  01273 569301
-                </a>
-                <p className="text-sm mt-2 opacity-75">Mon-Fri, 9am-6pm</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <Mail className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-                <a
-                  href="mailto:hello@groupescapehouses.co.uk"
-                  className="text-lg hover:text-[var(--color-accent-gold)] transition-colors break-all"
-                >
+            <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+              <div className="bg-white rounded-2xl p-8 text-left">
+                <h3 className="font-bold text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                  Email Us
+                </h3>
+                <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline text-lg">
                   hello@groupescapehouses.co.uk
                 </a>
-                <p className="text-sm mt-2 opacity-75">We'll respond within 24 hours</p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 text-left">
+                <h3 className="font-bold text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                  Visit Our Office
+                </h3>
+                <p className="text-[var(--color-neutral-dark)]">
+                  11a North St, Brighton and Hove<br />
+                  Brighton BN41 1DH
+                </p>
               </div>
             </div>
 
-            <div className="mt-10">
+            <Button 
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              style={{ background: "var(--color-accent-sage)" }}
+            >
               <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-12 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "white",
-                    color: "var(--color-accent-sage)",
-                  }}
-                >
-                  Get Started Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                Register Now
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-            </div>
+            </Button>
           </div>
         </section>
       </main>
