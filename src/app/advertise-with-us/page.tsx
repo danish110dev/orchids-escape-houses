@@ -45,16 +45,16 @@ export default function AdvertiseWithUs() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
             
             <div className="absolute inset-0 flex items-center">
               <div className="max-w-[1200px] mx-auto px-6 w-full">
-                <div className="max-w-3xl text-white">
-                  <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                <div className="max-w-3xl">
+                  <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
                     Advertise Your Property on Group Escape Houses
                   </h1>
                   
-                  <p className="text-2xl mb-10 leading-relaxed">
+                  <p className="text-2xl mb-10 leading-relaxed text-white" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
                     No hidden costs, no commission, just direct bookings from guests who love luxury group stays.
                   </p>
                   
@@ -75,7 +75,7 @@ export default function AdvertiseWithUs() {
                       asChild
                       size="lg"
                       variant="outline"
-                      className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0"
+                      className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0 text-[var(--color-text-primary)]"
                     >
                       <Link href="#download">
                         Download Owners Guide
