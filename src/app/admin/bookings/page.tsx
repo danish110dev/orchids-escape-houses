@@ -213,7 +213,7 @@ export default function AdminBookingsPage() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bookings-${formatDateUKLong(new Date()).replace(/\//g, '-')}.csv`;
+    a.download = `bookings-${formatDateUK(new Date()).replace(/\//g, '-')}.csv`;
     a.click();
     toast.success("Bookings exported successfully");
   };
@@ -542,13 +542,13 @@ export default function AdminBookingsPage() {
                   <div>
                     <Label className="text-sm font-semibold">Check In</Label>
                     <p className="text-sm">
-                      {formatDateUKLong(new Date(selectedBooking.checkInDate))}
+                      {formatDateUK(new Date(selectedBooking.checkInDate))}
                     </p>
                   </div>
                   <div>
                     <Label className="text-sm font-semibold">Check Out</Label>
                     <p className="text-sm">
-                      {formatDateUKLong(new Date(selectedBooking.checkOutDate))}
+                      {formatDateUK(new Date(selectedBooking.checkOutDate))}
                     </p>
                   </div>
                 </div>
@@ -608,11 +608,11 @@ export default function AdminBookingsPage() {
                 <div className="grid grid-cols-2 gap-4 text-xs text-gray-500">
                   <div>
                     <Label className="text-xs font-semibold">Created</Label>
-                    <p>{formatDateUKLong(new Date(selectedBooking.createdAt))} {new Date(selectedBooking.createdAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p>{formatDateUK(new Date(selectedBooking.createdAt))} {new Date(selectedBooking.createdAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
                   </div>
                   <div>
                     <Label className="text-xs font-semibold">Last Updated</Label>
-                    <p>{formatDateUKLong(new Date(selectedBooking.updatedAt))} {new Date(selectedBooking.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p>{formatDateUK(new Date(selectedBooking.updatedAt))} {new Date(selectedBooking.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
                   </div>
                 </div>
               </div>
