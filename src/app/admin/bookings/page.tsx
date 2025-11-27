@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { formatDateUK, formatDateUKLong } from "@/lib/date-utils";
 
 interface Booking {
   id: number;
@@ -196,8 +197,8 @@ export default function AdminBookingsPage() {
       b.guestName,
       b.guestEmail,
       b.propertyName,
-      new Date(b.checkInDate).toLocaleDateString(),
-      new Date(b.checkOutDate).toLocaleDateString(),
+      formatDateUK(new Date(b.checkInDate)),
+      formatDateUK(new Date(b.checkOutDate)),
       b.numberOfGuests,
       `£${b.totalPrice}`,
       b.bookingStatus
@@ -212,7 +213,7 @@ export default function AdminBookingsPage() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bookings-${new Date().toISOString().split("T")[0]}.csv`;
+    a.download = `bookings-${formatDateUKLong(new Date()).replace(/\//g, '-')}.csv`;
     a.click();
     toast.success("Bookings exported successfully");
   };
@@ -408,10 +409,10 @@ export default function AdminBookingsPage() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {new Date(booking.checkInDate).toLocaleDateString()}
+                            {formatDateUK(new Date(booking.checkInDate))}
                           </div>
                           <div className="text-sm text-gray-500">
-                            to {new Date(booking.checkOutDate).toLocaleDateString()}
+                            to {formatDateUK(new Date(booking.checkOutDate))}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -541,13 +542,13 @@ export default function AdminBookingsPage() {
                   <div>
                     <Label className="text-sm font-semibold">Check In</Label>
                     <p className="text-sm">
-                      {new Date(selectedBooking.checkInDate).toLocaleDateString()}
+                      {formatDateUKLong(new Date(selectedBooking.checkInDate))}
                     </p>
                   </div>
                   <div>
                     <Label className="text-sm font-semibold">Check Out</Label>
                     <p className="text-sm">
-                      {new Date(selectedBooking.checkOutDate).toLocaleDateString()}
+                      {formatDateUKLong(new Date(selectedBooking.checkOutDate))}
                     </p>
                   </div>
                 </div>
@@ -607,11 +608,11 @@ export default function AdminBookingsPage() {
                 <div className="grid grid-cols-2 gap-4 text-xs text-gray-500">
                   <div>
                     <Label className="text-xs font-semibold">Created</Label>
-                    <p>{new Date(selectedBooking.createdAt).toLocaleString()}</p>
+                    <p>{formatDateUKLong(new Date(selectedBooking.createdAt))} {new Date(selectedBooking.createdAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
                   </div>
                   <div>
                     <Label className="text-xs font-semibold">Last Updated</Label>
-                    <p>{new Date(selectedBooking.updatedAt).toLocaleString()}</p>
+                    <p>{formatDateUKLong(new Date(selectedBooking.updatedAt))} {new Date(selectedBooking.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
                   </div>
                 </div>
               </div>
