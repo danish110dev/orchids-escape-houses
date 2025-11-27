@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { checkForSpam, type SpamCheckData } from "@/lib/spam-protection";
+import { sendContactEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -46,7 +47,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Send email notification or save to database
+    // Send email notification
+    try {
+      await sendContactEmail({
+        name,
+        email,
+        phone,
+        groupSize,
+        dates,
+        location,
+        experiences,
+        message
+      });
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // Continue even if email fails - don't block the user
+    }
+
     console.log('✅ Contact form submission:', {
       name,
       email,
