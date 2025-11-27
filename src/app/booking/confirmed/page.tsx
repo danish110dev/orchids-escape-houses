@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { GEH_API } from "@/lib/api-client";
+import { formatDateWithMonth } from "@/lib/date-utils";
 
 // Force dynamic rendering since this page uses searchParams
 export const dynamic = 'force-dynamic';
@@ -147,17 +148,9 @@ function BookingConfirmedContent() {
                 <div>
                   <p className="text-sm text-[var(--color-neutral-dark)] mb-1">Dates</p>
                   <p className="font-semibold">
-                    {new Date(booking.check_in).toLocaleDateString('en-GB', { 
-                      day: 'numeric', 
-                      month: 'long', 
-                      year: 'numeric' 
-                    })}
+                    {formatDateWithMonth(new Date(booking.check_in))}
                     {" → "}
-                    {new Date(booking.check_out).toLocaleDateString('en-GB', { 
-                      day: 'numeric', 
-                      month: 'long', 
-                      year: 'numeric' 
-                    })}
+                    {formatDateWithMonth(new Date(booking.check_out))}
                   </p>
                 </div>
               </div>

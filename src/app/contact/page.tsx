@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink } from "lucide-react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
+import { formatDateUKLong } from "@/lib/date-utils";
 import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
 import { toast } from "sonner";
@@ -111,10 +111,10 @@ export default function ContactPage() {
     if (range) {
       setDateRange(range);
       if (range.from && range.to) {
-        const formattedDates = `${format(range.from, "dd/MM/yyyy")} - ${format(range.to, "dd/MM/yyyy")}`;
+        const formattedDates = `${formatDateUKLong(range.from)} - ${formatDateUKLong(range.to)}`;
         setFormData({ ...formData, dates: formattedDates });
       } else if (range.from) {
-        const formattedDate = format(range.from, "dd/MM/yyyy");
+        const formattedDate = formatDateUKLong(range.from);
         setFormData({ ...formData, dates: formattedDate });
       }
     }
