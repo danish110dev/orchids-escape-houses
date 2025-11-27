@@ -26,6 +26,24 @@ export function formatDateUKLong(date: Date | string): string {
 }
 
 /**
+ * Convert ISO date string (YYYY-MM-DD) from database to UK format (DD/MM/YYYY)
+ * Specifically for database date fields like check_in_date and check_out_date
+ */
+export function formatDatabaseDateToUK(isoDateString: string): string {
+  if (!isoDateString) return '';
+  
+  // Direct string parsing for YYYY-MM-DD format
+  const parts = isoDateString.split('-');
+  if (parts.length === 3) {
+    const [year, month, day] = parts;
+    return `${day}/${month}/${year}`;
+  }
+  
+  // Fallback to Date object parsing
+  return formatDateUKLong(isoDateString);
+}
+
+/**
  * Format date range to UK format: dd/mm/yy - dd/mm/yy
  */
 export function formatDateRangeUK(from: Date | string, to: Date | string): string {
