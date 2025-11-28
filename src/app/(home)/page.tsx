@@ -412,35 +412,46 @@ export default function Home() {
                 </Popover>
 
                 {/* Dates */}
-                <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      ref={dateFieldRef}
-                      variant="outline"
-                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-                    >
-                      <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
-                      <div className="flex flex-col">
-                        <span className="text-xs text-gray-500">When</span>
-                        <span className="text-sm font-medium">{dateRangeDisplay}</span>
-                      </div>
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent 
-                    className="w-auto p-0" 
-                    align="start"
-                    onPointerDownOutside={(e) => e.preventDefault()}
-                    onInteractOutside={(e) => e.preventDefault()}
+                <div className="relative">
+                  <Button
+                    ref={dateFieldRef}
+                    variant="outline"
+                    className="h-16 w-full justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    onClick={() => setDatePickerOpen(!datePickerOpen)}
                   >
-                    <CalendarComponent
-                      mode="range"
-                      selected={dateRange}
-                      onSelect={setDateRange}
-                      numberOfMonths={isMobile ? 1 : 2}
-                      disabled={(date) => date < new Date()}
-                    />
-                  </PopoverContent>
-                </Popover>
+                    <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
+                    <div className="flex flex-col">
+                      <span className="text-xs text-gray-500">When</span>
+                      <span className="text-sm font-medium">{dateRangeDisplay}</span>
+                    </div>
+                  </Button>
+                  {datePickerOpen && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-40" 
+                        onClick={() => setDatePickerOpen(false)}
+                      />
+                      <div className="absolute top-full left-0 mt-2 z-50 bg-white rounded-xl shadow-2xl border p-4">
+                        <CalendarComponent
+                          mode="range"
+                          selected={dateRange}
+                          onSelect={setDateRange}
+                          numberOfMonths={isMobile ? 1 : 2}
+                          disabled={(date) => date < new Date()}
+                        />
+                        <div className="flex justify-end pt-4 border-t mt-4">
+                          <Button
+                            size="sm"
+                            onClick={() => setDatePickerOpen(false)}
+                            style={{ background: "var(--color-accent-sage)", color: "white" }}
+                          >
+                            Done
+                          </Button>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
 
                 {/* Guests */}
                 <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
