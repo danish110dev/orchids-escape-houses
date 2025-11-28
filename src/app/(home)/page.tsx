@@ -273,16 +273,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (dateRange?.from && dateRange?.to && datePickerOpen) {
-      const timer = setTimeout(() => {
-        setDatePickerOpen(false);
-        announce("Dates selected");
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [dateRange, datePickerOpen]);
-
-  useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (datePickerOpen) setDatePickerOpen(false);
