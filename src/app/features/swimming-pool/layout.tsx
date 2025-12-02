@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Indoor heated and outdoor pools. Perfect for active hen weekends and pool parties.",
     url: "https://groupescapehouses.co.uk/features/swimming-pool",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/features/swimming-pool",
+  },
 };
 
 export default function SwimmingPoolLayout({
