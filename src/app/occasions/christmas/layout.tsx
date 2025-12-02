@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Festive party houses with log fires and hot tubs. Christmas week and New Year availability.",
     url: "https://groupescapehouses.co.uk/occasions/christmas",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/occasions/christmas",
+  },
 };
 
 export default function ChristmasLayout({

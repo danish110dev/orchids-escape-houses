@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "2-3 night stays with Friday arrivals. Quick getaways and mini-celebrations from £69pp.",
     url: "https://groupescapehouses.co.uk/occasions/weekend-breaks",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/occasions/weekend-breaks",
+  },
 };
 
 export default function WeekendBreaksLayout({
