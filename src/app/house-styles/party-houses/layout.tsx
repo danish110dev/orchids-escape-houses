@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Designed for celebrations with entertainment facilities and relaxed noise policies.",
     url: "https://groupescapehouses.co.uk/house-styles/party-houses",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/house-styles/party-houses",
+  },
 };
 
 export default function PartyHousesLayout({

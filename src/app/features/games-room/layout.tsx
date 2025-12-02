@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Pool tables, table tennis and entertainment facilities. Perfect for competitive hen party fun.",
     url: "https://groupescapehouses.co.uk/features/games-room",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/features/games-room",
+  },
 };
 
 export default function GamesRoomLayout({
