@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Handpicked properties for hen celebrations. Each house inspected, verified and ready to party.",
     url: "https://groupescapehouses.co.uk/hen-party-houses",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/hen-party-houses",
+  },
 };
 
 export default function HenPartyHousesLayout({

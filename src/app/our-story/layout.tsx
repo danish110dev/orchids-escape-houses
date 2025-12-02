@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Brighton-based since 2018. Arranging 500+ hen weekends annually with personal service.",
     url: "https://groupescapehouses.co.uk/our-story",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/our-story",
+  },
 };
 
 export default function OurStoryLayout({

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "GDPR-compliant privacy practices. How we protect and handle your personal data.",
     url: "https://groupescapehouses.co.uk/privacy",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/privacy",
+  },
 };
 
 export default function PrivacyLayout({

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Easy 4-step process. Deposits, payment terms and cancellation policy explained clearly.",
     url: "https://groupescapehouses.co.uk/how-it-works",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/how-it-works",
+  },
 };
 
 export default function HowItWorksLayout({

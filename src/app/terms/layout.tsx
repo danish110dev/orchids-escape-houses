@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Booking terms, cancellation policy and house rules explained clearly.",
     url: "https://groupescapehouses.co.uk/terms",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/terms",
+  },
 };
 
 export default function TermsLayout({

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Real testimonials with photos from hen parties across the UK. Average rating 4.9/5.",
     url: "https://groupescapehouses.co.uk/reviews",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/reviews",
+  },
 };
 
 export default function ReviewsLayout({

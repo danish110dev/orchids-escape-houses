@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Brighton-based booking team ready to help. Same-day quotes, no fees. Call 01273 569301 or enquire online.",
     url: "https://groupescapehouses.co.uk/contact",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/contact",
+  },
 };
 
 export default function ContactLayout({
