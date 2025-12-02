@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Hen parties, birthdays, reunions, weddings and seasonal celebrations. Find your perfect match.",
     url: "https://groupescapehouses.co.uk/occasions",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/occasions",
+  },
 };
 
 export default function OccasionsLayout({
