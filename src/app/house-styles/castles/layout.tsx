@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Scottish, Welsh and English castles sleeping 20-40+. Towers, turrets and dramatic settings.",
     url: "https://groupescapehouses.co.uk/house-styles/castles",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/house-styles/castles",
+  },
 };
 
 export default function CastlesLayout({
