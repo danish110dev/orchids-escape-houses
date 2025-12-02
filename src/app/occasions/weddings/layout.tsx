@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Exclusive houses for wedding parties and guests. Getting ready space, celebrations and brunches.",
     url: "https://groupescapehouses.co.uk/occasions/weddings",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/occasions/weddings",
+  },
 };
 
 export default function WeddingsLayout({
