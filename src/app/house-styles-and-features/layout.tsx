@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Filter by architectural style or feature. Manors, castles, hot tubs, pools and entertainment.",
     url: "https://groupescapehouses.co.uk/house-styles-and-features",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/house-styles-and-features",
+  },
 };
 
 export default function HouseStylesLayout({
