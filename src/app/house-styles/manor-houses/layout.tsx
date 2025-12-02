@@ -9,12 +9,15 @@ export const metadata: Metadata = {
     description: "Grand historic properties with period features and sprawling grounds for elegant celebrations.",
     url: "https://groupescapehouses.co.uk/house-styles/manor-houses",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/house-styles/manor-houses",
+  },
 };
 
 export default function ManorHousesLayout({
   children,
 }: {
-  children: React.NodeNode;
+  children: React.ReactNode;
 }) {
   return children;
 }
