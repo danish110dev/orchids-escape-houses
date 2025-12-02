@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Private screening rooms with big screens and surround sound. Perfect for movie night relaxation.",
     url: "https://groupescapehouses.co.uk/features/cinema-room",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/features/cinema-room",
+  },
 };
 
 export default function CinemaRoomLayout({
