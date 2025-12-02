@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Premium properties with designer interiors, exceptional facilities and boutique service.",
     url: "https://groupescapehouses.co.uk/house-styles/luxury-houses",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/house-styles/luxury-houses",
+  },
 };
 
 export default function LuxuryHousesLayout({

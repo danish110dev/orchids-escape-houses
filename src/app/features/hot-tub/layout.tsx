@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Properties with wood-fired and electric hot tubs. Scenic views, privacy and perfect hen party relaxation.",
     url: "https://groupescapehouses.co.uk/features/hot-tub",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/features/hot-tub",
+  },
 };
 
 export default function HotTubLayout({
