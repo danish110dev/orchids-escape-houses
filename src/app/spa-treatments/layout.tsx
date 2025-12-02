@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Professional spa treatments at your house. Massages, facials and pamper packages. Bride free on 10+ bookings.",
     url: "https://groupescapehouses.co.uk/spa-treatments",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/spa-treatments",
+  },
 };
 
 export default function SpaLayout({
