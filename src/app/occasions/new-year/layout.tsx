@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Celebrate NYE in private houses. Hot tubs, celebrations and champagne from £99pp.",
     url: "https://groupescapehouses.co.uk/occasions/new-year",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/occasions/new-year",
+  },
 };
 
 export default function NewYearLayout({
