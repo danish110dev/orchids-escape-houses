@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   const baseUrl = 'https://groupescapehouses.co.uk';
   
   return {
     alternates: {
-      canonical: `${baseUrl}/properties/${params.slug}`,
+      canonical: `${baseUrl}/properties/${slug}`,
     },
   };
 }
