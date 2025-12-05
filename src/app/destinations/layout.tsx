@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Explore 25+ cities with luxury party houses. Beach towns, nightlife hotspots & country escapes.",
     url: "https://groupescapehouses.co.uk/destinations",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/destinations",
+  },
 };
 
 export default function DestinationsLayout({
