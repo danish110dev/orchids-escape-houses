@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Filter 100+ properties by location, size and features. Hot tubs, pools & games rooms from £69pp.",
     url: "https://groupescapehouses.co.uk/properties",
   },
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/properties",
+  },
 };
 
 export default function PropertiesLayout({
