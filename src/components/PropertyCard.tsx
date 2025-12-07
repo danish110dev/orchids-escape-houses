@@ -31,6 +31,7 @@ export default function PropertyCard({
 }: PropertyCardProps) {
   const [isSaved, setIsSaved] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   // Extract city name and convert to slug for destination link
   const getDestinationSlug = (location: string) => {
@@ -38,7 +39,21 @@ export default function PropertyCard({
     return city.replace(/\s+/g, '-');
   };
 
+  // Validate and get image URL
+  const getValidImageUrl = (url: string) => {
+    // Check if it's a valid image URL (ends with image extension or is from known CDN)
+    const isValidImageUrl = 
+      url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i) ||
+      url.includes('supabase.co') ||
+      url.includes('unsplash.com') ||
+      url.includes('fal.media') ||
+      (url.includes('gstatic.com') && url.includes('images'));
+    
+    return isValidImageUrl ? url : '/placeholder-property.jpg';
+  };
+
   const destinationSlug = getDestinationSlug(location);
+  const validImageUrl = imageError ? '/placeholder-property.jpg' : getValidImageUrl(image);
 
   return (
     <>
@@ -46,10 +61,11 @@ export default function PropertyCard({
         <Link href={`/properties/${slug}`}>
           <div className="relative h-64 overflow-hidden">
             <Image
-              src={image}
+              src={validImageUrl}
               alt={title}
               fill
               className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+              onError={() => setImageError(true)}
             />
             
             {/* Feature Tags */}
