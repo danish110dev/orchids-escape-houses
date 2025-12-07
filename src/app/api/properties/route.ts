@@ -3,6 +3,43 @@ import { db } from '@/db';
 import { properties } from '@/db/schema';
 import { eq, like, and, or, desc, asc } from 'drizzle-orm';
 
+// Placeholder image for invalid URLs
+const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
+
+// Server-side image validation function
+function validateImageUrl(url: string, propertyTitle: string): string {
+  if (!url || url === '/placeholder-property.jpg') {
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // CRITICAL: Block ALL Google Images URLs (they're temporary and cause config issues)
+  if (url.includes('gstatic.com') || url.includes('google.com/images') || url.includes('googleusercontent.com')) {
+    console.warn(`[API] Google Images URL detected for property "${propertyTitle}" - using placeholder:`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // Block other problematic domains
+  if (url.includes('propertista.co.uk') || url.includes('londonbay.com')) {
+    console.warn(`[API] Webpage URL detected for property "${propertyTitle}" - using placeholder:`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // Check if it's a valid image URL (must end with image extension or be from known image CDN)
+  const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
+  const isImageCDN = 
+    url.includes('supabase.co/storage') ||
+    url.includes('unsplash.com') ||
+    url.includes('fal.media');
+  
+  // If URL doesn't have image extension and isn't from known CDN, use placeholder
+  if (!hasImageExtension && !isImageCDN) {
+    console.warn(`[API] Invalid image URL detected for property "${propertyTitle}":`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  return url;
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -30,7 +67,13 @@ export async function GET(request: NextRequest) {
         );
       }
 
-      return NextResponse.json(property[0]);
+      // Validate and fix image URL
+      const validatedProperty = {
+        ...property[0],
+        heroImage: validateImageUrl(property[0].heroImage, property[0].title),
+      };
+
+      return NextResponse.json(validatedProperty);
     }
 
     // List properties with pagination, search, filters, and sorting
@@ -99,7 +142,13 @@ export async function GET(request: NextRequest) {
     // Apply pagination
     const results = await query.limit(limit).offset(offset);
 
-    return NextResponse.json(results);
+    // Validate and fix image URLs for all properties
+    const validatedResults = results.map(property => ({
+      ...property,
+      heroImage: validateImageUrl(property.heroImage, property.title),
+    }));
+
+    return NextResponse.json(validatedResults);
   } catch (error) {
     console.error('GET error:', error);
     return NextResponse.json(
