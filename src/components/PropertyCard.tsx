@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, UsersRound, MapPinned } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import BookingModal from "@/components/BookingModal";
 
 interface PropertyCardProps {
@@ -39,31 +39,34 @@ export default function PropertyCard({
     return city.replace(/\s+/g, '-');
   };
 
-  // Validate and get image URL - must return placeholder for invalid URLs
-  const getValidImageUrl = (url: string) => {
-    if (!url || url === '/placeholder-property.jpg') {
+  // Validate image URL using useMemo to ensure it runs before render
+  const validImageUrl = useMemo(() => {
+    if (imageError) {
+      return '/placeholder-property.jpg';
+    }
+
+    if (!image || image === '/placeholder-property.jpg') {
       return '/placeholder-property.jpg';
     }
     
     // Check if it's a valid image URL (must end with image extension or be from known image CDN)
-    const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
+    const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(image);
     const isImageCDN = 
-      url.includes('supabase.co/storage') ||
-      url.includes('unsplash.com') ||
-      url.includes('fal.media') ||
-      (url.includes('gstatic.com') && url.includes('images?'));
+      image.includes('supabase.co/storage') ||
+      image.includes('unsplash.com') ||
+      image.includes('fal.media') ||
+      (image.includes('gstatic.com') && image.includes('images?'));
     
     // If URL doesn't have image extension and isn't from known CDN, use placeholder
     if (!hasImageExtension && !isImageCDN) {
-      console.warn(`Invalid image URL detected for property "${title}":`, url);
+      console.warn(`Invalid image URL detected for property "${title}":`, image);
       return '/placeholder-property.jpg';
     }
     
-    return url;
-  };
+    return image;
+  }, [image, imageError, title]);
 
   const destinationSlug = getDestinationSlug(location);
-  const validImageUrl = imageError ? '/placeholder-property.jpg' : getValidImageUrl(image);
 
   return (
     <>
