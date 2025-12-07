@@ -28,6 +28,32 @@ import {
 // Force dynamic rendering since this page uses searchParams
 export const dynamic = 'force-dynamic';
 
+// Placeholder image for invalid URLs
+const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
+
+// Validate image URL helper function
+function validateImageUrl(url: string, propertyTitle: string): string {
+  if (!url || url === '/placeholder-property.jpg') {
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // Check if it's a valid image URL (must end with image extension or be from known image CDN)
+  const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
+  const isImageCDN = 
+    url.includes('supabase.co/storage') ||
+    url.includes('unsplash.com') ||
+    url.includes('fal.media') ||
+    (url.includes('gstatic.com') && url.includes('images?'));
+  
+  // If URL doesn't have image extension and isn't from known CDN, use placeholder
+  if (!hasImageExtension && !isImageCDN) {
+    console.warn(`Invalid image URL detected for property "${propertyTitle}":`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  return url;
+}
+
 // Destinations list
 const destinations = [
   { name: "Bath", slug: "bath" },
@@ -113,7 +139,7 @@ function PropertiesContent() {
 
         const data = await response.json();
 
-        // Transform properties data to match PropertyCard props
+        // Transform properties data to match PropertyCard props with validated image URLs
         const transformedProperties = data.map((prop: any) => ({
           id: prop.id.toString(),
           title: prop.title,
@@ -121,7 +147,7 @@ function PropertiesContent() {
           sleeps: prop.sleepsMax,
           bedrooms: prop.bedrooms,
           priceFrom: prop.priceFromWeekend,
-          image: prop.heroImage,
+          image: validateImageUrl(prop.heroImage, prop.title), // Validate image URL here
           features: [], // Features will be added when we integrate property_features
           slug: prop.slug,
         }));
