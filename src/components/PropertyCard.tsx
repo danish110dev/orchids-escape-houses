@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, UsersRound, MapPinned } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import BookingModal from "@/components/BookingModal";
 
 interface PropertyCardProps {
@@ -21,6 +21,34 @@ interface PropertyCardProps {
 // Use the same placeholder as the properties page
 const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
 
+// Validate image URL helper function (same as properties page)
+function validateImageUrl(url: string, propertyTitle: string): string {
+  if (!url || url === '/placeholder-property.jpg') {
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // CRITICAL: Block ALL Google Images URLs (they're temporary and cause config issues)
+  if (url.includes('gstatic.com') || url.includes('google.com/images') || url.includes('googleusercontent.com')) {
+    console.warn(`Google Images URL detected for property "${propertyTitle}" - using placeholder:`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  // Check if it's a valid image URL (must end with image extension or be from known image CDN)
+  const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
+  const isImageCDN = 
+    url.includes('supabase.co/storage') ||
+    url.includes('unsplash.com') ||
+    url.includes('fal.media');
+  
+  // If URL doesn't have image extension and isn't from known CDN, use placeholder
+  if (!hasImageExtension && !isImageCDN) {
+    console.warn(`Invalid image URL detected for property "${propertyTitle}":`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
+  return url;
+}
+
 export default function PropertyCard({
   id,
   title,
@@ -36,14 +64,19 @@ export default function PropertyCard({
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
 
+  // Validate image URL before rendering
+  const validatedImage = useMemo(() => {
+    return validateImageUrl(image, title);
+  }, [image, title]);
+
+  // Use placeholder if image fails to load OR if validation failed
+  const displayImage = imageError ? PLACEHOLDER_IMAGE : validatedImage;
+
   // Extract city name and convert to slug for destination link
   const getDestinationSlug = (location: string) => {
     const city = location.split(',')[0].trim().toLowerCase();
     return city.replace(/\s+/g, '-');
   };
-
-  // Use placeholder if image fails to load
-  const displayImage = imageError ? PLACEHOLDER_IMAGE : image;
 
   const destinationSlug = getDestinationSlug(location);
 
