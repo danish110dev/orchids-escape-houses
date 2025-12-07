@@ -39,17 +39,27 @@ export default function PropertyCard({
     return city.replace(/\s+/g, '-');
   };
 
-  // Validate and get image URL
+  // Validate and get image URL - must return placeholder for invalid URLs
   const getValidImageUrl = (url: string) => {
-    // Check if it's a valid image URL (ends with image extension or is from known CDN)
-    const isValidImageUrl = 
-      url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i) ||
-      url.includes('supabase.co') ||
+    if (!url || url === '/placeholder-property.jpg') {
+      return '/placeholder-property.jpg';
+    }
+    
+    // Check if it's a valid image URL (must end with image extension or be from known image CDN)
+    const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
+    const isImageCDN = 
+      url.includes('supabase.co/storage') ||
       url.includes('unsplash.com') ||
       url.includes('fal.media') ||
-      (url.includes('gstatic.com') && url.includes('images'));
+      (url.includes('gstatic.com') && url.includes('images?'));
     
-    return isValidImageUrl ? url : '/placeholder-property.jpg';
+    // If URL doesn't have image extension and isn't from known CDN, use placeholder
+    if (!hasImageExtension && !isImageCDN) {
+      console.warn(`Invalid image URL detected for property "${title}":`, url);
+      return '/placeholder-property.jpg';
+    }
+    
+    return url;
   };
 
   const destinationSlug = getDestinationSlug(location);
