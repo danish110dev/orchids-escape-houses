@@ -37,13 +37,18 @@ function validateImageUrl(url: string, propertyTitle: string): string {
     return PLACEHOLDER_IMAGE;
   }
   
+  // CRITICAL: Block ALL Google Images URLs (they're temporary and cause config issues)
+  if (url.includes('gstatic.com') || url.includes('google.com/images') || url.includes('googleusercontent.com')) {
+    console.warn(`Google Images URL detected for property "${propertyTitle}" - using placeholder:`, url);
+    return PLACEHOLDER_IMAGE;
+  }
+  
   // Check if it's a valid image URL (must end with image extension or be from known image CDN)
   const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
   const isImageCDN = 
     url.includes('supabase.co/storage') ||
     url.includes('unsplash.com') ||
-    url.includes('fal.media') ||
-    (url.includes('gstatic.com') && url.includes('images?'));
+    url.includes('fal.media');
   
   // If URL doesn't have image extension and isn't from known CDN, use placeholder
   if (!hasImageExtension && !isImageCDN) {
