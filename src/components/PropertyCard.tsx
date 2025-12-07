@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, UsersRound, MapPinned } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import BookingModal from "@/components/BookingModal";
 
 interface PropertyCardProps {
@@ -17,6 +17,9 @@ interface PropertyCardProps {
   features: string[];
   slug: string;
 }
+
+// Use the same placeholder as the properties page
+const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
 
 export default function PropertyCard({
   id,
@@ -39,32 +42,8 @@ export default function PropertyCard({
     return city.replace(/\s+/g, '-');
   };
 
-  // Validate image URL using useMemo to ensure it runs before render
-  const validImageUrl = useMemo(() => {
-    if (imageError) {
-      return '/placeholder-property.jpg';
-    }
-
-    if (!image || image === '/placeholder-property.jpg') {
-      return '/placeholder-property.jpg';
-    }
-    
-    // Check if it's a valid image URL (must end with image extension or be from known image CDN)
-    const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(image);
-    const isImageCDN = 
-      image.includes('supabase.co/storage') ||
-      image.includes('unsplash.com') ||
-      image.includes('fal.media') ||
-      (image.includes('gstatic.com') && image.includes('images?'));
-    
-    // If URL doesn't have image extension and isn't from known CDN, use placeholder
-    if (!hasImageExtension && !isImageCDN) {
-      console.warn(`Invalid image URL detected for property "${title}":`, image);
-      return '/placeholder-property.jpg';
-    }
-    
-    return image;
-  }, [image, imageError, title]);
+  // Use placeholder if image fails to load
+  const displayImage = imageError ? PLACEHOLDER_IMAGE : image;
 
   const destinationSlug = getDestinationSlug(location);
 
@@ -74,7 +53,7 @@ export default function PropertyCard({
         <Link href={`/properties/${slug}`}>
           <div className="relative h-64 overflow-hidden">
             <Image
-              src={validImageUrl}
+              src={displayImage}
               alt={title}
               fill
               className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
