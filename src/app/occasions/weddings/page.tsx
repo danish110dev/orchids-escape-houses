@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Church, Camera, Utensils, Sparkles, Check, ChevronDown, Star, Users } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function WeddingsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -105,9 +106,11 @@ export default function WeddingsPage() {
             transition={{ duration: 0.6 }}
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-12"
           >
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&auto=format&fit=crop"
               alt="Beautiful outdoor wedding ceremony in elegant garden setting"
+              width={1600}
+              height={500}
               className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -257,9 +260,12 @@ export default function WeddingsPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${image.url}')` }}
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
@@ -295,8 +301,13 @@ export default function WeddingsPage() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                  <div 
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ 
+                      backgroundColor: index === 0 ? 'var(--color-accent-sage)' : index === 1 ? 'var(--color-accent-gold)' : 'var(--color-accent-pink)'
+                    }}
+                  >
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
