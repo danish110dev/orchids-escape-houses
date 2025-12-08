@@ -3,30 +3,20 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import StructuredData from "@/components/StructuredData";
+import ReviewSlider from "@/components/ReviewSlider";
+import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import type { DateRange } from "react-day-picker";
-
-// Lazy load non-critical components with no SSR
-const ReviewSlider = dynamic(() => import("@/components/ReviewSlider"), { 
-  ssr: false,
-  loading: () => <div className="h-64 bg-gray-100 rounded-2xl" />
-});
-
-const FAQSection = dynamic(() => import("@/components/FAQSection"), { 
-  ssr: false,
-  loading: () => <div className="h-96 bg-gray-100 rounded-2xl" />
-});
 
 // Static destinations data
 const destinations = [
