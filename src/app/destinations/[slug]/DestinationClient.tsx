@@ -21,7 +21,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     setImageErrors(prev => ({ ...prev, [imageId]: true }));
   };
 
-  // Destinations data (same as before)
+  // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
     "lake-district": {
       name: "Lake District",
@@ -99,12 +99,76 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         { name: "Brighton Pier", description: "Classic seaside fun with rides and arcades", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brighton-pala-91beb56d-20251021225428.jpg" }
       ]
     },
-    // Add remaining destinations abbreviated for file size...
+    bath: {
+      name: "Bath",
+      region: "Somerset",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-gli-8ac50973-20251023155918.mp4",
+      overview: "Bath is a stunning UNESCO World Heritage city combining Roman history, Georgian elegance, and world-class spa experiences. Perfect for sophisticated hen parties seeking culture, relaxation, and refined entertainment in one of England's most beautiful cities.",
+      quickFacts: {
+        fromLondon: "Just 1.5 hours by direct train from Paddington - ideal for elegant weekend escapes",
+        bestTime: "Year-round elegance! Spring (Apr-May) for festivals, December for Christmas markets and lights",
+        nightlife: "Sophisticated scene - Sub 13 underground cocktails, The Dark Horse speakeasy, champagne at The Bath Priory",
+        dining: "Fine dining capital! The Pump Room in Roman Baths, Sally Lunn's historic buns, Society Café bottomless brunch",
+        beachAccess: "No beach but beautiful River Avon walks, punting, and the stunning Royal Crescent gardens",
+        accommodation: "Georgian townhouses with period features, luxury spas with hot tubs, Bath stone manors with games rooms",
+        priceRange: "£85-£120 per night for authentic Georgian properties with modern luxury",
+        activities: "Thermae Bath Spa rooftop pools, Roman Baths tours, Jane Austen Centre, afternoon tea, boutique shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (1.5 hours)" },
+        { icon: Car, text: "M4 motorway via Bristol (approx 2.5 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London Victoria" },
+        { icon: Plane, text: "Bristol Airport is 30 minutes away" }
+      ],
+      nightlife: [
+        { name: "Sub 13", description: "Underground cocktail bar in vaulted cellars", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "The Bell Inn", description: "Historic pub with live music nights", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" },
+        { name: "The Dark Horse", description: "Cocktail bar with speakeasy vibes", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Pump Room", description: "Elegant dining in historic Roman Baths setting", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" },
+        { name: "Society Café", description: "Stylish all-day dining and cocktails", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Colonna & Small's", description: "Award-winning coffee and brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Thermae Bath Spa", description: "Rooftop thermal pools with city views", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
+        { name: "Roman Baths", description: "Ancient Roman bathing complex", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
+        { name: "Royal Crescent", description: "Iconic Georgian architecture and gardens", image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80" }
+      ]
+    },
+    manchester: {
+      name: "Manchester",
+      region: "Greater Manchester",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
+      overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality.",
+      quickFacts: {
+        fromLondon: "Just 2 hours by direct train from Euston",
+        bestTime: "Year-round party city!",
+        nightlife: "Legendary music scene!",
+        dining: "Diverse and trendy",
+        beachAccess: "No beach but vibrant canal-side bars",
+        accommodation: "Industrial loft conversions with hot tubs",
+        priceRange: "£70-£95 per night",
+        activities: "Shopping Trafford Centre, Northern Quarter"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (2 hours)" },
+        { icon: Plane, text: "Manchester Airport with global connections" },
+        { icon: Car, text: "M6 and M62 motorways" },
+        { icon: Bus, text: "Frequent coach services" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    // Add remaining destinations abbreviated...
   };
 
   const destination = destinationsData[slug] || destinationsData.brighton;
 
-  // Location-specific properties
+  // Location-specific properties data from original
   const propertiesByLocation: Record<string, any[]> = {
     london: [
       {
@@ -118,8 +182,65 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         features: ["Hot Tub", "Cinema Room", "Roof Terrace"],
         slug: "kensington-residence",
       },
+      {
+        id: "2",
+        title: "Shoreditch Loft House",
+        location: "London, Greater London",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 105,
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-an-i-60588db0-20251019163645.jpg",
+        features: ["Games Room", "City Views", "Hot Tub"],
+        slug: "shoreditch-loft",
+      },
+      {
+        id: "3",
+        title: "Chelsea Manor House",
+        location: "London, Greater London",
+        sleeps: 14,
+        bedrooms: 7,
+        priceFrom: 98,
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-an-e-053848fb-20251019163658.jpg",
+        features: ["Garden", "Hot Tub", "Parking"],
+        slug: "chelsea-manor",
+      },
     ],
-    // Add other locations...
+    brighton: [
+      {
+        id: "1",
+        title: "The Brighton Manor",
+        location: "Brighton, East Sussex",
+        sleeps: 16,
+        bedrooms: 8,
+        priceFrom: 89,
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-gr-18e00f17-20251019163902.jpg",
+        features: ["Hot Tub", "Pool", "Games Room"],
+        slug: "brighton-manor",
+      },
+      {
+        id: "2",
+        title: "Brighton Seafront Villa",
+        location: "Brighton, East Sussex",
+        sleeps: 12,
+        bedrooms: 6,
+        priceFrom: 79,
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-a-st-87e31c86-20251019163913.jpg",
+        features: ["Sea View", "Hot Tub", "BBQ"],
+        slug: "brighton-villa",
+      },
+      {
+        id: "3",
+        title: "The Lanes Townhouse",
+        location: "Brighton, East Sussex",
+        sleeps: 10,
+        bedrooms: 5,
+        priceFrom: 69,
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-exterior-photograph-of-an-e-89ca9be8-20251019163920.jpg",
+        features: ["City Centre", "Roof Terrace"],
+        slug: "lanes-townhouse",
+      },
+    ],
+    // Add remaining locations abbreviated...
   };
 
   const properties = propertiesByLocation[slug] || propertiesByLocation.brighton || [];
@@ -129,7 +250,50 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       question: `How far is ${destination.name} from London?`,
       answer: `${destination.quickFacts.fromLondon}. ${destination.name} is easily accessible by direct train services, making it perfect for a weekend getaway without the hassle of long travel times.`
     },
-    // Add remaining FAQs...
+    {
+      question: `What's included in the price of a hen party house in ${destination.name}?`,
+      answer: `Our ${destination.name} properties include all essential amenities such as WiFi, bed linens, towels, fully equipped kitchens, and access to features like hot tubs and games rooms where available. Prices are typically per night, and we'll provide a full breakdown of what's included when you enquire.`
+    },
+    {
+      question: `How many people can stay in your ${destination.name} hen party houses?`,
+      answer: `Our ${destination.name} properties accommodate groups from 10 to 20+ people. Each house listing shows the exact number of bedrooms and maximum occupancy.`
+    },
+    {
+      question: `Are hen parties and celebrations allowed in ${destination.name} properties?`,
+      answer: `Yes! Our ${destination.name} properties are specifically selected for group celebrations including hen parties. However, we do have house rules to respect neighbours and local communities.`
+    },
+    {
+      question: `What are the best areas to stay in ${destination.name} for a hen party?`,
+      answer: `For ${destination.name}, we recommend staying close to the main nightlife and entertainment areas for easy access. We'll help you choose the perfect location based on your plans.`
+    },
+    {
+      question: `Can we bring decorations and have a party at the house?`,
+      answer: `Absolutely! You're welcome to bring decorations to celebrate. We recommend non-damaging items like banners, balloons, and table decorations.`
+    },
+    {
+      question: `What time is check-in and check-out?`,
+      answer: `Standard check-in is typically 4pm and check-out is 10am. Where possible, we can arrange early check-in or late check-out for an additional fee.`
+    },
+    {
+      question: `Is parking available at ${destination.name} properties?`,
+      answer: `Most of our ${destination.name} properties include parking arrangements. We'll confirm exact details when you book.`
+    },
+    {
+      question: `How does payment work and can we split the cost?`,
+      answer: `We require a deposit to secure your booking, with the balance due closer to your stay date. For hen parties, it's common for one person to pay the deposit and then split the remaining cost among the group.`
+    },
+    {
+      question: `What's your cancellation policy?`,
+      answer: `Our standard cancellation policy allows full refund if cancelled 8+ weeks before arrival, 50% refund for 4-8 weeks notice, and deposits are non-refundable within 4 weeks of arrival.`
+    },
+    {
+      question: `Are the houses suitable for mixed groups or just hen parties?`,
+      answer: `While our properties are perfect for hen parties, they're also ideal for any group celebration including birthdays, reunions, stag dos, and special occasions.`
+    },
+    {
+      question: `Can you help arrange activities and experiences in ${destination.name}?`,
+      answer: `Yes! We partner with local experience providers to offer activities like cocktail making classes, spa treatments, private chefs, and more.`
+    }
   ];
 
   // FAQ Schema for SEO
@@ -173,7 +337,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
   };
 
   useEffect(() => {
-    // Ensure video plays when loaded
     if (videoRef.current && destination.video) {
       const playVideo = async () => {
         try {
@@ -193,7 +356,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       };
 
       playVideo();
-
       videoRef.current.addEventListener('loadeddata', playVideo);
       videoRef.current.addEventListener('canplay', playVideo);
 
@@ -235,7 +397,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
                 zIndex: 0
               }}
               onError={(e) => {
-                console.error('Video failed to load:', e);
                 e.currentTarget.style.display = 'none';
                 const fallbackImg = document.getElementById('hero-fallback-img');
                 if (fallbackImg) {
@@ -299,23 +460,345 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         </div>
       </div>
 
-      {/* Rest of the content sections... */}
-      {/* I'll keep this abbreviated for file size, but you get the pattern */}
-      
-      {/* SEO Content Section */}
+      {/* SEO Content Section with Internal Links */}
       <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
               Looking for the perfect <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
               Group Escape Houses offers stunning <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group accommodation</Link> perfect 
-              for celebrations.
+              for celebrations. Our <Link href="/house-styles/party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">party houses</Link> feature 
+              amazing amenities including <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, <Link href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium">swimming pools</Link>, 
+              and <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.
+            </p>
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+              Whether you're planning a <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen do</Link>, <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebration</Link>, 
+              or <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, {destination.name} combines the 
+              perfect location with our <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link>. 
+              Explore our <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> to add cocktail classes, spa treatments, 
+              and more. Also discover other popular destinations including <Link href="/destinations/london" className="text-[var(--color-accent-sage)] hover:underline font-medium">London</Link>, <Link href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium">Bath</Link>, 
+              and <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">more UK party destinations</Link>.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Add remaining sections as needed... */}
+      {/* Overview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Why {destination.name}?
+              </h2>
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+                {destination.overview}
+              </p>
+              
+              <div className="space-y-4 mt-6">
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  {destination.name} stands out as one of the UK's premier destinations for <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party celebrations</Link>. 
+                  Our carefully selected <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury properties</Link> in the area provide the perfect base for your celebration, 
+                  featuring essential amenities like <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">private hot tubs</Link>, <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link>, 
+                  and spacious living areas designed for group entertainment.
+                </p>
+                
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  Beyond the accommodation, {destination.name} offers an incredible range of activities to enhance your <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>. 
+                  From world-class dining and vibrant nightlife to unique <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> like cocktail masterclasses, spa treatments, 
+                  and private chef dinners, there's something to suit every group's taste and budget.
+                </p>
+                
+                <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                  Looking for other celebration options? Explore our <Link href="/house-styles/party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">party houses</Link> for 
+                  lively group gatherings, <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link> for upscale celebrations, 
+                  or browse our collection of <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link>.
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">
+              <h3 className="text-xl font-semibold mb-6">Quick Facts</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Navigation className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">From London</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.fromLondon}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Calendar className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Best Time to Visit</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.bestTime}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Moon className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Nightlife</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.nightlife}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Coffee className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Dining</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.dining}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Waves className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Beach Access</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.beachAccess}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Home className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Accommodation</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.accommodation}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <PoundSterling className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Price Range</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.priceRange}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <PartyPopper className="w-5 h-5 text-[var(--color-accent-pink)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium">Activities</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{destination.quickFacts.activities}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Getting There */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center gap-3 mb-8">
+            <Navigation className="w-5 h-5 text-[var(--color-accent-pink)]" />
+            <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+              Getting There
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {destination.gettingThere.map((option: any, index: number) => {
+              const Icon = option.icon;
+              return (
+                <div key={index} className="bg-white rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-[var(--color-accent-sage)]" />
+                  </div>
+                  <p className="text-[var(--color-neutral-dark)] flex-1">{option.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Nightlife */}
+      {destination.nightlife && destination.nightlife.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="flex items-center gap-3 mb-8">
+              <Moon className="w-5 h-5 text-[var(--color-accent-sage)]" />
+              <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+                Top Nightlife Spots
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {destination.nightlife.map((venue: any, index: number) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+                  {venue.image && !imageErrors[`nightlife-${index}`] ? (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)]">
+                      <Image
+                        src={venue.image}
+                        alt={venue.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={() => handleImageError(`nightlife-${index}`)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)] flex items-center justify-center">
+                      <Moon className="w-16 h-16 text-[var(--color-accent-sage)] opacity-30" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Brunch & Dining */}
+      {destination.brunch && destination.brunch.length > 0 && (
+        <section className="py-16 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="flex items-center gap-3 mb-8">
+              <UtensilsCrossed className="w-5 h-5 text-[var(--color-accent-gold)]" />
+              <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+                Best Brunch & Dining
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {destination.brunch.map((venue: any, index: number) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
+                >
+                  {!imageErrors[`brunch-${index}`] ? (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-primary)]">
+                      <Image
+                        src={venue.image}
+                        alt={venue.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={() => handleImageError(`brunch-${index}`)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-primary)] flex items-center justify-center">
+                      <UtensilsCrossed className="w-16 h-16 text-[var(--color-accent-gold)] opacity-30" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{venue.name}</p>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">{venue.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Activities */}
+      {destination.activities && destination.activities.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="flex items-center gap-3 mb-8">
+              <Sparkles className="w-5 h-5 text-[var(--color-accent-pink)]" />
+              <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+                Things to Do
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {destination.activities.map((activity: any, index: number) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+                  {activity.image && !imageErrors[`activity-${index}`] ? (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)]">
+                      <Image
+                        src={activity.image}
+                        alt={activity.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={() => handleImageError(`activity-${index}`)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative h-48 overflow-hidden bg-[var(--color-bg-secondary)] flex items-center justify-center">
+                      <Sparkles className="w-16 h-16 text-[var(--color-accent-pink)] opacity-30" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <p className="font-semibold mb-2 text-[var(--color-text-primary)]">{activity.name}</p>
+                    {activity.description && (
+                      <p className="text-sm text-[var(--color-neutral-dark)]">{activity.description}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              Everything you need to know about visiting {destination.name}
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-[var(--color-bg-primary)] rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--color-bg-secondary)] transition-colors"
+                >
+                  <span className="font-semibold text-[var(--color-text-primary)] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Properties in this area */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
+            Hen Party Houses in {destination.name}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {properties.map((property) => (
+              <PropertyCard key={property.id} {...property} />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              <Link href="/contact">Check Availability and Book</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -47,11 +47,3 @@ export const metadata: Metadata = {
     'format-detection': 'telephone=no, address=no, email=no',
   },
 };
-
-export default function HomeLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
-}
