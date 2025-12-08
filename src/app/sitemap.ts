@@ -95,7 +95,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Fetch dynamic properties directly from database
+  // Fetch dynamic properties
   let propertyRoutes: MetadataRoute.Sitemap = [];
   try {
     const publishedProperties = await db
@@ -113,7 +113,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching properties for sitemap:', error);
   }
 
-  // Fetch dynamic experiences directly from database
+  // Fetch dynamic experiences
   let experienceRoutes: MetadataRoute.Sitemap = [];
   try {
     const publishedExperiences = await db
@@ -131,7 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching experiences for sitemap:', error);
   }
 
-  // Fetch dynamic destinations directly from database
+  // Fetch dynamic destinations
   let destinationRoutes: MetadataRoute.Sitemap = [];
   try {
     const publishedDestinations = await db
@@ -149,7 +149,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching destinations for sitemap:', error);
   }
 
-  // Fetch dynamic blog posts directly from database
+  // Fetch dynamic blog posts
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
     const publishedBlogPosts = await db
