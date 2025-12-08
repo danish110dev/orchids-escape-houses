@@ -13,6 +13,7 @@ import { experiencesData, relatedExperiences } from "@/data/experiences";
 export default function ExperienceDetailPage({ params }: { params: { slug: string } }) {
   const experience = experiencesData[params.slug] || experiencesData["private-chef"];
   const Icon = experience.icon;
+  const pricingType = experience.pricingType || "per person";
 
   // Filter related experiences excluding current one
   const filteredRelated = relatedExperiences
@@ -146,7 +147,7 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
                         <p className="text-2xl font-bold" style={{ color: "var(--color-accent-gold)" }}>
                           £{tier.price}
                         </p>
-                        <p className="text-xs text-[var(--color-neutral-dark)]">per person</p>
+                        <p className="text-xs text-[var(--color-neutral-dark)]">{pricingType}</p>
                       </div>
                     </div>
                   ))}
@@ -175,7 +176,7 @@ export default function ExperienceDetailPage({ params }: { params: { slug: strin
                   <p className="text-4xl font-bold mb-1" style={{ color: "var(--color-accent-gold)" }}>
                     £{experience.priceFrom}
                   </p>
-                  <p className="text-sm text-[var(--color-neutral-dark)]">per person</p>
+                  <p className="text-sm text-[var(--color-neutral-dark)]">{pricingType}</p>
                 </div>
 
                 <div className="space-y-4 mb-8 pb-8 border-b border-[var(--color-bg-secondary)]">

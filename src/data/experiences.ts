@@ -58,19 +58,19 @@ export const experiencesData: Record<string, any> = {
   "butlers-in-the-buff": {
     title: "Butlers in the Buff",
     duration: "2-3 hours",
-    priceFrom: 60,
+    priceFrom: 170,
     groupSize: "8-25 guests",
     image: "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/fun_friendly.jpg.webp",
     gallery: [
-      "https://butlersinthebuff.co.uk/wp-content/uploads/2023/05/fun_friendly.jpg.webp",
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Unknown-1-1765203408189.jpeg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Unknown-1765203410720.jpeg"
     ],
     icon: Heart,
     description: "Add some cheeky fun to your celebration with our handsome butlers who serve in nothing but an apron and bow tie! Professional, friendly, and entertaining, our butlers will serve drinks, canapés, and bring plenty of laughs to your party. It's the ultimate hen party experience that'll have everyone giggling and creating unforgettable memories.",
     included: ["Handsome professional butler", "Drinks service and hosting", "Games and entertainment", "Photo opportunities", "Canapé service (food not included)", "Guaranteed fun and laughter"],
     whatToProvide: ["Drinks and canapés to be served", "Party atmosphere", "Cameras ready for photos!", "Age 18+ guests only"],
-    pricing: [{ size: "8-15 guests", price: 65 }, { size: "16-20 guests", price: 62 }, { size: "21-25 guests", price: 60 }],
+    pricing: [{ size: "Standard booking", price: 170 }],
+    pricingType: "per group",
     faqs: [{ question: "What do the butlers wear?", answer: "Our butlers wear a collar, cuffs, bow tie, and a smart black apron - and that's it! All butlers are professional, respectful, and great fun." }, { question: "What will they do?", answer: "They'll serve drinks and canapés, host games, pose for photos, and keep the party atmosphere buzzing throughout the session." }]
   },
   "bottomless-brunch": {
