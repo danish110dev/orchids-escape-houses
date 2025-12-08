@@ -492,10 +492,14 @@ export default function AdvertiseWithUs() {
                   className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
                   style={{ background: "var(--color-accent-sage)" }}
                 >
-                  <Link href="#contact">
+                  <a 
+                    href="https://groupescapehouses.co.uk/advertise-with-us#downloadContent" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     Download Owners Guide
                     <Download className="w-5 h-5 ml-2" />
-                  </Link>
+                  </a>
                 </Button>
                 
                 <p className="text-sm text-[var(--color-neutral-dark)] mt-4">
