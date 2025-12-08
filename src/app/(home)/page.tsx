@@ -844,13 +844,10 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
                   style={{ 
                     backgroundColor: "var(--color-accent-pink)",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2rem",
-                    fontWeight: "700",
-                    color: "white"
+                    fontFamily: "var(--font-display)"
                   }}
                 >
                   1
@@ -865,13 +862,10 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
                   style={{ 
                     backgroundColor: "var(--color-accent-sage)",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2rem",
-                    fontWeight: "700",
-                    color: "white"
+                    fontFamily: "var(--font-display)"
                   }}
                 >
                   2
@@ -886,13 +880,10 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
                   style={{ 
                     backgroundColor: "var(--color-accent-gold)",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2rem",
-                    fontWeight: "700",
-                    color: "white"
+                    fontFamily: "var(--font-display)"
                   }}
                 >
                   3
@@ -907,13 +898,10 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
                   style={{ 
                     backgroundColor: "var(--color-accent-pink)",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2rem",
-                    fontWeight: "700",
-                    color: "white"
+                    fontFamily: "var(--font-display)"
                   }}
                 >
                   4
