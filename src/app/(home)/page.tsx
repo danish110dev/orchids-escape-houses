@@ -843,7 +843,16 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-pink)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  style={{ 
+                    backgroundColor: "var(--color-accent-pink)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "2rem",
+                    fontWeight: "700",
+                    color: "white"
+                  }}
+                >
                   1
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
@@ -855,7 +864,16 @@ export default function Home() {
               </div>
 
               <div className="text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-sage)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  style={{ 
+                    backgroundColor: "var(--color-accent-sage)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "2rem",
+                    fontWeight: "700",
+                    color: "white"
+                  }}
+                >
                   2
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
@@ -867,7 +885,16 @@ export default function Home() {
               </div>
 
               <div className="text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-gold)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  style={{ 
+                    backgroundColor: "var(--color-accent-gold)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "2rem",
+                    fontWeight: "700",
+                    color: "white"
+                  }}
+                >
                   3
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
@@ -879,7 +906,16 @@ export default function Home() {
               </div>
 
               <div className="text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 rounded-full bg-[var(--color-accent-pink)] text-white flex items-center justify-center mx-auto mb-6 text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  style={{ 
+                    backgroundColor: "var(--color-accent-pink)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "2rem",
+                    fontWeight: "700",
+                    color: "white"
+                  }}
+                >
                   4
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
