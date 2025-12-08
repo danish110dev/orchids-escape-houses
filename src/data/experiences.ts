@@ -96,11 +96,11 @@ export const experiencesData: Record<string, any> = {
     duration: "1.5-2 hours",
     priceFrom: 48,
     groupSize: "8-20 guests",
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-hen-p-ad7cda19-20251208143330.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/stock-photo-of-hen-party-life-drawing-se-2b4e580e-20251208143331.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-life-drawing--c692499f-20251208143329.jpg",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/stock-photograph-of-hen-party-life-drawi-99b87064-20251208143330.jpg"
     ],
     icon: Paintbrush,
     description: "Get cheeky and creative with a life drawing class featuring a naked male model! Under the guidance of a professional art tutor, you'll learn basic drawing techniques while having a laugh with your group. Whether you're talented or terrible, it's guaranteed to be hilarious. Everyone takes home their masterpiece as a unique souvenir.",
