@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Browse by House Style & Features | Manor Houses, Castles & Hot Tubs",
+  title: "House Styles & Features | Manors & Castles",
   description: "Filter party houses by architectural style and premium features. Grand manors, historic castles, luxury cottages. Search by hot tubs, pools, games rooms and cinema rooms.",
   keywords: ["luxury manor houses UK", "party houses with hot tubs", "houses with pools", "castles for hire UK", "luxury cottages"],
   openGraph: {
