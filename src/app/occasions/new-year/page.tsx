@@ -255,11 +255,12 @@ export default function NewYearPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${image.url}')` }}
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
