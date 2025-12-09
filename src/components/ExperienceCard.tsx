@@ -29,7 +29,10 @@ export default function ExperienceCard({
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={85}
             className="object-contain transition-transform duration-300 group-hover:scale-105"
+            priority={false}
           />
         </div>
         
