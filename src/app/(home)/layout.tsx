@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: 'https://groupescapehouses.co.uk',
-    title: "Luxury Hen Party Houses UK | Hot Tubs, Pools & Games Rooms",
+    title: "Hen Party Houses UK | Hot Tubs & Pools",
     description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms. From £65-£150 per night.",
     siteName: 'Group Escape Houses',
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Luxury Hen Party Houses UK | Hot Tubs, Pools & Games Rooms",
+    title: "Hen Party Houses UK | Hot Tubs & Pools",
     description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms.",
     images: ['https://groupescapehouses.co.uk/og-image.jpg'],
   },
