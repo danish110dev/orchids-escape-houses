@@ -97,6 +97,7 @@ export default function Home() {
   const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const newsletterFormRef = useRef<HTMLFormElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
   // Fetch data with proper error handling - DEFER to reduce initial load
   useEffect(() => {
