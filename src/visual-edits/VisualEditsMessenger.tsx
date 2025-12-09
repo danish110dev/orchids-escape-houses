@@ -1024,11 +1024,11 @@ export default function HoverReceiver() {
           parentRect.height - parentPaddingTop - parentPaddingBottom;
 
         /*
-         * Soft-clamp strategy: we respect the parent’s max size until the
-         * user’s cursor actually travels beyond that limit.  As soon as the
+         * Soft-clamp strategy: we respect the parent's max size until the
+         * user's cursor actually travels beyond that limit.  As soon as the
          * drag distance would produce a dimension larger than the container
          * can accommodate we stop clamping and let the element follow the
-         * cursor, effectively allowing it to “spill” out of its parent.
+         * cursor, effectively allowing it to "spill" out of its parent.
          */
         const exceedsWidth = newWidth > maxWidth;
         const exceedsHeight = newHeight > maxHeight;
@@ -1797,10 +1797,12 @@ export default function HoverReceiver() {
           return;
         }
 
-        const element = document.querySelector(
+        // Find ALL elements with the same orchids ID
+        const allMatchingElements = document.querySelectorAll(
           `[data-orchids-id="${elementId}"]`
-        ) as HTMLElement | null;
-        if (!element) return;
+        ) as NodeListOf<HTMLElement>;
+        
+        if (allMatchingElements.length === 0) return;
 
         // Ensure font stylesheet is loaded
         const familyKey = fontFamily.replace(/\s+/g, "+");
@@ -1812,8 +1814,10 @@ export default function HoverReceiver() {
           loadedFontFamilies.current.add(familyKey);
         }
 
-        // Apply font family to element inline for preview
-        element.style.fontFamily = `'${fontFamily}', sans-serif`;
+        // Apply font family to ALL matching elements for preview
+        allMatchingElements.forEach((element) => {
+          element.style.fontFamily = `'${fontFamily}', sans-serif`;
+        });
         return;
       }
 
