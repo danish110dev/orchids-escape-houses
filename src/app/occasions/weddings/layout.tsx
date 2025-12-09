@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Wedding Accommodation UK | Guest Houses for Groups",
-  description: "Exclusive-use houses for wedding parties and guests. Sleep entire wedding groups together with space for getting ready, celebrations and post-wedding brunches.",
+  description: "Exclusive-use houses for wedding parties & guests. Space for getting ready, celebrations & post-wedding brunches. Sleep groups together.",
   keywords: ["wedding accommodation UK", "wedding party houses", "exclusive use wedding venues", "wedding guest accommodation"],
   metadataBase: new URL("https://groupescapehouses.co.uk"),
   openGraph: {
