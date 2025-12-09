@@ -23,6 +23,44 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
   // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
+    london: {
+      name: "London",
+      region: "Greater London",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london-uk-c-4c8e8b9a-20251018100334.jpg",
+      video: "",
+      overview: "London is the capital of luxury group accommodation, offering world-class entertainment, Michelin-starred dining, and iconic landmarks. Perfect for hen parties seeking sophistication, culture, and unforgettable nightlife in one of the world's most vibrant cities.",
+      quickFacts: {
+        fromLondon: "You're already here! Easy access to all properties via tube and train",
+        bestTime: "Year-round destination with theatres, shopping, and dining always available",
+        nightlife: "World-class! Shoreditch clubs, West End bars, Soho cocktail lounges, rooftop terraces",
+        dining: "Michelin-starred restaurants, Borough Market, Brick Lane curries, afternoon tea at The Ritz",
+        beachAccess: "No beach but stunning Thames riverside walks, parks, and rooftop bars",
+        accommodation: "Luxury townhouses in Kensington, modern lofts in Shoreditch, period properties in Chelsea",
+        priceRange: "£95-£140 per night for premium central London properties",
+        activities: "West End shows, Thames boat trips, museums, shopping Oxford Street, afternoon tea"
+      },
+      gettingThere: [
+        { icon: Train, text: "Excellent tube network connects all areas" },
+        { icon: Car, text: "Easy access via M25 and major motorways" },
+        { icon: Bus, text: "24-hour bus services throughout the city" },
+        { icon: Plane, text: "Five major airports: Heathrow, Gatwick, Stansted, Luton, City" }
+      ],
+      nightlife: [
+        { name: "Shoreditch Clubs", description: "Trendy East London nightlife district", image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+        { name: "West End Bars", description: "Sophisticated cocktail bars and lounges", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
+        { name: "Soho Nightlife", description: "Vibrant bars and entertainment venues", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "The Ivy", description: "Iconic British dining experience", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Dishoom", description: "Bombay-style brunch with bottomless chai", image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80", link: "#" },
+        { name: "Sketch", description: "Instagram-worthy pink dining room", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "West End Shows", description: "World-famous theatre district", image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80" },
+        { name: "Thames River Cruise", description: "See London's landmarks from the water", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" },
+        { name: "Afternoon Tea", description: "Classic British tradition at luxury hotels", image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80" }
+      ]
+    },
     "lake-district": {
       name: "Lake District",
       region: "Cumbria",
@@ -142,28 +180,143 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       region: "Greater Manchester",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
-      overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm hospitality.",
+      overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm Northern hospitality. Perfect for hen parties seeking a cosmopolitan city break with legendary music venues, trendy bars, and industrial-chic accommodation.",
       quickFacts: {
-        fromLondon: "Just 2 hours by direct train from Euston",
-        bestTime: "Year-round party city!",
-        nightlife: "Legendary music scene!",
-        dining: "Diverse and trendy",
-        beachAccess: "No beach but vibrant canal-side bars",
-        accommodation: "Industrial loft conversions with hot tubs",
-        priceRange: "£70-£95 per night",
-        activities: "Shopping Trafford Centre, Northern Quarter"
+        fromLondon: "Just 2 hours by direct train from Euston - easy Northern city escape",
+        bestTime: "Year-round party city! Summer for rooftop bars, winter for Christmas markets",
+        nightlife: "Legendary music scene! Warehouse Project, The Deaf Institute, Northern Quarter bars",
+        dining: "Diverse and trendy - Northern Quarter street food, Spinningfields fine dining, curry mile",
+        beachAccess: "No beach but vibrant canal-side bars and MediaCityUK waterfront",
+        accommodation: "Industrial loft conversions with hot tubs, modern apartments, Victorian warehouses",
+        priceRange: "£70-£95 per night - great value for a major city",
+        activities: "Shopping Trafford Centre, Northern Quarter vintage, football tours, music venues"
       },
       gettingThere: [
         { icon: Train, text: "Direct trains from London Euston (2 hours)" },
         { icon: Plane, text: "Manchester Airport with global connections" },
-        { icon: Car, text: "M6 and M62 motorways" },
-        { icon: Bus, text: "Frequent coach services" }
+        { icon: Car, text: "M6 and M62 motorways (approx 3.5 hours from London)" },
+        { icon: Bus, text: "Frequent coach services from major cities" }
+      ],
+      nightlife: [
+        { name: "Warehouse Project", description: "Legendary electronic music venue", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "Northern Quarter", description: "Trendy bars and independent venues", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" },
+        { name: "Deansgate Locks", description: "Canalside bars and clubs", image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80" }
+      ],
+      brunch: [
+        { name: "Federal Bar", description: "Australian-inspired brunch in Northern Quarter", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" },
+        { name: "Grindsmith", description: "Specialty coffee and creative brunch", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", link: "#" },
+        { name: "The Ivy Spinningfields", description: "Elegant all-day dining", image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", link: "#" }
+      ],
+      activities: [
+        { name: "Trafford Centre Shopping", description: "Massive shopping and entertainment complex", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" },
+        { name: "Football Stadium Tours", description: "Visit Old Trafford or Etihad Stadium", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&q=80" },
+        { name: "Northern Quarter", description: "Vintage shopping and street art", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" }
+      ]
+    },
+    bournemouth: {
+      name: "Bournemouth",
+      region: "Dorset",
+      image: "https://images.unsplash.com/photo-1581974206179-4cf0049a2d90?w=1200&q=80",
+      video: "",
+      overview: "Bournemouth offers seven miles of golden sandy beaches, vibrant nightlife, and beautiful gardens. Perfect for hen parties wanting a classic British seaside experience with beach clubs, water sports, and stunning cliff-top walks.",
+      quickFacts: {
+        fromLondon: "2 hours by direct train from Waterloo - easy seaside escape",
+        bestTime: "May to September for beach activities, year-round for nightlife",
+        nightlife: "Buzzing seafront scene! The Old Fire Station, Cameo nightclub, beach bars",
+        dining: "Fresh seafood on the pier, West Cliff restaurants, Boscombe food scene",
+        beachAccess: "7 miles of award-winning sandy beaches - perfect for beach activities",
+        accommodation: "Victorian villas near beach, modern seafront apartments, clifftop houses with sea views",
+        priceRange: "£75-£105 per night - affordable seaside luxury",
+        activities: "Beach sports, paddleboarding, cliff walks, pier entertainment, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Waterloo (2 hours)" },
+        { icon: Car, text: "M3 and A338 (approx 2.5 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London" },
+        { icon: Plane, text: "Bournemouth Airport with connections across Europe" }
       ],
       nightlife: [],
       brunch: [],
       activities: []
     },
-    // Add remaining destinations abbreviated...
+    york: {
+      name: "York",
+      region: "North Yorkshire",
+      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=1200&q=80",
+      video: "",
+      overview: "York is a historic walled city combining medieval charm, world-class museums, and vibrant nightlife. Perfect for hen parties seeking culture, history, and sophisticated entertainment in one of England's most picturesque cities.",
+      quickFacts: {
+        fromLondon: "2 hours by direct train from King's Cross",
+        bestTime: "Year-round charm! Spring for gardens, December for Christmas markets",
+        nightlife: "Medieval pubs, Shambles bars, Micklegate nightlife district",
+        dining: "Betty's Tea Rooms, riverside restaurants, historic pub dining",
+        beachAccess: "No beach but beautiful river walks and city walls",
+        accommodation: "Georgian townhouses, medieval properties, modern apartments in city walls",
+        priceRange: "£75-£100 per night - great value historic city",
+        activities: "York Minster, Shambles shopping, ghost walks, afternoon tea, city walls walk"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London King's Cross (2 hours)" },
+        { icon: Car, text: "A1(M) motorway (approx 4 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London" },
+        { icon: Plane, text: "Leeds Bradford Airport is 45 minutes away" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    cardiff: {
+      name: "Cardiff",
+      region: "South Wales",
+      image: "https://images.unsplash.com/photo-1590698933947-a202b069a861?w=1200&q=80",
+      video: "",
+      overview: "Cardiff is Wales's vibrant capital with a stunning castle, Cardiff Bay waterfront, and legendary Welsh hospitality. Perfect for hen parties seeking a compact city with great nightlife, rugby culture, and easy access to Welsh countryside.",
+      quickFacts: {
+        fromLondon: "2 hours by direct train from Paddington",
+        bestTime: "Year-round destination! Spring for Principality Stadium events, summer for Cardiff Bay",
+        nightlife: "St Mary Street clubs, Cardiff Bay bars, Roath nightlife",
+        dining: "Welsh lamb, Cardiff Bay restaurants, St Mary Street curry houses",
+        beachAccess: "Cardiff Bay waterfront, Penarth beach 20 minutes away",
+        accommodation: "Victorian terraces, Bay apartments, city centre townhouses",
+        priceRange: "£70-£95 per night - excellent value capital city",
+        activities: "Cardiff Castle, Principality Stadium tours, Cardiff Bay, shopping arcades"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
+        { icon: Car, text: "M4 motorway (approx 2.5 hours from London)" },
+        { icon: Bus, text: "Megabus and National Express from London" },
+        { icon: Plane, text: "Cardiff Airport with UK and European flights" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    newcastle: {
+      name: "Newcastle",
+      region: "Tyne and Wear",
+      image: "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=1200&q=80",
+      video: "",
+      overview: "Newcastle offers legendary nightlife, warm Geordie hospitality, and stunning bridges over the Tyne. Perfect for hen parties seeking big nights out, fantastic value, and one of the UK's most friendly cities.",
+      quickFacts: {
+        fromLondon: "3 hours by direct train from King's Cross",
+        bestTime: "Year-round party city! Summer for Quayside, any time for nightlife",
+        nightlife: "Legendary! Diamond Strip, Bigg Market, Quayside bars, digital nightclub",
+        dining: "Geordie classics, Quayside restaurants, Grey Street fine dining",
+        beachAccess: "Tynemouth beach 20 minutes away - surfing and seaside charm",
+        accommodation: "Quayside apartments, city centre townhouses, Victorian terraces",
+        priceRange: "£65-£90 per night - best value major UK city",
+        activities: "Quayside walks, Tyne Bridge, shopping Eldon Square, Baltic art gallery"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London King's Cross (3 hours)" },
+        { icon: Car, text: "A1(M) motorway (approx 5 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London" },
+        { icon: Plane, text: "Newcastle Airport with excellent UK and European connections" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
   };
 
   const destination = destinationsData[slug] || destinationsData.brighton;
