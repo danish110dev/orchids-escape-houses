@@ -844,13 +844,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-pink)",
-                    fontFamily: "var(--font-display)"
+                    backgroundColor: "var(--color-accent-pink)"
                   }}
                 >
-                  1
+                  <HomeIcon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Choose Property
@@ -862,13 +861,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-sage)",
-                    fontFamily: "var(--font-display)"
+                    backgroundColor: "var(--color-accent-sage)"
                   }}
                 >
-                  2
+                  <Sparkles className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Add Services
@@ -880,13 +878,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-gold)",
-                    fontFamily: "var(--font-display)"
+                    backgroundColor: "var(--color-accent-gold)"
                   }}
                 >
-                  3
+                  <CreditCard className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Secure Booking
@@ -898,13 +895,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white text-3xl font-bold"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-pink)",
-                    fontFamily: "var(--font-display)"
+                    backgroundColor: "var(--color-accent-pink)"
                   }}
                 >
-                  4
+                  <PartyPopper className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Enjoy Together
