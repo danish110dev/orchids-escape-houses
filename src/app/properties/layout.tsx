@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hen Party Houses | Sleeps 8-30+ | Hot Tubs & Pools",
-  description: "Find your perfect hen party house. Filter by location, group size and features. Properties sleeping 8-30+ guests with hot tubs, pools, games rooms. Free instant quotes available.",
+  description: "Filter 100+ party houses by location and features. Hot tubs, pools, games rooms. Sleeping 8-30+ guests. Free instant quotes.",
   keywords: ["hen party houses UK", "luxury group accommodation", "party houses with hot tubs", "large holiday homes", "houses sleeping 20 guests UK"],
   openGraph: {
     title: "Browse Hen Party Houses UK | Group Escape Houses",

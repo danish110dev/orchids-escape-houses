@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hen Party Destinations UK | Brighton, Bath & 25+ Cities",
-  description: "Choose from 25+ hen party destinations across the UK. Coastal cities, vibrant nightlife and countryside retreats. Find party houses in Brighton, Bath, Manchester, York and Liverpool.",
+  description: "25+ UK destinations with party houses. Coastal cities, vibrant nightlife & countryside. Brighton, Bath, Manchester, York, Liverpool.",
   keywords: ["hen party destinations UK", "best cities for hen weekends", "Brighton hen parties", "Bath hen do", "Manchester hen weekend"],
   openGraph: {
     title: "Top UK Hen Party Destinations | Group Escape Houses",

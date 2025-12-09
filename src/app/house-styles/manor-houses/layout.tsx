@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Manor Houses UK | Grand Country Estates to Rent",
-  description: "Historic manor houses and country estates sleeping 16-30+ guests. Period features, sprawling grounds and elegant interiors for sophisticated hen party weekends.",
+  description: "Historic manor houses sleeping 16-30+ guests. Period features, sprawling grounds & elegant interiors for sophisticated hen weekends.",
   keywords: ["manor houses to rent UK", "country estates for groups", "historic houses for hire", "stately homes hen parties"],
   openGraph: {
     title: "Manor Houses & Country Estates | Group Escape Houses",

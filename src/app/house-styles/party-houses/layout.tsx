@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Party Houses UK | Entertainment Venues for Groups",
-  description: "Houses specifically designed for celebrations with sound systems, outdoor spaces, hot tubs and entertainment facilities. Relaxed noise policies perfect for hen parties and birthdays.",
+  description: "Purpose-built party houses with sound systems, hot tubs & entertainment facilities. Relaxed noise policies for hen parties & birthdays.",
   keywords: ["party houses UK", "celebration venues", "entertainment houses", "group party accommodation"],
   openGraph: {
     title: "Purpose-Built Party Houses | Group Escape Houses",

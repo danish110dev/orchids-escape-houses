@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Hen Party Houses UK | Hot Tubs & Pools | Group Escape",
-  description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms. From £65-£150 per night. Instant enquiry, safe payments, UK support.",
+  description: "Luxury hen party houses sleeping 10-40+ guests across the UK. Hot tubs, pools, games rooms from £65pp. Instant enquiry & UK support.",
   keywords: "hen party houses UK, group accommodation UK, large holiday homes, houses with hot tubs, hen do accommodation, party houses for groups, luxury group houses, weekend break houses, large cottages UK, group holiday homes",
   authors: [{ name: 'Group Escape Houses' }],
   creator: 'Group Escape Houses',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: 'https://groupescapehouses.co.uk',
     title: "Hen Party Houses UK | Hot Tubs & Pools",
-    description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms. From £65-£150 per night.",
+    description: "Luxury hen party houses sleeping 10-40+ guests across the UK. Hot tubs, pools, games rooms from £65pp. Instant enquiry & UK support.",
     siteName: 'Group Escape Houses',
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Hen Party Houses UK | Hot Tubs & Pools",
-    description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms.",
+    description: "Luxury hen party houses sleeping 10-40+ guests. Hot tubs, pools, games rooms from £65pp. UK-based support team.",
     images: ['https://groupescapehouses.co.uk/og-image.jpg'],
   },
   other: {

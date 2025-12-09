@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Guest Reviews | 3,000+ Five-Star Testimonials",
-  description: "Read genuine reviews from hen parties who stayed at our properties. 3,000+ verified five-star testimonials. See photos, ratings and honest feedback from real celebrations.",
+  description: "3,000+ verified five-star reviews from hen parties. Real photos, ratings & honest feedback from celebrations across the UK.",
   keywords: ["hen party house reviews", "group escape houses reviews", "party house testimonials UK", "5 star hen accommodation"],
   openGraph: {
     title: "3,000+ Verified Guest Reviews | Group Escape Houses",
