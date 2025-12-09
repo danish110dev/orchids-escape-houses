@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Houses with Hot Tubs UK | Party Homes",
-  description: "Luxury group houses with private hot tubs. Perfect for hen parties and celebrations. Sleeps 8-30+ guests. Weekend and midweek availability across the UK.",
+  description: "Group houses with private hot tubs. Perfect for hen parties. Sleeps 8-30+ guests. Weekend & midweek availability across the UK.",
   keywords: ["houses with hot tubs UK", "party houses hot tub", "group accommodation hot tub", "hen party houses with hot tubs"],
   openGraph: {
     title: "Group Houses with Private Hot Tubs | Group Escape Houses",

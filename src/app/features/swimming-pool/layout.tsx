@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Houses with Pools UK | Indoor & Outdoor",
-  description: "Stunning properties with private swimming pools. Indoor heated pools and outdoor options. Perfect for group celebrations and hen parties across the UK.",
+  description: "Properties with private swimming pools. Indoor heated & outdoor options. Perfect for group celebrations & hen parties across the UK.",
   keywords: ["houses with pools UK", "party houses with swimming pool", "group accommodation pool", "houses with indoor pool"],
   openGraph: {
     title: "Houses with Swimming Pools for Groups | Group Escape Houses",
