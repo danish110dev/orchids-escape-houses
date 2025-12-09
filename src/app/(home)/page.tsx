@@ -346,7 +346,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 py-8">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-16 sm:py-8">
           {shouldLoadVideo && (
             <>
               {/* Desktop Video */}
@@ -377,28 +377,28 @@ export default function Home() {
             </>
           )}
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center">
-            <h1 className="mb-4 md:mb-6 text-white drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full">
+            <h1 className="mb-4 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
               Luxury houses for groups of all sizes with hot tubs, pools, and outstanding amenities
             </p>
 
             {/* Search Form */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
                 {/* Destination */}
                 <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                      className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     >
-                      <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
-                      <div className="flex flex-col">
+                      <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                      <div className="flex flex-col overflow-hidden">
                         <span className="text-xs text-gray-500">Where</span>
-                        <span className="text-sm font-medium">{destination || "Search destinations"}</span>
+                        <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
                       </div>
                     </Button>
                   </PopoverTrigger>
@@ -423,13 +423,13 @@ export default function Home() {
                   <Button
                     ref={dateFieldRef}
                     variant="outline"
-                    className="h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    className="h-14 sm:h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     onClick={() => setDatePickerOpen(!datePickerOpen)}
                   >
-                    <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
-                    <div className="flex flex-col">
+                    <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                    <div className="flex flex-col overflow-hidden">
                       <span className="text-xs text-gray-500">When</span>
-                      <span className="text-sm font-medium">{dateRangeDisplay}</span>
+                      <span className="text-sm font-medium truncate">{dateRangeDisplay}</span>
                     </div>
                   </Button>
                   {datePickerOpen && (
@@ -465,12 +465,12 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                      className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     >
-                      <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
-                      <div className="flex flex-col">
+                      <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                      <div className="flex flex-col overflow-hidden">
                         <span className="text-xs text-gray-500">Who</span>
-                        <span className="text-sm font-medium">{guestsSummary}</span>
+                        <span className="text-sm font-medium truncate">{guestsSummary}</span>
                       </div>
                     </Button>
                   </PopoverTrigger>
@@ -591,7 +591,7 @@ export default function Home() {
                 <Button
                   onClick={handleSearch}
                   size="lg"
-                  className="h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02]"
+                  className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02]"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
@@ -603,8 +603,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4">
-              <Link href="/properties">
+            <div className="mt-6 sm:mt-8 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-2 sm:px-4">
+              <Link href="/properties" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium transition-all hover:scale-[1.05] w-full sm:w-auto"
@@ -617,7 +617,7 @@ export default function Home() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
@@ -635,9 +635,9 @@ export default function Home() {
         </section>
 
         {/* Trust Signals */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+        <section className="py-12 sm:py-14 md:py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-7 md:gap-8 text-center">
               <div className="transition-transform hover:scale-105">
                 <Award className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-gold)]" />
                 <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>3,000+</div>
