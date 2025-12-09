@@ -319,7 +319,32 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     },
   };
 
-  const destination = destinationsData[slug] || destinationsData.brighton;
+  const destination = destinationsData[slug] || {
+    name: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    region: "UK",
+    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80",
+    video: "",
+    overview: `Discover luxury group accommodation in ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}. Perfect for hen parties, celebrations, and group getaways with stunning houses featuring hot tubs, pools, and exceptional amenities.`,
+    quickFacts: {
+      fromLondon: "Easily accessible from London",
+      bestTime: "Year-round destination",
+      nightlife: "Vibrant bars, clubs, and entertainment",
+      dining: "Excellent restaurants and dining options",
+      beachAccess: "Check specific location for beach access",
+      accommodation: "Luxury group houses with hot tubs and modern amenities",
+      priceRange: "£70-£120 per night for group accommodation",
+      activities: "Shopping, dining, entertainment, and local attractions"
+    },
+    gettingThere: [
+      { icon: Train, text: "Accessible by train from major UK cities" },
+      { icon: Car, text: "Easy access via motorways" },
+      { icon: Bus, text: "Regular coach services available" },
+      { icon: Plane, text: "Nearest airports provide good connections" }
+    ],
+    nightlife: [],
+    brunch: [],
+    activities: []
+  };
 
   // Location-specific properties data from original
   const propertiesByLocation: Record<string, any[]> = {
