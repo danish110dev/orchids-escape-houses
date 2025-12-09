@@ -114,7 +114,7 @@ function BookingConfirmedContent() {
               className="text-2xl font-semibold mb-6 pb-4 border-b border-[var(--color-bg-secondary)]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Booking Details
+              Your Booking Summary
             </h2>
             
             <div className="space-y-4">
