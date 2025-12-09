@@ -345,7 +345,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 py-8">
           {shouldLoadVideo && (
             <video
               ref={videoRef}
@@ -360,23 +360,23 @@ export default function Home() {
             </video>
           )}
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
-            <h1 className="mb-6 text-white drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center">
+            <h1 className="mb-4 md:mb-6 text-white drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-            <p className="text-xl md:text-2xl mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-4">
               Luxury houses for groups of all sizes with hot tubs, pools, and outstanding amenities
             </p>
 
             {/* Search Form */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4">
                 {/* Destination */}
                 <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                      className="h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     >
                       <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
                       <div className="flex flex-col">
@@ -406,7 +406,7 @@ export default function Home() {
                   <Button
                     ref={dateFieldRef}
                     variant="outline"
-                    className="h-16 w-full justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                    className="h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     onClick={() => setDatePickerOpen(!datePickerOpen)}
                   >
                     <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
@@ -448,7 +448,7 @@ export default function Home() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="h-16 justify-start text-left font-normal rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                      className="h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                     >
                       <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)]" />
                       <div className="flex flex-col">
@@ -574,7 +574,7 @@ export default function Home() {
                 <Button
                   onClick={handleSearch}
                   size="lg"
-                  className="h-16 rounded-2xl font-semibold text-lg transition-all hover:scale-[1.02]"
+                  className="h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02]"
                   style={{
                     background: "var(--color-accent-sage)",
                     color: "white",
@@ -586,11 +586,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4">
               <Link href="/properties">
                 <Button
                   size="lg"
-                  className="rounded-2xl px-8 py-6 font-medium transition-all hover:scale-[1.05]"
+                  className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium transition-all hover:scale-[1.05] w-full sm:w-auto"
                   style={{
                     background: "var(--color-accent-pink)",
                     color: "var(--color-text-primary)",
@@ -604,7 +604,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-2xl px-8 py-6 font-medium border-2 transition-all hover:bg-white"
+                  className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium border-2 transition-all hover:bg-white w-full sm:w-auto"
                   style={{
                     borderColor: "var(--color-accent-gold)",
                     color: "var(--color-text-primary)",
@@ -618,41 +618,41 @@ export default function Home() {
         </section>
 
         {/* Trust Signals */}
-        <section className="py-16 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <section className="py-12 md:py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
               <div className="transition-transform hover:scale-105">
-                <Award className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-gold)]" />
-                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>3,000+</div>
-                <div className="text-[var(--color-neutral-dark)]">5 Star Reviews</div>
+                <Award className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-gold)]" />
+                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>3,000+</div>
+                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">5 Star Reviews</div>
               </div>
               <div className="transition-transform hover:scale-105">
-                <Shield className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-sage)]" />
-                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Secure</div>
-                <div className="text-[var(--color-neutral-dark)]">Safe Payments</div>
+                <Shield className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-sage)]" />
+                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Secure</div>
+                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Safe Payments</div>
               </div>
               <div className="transition-transform hover:scale-105">
-                <Users className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-pink)]" />
-                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>UK Team</div>
-                <div className="text-[var(--color-neutral-dark)]">Expert Support</div>
+                <Users className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-pink)]" />
+                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>UK Team</div>
+                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Expert Support</div>
               </div>
               <div className="transition-transform hover:scale-105">
-                <Clock className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent-gold)]" />
-                <div className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Fast</div>
-                <div className="text-[var(--color-neutral-dark)]">Quick Response</div>
+                <Clock className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-gold)]" />
+                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Fast</div>
+                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Quick Response</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Featured Properties */}
-        <section className="py-20 bg-[var(--color-bg-primary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-10 md:mb-12 px-4">
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Featured Large Group Houses
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
                 Exceptional properties sleeping 10 to 40 guests with premium facilities
               </p>
             </div>
@@ -696,13 +696,13 @@ export default function Home() {
         </section>
 
         {/* Experiences */}
-        <section className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-10 md:mb-12 px-4">
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Enhance Your Group Stay
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
                 Add special touches and activities to make your group trip unforgettable
               </p>
             </div>
@@ -746,13 +746,13 @@ export default function Home() {
         </section>
 
         {/* Destinations */}
-        <section className="py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-10 md:mb-12 px-4">
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Explore Top Destinations
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
                 From vibrant cities to coastal escapes
               </p>
             </div>
@@ -830,18 +830,18 @@ export default function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-12 md:mb-16 px-4">
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 How It Works
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
                 Booking your perfect group accommodation is simple
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center transition-transform hover:scale-105">
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
@@ -911,7 +911,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-10 md:mt-12">
               <Link href="/how-it-works">
                 <Button
                   size="lg"
@@ -931,13 +931,13 @@ export default function Home() {
         </section>
 
         {/* Reviews */}
-        <section className="py-20 bg-[var(--color-bg-secondary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-10 md:mb-12 px-4">
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 What Our Guests Say
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
                 Over 3,000 five-star reviews from happy groups
               </p>
             </div>
@@ -966,18 +966,18 @@ export default function Home() {
         {mounted && <FAQSection />}
 
         {/* Newsletter */}
-        <section className="py-20 bg-[var(--color-bg-primary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-3xl p-12 text-center text-white">
-              <PartyPopper className="w-16 h-16 mx-auto mb-6" />
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white">
+              <PartyPopper className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6" />
+              <h2 className="mb-3 md:mb-4 text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
                 Get Group Travel Inspiration
               </h2>
-              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto px-4">
                 Subscribe for exclusive deals, new properties, and group planning tips
               </p>
 
-              <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex gap-4">
+              <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
                 <input
                   type="text"
                   value={honeypot}
@@ -1021,21 +1021,21 @@ export default function Home() {
         </section>
 
         {/* Instagram */}
-        <section className="py-20 bg-white overflow-hidden">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-4">
-                <Instagram className="w-16 h-16 text-transparent" style={{
+        <section className="py-16 md:py-20 bg-white overflow-hidden">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+            <div className="text-center mb-10 md:mb-12">
+              <div className="flex items-center justify-center mb-3 md:mb-4">
+                <Instagram className="w-12 h-12 md:w-16 md:h-16 text-transparent" style={{
                   background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text"
                 }} />
               </div>
-              <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Follow Us on Instagram
               </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6 md:mb-8 max-w-2xl mx-auto px-4">
                 Get daily inspiration and see our houses in action
               </p>
               <a
