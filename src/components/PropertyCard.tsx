@@ -64,15 +64,12 @@ export default function PropertyCard({
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  // Validate image URL before rendering
   const validatedImage = useMemo(() => {
     return validateImageUrl(image, title);
   }, [image, title]);
 
-  // Use placeholder if image fails to load OR if validation failed
   const displayImage = imageError ? PLACEHOLDER_IMAGE : validatedImage;
 
-  // Extract city name and convert to slug for destination link
   const getDestinationSlug = (location: string) => {
     const city = location.split(',')[0].trim().toLowerCase();
     return city.replace(/\s+/g, '-');
@@ -89,8 +86,11 @@ export default function PropertyCard({
               src={displayImage}
               alt={title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={85}
               className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               onError={() => setImageError(true)}
+              priority={false}
             />
             
             {/* Feature Tags */}
