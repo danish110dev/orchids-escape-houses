@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Easter Holiday Houses UK | Spring Break Group Accommodation",
-  description: "Easter holiday houses perfect for family gatherings and spring celebrations. Luxury properties sleeping 8-30 guests across the UK.",
+  title: "Easter Party Houses UK | Spring Celebration Venues",
+  description: "Easter party houses for family celebrations. Luxury properties sleeping 8-30 guests with hot tubs, pools & countryside views.",
   keywords: ["Easter houses", "spring break accommodation", "Easter holiday rental", "family Easter breaks"],
   openGraph: {
     title: "Easter Holiday Houses | Group Escape Houses",
