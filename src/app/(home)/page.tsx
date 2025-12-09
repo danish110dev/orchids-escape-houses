@@ -377,7 +377,7 @@ export default function Home() {
             </>
           )}
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full">
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
             <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
