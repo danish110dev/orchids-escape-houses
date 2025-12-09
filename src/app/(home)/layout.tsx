@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Luxury Hen Party Houses UK | Hot Tubs, Pools & Games Rooms | Group Escape Houses",
+  title: "Hen Party Houses UK | Hot Tubs & Pools | Group Escape",
   description: "Book stunning hen party houses sleeping 10-40+ guests across the UK. Luxury group accommodation with hot tubs, swimming pools, games rooms. From £65-£150 per night. Instant enquiry, safe payments, UK support.",
   keywords: "hen party houses UK, group accommodation UK, large holiday homes, houses with hot tubs, hen do accommodation, party houses for groups, luxury group houses, weekend break houses, large cottages UK, group holiday homes",
   authors: [{ name: 'Group Escape Houses' }],

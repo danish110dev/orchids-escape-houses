@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Booking Process Explained | Deposits, Payments & House Rules Guide",
+  title: "How to Book | Deposits, Payments & House Rules",
   description: "Simple 4-step booking process for hen party houses. Understand deposits, payment schedules, cancellation policy and house rules. Transparent pricing with no hidden fees.",
   keywords: ["how to book hen party house", "hen weekend booking process", "party house payment guide", "booking deposit"],
   openGraph: {

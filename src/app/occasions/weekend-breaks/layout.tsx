@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Weekend Breaks for Groups | Friday to Sunday Short Stays UK",
+  title: "Weekend Breaks for Groups | 2-3 Night Stays UK",
   description: "Two and three-night weekend breaks in party houses. Friday arrivals, flexible check-outs and midweek discounts available. Perfect for quick getaways and mini-celebrations.",
   keywords: ["weekend breaks for groups UK", "short stay party houses", "Friday to Sunday breaks", "group weekend accommodation"],
   openGraph: {

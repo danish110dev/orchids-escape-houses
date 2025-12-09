@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Party Houses by Occasion | Hen Weekends, Birthdays & Reunions",
+  title: "Party Houses by Occasion | Hen Parties & Celebrations",
   description: "Properties suited to every celebration type. Hen parties, milestone birthdays, family reunions, Christmas gatherings and New Year breaks. Find the perfect house for your occasion.",
   keywords: ["hen party houses", "birthday party houses UK", "wedding accommodation", "celebration venues", "Christmas party houses"],
   openGraph: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Five-Star Luxury Party Houses | Premium Group Accommodation UK",
+  title: "Luxury Party Houses UK | 5-Star Group Homes",
   description: "Top-tier luxury properties with premium facilities, designer interiors and exceptional service. Hot tubs, pools, chefs kitchens and boutique bedrooms for discerning hen parties.",
   keywords: ["luxury party houses UK", "high-end group accommodation", "5-star party houses", "premium celebration venues"],
   openGraph: {

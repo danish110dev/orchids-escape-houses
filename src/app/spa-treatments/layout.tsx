@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobile Spa Treatments for Hen Parties | Massage & Facials at Your House",
+  title: "Mobile Spa Treatments | Massage & Facials",
   description: "Luxury mobile spa treatments delivered to your party house. Professional therapists bring massages, facials and pamper packages. Book for 10+ and the bride goes free.",
   keywords: ["mobile spa treatments", "hen party spa", "massage at party house", "mobile beauty therapist"],
   openGraph: {

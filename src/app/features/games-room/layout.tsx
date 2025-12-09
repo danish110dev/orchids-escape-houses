@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Party Houses with Games Rooms | Pool Tables & Entertainment Spaces",
-  description: "Properties with dedicated games rooms featuring pool tables, table tennis, darts and board games. Perfect entertainment for rainy days and competitive hen party fun.",
+  title: "Houses with Games Rooms UK | Party Entertainment",
+  description: "Properties with dedicated games rooms. Pool tables, table tennis, arcade games and entertainment spaces. Perfect for group celebrations and hen weekends.",
   keywords: ["houses with games rooms UK", "party houses with pool tables", "entertainment rooms", "group houses with games"],
   openGraph: {
     title: "Houses with Games Rooms & Entertainment | Group Escape Houses",

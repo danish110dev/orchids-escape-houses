@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Add Experiences to Your Hen Weekend | Chef, Cocktails & Spa Days",
+  title: "Hen Party Activities | Chef, Cocktails & Spa",
   description: "Transform your hen weekend with curated experiences. Private chefs from £55pp, cocktail masterclasses, mobile spa treatments, yoga and wellness. Book activities with your property.",
   keywords: ["hen party activities UK", "cocktail masterclass", "private chef hen party", "spa treatments", "hen do experiences"],
   openGraph: {

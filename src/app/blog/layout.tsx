@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hen Party Planning Blog | Expert Tips, City Guides & House Spotlights",
+  title: "Hen Party Planning Blog | Tips & City Guides",
   description: "Free planning resources from hen party experts. City nightlife guides, packing checklists, budgeting tips and property spotlights. Updated weekly with fresh inspiration.",
   keywords: ["hen party planning tips", "hen weekend ideas", "UK hen party blog", "celebration planning guide"],
   openGraph: {

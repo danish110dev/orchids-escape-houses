@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Handpicked Hen Party Houses UK | Verified Luxury Group Properties",
+  title: "Hen Party Houses UK | Verified Luxury Properties",
   description: "Every hen party house personally inspected and verified. Sleeping 8-30+ with essential features like hot tubs, BBQ areas and entertainment spaces. Weekend and midweek availability.",
   keywords: ["hen party houses", "hen weekend accommodation UK", "hen do houses", "large group hen party venues"],
   openGraph: {

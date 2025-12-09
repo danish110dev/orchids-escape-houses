@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "List Your Property | Advertise with Group Escape Houses",
+  title: "List Your Property | Advertise with Group Escape",
   description: "Join our network of premium group accommodation providers. Commission-based model with no upfront fees. Reach thousands of group travellers across the UK.",
   keywords: ["list property", "advertise accommodation", "property owner", "holiday rental commission", "group accommodation platform"],
   openGraph: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Transparent Pricing | Weekend & Midweek Rates | No Hidden Fees",
+  title: "Pricing Guide | Weekend & Midweek Rates",
   description: "Clear pricing for luxury hen party houses. Weekend from £69pp, midweek from £49pp. 25% deposit, balance 8 weeks before. No hidden fees or surprises.",
   keywords: ["hen party house prices", "group accommodation pricing", "weekend rates", "transparent booking costs"],
   openGraph: {

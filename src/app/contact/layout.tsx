@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get Your Free Quote | Contact Our Hen Party Booking Team Brighton",
-  description: "Free instant quotes for hen party houses. Call our Brighton team on 01273 569301 or submit an enquiry form. Same-day response Monday to Friday. No booking fees.",
+  title: "Contact Us | Instant Enquiry & UK Support",
+  description: "Get instant quotes for hen party houses. Call our UK support team, submit an enquiry form or visit our Brighton office. Fast response times guaranteed.",
   keywords: ["contact group escape houses", "hen party booking enquiry", "quote hen weekend", "book party house UK"],
   openGraph: {
     title: "Contact Us for Free Quote | Group Escape Houses",
