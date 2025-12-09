@@ -346,7 +346,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-16 sm:py-8">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
           {shouldLoadVideo && (
             <>
               {/* Desktop Video */}
@@ -378,10 +378,10 @@ export default function Home() {
           )}
 
           <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full">
-            <h1 className="mb-4 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
+            <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
               Luxury houses for groups of all sizes with hot tubs, pools, and outstanding amenities
             </p>
 
