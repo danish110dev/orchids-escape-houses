@@ -863,10 +863,10 @@ export default function Home() {
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-pink)"
+                    backgroundColor: "#3d5a47"
                   }}
                 >
-                  <HomeIcon className="w-10 h-10 text-white" />
+                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Choose Property
@@ -880,10 +880,10 @@ export default function Home() {
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-sage)"
+                    backgroundColor: "#3d5a47"
                   }}
                 >
-                  <Sparkles className="w-10 h-10 text-white" />
+                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Add Services
@@ -897,10 +897,10 @@ export default function Home() {
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-gold)"
+                    backgroundColor: "#C6A76D"
                   }}
                 >
-                  <CreditCard className="w-10 h-10 text-white" />
+                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Secure Booking
@@ -914,10 +914,10 @@ export default function Home() {
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
-                    backgroundColor: "var(--color-accent-pink)"
+                    backgroundColor: "#C6A76D"
                   }}
                 >
-                  <PartyPopper className="w-10 h-10 text-white" />
+                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Enjoy Together
