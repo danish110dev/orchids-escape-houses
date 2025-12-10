@@ -173,9 +173,15 @@ function PropertiesContent() {
     return properties.filter((property) => {
       // Location filter
       if (filters.location) {
-        const locationMatch = property.location
-          .toLowerCase()
-          .includes(filters.location.toLowerCase().replace("-", " "));
+        const filterSlug = filters.location.toLowerCase().replace(/-/g, " ");
+        const filterName = destinations.find(d => d.slug === filters.location)?.name.toLowerCase() || filterSlug;
+        const propertyLocation = property.location.toLowerCase();
+        
+        // Match against slug format, destination name, or partial location match
+        const locationMatch = 
+          propertyLocation.includes(filterSlug) ||
+          propertyLocation.includes(filterName) ||
+          propertyLocation.startsWith(filterName.split(",")[0]);
         if (!locationMatch) return false;
       }
 
