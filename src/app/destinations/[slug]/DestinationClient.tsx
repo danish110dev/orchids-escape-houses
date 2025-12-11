@@ -217,7 +217,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Bournemouth",
       region: "Dorset",
       image: "https://images.unsplash.com/photo-1581974206179-4cf0049a2d90?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4",
+      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-establishing-shot-of-brig-8a8e78c4-20251022152555.mp4",
       overview: "Bournemouth offers seven miles of golden sandy beaches, vibrant nightlife, and beautiful gardens. Perfect for hen parties wanting a classic British seaside experience with beach clubs, water sports, and stunning cliff-top walks.",
       quickFacts: {
         fromLondon: "2 hours by direct train from Waterloo - easy seaside escape",
