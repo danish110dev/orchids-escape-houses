@@ -242,7 +242,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "York",
       region: "North Yorkshire",
       image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/29388103/12658410_720_1280_30fps.mp4",
+      video: "https://videos.pexels.com/video-files/29449480/12677449_1280_720_30fps.mp4",
       overview: "York is a historic walled city combining medieval charm, world-class museums, and vibrant nightlife. Perfect for hen parties seeking culture, history, and sophisticated entertainment in one of England's most picturesque cities.",
       quickFacts: {
         fromLondon: "2 hours by direct train from King's Cross",
@@ -268,7 +268,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Cardiff",
       region: "South Wales",
       image: "https://images.unsplash.com/photo-1590698933947-a202b069a861?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/4129702/4129702-hd_1920_1080_25fps.mp4",
+      video: "https://videos.pexels.com/video-files/26492558/11955743_1280_720_60fps.mp4",
       overview: "Cardiff is Wales's vibrant capital with a stunning castle, Cardiff Bay waterfront, and legendary Welsh hospitality. Perfect for hen parties seeking a compact city with great nightlife, rugby culture, and easy access to Welsh countryside.",
       quickFacts: {
         fromLondon: "2 hours by direct train from Paddington",
