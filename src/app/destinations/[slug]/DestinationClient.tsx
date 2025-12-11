@@ -318,11 +318,36 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     },
   };
 
+  const videosBySlug: Record<string, string> = {
+    liverpool: "https://videos.pexels.com/video-files/34165279/14484362_1280_720_60fps.mp4",
+    newquay: "https://videos.pexels.com/video-files/33794607/14344676_1280_720_30fps.mp4",
+    bristol: "https://videos.pexels.com/video-files/32642500/13918735_1280_720_60fps.mp4",
+    cambridge: "https://videos.pexels.com/video-files/4016625/4016625-hd_1280_720_30fps.mp4",
+    oxford: "https://videos.pexels.com/video-files/3620941/3620941-hd_1280_720_25fps.mp4",
+    leeds: "https://videos.pexels.com/video-files/27745589/12217527_1280_720_30fps.mp4",
+    nottingham: "https://videos.pexels.com/video-files/7004839/7004839-hd_1280_720_60fps.mp4",
+    sheffield: "https://videos.pexels.com/video-files/6419588/6419588-hd_1280_720_30fps.mp4",
+    exeter: "https://videos.pexels.com/video-files/30292800/12986618_1280_720_30fps.mp4",
+    chester: "https://videos.pexels.com/video-files/13751219/13751219-hd_1280_720_60fps.mp4",
+    durham: "https://videos.pexels.com/video-files/31175883/13317628_1280_720_30fps.mp4",
+    canterbury: "https://videos.pexels.com/video-files/30777219/13165030_1280_720_60fps.mp4",
+    blackpool: "https://videos.pexels.com/video-files/11353270/11353270-hd_1280_720_25fps.mp4",
+    cotswolds: "https://videos.pexels.com/video-files/29082724/12568010_1280_720_30fps.mp4",
+    margate: "https://videos.pexels.com/video-files/30053466/12890891_1280_720_60fps.mp4",
+    harrogate: "https://videos.pexels.com/video-files/19808297/19808297-hd_1280_720_48fps.mp4",
+    "st-ives": "https://videos.pexels.com/video-files/33749393/14328194_1280_720_30fps.mp4",
+    windsor: "https://videos.pexels.com/video-files/3596577/3596577-hd_1280_720_30fps.mp4",
+    "stratford-upon-avon": "https://videos.pexels.com/video-files/19710007/19710007-hd_1280_720_48fps.mp4",
+    plymouth: "https://videos.pexels.com/video-files/26860921/12023274_1280_720_30fps.mp4",
+    cheltenham: "https://videos.pexels.com/video-files/30290999/12985271_1280_720_60fps.mp4",
+    birmingham: "https://videos.pexels.com/video-files/20770022/20770022-hd_1280_720_60fps.mp4",
+  };
+
   const destination = destinationsData[slug] || {
     name: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
     region: "UK",
     image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80",
-    video: "",
+    video: videosBySlug[slug] || "",
     overview: `Discover luxury group accommodation in ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}. Perfect for hen parties, celebrations, and group getaways with stunning houses featuring hot tubs, pools, and exceptional amenities.`,
     quickFacts: {
       fromLondon: "Easily accessible from London",
