@@ -27,7 +27,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "London",
       region: "Greater London",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london-uk-c-4c8e8b9a-20251018100334.jpg",
-      video: "",
+      video: "https://videos.pexels.com/video-files/4483669/4483669-hd_1920_1080_25fps.mp4",
       overview: "London is the capital of luxury group accommodation, offering world-class entertainment, Michelin-starred dining, and iconic landmarks. Perfect for hen parties seeking sophistication, culture, and unforgettable nightlife in one of the world's most vibrant cities.",
       quickFacts: {
         fromLondon: "You're already here! Easy access to all properties via tube and train",
