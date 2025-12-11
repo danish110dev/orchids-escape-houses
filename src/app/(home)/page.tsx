@@ -959,7 +959,7 @@ export default function Home() {
               </p>
             </div>
 
-            {mounted && <ReviewSlider reviews={reviews} isLoading={isLoadingData} />}
+            {mounted && <ReviewSlider reviews={reviews} />}
 
             <div className="text-center mt-12">
               <Link href="/reviews">
@@ -1078,7 +1078,7 @@ export default function Home() {
               <div className="overflow-hidden">
                 <div className="flex gap-4 animate-slide-left">
                   {/* First set of images */}
-                  {[
+                  {[ 
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-outd-9a1d5ece-20251209095212.jpg",
@@ -1111,7 +1111,7 @@ export default function Home() {
                     </a>
                   ))}
                   {/* Duplicate set for seamless loop */}
-                  {[
+                  {[ 
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-outd-9a1d5ece-20251209095212.jpg",
