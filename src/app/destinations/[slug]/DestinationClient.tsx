@@ -25,7 +25,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     london: {
       name: "London",
       region: "Greater London",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-london-uk-c-4c8e8b9a-20251018100334.jpg",
+      image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80",
       video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
       overview: "London is the capital of luxury group accommodation, offering world-class entertainment, Michelin-starred dining, and iconic landmarks. Perfect for hen parties seeking sophistication, culture, and unforgettable nightlife in one of the world's most vibrant cities.",
       quickFacts: {
@@ -757,37 +757,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     ]
   };
 
-  useEffect(() => {
-    if (videoRef.current && destination.video) {
-      const playVideo = async () => {
-        try {
-          videoRef.current!.muted = true;
-          await videoRef.current!.play();
-          setVideoLoaded(true);
-        } catch (error) {
-          console.error('Video play failed:', error);
-          if (videoRef.current) {
-            videoRef.current.style.display = 'none';
-          }
-          const fallbackImg = document.getElementById('hero-fallback-img');
-          if (fallbackImg) {
-            (fallbackImg as HTMLElement).style.display = 'block';
-          }
-        }
-      };
-
-      playVideo();
-      videoRef.current.addEventListener('loadeddata', playVideo);
-      videoRef.current.addEventListener('canplay', playVideo);
-
-      return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener('loadeddata', playVideo);
-          videoRef.current.removeEventListener('canplay', playVideo);
-        }
-      };
-    }
-  }, [destination.video]);
 
   return (
     <>
