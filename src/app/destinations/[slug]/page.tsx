@@ -9,8 +9,8 @@ import Link from "next/link";
 import DestinationClient from "./DestinationClient";
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const slug = params.slug;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   
   // Destinations data
   const destinationsData: Record<string, any> = {
@@ -86,11 +86,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function DestinationDetailPage({ params }: { params: { slug: string } }) {
+export default async function DestinationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
-      <DestinationClient slug={params.slug} />
+      <DestinationClient slug={slug} />
       <Footer />
     </div>
   );
