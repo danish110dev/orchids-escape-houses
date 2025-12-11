@@ -803,7 +803,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       />
 
       {/* Hero */}
-      <div className="relative h-[500px] mt-20 overflow-hidden">
+      <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
         {destination.video ? (
           <>
             <video
@@ -813,36 +813,12 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
               muted
               playsInline
               preload="auto"
+              poster={destination.image}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ 
-                display: 'block',
-                zIndex: 0
-              }}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const fallbackImg = document.getElementById('hero-fallback-img');
-                if (fallbackImg) {
-                  (fallbackImg as HTMLElement).style.display = 'block';
-                }
-              }}
             >
               <source src={destination.video} type="video/mp4" />
             </video>
-            <div 
-              id="hero-fallback-img"
-              className="absolute inset-0"
-              style={{ display: 'none', zIndex: 0 }}
-            >
-              <Image 
-                src={destination.image} 
-                alt={destination.name} 
-                fill 
-                className="object-cover" 
-                priority 
-                onError={() => handleImageError('hero-fallback')}
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" style={{ zIndex: 1 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
           </>
         ) : (
           <>
@@ -851,14 +827,13 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
               alt={destination.name} 
               fill 
               className="object-cover" 
-              style={{ zIndex: 0 }}
               priority 
               onError={() => handleImageError('hero')}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" style={{ zIndex: 1 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
           </>
         )}
-        <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 2 }}>
+        <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
             <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
               {destination.name}
