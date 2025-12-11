@@ -9,15 +9,17 @@ import { Button } from "@/components/ui/button";
 import { Clock, Users, Check, Calendar, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { experiencesData, relatedExperiences } from "@/data/experiences";
+import { use } from "react";
 
-export default function ExperienceDetailPage({ params }: { params: { slug: string } }) {
-  const experience = experiencesData[params.slug] || experiencesData["private-chef"];
+export default function ExperienceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const experience = experiencesData[slug] || experiencesData["private-chef"];
   const Icon = experience.icon;
   const pricingType = experience.pricingType || "per person";
 
   // Filter related experiences excluding current one
   const filteredRelated = relatedExperiences
-    .filter(exp => exp.slug !== params.slug)
+    .filter(exp => exp.slug !== slug)
     .slice(0, 3);
 
   return (

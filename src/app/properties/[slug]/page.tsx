@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -27,7 +27,8 @@ import {
   Loader2,
 } from "lucide-react";
 
-export default function PropertyDetailPage({ params }: { params: { slug: string } }) {
+export default function PropertyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
   const [property, setProperty] = useState<any>(null);
@@ -43,7 +44,7 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
         setError(null);
 
         // Fetch the specific property by slug
-        const propertyResponse = await fetch(`/api/properties?slug=${params.slug}`);
+        const propertyResponse = await fetch(`/api/properties?slug=${slug}`);
         
         if (!propertyResponse.ok) {
           throw new Error('Failed to fetch property');
@@ -91,7 +92,7 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
           const relatedData = await relatedResponse.json();
           
           const transformedRelated = relatedData
-            .filter((p: any) => p.slug !== params.slug)
+            .filter((p: any) => p.slug !== slug)
             .slice(0, 2)
             .map((p: any) => ({
               id: p.id.toString(),
@@ -116,7 +117,7 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
     };
 
     fetchPropertyData();
-  }, [params.slug]);
+  }, [slug]);
 
   const faqs = [
     {
@@ -370,7 +371,7 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
 
             {/* Right Column - Enquiry Form */}
             <div className="lg:col-span-1">
-              <EnquiryForm propertyTitle={property.title} propertySlug={params.slug} />
+              <EnquiryForm propertyTitle={property.title} propertySlug={slug} />
             </div>
           </div>
 

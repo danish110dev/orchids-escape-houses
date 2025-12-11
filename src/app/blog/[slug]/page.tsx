@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import { notFound } from "next/navigation";
+import { use } from "react";
 
 // Blog posts data (should match the listing page)
 const posts = [
@@ -472,8 +473,9 @@ const posts = [
   },
 ];
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = posts.find((p) => p.slug === params.slug);
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
