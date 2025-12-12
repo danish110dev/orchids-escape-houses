@@ -13,6 +13,11 @@ interface DestinationClientProps {
 
 export default function DestinationClient({ slug }: DestinationClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (imageId: string) => {
+    setImageErrors(prev => ({ ...prev, [imageId]: true }));
+  };
 
   // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
