@@ -25,8 +25,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     london: {
       name: "London",
       region: "Greater London",
-      image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg",
       overview: "London is the capital of luxury group accommodation, offering world-class entertainment, Michelin-starred dining, and iconic landmarks. Perfect for hen parties seeking sophistication, culture, and unforgettable nightlife in one of the world's most vibrant cities.",
       quickFacts: {
         fromLondon: "You're already here! Easy access to all properties via tube and train",
@@ -64,7 +63,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Lake District",
       region: "Cumbria",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-lake-district-51198f8c-20251019170636.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-gli-b539c0a2-20251023164106.mp4",
       overview: "The Lake District is England's most stunning national park, offering breathtaking landscapes, luxury lodges, and peaceful mountain retreats perfect for group celebrations. With dramatic fells, pristine lakes, and charming villages, it's the ideal destination for groups seeking natural beauty combined with luxury accommodation.",
       quickFacts: {
         fromLondon: "4-5 hours by train to Windermere or 5-6 hours by car via M6",
@@ -102,7 +100,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Brighton",
       region: "East Sussex",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--cf923885-20251018100341.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-establishing-shot-of-brig-8a8e78c4-20251022152555.mp4",
       overview: "Brighton is the UK's premier hen party destination, combining stunning Regency architecture with legendary nightlife, a vibrant beach scene, and endless entertainment options. From cocktail bars to beachfront clubs, this seaside city offers the perfect blend of sophistication and fun for unforgettable group celebrations.",
       quickFacts: {
         fromLondon: "Just 1 hour by direct train from Victoria or London Bridge - perfect for quick escapes",
@@ -140,7 +137,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Bath",
       region: "Somerset",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bath-uk-city-79258396-20251018100352.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/stunning-cinematic-aerial-drone-shot-gli-8ac50973-20251023155918.mp4",
       overview: "Bath is a stunning UNESCO World Heritage city combining Roman history, Georgian elegance, and world-class spa experiences. Perfect for sophisticated hen parties seeking culture, relaxation, and refined entertainment in one of England's most beautiful cities.",
       quickFacts: {
         fromLondon: "Just 1.5 hours by direct train from Paddington - ideal for elegant weekend escapes",
@@ -178,7 +174,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       name: "Manchester",
       region: "Greater Manchester",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-manchester-u-fdc0037c-20251018100402.jpg",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/dynamic-aerial-drone-shot-sweeping-over--5f6ee601-20251022191055.mp4",
       overview: "Manchester is the vibrant Northern powerhouse with world-class shopping, incredible nightlife, and warm Northern hospitality. Perfect for hen parties seeking a cosmopolitan city break with legendary music venues, trendy bars, and industrial-chic accommodation.",
       quickFacts: {
         fromLondon: "Just 2 hours by direct train from Euston - easy Northern city escape",
@@ -215,8 +210,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     bournemouth: {
       name: "Bournemouth",
       region: "Dorset",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
-      video: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_videos/vibrant-aerial-establishing-shot-of-brig-8a8e78c4-20251022152555.mp4",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-bournemouth--f4900618-20251018100420.jpg",
       overview: "Bournemouth offers seven miles of golden sandy beaches, vibrant nightlife, and beautiful gardens. Perfect for hen parties wanting a classic British seaside experience with beach clubs, water sports, and stunning cliff-top walks.",
       quickFacts: {
         fromLondon: "2 hours by direct train from Waterloo - easy seaside escape",
@@ -241,8 +235,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     york: {
       name: "York",
       region: "North Yorkshire",
-      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/29449480/12677449_1280_720_30fps.mp4",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
       overview: "York is a historic walled city combining medieval charm, world-class museums, and vibrant nightlife. Perfect for hen parties seeking culture, history, and sophisticated entertainment in one of England's most picturesque cities.",
       quickFacts: {
         fromLondon: "2 hours by direct train from King's Cross",
@@ -267,8 +260,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     cardiff: {
       name: "Cardiff",
       region: "South Wales",
-      image: "https://images.unsplash.com/photo-1590698933947-a202b069a861?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/26492558/11955743_1280_720_60fps.mp4",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
       overview: "Cardiff is Wales's vibrant capital with a stunning castle, Cardiff Bay waterfront, and legendary Welsh hospitality. Perfect for hen parties seeking a compact city with great nightlife, rugby culture, and easy access to Welsh countryside.",
       quickFacts: {
         fromLondon: "2 hours by direct train from Paddington",
@@ -293,8 +285,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
     newcastle: {
       name: "Newcastle",
       region: "Tyne and Wear",
-      image: "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=1200&q=80",
-      video: "https://videos.pexels.com/video-files/31183278/13321381_1280_720_30fps.mp4",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
       overview: "Newcastle offers legendary nightlife, warm Geordie hospitality, and stunning bridges over the Tyne. Perfect for hen parties seeking big nights out, fantastic value, and one of the UK's most friendly cities.",
       quickFacts: {
         fromLondon: "3 hours by direct train from King's Cross",
@@ -316,38 +307,562 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       brunch: [],
       activities: []
     },
-  };
-
-  const videosBySlug: Record<string, string> = {
-    liverpool: "https://videos.pexels.com/video-files/34165279/14484362_1280_720_60fps.mp4",
-    newquay: "https://videos.pexels.com/video-files/33794607/14344676_1280_720_30fps.mp4",
-    bristol: "https://videos.pexels.com/video-files/32642500/13918735_1280_720_60fps.mp4",
-    cambridge: "https://videos.pexels.com/video-files/4016625/4016625-hd_1280_720_30fps.mp4",
-    oxford: "https://videos.pexels.com/video-files/3620941/3620941-hd_1280_720_25fps.mp4",
-    leeds: "https://videos.pexels.com/video-files/27745589/12217527_1280_720_30fps.mp4",
-    nottingham: "https://videos.pexels.com/video-files/7004839/7004839-hd_1280_720_60fps.mp4",
-    sheffield: "https://videos.pexels.com/video-files/6419588/6419588-hd_1280_720_30fps.mp4",
-    exeter: "https://videos.pexels.com/video-files/30292800/12986618_1280_720_30fps.mp4",
-    chester: "https://videos.pexels.com/video-files/13751219/13751219-hd_1280_720_60fps.mp4",
-    durham: "https://videos.pexels.com/video-files/31175883/13317628_1280_720_30fps.mp4",
-    canterbury: "https://videos.pexels.com/video-files/30777219/13165030_1280_720_60fps.mp4",
-    blackpool: "https://videos.pexels.com/video-files/11353270/11353270-hd_1280_720_25fps.mp4",
-    cotswolds: "https://videos.pexels.com/video-files/29082724/12568010_1280_720_30fps.mp4",
-    margate: "https://videos.pexels.com/video-files/30053466/12890891_1280_720_60fps.mp4",
-    harrogate: "https://videos.pexels.com/video-files/19808297/19808297-hd_1280_720_48fps.mp4",
-    "st-ives": "https://videos.pexels.com/video-files/33749393/14328194_1280_720_30fps.mp4",
-    windsor: "https://videos.pexels.com/video-files/3596577/3596577-hd_1280_720_30fps.mp4",
-    "stratford-upon-avon": "https://videos.pexels.com/video-files/19710007/19710007-hd_1280_720_48fps.mp4",
-    plymouth: "https://videos.pexels.com/video-files/26860921/12023274_1280_720_30fps.mp4",
-    cheltenham: "https://videos.pexels.com/video-files/30290999/12985271_1280_720_60fps.mp4",
-    birmingham: "https://videos.pexels.com/video-files/20770022/20770022-hd_1280_720_60fps.mp4",
+    liverpool: {
+      name: "Liverpool",
+      region: "Merseyside",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-liverpool-wat-563898e7-20251019170646.jpg",
+      overview: "Liverpool offers iconic waterfront, legendary nightlife, Beatles heritage and vibrant atmosphere.",
+      quickFacts: {
+        fromLondon: "2.5 hours by direct train from Euston",
+        bestTime: "Year-round destination",
+        nightlife: "Concert Square, Cavern Quarter, Albert Dock bars",
+        dining: "Waterfront restaurants, Baltic Triangle food scene",
+        beachAccess: "Crosby Beach 30 minutes away",
+        accommodation: "Waterfront apartments, Georgian townhouses",
+        priceRange: "£70-£95 per night",
+        activities: "Beatles tours, waterfront walks, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (2.5 hours)" },
+        { icon: Car, text: "M6 motorway (approx 4 hours from London)" },
+        { icon: Bus, text: "National Express coaches from London" },
+        { icon: Plane, text: "Liverpool John Lennon Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    newquay: {
+      name: "Newquay",
+      region: "Cornwall",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg",
+      overview: "Stunning surf beaches, coastal walks and vibrant nightlife in Cornwall's party town.",
+      quickFacts: {
+        fromLondon: "5 hours by train",
+        bestTime: "May to September for beach activities",
+        nightlife: "Beach bars, seafront clubs",
+        dining: "Fresh seafood, beachside dining",
+        beachAccess: "Multiple stunning surf beaches",
+        accommodation: "Coastal properties with sea views",
+        priceRange: "£75-£100 per night",
+        activities: "Surfing, coastal walks, beach clubs"
+      },
+      gettingThere: [
+        { icon: Train, text: "Train from London Paddington (5 hours)" },
+        { icon: Car, text: "A30 via Exeter (approx 5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Newquay Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    bristol: {
+      name: "Bristol",
+      region: "South West England",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-bristol-harbo-235d69cd-20251019170653.jpg",
+      overview: "Creative harbour city with fantastic food scene, nightlife and cultural attractions.",
+      quickFacts: {
+        fromLondon: "1.5-2 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "Harbourside bars, Park Street clubs, Stokes Croft venues",
+        dining: "Diverse food scene, harbourside restaurants",
+        beachAccess: "Weston-super-Mare 30 minutes away",
+        accommodation: "Harbourside apartments, Clifton townhouses",
+        priceRange: "£75-£105 per night",
+        activities: "Clifton Suspension Bridge, street art tours, harbour walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (1.5-2 hours)" },
+        { icon: Car, text: "M4 motorway (approx 2.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Bristol Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    cambridge: {
+      name: "Cambridge",
+      region: "Cambridgeshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cambridge-uni-706b7fc1-20251019170701.jpg",
+      overview: "Historic university city with beautiful colleges, punting and sophisticated dining.",
+      quickFacts: {
+        fromLondon: "1 hour by train",
+        bestTime: "Year-round, especially spring and summer",
+        nightlife: "Traditional pubs, cocktail bars, student nightlife",
+        dining: "College dining, riverside restaurants",
+        beachAccess: "No beach but River Cam for punting",
+        accommodation: "College-area townhouses, modern apartments",
+        priceRange: "£80-£110 per night",
+        activities: "Punting, college tours, museums"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London King's Cross (1 hour)" },
+        { icon: Car, text: "M11 motorway (approx 1.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Stansted Airport 30 minutes away" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    oxford: {
+      name: "Oxford",
+      region: "Oxfordshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-oxford-univer-e05e954c-20251019170708.jpg",
+      overview: "Stunning architecture, world-famous university and elegant bars and restaurants.",
+      quickFacts: {
+        fromLondon: "1 hour by train",
+        bestTime: "Year-round destination",
+        nightlife: "Traditional pubs, sophisticated cocktail bars",
+        dining: "Fine dining, college-area restaurants",
+        beachAccess: "No beach but River Thames for walks",
+        accommodation: "Historic townhouses, modern properties",
+        priceRange: "£85-£115 per night",
+        activities: "College tours, museums, river walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (1 hour)" },
+        { icon: Car, text: "M40 motorway (approx 1.5 hours)" },
+        { icon: Bus, text: "Oxford Tube and X90 from London" },
+        { icon: Plane, text: "Heathrow Airport 40 minutes away" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    leeds: {
+      name: "Leeds",
+      region: "West Yorkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-leeds-city-ce-2b3778ad-20251019170714.jpg",
+      overview: "Buzzing northern city with incredible shopping, dining and legendary nightlife.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round party city",
+        nightlife: "Call Lane bars, Headrow clubs, cocktail venues",
+        dining: "Trinity Kitchen, restaurants, street food",
+        beachAccess: "No beach but canal walks",
+        accommodation: "City centre apartments, Victorian properties",
+        priceRange: "£70-£95 per night",
+        activities: "Shopping, museums, bar crawls"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London King's Cross (2.5 hours)" },
+        { icon: Car, text: "M1 motorway (approx 3.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Leeds Bradford Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    nottingham: {
+      name: "Nottingham",
+      region: "Nottinghamshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-nottingham-ci-c74b1381-20251019170721.jpg",
+      overview: "Historic city with Robin Hood heritage, great nightlife and vibrant student scene.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "Hockley bars, Market Square clubs",
+        dining: "Diverse food scene, historic pubs",
+        beachAccess: "No beach but canal walks",
+        accommodation: "City centre properties, Lace Market lofts",
+        priceRange: "£70-£95 per night",
+        activities: "Castle tours, shopping, nightlife"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London St Pancras (2 hours)" },
+        { icon: Car, text: "M1 motorway (approx 2.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "East Midlands Airport 20 minutes away" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    sheffield: {
+      name: "Sheffield",
+      region: "South Yorkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-sheffield-cit-c9093e0d-20251019170737.jpg",
+      overview: "Green city surrounded by Peak District with friendly locals and great value.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "West Street bars, Devonshire Quarter",
+        dining: "Independent restaurants, street food",
+        beachAccess: "No beach but Peak District nearby",
+        accommodation: "City centre properties, student-area houses",
+        priceRange: "£65-£90 per night",
+        activities: "Peak District walks, shopping, museums"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London St Pancras (2.5 hours)" },
+        { icon: Car, text: "M1 motorway (approx 3 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Robin Hood Airport 30 minutes away" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    exeter: {
+      name: "Exeter",
+      region: "Devon",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-exeter-cathed-62bbdacd-20251019170745.jpg",
+      overview: "Cathedral city with Roman history, beautiful quayside and Devon countryside.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round, especially spring/summer",
+        nightlife: "Quayside bars, student nightlife",
+        dining: "Quayside restaurants, Devon produce",
+        beachAccess: "Exmouth beach 20 minutes away",
+        accommodation: "Georgian properties, modern apartments",
+        priceRange: "£75-£100 per night",
+        activities: "Cathedral tours, quayside walks, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (2.5 hours)" },
+        { icon: Car, text: "M5 motorway (approx 3 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Exeter Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    chester: {
+      name: "Chester",
+      region: "Cheshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-chester-city--d1134f79-20251019170752.jpg",
+      overview: "Roman walled city with unique shopping rows and riverside walks.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "Historic pubs, riverside bars",
+        dining: "The Rows restaurants, traditional pubs",
+        beachAccess: "North Wales coast 30 minutes",
+        accommodation: "Historic properties, city walls area",
+        priceRange: "£75-£100 per night",
+        activities: "City walls walk, shopping Rows, river cruises"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (2.5 hours)" },
+        { icon: Car, text: "M6 motorway (approx 3.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Liverpool or Manchester airports" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    durham: {
+      name: "Durham",
+      region: "County Durham",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-durham-cathed-5ca6e566-20251019170759.jpg",
+      overview: "UNESCO World Heritage site with stunning cathedral and historic university.",
+      quickFacts: {
+        fromLondon: "3 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "Historic pubs, student bars",
+        dining: "Riverside restaurants, traditional dining",
+        beachAccess: "Durham Coast 20 minutes",
+        accommodation: "City centre properties, riverside houses",
+        priceRange: "£70-£95 per night",
+        activities: "Cathedral tours, river walks, castle visit"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London King's Cross (3 hours)" },
+        { icon: Car, text: "A1(M) motorway (approx 4.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Newcastle Airport 30 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    canterbury: {
+      name: "Canterbury",
+      region: "Kent",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-canterbury-ca-dca05dc1-20251019170811.jpg",
+      overview: "Medieval city with famous cathedral, cobbled streets and charming tea rooms.",
+      quickFacts: {
+        fromLondon: "1 hour by train",
+        bestTime: "Year-round destination",
+        nightlife: "Historic pubs, student nightlife",
+        dining: "Medieval-style restaurants, afternoon tea",
+        beachAccess: "Whitstable beaches 20 minutes",
+        accommodation: "Medieval properties, modern apartments",
+        priceRange: "£75-£100 per night",
+        activities: "Cathedral tours, city walks, shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London St Pancras (1 hour)" },
+        { icon: Car, text: "M2/A2 (approx 1.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "London airports within 90 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    blackpool: {
+      name: "Blackpool",
+      region: "Lancashire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-blackpool-tow-64085652-20251019170818.jpg",
+      overview: "Classic seaside resort with famous tower, pleasure beach and lively entertainment.",
+      quickFacts: {
+        fromLondon: "3 hours by train",
+        bestTime: "Summer for beach and illuminations",
+        nightlife: "Seafront clubs, pub scene, entertainment venues",
+        dining: "Fish and chips, seafront restaurants",
+        beachAccess: "Direct beach access",
+        accommodation: "Seafront properties, Victorian guesthouses",
+        priceRange: "£65-£90 per night",
+        activities: "Pleasure Beach, Tower, illuminations"
+      },
+      gettingThere: [
+        { icon: Train, text: "Trains from London Euston via Preston (3 hours)" },
+        { icon: Car, text: "M6 motorway (approx 4.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Blackpool Airport or Manchester" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    cotswolds: {
+      name: "Cotswolds",
+      region: "South West England",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cotswolds-cou-81699b79-20251019170824.jpg",
+      overview: "Picturesque villages, rolling hills and luxury country retreats.",
+      quickFacts: {
+        fromLondon: "2 hours by car",
+        bestTime: "Spring and summer for countryside",
+        nightlife: "Traditional country pubs",
+        dining: "Michelin-starred gastropubs, country dining",
+        beachAccess: "No beach but stunning countryside",
+        accommodation: "Country manor houses, converted barns",
+        priceRange: "£85-£120 per night",
+        activities: "Village walks, spa treatments, countryside tours"
+      },
+      gettingThere: [
+        { icon: Train, text: "Train to Cheltenham/Moreton-in-Marsh then taxi" },
+        { icon: Car, text: "M40/A40 (approx 2 hours)" },
+        { icon: Bus, text: "Limited coach services" },
+        { icon: Plane, text: "Birmingham or Bristol airports" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    margate: {
+      name: "Margate",
+      region: "Kent",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-margate-seafr-9f3138d3-20251019170830.jpg",
+      overview: "Trendy seaside town with sandy beaches, vintage shops and creative scene.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        bestTime: "Summer for beach, year-round for arts",
+        nightlife: "Beach bars, vintage pubs, independent venues",
+        dining: "Seafront restaurants, creative dining scene",
+        beachAccess: "Direct beach access",
+        accommodation: "Seafront apartments, Victorian properties",
+        priceRange: "£75-£100 per night",
+        activities: "Turner Contemporary, beach, vintage shopping"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London St Pancras (1.5 hours)" },
+        { icon: Car, text: "M2/A299 (approx 2 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "London airports within 90 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    harrogate: {
+      name: "Harrogate",
+      region: "North Yorkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-harrogate-tow-ef6ad8e6-20251019170838.jpg",
+      overview: "Elegant spa town with beautiful gardens, boutique shops and afternoon tea.",
+      quickFacts: {
+        fromLondon: "3 hours by train",
+        bestTime: "Year-round, especially spring",
+        nightlife: "Sophisticated bars, traditional pubs",
+        dining: "Fine dining, tea rooms, gastropubs",
+        beachAccess: "No beach but spa town heritage",
+        accommodation: "Victorian spa properties, boutique houses",
+        priceRange: "£80-£110 per night",
+        activities: "Spa treatments, gardens, afternoon tea"
+      },
+      gettingThere: [
+        { icon: Train, text: "Trains from London King's Cross via Leeds (3 hours)" },
+        { icon: Car, text: "A1(M) motorway (approx 3.5 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Leeds Bradford Airport 20 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    "st-ives": {
+      name: "St Ives",
+      region: "Cornwall",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-st-ives-harbo-608d18b9-20251019170846.jpg",
+      overview: "Stunning harbour town with golden beaches, art galleries and seafood restaurants.",
+      quickFacts: {
+        fromLondon: "5.5 hours by train",
+        bestTime: "Summer for beaches, year-round for arts",
+        nightlife: "Beach bars, harbour pubs",
+        dining: "Fresh seafood, harbourside restaurants",
+        beachAccess: "Multiple golden beaches",
+        accommodation: "Harbour properties, coastal houses",
+        priceRange: "£80-£110 per night",
+        activities: "Beaches, Tate St Ives, coastal walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Train from London Paddington to St Ives (5.5 hours)" },
+        { icon: Car, text: "A30 via Exeter (approx 5.5 hours)" },
+        { icon: Bus, text: "Limited coach services" },
+        { icon: Plane, text: "Newquay Airport 40 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    windsor: {
+      name: "Windsor",
+      region: "Berkshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-windsor-castl-304247da-20251019170853.jpg",
+      overview: "Royal town with historic castle, Thames riverside and elegant hotels.",
+      quickFacts: {
+        fromLondon: "30 minutes by train",
+        bestTime: "Year-round destination",
+        nightlife: "Riverside bars, traditional pubs",
+        dining: "Fine dining, riverside restaurants",
+        beachAccess: "No beach but River Thames walks",
+        accommodation: "Georgian properties, riverside houses",
+        priceRange: "£85-£120 per night",
+        activities: "Windsor Castle, Thames walks, Eton visit"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Waterloo/Paddington (30 mins)" },
+        { icon: Car, text: "M4/M25 (approx 1 hour)" },
+        { icon: Bus, text: "Green Line coaches from London" },
+        { icon: Plane, text: "Heathrow Airport 15 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    "stratford-upon-avon": {
+      name: "Stratford-upon-Avon",
+      region: "Warwickshire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-stratford-upo-660c5853-20251019170900.jpg",
+      overview: "Shakespeare's birthplace with Tudor buildings, theatre and riverside walks.",
+      quickFacts: {
+        fromLondon: "2.5 hours by train",
+        bestTime: "Year-round, especially for theatre",
+        nightlife: "Traditional pubs, riverside bars",
+        dining: "Historic restaurants, theatre dining",
+        beachAccess: "No beach but River Avon walks",
+        accommodation: "Tudor-style properties, riverside houses",
+        priceRange: "£80-£110 per night",
+        activities: "Shakespeare attractions, theatre, river walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Trains from London Marylebone (2.5 hours)" },
+        { icon: Car, text: "M40 motorway (approx 2 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Birmingham Airport 40 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    plymouth: {
+      name: "Plymouth",
+      region: "Devon",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-plymouth-wate-a14909bf-20251019170907.jpg",
+      overview: "Historic waterfront city with maritime heritage and stunning coastal views.",
+      quickFacts: {
+        fromLondon: "3.5 hours by train",
+        bestTime: "Summer for waterfront, year-round for city",
+        nightlife: "Barbican bars, student nightlife, waterfront clubs",
+        dining: "Fresh seafood, Barbican restaurants",
+        beachAccess: "Plymouth Hoe and nearby beaches",
+        accommodation: "Waterfront properties, city apartments",
+        priceRange: "£75-£100 per night",
+        activities: "Barbican walks, National Marine Aquarium, Dartmoor"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (3.5 hours)" },
+        { icon: Car, text: "M5/A38 (approx 4 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Exeter Airport 50 minutes" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    cheltenham: {
+      name: "Cheltenham",
+      region: "Gloucestershire",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-cheltenham-to-be3b5273-20251019170915.jpg",
+      overview: "Regency spa town famous for festivals, horse racing and elegant architecture.",
+      quickFacts: {
+        fromLondon: "2 hours by train",
+        bestTime: "March for racing festival, year-round for spa",
+        nightlife: "Sophisticated bars, festival venues",
+        dining: "Fine dining, Regency tea rooms, gastropubs",
+        beachAccess: "No beach but Cotswolds countryside nearby",
+        accommodation: "Regency townhouses, spa properties",
+        priceRange: "£80-£110 per night",
+        activities: "Racecourse, spa treatments, Cotswolds tours"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
+        { icon: Car, text: "M4/M5 (approx 2 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Birmingham or Bristol airports" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
+    birmingham: {
+      name: "Birmingham",
+      region: "West Midlands",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
+      overview: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
+      quickFacts: {
+        fromLondon: "1.5 hours by train",
+        bestTime: "Year-round destination",
+        nightlife: "Broad Street clubs, Digbeth venues, cocktail bars",
+        dining: "Balti Triangle, Michelin dining, international food",
+        beachAccess: "No beach but canal network",
+        accommodation: "City centre apartments, Victorian properties",
+        priceRange: "£70-£95 per night",
+        activities: "Shopping Bullring, museums, canal walks"
+      },
+      gettingThere: [
+        { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
+        { icon: Car, text: "M1/M6 (approx 2 hours)" },
+        { icon: Bus, text: "National Express coaches" },
+        { icon: Plane, text: "Birmingham Airport" }
+      ],
+      nightlife: [],
+      brunch: [],
+      activities: []
+    },
   };
 
   const destination = destinationsData[slug] || {
     name: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
     region: "UK",
     image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80",
-    video: videosBySlug[slug] || "",
     overview: `Discover luxury group accommodation in ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}. Perfect for hen parties, celebrations, and group getaways with stunning houses featuring hot tubs, pools, and exceptional amenities.`,
     quickFacts: {
       fromLondon: "Easily accessible from London",
