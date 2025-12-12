@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
@@ -13,11 +13,6 @@ interface DestinationClientProps {
 
 export default function DestinationClient({ slug }: DestinationClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-
-  const handleImageError = (imageId: string) => {
-    setImageErrors(prev => ({ ...prev, [imageId]: true }));
-  };
 
   // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
@@ -1317,7 +1312,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           fill 
           className="object-cover" 
           priority 
-          onError={() => handleImageError('hero')}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
         <div className="absolute bottom-0 left-0 right-0 z-10">
