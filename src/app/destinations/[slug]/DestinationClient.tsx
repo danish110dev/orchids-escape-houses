@@ -14,7 +14,6 @@ interface DestinationClientProps {
 export default function DestinationClient({ slug }: DestinationClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleImageError = (imageId: string) => {
     setImageErrors(prev => ({ ...prev, [imageId]: true }));
@@ -1312,35 +1311,15 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
       {/* Hero */}
       <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
-        {destination.video ? (
-          <>
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              poster={destination.image}
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src={destination.video} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
-          </>
-        ) : (
-          <>
-            <Image 
-              src={destination.image} 
-              alt={destination.name} 
-              fill 
-              className="object-cover" 
-              priority 
-              onError={() => handleImageError('hero')}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
-          </>
-        )}
+        <Image 
+          src={destination.image} 
+          alt={destination.name} 
+          fill 
+          className="object-cover" 
+          priority 
+          onError={() => handleImageError('hero')}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-[1200px] mx-auto px-6 pb-12">
             <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
