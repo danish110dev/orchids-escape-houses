@@ -209,7 +209,7 @@ export function PropertyMultiStepForm({ propertyId, initialData }: PropertyMulti
         toast.success("Property draft saved successfully");
       } else {
         // Create new property as draft
-        const response = await GEH_API.post("/properties", { ...formData, status: "draft" });
+        const response = await GEH_API.post("/properties", { ...formData, status: "draft" }) as any;
         toast.success("Property draft created successfully");
         router.push(`/admin/properties/${response.id}/edit`);
       }

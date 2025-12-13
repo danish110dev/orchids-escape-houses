@@ -86,10 +86,10 @@ export async function GET(request: NextRequest) {
     const sortField = searchParams.get('sort') ?? 'createdAt';
     const sortOrder = searchParams.get('order') ?? 'desc';
 
-    let query = db.select().from(properties);
+    let query: any = db.select().from(properties);
 
     // Build where conditions
-    const conditions = [];
+    const conditions: any[] = [];
 
     // Search condition
     if (search) {
@@ -143,7 +143,7 @@ export async function GET(request: NextRequest) {
     const results = await query.limit(limit).offset(offset);
 
     // Validate and fix image URLs for all properties
-    const validatedResults = results.map(property => ({
+    const validatedResults = results.map((property: any) => ({
       ...property,
       heroImage: validateImageUrl(property.heroImage, property.title),
     }));

@@ -398,7 +398,7 @@ export default function ContactPage() {
                         <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4">
                           <DayPicker
                             mode="range"
-                            selected={dateRange}
+                            selected={dateRange as any}
                             onSelect={handleDateSelect}
                             disabled={{ before: new Date() }}
                           />
