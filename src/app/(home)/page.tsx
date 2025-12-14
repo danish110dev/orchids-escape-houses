@@ -382,7 +382,7 @@ export default function Home() {
               Large Group Accommodation Across the UK
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Luxury houses for groups of all sizes with hot tubs, pools, and outstanding amenities
+              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
             </p>
 
             {/* Search Form */}
@@ -670,7 +670,7 @@ export default function Home() {
                 Featured Large Group Houses
               </h2>
               <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Exceptional properties sleeping 10 to 40 guests with premium facilities
+                Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
               </p>
             </div>
 
@@ -720,7 +720,7 @@ export default function Home() {
                 Enhance Your Group Stay
               </h2>
               <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Add special touches and activities to make your group trip unforgettable
+                Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
               </p>
             </div>
 

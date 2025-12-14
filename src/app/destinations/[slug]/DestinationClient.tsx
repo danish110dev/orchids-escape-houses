@@ -123,8 +123,8 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       ],
       brunch: [
         { name: "The Ivy in the Lanes", description: "Elegant all-day dining in historic setting", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-an-elegant-up-8951bf0f-20251021225427.jpg", link: "https://theivybrighton.com" },
-        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-chic-roofto-e8a24100-20251021225428.jpg", link: "#" },
-        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-premium-sea-2a93d3c3-20251021225430.jpg", link: "#" }
+        { name: "Plateau", description: "Rooftop restaurant with bottomless brunch", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-chic-roofto-e8a24100-20251021225428.jpg", link: "https://www.plateaubrighton.co.uk" },
+        { name: "Riddle & Finns", description: "Premium seafood and champagne bar", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-premium-sea-2a93d3c3-20251021225430.jpg", link: "https://www.riddleandfinn.co.uk" }
       ],
       activities: [
         { name: "Beach Clubs", description: "Spend the day at Brighton's famous beach clubs", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-brighton-beac-c00ed960-20251021225429.jpg" },
@@ -1397,6 +1397,34 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
                   lively group gatherings, <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link> for upscale celebrations, 
                   or browse our collection of <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link>.
                 </p>
+                
+                <div className="mt-6 pt-6 border-t border-[var(--color-bg-secondary)]">
+                  <h4 className="text-lg font-semibold mb-3 text-[var(--color-text-primary)]">Helpful Travel Resources</h4>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="https://www.visitbritain.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-sage)] hover:underline font-medium inline-flex items-center gap-1">
+                      Visit Britain Official Tourism
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </a>
+                    {slug === "brighton" && (
+                      <a href="https://www.visitbrighton.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-sage)] hover:underline font-medium inline-flex items-center gap-1">
+                        Visit Brighton & Hove
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    )}
+                    {slug === "london" && (
+                      <a href="https://www.visitlondon.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-sage)] hover:underline font-medium inline-flex items-center gap-1">
+                        Visit London Official
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    )}
+                    {slug === "bath" && (
+                      <a href="https://visitbath.co.uk" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-sage)] hover:underline font-medium inline-flex items-center gap-1">
+                        Visit Bath Official
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8">

@@ -301,8 +301,11 @@ export default function PropertyDetailPage({ params }: { params: { slug: string 
                 <h3 className="text-2xl font-semibold mb-4" style={{ fontFamily: "var(--font-body)" }}>
                   About this property
                 </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed mb-4">
                   {property.description}
+                </p>
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                  This luxury property features premium amenities perfect for <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen parties</Link>, <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebrations</Link>, and <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend breaks</Link>. Explore more <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group houses</Link> or discover other <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link> perfect for your celebration.
                 </p>
               </div>
 
