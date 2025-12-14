@@ -1093,7 +1093,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
+                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
@@ -1126,7 +1126,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
+                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
