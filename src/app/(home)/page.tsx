@@ -861,12 +861,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#3d5a47"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Choose Property
@@ -878,12 +878,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#3d5a47"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Add Services
@@ -895,12 +895,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#C6A76D"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Secure Booking
@@ -912,12 +912,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#C6A76D"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Enjoy Together
