@@ -37,4 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Deployment
 
-This project is configured for deployment on Vercel with automatic redeployment on new commits.
+This project is configured for deployment on Vercel with automatic redeployment.
