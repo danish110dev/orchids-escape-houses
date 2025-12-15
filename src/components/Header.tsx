@@ -163,33 +163,33 @@ export default function Header() {
           isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-md"
         } z-50`}
       >
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="flex items-center justify-between h-24">
+            {/* Logo - Moved back with better proportions */}
             <Link 
               href="/" 
-              className="flex items-center relative z-[60]"
+              className="flex items-center relative z-[60] flex-shrink-0 -ml-2"
             >
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
                 alt="Group Escape Houses"
-                width={180}
-                height={120}
-                className="h-24 w-auto"
+                width={160}
+                height={100}
+                className="h-20 w-auto"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-0 flex-1 justify-center px-8">
+            <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
               {/* Houses to Rent Dropdown */}
               <div
-                className="relative flex-1 flex justify-center"
+                className="relative flex-1 flex justify-center px-1"
                 onMouseEnter={() => setIsHousesOpen(true)}
                 onMouseLeave={() => setIsHousesOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-7 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Properties
@@ -255,12 +255,12 @@ export default function Header() {
 
               {/* Occasions Dropdown */}
               <div
-                className="relative flex-1 flex justify-center"
+                className="relative flex-1 flex justify-center px-1"
                 onMouseEnter={() => setIsOccasionsOpen(true)}
                 onMouseLeave={() => setIsOccasionsOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-7 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Occasions
@@ -307,12 +307,12 @@ export default function Header() {
 
               {/* Experiences Dropdown */}
               <div
-                className="relative flex-1 flex justify-center"
+                className="relative flex-1 flex justify-center px-1"
                 onMouseEnter={() => setIsExperiencesOpen(true)}
                 onMouseLeave={() => setIsExperiencesOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-7 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Experiences
@@ -368,12 +368,12 @@ export default function Header() {
 
               {/* Destinations Dropdown */}
               <div
-                className="relative flex-1 flex justify-center"
+                className="relative flex-1 flex justify-center px-1"
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
               >
                 <button
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-8"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group flex items-center gap-1.5 py-7 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Destinations
@@ -416,7 +416,7 @@ export default function Header() {
               {/* How It Works Link */}
               <Link
                 href="/how-it-works"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
+                className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 How It Works
@@ -427,7 +427,7 @@ export default function Header() {
               {session?.user && (
                 <Link
                   href="/admin/bookings"
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Admin
@@ -438,7 +438,7 @@ export default function Header() {
               {/* Advertise Link */}
               <Link
                 href="/advertise-with-us"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
+                className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Advertise
@@ -447,7 +447,7 @@ export default function Header() {
             </nav>
 
             {/* Auth & CTA Buttons - Desktop */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-4 ml-auto flex-shrink-0">
               {/* Phone Number - Always visible */}
               <a
                 href="tel:+441273569301"
