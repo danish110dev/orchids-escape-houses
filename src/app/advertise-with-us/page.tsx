@@ -22,6 +22,9 @@ import {
 export const metadata: Metadata = {
   title: "Advertise Your Property on Group Escape Houses",
   description: "No hidden costs, no commission, just direct bookings from guests who love luxury group stays. Simple annual membership for quality large group houses.",
+  alternates: {
+    canonical: "https://groupescapehouses.co.uk/advertise-with-us",
+  },
   openGraph: {
     title: "Advertise Your Property on Group Escape Houses",
     description: "No hidden costs, no commission, just direct bookings from guests who love luxury group stays.",
@@ -493,9 +496,10 @@ export default function AdvertiseWithUs() {
                   style={{ background: "var(--color-accent-sage)" }}
                 >
                   <a 
-                    href="https://groupescapehouses.co.uk/advertise-with-us#downloadContent" 
+                    href="/owners-guide.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    download
                   >
                     Download Owners Guide
                     <Download className="w-5 h-5 ml-2" />
