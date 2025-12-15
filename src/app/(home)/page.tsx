@@ -382,7 +382,7 @@ export default function Home() {
               Large Group Accommodation Across the UK
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Luxury houses for groups of all sizes with hot tubs, pools, and outstanding amenities
+              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
             </p>
 
             {/* Search Form */}
@@ -670,7 +670,7 @@ export default function Home() {
                 Featured Large Group Houses
               </h2>
               <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Exceptional properties sleeping 10 to 40 guests with premium facilities
+                Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
               </p>
             </div>
 
@@ -720,7 +720,7 @@ export default function Home() {
                 Enhance Your Group Stay
               </h2>
               <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Add special touches and activities to make your group trip unforgettable
+                Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
               </p>
             </div>
 
@@ -861,12 +861,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#3d5a47"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Choose Property
@@ -878,12 +878,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#3d5a47"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Add Services
@@ -895,12 +895,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#C6A76D"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Secure Booking
@@ -912,12 +912,12 @@ export default function Home() {
 
               <div className="text-center transition-transform hover:scale-105">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
                   style={{ 
                     backgroundColor: "#C6A76D"
                   }}
                 >
-                  <span className="text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
+                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Enjoy Together
@@ -1092,7 +1092,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
+                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
@@ -1124,7 +1124,7 @@ export default function Home() {
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-square overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
+                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
                       <Image
                         src={img}
