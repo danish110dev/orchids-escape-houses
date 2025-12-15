@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Egg, Trees, Sun, Sparkles, Check, ChevronDown, Star } from "lucide-react";
 import { useState } from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default function EasterPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
