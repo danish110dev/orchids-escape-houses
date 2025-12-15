@@ -496,10 +496,8 @@ export default function AdvertiseWithUs() {
                   style={{ background: "var(--color-accent-sage)" }}
                 >
                   <a 
-                    href="/owners-guide.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    download
+                    href="/api/download/owners-guide" 
+                    download="owners-guide.pdf"
                   >
                     Download Owners Guide
                     <Download className="w-5 h-5 ml-2" />
