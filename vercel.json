@@ -78,14 +78,35 @@
   ],
   "images": {
     "sizes": [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    "domains": [
-      "slelguoygbfzlpylpxfs.supabase.co",
-      "images.unsplash.com",
-      "v3b.fal.media",
-      "butlersinthebuff.com.au",
-      "butlersinthebuff.co.uk",
-      "www.propertista.co.uk",
-      "encrypted-tbn0.gstatic.com"
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "slelguoygbfzlpylpxfs.supabase.co"
+      },
+      {
+        "protocol": "https",
+        "hostname": "images.unsplash.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "v3b.fal.media"
+      },
+      {
+        "protocol": "https",
+        "hostname": "butlersinthebuff.com.au"
+      },
+      {
+        "protocol": "https",
+        "hostname": "butlersinthebuff.co.uk"
+      },
+      {
+        "protocol": "https",
+        "hostname": "www.propertista.co.uk"
+      },
+      {
+        "protocol": "https",
+        "hostname": "encrypted-tbn0.gstatic.com"
+      }
     ]
   }
 }
