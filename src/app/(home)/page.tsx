@@ -783,14 +783,14 @@ export default function Home() {
                     <Link
                       key={`set1-${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
                       <Image
                         src={destination.image}
                         alt={destination.name}
                         fill
-                        className="object-cover transition-transform group-hover:scale-110"
-                        sizes="400px"
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -806,14 +806,14 @@ export default function Home() {
                     <Link
                       key={`set2-${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
                       <Image
                         src={destination.image}
                         alt={destination.name}
                         fill
-                        className="object-cover transition-transform group-hover:scale-110"
-                        sizes="400px"
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -959,7 +959,7 @@ export default function Home() {
               </p>
             </div>
 
-            {mounted && <ReviewSlider reviews={reviews} isLoading={isLoadingData} />}
+            {mounted && <ReviewSlider reviews={reviews} />}
 
             <div className="text-center mt-12">
               <Link href="/reviews">
@@ -1078,10 +1078,9 @@ export default function Home() {
               <div className="overflow-hidden">
                 <div className="flex gap-4 animate-slide-left">
                   {/* First set of images */}
-                  {[
+                  {[ 
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-outd-9a1d5ece-20251209095212.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-082eb61b-20251209095213.jpg",
@@ -1111,10 +1110,9 @@ export default function Home() {
                     </a>
                   ))}
                   {/* Duplicate set for seamless loop */}
-                  {[
+                  {[ 
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-outd-9a1d5ece-20251209095212.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-082eb61b-20251209095213.jpg",

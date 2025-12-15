@@ -92,7 +92,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Build query
-    let query = db.select().from(bookings);
+    let query: any = db.select().from(bookings);
 
     if (conditions.length > 0) {
       query = query.where(and(...conditions));

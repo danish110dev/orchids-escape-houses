@@ -6,6 +6,11 @@ export function middleware(request: NextRequest) {
   const protocol = request.headers.get('x-forwarded-proto') || 'https';
   const host = request.headers.get('host');
   
+  // Skip HTTPS redirect for localhost and development
+  if (host?.includes('localhost') || process.env.NODE_ENV === 'development') {
+    return NextResponse.next();
+  }
+  
   // If protocol is HTTP, redirect to HTTPS
   if (protocol === 'http' && host) {
     const httpsUrl = `https://${host}${request.nextUrl.pathname}${request.nextUrl.search}`;

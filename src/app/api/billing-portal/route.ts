@@ -22,7 +22,14 @@ export async function POST(request: Request) {
       return_url: returnUrl || undefined,
     } as any);
 
-    const url = res?.data?.url || res?.url;
+    if (res.error) {
+      return NextResponse.json(
+        { error: "Failed to generate billing portal URL", message: res.error.message },
+        { status: 500 }
+      );
+    }
+
+    const url = res.data.url;
 
     if (!url) {
       return NextResponse.json(

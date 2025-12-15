@@ -6,7 +6,7 @@ import Link from "next/link";
 
 interface FAQ {
   question: string;
-  answer: string | JSX.Element;
+  answer: string | React.JSX.Element;
 }
 
 export default function FAQSection() {

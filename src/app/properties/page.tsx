@@ -100,6 +100,14 @@ function PropertiesContent() {
 
   // Fetch properties from database (API now handles image validation)
   useEffect(() => {
+    // Set canonical URL
+    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/properties');
+    if (!document.querySelector('link[rel="canonical"]')) {
+      document.head.appendChild(canonicalLink);
+    }
+
     const fetchProperties = async () => {
       try {
         setIsLoadingData(true);

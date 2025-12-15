@@ -42,10 +42,8 @@ export async function GET(request: NextRequest) {
     const sort = searchParams.get('sort') ?? 'publishedAt';
     const order = searchParams.get('order') ?? 'desc';
 
-    let query = db.select().from(blogPosts);
-
     // Build WHERE conditions
-    const conditions = [];
+    const conditions: any[] = [];
 
     if (search) {
       conditions.push(
@@ -66,6 +64,9 @@ export async function GET(request: NextRequest) {
       const publishedValue = isPublished === 'true';
       conditions.push(eq(blogPosts.isPublished, publishedValue));
     }
+
+    // Build the query
+    let query: any = db.select().from(blogPosts);
 
     if (conditions.length > 0) {
       query = query.where(and(...conditions));

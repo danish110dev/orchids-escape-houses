@@ -66,7 +66,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (conditions.length > 0) {
-      query = query.where(and(...conditions));
+      query = query.where(and(...conditions)) as any;
     }
 
     // Apply sorting
@@ -76,19 +76,19 @@ export async function GET(request: NextRequest) {
                       experiences.createdAt;
 
     if (order === 'asc') {
-      query = query.orderBy(asc(sortColumn));
+      query = query.orderBy(asc(sortColumn)) as any;
     } else {
-      query = query.orderBy(desc(sortColumn));
+      query = query.orderBy(desc(sortColumn)) as any;
     }
 
     const results = await query.limit(limit).offset(offset);
 
     return NextResponse.json(results, { status: 200 });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('GET error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error: ' + error.message 
+    return NextResponse.json({
+      error: 'Internal server error: ' + error.message
     }, { status: 500 });
   }
 }
@@ -220,10 +220,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(newExperience[0], { status: 201 });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('POST error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error: ' + error.message 
+    return NextResponse.json({
+      error: 'Internal server error: ' + error.message
     }, { status: 500 });
   }
 }
@@ -352,10 +352,10 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json(updated[0], { status: 200 });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('PUT error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error: ' + error.message 
+    return NextResponse.json({
+      error: 'Internal server error: ' + error.message
     }, { status: 500 });
   }
 }
@@ -394,10 +394,10 @@ export async function DELETE(request: NextRequest) {
       experience: deleted[0]
     }, { status: 200 });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('DELETE error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error: ' + error.message 
+    return NextResponse.json({
+      error: 'Internal server error: ' + error.message
     }, { status: 500 });
   }
 }

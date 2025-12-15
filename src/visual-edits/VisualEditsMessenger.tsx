@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -144,12 +143,10 @@ export type ChildToParent =
 
 type Box = null | { top: number; left: number; width: number; height: number };
 
-const BOX_PADDING = 4; // Pixels to expand the box on each side
+const BOX_PADDING = 4;
 
-// Helper to check if element can be made contentEditable
 const isTextEditable = (element: HTMLElement): boolean => {
   const tagName = element.tagName.toLowerCase();
-  // Elements that typically contain text and can be made contentEditable
   const editableTags = [
     "p",
     "h1",
@@ -168,7 +165,6 @@ const isTextEditable = (element: HTMLElement): boolean => {
     "button",
   ];
 
-  // Check if it's already contentEditable or an input/textarea
   if (
     element.contentEditable === "true" ||
     tagName === "input" ||
@@ -177,17 +173,11 @@ const isTextEditable = (element: HTMLElement): boolean => {
     return true;
   }
 
-  // Allow editing if element contains text and is an editable tag
-  // Only allow editing if element has at most 1 child OR has direct text content
   if (editableTags.includes(tagName) && element.textContent?.trim()) {
-    // Check if element has direct text nodes (not just text from children)
     const hasDirectText = Array.from(element.childNodes).some(
       (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim()
     );
 
-    // Allow editing if:
-    // 1. Element has no children (pure text element)
-    // 2. Element has 1 or fewer children AND has direct text content
     if (
       element.childElementCount === 0 ||
       (element.childElementCount <= 1 && hasDirectText)
@@ -199,7 +189,6 @@ const isTextEditable = (element: HTMLElement): boolean => {
   return false;
 };
 
-// Helper to extract only text nodes from an element (excluding child element text)
 const extractDirectTextContent = (element: HTMLElement): string => {
   let text = "";
   for (const node of element.childNodes) {
@@ -210,25 +199,21 @@ const extractDirectTextContent = (element: HTMLElement): string => {
   return text;
 };
 
-// Helper to parse data-orchids-id to extract file path, line, and column
 const parseOrchidsId = (
   orchidsId: string
 ): { filePath: string; line: number; column: number } | null => {
-  // Format: "filepath:line:column"
   const parts = orchidsId.split(":");
   if (parts.length < 3) return null;
 
-  // The file path might contain colons, so we need to handle that
   const column = parseInt(parts.pop() || "0");
   const line = parseInt(parts.pop() || "0");
-  const filePath = parts.join(":"); // Rejoin the remaining parts as the file path
+  const filePath = parts.join(":");
 
   if (isNaN(line) || isNaN(column)) return null;
 
   return { filePath, line, column };
 };
 
-// Helper to get current styles of an element (including inline styles)
 const getCurrentStyles = (
   element: HTMLElement
 ): {
@@ -261,9 +246,7 @@ const getCurrentStyles = (
 } => {
   const computed = window.getComputedStyle(element);
 
-  // Helper to normalize values and provide defaults
   const normalizeValue = (value: string, property: string): string => {
-    // Handle background color - if it's transparent or rgba(0,0,0,0), return "transparent"
     if (property === "backgroundColor") {
       if (
         value === "rgba(0, 0, 0, 0)" ||
@@ -275,25 +258,20 @@ const getCurrentStyles = (
       }
     }
 
-    // Handle background image - if none, return "none"
     if (property === "backgroundImage" && (value === "none" || value === "")) {
       return "none";
     }
 
-    // Handle text decoration - if none, return "none"
     if (property === "textDecoration") {
-      // Some browsers return complex values like "none solid rgb(0, 0, 0)"
       if (value.includes("none") || value === "") {
         return "none";
       }
     }
 
-    // Handle font style - if normal, return "normal"
     if (property === "fontStyle" && (value === "normal" || value === "")) {
       return "normal";
     }
 
-    // Handle font weight - normalize to standard values
     if (property === "fontWeight") {
       const weight = parseInt(value);
       if (!isNaN(weight)) {
@@ -302,12 +280,10 @@ const getCurrentStyles = (
       return value || "400";
     }
 
-    // Handle opacity - if 1, return "1"
     if (property === "opacity" && (value === "1" || value === "")) {
       return "1";
     }
 
-    // Handle spacing values (padding/margin) - if 0px, return "0"
     if (
       (property.includes("padding") || property.includes("margin")) &&
       (value === "0px" || value === "0")
@@ -315,12 +291,10 @@ const getCurrentStyles = (
       return "0";
     }
 
-    // Handle border radius - if 0px, return "0"
     if (property === "borderRadius" && (value === "0px" || value === "0")) {
       return "0";
     }
 
-    // Handle letter spacing - if normal, return "normal"
     if (
       property === "letterSpacing" &&
       (value === "normal" || value === "0px")
@@ -328,7 +302,6 @@ const getCurrentStyles = (
       return "normal";
     }
 
-    // Handle gap - if normal, return "normal"
     if (property === "gap" && (value === "normal" || value === "0px")) {
       return "normal";
     }
@@ -372,27 +345,23 @@ const getCurrentStyles = (
   };
 };
 
-// Normalize image src for comparison (handles Next.js optimization wrappers)
 const normalizeImageSrc = (input: string): string => {
   if (!input) return "";
   try {
     const url = new URL(input, window.location.origin);
-    // Handle Next.js <Image> optimization wrapper
     if (url.pathname === "/_next/image") {
       const real = url.searchParams.get("url");
       if (real) return decodeURIComponent(real);
     }
-    return url.href; // absolute form
+    return url.href;
   } catch {
     return input;
   }
 };
 
-// Helper to wrap multiline text only when it contains line breaks
 const wrapMultiline = (text: string): string => {
   if (text.includes("\n")) {
     const escaped = text.replace(/\n/g, "\\n");
-    // Wrap in {` ... `} so JSX will interpret it as a template literal
     return `{\`${escaped}\`}`;
   }
   return text;
@@ -428,11 +397,11 @@ export default function HoverReceiver() {
   const lastHitElementRef = useRef<HTMLElement | null>(null);
   const lastHitIdRef = useRef<string | null>(null);
   const focusedElementRef = useRef<HTMLElement | null>(null);
+  const focusedImageElementRef = useRef<HTMLImageElement | null>(null); // track the actual img element
   const isVisualEditModeRef = useRef(false);
   const scrollTimeoutRef = useRef<number | null>(null);
   const originalContentRef = useRef<string>("");
   const originalSrcRef = useRef<string>(""); // track original img src
-  const focusedImageElementRef = useRef<HTMLImageElement | null>(null); // track the actual img element
   const editingElementRef = useRef<HTMLElement | null>(null);
   const wasEditableRef = useRef<boolean>(false);
   const styleElementRef = useRef<HTMLStyleElement | null>(null);
@@ -589,7 +558,6 @@ export default function HoverReceiver() {
       // But still allow pointer events for hovering and clicking
       childEl.style.userSelect = "none";
       childEl.style.webkitUserSelect = "none";
-      // Don't set pointerEvents to none - we want to allow hover and click
     });
   };
 
@@ -869,14 +837,12 @@ export default function HoverReceiver() {
 
                 // If removing styles (setting to default), remove the property
                 if (
-                  (property === "backgroundColor" &&
-                    finalValue === "transparent") ||
+                  (property === "backgroundColor" && finalValue === "transparent") ||
                   (property === "backgroundImage" && value === "none") ||
                   (property === "textDecoration" && value === "none") ||
                   (property === "fontStyle" && value === "normal") ||
                   (property === "opacity" && value === "1") ||
-                  ((property.includes("padding") ||
-                    property.includes("margin")) &&
+                  ((property.includes("padding") || property.includes("margin")) &&
                     value === "0") ||
                   (property === "borderRadius" && value === "0") ||
                   (property === "letterSpacing" && value === "normal") ||
@@ -1826,7 +1792,7 @@ export default function HoverReceiver() {
         window.scrollBy(e.data.dx, e.data.dy);
       }
 
-      // Handle visual edit mode state changes
+      // Handle visual edit mode 
       if (e.data.msg === "VISUAL_EDIT_MODE" && "active" in e.data) {
         const newMode = e.data.active;
         setIsVisualEditMode(newMode);

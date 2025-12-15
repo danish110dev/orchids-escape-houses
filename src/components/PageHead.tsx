@@ -5,9 +5,10 @@ import { useEffect } from "react";
 interface PageHeadProps {
   title: string;
   description: string;
+  canonical?: string;
 }
 
-export default function PageHead({ title, description }: PageHeadProps) {
+export default function PageHead({ title, description, canonical }: PageHeadProps) {
   useEffect(() => {
     // Update document title
     document.title = title;
@@ -20,6 +21,17 @@ export default function PageHead({ title, description }: PageHeadProps) {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', description);
+    
+    // Update canonical link
+    if (canonical) {
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalLink);
+      }
+      canonicalLink.setAttribute('href', canonical);
+    }
     
     // Update OG tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
@@ -37,7 +49,7 @@ export default function PageHead({ title, description }: PageHeadProps) {
       document.head.appendChild(ogDescription);
     }
     ogDescription.setAttribute('content', description);
-  }, [title, description]);
+  }, [title, description, canonical]);
 
   return null;
 }

@@ -38,6 +38,14 @@ export default function ContactPage() {
   // Track form load time
   useEffect(() => {
     setFormLoadTime(Date.now());
+    
+    // Set canonical URL
+    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/contact');
+    if (!document.querySelector('link[rel="canonical"]')) {
+      document.head.appendChild(canonicalLink);
+    }
 
     // Track user interaction
     const trackClick = () => {
@@ -398,7 +406,7 @@ export default function ContactPage() {
                         <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4">
                           <DayPicker
                             mode="range"
-                            selected={dateRange}
+                            selected={dateRange as any}
                             onSelect={handleDateSelect}
                             disabled={{ before: new Date() }}
                           />
