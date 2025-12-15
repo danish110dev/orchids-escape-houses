@@ -81,7 +81,7 @@ export default function PropertyCard({
     <>
       <div className="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
         <Link href={`/properties/${slug}`}>
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative w-full h-64 overflow-hidden bg-gray-200">
             <Image
               src={displayImage}
               alt={title}

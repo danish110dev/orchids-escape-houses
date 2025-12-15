@@ -783,14 +783,14 @@ export default function Home() {
                     <Link
                       key={`set1-${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
                       <Image
                         src={destination.image}
                         alt={destination.name}
                         fill
-                        className="object-cover transition-transform group-hover:scale-110"
-                        sizes="400px"
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -806,14 +806,14 @@ export default function Home() {
                     <Link
                       key={`set2-${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[400px] overflow-hidden rounded-2xl aspect-[4/3] transition-transform hover:scale-[1.02]"
+                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
                       <Image
                         src={destination.image}
                         alt={destination.name}
                         fill
-                        className="object-cover transition-transform group-hover:scale-110"
-                        sizes="400px"
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">

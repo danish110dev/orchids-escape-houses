@@ -16,6 +16,7 @@ export default function Header() {
   const { customer, isLoading: isCustomerLoading } = useCustomer();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const [isHousesOpen, setIsHousesOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [isOccasionsOpen, setIsOccasionsOpen] = useState(false);
@@ -37,6 +38,13 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Initialize auth state once after first check
+  useEffect(() => {
+    if (!isPending && !isCustomerLoading && !isInitialized) {
+      setIsInitialized(true);
+    }
+  }, [isPending, isCustomerLoading, isInitialized]);
 
   // Lock body scroll when mobile menu is open and reset submenu states when closing
   useEffect(() => {
@@ -173,10 +181,10 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-0 flex-1 justify-center px-8">
               {/* Houses to Rent Dropdown */}
               <div
-                className="relative"
+                className="relative flex-1 flex justify-center"
                 onMouseEnter={() => setIsHousesOpen(true)}
                 onMouseLeave={() => setIsHousesOpen(false)}
               >
@@ -247,7 +255,7 @@ export default function Header() {
 
               {/* Occasions Dropdown */}
               <div
-                className="relative"
+                className="relative flex-1 flex justify-center"
                 onMouseEnter={() => setIsOccasionsOpen(true)}
                 onMouseLeave={() => setIsOccasionsOpen(false)}
               >
@@ -299,7 +307,7 @@ export default function Header() {
 
               {/* Experiences Dropdown */}
               <div
-                className="relative"
+                className="relative flex-1 flex justify-center"
                 onMouseEnter={() => setIsExperiencesOpen(true)}
                 onMouseLeave={() => setIsExperiencesOpen(false)}
               >
@@ -360,7 +368,7 @@ export default function Header() {
 
               {/* Destinations Dropdown */}
               <div
-                className="relative"
+                className="relative flex-1 flex justify-center"
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
               >
@@ -408,7 +416,7 @@ export default function Header() {
               {/* How It Works Link */}
               <Link
                 href="/how-it-works"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 How It Works
@@ -419,7 +427,7 @@ export default function Header() {
               {session?.user && (
                 <Link
                   href="/admin/bookings"
-                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
+                  className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Admin
@@ -430,7 +438,7 @@ export default function Header() {
               {/* Advertise Link */}
               <Link
                 href="/advertise-with-us"
-                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8"
+                className="text-[15px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-8 flex-1 flex justify-center"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Advertise
@@ -454,7 +462,7 @@ export default function Header() {
               
               {isPending || isCustomerLoading ? (
                 <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
-              ) : session?.user ? (
+              ) : isInitialized && session?.user ? (
                 <>
                   {/* Plan Badge - MANDATORY: Constantly visible */}
                   <Link
