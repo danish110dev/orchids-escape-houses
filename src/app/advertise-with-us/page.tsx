@@ -79,10 +79,13 @@ export default function AdvertiseWithUs() {
                       variant="outline"
                       className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0 text-[var(--color-text-primary)]"
                     >
-                      <Link href="#download">
+                      <a 
+                        href="/api/download/owners-guide" 
+                        download="owners-guide.pdf"
+                      >
                         Download Owners Guide
                         <Download className="w-5 h-5 ml-2" />
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </div>
