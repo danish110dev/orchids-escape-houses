@@ -90,8 +90,11 @@ function PropertiesContent() {
   const destinationParam = searchParams.get("destination") || searchParams.get("location") || "";
   const guestsParam = searchParams.get("guests") || "0";
   
+  // Handle "all-locations" case - treat it as no location filter
+  const normalizedLocation = destinationParam === "all-locations" ? "" : destinationParam;
+  
   const [filters, setFilters] = useState({
-    location: destinationParam,
+    location: normalizedLocation,
     groupSize: parseInt(guestsParam),
     priceMin: 50,
     priceMax: 3000,
