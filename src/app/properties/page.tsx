@@ -511,13 +511,11 @@ export default function PropertiesPage() {
       <Header />
       <Suspense fallback={<PropertiesLoading />}>
         <PropertiesContent />
-      </Suspense>
-      <Footer />
-    </div>
-  );
-}"use client";
-
-import { useState, useMemo, useEffect, Suspense } from "react";
+    </Suspense>
+    <Footer />
+  </div>
+);
+}
 import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
