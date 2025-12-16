@@ -6,22 +6,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
-  // Redirect to www version for SEO consistency
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: '^(?!www\\.).*\\.co\\.uk$',
-          },
-        ],
-        destination: 'https://www.groupescapehouses.co.uk/:path*',
-        permanent: true,
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {

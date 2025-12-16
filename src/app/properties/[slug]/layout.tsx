@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   try {
     // Fetch property data
     const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
-      cache: 'revalidate-60', // Cache for 60 seconds
+      next: { revalidate: 60 }, // Cache for 60 seconds
     });
     
     if (!response.ok) {
