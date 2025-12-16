@@ -511,12 +511,11 @@ export default function PropertiesPage() {
       <Header />
       <Suspense fallback={<PropertiesLoading />}>
         <PropertiesContent />
-    </Suspense>
-    <Footer />
-  </div>
-);
+      </Suspense>
+      <Footer />
+    </div>
+  );
 }
-import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
