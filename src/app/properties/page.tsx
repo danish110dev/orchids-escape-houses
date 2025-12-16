@@ -139,6 +139,7 @@ function PropertiesContent() {
         setProperties(transformedProperties);
       } catch (error) {
         console.error('Error fetching properties:', error);
+        console.error('Error details:', error instanceof Error ? error.message : 'Unknown error');
         setDataError('Unable to load properties. Please refresh the page.');
         setProperties([]);
       } finally {
