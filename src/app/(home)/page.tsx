@@ -432,13 +432,13 @@ export default function Home() {
                       <span className="text-sm font-medium truncate">{dateRangeDisplay}</span>
                     </div>
                   </Button>
-                  {datePickerOpen && (
-                    <>
-                      <div 
-                        className="fixed inset-0 z-40" 
-                        onClick={() => setDatePickerOpen(false)}
-                      />
-                      <div className="absolute top-full left-0 mt-2 z-50 bg-white rounded-xl shadow-2xl border p-4">
+                    {datePickerOpen && (
+                      <>
+                        <div 
+                          className="fixed inset-0 z-[9998]" 
+                          onClick={() => setDatePickerOpen(false)}
+                        />
+                        <div className="absolute top-full left-0 mt-2 z-[9999] bg-white rounded-xl shadow-2xl border p-4">
                         <CalendarComponent
                           mode="range"
                           selected={dateRange}
