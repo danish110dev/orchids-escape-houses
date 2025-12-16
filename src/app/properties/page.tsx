@@ -134,6 +134,8 @@ function PropertiesContent() {
           slug: prop.slug,
         }));
 
+        console.log('Fetched properties:', transformedProperties.length, transformedProperties);
+
         setProperties(transformedProperties);
       } catch (error) {
         console.error('Error fetching properties:', error);
