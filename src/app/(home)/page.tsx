@@ -346,7 +346,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
+        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
           {shouldLoadVideo && (
             <>
               {/* Desktop Video */}
