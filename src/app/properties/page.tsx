@@ -181,7 +181,9 @@ function PropertiesContent() {
 
   // Apply filters to properties
   const filteredProperties = useMemo(() => {
-    return properties.filter((property) => {
+    console.log('Filtering properties. Total:', properties.length, 'Filters:', filters);
+    
+    const filtered = properties.filter((property) => {
       // Location filter
       if (filters.location) {
         const filterSlug = filters.location.toLowerCase().replace(/-/g, " ");
@@ -193,16 +195,21 @@ function PropertiesContent() {
           propertyLocation.includes(filterSlug) ||
           propertyLocation.includes(filterName) ||
           propertyLocation.startsWith(filterName.split(",")[0]);
-        if (!locationMatch) return false;
+        if (!locationMatch) {
+          console.log('Property filtered out by location:', property.title, property.location, 'vs filter:', filters.location);
+          return false;
+        }
       }
 
       // Group size filter
       if (filters.groupSize > 0 && property.sleeps < filters.groupSize) {
+        console.log('Property filtered out by group size:', property.title, 'sleeps:', property.sleeps, 'vs filter:', filters.groupSize);
         return false;
       }
 
       // Price filter
       if (property.priceFrom < filters.priceMin || property.priceFrom > filters.priceMax) {
+        console.log('Property filtered out by price:', property.title, 'price:', property.priceFrom, 'vs range:', filters.priceMin, '-', filters.priceMax);
         return false;
       }
 
@@ -216,6 +223,9 @@ function PropertiesContent() {
 
       return true;
     });
+    
+    console.log('Filtered properties:', filtered.length);
+    return filtered;
   }, [filters, properties]);
 
   const visibleProperties = filteredProperties.slice(0, displayedCount);
