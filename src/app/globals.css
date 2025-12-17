@@ -170,7 +170,6 @@
 /* Updated: 2025-11-17T03:10:47.627Z */
 /* Updated: 2025-11-13T12:47:52.661Z */
 /* Updated: 2025-11-12T13:19:20.614Z */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -188,9 +187,8 @@
   --color-neutral-light: #FAFAF9;
   
   /* Typography */
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  
+  /* Fonts are provided via next/font in src/app/layout.tsx */
+
   /* Gradients */
   --gradient-hero: linear-gradient(135deg, #F5F3F0 0%, #E5D8C5 100%);
   --gradient-button: linear-gradient(90deg, #89A38F 0%, #C6A76D 100%);
