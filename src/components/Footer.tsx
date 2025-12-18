@@ -17,7 +17,7 @@ export default function Footer() {
             <p className="text-sm text-[var(--color-bg-secondary)] leading-relaxed mb-4">
               Exceptional large group accommodation across the UK with premium facilities and outstanding service.
             </p>
-            <Link href="/our-story" className="text-sm text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">
+            <Link href="/our-story" className="text-sm hover:text-[var(--color-accent-sage)] transition-colors">
               Read our story →
             </Link>
           </div>

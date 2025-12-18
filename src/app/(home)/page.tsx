@@ -382,7 +382,7 @@ export default function Home() {
               Large Group Accommodation Across the UK
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
+              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
             </p>
 
             {/* Search Form */}
