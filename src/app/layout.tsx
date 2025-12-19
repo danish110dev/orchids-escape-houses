@@ -5,9 +5,24 @@ import CookieConsent from "@/components/CookieConsent";
 import WhatsAppChat from "@/components/WhatsAppChat";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { Inter, Playfair_Display } from "next/font/google";
 
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import CustomAutumnProvider from "@/lib/autumn-provider";
+
+const fontBody = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-body",
+});
+
+const fontDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+  variable: "--font-display",
+});
 
 // Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
@@ -35,7 +50,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code-here", // Replace with actual code from Google Search Console
+    google: "5Y_FiF2qaStUJ-oNPw4DIxA8AUWw-pnJ999FgRUzpgk",
   },
 };
 
@@ -47,11 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+          <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+          <link rel="preconnect" href="https://images.unsplash.com" />
+          <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+
         
         {/* Organization Schema */}
         <Script
@@ -108,24 +122,24 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">
-        <Script
-          id="orchids-browser-logs"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="afterInteractive"
-          data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
-        />
+        <body className={`${fontBody.variable} ${fontDisplay.variable} antialiased`}>
+          <Script
+            id="orchids-browser-logs"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+            strategy="lazyOnload"
+            data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
+          />
         <ErrorReporter />
-        <Script
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="afterInteractive"
-          data-target-origin="*"
-          data-message-type="ROUTE_CHANGE"
-          data-include-search-params="true"
-          data-only-in-iframe="true"
-          data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-        />
+          <Script
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+            strategy="lazyOnload"
+            data-target-origin="*"
+            data-message-type="ROUTE_CHANGE"
+            data-include-search-params="true"
+            data-only-in-iframe="true"
+            data-debug="true"
+            data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+          />
         <CustomAutumnProvider>
           {children}
         </CustomAutumnProvider>

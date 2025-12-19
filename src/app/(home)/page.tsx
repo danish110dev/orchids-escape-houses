@@ -382,7 +382,7 @@ export default function Home() {
               Large Group Accommodation Across the UK
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="underline hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
+              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
             </p>
 
             {/* Search Form */}
@@ -859,15 +859,18 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-              <div className="text-center transition-transform hover:scale-105">
-                <div 
-                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-                  style={{ 
-                    backgroundColor: "#3d5a47"
-                  }}
-                >
-                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>1</span>
-                </div>
+                <div className="group text-center transition-transform duration-300 hover:scale-105">
+                  <div
+                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "#3d5a47",
+                    }}
+                  >
+                    <HomeIcon
+                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
+                      aria-hidden="true"
+                    />
+                  </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Choose Property
                 </h3>
@@ -876,15 +879,18 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="text-center transition-transform hover:scale-105">
-                <div 
-                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-                  style={{ 
-                    backgroundColor: "#3d5a47"
-                  }}
-                >
-                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>2</span>
-                </div>
+                <div className="group text-center transition-transform duration-300 hover:scale-105">
+                  <div
+                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "#3d5a47",
+                    }}
+                  >
+                    <Sparkles
+                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
+                      aria-hidden="true"
+                    />
+                  </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Add Services
                 </h3>
@@ -893,15 +899,18 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="text-center transition-transform hover:scale-105">
-                <div 
-                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-                  style={{ 
-                    backgroundColor: "#C6A76D"
-                  }}
-                >
-                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>3</span>
-                </div>
+                <div className="group text-center transition-transform duration-300 hover:scale-105">
+                  <div
+                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "#C6A76D",
+                    }}
+                  >
+                    <Shield
+                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
+                      aria-hidden="true"
+                    />
+                  </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Secure Booking
                 </h3>
@@ -910,15 +919,18 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="text-center transition-transform hover:scale-105">
-                <div 
-                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-                  style={{ 
-                    backgroundColor: "#C6A76D"
-                  }}
-                >
-                  <span className="text-5xl font-semibold text-white" style={{ fontFamily: "var(--font-display)" }}>4</span>
-                </div>
+                <div className="group text-center transition-transform duration-300 hover:scale-105">
+                  <div
+                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "#C6A76D",
+                    }}
+                  >
+                    <Users
+                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
+                      aria-hidden="true"
+                    />
+                  </div>
                 <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
                   Enjoy Together
                 </h3>
