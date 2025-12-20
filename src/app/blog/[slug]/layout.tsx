@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 // Blog posts data - extract to a file later
 const blogPosts: Record<string, any> = {
@@ -56,10 +57,58 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default function BlogPostLayout({
-  children,
-}: {
+interface BlogPostLayoutProps {
   children: React.ReactNode;
-}) {
-  return children;
+  params: Promise<{ slug: string }>;
+}
+
+export default async function BlogPostLayout({
+  children,
+  params,
+}: BlogPostLayoutProps) {
+  const { slug } = await params;
+  const baseUrl = 'https://groupescapehouses.co.uk';
+  const post = blogPosts[slug];
+
+  if (!post) {
+    return children;
+  }
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description || post.excerpt,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: {
+      "@type": "Organization",
+      name: "Group Escape Houses",
+      url: baseUrl
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Group Escape Houses",
+      url: baseUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.png`
+      }
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${slug}`
+    }
+  };
+
+  return (
+    <>
+      <Script
+        id={`article-schema-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {children}
+    </>
+  );
 }

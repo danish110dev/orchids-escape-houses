@@ -121,6 +121,29 @@ export default function RootLayout({
             })
           }}
         />
+
+        {/* Service Schema */}
+        <Script
+          id="service-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Group Accommodation Listings and Enquiry Platform",
+              "description": "Online platform for browsing and enquiring about luxury group accommodation properties across the UK",
+              "provider": {
+                "@type": "Organization",
+                "name": "Group Escape Houses",
+                "url": "https://groupescapehouses.co.uk"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "United Kingdom"
+              }
+            })
+          }}
+        />
       </head>
         <body className={`${fontBody.variable} ${fontDisplay.variable} antialiased`}>
           <Script
