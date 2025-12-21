@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Book | Deposits, Payments & House Rules",
-  description: "Simple 4-step booking process. Deposits, payment schedules, cancellation policy & house rules. Transparent pricing, no hidden fees.",
-  keywords: ["how to book hen party house", "hen weekend booking process", "party house payment guide", "booking deposit"],
+  title: "How to Book | Simple Enquiry & Direct Booking",
+  description: "Simple 4-step direct enquiry and booking process. Find your perfect house and book directly with property owners for the best rates.",
+  keywords: ["how to book hen party house", "hen weekend booking process", "direct booking luxury houses", "enquire direct"],
   openGraph: {
-    title: "How Our Booking Process Works | Group Escape Houses",
-    description: "Easy 4-step process. Deposits, payment terms and cancellation policy explained clearly.",
+    title: "How Our Enquiry Process Works | Group Escape Houses",
+    description: "Easy 4-step process to find and book your perfect group property directly with owners.",
     url: "https://groupescapehouses.co.uk/how-it-works",
   },
   alternates: {

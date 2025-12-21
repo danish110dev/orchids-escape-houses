@@ -24,12 +24,12 @@ export default function HowItWorksPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-                <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                  How to Book Your Perfect Group Getaway
-                </h1>
-                <p className="text-xl text-[var(--color-neutral-dark)]">
-                  Booking with Group Escape Houses is simple and transparent. Connect directly with property owners to plan your perfect stay.
-                </p>
+              <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                How to Book Your Perfect Hen Weekend
+              </h1>
+              <p className="text-xl text-[var(--color-neutral-dark)]">
+                Booking with Group Escape Houses is simple and transparent. Here's how it works.
+              </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
@@ -85,31 +85,31 @@ export default function HowItWorksPage() {
       {/* Visual Steps Gallery */}
       <section className="py-12 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-house-exterior-with-hot-t-a1be0c95-20251024132155.jpg"
-                  alt="Browse local group houses"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 300px"
-                  loading="lazy"
-                />
-              </div>
-              <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/group-of-women-friends-doing-cocktail-ma-1a36aa32-20251024132155.jpg"
-                  alt="Enquire directly with owners"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 300px"
-                  loading="lazy"
-                />
-              </div>
-              <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-house-exterior-with-hot-t-a1be0c95-20251024132155.jpg"
+                alt="Choose your perfect house"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 300px"
+                loading="lazy"
+              />
+            </div>
+            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/group-of-women-friends-doing-cocktail-ma-1a36aa32-20251024132155.jpg"
+                alt="Add experiences to your booking"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 300px"
+                loading="lazy"
+              />
+            </div>
+            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/close-up-of-elegant-hands-holding-credit-36b540a7-20251024132157.jpg"
-                  alt="Confirm booking details"
+                  alt="Confirm your booking direct"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 300px"
@@ -119,7 +119,7 @@ export default function HowItWorksPage() {
               <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/happy-group-of-women-friends-celebrating-8672ffae-20251024132156.jpg"
-                  alt="Enjoy your group stay"
+                  alt="Enjoy your perfect group getaway"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 300px"
@@ -127,112 +127,113 @@ export default function HowItWorksPage() {
                 />
               </div>
             </div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Detailed Information */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-12">
+        {/* Detailed Information */}
+        <section className="py-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div className="space-y-12">
                 <div>
                   <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
                     Booking & Payment
                   </h2>
                   <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
                     <p>
-                      When you find your perfect property, simply submit an enquiry through our platform. You'll need to provide your preferred dates, group size, and any special requirements.
+                      Group Escape Houses is an advertising platform. When you find your perfect property, simply submit an enquiry through our instant enquiry form. This sends your details directly to the property owner.
                     </p>
                     <p>
-                      Once the owner confirms availability, you will discuss and agree on the booking terms, deposits, and payment schedules directly with them. Group Escape Houses does not handle any booking payments or contracts.
+                      All booking confirmations, payments and contracts are handled directly between you and the property owner. Each owner will have their own preferred payment methods and schedules.
+                    </p>
+                    <p>
+                      Typically, a deposit is required to secure your reservation, with the remaining balance due before arrival. Please clarify these terms directly with the owner during the enquiry process.
                     </p>
                   </div>
                 </div>
 
                 <div>
                   <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                    Deposits & Terms
+                    Security Deposit
                   </h2>
                   <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
                     <p>
-                      Security deposits and booking fees vary by property. These are set and managed by the individual property owner.
+                      Most property owners require a refundable security deposit to cover any potential damage. The amount and handling of this deposit (such as pre-authorisation or bank transfer) is manages directly by the owner.
                     </p>
                     <p>
-                      The owner will provide you with their specific terms and conditions, as well as instructions for payment of deposits and balances.
+                      The deposit is usually returned shortly after departure, provided the property is left in good condition. We recommend checking the specific security deposit terms for each property.
                     </p>
                   </div>
                 </div>
 
+                <div>
+                  <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                    Check-In & Check-Out
+                  </h2>
+                  <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
+                    <p>
+                      Arrival and departure times are set by the individual property owners. Generally, check-in is from 4pm and check-out is by 10am, but these can vary.
+                    </p>
+                    <p>
+                      The property owner or manager will provide you with detailed check-in instructions and access details once your booking is confirmed and paid in full.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:sticky lg:top-32">
+                <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/beautiful-welcome-hamper-with-champagne--433b9f64-20251024132155.jpg"
+                    alt="Welcome hamper and luxury amenities"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Policies Section */}
+        <section className="py-24 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[900px] mx-auto px-6">
+            <div className="space-y-12">
               <div>
                 <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                  Check-In & Check-Out
+                  Cancellations & Insurance
                 </h2>
                 <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
                   <p>
-                    <strong>Check-in:</strong> 4pm on your arrival date
-                    <br />
-                    <strong>Check-out:</strong> 10am on your departure date
+                    Cancellation policies vary by property and are set by the individual house owners. You will agree these terms directly with the owner when you book.
                   </p>
                   <p>
-                    You'll receive detailed check-in instructions 48 hours before arrival, including access codes and property information.
+                    We strongly recommend taking out group travel insurance to cover unexpected cancellations or changes to your plans.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  House Rules
+                </h2>
+                <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
+                  <p>All properties have specific house rules including:</p>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Maximum occupancy must not be exceeded</li>
+                    <li>No smoking inside properties</li>
+                    <li>Respect quiet hours (typically 11pm-8am)</li>
+                    <li>No parties beyond the booked group size</li>
+                    <li>Be considerate of neighbours</li>
+                  </ul>
+                  <p className="pt-4">
+                    Full house rules are provided by the property owner and must be respected throughout your stay.
                   </p>
                 </div>
               </div>
             </div>
-
-            <div className="lg:sticky lg:top-32">
-              <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/beautiful-welcome-hamper-with-champagne--433b9f64-20251024132155.jpg"
-                  alt="Welcome hamper and luxury amenities"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 600px"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Policies Section */}
-      <section className="py-24 bg-[var(--color-bg-primary)]">
-        <div className="max-w-[900px] mx-auto px-6">
-          <div className="space-y-12">
-            <div>
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Bookings & Contracts
-              </h2>
-              <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
-                <p>
-                  As an advertising platform, Group Escape Houses is not involved in the contract between you and the property owner.
-                </p>
-                <p>
-                  All booking contracts, payment terms, and cancellation policies are established directly between the guest and the owner. We recommend clarifying these details with the owner at the time of enquiry.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                House Rules
-              </h2>
-              <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
-                <p>All properties have specific house rules including:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Maximum occupancy must not be exceeded</li>
-                  <li>No smoking inside properties</li>
-                  <li>Respect quiet hours (typically 11pm-8am)</li>
-                  <li>No parties beyond the booked group size</li>
-                  <li>Be considerate of neighbours</li>
-                </ul>
-                <p className="pt-4">
-                  Full house rules are provided with your booking confirmation and must be respected.
-                </p>
-              </div>
-            </div>
-          </div>
 
           <div className="text-center pt-12">
             <Button

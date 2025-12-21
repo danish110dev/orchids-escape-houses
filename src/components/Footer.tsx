@@ -179,8 +179,8 @@ export default function Footer() {
         <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8"></div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8">
-            <p className="text-xs text-[var(--color-bg-secondary)] mb-6 text-center max-w-4xl mx-auto italic">
+          <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8 text-center max-w-4xl mx-auto">
+            <p className="text-xs text-[var(--color-bg-secondary)] mb-6 italic">
               Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
             </p>
           </div>
