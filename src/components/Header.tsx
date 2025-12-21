@@ -242,10 +242,10 @@ export default function Header() {
 
                     {/* View All Link */}
                     <div className="mt-6 pt-5 border-t border-gray-100">
-<Link
-  href="/properties"
-  className="text-sm font-semibold hover:text-[var(--color-accent-sage)] transition-colors"
->
+  <Link
+    href="/properties"
+    className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+  >
 
                         Browse All Properties →
                       </Link>
@@ -293,16 +293,14 @@ export default function Header() {
                       ))}
                     </ul>
 
-                    {/* View All Link */}
-                    <div className="mt-5 pt-4 border-t border-gray-100">
-<Link
-  href="/occasions"
-  className="text-sm font-semibold hover:text-[var(--color-accent-sage)] transition-colors"
->
-
-                        View All Occasions →
-                      </Link>
-                    </div>
+                          <div className="mt-5 pt-4 border-t border-gray-100">
+                            <Link
+                              href="/occasions"
+                              className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                            >
+                              View All Occasions →
+                            </Link>
+                          </div>
                   </div>
                 )}
               </div>
@@ -355,16 +353,15 @@ export default function Header() {
                       </ul>
                     </div>
 
-                    {/* View All Link */}
-                    <div className="mt-6 pt-5 border-t border-gray-100">
-<Link
-  href="/experiences"
-  className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
->
-
-                        View All Experiences →
-                      </Link>
-                    </div>
+                      {/* View All Link */}
+                      <div className="mt-6 pt-5 border-t border-gray-100">
+                        <Link
+                          href="/experiences"
+                          className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                        >
+                          View All Experiences →
+                        </Link>
+                      </div>
                   </div>
                 )}
               </div>
@@ -403,16 +400,15 @@ export default function Header() {
                       ))}
                     </ul>
 
-                    {/* View All Link */}
-                    <div className="mt-6 pt-5 border-t border-gray-100">
-<Link
-  href="/destinations"
-  className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
->
-
-                        View All Destinations →
-                      </Link>
-                    </div>
+                      {/* View All Link */}
+                      <div className="mt-6 pt-5 border-t border-gray-100">
+                        <Link
+                          href="/destinations"
+                          className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                        >
+                          View All Destinations →
+                        </Link>
+                      </div>
                   </div>
                 )}
               </div>

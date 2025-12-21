@@ -347,45 +347,33 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
-          {/* Hero Poster / LCP Candidate - Always visible until video loads */}
-          <div className={`absolute inset-0 transition-opacity duration-1000 ${shouldLoadVideo ? 'opacity-0 pointer-events-none' : 'opacity-30'}`}>
-            <Image 
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-              alt="Luxury Group Escape House"
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
-
           {shouldLoadVideo && (
             <>
-                {/* Desktop Video */}
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
-                  poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-                >
-                  <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
-                </video>
+              {/* Desktop Video */}
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
+                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+              >
+                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
+              </video>
 
-                {/* Mobile Video */}
-                <video
-                  ref={mobileVideoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 block md:hidden"
-                  poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-                >
-                  <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
-                </video>
+              {/* Mobile Video */}
+              <video
+                ref={mobileVideoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-30 block md:hidden"
+                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+              >
+                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
+              </video>
             </>
           )}
 
@@ -615,9 +603,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-6 sm:mt-8 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-2 sm:px-4">
-              <Link href="/properties" className="w-full sm:w-auto">
+              <div className="mt-6 sm:mt-8 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-2 sm:px-4">
                 <Button
+                  asChild
                   size="lg"
                   className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium transition-all hover:scale-[1.05] w-full sm:w-auto"
                   style={{
@@ -625,12 +613,13 @@ export default function Home() {
                     color: "var(--color-text-primary)",
                   }}
                 >
-                  Browse Houses
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/properties">
+                    Browse Houses
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
-              <Link href="/contact" className="w-full sm:w-auto">
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium border-2 transition-all hover:bg-white w-full sm:w-auto"
@@ -639,10 +628,11 @@ export default function Home() {
                     color: "var(--color-text-primary)",
                   }}
                 >
-                  Get Instant Quote
+                  <Link href="/contact">
+                    Get Instant Quote
+                  </Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -706,9 +696,9 @@ export default function Home() {
               </div>
             )}
 
-            <div className="text-center mt-12">
-              <Link href="/properties">
+              <div className="text-center mt-12">
                 <Button
+                  asChild
                   size="lg"
                   className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
                   style={{
@@ -716,11 +706,12 @@ export default function Home() {
                     color: "white",
                   }}
                 >
-                  View All Properties
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/properties">
+                    View All Properties
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -731,9 +722,9 @@ export default function Home() {
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Enhance Your Group Stay
               </h2>
-                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                  Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">celebration</Link> unforgettable
-                </p>
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
+              </p>
             </div>
 
             {isLoadingData ? (
@@ -756,21 +747,22 @@ export default function Home() {
               </div>
             )}
 
-            <div className="text-center mt-12">
-              <Link href="/experiences">
-                  <Button
-                    size="lg"
-                    className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] hover:opacity-90 border-none"
-                    style={{
-                      background: "var(--color-accent-sage)",
-                      color: "white",
-                    }}
-                  >
+              <div className="text-center mt-12">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                  style={{
+                    background: "var(--color-accent-pink)",
+                    color: "var(--color-text-primary)",
+                  }}
+                >
+                  <Link href="/experiences">
                     View All Experiences
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-              </Link>
-            </div>
+                  </Link>
+                </Button>
+              </div>
           </div>
         </section>
 
@@ -797,15 +789,13 @@ export default function Home() {
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
-                        <Image
-                          src={destination.image}
-                          alt={destination.name}
-                          fill
-                          className="object-cover object-center transition-transform group-hover:scale-110"
-                          sizes="(max-width: 768px) 300px, 400px"
-                          quality={70}
-                        />
-
+                      <Image
+                        src={destination.image}
+                        alt={destination.name}
+                        fill
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -822,15 +812,13 @@ export default function Home() {
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
-                        <Image
-                          src={destination.image}
-                          alt={destination.name}
-                          fill
-                          className="object-cover object-center transition-transform group-hover:scale-110"
-                          sizes="(max-width: 768px) 300px, 400px"
-                          quality={70}
-                        />
-
+                      <Image
+                        src={destination.image}
+                        alt={destination.name}
+                        fill
+                        className="object-cover object-center transition-transform group-hover:scale-110"
+                        sizes="(max-width: 768px) 300px, 400px"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -844,9 +832,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center mt-12">
-              <Link href="/destinations">
+              <div className="text-center mt-12">
                 <Button
+                  asChild
                   size="lg"
                   className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
                   style={{
@@ -854,11 +842,12 @@ export default function Home() {
                     color: "white",
                   }}
                 >
-                  View All Destinations
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/destinations">
+                    View All Destinations
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -956,9 +945,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center mt-10 md:mt-12">
-              <Link href="/how-it-works">
+              <div className="text-center mt-10 md:mt-12">
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="rounded-2xl px-10 py-6 font-medium border-2 transition-all hover:bg-[var(--color-bg-primary)]"
@@ -967,11 +956,12 @@ export default function Home() {
                     color: "var(--color-text-primary)",
                   }}
                 >
-                  Learn More
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/how-it-works">
+                    Learn More
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -989,9 +979,9 @@ export default function Home() {
 
             {mounted && <ReviewSlider reviews={reviews} />}
 
-            <div className="text-center mt-12">
-              <Link href="/reviews">
+              <div className="text-center mt-12">
                 <Button
+                  asChild
                   size="lg"
                   className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
                   style={{
@@ -999,11 +989,12 @@ export default function Home() {
                     color: "white",
                   }}
                 >
-                  Read All Reviews
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/reviews">
+                    Read All Reviews
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -1122,16 +1113,14 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
-                        <Image
-                          src={img}
-                          alt={`Instagram post ${index + 1}`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          sizes="280px"
-                          loading="lazy"
-                          quality={60}
-                        />
-
+                      <Image
+                        src={img}
+                        alt={`Instagram post ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="280px"
+                        loading="lazy"
+                      />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
                           <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
@@ -1156,16 +1145,14 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
-                        <Image
-                          src={img}
-                          alt={`Instagram post ${index + 1}`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          sizes="280px"
-                          loading="lazy"
-                          quality={60}
-                        />
-
+                      <Image
+                        src={img}
+                        alt={`Instagram post ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="280px"
+                        loading="lazy"
+                      />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
                           <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
