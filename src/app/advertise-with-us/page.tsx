@@ -41,9 +41,9 @@ export default function AdvertiseWithUs() {
             <div className="absolute inset-0 flex items-center">
               <div className="max-w-[1200px] mx-auto px-6 w-full">
                 <div className="max-w-3xl">
-                  <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
-                    Direct Enquiries. Zero Commission. Complete Control.
-                  </h1>
+                    <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
+                      Advertise Your Property to Large Groups
+                    </h1>
                   
                   <p className="text-2xl mb-10 leading-relaxed text-white max-w-2xl" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
                     The UK&apos;s specialist platform for luxury large group properties. Reach guests directly, set your own terms, and keep 100% of your booking revenue.
@@ -113,29 +113,29 @@ export default function AdvertiseWithUs() {
           </div>
         </section>
 
-        <section className="py-24 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-10 text-center" style={{ fontFamily: "var(--font-display)" }}>
-                Keep 100% of Your Profits
-              </h2>
-              
-              <div className="space-y-8 text-xl text-[var(--color-neutral-dark)] leading-relaxed">
-                <p>
-                  Group Escape Houses is the UK&apos;s premier showcase for luxury group accommodation. We connect high-quality properties—barns, estates, and lodges sleeping 10 or more—directly with guests who value excellence.
-                </p>
+          <section className="py-24 bg-white">
+            <div className="max-w-[1200px] mx-auto px-6">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-4xl lg:text-6xl font-bold mb-10 text-center" style={{ fontFamily: "var(--font-display)" }}>
+                  Fixed-fee Advertising for Property Owners
+                </h2>
                 
-                <p>
-                  Unlike other platforms, we don&apos;t believe in taking a slice of your success. You keep full control of your pricing, your guests, and your calendar. No hidden fees, no per-booking commission, just direct enquiries and pure profit.
-                </p>
-                
-                <p>
-                  Our simple monthly or annual subscription model means more revenue in your pocket and a transparent relationship built on performance, not percentages. It&apos;s the smarter way to market your luxury group home.
-                </p>
+                <div className="space-y-8 text-xl text-[var(--color-neutral-dark)] leading-relaxed">
+                  <p>
+                    Group Escape Houses is the UK&apos;s specialist platform for luxury group accommodation. We connect high-quality properties—barns, estates, and lodges sleeping 10 or more—directly with guests who value excellence.
+                  </p>
+                  
+                  <p>
+                    We operate a simple fixed-fee listing model. This means you pay a single annual or monthly fee to advertise your property, with absolutely no commission charged on bookings. You keep full control of your pricing, your guests, and your calendar.
+                  </p>
+                  
+                  <p>
+                    Our platform is designed for efficiency and transparency. Every enquiry goes directly to you, the property owner, allowing you to manage the relationship with your guests from the very start. No middleman, no gatekeepers—just direct bookings and pure profit.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         <section className="py-20 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-6">
@@ -146,28 +146,28 @@ export default function AdvertiseWithUs() {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-              {[
-                {
-                  title: "100% Direct Relationships",
-                  description: "Every enquiry goes straight to your inbox. No middleman, no gatekeepers—just direct communication with your guests from the very first click.",
-                  icon: MessageSquare
-                },
-                {
-                  title: "Keep Every Penny",
-                  description: "We charge a simple subscription, not a slice of your booking. No commission, no hidden fees, and absolutely no surprises.",
-                  icon: CreditCard
-                },
-                {
-                  title: "Performance at a Glance",
-                  description: "Track your enquiries, view listing stats, and manage your property details with our intuitive, easy-to-use owner dashboard.",
-                  icon: BarChart3
-                },
-                {
-                  title: "Bespoke Property Showcasing",
-                  description: "Your property deserves the best. We create high-impact listings with professional layouts that convert browsers into bookings.",
-                  icon: FileEdit
-                }
-              ].map((item, index) => {
+                {[
+                  {
+                    title: "Direct Guest Enquiries",
+                    description: "Every enquiry goes straight to your inbox. Guests deal directly with you, the owner, with no platform interference in the booking process.",
+                    icon: MessageSquare
+                  },
+                  {
+                    title: "No Commission on Bookings",
+                    description: "We charge a simple fixed fee for your listing, not a slice of your revenue. Keep 100% of what you earn from every guest stay.",
+                    icon: CreditCard
+                  },
+                  {
+                    title: "Sync Your Availability",
+                    description: "Easily integrate your existing property calendar via iCal. Keep your availability up to date across all platforms automatically.",
+                    icon: Calendar
+                  },
+                  {
+                    title: "Optional Activity Exposure",
+                    description: "Reach guests looking for the full experience. We offer additional exposure for groups looking for activities and services linked to their stay.",
+                    icon: Sparkles
+                  }
+                ].map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <motion.div 
@@ -247,16 +247,16 @@ export default function AdvertiseWithUs() {
           </div>
         </section>
 
-        <section id="pricing" className="py-20 bg-[var(--color-bg-secondary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-4">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Subscription and Pricing Options
-              </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)]">
-                Choose the subscription that suits your marketing needs, all with commission free enquiries.
-              </p>
-            </div>
+          <section id="pricing" className="py-20 bg-[var(--color-bg-secondary)]">
+            <div className="max-w-[1200px] mx-auto px-6">
+              <div className="text-center mb-4">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Fixed-fee Listing Options
+                </h2>
+                <p className="text-xl text-[var(--color-neutral-dark)]">
+                  Choose the subscription that suits your marketing needs, with zero commission on bookings.
+                </p>
+              </div>
             
             <div className="grid md:grid-cols-3 gap-8 mb-8 mt-12">
               <div className="bg-white rounded-3xl p-8 border-2 border-gray-100 hover:shadow-xl transition-all">

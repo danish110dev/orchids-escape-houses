@@ -381,9 +381,9 @@ export default function Home() {
             <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Large Group Houses and Cottages Across the UK, With <Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)] transition-colors">Hot Tubs</Link> and <Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)] transition-colors">Pools</Link>
-            </p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission. Owners can manage listings, sync availability and receive enquiries direct.
+              </p>
 
             {/* Search Form */}
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto">
@@ -914,30 +914,30 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="group text-center"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: -5 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#C6A76D] transform transition-all duration-300 group-hover:shadow-[#C6A76D]/40"
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="group text-center"
               >
-                <Shield
-                  className="w-12 h-12 text-white"
-                  aria-hidden="true"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#C6A76D] transform transition-all duration-300 group-hover:shadow-[#C6A76D]/40"
+                >
+                  <Shield
+                    className="w-12 h-12 text-white"
+                    aria-hidden="true"
+                  />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                  Book Direct
+                </h3>
+                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                  Enquire and book directly with property owners with no platform commission
+                </p>
               </motion.div>
-              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                Secure Booking
-              </h3>
-              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                Reserve with a deposit, balance due 8 weeks before arrival
-              </p>
-            </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
