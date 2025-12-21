@@ -16,11 +16,11 @@ export default function HotTubPage() {
   ];
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=90", alt: "Luxury outdoor hot tub with scenic countryside views" },
-    { url: "https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=800&q=90", alt: "Hot tub with champagne for hen party celebration" },
-    { url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=90", alt: "Relaxing in hot tub at sunset" },
-    { url: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=90", alt: "Private hot tub at luxury holiday home" },
-    { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=90", alt: "Hot tub deck with garden views" },
+    { url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=90", alt: "Luxury outdoor hot tub with scenic countryside views" },
+    { url: "https://images.unsplash.com/photo-1578991624414-276ef23a534f?w=800&q=90", alt: "Hot tub with champagne for hen party celebration" },
+    { url: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=800&q=90", alt: "Relaxing in hot tub at sunset" },
+    { url: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=800&q=90", alt: "Private hot tub at luxury holiday home" },
+    { url: "https://images.unsplash.com/photo-1529230117010-b6c6d3158e8e?w=800&q=90", alt: "Hot tub deck with garden views" },
     { url: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=800&q=90", alt: "Evening hot tub under the stars" },
   ];
 
@@ -102,7 +102,7 @@ export default function HotTubPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=90')",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
