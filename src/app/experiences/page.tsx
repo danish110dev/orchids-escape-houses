@@ -483,22 +483,24 @@ export default function ExperiencesPage() {
                   href={`/destinations/${destination.slug}`}
                   className="group block relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-64"
                 >
-                  <img
-                    src={destination.image}
-                    alt={`${destination.name} group experiences`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white" style={{ color: 'white' }}>
-                    <MapPin className="w-8 h-8 mb-3 text-white transition-transform duration-300 group-hover:scale-110" />
-                    <h3 className="text-3xl font-semibold mb-2 text-white" style={{ fontFamily: "var(--font-display)", color: "white" }}>
-                      {destination.name}
-                    </h3>
-                    <span className="text-sm text-white opacity-90 transition-opacity duration-300 group-hover:opacity-100">
-                      View Properties & Experiences →
-                    </span>
-                  </div>
+                    <img
+                      src={destination.image}
+                      alt={`${destination.name} luxury group accommodation`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white" style={{ color: 'white' }}>
+                      <MapPin className="w-8 h-8 mb-3 text-white transition-transform duration-300 group-hover:scale-110" />
+                      <h3 className="text-3xl font-semibold mb-2 text-white" style={{ fontFamily: "var(--font-display)", color: "white" }}>
+                        {destination.name}
+                      </h3>
+                      <div 
+                        className="mt-4 px-6 py-2 rounded-full border border-white/60 bg-white/10 backdrop-blur-sm text-sm font-medium text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+                      >
+                        View Properties & Experiences →
+                      </div>
+                    </div>
                 </Link>
               </motion.div>
             ))}
