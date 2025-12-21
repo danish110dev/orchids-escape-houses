@@ -18,7 +18,9 @@ import {
   Users,
   Home,
   Trophy,
-  BookOpen
+  BookOpen,
+  Calendar,
+  Sparkles
 } from "lucide-react";
 
 export default function AdvertiseWithUs() {
