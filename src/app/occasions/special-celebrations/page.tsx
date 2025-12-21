@@ -191,24 +191,30 @@ export default function SpecialCelebrationsPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-6"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <Users className="w-8 h-8 text-[var(--color-accent-sage)] mb-3" />
+              <div className="bg-white rounded-2xl p-6 shadow-md transition-all hover:shadow-lg group">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-4 transition-colors group-hover:bg-[var(--color-accent-sage)]">
+                  <Users className="w-6 h-6 text-[var(--color-accent-sage)] transition-colors group-hover:text-white" />
+                </div>
                 <h4 className="font-semibold mb-2">Large Groups</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
                   Properties that sleep 10-30 guests comfortably
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <Utensils className="w-8 h-8 text-[var(--color-accent-gold)] mb-3" />
+              <div className="bg-white rounded-2xl p-6 shadow-md transition-all hover:shadow-lg group">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-gold)]/10 flex items-center justify-center mb-4 transition-colors group-hover:bg-[var(--color-accent-gold)]">
+                  <Utensils className="w-6 h-6 text-[var(--color-accent-gold)] transition-colors group-hover:text-white" />
+                </div>
                 <h4 className="font-semibold mb-2">Dining Spaces</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
                   Large dining areas perfect for celebration meals
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <Calendar className="w-8 h-8 text-[var(--color-accent-sage)] mb-3" />
+              <div className="bg-white rounded-2xl p-6 shadow-md transition-all hover:shadow-lg group">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-4 transition-colors group-hover:bg-[var(--color-accent-sage)]">
+                  <Calendar className="w-6 h-6 text-[var(--color-accent-sage)] transition-colors group-hover:text-white" />
+                </div>
                 <h4 className="font-semibold mb-2">Flexible Stays</h4>
                 <p className="text-sm text-[var(--color-neutral-dark)]">
                   Weekend or midweek availability
@@ -293,13 +299,18 @@ export default function SpecialCelebrationsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center"
+                  className="group text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[var(--color-accent-sage)] bg-opacity-10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-[var(--color-accent-sage)]" />
+                  <div 
+                    className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      backgroundColor: index % 2 === 0 ? "var(--color-accent-sage)" : "var(--color-accent-gold)",
+                    }}
+                  >
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}
