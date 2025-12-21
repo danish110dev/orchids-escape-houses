@@ -863,87 +863,107 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#3d5a47",
-                    }}
-                  >
-                    <HomeIcon
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Choose Property
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Browse our collection and find the perfect house for your group
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#3d5a47] transform transition-all duration-300 group-hover:shadow-[#3d5a47]/40"
+              >
+                <HomeIcon
+                  className="w-12 h-12 text-white"
+                  aria-hidden="true"
+                />
+              </motion.div>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                Choose Property
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Browse our collection and find the perfect house for your group
+              </p>
+            </motion.div>
 
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#3d5a47",
-                    }}
-                  >
-                    <Sparkles
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Add Services
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Enhance your stay with catering, activities, and special services
-                </p>
-              </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#3d5a47] transform transition-all duration-300 group-hover:shadow-[#3d5a47]/40"
+              >
+                <Sparkles
+                  className="w-12 h-12 text-white"
+                  aria-hidden="true"
+                />
+              </motion.div>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                Add Services
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Enhance your stay with catering, activities, and special services
+              </p>
+            </motion.div>
 
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#C6A76D",
-                    }}
-                  >
-                    <Shield
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Secure Booking
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Reserve with a deposit, balance due 8 weeks before arrival
-                </p>
-              </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#C6A76D] transform transition-all duration-300 group-hover:shadow-[#C6A76D]/40"
+              >
+                <Shield
+                  className="w-12 h-12 text-white"
+                  aria-hidden="true"
+                />
+              </motion.div>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                Secure Booking
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Reserve with a deposit, balance due 8 weeks before arrival
+              </p>
+            </motion.div>
 
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#C6A76D",
-                    }}
-                  >
-                    <Users
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Enjoy Together
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Gather your group and create lasting memories
-                </p>
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="group text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg bg-[#C6A76D] transform transition-all duration-300 group-hover:shadow-[#C6A76D]/40"
+              >
+                <Users
+                  className="w-12 h-12 text-white"
+                  aria-hidden="true"
+                />
+              </motion.div>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
+                Enjoy Together
+              </h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Gather your group and create lasting memories
+              </p>
+            </motion.div>
+          </div>
 
               <div className="text-center mt-10 md:mt-12">
                 <Button

@@ -1,4 +1,6 @@
-import { Metadata } from "next";
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -18,19 +20,6 @@ import {
   Trophy,
   BookOpen
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Advertise Your Property on Group Escape Houses",
-  description: "No hidden costs, no commission. Simple monthly or yearly subscription for quality large group houses to reach guests seeking luxury group stays.",
-  alternates: {
-    canonical: "https://groupescapehouses.co.uk/advertise-with-us",
-  },
-  openGraph: {
-    title: "Advertise Your Property on Group Escape Houses",
-    description: "No hidden costs, no commission. Simple monthly or yearly subscription for quality large group houses.",
-    type: "website",
-  },
-};
 
 export default function AdvertiseWithUs() {
   return (
@@ -127,53 +116,55 @@ export default function AdvertiseWithUs() {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <MessageSquare className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Direct Contact With Guests
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  All enquiries come straight to you so you can build a direct relationship with every group.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <CreditCard className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Commission Free Subscription
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  We charge a simple monthly or yearly subscription, not a slice of each enquiry or booking, so you keep more of your revenue.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <BarChart3 className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Owner Dashboard
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  Log in to view enquiries, track listing performance and update key details at any time.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <FileEdit className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Unique Property Page
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  Showcase your property with photos, description, facilities, pricing and clear ways for guests to contact you directly.
-                </p>
-              </div>
+              {[
+                {
+                  title: "Direct Contact With Guests",
+                  description: "All enquiries come straight to you so you can build a direct relationship with every group.",
+                  icon: MessageSquare
+                },
+                {
+                  title: "Commission Free Subscription",
+                  description: "We charge a simple monthly or yearly subscription, not a slice of each enquiry or booking, so you keep more of your revenue.",
+                  icon: CreditCard
+                },
+                {
+                  title: "Owner Dashboard",
+                  description: "Log in to view enquiries, track listing performance and update key details at any time.",
+                  icon: BarChart3
+                },
+                {
+                  title: "Unique Property Page",
+                  description: "Showcase your property with photos, description, facilities, pricing and clear ways for guests to contact you directly.",
+                  icon: FileEdit
+                }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all group"
+                  >
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md transform transition-all duration-300 group-hover:shadow-[var(--color-accent-sage)]/40"
+                      style={{ backgroundColor: "#96AD94" }}
+                    >
+                      <Icon className="w-8 h-8 text-white" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="bg-[var(--color-accent-sage)]/10 border-l-4 border-[var(--color-accent-sage)] rounded-lg p-8 max-w-5xl mx-auto">

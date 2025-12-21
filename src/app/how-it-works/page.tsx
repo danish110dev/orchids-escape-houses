@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -10,12 +13,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { steps, faqs } from "@/data/how-it-works";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How to Book Your Perfect Hen Weekend | Group Escape Houses",
-  description: "Booking with Group Escape Houses is simple and transparent. Learn how to book luxury hen party houses in 4 easy steps with secure payments and flexible options.",
-};
 
 export default function HowItWorksPage() {
   return (
@@ -51,29 +48,37 @@ export default function HowItWorksPage() {
       {/* Steps */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {steps.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.step} className="text-center">
-                  <div
-                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center animate-float"
-                    style={{
-                      background: "var(--color-accent-sage)",
-                      color: "white",
-                      animationDelay: `${item.step * 0.2}s`,
-                    }}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+              {steps.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={item.step} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="text-center group"
                   >
-                    <Icon className="w-10 h-10" />
-                  </div>
-                  <h3 className="mb-4" style={{ fontFamily: "var(--font-body)" }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-[var(--color-neutral-dark)]">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-[var(--color-accent-sage)]/40"
+                      style={{
+                        background: "var(--color-accent-sage)",
+                        color: "white",
+                      }}
+                    >
+                      <Icon className="w-10 h-10" />
+                    </motion.div>
+                    <h3 className="mb-4 font-semibold text-xl" style={{ fontFamily: "var(--font-body)" }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">{item.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
         </div>
       </section>
 

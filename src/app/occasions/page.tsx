@@ -245,48 +245,63 @@ export default function OccasionsPage() {
       {/* Features Banner */}
       <section className="py-16 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid md:grid-cols-3 gap-12 text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="group"
             >
-              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                <Home className="w-8 h-8 text-[var(--color-accent-sage)]" />
-              </div>
-              <h3 className="font-semibold text-xl mb-2">Luxury Properties</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-20 h-20 rounded-full bg-[#96AD94] flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-[#96AD94]/40"
+              >
+                <Home className="w-10 h-10 text-white" />
+              </motion.div>
+              <h3 className="font-semibold text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>Luxury Properties</h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
                 Hand-picked houses with hot tubs, pools, and unique features
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              className="group"
             >
-              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                <Users className="w-8 h-8 text-[var(--color-accent-gold)]" />
-              </div>
-              <h3 className="font-semibold text-xl mb-2">Group Friendly</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-20 h-20 rounded-full bg-[#C6A76D] flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-[#C6A76D]/40"
+              >
+                <Users className="w-10 h-10 text-white" />
+              </motion.div>
+              <h3 className="font-semibold text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>Group Friendly</h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
                 Perfect for groups of 10-30 guests with spacious layouts
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="group"
             >
-              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                <Star className="w-8 h-8 text-[var(--color-accent-sage)]" />
-              </div>
-              <h3 className="font-semibold text-xl mb-2">Add-On Experiences</h3>
-              <p className="text-[var(--color-neutral-dark)]">
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-20 h-20 rounded-full bg-[#96AD94] flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-[#96AD94]/40"
+              >
+                <Star className="w-10 h-10 text-white" />
+              </motion.div>
+              <h3 className="font-semibold text-xl mb-3" style={{ fontFamily: "var(--font-display)" }}>Add-On Experiences</h3>
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
                 Cocktail classes, private chefs, spa treatments, and more
               </p>
             </motion.div>

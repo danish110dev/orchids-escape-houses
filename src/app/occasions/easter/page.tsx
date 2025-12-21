@@ -246,6 +246,65 @@ export default function EasterPage() {
         </div>
       </section>
 
+      {/* Benefits Section */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Why Spend Easter With Us
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Beautiful Gardens",
+                description: "Spacious private gardens perfect for family Easter egg hunts and spring activities",
+                icon: Trees
+              },
+              {
+                title: "Spring Settings",
+                description: "Countryside locations ideal for long walks and enjoying the blooming spring scenery",
+                icon: Sun
+              },
+              {
+                title: "Family Friendly",
+                description: "Houses designed for multi-generational families with plenty of space for everyone",
+                icon: Egg
+              }
+            ].map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="text-center group"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-20 h-20 rounded-full bg-[#96AD94] flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-[#96AD94]/40"
+                  >
+                    <Icon className="w-10 h-10 text-white" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">

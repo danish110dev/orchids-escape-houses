@@ -278,11 +278,18 @@ export default function HenPartyHousesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <Icon className="w-8 h-8 text-[var(--color-accent-sage)] mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-[var(--color-accent-sage)]/40"
+                    style={{ backgroundColor: "#96AD94" }}
+                  >
+                    <Icon className="w-10 h-10 text-white" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}

@@ -299,18 +299,20 @@ export default function WeddingsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <div 
-                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300"
                     style={{ 
-                      backgroundColor: index === 0 ? 'var(--color-accent-sage)' : index === 1 ? 'var(--color-accent-gold)' : 'var(--color-accent-pink)'
+                      backgroundColor: index === 0 ? '#96AD94' : index === 1 ? '#C6A76D' : '#E5989B'
                     }}
                   >
                     <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}

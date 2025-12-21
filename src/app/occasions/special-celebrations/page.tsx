@@ -301,15 +301,17 @@ export default function SpecialCelebrationsPage() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="group text-center"
                 >
-                  <div 
-                    className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110"
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:shadow-xl"
                     style={{
-                      backgroundColor: index % 2 === 0 ? "var(--color-accent-sage)" : "var(--color-accent-gold)",
+                      backgroundColor: index % 2 === 0 ? "#96AD94" : "#C6A76D",
                     }}
                   >
-                    <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                    <Icon className="w-12 h-12 text-white" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>{benefit.title}</h3>
                   <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
