@@ -505,18 +505,18 @@ export default function ExperiencesPage() {
           </motion.div>
 
           <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
-              style={{
-                borderColor: "var(--color-accent-sage)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/destinations">View All Destinations</Link>
-            </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+                style={{
+                  borderColor: "var(--color-accent-sage)",
+                  color: "var(--color-text-primary)",
+                }}
+              >
+                <Link href="/destinations">See all locations</Link>
+              </Button>
           </div>
         </div>
       </section>

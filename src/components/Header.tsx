@@ -388,30 +388,30 @@ export default function Header() {
                       Popular Destinations
                     </h3>
                     <ul className="space-y-2.5">
-                      {destinations.map((destination) => (
-                        <li key={destination.slug}>
-                          <Link
-                            href={`/destinations/${destination.slug}`}
-                            className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
-                          >
-                            {destination.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                          {destinations.map((destination) => (
+                            <li key={destination.slug}>
+                              <Link
+                                href={`/destinations/${destination.slug}`}
+                                className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
+                              >
+                                {destination.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
 
-                      {/* View All Link */}
-                      <div className="mt-6 pt-5 border-t border-gray-100">
-                        <Link
-                          href="/destinations"
-                          className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-                        >
-                          View All Destinations →
-                        </Link>
+                        {/* View All Link */}
+                        <div className="mt-6 pt-5 border-t border-gray-100">
+                          <Link
+                            href="/destinations"
+                            className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                          >
+                            See all locations →
+                          </Link>
+                        </div>
                       </div>
+                    )}
                   </div>
-                )}
-              </div>
 
               {/* How It Works Link */}
               <Link
@@ -699,17 +699,24 @@ export default function Header() {
                   </button>
                   {isMobileDestinationsOpen && (
                     <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                      {destinations.map((destination) => (
-                        <Link
-                          key={destination.slug}
-                          href={`/destinations/${destination.slug}`}
-                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {destination.title}
-                        </Link>
-                      ))}
-                    </div>
+                       {destinations.map((destination) => (
+                         <Link
+                           key={destination.slug}
+                           href={`/destinations/${destination.slug}`}
+                           className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
+                           onClick={() => setIsMobileMenuOpen(false)}
+                         >
+                           {destination.title}
+                         </Link>
+                       ))}
+                       <Link
+                         href="/destinations"
+                         className="block py-2 mt-2 font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                         onClick={() => setIsMobileMenuOpen(false)}
+                       >
+                         See all locations →
+                       </Link>
+                     </div>
                   )}
                 </div>
               </nav>

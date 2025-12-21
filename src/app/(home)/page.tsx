@@ -833,20 +833,20 @@ export default function Home() {
             </div>
 
               <div className="text-center mt-12">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  <Link href="/destinations">
-                    View All Destinations
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
+                    style={{
+                      background: "var(--color-accent-sage)",
+                      color: "white",
+                    }}
+                  >
+                    <Link href="/destinations">
+                      See all locations
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
               </div>
           </div>
         </section>
