@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -17,6 +18,19 @@ import { steps, faqs } from "@/data/how-it-works";
 export default function HowItWorksPage() {
   return (
     <div className="min-h-screen">
+      <StructuredData 
+        type="faq" 
+        data={{ faqs }} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "How It Works", url: "/how-it-works" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

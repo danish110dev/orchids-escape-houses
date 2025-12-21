@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, PartyPopper, Music, Users, Droplets, Gamepad2, Film } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function PartyHousesPage() {
@@ -36,58 +37,22 @@ export default function PartyHousesPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Party Houses to Rent UK",
-            "description": "Hen party houses and group party accommodation in the UK. Perfect celebration venues with hot tubs, games rooms, and entertainment spaces for unforgettable weekends.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "category": "Holiday Accommodation"
-          })
-        }}
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Party Houses to Rent UK",
+          description: "Hen party houses and group party accommodation in the UK. Perfect celebration venues with hot tubs, games rooms, and entertainment spaces for unforgettable weekends.",
+          items: [] // In a real scenario, this would be populated with the actual properties
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "House Styles",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Party Houses",
-                "item": "https://groupescapehouses.co.uk/house-styles/party-houses"
-              }
-            ]
-          })
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles-and-features" },
+            { name: "Party Houses", url: "/house-styles/party-houses" }
+          ]
         }}
       />
 

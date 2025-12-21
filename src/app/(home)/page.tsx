@@ -334,7 +334,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData type="home" />
+      <StructuredData 
+        type="home" 
+        data={{
+          title: "Large Group Accommodation Across the UK",
+          description: "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners.",
+          items: featuredProperties
+        }} 
+      />
       <Header />
 
       <div

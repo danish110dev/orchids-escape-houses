@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
+import StructuredData from "@/components/StructuredData";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -1205,108 +1206,29 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
   const properties = propertiesByLocation[slug] || propertiesByLocation.brighton || [];
 
-  const faqs = [
-    {
-      question: `How far is ${destination.name} from London?`,
-      answer: `${destination.quickFacts.fromLondon}. ${destination.name} is easily accessible by direct train services, making it perfect for a weekend getaway without the hassle of long travel times.`
-    },
-    {
-      question: `What's included in the price of a hen party house in ${destination.name}?`,
-      answer: `Our ${destination.name} properties include all essential amenities such as WiFi, bed linens, towels, fully equipped kitchens, and access to features like hot tubs and games rooms where available. Prices are typically per night, and we'll provide a full breakdown of what's included when you enquire.`
-    },
-    {
-      question: `How many people can stay in your ${destination.name} hen party houses?`,
-      answer: `Our ${destination.name} properties accommodate groups from 10 to 20+ people. Each house listing shows the exact number of bedrooms and maximum occupancy.`
-    },
-    {
-      question: `Are hen parties and celebrations allowed in ${destination.name} properties?`,
-      answer: `Yes! Our ${destination.name} properties are specifically selected for group celebrations including hen parties. However, we do have house rules to respect neighbours and local communities.`
-    },
-    {
-      question: `What are the best areas to stay in ${destination.name} for a hen party?`,
-      answer: `For ${destination.name}, we recommend staying close to the main nightlife and entertainment areas for easy access. We'll help you choose the perfect location based on your plans.`
-    },
-    {
-      question: `Can we bring decorations and have a party at the house?`,
-      answer: `Absolutely! You're welcome to bring decorations to celebrate. We recommend non-damaging items like banners, balloons, and table decorations.`
-    },
-    {
-      question: `What time is check-in and check-out?`,
-      answer: `Standard check-in is typically 4pm and check-out is 10am. Where possible, we can arrange early check-in or late check-out for an additional fee.`
-    },
-    {
-      question: `Is parking available at ${destination.name} properties?`,
-      answer: `Most of our ${destination.name} properties include parking arrangements. We'll confirm exact details when you book.`
-    },
-    {
-      question: `How does payment work and can we split the cost?`,
-      answer: `We require a deposit to secure your booking, with the balance due closer to your stay date. For hen parties, it's common for one person to pay the deposit and then split the remaining cost among the group.`
-    },
-    {
-      question: `What's your cancellation policy?`,
-      answer: `Our standard cancellation policy allows full refund if cancelled 8+ weeks before arrival, 50% refund for 4-8 weeks notice, and deposits are non-refundable within 4 weeks of arrival.`
-    },
-    {
-      question: `Are the houses suitable for mixed groups or just hen parties?`,
-      answer: `While our properties are perfect for hen parties, they're also ideal for any group celebration including birthdays, reunions, stag dos, and special occasions.`
-    },
-    {
-      question: `Can you help arrange activities and experiences in ${destination.name}?`,
-      answer: `Yes! We partner with local experience providers to offer activities like cocktail making classes, spa treatments, private chefs, and more.`
-    }
-  ];
-
-  // FAQ Schema for SEO
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
-
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://groupescapehouses.co.uk"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Destinations",
-        "item": "https://groupescapehouses.co.uk/destinations"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": destination.name,
-        "item": `https://groupescapehouses.co.uk/destinations/${slug}`
-      }
-    ]
-  };
-
-
   return (
     <>
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      <StructuredData 
+        type="destination" 
+        data={{
+          title: `${destination.name} Group Accommodation`,
+          description: destination.overview,
+          items: properties
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Destinations", url: "/destinations" },
+            { name: destination.name, url: `/destinations/${slug}` }
+          ]
+        }}
+      />
+      <StructuredData 
+        type="faq" 
+        data={{ faqs }} 
       />
 
       {/* Hero */}

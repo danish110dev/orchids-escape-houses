@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Gamepad2, Trophy, Users, Droplets, Film, Waves } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function GamesRoomPage() {
@@ -38,60 +39,22 @@ export default function GamesRoomPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Properties with Games Rooms",
-            "description": "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North Street",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "areaServed": "GB",
-            "serviceType": "Holiday Accommodation",
-            "category": "Games Room Houses"
-          })
-        }}
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Properties with Games Rooms",
+          description: "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
+          items: []
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Games Room",
-                "item": "https://groupescapehouses.co.uk/features/games-room"
-              }
-            ]
-          })
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Games Room", url: "/features/games-room" }
+          ]
         }}
       />
 

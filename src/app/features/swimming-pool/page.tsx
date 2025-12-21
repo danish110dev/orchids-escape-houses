@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Waves, Sun, Users, Droplets, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function SwimmingPoolPage() {
@@ -17,65 +18,24 @@ export default function SwimmingPoolPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Cottages with Pools | Luxury Group Accommodation | Group Escape Houses</title>
-      <meta name="description" content="Discover stunning holiday cottages with pools across the UK. Perfect for group stays, celebrations, and relaxing pool parties in luxury surroundings." />
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Properties with Swimming Pools",
-            "description": "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "areaServed": "GB",
-            "serviceType": "Holiday Accommodation",
-            "category": "Swimming Pool Houses"
-          })
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Properties with Swimming Pools",
+          description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
+          items: []
+        }} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Swimming Pool", url: "/features/swimming-pool" }
+          ]
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Swimming Pool",
-                "item": "https://groupescapehouses.co.uk/features/swimming-pool"
-              }
-            ]
-          })
-        }}
-      />
-
       <Header />
       
       {/* Hero Section */}

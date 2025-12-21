@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Droplets, Star, Users, Waves, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function HotTubPage() {
@@ -38,60 +39,22 @@ export default function HotTubPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Properties with Hot Tubs",
-            "description": "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North Street",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "areaServed": "GB",
-            "serviceType": "Holiday Accommodation",
-            "category": "Hot Tub Houses"
-          })
-        }}
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Properties with Hot Tubs",
+          description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
+          items: []
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Hot Tub",
-                "item": "https://groupescapehouses.co.uk/features/hot-tub"
-              }
-            ]
-          })
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Hot Tub", url: "/features/hot-tub" }
+          ]
         }}
       />
 

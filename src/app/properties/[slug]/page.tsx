@@ -9,6 +9,7 @@ import PropertyCard from "@/components/PropertyCard";
 import EnquiryForm from "@/components/EnquiryForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
+import StructuredData from "@/components/StructuredData";
 import {
   Users,
   Bed,
@@ -174,6 +175,20 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <StructuredData 
+        type="property" 
+        data={property} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Properties", url: "/properties" },
+            { name: property.title, url: `/properties/${slug}` }
+          ]
+        }}
+      />
       <Header />
 
       <div className="pt-24">
