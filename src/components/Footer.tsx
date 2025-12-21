@@ -181,7 +181,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8">
             <p className="text-xs text-[var(--color-bg-secondary)] mb-6 text-center max-w-4xl mx-auto italic">
-              Group Escape Houses is an advertising platform for large group accommodation across the UK. We are not a booking agent. Property owners remain responsible for all aspects of bookings, pricing, and availability. Direct enquiries and no commission model apply.
+              Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--color-bg-secondary)]">

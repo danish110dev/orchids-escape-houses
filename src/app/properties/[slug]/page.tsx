@@ -72,14 +72,14 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
           images: [prop.heroImage], // TODO: Add gallery images from property_images
           description: prop.description,
           features: [], // TODO: Add features from property_features
-          houseRules: [
-            `Check-in: ${prop.checkInTime || '4pm'}`,
-            `Check-out: ${prop.checkOutTime || '10am'}`,
-            "No smoking inside",
-            "Quiet hours: 11pm - 8am",
-            `Maximum occupancy: ${prop.sleepsMax} guests`,
-            "Damage deposit: £500 (refundable)",
-          ],
+            houseRules: [
+              `Check-in: ${prop.checkInTime || '4pm'}`,
+              `Check-out: ${prop.checkOutTime || '10am'}`,
+              "No smoking inside",
+              "Quiet hours: 11pm - 8am",
+              `Maximum occupancy: ${prop.sleepsMax} guests`,
+              "Booking terms and deposits are set by the owner",
+            ],
           slug: prop.slug,
         };
 
@@ -128,7 +128,7 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
     {
       question: "How do deposits and payments work?",
       answer:
-        "A 25% deposit is required to secure your booking. The remaining balance is due 6 weeks before your arrival. A refundable damage deposit of £500 is also required.",
+        "All payments, including deposits and final balances, are handled directly with the property owner. They will provide you with their specific terms, payment methods, and schedules once your enquiry is confirmed.",
     },
     {
       question: "Can we bring pets?",

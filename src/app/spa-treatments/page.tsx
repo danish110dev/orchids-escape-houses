@@ -52,7 +52,7 @@ export default function SpaPage() {
     },
     {
       question: "When do we need to pay for the spa package?",
-      answer: "Spa package costs are typically paid alongside your final property balance, 8 weeks before arrival. We'll provide a clear breakdown when we confirm your booking.",
+      answer: "Payment for spa services is typically handled directly with the service provider or property owner. We will connect you with the provider to discuss their specific payment terms and schedules.",
     },
     {
       question: "What happens if we need to change numbers?",
