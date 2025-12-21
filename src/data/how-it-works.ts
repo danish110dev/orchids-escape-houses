@@ -1,4 +1,4 @@
-import { HomeIcon, Sparkles, MessageCircle, PartyPopper } from "lucide-react";
+import { Search, Send, ShieldCheck, PartyPopper } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface Step {
@@ -6,6 +6,7 @@ export interface Step {
   icon: LucideIcon;
   title: string;
   description: string;
+  color: string;
 }
 
 export interface FAQ {
@@ -16,27 +17,31 @@ export interface FAQ {
 export const steps: Step[] = [
   {
     step: 1,
-    icon: HomeIcon,
+    icon: Search,
     title: "Find the Right Property",
     description: "Browse large group houses and cottages across the UK and choose the property that suits your group.",
+    color: "#3d5a47"
   },
   {
     step: 2,
-    icon: MessageCircle,
+    icon: Send,
     title: "Enquire or Book Direct",
     description: "Send your enquiry or booking request directly to the property owner and discuss availability, pricing and terms.",
+    color: "#3d5a47"
   },
   {
     step: 3,
-    icon: Sparkles,
+    icon: ShieldCheck,
     title: "Confirm With the Owner",
     description: "Payments, deposits and booking terms are agreed and handled directly with the property owner.",
+    color: "#C6A76D"
   },
   {
     step: 4,
     icon: PartyPopper,
     title: "Enjoy Your Stay",
     description: "Arrive and enjoy your group getaway, with all arrangements managed directly with the owner.",
+    color: "#C6A76D"
   },
 ];
 

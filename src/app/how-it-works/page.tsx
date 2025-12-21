@@ -60,17 +60,17 @@ export default function HowItWorksPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="text-center group"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-[var(--color-accent-sage)]/40"
-                      style={{
-                        background: "var(--color-accent-sage)",
-                        color: "white",
-                      }}
-                    >
-                      <Icon className="w-10 h-10" />
-                    </motion.div>
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-black/20"
+                        style={{
+                          background: item.color,
+                          color: "white",
+                        }}
+                      >
+                        <Icon className="w-12 h-12" />
+                      </motion.div>
                     <h3 className="mb-4 font-semibold text-xl" style={{ fontFamily: "var(--font-body)" }}>
                       {item.title}
                     </h3>
