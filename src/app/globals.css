@@ -430,43 +430,10 @@
     color: inherit;
     text-decoration: none;
   }
-
-  /* Brand Link Styles for Content */
-  p a:not([role="button"]):not([class*="Button"]),
-  .prose a:not([role="button"]):not([class*="Button"]) {
-    color: var(--color-accent-sage);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-color: rgba(137, 163, 143, 0.4);
-    transition: all 0.2s ease;
-  }
-
-  p a:not([role="button"]):not([class*="Button"]):hover,
-  .prose a:not([role="button"]):not([class*="Button"]):hover {
-    color: var(--color-accent-gold);
-    text-decoration-color: var(--color-accent-gold);
-  }
-
-  /* Brand Selection Color */
+  
   ::selection {
     background-color: var(--color-accent-sage);
     color: white;
-  }
-  
-  ::-moz-selection {
-    background-color: var(--color-accent-sage);
-    color: white;
-  }
-
-  /* Remove default mobile tap highlight */
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  /* Brand Focus State */
-  :focus-visible {
-    outline: 2px solid var(--color-accent-sage) !important;
-    outline-offset: 2px;
   }
   
   /* Input styling */

@@ -359,7 +359,7 @@ export default function Header() {
                     <div className="mt-6 pt-5 border-t border-gray-100">
 <Link
   href="/experiences"
-  className="text-sm font-semibold hover:text-[var(--color-accent-sage)] transition-colors"
+  className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
 >
 
                         View All Experiences →
@@ -407,7 +407,7 @@ export default function Header() {
                     <div className="mt-6 pt-5 border-t border-gray-100">
 <Link
   href="/destinations"
-  className="text-sm font-semibold hover:text-[var(--color-accent-sage)] transition-colors"
+  className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
 >
 
                         View All Destinations →

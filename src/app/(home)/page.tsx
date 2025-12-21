@@ -381,9 +381,9 @@ export default function Home() {
             <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-                Luxury houses for groups of all sizes with <Link href="/features/hot-tub">hot tubs</Link>, <Link href="/features/swimming-pool">pools</Link>, and outstanding amenities
-              </p>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
+            </p>
 
             {/* Search Form */}
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto">
@@ -669,9 +669,9 @@ export default function Home() {
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 Featured Large Group Houses
               </h2>
-                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                  Exceptional <Link href="/house-styles/luxury-houses" className="underline">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline">hot tubs</Link> and <Link href="/features/games-room" className="underline">games rooms</Link>
-                </p>
+              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
+              </p>
             </div>
 
             {isLoadingData ? (
@@ -720,7 +720,7 @@ export default function Home() {
                 Enhance Your Group Stay
               </h2>
                 <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                  Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline">celebration</Link> unforgettable
+                  Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] underline hover:text-[var(--color-accent-gold)] transition-colors">celebration</Link> unforgettable
                 </p>
             </div>
 
@@ -746,17 +746,17 @@ export default function Home() {
 
             <div className="text-center mt-12">
               <Link href="/experiences">
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-pink)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
-                  View All Experiences
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                  <Button
+                    size="lg"
+                    className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] hover:opacity-90 border-none"
+                    style={{
+                      background: "var(--color-accent-sage)",
+                      color: "white",
+                    }}
+                  >
+                    View All Experiences
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
               </Link>
             </div>
           </div>
