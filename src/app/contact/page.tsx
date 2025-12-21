@@ -5,7 +5,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink, ArrowRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { formatDateUKLong } from "@/lib/date-utils";
 import "react-day-picker/dist/style.css";
