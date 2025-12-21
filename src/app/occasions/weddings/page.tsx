@@ -12,89 +12,10 @@ import Image from "next/image";
 export default function WeddingsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const features = [
-    "Spacious grounds and photo-perfect backdrops for your special day",
-    "On-site or nearby ceremony options for intimate celebrations",
-    "Catering, styling, and entertainment packages available",
-    "Accommodation for wedding party and guests all in one place",
-    "Exclusive use properties for complete privacy",
-    "Dedicated wedding coordinator to help plan every detail"
-  ];
-
-  const galleryImages = [
-    {
-      url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=90",
-      alt: "Beautiful outdoor wedding ceremony in elegant garden setting"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=90",
-      alt: "Romantic countryside wedding venue"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1600&q=90",
-      alt: "Elegant wedding reception table setup"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90",
-      alt: "Wedding celebration with guests"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&q=90",
-      alt: "Bride and groom in beautiful garden venue"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1600&q=90",
-      alt: "Luxury wedding venue with stunning architecture"
-    }
-  ];
-
-  const benefits = [
-    {
-      title: "Intimate Venues",
-      description: "Beautiful houses and grounds perfect for micro-weddings and weekend celebrations",
-      icon: Church
-    },
-    {
-      title: "All-In-One Stay",
-      description: "Ceremony, reception, and accommodation in one stunning location",
-      icon: Users
-    },
-    {
-      title: "Picture Perfect",
-      description: "Gorgeous gardens, elegant interiors, and scenic backdrops for wedding photos",
-      icon: Camera
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Can we hold the wedding ceremony at the house?",
-      answer: "Many of our properties are licensed for civil ceremonies or have beautiful grounds perfect for outdoor weddings. Some work with nearby venues. We'll help you find the perfect setup for your ceremony and celebration."
-    },
-    {
-      question: "How many guests can stay at the property?",
-      answer: "Our wedding houses typically accommodate 10-30 guests for overnight stays. This is perfect for intimate weddings where the wedding party and close family can stay together for the whole weekend."
-    },
-    {
-      question: "Can you arrange catering for our wedding?",
-      answer: "Absolutely! We work with excellent caterers and can arrange everything from formal wedding breakfasts to relaxed barbecues and buffets. We can also arrange private chefs, bar service, and wedding cakes."
-    },
-    {
-      question: "What about decorations and styling?",
-      answer: "We can arrange professional styling and decoration services including florals, table settings, lighting, and more. Many couples also choose to bring their own personal touches, which is absolutely fine."
-    },
-    {
-      question: "How far in advance should we book for a wedding?",
-      answer: "We recommend booking 12-18 months in advance for summer weekends and popular dates. However, we often have availability for smaller timescales, especially for midweek weddings or off-peak months."
-    },
-    {
-      question: "Do you have wedding packages available?",
-      answer: "Yes! We can create bespoke wedding packages including accommodation, catering, styling, and coordination. Get in touch to discuss your dream wedding and we'll create a tailored package for you."
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <title>Wedding Venues with Accommodation | Group Escape Houses</title>
+      <meta name="description" content="Discover stunning wedding venues with accommodation across the UK. Perfect for intimate celebrations, ceremonies, and full-weekend group wedding stays." />
       <Header />
 
       {/* Hero Section */}
@@ -115,12 +36,13 @@ export default function WeddingsPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-8 left-8">
-              <h1 
-                className="text-white mb-2" 
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Wedding Houses
-              </h1>
+                <h1 
+                  className="text-white mb-2" 
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Wedding Venues with Accommodation
+                </h1>
+
               <p className="text-white/90 text-lg">Intimate venues for unforgettable celebrations</p>
             </div>
           </motion.div>

@@ -1,25 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { Check, ArrowRight, Dog, Home, TreePine } from "lucide-react";
+import { Check, ArrowRight, TreePine, Map, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-export default function LuxuryDogFriendlyCottagesPage() {
+export default function RuralRetreatsPage() {
   const highlights = [
-    "Pet-friendly luxury cottages with enclosed gardens",
-    "Beautiful countryside locations with dog walks nearby",
-    "Welcome packs and facilities for your furry friends",
-    "Spacious interiors and comfortable outdoor spaces",
-    "No need to leave family members behind"
+    "Scenic countryside locations across the UK",
+    "Luxury group houses with high-end interiors",
+    "Peaceful environments away from city noise",
+    "Walking trails and outdoor activities nearby",
+    "Spacious homes perfect for large group stays"
   ];
 
   return (
     <div className="min-h-screen">
-      <title>Dog Friendly Holiday Cottages and Group Accommodation | Group Escape Houses</title>
-      <meta name="description" content="Find luxury dog friendly holiday cottages and group accommodation across the UK. Perfect for large groups where every family member, including pets, is welcome." />
+      <title>Rural Retreats Group Accommodation | Group Escape Houses</title>
+      <meta name="description" content="Discover luxury rural retreats for large groups across the UK. Escape to the countryside with our handpicked collection of group houses and cottages." />
+      
       <Header />
       
       {/* Hero Section */}
@@ -27,29 +28,27 @@ export default function LuxuryDogFriendlyCottagesPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1510312305653-8ed496efbe75?w=1600&q=90')",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
         </div>
         
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
-          {/* Breadcrumb with white background card */}
           <nav className="inline-flex items-center gap-2 text-sm mb-6 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
             <Link href="/" className="text-[var(--color-accent-sage)] hover:underline font-medium">Home</Link>
             <span className="text-[var(--color-neutral-dark)]">/</span>
-            <Link href="/house-styles-and-features" className="text-[var(--color-accent-sage)] hover:underline font-medium">House Styles</Link>
+            <Link href="/holiday-focus" className="text-[var(--color-accent-sage)] hover:underline font-medium">Holiday Focus</Link>
             <span className="text-[var(--color-neutral-dark)]">/</span>
-            <span className="text-[var(--color-accent-gold)] font-semibold">Luxury Dog Friendly Cottages</span>
+            <span className="text-[var(--color-accent-gold)] font-semibold">Rural Retreats</span>
           </nav>
           
-          {/* Hero text in white card */}
           <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl max-w-4xl mx-auto">
             <h1 className="mb-4 text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
-              Luxury Dog Friendly Cottages
+              Rural Retreats
             </h1>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Pet-friendly luxury homes where everyone in the family is welcome
+              Escape to the UK countryside in luxury group accommodation
             </p>
           </div>
         </div>
@@ -61,14 +60,14 @@ export default function LuxuryDogFriendlyCottagesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Dog-Friendly Cottages UK
+                Countryside Group Getaways
               </h2>
               <p className="text-lg text-[var(--color-neutral-dark)] mb-8 leading-relaxed">
-                Bring your four-legged friends along to our luxury dog-friendly cottages. These carefully selected properties combine high-end interiors with practical pet facilities, including enclosed gardens, nearby walking trails, and plenty of space for everyone to relax. Perfect for celebrations where the whole family can join in.
+                Our rural retreats offer the perfect escape for groups looking to reconnect with nature without compromising on luxury. From converted barns in the Cotswolds to stately homes in the Scottish Highlands, each property provides a peaceful base for your group adventure.
               </p>
 
               <h3 className="text-2xl font-semibold mb-4" style={{ fontFamily: "var(--font-body)" }}>
-                What to Expect
+                Highlights of Our Rural Escapes
               </h3>
               <ul className="space-y-3 mb-8">
                 {highlights.map((highlight, index) => (
@@ -86,7 +85,7 @@ export default function LuxuryDogFriendlyCottagesPage() {
                 style={{ background: "var(--color-accent-sage)" }}
               >
                 <Link href="/properties">
-                  Browse Dog Friendly Cottages
+                  Browse Rural Properties
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
@@ -97,26 +96,14 @@ export default function LuxuryDogFriendlyCottagesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
                 className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
               >
-                <motion.div
-                  animate={{ 
-                    y: [0, -10, 0],
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Dog className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
-                </motion.div>
+                <TreePine className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                  Pets Welcome
+                  Pure Tranquility
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
-                  Enclosed gardens and facilities designed for your furry friends
+                  Secluded locations providing the perfect backdrop for group relaxation.
                 </p>
               </motion.div>
 
@@ -124,26 +111,15 @@ export default function LuxuryDogFriendlyCottagesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ delay: 0.1 }}
                 className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
               >
-                <motion.div
-                  animate={{ 
-                    rotate: [0, -10, 10, -10, 0],
-                  }}
-                  transition={{ 
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <TreePine className="w-12 h-12 text-[var(--color-accent-gold)] mb-4" />
-                </motion.div>
+                <Map className="w-12 h-12 text-[var(--color-accent-gold)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                  Countryside Walks
+                  Explore Nature
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
-                  Beautiful rural locations with dog-friendly trails nearby
+                  Direct access to walking trails and scenic viewpoints across the UK.
                 </p>
               </motion.div>
 
@@ -151,26 +127,15 @@ export default function LuxuryDogFriendlyCottagesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ delay: 0.2 }}
                 className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
               >
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{ 
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Home className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
-                </motion.div>
+                <Users className="w-12 h-12 text-[var(--color-accent-sage)] mb-4" />
                 <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                  Luxury Comfort
+                  Group Spaces
                 </h3>
                 <p className="text-[var(--color-neutral-dark)]">
-                  High-end interiors without compromising on pet friendliness
+                  Large social areas and kitchen facilities designed for shared moments.
                 </p>
               </motion.div>
             </div>

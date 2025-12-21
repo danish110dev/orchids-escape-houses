@@ -15,20 +15,10 @@ export default function SwimmingPoolPage() {
     "Create unforgettable poolside memories"
   ];
 
-  const relatedFeatures = [
-    { title: "Hot Tub", slug: "hot-tub", icon: Droplets },
-    { title: "Cinema Room", slug: "cinema-room", icon: Film },
-    { title: "Games Room", slug: "games-room", icon: Gamepad2 },
-  ];
-
-  const popularHouseStyles = [
-    { title: "Luxury Houses", slug: "luxury-houses" },
-    { title: "Manor Houses", slug: "manor-houses" },
-    { title: "Party Houses", slug: "party-houses" },
-  ];
-
   return (
     <div className="min-h-screen">
+      <title>Cottages with Pools | Luxury Group Accommodation | Group Escape Houses</title>
+      <meta name="description" content="Discover stunning holiday cottages with pools across the UK. Perfect for group stays, celebrations, and relaxing pool parties in luxury surroundings." />
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -108,9 +98,10 @@ export default function SwimmingPoolPage() {
             <span className="text-white font-medium">Swimming Pool</span>
           </nav>
           
-          <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
-            Properties with Swimming Pools
-          </h1>
+            <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
+              Cottages with Pools
+            </h1>
+
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Outdoor pools for unforgettable summer celebrations and hen parties
           </p>
