@@ -61,17 +61,17 @@ export default function AdvertiseWithUs() {
                   </p>
                   
                   <div className="flex flex-wrap gap-4">
-                    <Button 
-                      asChild
-                      size="lg"
-                      className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <Link href="#contact">
-                        Register Your Property
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
+                      <Button 
+                        asChild
+                        size="lg"
+                        className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                        style={{ background: "var(--color-accent-sage)" }}
+                      >
+                        <Link href="/contact">
+                          Register Your Property
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                      </Button>
                     
                     <Button 
                       asChild
@@ -320,16 +320,16 @@ export default function AdvertiseWithUs() {
                   </li>
                 </ul>
                 
-                <Button 
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
-                >
-                  <Link href="#contact">
-                    Get Started
-                  </Link>
-                </Button>
+                  <Button 
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
+                  >
+                    <Link href="/contact">
+                      Get Started
+                    </Link>
+                  </Button>
               </div>
 
               <div className="bg-white rounded-3xl p-8 border-2 border-[var(--color-accent-sage)] shadow-2xl relative scale-105 hover:shadow-xl transition-all">
@@ -392,16 +392,16 @@ export default function AdvertiseWithUs() {
                   </li>
                 </ul>
                 
-                <Button 
-                  asChild
-                  size="lg"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold text-white transition-all hover:-translate-y-0.5"
-                  style={{ background: "var(--color-accent-sage)" }}
-                >
-                  <Link href="#contact">
-                    Get Started
-                  </Link>
-                </Button>
+                  <Button 
+                    asChild
+                    size="lg"
+                    className="w-full rounded-2xl px-8 py-6 font-semibold text-white transition-all hover:-translate-y-0.5"
+                    style={{ background: "var(--color-accent-sage)" }}
+                  >
+                    <Link href="/contact">
+                      Get Started
+                    </Link>
+                  </Button>
               </div>
 
               <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:shadow-xl transition-all">
@@ -450,16 +450,16 @@ export default function AdvertiseWithUs() {
                   </li>
                 </ul>
                 
-                <Button 
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
-                >
-                  <Link href="#contact">
-                    Get Started
-                  </Link>
-                </Button>
+                  <Button 
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
+                  >
+                    <Link href="/contact">
+                      Get Started
+                    </Link>
+                  </Button>
               </div>
             </div>
 
