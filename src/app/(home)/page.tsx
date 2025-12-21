@@ -347,33 +347,45 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
+          {/* Hero Poster / LCP Candidate - Always visible until video loads */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ${shouldLoadVideo ? 'opacity-0 pointer-events-none' : 'opacity-30'}`}>
+            <Image 
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+              alt="Luxury Group Escape House"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+
           {shouldLoadVideo && (
             <>
-              {/* Desktop Video */}
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
-                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-              >
-                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
-              </video>
+                {/* Desktop Video */}
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
+                  poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+                >
+                  <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
+                </video>
 
-              {/* Mobile Video */}
-              <video
-                ref={mobileVideoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-30 block md:hidden"
-                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-              >
-                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
-              </video>
+                {/* Mobile Video */}
+                <video
+                  ref={mobileVideoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 block md:hidden"
+                  poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+                >
+                  <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
+                </video>
             </>
           )}
 
@@ -785,13 +797,15 @@ export default function Home() {
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
-                      <Image
-                        src={destination.image}
-                        alt={destination.name}
-                        fill
-                        className="object-cover object-center transition-transform group-hover:scale-110"
-                        sizes="(max-width: 768px) 300px, 400px"
-                      />
+                        <Image
+                          src={destination.image}
+                          alt={destination.name}
+                          fill
+                          className="object-cover object-center transition-transform group-hover:scale-110"
+                          sizes="(max-width: 768px) 300px, 400px"
+                          quality={70}
+                        />
+
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -808,13 +822,15 @@ export default function Home() {
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
-                      <Image
-                        src={destination.image}
-                        alt={destination.name}
-                        fill
-                        className="object-cover object-center transition-transform group-hover:scale-110"
-                        sizes="(max-width: 768px) 300px, 400px"
-                      />
+                        <Image
+                          src={destination.image}
+                          alt={destination.name}
+                          fill
+                          className="object-cover object-center transition-transform group-hover:scale-110"
+                          sizes="(max-width: 768px) 300px, 400px"
+                          quality={70}
+                        />
+
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -1106,14 +1122,16 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
-                      <Image
-                        src={img}
-                        alt={`Instagram post ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="280px"
-                        loading="lazy"
-                      />
+                        <Image
+                          src={img}
+                          alt={`Instagram post ${index + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          sizes="280px"
+                          loading="lazy"
+                          quality={60}
+                        />
+
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
                           <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
@@ -1138,14 +1156,16 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                     >
-                      <Image
-                        src={img}
-                        alt={`Instagram post ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="280px"
-                        loading="lazy"
-                      />
+                        <Image
+                          src={img}
+                          alt={`Instagram post ${index + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          sizes="280px"
+                          loading="lazy"
+                          quality={60}
+                        />
+
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
                           <Instagram className="w-10 h-10 text-white drop-shadow-lg" />

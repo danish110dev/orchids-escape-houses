@@ -25,15 +25,16 @@ export default function ExperienceCard({
     <Link href={`/experiences/${slug}`}>
       <div className="group relative rounded-2xl overflow-hidden h-[450px] md:h-96 shadow-md hover:shadow-2xl transition-all duration-300">
         <div className="relative w-full h-[250px] md:h-64 bg-gray-50">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            quality={85}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            priority={false}
-          />
+            <Image
+              src={image}
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={75}
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              priority={false}
+            />
+
         </div>
         
         {/* Content with white background */}
