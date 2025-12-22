@@ -64,6 +64,7 @@ export default function RootLayout({
       <head>
           <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
           <link rel="preconnect" href="https://images.unsplash.com" />
+          <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
       </head>
         <body className={`${fontBody.variable} ${fontDisplay.variable} antialiased`}>
