@@ -9,10 +9,91 @@ import { Church, Camera, Utensils, Sparkles, Check, ChevronDown, Star, Users } f
 import { useState } from "react";
 import Image from "next/image";
 
-export default function WeddingsPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  export default function WeddingsPage() {
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  return (
+    const features = [
+      "Large houses with enough bedrooms for all your wedding guests",
+      "Exclusive use of the house and grounds for your entire stay",
+      "No corkage fees – bring your own drinks and save on costs",
+      "Choice of ceremony locations, both on-site and nearby",
+      "Beautiful spaces for your reception and wedding breakfast",
+      "Option to extend your stay for a full wedding weekend"
+    ];
+
+    const galleryImages = [
+      {
+        url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&auto=format&fit=crop",
+        alt: "Beautiful outdoor wedding ceremony"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop",
+        alt: "Elegant wedding reception table setting"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&auto=format&fit=crop",
+        alt: "Wedding celebration with decorations"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&auto=format&fit=crop",
+        alt: "Stunning venue for your special day"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1544161442-e3db36c4f67c?w=1600&auto=format&fit=crop",
+        alt: "Intimate wedding dinner atmosphere"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&auto=format&fit=crop",
+        alt: "Magic wedding moments in the garden"
+      }
+    ];
+
+    const benefits = [
+      {
+        title: "Exclusive Privacy",
+        description: "Enjoy your special day in total privacy with exclusive use of the entire house and grounds.",
+        icon: Sparkles
+      },
+      {
+        title: "Guest Accommodation",
+        description: "With enough rooms for family and friends, everyone can stay together under one roof.",
+        icon: Users
+      },
+      {
+        title: "Bespoke Freedom",
+        description: "From catering to decor, you have the freedom to design your wedding exactly as you want.",
+        icon: Utensils
+      }
+    ];
+
+    const faqs = [
+      {
+        question: "Are your houses licensed for wedding ceremonies?",
+        answer: "Many of our houses hold wedding licenses for civil ceremonies. Those that don't are often located very close to local churches or registry offices. Please check the individual property details or contact us for specific information."
+      },
+      {
+        question: "Do you offer on-site catering for weddings?",
+        answer: "Usually, we offer a 'blank canvas' where you can bring in your own caterers. However, we have a list of recommended local suppliers who know our properties well and can provide anything from formal dining to casual BBQs."
+      },
+      {
+        question: "Is there a minimum stay for wedding bookings?",
+        answer: "Most of our wedding houses have a minimum 2 or 3-night stay, typically over a weekend (Friday to Monday). This allows you plenty of time to set up, celebrate, and relax without any rush."
+      },
+      {
+        question: "Can we have a marquee in the grounds?",
+        answer: "Many of our properties have large gardens suitable for marquees, allowing you to accommodate even more guests for your reception. Please check the property's individual grounds capacity."
+      },
+      {
+        question: "Is there enough parking for all our wedding guests?",
+        answer: "Our large houses typically offer ample on-site parking for staying guests. If you have many additional day guests arriving, we can advise on local parking options or transport arrangements like shuttle buses."
+      },
+      {
+        question: "Can you help with wedding planning?",
+        answer: "While we provide the venue, we have excellent relationships with local wedding planners and suppliers. We're happy to share our recommendations to help you coordinate your perfect celebration."
+      }
+    ];
+
+    return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <title>Wedding Venues with Accommodation | Group Escape Houses</title>
       <meta name="description" content="Discover stunning wedding venues with accommodation across the UK. Perfect for intimate celebrations, ceremonies, and full-weekend group wedding stays." />
