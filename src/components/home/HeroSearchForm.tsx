@@ -4,7 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { MapPin, Calendar, User, Sparkles, Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar as CalendarComponent } from "@/components/ui/calendar";
+import dynamic from "next/dynamic";
+
+const CalendarComponent = dynamic(() => import("@/components/ui/calendar").then(mod => mod.Calendar), {
+  loading: () => <div className="h-[300px] w-[280px] bg-gray-50 animate-pulse rounded-xl" />,
+  ssr: false
+});
 import { format } from "date-fns";
 import type { DateRange } from "react-day-picker";
 

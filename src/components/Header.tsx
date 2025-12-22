@@ -9,6 +9,12 @@ import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+import dynamic from "next/dynamic";
+
+const MobileMenu = dynamic(() => import("./MobileMenu"), {
+  ssr: false
+});
+
 export default function Header() {
   const router = useRouter();
   const { data: session, isPending, refetch } = useSession();
@@ -19,11 +25,6 @@ export default function Header() {
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [isOccasionsOpen, setIsOccasionsOpen] = useState(false);
   const [isExperiencesOpen, setIsExperiencesOpen] = useState(false);
-  const [isMobileStylesOpen, setIsMobileStylesOpen] = useState(false);
-  const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
-  const [isMobileDestinationsOpen, setIsMobileDestinationsOpen] = useState(false);
-  const [isMobileOccasionsOpen, setIsMobileOccasionsOpen] = useState(false);
-  const [isMobileExperiencesOpen, setIsMobileExperiencesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,18 +41,12 @@ export default function Header() {
     }
   }, [isPending, isInitialized]);
 
-  // Lock body scroll when mobile menu is open and reset submenu states when closing
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      // Reset submenu states when menu closes
-      setIsMobileStylesOpen(false);
-      setIsMobileFeaturesOpen(false);
-      setIsMobileDestinationsOpen(false);
-      setIsMobileOccasionsOpen(false);
-      setIsMobileExperiencesOpen(false);
     }
     return () => {
       document.body.style.overflow = "";
@@ -517,319 +512,20 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </header>
-
-      {/* Mobile Menu - Full Screen Overlay */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-[55] bg-[#E5D8C5] flex flex-col overflow-hidden">
-          {/* Menu Content - Scrollable */}
-          <div className="flex-1 overflow-y-auto px-8 pt-32 pb-12">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-              {/* Left Column - Main Navigation */}
-              <nav className="space-y-6">
-                <Link
-                  href="/"
-                  className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  style={{ fontFamily: "var(--font-display)" }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                </Link>
-
-                {/* Properties Dropdown */}
-                <div className="space-y-3">
-                  <Link
-                    href="/properties"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Properties
-                  </Link>
-                  
-                  {/* House Styles Submenu */}
-                  <button
-                    onClick={() => setIsMobileStylesOpen(!isMobileStylesOpen)}
-                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                  >
-                    House Styles
-                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileStylesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {isMobileStylesOpen && (
-                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                      {houseStyles.map((style) => (
-                        <Link
-                          key={style.slug}
-                          href={`/house-styles/${style.slug}`}
-                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {style.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Features Submenu */}
-                  <button
-                    onClick={() => setIsMobileFeaturesOpen(!isMobileFeaturesOpen)}
-                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                  >
-                    Must-Have Features
-                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileFeaturesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {isMobileFeaturesOpen && (
-                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                      {features.map((feature) => (
-                        <Link
-                          key={feature.slug}
-                          href={`/features/${feature.slug}`}
-                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {feature.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Occasions Dropdown */}
-                <div className="space-y-3">
-                  <Link
-                    href="/occasions"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Occasions
-                  </Link>
-                  
-                  <button
-                    onClick={() => setIsMobileOccasionsOpen(!isMobileOccasionsOpen)}
-                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                  >
-                    View By Occasion
-                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileOccasionsOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {isMobileOccasionsOpen && (
-                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                      {occasions.map((occasion) => (
-                        <Link
-                          key={occasion.slug}
-                          href={`/occasions/${occasion.slug}`}
-                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {occasion.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Experiences Dropdown */}
-                <div className="space-y-3">
-                  <Link
-                    href="/experiences"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Experiences
-                  </Link>
-                  
-                  <button
-                    onClick={() => setIsMobileExperiencesOpen(!isMobileExperiencesOpen)}
-                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                  >
-                    Popular Experiences
-                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileExperiencesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {isMobileExperiencesOpen && (
-                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                      {experiences.map((experience) => (
-                        <Link
-                          key={experience.slug}
-                          href={`/experiences/${experience.slug}`}
-                          className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {experience.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Destinations with Dropdown */}
-                <div className="space-y-3">
-                  <Link
-                    href="/destinations"
-                    className="block text-4xl md:text-5xl font-semibold hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Destinations
-                  </Link>
-                  
-                  <button
-                    onClick={() => setIsMobileDestinationsOpen(!isMobileDestinationsOpen)}
-                    className="flex items-center gap-2 text-lg text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
-                  >
-                    Popular Locations
-                    <ChevronDown className={`w-5 h-5 transition-transform ${isMobileDestinationsOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {isMobileDestinationsOpen && (
-                    <div className="pl-4 space-y-2 text-[var(--color-neutral-dark)]">
-                       {destinations.map((destination) => (
-                         <Link
-                           key={destination.slug}
-                           href={`/destinations/${destination.slug}`}
-                           className="block py-1 hover:text-[var(--color-accent-sage)] transition-colors"
-                           onClick={() => setIsMobileMenuOpen(false)}
-                         >
-                           {destination.title}
-                         </Link>
-                       ))}
-                       <Link
-                         href="/destinations"
-                         className="block py-2 mt-2 font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-                         onClick={() => setIsMobileMenuOpen(false)}
-                       >
-                         See all locations →
-                       </Link>
-                     </div>
-                  )}
-                </div>
-              </nav>
-
-              {/* Right Column - Secondary Navigation */}
-              <nav className="space-y-4 md:pt-0 pt-8">
-                <Link
-                  href="/how-it-works"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  How It Works
-                </Link>
-
-                <Link
-                  href="/advertise-with-us"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Advertise Your Property
-                </Link>
-
-                <Link
-                  href="/admin/bookings"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Admin Dashboard
-                </Link>
-
-                <Link
-                  href="/our-story"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Our Story
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact Us
-                </Link>
-
-                <Link
-                  href="/blog"
-                  className="block text-2xl font-medium hover:text-[var(--color-accent-sage)] transition-colors text-[var(--color-text-primary)]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Inspiration
-                </Link>
-              </nav>
-            </div>
-          </div>
-
-          {/* Bottom CTA with Auth */}
-          <div className="border-t border-[var(--color-text-primary)]/20 px-8 py-6 bg-[#E5D8C5] space-y-3">
-            {isPending ? (
-              <div className="w-full h-12 rounded-2xl bg-white/50 animate-pulse"></div>
-            ) : session?.user ? (
-              <>
-                <div className="flex items-center justify-between p-4 bg-white/90 rounded-xl">
-                  <div className="flex items-center gap-2">
-                    <UserIcon className="w-5 h-5 text-[var(--color-accent-sage)]" />
-                    <span className="font-medium text-[var(--color-text-primary)]">
-                      {session.user.name}
-                    </span>
-                  </div>
-                  <Button
-                    onClick={handleSignOut}
-                    size="sm"
-                    variant="outline"
-                    className="rounded-lg border-red-500 text-red-600 hover:bg-red-50"
-                  >
-                    <LogOut className="w-4 h-4" />
-                  </Button>
-                </div>
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full rounded-2xl px-8 py-3 font-medium"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  <Link href="/contact">Check Availability and Book</Link>
-                </Button>
-              </>
-            ) : (
-              <>
-                <div className="grid grid-cols-2 gap-3">
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="rounded-2xl px-6 py-3 font-medium bg-white border-2 border-[var(--color-accent-sage)]"
-                  >
-                    <Link href="/login">Log In</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-2xl px-6 py-3 font-medium"
-                    style={{
-                      background: "var(--color-accent-gold)",
-                      color: "white",
-                    }}
-                  >
-                    <Link href="/register">Sign Up</Link>
-                  </Button>
-                </div>
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full rounded-2xl px-8 py-3 font-medium"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  <Link href="/contact">Check Availability and Book</Link>
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
+        </header>
+  
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+          session={session}
+          isPending={isPending}
+          onSignOut={handleSignOut}
+          houseStyles={houseStyles}
+          features={features}
+          destinations={destinations}
+          occasions={occasions}
+          experiences={experiences}
+        />
+      </>
+    );
+  }

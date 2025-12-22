@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
-import CookieConsent from "@/components/CookieConsent";
-import WhatsAppChat from "@/components/WhatsAppChat";
-import { Toaster } from "@/components/ui/sonner";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import CustomAutumnProvider from "@/lib/autumn-provider";
+import ClientSideFeatures from "@/components/ClientSideFeatures";
 
 const fontBody = Inter({
   subsets: ["latin"],
@@ -85,14 +83,12 @@ export default function RootLayout({
             data-debug="true"
             data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
           />
-          <CustomAutumnProvider>
-            {children}
-          </CustomAutumnProvider>
-          <CookieConsent />
-          <Toaster />
-      
-        <VisualEditsMessenger />
-      </body>
+            <CustomAutumnProvider>
+              {children}
+            </CustomAutumnProvider>
+            <ClientSideFeatures />
+        </body>
+
     </html>
   );
 }
