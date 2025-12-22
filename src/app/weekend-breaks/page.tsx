@@ -297,7 +297,7 @@ export default function WeekendBreaksPage() {
                 color: "var(--color-text-primary)",
               }}
             >
-              <Link href="/destinations">View All Destinations</Link>
+              <Link href="/destinations">See all locations</Link>
             </Button>
           </div>
         </div>

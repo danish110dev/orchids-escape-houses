@@ -18,6 +18,8 @@ export default function LuxuryDogFriendlyCottagesPage() {
 
   return (
     <div className="min-h-screen">
+      <title>Dog Friendly Holiday Cottages and Group Accommodation | Group Escape Houses</title>
+      <meta name="description" content="Find luxury dog friendly holiday cottages and group accommodation across the UK. Perfect for large groups where every family member, including pets, is welcome." />
       <Header />
       
       {/* Hero Section */}

@@ -28,11 +28,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Advertise Your Property - List With Group Escape Houses",
-  description: "No hidden costs. No commission. Just a simple annual subscription to list your luxury property on Group Escape Houses. Direct bookings, full control, dedicated support.",
+  title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+  description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
   openGraph: {
-    title: "Advertise Your Property - List With Group Escape Houses",
-    description: "No hidden costs. No commission. Just a simple annual subscription.",
+    title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+    description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
     type: "website",
   },
 };
@@ -177,7 +177,7 @@ export default function AdvertisePage() {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Advertise Your Property on Group Escape Houses
+              Advertise Your Property to Large Groups
             </h1>
             
             <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed mb-8">

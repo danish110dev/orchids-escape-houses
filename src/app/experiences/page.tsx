@@ -119,12 +119,12 @@ export default function ExperiencesPage() {
   ];
 
   const destinations = [
-    { name: "Brighton", slug: "brighton", image: "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=800" },
-    { name: "Bath", slug: "bath", image: "https://images.unsplash.com/photo-1566510224904-a6b733e0d0fa?w=800" },
-    { name: "Bournemouth", slug: "bournemouth", image: "https://images.unsplash.com/photo-1580837119756-563d608dd119?w=800" },
-    { name: "York", slug: "york", image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800" },
-    { name: "Manchester", slug: "manchester", image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=800" },
-    { name: "Cardiff", slug: "cardiff", image: "https://images.unsplash.com/photo-1570936885323-16be1d36f92d?w=800" },
+    { name: "Brighton", slug: "brighton", image: "https://images.unsplash.com/photo-1577742111582-7d04fde85611?w=800" },
+    { name: "Bath", slug: "bath", image: "https://images.unsplash.com/photo-1543974010-a99ad70cb36d?w=800" },
+    { name: "Bournemouth", slug: "bournemouth", image: "https://images.unsplash.com/photo-1563821731110-33230a10bac0?w=800" },
+    { name: "York", slug: "york", image: "https://images.unsplash.com/photo-1569429548424-42f0689ced64?w=800" },
+    { name: "Manchester", slug: "manchester", image: "https://images.unsplash.com/photo-1515586060485-259341a5b0df?w=800" },
+    { name: "Cardiff", slug: "cardiff", image: "https://images.unsplash.com/photo-1549893072-4bc678117f45?w=800" },
   ];
 
   const popularExperiences = experiences.filter(exp => exp.popular);
@@ -427,11 +427,10 @@ export default function ExperiencesPage() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
               style={{
-                borderColor: "var(--color-accent-gold)",
-                color: "var(--color-text-primary)",
+                background: "var(--color-accent-sage)",
+                color: "white",
               }}
             >
               <Link href="/contact">Contact Our Team</Link>
@@ -484,39 +483,41 @@ export default function ExperiencesPage() {
                   href={`/destinations/${destination.slug}`}
                   className="group block relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-64"
                 >
-                  <img
-                    src={destination.image}
-                    alt={`${destination.name} group experiences`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                    <MapPin className="w-8 h-8 mb-3 transition-transform duration-300 group-hover:scale-110" />
-                    <h3 className="text-3xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                      {destination.name}
-                    </h3>
-                    <span className="text-sm opacity-90 transition-opacity duration-300 group-hover:opacity-100">
-                      View Properties & Experiences →
-                    </span>
-                  </div>
+                    <img
+                      src={destination.image}
+                      alt={`${destination.name} luxury group accommodation`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white" style={{ color: 'white' }}>
+                      <MapPin className="w-8 h-8 mb-3 text-white transition-transform duration-300 group-hover:scale-110" />
+                      <h3 className="text-3xl font-semibold mb-2 text-white" style={{ fontFamily: "var(--font-display)", color: "white" }}>
+                        {destination.name}
+                      </h3>
+                      <div 
+                        className="mt-4 px-6 py-2 rounded-full border border-white/60 bg-white/10 backdrop-blur-sm text-sm font-medium text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+                      >
+                        View Properties & Experiences →
+                      </div>
+                    </div>
                 </Link>
               </motion.div>
             ))}
           </motion.div>
 
           <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
-              style={{
-                borderColor: "var(--color-accent-sage)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/destinations">View All Destinations</Link>
-            </Button>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                style={{
+                  background: "var(--color-accent-sage)",
+                  color: "white",
+                }}
+              >
+                <Link href="/destinations">See all locations</Link>
+              </Button>
           </div>
         </div>
       </section>

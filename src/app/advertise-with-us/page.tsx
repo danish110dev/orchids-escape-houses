@@ -1,4 +1,6 @@
-import { Metadata } from "next";
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -16,21 +18,10 @@ import {
   Users,
   Home,
   Trophy,
-  BookOpen
+  BookOpen,
+  Calendar,
+  Sparkles
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Advertise Your Property on Group Escape Houses",
-  description: "No hidden costs, no commission. Simple monthly or yearly subscription for quality large group houses to reach guests seeking luxury group stays.",
-  alternates: {
-    canonical: "https://groupescapehouses.co.uk/advertise-with-us",
-  },
-  openGraph: {
-    title: "Advertise Your Property on Group Escape Houses",
-    description: "No hidden costs, no commission. Simple monthly or yearly subscription for quality large group houses.",
-    type: "website",
-  },
-};
 
 export default function AdvertiseWithUs() {
   return (
@@ -52,26 +43,26 @@ export default function AdvertiseWithUs() {
             <div className="absolute inset-0 flex items-center">
               <div className="max-w-[1200px] mx-auto px-6 w-full">
                 <div className="max-w-3xl">
-                  <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
-                    Advertise Your Property on Group Escape Houses
-                  </h1>
+                    <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
+                      Advertise Your Property to Large Groups
+                    </h1>
                   
-                  <p className="text-2xl mb-10 leading-relaxed text-white" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
-                    No hidden costs, no commission. Simple monthly or yearly subscription to showcase your property to guests who love luxury group stays.
+                  <p className="text-2xl mb-10 leading-relaxed text-white max-w-2xl" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
+                    The UK&apos;s specialist platform for luxury large group properties. Reach guests directly, set your own terms, and keep 100% of your booking revenue.
                   </p>
                   
-                  <div className="flex flex-wrap gap-4">
-                    <Button 
-                      asChild
-                      size="lg"
-                      className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <Link href="#contact">
-                        Register Your Property
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
+                  <div className="flex flex-wrap gap-4 mb-8">
+                      <Button 
+                        asChild
+                        size="lg"
+                        className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                        style={{ background: "var(--color-accent-sage)" }}
+                      >
+                        <Link href="/contact">
+                          Register Your Property
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                      </Button>
                     
                     <Button 
                       asChild
@@ -88,35 +79,65 @@ export default function AdvertiseWithUs() {
                       </a>
                     </Button>
                   </div>
+
+                  <div className="flex items-center gap-4 text-white/90">
+                    <div className="flex -space-x-2">
+                      {[
+                        "co-c2a10f6e-20251127184832.jpg",
+                        "fr-81c7fcec-20251127184832.jpg",
+                        "su-474d0a6c-20251127184832.jpg"
+                      ].map((img, i) => (
+                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white/20">
+                          <Image 
+                            src={`https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-${img}`}
+                            alt="Owner"
+                            width={40}
+                            height={40}
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div>
+                      <div className="flex gap-0.5 mb-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
+                        ))}
+                      </div>
+                      <p className="text-sm font-medium">
+                        Over 3,000 five-star reviews from happy groups & owners
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8 text-center" style={{ fontFamily: "var(--font-display)" }}>
-                No Hidden Costs, No Hidden Surprises
-              </h2>
-              
-              <div className="space-y-6 text-lg text-[var(--color-neutral-dark)] leading-relaxed">
-                <p>
-                  Group Escape Houses is for quality large group houses, barns, estates and lodges that sleep 10 or more guests. We're passionate about showcasing the best properties across the UK for memorable group holidays.
-                </p>
+          <section className="py-24 bg-white">
+            <div className="max-w-[1200px] mx-auto px-6">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-4xl lg:text-6xl font-bold mb-10 text-center" style={{ fontFamily: "var(--font-display)" }}>
+                  Fixed-fee Advertising for Property Owners
+                </h2>
                 
-                <p>
-                  Owners keep full control of prices and guest contact. You manage everything the way you want, while we drive enquiries directly to you through our platform.
-                </p>
-                
-                <p>
-                  We charge a simple monthly or annual subscription, not commission on every enquiry or booking. This means more revenue in your pocket and a transparent relationship with no surprise fees. Ideal for owners who want more control, more flexibility and direct contact with guests.
-                </p>
+                <div className="space-y-8 text-xl text-[var(--color-neutral-dark)] leading-relaxed">
+                  <p>
+                    Group Escape Houses is the UK&apos;s specialist platform for luxury group accommodation. We connect high-quality properties—barns, estates, and lodges sleeping 10 or more—directly with guests who value excellence.
+                  </p>
+                  
+                  <p>
+                    We operate a simple fixed-fee listing model. This means you pay a single annual or monthly fee to advertise your property, with absolutely no commission charged on bookings. You keep full control of your pricing, your guests, and your calendar.
+                  </p>
+                  
+                  <p>
+                    Our platform is designed for efficiency and transparency. Every enquiry goes directly to you, the property owner, allowing you to manage the relationship with your guests from the very start. No middleman, no gatekeepers—just direct bookings and pure profit.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         <section className="py-20 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-6">
@@ -127,53 +148,55 @@ export default function AdvertiseWithUs() {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <MessageSquare className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Direct Contact With Guests
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  All enquiries come straight to you so you can build a direct relationship with every group.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <CreditCard className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Commission Free Subscription
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  We charge a simple monthly or yearly subscription, not a slice of each enquiry or booking, so you keep more of your revenue.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <BarChart3 className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Owner Dashboard
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  Log in to view enquiries, track listing performance and update key details at any time.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-sage)]/10 flex items-center justify-center mb-6">
-                  <FileEdit className="w-7 h-7 text-[var(--color-accent-sage)]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                  Unique Property Page
-                </h3>
-                <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                  Showcase your property with photos, description, facilities, pricing and clear ways for guests to contact you directly.
-                </p>
-              </div>
+                {[
+                  {
+                    title: "Direct Guest Enquiries",
+                    description: "Every enquiry goes straight to your inbox. Guests deal directly with you, the owner, with no platform interference in the booking process.",
+                    icon: MessageSquare
+                  },
+                  {
+                    title: "No Commission on Bookings",
+                    description: "We charge a simple fixed fee for your listing, not a slice of your revenue. Keep 100% of what you earn from every guest stay.",
+                    icon: CreditCard
+                  },
+                  {
+                    title: "Sync Your Availability",
+                    description: "Easily integrate your existing property calendar via iCal. Keep your availability up to date across all platforms automatically.",
+                    icon: Calendar
+                  },
+                  {
+                    title: "Optional Activity Exposure",
+                    description: "Reach guests looking for the full experience. We offer additional exposure for groups looking for activities and services linked to their stay.",
+                    icon: Sparkles
+                  }
+                ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all group"
+                  >
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md transform transition-all duration-300 group-hover:shadow-[var(--color-accent-sage)]/40"
+                      style={{ backgroundColor: "#96AD94" }}
+                    >
+                      <Icon className="w-8 h-8 text-white" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="bg-[var(--color-accent-sage)]/10 border-l-4 border-[var(--color-accent-sage)] rounded-lg p-8 max-w-5xl mx-auto">
@@ -184,57 +207,33 @@ export default function AdvertiseWithUs() {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
+        <section className="py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-center" style={{ fontFamily: "var(--font-display)" }}>
-              Why Advertise With Group Escape Houses
+            <h2 className="text-4xl lg:text-6xl font-bold mb-16 text-center" style={{ fontFamily: "var(--font-display)" }}>
+              The Smarter Way to Market Your Property
             </h2>
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      You set your own prices and manage guest enquiries
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      You control and update your property information and availability
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      Direct link to your own website for bookings
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      Showcase availability and manage calendar visibility
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      Rich media gallery for images, videos and floorplans
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      Dedicated support from our team to help your listing perform
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-6 h-6 flex-shrink-0 mt-1 text-[var(--color-accent-sage)]" />
-                    <span className="text-lg text-[var(--color-neutral-dark)]">
-                      SEO and PR activity to promote high quality properties to our audience
-                    </span>
-                  </li>
+                <ul className="space-y-6">
+                  {[
+                    "Set your own prices and manage guest enquiries directly",
+                    "Maintain full control over your property data and calendar",
+                    "Direct links to your own website for seamless bookings",
+                    "Manage availability and visibility with total flexibility",
+                    "Rich media support for photos, floorplans, and video",
+                    "Dedicated support from our expert property team",
+                    "Ongoing SEO and PR activity to drive high-quality traffic"
+                  ].map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <Check className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                      </div>
+                      <span className="text-lg text-[var(--color-neutral-dark)] leading-snug">
+                        {benefit}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -250,37 +249,37 @@ export default function AdvertiseWithUs() {
           </div>
         </section>
 
-        <section id="pricing" className="py-20 bg-[var(--color-bg-secondary)]">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="text-center mb-4">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Subscription and Pricing Options
-              </h2>
-              <p className="text-xl text-[var(--color-neutral-dark)]">
-                Choose the subscription that suits your marketing needs, all with commission free enquiries.
-              </p>
-            </div>
+          <section id="pricing" className="py-20 bg-[var(--color-bg-secondary)]">
+            <div className="max-w-[1200px] mx-auto px-6">
+              <div className="text-center mb-4">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Fixed-fee Listing Options
+                </h2>
+                <p className="text-xl text-[var(--color-neutral-dark)]">
+                  Choose the subscription that suits your marketing needs, with zero commission on bookings.
+                </p>
+              </div>
             
             <div className="grid md:grid-cols-3 gap-8 mb-8 mt-12">
-              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:shadow-xl transition-all">
+              <div className="bg-white rounded-3xl p-8 border-2 border-gray-100 hover:shadow-xl transition-all">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-3xl font-bold mb-2 text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                     Bronze
                   </h3>
-                  <p className="text-[var(--color-neutral-dark)]">
-                    Fully optimised listing and core support.
+                  <p className="text-[var(--color-neutral-dark)] text-sm">
+                    Everything you need to start receiving direct, commission-free enquiries.
                   </p>
                 </div>
                 
                 <div className="mb-8">
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2 justify-center mb-1">
-                      <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                      <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                         £450
                       </span>
-                      <span className="text-[var(--color-neutral-dark)]">+ VAT</span>
+                      <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                     </div>
-                    <p className="text-sm text-center text-[var(--color-neutral-dark)]">per year</p>
+                    <p className="text-sm text-center text-[var(--color-neutral-dark)] font-medium">per year</p>
                   </div>
                   
                   <div className="text-center">
@@ -293,30 +292,26 @@ export default function AdvertiseWithUs() {
                   </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-4 mb-8">
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Fully optimised property page</span>
+                    <span className="text-sm">High-impact property page</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Monthly or yearly subscription with direct enquiries</span>
+                    <span className="text-sm">Direct, commission-free enquiries</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Availability calendar management</span>
+                    <span className="text-sm">Full calendar management</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Direct link to your own website</span>
+                    <span className="text-sm">Direct link to your website</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Access to Owner Dashboard</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Standard SEO and marketing support</span>
+                    <span className="text-sm">Standard SEO optimization</span>
                   </li>
                 </ul>
                 
@@ -324,39 +319,39 @@ export default function AdvertiseWithUs() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
+                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all shadow-sm"
                 >
-                  <Link href="#contact">
-                    Get Started
+                  <Link href="/contact">
+                    Choose Bronze
                   </Link>
                 </Button>
               </div>
 
-              <div className="bg-white rounded-3xl p-8 border-2 border-[var(--color-accent-sage)] shadow-2xl relative scale-105 hover:shadow-xl transition-all">
+              <div className="bg-white rounded-3xl p-8 border-2 border-[var(--color-accent-sage)] shadow-2xl relative lg:scale-105 z-10 hover:shadow-xl transition-all">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-[var(--color-accent-sage)] text-white px-6 py-2 rounded-full text-sm font-bold">
+                  <span className="bg-[var(--color-accent-sage)] text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
                     Most Popular
                   </span>
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-3xl font-bold mb-2 text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                     Silver
                   </h3>
-                  <p className="text-[var(--color-neutral-dark)]">
-                    Extra visibility and marketing support.
+                  <p className="text-[var(--color-neutral-dark)] text-sm">
+                    Enhanced visibility and targeted social media promotion to boost your bookings.
                   </p>
                 </div>
                 
                 <div className="mb-8">
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2 justify-center mb-1">
-                      <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                      <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                         £650
                       </span>
-                      <span className="text-[var(--color-neutral-dark)]">+ VAT</span>
+                      <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                     </div>
-                    <p className="text-sm text-center text-[var(--color-neutral-dark)]">per year</p>
+                    <p className="text-sm text-center text-[var(--color-neutral-dark)] font-medium">per year</p>
                   </div>
                   
                   <div className="text-center">
@@ -369,60 +364,60 @@ export default function AdvertiseWithUs() {
                   </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-2 font-medium">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm font-semibold">Everything in Bronze</span>
+                    <span className="text-sm">Everything in Bronze</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Page build and ongoing production support</span>
+                    <span className="text-sm">Featured social media promotion</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Social media promotion including late deals</span>
+                    <span className="text-sm">Themed blog feature spotlight</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Themed blog feature</span>
+                    <span className="text-sm">Three dedicated Holiday Focus pages</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Inclusion on three Holiday Focus pages for added reach</span>
+                    <span className="text-sm">Ongoing listing production support</span>
                   </li>
                 </ul>
                 
                 <Button 
                   asChild
                   size="lg"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold text-white transition-all hover:-translate-y-0.5"
+                  className="w-full rounded-2xl px-8 py-6 font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg"
                   style={{ background: "var(--color-accent-sage)" }}
                 >
-                  <Link href="#contact">
-                    Get Started
+                  <Link href="/contact">
+                    Choose Silver
                   </Link>
                 </Button>
               </div>
 
-              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:shadow-xl transition-all">
+              <div className="bg-white rounded-3xl p-8 border-2 border-gray-100 hover:shadow-xl transition-all">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-3xl font-bold mb-2 text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                     Gold
                   </h3>
-                  <p className="text-[var(--color-neutral-dark)]">
-                    Maximum exposure for premium properties.
+                  <p className="text-[var(--color-neutral-dark)] text-sm">
+                    The ultimate marketing package with homepage placement and priority support.
                   </p>
                 </div>
                 
                 <div className="mb-8">
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2 justify-center mb-1">
-                      <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                      <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                         £850
                       </span>
-                      <span className="text-[var(--color-neutral-dark)]">+ VAT</span>
+                      <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                     </div>
-                    <p className="text-sm text-center text-[var(--color-neutral-dark)]">per year</p>
+                    <p className="text-sm text-center text-[var(--color-neutral-dark)] font-medium">per year</p>
                   </div>
                   
                   <div className="text-center">
@@ -435,18 +430,22 @@ export default function AdvertiseWithUs() {
                   </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-2 font-medium">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm font-semibold">Everything in Silver</span>
+                    <span className="text-sm">Everything in Silver</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Homepage features during the year</span>
+                    <span className="text-sm">Homepage feature placement</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Specialist page placement, for example Weddings, Youth, or Business groups</span>
+                    <span className="text-sm">Specialist page spotlighting</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
+                    <span className="text-sm">Priority production support</span>
                   </li>
                 </ul>
                 
@@ -454,10 +453,10 @@ export default function AdvertiseWithUs() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all"
+                  className="w-full rounded-2xl px-8 py-6 font-semibold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] hover:bg-[var(--color-accent-sage)] hover:text-white transition-all shadow-sm"
                 >
-                  <Link href="#contact">
-                    Get Started
+                  <Link href="/contact">
+                    Choose Gold
                   </Link>
                 </Button>
               </div>

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "List Your Property | Advertise with Group Escape",
-  description: "Join our network of premium group accommodation providers. Commission-based model with no upfront fees. Reach thousands of group travellers across the UK.",
-  keywords: ["list property", "advertise accommodation", "property owner", "holiday rental commission", "group accommodation platform"],
+  title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+  description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
+  keywords: ["list property", "advertise accommodation", "property owner", "fixed fee listings", "group accommodation platform", "no commission"],
   openGraph: {
-    title: "List Your Property | Advertise with Group Escape Houses",
-    description: "Join our network of premium group accommodation providers. Commission-based model with no upfront fees.",
+    title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+    description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
     url: "https://groupescapehouses.co.uk/advertise-with-us",
   },
   alternates: {

@@ -1,9 +1,6 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, CreditCard, PartyPopper, Shield, Users, Award, Clock, Calendar, MapPin, User, Minus, Plus } from "lucide-react";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, Shield, Users, Award, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -12,11 +9,10 @@ import StructuredData from "@/components/StructuredData";
 import ReviewSlider from "@/components/ReviewSlider";
 import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { format } from "date-fns";
-import type { DateRange } from "react-day-picker";
+import HeroSearchForm from "@/components/home/HeroSearchForm";
+import HeroVideo from "@/components/home/HeroVideo";
+import NewsletterSection from "@/components/home/NewsletterSection";
+import { getFeaturedProperties, getFeaturedExperiences, getFeaturedReviews } from "@/lib/data-fetchers";
 
 // Static destinations data
 const destinations = [
@@ -52,559 +48,41 @@ const destinations = [
   },
 ];
 
-// All destinations for dropdown
-const allDestinations = [
-  "All Locations", "Brighton", "Bath", "Bournemouth", "London", "Manchester", "Liverpool", "York", 
-  "Newcastle", "Cardiff", "Edinburgh", "Scottish Highlands", "Snowdonia", "Newquay", "Devon", 
-  "Cotswolds", "Lake District", "Birmingham", "Blackpool", "Bristol", "Cambridge", "Canterbury", 
-  "Cheltenham", "Chester", "Durham", "Exeter", "Harrogate", "Leeds", "Margate", "Nottingham", 
-  "Oxford", "Plymouth", "Sheffield", "St Ives", "Stratford-upon-Avon", "Windsor"
-];
-
-export default function Home() {
-  const [email, setEmail] = useState("");
-  const [mounted, setMounted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-  const [formLoadTime] = useState<number>(Date.now());
-  const [honeypot, setHoneypot] = useState("");
-  const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
-
-  // Dynamic data
-  const [featuredProperties, setFeaturedProperties] = useState<any[]>([]);
-  const [experiences, setExperiences] = useState<any[]>([]);
-  const [reviews, setReviews] = useState<any[]>([]);
-  const [isLoadingData, setIsLoadingData] = useState(true);
-
-  // Video lazy loading state
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-
-  // Search form state
-  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
-  const [destination, setDestination] = useState("");
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(0);
-  const [pets, setPets] = useState(0);
-  const [guestsOpen, setGuestsOpen] = useState(false);
-  const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [destinationOpen, setDestinationOpen] = useState(false);
-  const [focusedDestinationIndex, setFocusedDestinationIndex] = useState(-1);
-  const [isMobile, setIsMobile] = useState(false);
-  
-  const dateFieldRef = useRef<HTMLButtonElement>(null);
-  const announcementRef = useRef<HTMLDivElement>(null);
-  const destinationButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
-  const newsletterFormRef = useRef<HTMLFormElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
-  // Fetch data with proper error handling - DEFER to reduce initial load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const fetchData = async () => {
-        try {
-          setIsLoadingData(true);
-
-          const [propertiesRes, experiencesRes, reviewsRes] = await Promise.all([
-            fetch('/api/properties?featured=true&isPublished=true&limit=3'),
-            fetch('/api/experiences?isPublished=true&limit=6'),
-            fetch('/api/reviews?isApproved=true&isPublished=true&limit=6&sort=reviewDate&order=desc')
-          ]);
-
-          if (!propertiesRes.ok || !experiencesRes.ok || !reviewsRes.ok) {
-            throw new Error('Failed to fetch data');
-          }
-
-          const [propertiesData, experiencesData, reviewsData] = await Promise.all([
-            propertiesRes.json(),
-            experiencesRes.json(),
-            reviewsRes.json()
-          ]);
-
-          setFeaturedProperties(propertiesData.map((prop: any) => ({
-            id: prop.id.toString(),
-            title: prop.title,
-            location: prop.location,
-            sleeps: prop.sleepsMax,
-            bedrooms: prop.bedrooms,
-            priceFrom: prop.priceFromWeekend,
-            image: prop.heroImage,
-            features: [],
-            slug: prop.slug,
-          })));
-
-          setExperiences(experiencesData.map((exp: any) => ({
-            title: exp.title,
-            duration: exp.duration,
-            priceFrom: exp.priceFrom,
-            groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
-            image: exp.heroImage,
-            slug: exp.slug,
-          })));
-
-          setReviews(reviewsData.map((review: any) => ({
-            name: review.guestName,
-            rating: review.rating,
-            comment: review.comment,
-            date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-            property: review.propertyId ? 'Property' : undefined,
-            image: review.guestImage,
-          })));
-        } catch (error) {
-          console.error('Error fetching data:', error);
-          setFeaturedProperties([]);
-          setExperiences([]);
-          setReviews([]);
-        } finally {
-          setIsLoadingData(false);
-        }
-      };
-
-      fetchData();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Lazy load video after initial page load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldLoadVideo(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Minimal setup
-  useEffect(() => {
-    setMounted(true);
-    
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    const handleResize = () => checkMobile();
-    window.addEventListener('resize', handleResize, { passive: true });
-
-    const trackClick = () => setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
-    const trackKeypress = () => setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
-
-    const formElement = newsletterFormRef.current;
-    if (formElement) {
-      formElement.addEventListener('click', trackClick, { passive: true });
-      formElement.addEventListener('keydown', trackKeypress, { passive: true });
-    }
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (formElement) {
-        formElement.removeEventListener('click', trackClick);
-        formElement.removeEventListener('keydown', trackKeypress);
-      }
-    };
-  }, []);
-
-  const announce = (message: string) => {
-    if (announcementRef.current) {
-      announcementRef.current.textContent = message;
-    }
-  };
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || isSubmitting) return;
-    
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-    
-    try {
-      const challenge = Math.floor(Date.now() / 10000).toString();
-      
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          email,
-          honeypot,
-          timestamp: formLoadTime.toString(),
-          challenge,
-          userInteraction
-        })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to subscribe');
-      }
-      
-      setSubmitStatus("success");
-      setEmail("");
-      setUserInteraction({ clicks: 0, keystrokes: 0 });
-      
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch (error) {
-      console.error("Subscription error:", error);
-      setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleSearch = () => {
-    const params = new URLSearchParams();
-    if (destination) params.set('destination', destination);
-    if (dateRange?.from) params.set('checkIn', format(dateRange.from, 'yyyy-MM-dd'));
-    if (dateRange?.to) params.set('checkOut', format(dateRange.to, 'yyyy-MM-dd'));
-    params.set('guests', String(adults + children));
-    if (pets > 0) params.set('pets', String(pets));
-    
-    window.location.href = `/properties?${params.toString()}`;
-  };
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        if (datePickerOpen) setDatePickerOpen(false);
-        if (destinationOpen) {
-          setDestinationOpen(false);
-          setFocusedDestinationIndex(-1);
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, [datePickerOpen, destinationOpen]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!destinationOpen) return;
-      
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        setFocusedDestinationIndex((prev) => {
-          const next = prev + 1 >= allDestinations.length ? 0 : prev + 1;
-          destinationButtonsRef.current[next]?.focus();
-          return next;
-        });
-      } else if (e.key === "ArrowUp") {
-        e.preventDefault();
-        setFocusedDestinationIndex((prev) => {
-          const next = prev - 1 < 0 ? allDestinations.length - 1 : prev - 1;
-          destinationButtonsRef.current[next]?.focus();
-          return next;
-        });
-      } else if (e.key === "Enter" && focusedDestinationIndex >= 0) {
-        e.preventDefault();
-        const selected = allDestinations[focusedDestinationIndex];
-        if (selected) {
-          setDestination(selected.toLowerCase().replace(/\s+/g, '-'));
-          setDestinationOpen(false);
-          setFocusedDestinationIndex(-1);
-          announce(`${selected} selected`);
-        }
-      }
-    };
-
-    if (destinationOpen) {
-      window.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [destinationOpen, focusedDestinationIndex]);
-
-  const handleDestinationSelect = (dest: string) => {
-    setDestination(dest.toLowerCase().replace(/\s+/g, '-'));
-    setDestinationOpen(false);
-    setFocusedDestinationIndex(-1);
-    announce(`${dest} selected`);
-  };
-
-  const dateRangeDisplay = dateRange?.from && dateRange?.to
-    ? `${format(dateRange.from, 'dd MMM')} → ${format(dateRange.to, 'dd MMM')}`
-    : dateRange?.from
-    ? `${format(dateRange.from, 'dd MMM')} → ?`
-    : "Select dates";
-
-  const totalGuests = adults + children + infants;
-  const guestsSummary = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''} - ${pets} pet${pets !== 1 ? 's' : ''}`;
+export default async function Home() {
+  const [featuredProperties, experiences, reviews] = await Promise.all([
+    getFeaturedProperties(3),
+    getFeaturedExperiences(6),
+    getFeaturedReviews(6)
+  ]);
 
   return (
     <div className="min-h-screen">
-      <StructuredData type="home" />
-      <Header />
-
-      <div
-        ref={announcementRef}
-        className="sr-only"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
+      <StructuredData 
+        type="home" 
+        data={{
+          title: "Large Group Accommodation Across the UK",
+          description: "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners.",
+          items: featuredProperties
+        }} 
       />
+      <Header />
 
       <main>
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
-          {shouldLoadVideo && (
-            <>
-              {/* Desktop Video */}
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
-                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-              >
-                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/Main%20Horizontal%20(3).mp4" type="video/mp4" />
-              </video>
-
-              {/* Mobile Video */}
-              <video
-                ref={mobileVideoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-30 block md:hidden"
-                poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-              >
-                <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/docs-assets/0aNew%20Mobile%20Version%20%20(2).mp4" type="video/mp4" />
-              </video>
-            </>
-          )}
+          <HeroVideo />
 
           <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
             <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
               Large Group Accommodation Across the UK
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-              Luxury houses for groups of all sizes with <Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link>, <Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)] transition-colors">pools</Link>, and outstanding amenities
-            </p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission. Owners can manage listings, sync availability and receive enquiries direct.
+              </p>
 
-            {/* Search Form */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
-                {/* Destination */}
-                <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-                    >
-                      <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-                      <div className="flex flex-col overflow-hidden">
-                        <span className="text-xs text-gray-500">Where</span>
-                        <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
-                      </div>
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
-                    <div className="space-y-2">
-                      {allDestinations.map((dest, index) => (
-                        <button
-                          key={dest}
-                          ref={(el) => { destinationButtonsRef.current[index] = el; }}
-                          onClick={() => handleDestinationSelect(dest)}
-                          className="w-full text-left px-4 py-2 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors"
-                        >
-                          {dest}
-                        </button>
-                      ))}
-                    </div>
-                  </PopoverContent>
-                </Popover>
-
-                  {/* Dates */}
-                  <div className="relative">
-                    <Button
-                      ref={dateFieldRef}
-                      variant="outline"
-                      className="h-14 sm:h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-                      onClick={() => setDatePickerOpen(!datePickerOpen)}
-                    >
-                      <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-                      <div className="flex flex-col overflow-hidden">
-                        <span className="text-xs text-gray-500">When</span>
-                        <span className="text-sm font-medium truncate">{dateRangeDisplay}</span>
-                      </div>
-                    </Button>
-                    {datePickerOpen && (
-                      <>
-                        <div 
-                          className="fixed inset-0 z-[9998]" 
-                          onClick={() => setDatePickerOpen(false)}
-                        />
-                        <div className="absolute top-full left-0 mt-2 z-[9999] bg-white rounded-xl shadow-2xl border p-4">
-                          <CalendarComponent
-                            mode="range"
-                            selected={dateRange}
-                            onSelect={setDateRange}
-                            numberOfMonths={isMobile ? 1 : 2}
-                            disabled={(date) => date < new Date()}
-                          />
-                          <div className="flex justify-end pt-4 border-t mt-4">
-                            <Button
-                              size="sm"
-                              onClick={() => setDatePickerOpen(false)}
-                              style={{ background: "var(--color-accent-sage)", color: "white" }}
-                            >
-                              Done
-                            </Button>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-
-                {/* Guests */}
-                <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-                    >
-                      <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-                      <div className="flex flex-col overflow-hidden">
-                        <span className="text-xs text-gray-500">Who</span>
-                        <span className="text-sm font-medium truncate">{guestsSummary}</span>
-                      </div>
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-80" align="start">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-medium">Adults</div>
-                          <div className="text-sm text-gray-500">Age 13+</div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setAdults(Math.max(1, adults - 1))}
-                            disabled={adults <= 1}
-                          >
-                            <Minus className="h-4 w-4" />
-                          </Button>
-                          <span className="w-8 text-center">{adults}</span>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setAdults(adults + 1)}
-                          >
-                            <Plus className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-medium">Children</div>
-                          <div className="text-sm text-gray-500">Age 2-12</div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setChildren(Math.max(0, children - 1))}
-                            disabled={children <= 0}
-                          >
-                            <Minus className="h-4 w-4" />
-                          </Button>
-                          <span className="w-8 text-center">{children}</span>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setChildren(children + 1)}
-                          >
-                            <Plus className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-medium">Infants</div>
-                          <div className="text-sm text-gray-500">Under 2</div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setInfants(Math.max(0, infants - 1))}
-                            disabled={infants <= 0}
-                          >
-                            <Minus className="h-4 w-4" />
-                          </Button>
-                          <span className="w-8 text-center">{infants}</span>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setInfants(infants + 1)}
-                          >
-                            <Plus className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-medium">Pets</div>
-                          <div className="text-sm text-gray-500">Bring a pet</div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setPets(Math.max(0, pets - 1))}
-                            disabled={pets <= 0}
-                          >
-                            <Minus className="h-4 w-4" />
-                          </Button>
-                          <span className="w-8 text-center">{pets}</span>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8 rounded-full"
-                            onClick={() => setPets(pets + 1)}
-                          >
-                            <Plus className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-
-                {/* Search Button */}
-                <Button
-                  onClick={handleSearch}
-                  size="lg"
-                  className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02]"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
-                  <Sparkles className="mr-2 h-5 w-5" />
-                  Search
-                </Button>
-              </div>
-            </div>
+            <HeroSearchForm />
 
             <div className="mt-6 sm:mt-8 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-2 sm:px-4">
-
             </div>
           </div>
         </section>
@@ -613,26 +91,18 @@ export default function Home() {
         <section className="py-12 sm:py-14 md:py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-7 md:gap-8 text-center">
-              <div className="transition-transform hover:scale-105">
-                <Award className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-gold)]" />
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>3,000+</div>
-                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">5 Star Reviews</div>
-              </div>
-              <div className="transition-transform hover:scale-105">
-                <Shield className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-sage)]" />
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Secure</div>
-                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Safe Payments</div>
-              </div>
-              <div className="transition-transform hover:scale-105">
-                <Users className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-pink)]" />
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>UK Team</div>
-                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Expert Support</div>
-              </div>
-              <div className="transition-transform hover:scale-105">
-                <Clock className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 text-[var(--color-accent-gold)]" />
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>Fast</div>
-                <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">Quick Response</div>
-              </div>
+              {[
+                { icon: Award, label: "5 Star Reviews", val: "3,000+", color: "var(--color-accent-gold)" },
+                { icon: Shield, label: "Safe Payments", val: "Secure", color: "var(--color-accent-sage)" },
+                { icon: Users, label: "Expert Support", val: "UK Team", color: "var(--color-accent-pink)" },
+                { icon: Clock, label: "Quick Response", val: "Fast", color: "var(--color-accent-gold)" }
+              ].map((item, i) => (
+                <div key={i} className="transition-transform hover:scale-105">
+                  <item.icon className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3" style={{ color: item.color }} />
+                  <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{item.val}</div>
+                  <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -649,40 +119,23 @@ export default function Home() {
               </p>
             </div>
 
-            {isLoadingData ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-96"></div>
-                ))}
-              </div>
-            ) : featuredProperties.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {featuredProperties.map((property) => (
-                  <PropertyCard key={property.id} {...property} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-xl text-[var(--color-neutral-dark)]">
-                  No featured properties available at the moment.
-                </p>
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {featuredProperties.map((property) => (
+                <PropertyCard key={property.id} {...property} />
+              ))}
+            </div>
 
             <div className="text-center mt-12">
-              <Link href="/properties">
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-sage)] text-white"
+              >
+                <Link href="/properties">
                   View All Properties
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -699,40 +152,23 @@ export default function Home() {
               </p>
             </div>
 
-            {isLoadingData ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-80"></div>
-                ))}
-              </div>
-            ) : experiences.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {experiences.map((experience) => (
-                  <ExperienceCard key={experience.slug} {...experience} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-xl text-[var(--color-neutral-dark)]">
-                  No experiences available at the moment.
-                </p>
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {experiences.map((experience) => (
+                <ExperienceCard key={experience.slug} {...experience} />
+              ))}
+            </div>
 
             <div className="text-center mt-12">
-              <Link href="/experiences">
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-pink)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-pink)] text-[var(--color-text-primary)]"
+              >
+                <Link href="/experiences">
                   View All Experiences
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -753,33 +189,9 @@ export default function Home() {
             <div className="relative">
               <div className="overflow-hidden">
                 <div className="flex gap-6 animate-slide-left">
-                  {/* First set of destinations */}
-                  {destinations.map((destination, index) => (
+                  {[...destinations, ...destinations].map((destination, index) => (
                     <Link
-                      key={`set1-${destination.name}-${index}`}
-                      href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
-                    >
-                      <Image
-                        src={destination.image}
-                        alt={destination.name}
-                        fill
-                        className="object-cover object-center transition-transform group-hover:scale-110"
-                        sizes="(max-width: 768px) 300px, 400px"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
-                          {destination.name}
-                        </h3>
-                        <p className="text-sm text-white opacity-90">{destination.description}</p>
-                      </div>
-                    </Link>
-                  ))}
-                  {/* Duplicate set for seamless loop */}
-                  {destinations.map((destination, index) => (
-                    <Link
-                      key={`set2-${destination.name}-${index}`}
+                      key={`${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                     >
@@ -804,19 +216,16 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/destinations">
                 <Button
+                  asChild
                   size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
+                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-sage)] text-white"
                 >
-                  View All Destinations
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/destinations">
+                    See all locations
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </Link>
             </div>
           </div>
         </section>
@@ -834,108 +243,40 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#3d5a47",
-                    }}
-                  >
-                    <HomeIcon
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
-                      aria-hidden="true"
-                    />
+              {[
+                { icon: HomeIcon, title: "Choose Property", text: "Browse our collection and find the perfect house for your group", color: "#3d5a47" },
+                { icon: Sparkles, title: "Add Services", text: "Enhance your stay with catering, activities, and special services", color: "#3d5a47" },
+                { icon: Shield, title: "Book Direct", text: "Enquire and book directly with property owners with no platform commission", color: "#C6A76D" },
+                { icon: Users, title: "Enjoy Together", text: "Gather your group and create lasting memories", color: "#C6A76D" }
+              ].map((item, i) => (
+                <div key={i} className="group text-center">
+                  <div className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300 group-hover:scale-110 hover:shadow-xl" style={{ backgroundColor: item.color }}>
+                    <item.icon className="w-12 h-12 text-white" />
                   </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Choose Property
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Browse our collection and find the perfect house for your group
-                </p>
-              </div>
-
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#3d5a47",
-                    }}
-                  >
-                    <Sparkles
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Add Services
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Enhance your stay with catering, activities, and special services
-                </p>
-              </div>
-
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#C6A76D",
-                    }}
-                  >
-                    <Shield
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:-rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Secure Booking
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Reserve with a deposit, balance due 8 weeks before arrival
-                </p>
-              </div>
-
-                <div className="group text-center transition-transform duration-300 hover:scale-105">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
-                    style={{
-                      backgroundColor: "#C6A76D",
-                    }}
-                  >
-                    <Users
-                      className="w-12 h-12 text-white transition-transform duration-300 group-hover:rotate-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                  Enjoy Together
-                </h3>
-                <p className="text-[var(--color-neutral-dark)]">
-                  Gather your group and create lasting memories
-                </p>
-              </div>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{item.text}</p>
+                </div>
+              ))}
             </div>
 
             <div className="text-center mt-10 md:mt-12">
-              <Link href="/how-it-works">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl px-10 py-6 font-medium border-2 transition-all hover:bg-[var(--color-bg-primary)]"
-                  style={{
-                    borderColor: "var(--color-accent-sage)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-6 font-medium border-2 transition-all hover:bg-[var(--color-bg-primary)] border-[var(--color-accent-sage)] text-[var(--color-text-primary)]"
+              >
+                <Link href="/how-it-works">
                   Learn More
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
         {/* Reviews */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)]">
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] min-h-[400px]">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -946,83 +287,28 @@ export default function Home() {
               </p>
             </div>
 
-            {mounted && <ReviewSlider reviews={reviews} />}
+            <ReviewSlider reviews={reviews} />
 
             <div className="text-center mt-12">
-              <Link href="/reviews">
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "var(--color-accent-sage)",
-                    color: "white",
-                  }}
-                >
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-sage)] text-white"
+              >
+                <Link href="/reviews">
                   Read All Reviews
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
         {/* FAQ */}
-        {mounted && <FAQSection />}
+        <FAQSection />
 
         {/* Newsletter */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
-          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
-            <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white">
-              <PartyPopper className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6" />
-              <h2 className="mb-3 md:mb-4 text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
-                Get Group Travel Inspiration
-              </h2>
-              <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto px-4">
-                Subscribe for exclusive deals, new properties, and group planning tips
-              </p>
-
-              <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
-                <input
-                  type="text"
-                  value={honeypot}
-                  onChange={(e) => setHoneypot(e.target.value)}
-                  style={{ position: 'absolute', left: '-9999px' }}
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                />
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  disabled={isSubmitting}
-                  className="flex-1 h-14 rounded-2xl border-2 border-white/30 bg-white/10 text-white placeholder:text-white/60 focus:bg-white/20"
-                />
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting || !email}
-                  className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05]"
-                  style={{
-                    background: "white",
-                    color: "var(--color-accent-sage)",
-                  }}
-                >
-                  {isSubmitting ? "Subscribing..." : "Subscribe"}
-                </Button>
-              </form>
-
-              {submitStatus === "success" && (
-                <p className="mt-4 text-white font-medium">Thanks for subscribing! Check your inbox.</p>
-              )}
-              {submitStatus === "error" && (
-                <p className="mt-4 text-white font-medium">Something went wrong. Please try again.</p>
-              )}
-            </div>
-          </div>
-        </section>
+        <NewsletterSection />
 
         {/* Instagram */}
         <section className="py-16 md:py-20 bg-white overflow-hidden">
@@ -1042,18 +328,8 @@ export default function Home() {
               <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6 md:mb-8 max-w-2xl mx-auto px-4">
                 Get daily inspiration and see our houses in action
               </p>
-              <a
-                href="https://www.instagram.com/groupescapehouses/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] text-white border-0"
-                  style={{
-                    background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                  }}
-                >
+              <a href="https://www.instagram.com/groupescapehouses/" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] text-white border-0 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888]">
                   @groupescapehouses
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -1064,7 +340,6 @@ export default function Home() {
             <div className="relative mt-12">
               <div className="overflow-hidden">
                 <div className="flex gap-4 animate-slide-left">
-                  {/* First set of images */}
                   {[ 
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
@@ -1075,39 +350,7 @@ export default function Home() {
                     "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-bdabbebd-20251209095212.jpg",
                   ].map((img, index) => (
                     <a
-                      key={`set1-img-${index}`}
-                      href="https://www.instagram.com/groupescapehouses/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
-                    >
-                      <Image
-                        src={img}
-                        alt={`Instagram post ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="280px"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
-                          <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </a>
-                  ))}
-                  {/* Duplicate set for seamless loop */}
-                  {[ 
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-082eb61b-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-e5926857-20251209095212.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-bdabbebd-20251209095212.jpg",
-                  ].map((img, index) => (
-                    <a
-                      key={`set2-img-${index}`}
+                      key={`img-${index}`}
                       href="https://www.instagram.com/groupescapehouses/"
                       target="_blank"
                       rel="noopener noreferrer"

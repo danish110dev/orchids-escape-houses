@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Waves, Sun, Users, Droplets, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function SwimmingPoolPage() {
@@ -22,70 +23,31 @@ export default function SwimmingPoolPage() {
   ];
 
   const popularHouseStyles = [
-    { title: "Luxury Houses", slug: "luxury-houses" },
-    { title: "Manor Houses", slug: "manor-houses" },
     { title: "Party Houses", slug: "party-houses" },
+    { title: "Luxury Houses", slug: "luxury-houses" },
+    { title: "Large Holiday Homes", slug: "large-holiday-homes" },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Properties with Swimming Pools",
-            "description": "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "areaServed": "GB",
-            "serviceType": "Holiday Accommodation",
-            "category": "Swimming Pool Houses"
-          })
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Properties with Swimming Pools",
+          description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
+          items: []
+        }} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Swimming Pool", url: "/features/swimming-pool" }
+          ]
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Swimming Pool",
-                "item": "https://groupescapehouses.co.uk/features/swimming-pool"
-              }
-            ]
-          })
-        }}
-      />
-
       <Header />
       
       {/* Hero Section */}
@@ -108,9 +70,10 @@ export default function SwimmingPoolPage() {
             <span className="text-white font-medium">Swimming Pool</span>
           </nav>
           
-          <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
-            Properties with Swimming Pools
-          </h1>
+            <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
+              Cottages with Pools
+            </h1>
+
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Outdoor pools for unforgettable summer celebrations and hen parties
           </p>

@@ -9,92 +9,94 @@ import { Church, Camera, Utensils, Sparkles, Check, ChevronDown, Star, Users } f
 import { useState } from "react";
 import Image from "next/image";
 
-export default function WeddingsPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  export default function WeddingsPage() {
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const features = [
-    "Spacious grounds and photo-perfect backdrops for your special day",
-    "On-site or nearby ceremony options for intimate celebrations",
-    "Catering, styling, and entertainment packages available",
-    "Accommodation for wedding party and guests all in one place",
-    "Exclusive use properties for complete privacy",
-    "Dedicated wedding coordinator to help plan every detail"
-  ];
+    const features = [
+      "Large houses with enough bedrooms for all your wedding guests",
+      "Exclusive use of the house and grounds for your entire stay",
+      "No corkage fees – bring your own drinks and save on costs",
+      "Choice of ceremony locations, both on-site and nearby",
+      "Beautiful spaces for your reception and wedding breakfast",
+      "Option to extend your stay for a full wedding weekend"
+    ];
 
-  const galleryImages = [
-    {
-      url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=90",
-      alt: "Beautiful outdoor wedding ceremony in elegant garden setting"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=90",
-      alt: "Romantic countryside wedding venue"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1600&q=90",
-      alt: "Elegant wedding reception table setup"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90",
-      alt: "Wedding celebration with guests"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&q=90",
-      alt: "Bride and groom in beautiful garden venue"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1600&q=90",
-      alt: "Luxury wedding venue with stunning architecture"
-    }
-  ];
+    const galleryImages = [
+      {
+        url: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&auto=format&fit=crop",
+        alt: "Beautiful outdoor wedding ceremony"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop",
+        alt: "Elegant wedding reception table setting"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&auto=format&fit=crop",
+        alt: "Wedding celebration with decorations"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&auto=format&fit=crop",
+        alt: "Stunning venue for your special day"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1544161442-e3db36c4f67c?w=1600&auto=format&fit=crop",
+        alt: "Intimate wedding dinner atmosphere"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&auto=format&fit=crop",
+        alt: "Magic wedding moments in the garden"
+      }
+    ];
 
-  const benefits = [
-    {
-      title: "Intimate Venues",
-      description: "Beautiful houses and grounds perfect for micro-weddings and weekend celebrations",
-      icon: Church
-    },
-    {
-      title: "All-In-One Stay",
-      description: "Ceremony, reception, and accommodation in one stunning location",
-      icon: Users
-    },
-    {
-      title: "Picture Perfect",
-      description: "Gorgeous gardens, elegant interiors, and scenic backdrops for wedding photos",
-      icon: Camera
-    }
-  ];
+    const benefits = [
+      {
+        title: "Exclusive Privacy",
+        description: "Enjoy your special day in total privacy with exclusive use of the entire house and grounds.",
+        icon: Sparkles
+      },
+      {
+        title: "Guest Accommodation",
+        description: "With enough rooms for family and friends, everyone can stay together under one roof.",
+        icon: Users
+      },
+      {
+        title: "Bespoke Freedom",
+        description: "From catering to decor, you have the freedom to design your wedding exactly as you want.",
+        icon: Utensils
+      }
+    ];
 
-  const faqs = [
-    {
-      question: "Can we hold the wedding ceremony at the house?",
-      answer: "Many of our properties are licensed for civil ceremonies or have beautiful grounds perfect for outdoor weddings. Some work with nearby venues. We'll help you find the perfect setup for your ceremony and celebration."
-    },
-    {
-      question: "How many guests can stay at the property?",
-      answer: "Our wedding houses typically accommodate 10-30 guests for overnight stays. This is perfect for intimate weddings where the wedding party and close family can stay together for the whole weekend."
-    },
-    {
-      question: "Can you arrange catering for our wedding?",
-      answer: "Absolutely! We work with excellent caterers and can arrange everything from formal wedding breakfasts to relaxed barbecues and buffets. We can also arrange private chefs, bar service, and wedding cakes."
-    },
-    {
-      question: "What about decorations and styling?",
-      answer: "We can arrange professional styling and decoration services including florals, table settings, lighting, and more. Many couples also choose to bring their own personal touches, which is absolutely fine."
-    },
-    {
-      question: "How far in advance should we book for a wedding?",
-      answer: "We recommend booking 12-18 months in advance for summer weekends and popular dates. However, we often have availability for smaller timescales, especially for midweek weddings or off-peak months."
-    },
-    {
-      question: "Do you have wedding packages available?",
-      answer: "Yes! We can create bespoke wedding packages including accommodation, catering, styling, and coordination. Get in touch to discuss your dream wedding and we'll create a tailored package for you."
-    }
-  ];
+    const faqs = [
+      {
+        question: "Are your houses licensed for wedding ceremonies?",
+        answer: "Many of our houses hold wedding licenses for civil ceremonies. Those that don't are often located very close to local churches or registry offices. Please check the individual property details or contact us for specific information."
+      },
+      {
+        question: "Do you offer on-site catering for weddings?",
+        answer: "Usually, we offer a 'blank canvas' where you can bring in your own caterers. However, we have a list of recommended local suppliers who know our properties well and can provide anything from formal dining to casual BBQs."
+      },
+      {
+        question: "Is there a minimum stay for wedding bookings?",
+        answer: "Most of our wedding houses have a minimum 2 or 3-night stay, typically over a weekend (Friday to Monday). This allows you plenty of time to set up, celebrate, and relax without any rush."
+      },
+      {
+        question: "Can we have a marquee in the grounds?",
+        answer: "Many of our properties have large gardens suitable for marquees, allowing you to accommodate even more guests for your reception. Please check the property's individual grounds capacity."
+      },
+      {
+        question: "Is there enough parking for all our wedding guests?",
+        answer: "Our large houses typically offer ample on-site parking for staying guests. If you have many additional day guests arriving, we can advise on local parking options or transport arrangements like shuttle buses."
+      },
+      {
+        question: "Can you help with wedding planning?",
+        answer: "While we provide the venue, we have excellent relationships with local wedding planners and suppliers. We're happy to share our recommendations to help you coordinate your perfect celebration."
+      }
+    ];
 
-  return (
+    return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <title>Wedding Venues with Accommodation | Group Escape Houses</title>
+      <meta name="description" content="Discover stunning wedding venues with accommodation across the UK. Perfect for intimate celebrations, ceremonies, and full-weekend group wedding stays." />
       <Header />
 
       {/* Hero Section */}
@@ -115,12 +117,13 @@ export default function WeddingsPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-8 left-8">
-              <h1 
-                className="text-white mb-2" 
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Wedding Houses
-              </h1>
+                <h1 
+                  className="text-white mb-2" 
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Wedding Venues with Accommodation
+                </h1>
+
               <p className="text-white/90 text-lg">Intimate venues for unforgettable celebrations</p>
             </div>
           </motion.div>
@@ -299,18 +302,20 @@ export default function WeddingsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <div 
-                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? -5 : 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform transition-all duration-300"
                     style={{ 
-                      backgroundColor: index === 0 ? 'var(--color-accent-sage)' : index === 1 ? 'var(--color-accent-gold)' : 'var(--color-accent-pink)'
+                      backgroundColor: index === 0 ? '#96AD94' : index === 1 ? '#C6A76D' : '#E5989B'
                     }}
                   >
                     <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-[var(--color-neutral-dark)]">{benefit.description}</p>
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>{benefit.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}

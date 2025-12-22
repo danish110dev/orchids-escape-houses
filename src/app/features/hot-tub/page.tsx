@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Droplets, Star, Users, Waves, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function HotTubPage() {
@@ -16,11 +17,11 @@ export default function HotTubPage() {
   ];
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=90", alt: "Luxury outdoor hot tub with scenic countryside views" },
-    { url: "https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=800&q=90", alt: "Hot tub with champagne for hen party celebration" },
-    { url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=90", alt: "Relaxing in hot tub at sunset" },
-    { url: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=90", alt: "Private hot tub at luxury holiday home" },
-    { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=90", alt: "Hot tub deck with garden views" },
+    { url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=90", alt: "Luxury outdoor hot tub with scenic countryside views" },
+    { url: "https://images.unsplash.com/photo-1578991624414-276ef23a534f?w=800&q=90", alt: "Hot tub with champagne for hen party celebration" },
+    { url: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=800&q=90", alt: "Relaxing in hot tub at sunset" },
+    { url: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=800&q=90", alt: "Private hot tub at luxury holiday home" },
+    { url: "https://images.unsplash.com/photo-1529230117010-b6c6d3158e8e?w=800&q=90", alt: "Hot tub deck with garden views" },
     { url: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=800&q=90", alt: "Evening hot tub under the stars" },
   ];
 
@@ -38,60 +39,22 @@ export default function HotTubPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Properties with Hot Tubs",
-            "description": "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North Street",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "areaServed": "GB",
-            "serviceType": "Holiday Accommodation",
-            "category": "Hot Tub Houses"
-          })
-        }}
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Properties with Hot Tubs",
+          description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
+          items: []
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Hot Tub",
-                "item": "https://groupescapehouses.co.uk/features/hot-tub"
-              }
-            ]
-          })
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Hot Tub", url: "/features/hot-tub" }
+          ]
         }}
       />
 
@@ -102,7 +65,7 @@ export default function HotTubPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=90')",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>

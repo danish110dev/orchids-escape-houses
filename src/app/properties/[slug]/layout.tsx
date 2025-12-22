@@ -80,59 +80,8 @@ export default async function PropertyDetailLayout({
   children,
   params,
 }: PropertyDetailLayoutProps) {
-  const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
-
-  let lodgingBusinessSchema = null;
-
-  try {
-    const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
-      next: { revalidate: 60 },
-    });
-    
-    if (response.ok) {
-      const propertyData = await response.json();
-      const property = propertyData[0];
-
-      if (property) {
-        lodgingBusinessSchema = {
-          "@context": "https://schema.org",
-          "@type": "LodgingBusiness",
-          name: property.title,
-          url: `${baseUrl}/properties/${slug}`,
-          description: property.description || property.title,
-          image: property.heroImage || `${baseUrl}/og-image.jpg`,
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: property.location,
-            addressCountry: "UK"
-          },
-          priceRange: `£${Math.min(property.priceFromWeekend, property.priceFromMidweek)}-£${Math.max(property.priceFromWeekend, property.priceFromMidweek)}`,
-          accommodationCategory: "House",
-          potentialAction: {
-            "@type": "ReserveAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate: `${baseUrl}/properties/${slug}`,
-              actionPlatform: ["DesktopWebPlatform", "MobileWebPlatform"]
-            }
-          }
-        };
-      }
-    }
-  } catch (error) {
-    console.error('Error fetching property data for schema:', error);
-  }
-
   return (
     <>
-      {lodgingBusinessSchema && (
-        <Script
-          id={`lodging-schema-${slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessSchema) }}
-        />
-      )}
       {children}
     </>
   );

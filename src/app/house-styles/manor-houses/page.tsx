@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, Home, Users, Sparkles, Droplets, Waves, Film } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 
 export default function ManorHousesPage() {
@@ -36,58 +37,22 @@ export default function ManorHousesPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Manor Houses to Rent UK",
-            "description": "Luxury manor houses to rent across the UK for hen parties and group celebrations. Grand country estates with historic architecture, extensive grounds, and premium amenities.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Group Escape Houses",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11a North St, Brighton and Hove",
-                "addressLocality": "Brighton",
-                "postalCode": "BN41 1DH",
-                "addressCountry": "GB"
-              },
-              "email": "hello@groupescapehouses.co.uk"
-            },
-            "category": "Holiday Accommodation"
-          })
-        }}
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Manor Houses to Rent UK",
+          description: "Luxury manor houses to rent across the UK for hen parties and group celebrations. Grand country estates with historic architecture, extensive grounds, and premium amenities.",
+          items: []
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "House Styles",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Manor Houses",
-                "item": "https://groupescapehouses.co.uk/house-styles/manor-houses"
-              }
-            ]
-          })
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles-and-features" },
+            { name: "Manor Houses", url: "/house-styles/manor-houses" }
+          ]
         }}
       />
 

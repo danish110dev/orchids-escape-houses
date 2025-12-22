@@ -78,11 +78,11 @@ export default function Footer() {
                   Owner Benefits
                 </Link>
               </li>
-              <li>
-                <Link href="/advertise-with-us#pricing" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Commission Structure
-                </Link>
-              </li>
+                <li>
+                  <Link href="/advertise-with-us#pricing" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Fixed Fee Pricing
+                  </Link>
+                </li>
               <li>
                 <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
                   Owner Dashboard
@@ -178,8 +178,13 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8"></div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--color-bg-secondary)]">
+          {/* Bottom Bar */}
+          <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8 text-center max-w-4xl mx-auto">
+            <p className="text-xs text-[var(--color-bg-secondary)] mb-6 italic">
+              Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--color-bg-secondary)]">
           <p>&copy; 2025 Group Escape Houses. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/terms" className="hover:text-[var(--color-accent-sage)] transition-colors">

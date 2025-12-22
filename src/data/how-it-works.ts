@@ -1,4 +1,4 @@
-import { HomeIcon, Sparkles, CreditCard, PartyPopper } from "lucide-react";
+import { Search, Send, ShieldCheck, PartyPopper } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface Step {
@@ -6,6 +6,7 @@ export interface Step {
   icon: LucideIcon;
   title: string;
   description: string;
+  color: string;
 }
 
 export interface FAQ {
@@ -16,27 +17,31 @@ export interface FAQ {
 export const steps: Step[] = [
   {
     step: 1,
-    icon: HomeIcon,
-    title: "Choose Your House",
-    description: "Browse our collection of luxury party houses across the UK. Filter by location, group size, and features like hot tubs and pools.",
+    icon: Search,
+    title: "Find the Right Property",
+    description: "Browse large group houses and cottages across the UK and choose the property that suits your group.",
+    color: "#3d5a47"
   },
   {
     step: 2,
-    icon: Sparkles,
-    title: "Add Experiences",
-    description: "Enhance your stay with cocktail classes, butlers in the buff, private chefs, spa treatments, and more.",
+    icon: Send,
+    title: "Enquire or Book Direct",
+    description: "Send your enquiry or booking request directly to the property owner and discuss availability, pricing and terms.",
+    color: "#3d5a47"
   },
   {
     step: 3,
-    icon: CreditCard,
-    title: "Pay Your Deposit",
-    description: "Secure your booking with a 25% deposit. The remaining balance is due 8 weeks before arrival.",
+    icon: ShieldCheck,
+    title: "Confirm With the Owner",
+    description: "Payments, deposits and booking terms are agreed and handled directly with the property owner.",
+    color: "#C6A76D"
   },
   {
     step: 4,
     icon: PartyPopper,
-    title: "Final Balance & Enjoy",
-    description: "Pay the final balance 8 weeks before arrival, then relax and get ready for an unforgettable celebration.",
+    title: "Enjoy Your Stay",
+    description: "Arrive and enjoy your group getaway, with all arrangements managed directly with the owner.",
+    color: "#C6A76D"
   },
 ];
 
@@ -47,27 +52,19 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What's included in the rental price?",
-    answer: "The rental price includes full use of the property and all its amenities. Utilities, WiFi, linen, and towels are provided. Cleaning fees and security deposits are additional.",
+    answer: "Rental prices and inclusions are set by each individual property owner. Generally, utilities, WiFi, linen and towels are provided, but you should confirm specific details directly with the owner during the enquiry process.",
   },
   {
-    question: "Can I extend my stay?",
-    answer: "Extensions are subject to availability. Contact us as soon as possible if you'd like to extend, and we'll check if the property is free for additional nights.",
+    question: "How do I pay for my booking?",
+    answer: "All payments are made directly to the property owner. Each owner will have their own preferred payment methods and schedules, which they will discuss with you once you enquire.",
   },
   {
     question: "What happens if we damage something?",
-    answer: "Minor wear and tear is expected and covered. Any damage beyond normal use will be deducted from your security deposit. We'll provide photos and receipts for any repairs needed.",
-  },
-  {
-    question: "Are pets allowed?",
-    answer: "Some properties are pet-friendly. Look for the 'Pet Friendly' badge on property listings. There may be an additional pet fee, and pets must be well-behaved and supervised.",
-  },
-  {
-    question: "Can we have visitors who aren't staying overnight?",
-    answer: "Day visitors must be pre-approved and cannot exceed the property's maximum occupancy at any time. All guests must respect house rules and quiet hours.",
+    answer: "Most owners require a security deposit. The amount and terms for the return of this deposit are managed directly by the property owner. We recommend clarifying these terms before confirming your booking.",
   },
   {
     question: "What if someone in our group cancels?",
-    answer: "You're responsible for the full booking amount regardless of individual cancellations. We recommend taking out group travel insurance to cover these situations.",
+    answer: "Cancellation policies are set by the individual property owners. We recommend discussing this with the owner and taking out group travel insurance to cover any potential cancellations.",
   },
   {
     question: "Is there a noise curfew?",

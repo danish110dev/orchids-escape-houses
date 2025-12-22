@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
@@ -202,6 +203,23 @@ function PropertiesContent() {
 
   return (
     <>
+      <StructuredData 
+        type="listing" 
+        data={{
+          title: "Luxury Group Houses to Rent UK",
+          description: "Perfect for hen parties, weddings, celebrations, and group getaways across the UK. Large selection of party houses with hot tubs and pools.",
+          items: filteredProperties
+        }} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Properties", url: "/properties" }
+          ]
+        }}
+      />
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div>

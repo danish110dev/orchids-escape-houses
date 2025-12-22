@@ -1,176 +1,237 @@
 import Script from "next/script";
 
 interface StructuredDataProps {
-  type?: "home" | "property" | "experience" | "destination" | "faq" | "blog" | "listing";
+  type?: "home" | "property" | "experience" | "destination" | "faq" | "blog" | "listing" | "breadcrumb";
   data?: any;
 }
 
 export default function StructuredData({ type = "home", data }: StructuredDataProps) {
-  // Organization Schema - HOMEPAGE ONLY
-  const organizationSchema = type === "home" ? {
+  const baseUrl = "https://groupescapehouses.co.uk";
+  
+  // Organization Schema - PLATFORM LEVEL
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Group Escape Houses",
-    url: "https://groupescapehouses.co.uk",
-    logo: "https://groupescapehouses.co.uk/logo.png",
-    description: "Online UK group accommodation listings and enquiry platform for luxury party houses, hen parties, and celebrations.",
-    address: {
+    "@id": `${baseUrl}/#organization`,
+    "name": "Group Escape Houses",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logo.png`,
+    "description": "Online UK group accommodation listings and enquiry platform for luxury party houses and large group cottages.",
+    "address": {
       "@type": "PostalAddress",
-      streetAddress: "11a North Street",
-      addressLocality: "Brighton",
-      addressRegion: "East Sussex",
-      postalCode: "BN41 1DH",
-      addressCountry: "UK"
+      "streetAddress": "11a North Street",
+      "addressLocality": "Brighton",
+      "addressRegion": "East Sussex",
+      "postalCode": "BN41 1DH",
+      "addressCountry": "UK"
     },
-    contactPoint: {
+    "contactPoint": {
       "@type": "ContactPoint",
-      telephone: "+44-1273-569301",
-      contactType: "Customer Service"
-    }
-  } : null;
+      "telephone": "+44-1273-569301",
+      "contactType": "Customer Service",
+      "email": "hello@groupescapehouses.co.uk",
+      "areaServed": "GB",
+      "availableLanguage": "en"
+    },
+    "sameAs": [
+      "https://www.instagram.com/groupescapehouses/",
+      "https://www.tiktok.com/@groupescapehouses",
+      "https://www.pinterest.com/groupescapehouses"
+    ]
+  };
 
-  // Website Schema - HOMEPAGE ONLY
-  const websiteSchema = type === "home" ? {
+  // Website Schema
+  const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Group Escape Houses",
-    url: "https://groupescapehouses.co.uk",
-    potentialAction: {
+    "@id": `${baseUrl}/#website`,
+    "name": "Group Escape Houses",
+    "url": baseUrl,
+    "publisher": { "@id": `${baseUrl}/#organization` },
+    "potentialAction": {
       "@type": "SearchAction",
-      target: {
+      "target": {
         "@type": "EntryPoint",
-        urlTemplate: "https://groupescapehouses.co.uk/properties?search={search_term_string}"
+        "urlTemplate": `${baseUrl}/properties?search={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
-  } : null;
+  };
 
-  // Service Schema - HOMEPAGE ONLY
-  const serviceSchema = type === "home" ? {
+  // Service Schema - THE PLATFORM SERVICE
+  const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Group Accommodation Listings and Enquiry Platform",
-    description: "Online platform for browsing and enquiring about luxury group accommodation properties across the UK",
-    provider: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: "https://groupescapehouses.co.uk"
-    },
-    areaServed: {
+    "name": "Group Accommodation Listings and Enquiry Platform",
+    "description": "Online platform for browsing and enquiring about luxury group accommodation properties across the UK. Book direct with owners.",
+    "provider": { "@id": `${baseUrl}/#organization` },
+    "areaServed": {
       "@type": "Country",
-      name: "United Kingdom"
+      "name": "United Kingdom"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Group Accommodation Directory",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Party Houses",
+          "url": `${baseUrl}/house-styles/party-houses`
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Large Cottages",
+          "url": `${baseUrl}/house-styles/large-cottages`
+        }
+      ]
+    }
+  };
+
+  // CollectionPage Schema - For Listings/Categories
+  const collectionPageSchema = (type === "listing" || type === "destination" || type === "home") ? {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": data?.title || "Large Group Accommodation UK",
+    "description": data?.description || "A directory of luxury group houses and celebration venues across the UK.",
+    "publisher": { "@id": `${baseUrl}/#organization` },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": data?.items?.length || 0,
+      "itemListElement": data?.items?.map((item: any, index: number) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `${baseUrl}${item.url || `/properties/${item.slug}`}`,
+        "name": item.name || item.title
+      })) || []
     }
   } : null;
 
-  // ItemList Schema - LISTING AND DESTINATION PAGES ONLY
-  const itemListSchema = (type === "listing" || type === "destination") ? {
+  // LodgingBusiness Schema - FOR PROPERTY PAGES
+  const lodgingBusinessSchema = (type === "property" && data) ? {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: data?.items?.map((item: any, index: number) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      url: item.url
-    })) || []
+    "@type": "VacationRental",
+    "name": data.name || data.title,
+    "description": data.description,
+    "url": `${baseUrl}/properties/${data.slug}`,
+    "image": data.image || data.heroImage,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": data.address?.city || data.location,
+      "addressRegion": data.address?.region,
+      "addressCountry": "UK"
+    },
+    "numberOfRooms": data.bedrooms,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "maxValue": data.sleeps || data.sleepsMax
+    },
+    "additionalProperty": data.features?.map((f: string) => ({
+      "@type": "PropertyValue",
+      "name": "Feature",
+      "value": f
+    })),
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Property Manager",
+      "url": `${baseUrl}/properties/${data.slug}#enquiry`
+    }
   } : null;
 
-  // FAQPage Schema - ONLY ON PAGES WITH VISIBLE FAQs
-  const faqSchema = type === "faq" && data?.faqs ? {
+  // BreadcrumbList Schema
+  const breadcrumbSchema = (type === "breadcrumb" || data?.breadcrumbs) ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": (data?.breadcrumbs || []).map((crumb: any, index: number) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": crumb.url.startsWith("http") ? crumb.url : `${baseUrl}${crumb.url}`
+    }))
+  } : null;
+
+  // FAQPage Schema
+  const faqSchema = (type === "faq" || data?.faqs) ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: data.faqs.map((faq: any) => ({
+    "mainEntity": (data?.faqs || []).map((faq: any) => ({
       "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
+      "name": faq.question,
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: faq.answer
+        "text": faq.answer
       }
     }))
   } : null;
 
-  // Article Schema - BLOG POSTS ONLY
+  // Blog Article Schema
   const articleSchema = type === "blog" && data ? {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: data.headline,
-    description: data.description,
-    image: data.image,
-    datePublished: data.datePublished,
-    dateModified: data.dateModified,
-    author: {
+    "@type": "BlogPosting",
+    "headline": data.headline,
+    "description": data.description,
+    "image": data.image,
+    "datePublished": data.datePublished,
+    "dateModified": data.dateModified,
+    "author": {
       "@type": "Organization",
-      name: "Group Escape Houses"
+      "name": "Group Escape Houses"
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: "https://groupescapehouses.co.uk"
-    },
-    mainEntityOfPage: {
+    "publisher": { "@id": `${baseUrl}/#organization` },
+    "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": data.url
+      "@id": `${baseUrl}/blog/${data.slug}`
     }
-  } : null;
-
-  // Accommodation/LodgingBusiness Schema - INDIVIDUAL PROPERTY PAGES ONLY
-  const accommodationSchema = type === "property" && data ? {
-    "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
-    name: data.name,
-    url: data.url,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: data.address?.street,
-      addressLocality: data.address?.city,
-      addressRegion: data.address?.region,
-      postalCode: data.address?.postalCode,
-      addressCountry: "UK"
-    },
-    image: data.image,
-    description: data.description,
-    telephone: data.telephone,
-    priceRange: data.priceRange
   } : null;
 
   return (
     <>
-      {/* Organization Schema - HOMEPAGE ONLY */}
-      {organizationSchema && (
+      {/* Global Schemas - Only on Homepage to avoid duplication if layout also has them */}
+      {/* NOTE: If type is 'home', we render the core platform schemas */}
+      {type === "home" && (
+        <>
+          <Script
+            id="organization-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <Script
+            id="website-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+          <Script
+            id="service-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          />
+        </>
+      )}
+
+      {/* Page Specific Schemas */}
+      {collectionPageSchema && (
         <Script
-          id="organization-schema"
+          id="collection-page-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
         />
       )}
 
-      {/* Website Schema - HOMEPAGE ONLY */}
-      {websiteSchema && (
+      {lodgingBusinessSchema && (
         <Script
-          id="website-schema"
+          id="lodging-business-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessSchema) }}
         />
       )}
 
-      {/* Service Schema - HOMEPAGE ONLY */}
-      {serviceSchema && (
+      {breadcrumbSchema && (
         <Script
-          id="service-schema"
+          id="breadcrumb-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       )}
 
-      {/* ItemList Schema - LISTING AND DESTINATION PAGES ONLY */}
-      {itemListSchema && (
-        <Script
-          id="itemlist-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-        />
-      )}
-
-      {/* FAQPage Schema - ONLY ON PAGES WITH VISIBLE FAQs */}
       {faqSchema && (
         <Script
           id="faq-schema"
@@ -179,21 +240,11 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
         />
       )}
 
-      {/* Article Schema - BLOG POSTS ONLY */}
       {articleSchema && (
         <Script
-          id="article-schema"
+          id="blog-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-      )}
-
-      {/* Accommodation Schema - INDIVIDUAL PROPERTY PAGES ONLY */}
-      {accommodationSchema && (
-        <Script
-          id="accommodation-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(accommodationSchema) }}
         />
       )}
     </>
