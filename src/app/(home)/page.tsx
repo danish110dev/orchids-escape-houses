@@ -604,32 +604,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6 sm:mt-8 md:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-2 sm:px-4">
-              <Link href="/properties" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium transition-all hover:scale-[1.05] w-full sm:w-auto"
-                  style={{
-                    background: "var(--color-accent-pink)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
-                  Browse Houses
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/contact" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-xl md:rounded-2xl px-6 md:px-8 py-5 md:py-6 font-medium border-2 transition-all hover:bg-white w-full sm:w-auto"
-                  style={{
-                    borderColor: "var(--color-accent-gold)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
-                  Get Instant Quote
-                </Button>
-              </Link>
+
             </div>
           </div>
         </section>
