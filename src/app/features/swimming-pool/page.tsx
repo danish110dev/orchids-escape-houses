@@ -16,6 +16,18 @@ export default function SwimmingPoolPage() {
     "Create unforgettable poolside memories"
   ];
 
+  const relatedFeatures = [
+    { title: "Hot Tub", slug: "hot-tub", icon: Droplets },
+    { title: "Cinema Room", slug: "cinema-room", icon: Film },
+    { title: "Games Room", slug: "games-room", icon: Gamepad2 },
+  ];
+
+  const popularHouseStyles = [
+    { title: "Party Houses", slug: "party-houses" },
+    { title: "Luxury Houses", slug: "luxury-houses" },
+    { title: "Large Holiday Homes", slug: "large-holiday-homes" },
+  ];
+
   return (
     <div className="min-h-screen">
       <StructuredData 
