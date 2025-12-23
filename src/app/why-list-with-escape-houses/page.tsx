@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import { 
   MessageSquare,
@@ -13,6 +15,8 @@ import {
   FileEdit,
   Check,
   X,
+  Plus,
+  Minus,
   ArrowRight,
   Star,
   Download,
@@ -26,10 +30,47 @@ import {
   TrendingUp,
   HeartHandshake
 } from "lucide-react";
+import { useState } from "react";
+
+const faqs = [
+  {
+    question: "How does the fixed-fee model work?",
+    answer: "Instead of taking a commission on every booking, you pay a single annual fee to advertise your property. This means you keep 100% of the booking revenue, regardless of how many bookings you receive through our platform."
+  },
+  {
+    question: "Do I handle the bookings myself?",
+    answer: "Yes. Every enquiry comes directly to you via email or your preferred contact method. You manage the guest relationship, the booking contract, and the payment processing using your own systems."
+  },
+  {
+    question: "Can I sync my calendar with other platforms?",
+    answer: "Absolutely. We support iCal synchronization, which means your availability calendar on Escape Houses will automatically stay up to date with Airbnb, Booking.com, VRBO, or your own property management system."
+  },
+  {
+    question: "What kind of properties do you list?",
+    answer: "We specialize in luxury large group accommodation across the UK. This includes manor houses, large cottages, estates, and unique properties that can accommodate 10 or more guests."
+  },
+  {
+    question: "Is there a contract or long-term commitment?",
+    answer: "Our standard listing is for 12 months. There are no hidden tie-ins or automatic renewals that you can't cancel. We believe our results speak for themselves, so most of our owners choose to renew year after year."
+  },
+  {
+    question: "How many enquiries can I expect?",
+    answer: "Enquiry volume varies by property type and location, but because we are a specialist platform for groups, the enquiries you receive are typically high-value and high-intent. Many of our owners find that just one booking covers their entire annual advertising cost."
+  }
+];
 
 export default function WhyListWithUs() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-white">
+      <FAQSchema items={faqs} />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Why List With Us", item: "/why-list-with-escape-houses" }
+        ]} 
+      />
       <Header />
 
       <main>
@@ -258,6 +299,56 @@ export default function WhyListWithUs() {
                   </motion.div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Common Questions
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                Everything you need to know about listing your property with us.
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {faqs.map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="text-xl font-bold text-[var(--color-text-primary)]">
+                      {faq.question}
+                    </span>
+                    {openFaq === index ? (
+                      <Minus className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                    ) : (
+                      <Plus className="w-5 h-5 text-gray-400" />
+                    )}
+                  </button>
+                  
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 pb-6"
+                    >
+                      <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
