@@ -3,24 +3,10 @@ import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-import { Inter, Playfair_Display } from "next/font/google";
+import { fontBody, fontDisplay } from "./fonts";
 
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
-
-const fontBody = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-  variable: "--font-body",
-});
-
-const fontDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-  variable: "--font-display",
-});
 
 // Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
