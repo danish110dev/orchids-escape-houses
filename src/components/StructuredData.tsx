@@ -8,55 +8,49 @@ interface StructuredDataProps {
 export default function StructuredData({ type = "home", data }: StructuredDataProps) {
   const baseUrl = "https://groupescapehouses.co.uk";
   
-  // Organization Schema - PLATFORM LEVEL
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${baseUrl}/#organization`,
-    "name": "Group Escape Houses",
-    "url": baseUrl,
-    "logo": `${baseUrl}/logo.png`,
-    "description": "Online UK group accommodation listings and enquiry platform for luxury party houses and large group cottages.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "11a North Street",
-      "addressLocality": "Brighton",
-      "addressRegion": "East Sussex",
-      "postalCode": "BN41 1DH",
-      "addressCountry": "UK"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+44-1273-569301",
-      "contactType": "Customer Service",
+    // Organization Schema - PLATFORM LEVEL
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      "name": "Group Escape Houses",
+      "url": `${baseUrl}/`,
+      "description": "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission.",
+      "telephone": "01273 569301",
       "email": "hello@groupescapehouses.co.uk",
-      "areaServed": "GB",
-      "availableLanguage": "en"
-    },
-    "sameAs": [
-      "https://www.instagram.com/groupescapehouses/",
-      "https://www.tiktok.com/@groupescapehouses",
-      "https://www.pinterest.com/groupescapehouses"
-    ]
-  };
-
-  // Website Schema
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${baseUrl}/#website`,
-    "name": "Group Escape Houses",
-    "url": baseUrl,
-    "publisher": { "@id": `${baseUrl}/#organization` },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${baseUrl}/properties?search={search_term_string}`
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11a North Street",
+        "addressLocality": "Brighton",
+        "postalCode": "BN41 1DH",
+        "addressCountry": "GB"
       },
-      "query-input": "required name=search_term_string"
-    }
-  };
+      "sameAs": [
+        "https://www.instagram.com/groupescapehouses/"
+      ]
+    };
+  
+    // Website Schema
+    const websiteSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      "url": `${baseUrl}/`,
+      "name": "Group Escape Houses",
+      "publisher": { "@id": `${baseUrl}/#organization` }
+    };
+
+    // HomePage Schema
+    const homePageSchema = {
+      "@context": "https://schema.org",
+      "@type": "HomePage",
+      "@id": `${baseUrl}/#webpage`,
+      "url": `${baseUrl}/`,
+      "name": "Large Group Accommodation Across the UK",
+      "isPartOf": { "@id": `${baseUrl}/#website` },
+      "about": { "@id": `${baseUrl}/#organization` }
+    };
+
 
   // Service Schema - THE PLATFORM SERVICE
   const serviceSchema = {
@@ -88,7 +82,7 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
   };
 
   // CollectionPage Schema - For Listings/Categories
-  const collectionPageSchema = (type === "listing" || type === "destination" || type === "home") ? {
+  const collectionPageSchema = (type === "listing" || type === "destination") ? {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": data?.title || "Large Group Accommodation UK",
@@ -187,25 +181,26 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     <>
       {/* Global Schemas - Only on Homepage to avoid duplication if layout also has them */}
       {/* NOTE: If type is 'home', we render the core platform schemas */}
-      {type === "home" && (
-        <>
-          <Script
-            id="organization-schema"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
-          <Script
-            id="website-schema"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          />
-          <Script
-            id="service-schema"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-          />
-        </>
-      )}
+        {type === "home" && (
+          <>
+            <Script
+              id="organization-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <Script
+              id="website-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+            />
+            <Script
+              id="homepage-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+            />
+          </>
+        )}
+
 
       {/* Page Specific Schemas */}
       {collectionPageSchema && (
