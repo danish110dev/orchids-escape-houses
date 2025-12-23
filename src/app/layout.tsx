@@ -3,6 +3,7 @@ import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import dynamic from "next/dynamic";
 import Script from "next/script";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
@@ -50,6 +51,7 @@ export default function RootLayout({
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
       </head>
         <body className="antialiased">
+          <OrganizationSchema />
           <Script
             id="orchids-browser-logs"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"

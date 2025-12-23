@@ -1,4 +1,6 @@
 import Script from "next/script";
+import OrganizationSchema from "./OrganizationSchema";
+import BreadcrumbSchema from "./BreadcrumbSchema";
 
 interface StructuredDataProps {
   type?: "home" | "property" | "experience" | "destination" | "faq" | "blog" | "listing" | "breadcrumb";
@@ -177,31 +179,22 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
     }
   } : null;
 
+  // Experience Schema
+  const experienceSchema = type === "experience" && data ? {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": data.title,
+    "description": data.description,
+    "provider": { "@id": `${baseUrl}/#organization` },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "image": data.image
+  } : null;
+
   return (
     <>
-      {/* Global Schemas - Only on Homepage to avoid duplication if layout also has them */}
-      {/* NOTE: If type is 'home', we render the core platform schemas */}
-        {type === "home" && (
-          <>
-            <Script
-              id="organization-schema"
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-            />
-            <Script
-              id="website-schema"
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-            />
-            <Script
-              id="homepage-schema"
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
-            />
-          </>
-        )}
-
-
       {/* Page Specific Schemas */}
       {collectionPageSchema && (
         <Script
@@ -219,12 +212,16 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
         />
       )}
 
-      {breadcrumbSchema && (
+      {experienceSchema && (
         <Script
-          id="breadcrumb-schema"
+          id="experience-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(experienceSchema) }}
         />
+      )}
+
+      {(type === "breadcrumb" || data?.breadcrumbs) && (
+        <BreadcrumbSchema items={data?.breadcrumbs || []} />
       )}
 
       {faqSchema && (

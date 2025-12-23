@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Check, Calendar, MessageCircle } from "lucide-react";
 import Link from "next/link";
@@ -24,6 +25,24 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <StructuredData 
+        type="experience" 
+        data={{
+          title: experience.title,
+          description: experience.description,
+          image: experience.image
+        }} 
+      />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Experiences", url: "/experiences" },
+            { name: experience.title, url: `/experiences/${slug}` }
+          ]
+        }}
+      />
       <Header />
 
       <div className="pt-24">
