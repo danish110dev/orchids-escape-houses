@@ -64,32 +64,32 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Property Owners */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Property Owners</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/advertise-with-us" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  List Your Property
-                </Link>
-              </li>
-              <li>
-                <Link href="/advertise-with-us#benefits" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Owner Benefits
-                </Link>
-              </li>
+            {/* Property Owners */}
+            <div>
+              <h4 className="font-semibold mb-4 text-white">Property Owners</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/why-list-with-escape-houses" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Why List With Us?
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/advertise-with-us" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    List Your Property
+                  </Link>
+                </li>
                 <li>
                   <Link href="/advertise-with-us#pricing" className="hover:text-[var(--color-accent-sage)] transition-colors">
                     Fixed Fee Pricing
                   </Link>
                 </li>
-              <li>
-                <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Owner Dashboard
-                </Link>
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Owner Dashboard
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
           {/* Contact Info */}
           <div>
