@@ -106,20 +106,23 @@ export default function PropertyCard({
               ))}
             </div>
 
-            {/* Save Button */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setIsSaved(!isSaved);
-              }}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
-            >
-              <Heart
-                className={`w-5 h-5 ${
-                  isSaved ? "fill-red-500 text-red-500" : "text-[var(--color-text-primary)]"
-                }`}
-              />
-            </button>
+              {/* Save Button */}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsSaved(!isSaved);
+                }}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
+                aria-label={isSaved ? "Remove from saved" : "Save property"}
+              >
+                <Heart
+                  className={`w-5 h-5 ${
+                    isSaved ? "fill-red-500 text-red-500" : "text-[var(--color-text-primary)]"
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+
           </div>
         </Link>
 

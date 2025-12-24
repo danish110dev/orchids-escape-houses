@@ -30,7 +30,7 @@ export default function HeroVideo() {
         priority
         className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-30'}`}
         sizes="100vw"
-        quality={85}
+        quality={75}
       />
 
       {shouldLoadVideo && (

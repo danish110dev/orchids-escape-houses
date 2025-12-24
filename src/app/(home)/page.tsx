@@ -91,18 +91,19 @@ export default async function Home() {
         <section className="py-12 sm:py-14 md:py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-7 md:gap-8 text-center">
-              {[
-                { icon: Award, label: "5 Star Reviews", val: "3,000+", color: "var(--color-accent-gold)" },
-                { icon: Shield, label: "Safe Payments", val: "Secure", color: "var(--color-accent-sage)" },
-                { icon: Users, label: "Expert Support", val: "UK Team", color: "var(--color-accent-pink)" },
-                { icon: Clock, label: "Quick Response", val: "Fast", color: "var(--color-accent-gold)" }
-              ].map((item, i) => (
-                <div key={i} className="transition-transform hover:scale-105">
-                  <item.icon className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3" style={{ color: item.color }} />
-                  <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{item.val}</div>
-                  <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">{item.label}</div>
-                </div>
-              ))}
+                  {[
+                    { icon: Award, label: "5 Star Reviews", val: "3,000+", color: "var(--color-accent-gold)" },
+                    { icon: Shield, label: "Safe Payments", val: "Secure", color: "var(--color-accent-sage)" },
+                    { icon: Users, label: "Expert Support", val: "UK Team", color: "var(--color-accent-pink)" },
+                    { icon: Clock, label: "Quick Response", val: "Fast", color: "var(--color-accent-gold)" }
+                  ].map((item, i) => (
+                    <div key={i} className="transition-transform hover:scale-105">
+                      <item.icon className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3" style={{ color: item.color }} aria-hidden="true" />
+                      <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{item.val}</div>
+                      <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">{item.label}</div>
+                    </div>
+                  ))}
+
             </div>
           </div>
         </section>
@@ -186,7 +187,7 @@ export default async function Home() {
             </div>
 
             {/* Scrolling Carousel */}
-            <div className="relative">
+            <div className="relative min-h-[170px] md:min-h-[225px]">
               <div className="overflow-hidden">
                 <div className="flex gap-6 animate-slide-left">
                   {[...destinations, ...destinations].map((destination, index) => (
@@ -194,10 +195,11 @@ export default async function Home() {
                       key={`${destination.name}-${index}`}
                       href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
+                      aria-label={`View properties in ${destination.name}`}
                     >
                       <Image
                         src={destination.image}
-                        alt={destination.name}
+                        alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
                         fill
                         className="object-cover object-center transition-transform group-hover:scale-110"
                         sizes="(max-width: 768px) 300px, 400px"
@@ -336,34 +338,36 @@ export default async function Home() {
               </a>
             </div>
 
-            {/* Instagram Scrolling Carousel */}
-            <div className="relative mt-12">
-              <div className="overflow-hidden">
-                <div className="flex gap-4 animate-slide-left">
-                  {[ 
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-luxury-uk-c-082eb61b-20251209095213.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-e5926857-20251209095212.jpg",
-                    "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-bdabbebd-20251209095212.jpg",
-                  ].map((img, index) => (
-                    <a
-                      key={`img-${index}`}
-                      href="https://www.instagram.com/groupescapehouses/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
-                    >
-                      <Image
-                        src={img}
-                        alt={`Instagram post ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="280px"
-                        loading="lazy"
-                      />
+              {/* Instagram Scrolling Carousel */}
+              <div className="relative mt-12 min-h-[400px] md:min-h-[500px]">
+                <div className="overflow-hidden">
+                  <div className="flex gap-4 animate-slide-left">
+                    {[ 
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-a-luxury-uk-c-082eb61b-20251209095213.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-e5926857-20251209095212.jpg",
+                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-bdabbebd-20251209095212.jpg",
+                    ].map((img, index) => (
+                      <a
+                        key={`img-${index}`}
+                        href="https://www.instagram.com/groupescapehouses/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
+                        aria-label={`View Instagram post ${index + 1}`}
+                      >
+                        <Image
+                          src={img}
+                          alt={`Luxury holiday house showcase on Instagram - Image ${index + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          sizes="280px"
+                          loading="lazy"
+                        />
+
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
                           <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
