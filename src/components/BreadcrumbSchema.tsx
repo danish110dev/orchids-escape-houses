@@ -15,12 +15,15 @@ export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.item.startsWith("http") ? item.item : `${baseUrl}${item.item.startsWith("/") ? "" : "/"}${item.item}`
-    }))
+    "itemListElement": items.map((item, index) => {
+      const itemUrl = (item as any).item || (item as any).url || "";
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": itemUrl.startsWith("http") ? itemUrl : `${baseUrl}${itemUrl.startsWith("/") ? "" : "/"}${itemUrl}`
+      };
+    })
   };
 
   return (
