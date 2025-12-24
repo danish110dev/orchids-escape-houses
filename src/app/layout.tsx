@@ -10,9 +10,12 @@ export const metadata: Metadata = {
     default: "Large Group Accommodation Across the UK | Group Escape Houses",
     template: "%s | Group Escape Houses"
   },
-  description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-  metadataBase: new URL("https://groupescapehouses.co.uk"),
-  formatDetection: {
+    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
+    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+    alternates: {
+      canonical: "/",
+    },
+    formatDetection: {
     email: false,
     address: false,
     telephone: false,

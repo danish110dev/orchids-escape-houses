@@ -97,13 +97,6 @@ function PropertiesContent() {
   });
 
   useEffect(() => {
-    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonicalLink.setAttribute('rel', 'canonical');
-    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/properties');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonicalLink);
-    }
-
     const fetchProperties = async () => {
       try {
         setIsLoadingData(true);

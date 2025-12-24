@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Christmas Party Houses UK | Festive Group Accommodation & Breaks",
-  description: "Christmas party houses for 8-30+ guests. Log fires, hot tubs & festive cheer. Christmas week, Boxing Day & New Year availability.",
-  keywords: ["Christmas party houses UK", "festive group accommodation", "Christmas breaks for groups", "holiday houses Christmas"],
-  openGraph: {
-    title: "Christmas Group Accommodation | Group Escape Houses",
-    description: "Festive party houses with log fires and hot tubs. Christmas week and New Year availability.",
-    url: "https://groupescapehouses.co.uk/christmas",
-  },
+  title: "Christmas Party Houses UK | Group Escape Houses",
+  description: "Celebrate the festive season in style with our selection of Christmas party houses. Large luxury properties perfect for family gatherings and festive celebrations.",
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/christmas",
+    canonical: "/christmas",
   },
 };
 
-export default function ChristmasRootLayout({
+export default function ChristmasLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }

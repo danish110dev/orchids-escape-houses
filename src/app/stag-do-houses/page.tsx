@@ -18,9 +18,6 @@ export default function StagDoHousesPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Stag Do Houses | Group Escape Houses</title>
-      <meta name="description" content="Discover the best stag do houses across the UK. Epic group accommodation with games rooms, hot tubs, and plenty of space for the ultimate stag weekend celebration." />
-      
       <Header />
       
       {/* Hero Section */}

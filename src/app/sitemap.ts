@@ -4,7 +4,7 @@ import { properties, experiences, destinations, blogPosts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const currentDate = new Date().toISOString();
   
   // Static routes with optimized priorities for AI search
@@ -207,23 +207,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Occasions pages (with /occasions/ prefix)
-  const occasionRoutes: MetadataRoute.Sitemap = [
-    'hen-party-houses',
-    'weddings',
-    'special-celebrations',
-    'weekend-breaks',
-    'christmas',
-    'new-year',
-    'easter',
-  ].map((slug) => ({
-    url: `${baseUrl}/occasions/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // Direct occasion routes (without /occasions/ prefix)
+  // Direct occasion routes
   const directOccasionRoutes: MetadataRoute.Sitemap = [
     'hen-party-houses',
     'weddings',
@@ -232,6 +216,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'christmas',
     'new-year',
     'easter',
+    'stag-do-houses',
     'spa-treatments',
   ].map((slug) => ({
     url: `${baseUrl}/${slug}`,
@@ -248,7 +233,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogRoutes,
     ...featureRoutes,
     ...houseStyleRoutes,
-    ...occasionRoutes,
     ...directOccasionRoutes,
   ];
 }

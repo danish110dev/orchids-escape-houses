@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Easter Breaks UK | Group Holiday Houses",
-  description: "Easter holiday houses for 8-30 guests. Perfect for family gatherings & spring celebrations. Hot tubs, pools & countryside locations.",
-  keywords: ["Easter houses", "spring break accommodation", "Easter holiday rental", "family Easter breaks"],
-  openGraph: {
-    title: "Easter Holiday Houses | Group Escape Houses",
-    description: "Celebrate Easter in luxury group accommodation. Perfect for families and friends.",
-    url: "https://groupescapehouses.co.uk/easter",
-  },
+  title: "Easter Family Holiday Houses UK | Group Escape Houses",
+  description: "Perfect large houses for Easter family gatherings and spring breaks. Luxury group accommodation with gardens, hot tubs, and plenty of space for the whole family.",
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/easter",
+    canonical: "/easter",
   },
 };
 
-export default function EasterRootLayout({
+export default function EasterLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }

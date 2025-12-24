@@ -184,21 +184,21 @@ export default function OccasionsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {occasions.map((occasion, index) => {
-              const Icon = occasion.icon;
-              return (
-                <motion.div
-                  key={occasion.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={`/occasions/${occasion.slug}`}
-                    className="group block rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {occasions.map((occasion, index) => {
+                const Icon = occasion.icon;
+                return (
+                  <motion.div
+                    key={occasion.slug}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
+                    <Link
+                      href={`/${occasion.slug}`}
+                      className="group block rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                    >
                     {/* Image */}
                     <div className="relative h-64 overflow-hidden">
                       <img

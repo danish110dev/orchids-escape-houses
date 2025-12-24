@@ -1,8 +1,22 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Heart, Sparkles, Wine, Music, Camera, Crown } from "lucide-react";
+import { 
+  Heart, 
+  Sparkles, 
+  Wine, 
+  Music, 
+  Camera, 
+  Crown, 
+  Check, 
+  ArrowRight, 
+  Waves, 
+  Gamepad2, 
+  Star,
+  ChevronDown
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -10,35 +24,21 @@ import ExperienceCard from "@/components/ExperienceCard";
 import { Button } from "@/components/ui/button";
 
 export default function HenPartyHousesPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -100px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const timeoutId = setTimeout(() => {
-      const elements = document.querySelectorAll(".scroll-reveal");
-      elements.forEach(el => observer.observe(el));
-    }, 100);
-
-    return () => {
-      clearTimeout(timeoutId);
-      observer.disconnect();
-    };
   }, []);
+
+  const features = [
+    "Hot tubs, swimming pools, and games rooms for non-stop fun",
+    "Add-on experiences: cocktail masterclass, butlers, or pamper sessions",
+    "Stylish interiors perfect for Instagram-worthy photos",
+    "Spacious communal areas for group activities and celebrations",
+    "Bride stays free on qualifying bookings (10+ guests)",
+    "24/7 UK support team for any last-minute requests"
+  ];
 
   const featuredProperties = [
     {
@@ -107,37 +107,83 @@ export default function HenPartyHousesPage() {
     {
       icon: Crown,
       title: "Made for Hen Parties",
-      description: "Spacious houses designed for groups, with open-plan living for socialising and private rooms for everyone"
+      description: "Spacious houses designed for groups, with open-plan living for socialising and private rooms for everyone."
     },
     {
       icon: Wine,
       title: "Hot Tubs & Pools",
-      description: "Relax and unwind with luxury amenities including hot tubs, swimming pools, and beautiful outdoor spaces"
+      description: "Relax and unwind with luxury amenities including hot tubs, swimming pools, and beautiful outdoor spaces."
     },
     {
       icon: Music,
       title: "Entertainment Spaces",
-      description: "Games rooms, cinemas, sound systems, and party-ready spaces to keep the celebrations going"
+      description: "Games rooms, cinemas, sound systems, and party-ready spaces to keep the celebrations going."
     },
     {
       icon: Camera,
       title: "Instagram-Worthy",
-      description: "Beautiful interiors and stunning locations perfect for creating unforgettable memories and photos"
+      description: "Beautiful interiors and stunning locations perfect for creating unforgettable memories and photos."
     },
     {
       icon: Sparkles,
       title: "Add Experiences",
-      description: "Enhance your weekend with cocktail classes, spa treatments, private chefs, and more curated activities"
+      description: "Enhance your weekend with cocktail classes, spa treatments, private chefs, and more curated activities."
     },
     {
       icon: Heart,
-      title: "Simple Booking",
-      description: "Easy deposits, flexible payments, and UK support team to help you plan the perfect hen weekend"
+      title: "Bride Stays Free",
+      description: "Exclusive offer: On all hen party bookings of 10 or more guests, the bride stays completely free!"
     },
   ];
 
+  const galleryImages = [
+    {
+      url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=90",
+      alt: "Group of women celebrating hen party by hot tub with champagne"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90",
+      alt: "Luxury hot tub with champagne glasses for hen celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=1600&q=90",
+      alt: "Friends celebrating hen party weekend together"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90",
+      alt: "Stylish hen party decorations and celebration setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=1600&q=90",
+      alt: "Girls enjoying cocktails at hen party celebration"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=1600&q=90",
+      alt: "Group photo of hen party weekend celebration"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Do you really offer a free stay for the bride?",
+      answer: "Yes! On all hen party bookings of 10 or more guests, the bride stays completely free. This is automatically applied when you book, making it even more affordable for the whole group."
+    },
+    {
+      question: "What hen party add-ons do you offer?",
+      answer: "We offer cocktail masterclasses, butlers in the buff, life drawing sessions, private chefs, spa treatments, and decoration packages. These can all be arranged when you make your booking."
+    },
+    {
+      question: "Are your houses suitable for hen parties?",
+      answer: "Our houses are perfect for fun celebrations. Many properties are in secluded locations ideal for groups, while others are central to city nightlife. We'll match you with the right house for your group's vibe."
+    },
+    {
+      question: "Can we sync our calendar or invite guests easily?",
+      answer: "Yes, we provide a clear breakdown of costs that's easy to share with your group. Our platform also allows for easy enquiries and direct communication with property owners."
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
 
       {/* Hero Section */}
@@ -148,87 +194,71 @@ export default function HenPartyHousesPage() {
             backgroundImage: "url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=90')",
           }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/85 to-[var(--color-bg-secondary)]/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40"></div>
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-32 text-center">
-          <h1
-            className="mb-6 animate-fade-up"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text-primary)",
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Hen Party Houses UK with Hot Tubs
-          </h1>
-          <p
-            className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fade-up"
-            style={{
-              color: "var(--color-neutral-dark)",
-              animationDelay: "100ms",
-            }}
-          >
-            Celebrate the bride-to-be in luxury group accommodation across the UK. Perfect hen do houses with hot tubs, pools, games rooms, and unforgettable experiences
-          </p>
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party Houses UK
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white/90">
+              Celebrate the bride-to-be in luxury group accommodation across the UK. Perfect hen do houses with hot tubs, pools, and unforgettable experiences.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/properties">Browse Hen Houses</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
-              style={{
-                borderColor: "var(--color-accent-gold)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/contact">Check Availability and Book</Link>
-            </Button>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-10 py-7 text-xl font-bold transition-all duration-300 hover:scale-105"
+                style={{ background: "var(--color-accent-sage)", color: "white" }}
+              >
+                <Link href="/properties">Browse Hen Houses</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-2xl px-10 py-7 text-xl font-bold bg-white/10 backdrop-blur-sm border-2 text-white hover:bg-white hover:text-black transition-all duration-300"
+              >
+                <Link href="/contact">Check Availability</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose for Hen Parties */}
-      <section className="py-24 bg-white scroll-reveal">
+      {/* Benefits Section */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
               Perfect for Hen Weekends
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Everything you need for an unforgettable hen party celebration
-            </p>
+            <p className="text-xl text-[var(--color-neutral-dark)]">Everything you need for an unforgettable celebration.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {henFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-[var(--color-bg-primary)] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300"
                 >
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                    style={{ background: "var(--color-accent-sage)" }}
-                  >
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={{ background: "var(--color-accent-sage)" }}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-body)" }}>
-                    {feature.title}
-                  </h3>
-                  <p className="text-[var(--color-neutral-dark)]">{feature.description}</p>
-                </div>
+                  <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{feature.description}</p>
+                </motion.div>
               );
             })}
           </div>
@@ -236,106 +266,101 @@ export default function HenPartyHousesPage() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-24 bg-[var(--color-bg-primary)] scroll-reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Top Hen Party Houses
-            </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Handpicked luxury properties perfect for hen weekends across the UK
-            </p>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                Top Hen Party Houses
+              </h2>
+              <p className="text-xl text-[var(--color-neutral-dark)]">Handpicked luxury properties across the UK.</p>
+            </div>
+            <Button asChild variant="ghost" className="text-[var(--color-accent-sage)] font-bold text-lg hover:bg-transparent hover:underline p-0">
+              <Link href="/properties">View all properties <ArrowRight className="ml-2 w-5 h-5" /></Link>
+            </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProperties.map((property) => (
               <PropertyCard key={property.id} {...property} />
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/properties">View All Properties</Link>
-            </Button>
+      {/* Gallery Section */}
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party Gallery
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-md group"
+              >
+                <img src={image.url} alt={image.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Hen Party Experiences */}
-      <section className="py-24 bg-[var(--color-bg-secondary)] scroll-reveal">
-        <div className="max-w-[1200px] mx-auto px-6">
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Make It Extra Special
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Hen Party FAQs
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl mx-auto">
-              Add unforgettable experiences to your hen weekend
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {experiences.map((experience) => (
-              <ExperienceCard key={experience.slug} {...experience} />
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-100 rounded-2xl overflow-hidden bg-[var(--color-bg-primary)]">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-bold text-xl">{faq.question}</span>
+                  <ChevronDown className={`w-6 h-6 transition-transform ${openFaq === index ? "rotate-180" : ""}`} />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6 text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/experiences">Explore All Experiences</Link>
-            </Button>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white scroll-reveal">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Ready to Plan Your Hen Weekend?
-          </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
-            Get in touch today for an instant quote and start planning the perfect celebration for the bride-to-be
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/contact">Check Availability and Book</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 text-lg font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-gold)] hover:text-white"
-              style={{
-                borderColor: "var(--color-accent-gold)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Link href="/properties">Browse Houses</Link>
-            </Button>
+      <section className="py-24 bg-[var(--color-bg-primary)]">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <div className="bg-white p-16 rounded-[40px] shadow-xl border border-gray-100">
+            <h2 className="text-4xl lg:text-6xl font-bold mb-8" style={{ fontFamily: "var(--font-display)" }}>
+              Ready to plan the perfect Hen Weekend?
+            </h2>
+            <p className="text-2xl text-[var(--color-neutral-dark)] mb-12 max-w-3xl mx-auto">
+              Get in touch today for an instant quote and start planning the ultimate celebration for the bride-to-be.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl px-12 py-8 text-xl font-bold"
+                style={{ background: "var(--color-accent-sage)", color: "white" }}
+              >
+                <Link href="/contact">Check Availability and Book</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

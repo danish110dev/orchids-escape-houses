@@ -14,14 +14,6 @@ export default function WeddingsPage() {
   useEffect(() => {
     setMounted(true);
     
-    // Set canonical URL
-    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonicalLink.setAttribute('rel', 'canonical');
-    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/weddings');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonicalLink);
-    }
-    
     const observerOptions = {
       threshold: 0.15,
       rootMargin: "0px 0px -100px 0px"
