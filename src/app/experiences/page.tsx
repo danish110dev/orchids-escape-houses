@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FAQAccordion from "@/components/FAQAccordion";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { Sparkles, CheckCircle2, MapPin, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -143,6 +142,7 @@ export default function ExperiencesPage() {
         }}
       />
       <UKServiceSchema type="faq" data={{ faqs }} />
+
       <Header />
 
       {/* Hero */}

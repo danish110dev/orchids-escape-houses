@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 import { GEH_API } from "@/lib/api-client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 import {
   Select,
   SelectContent,

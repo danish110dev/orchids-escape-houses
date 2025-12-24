@@ -3,7 +3,6 @@ import UKServiceSchema from "@/components/UKServiceSchema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
   
   return {
     alternates: {
@@ -38,26 +37,25 @@ export default async function DestinationDetailLayout({
     console.error('Error fetching destination properties for schema:', error);
   }
 
-  const destinationName = slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ');
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Destinations", url: "/destinations" },
+    { name: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '), url: `/destinations/${slug}` }
+  ];
 
   return (
     <>
       <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Destinations", url: "/destinations" },
-            { name: destinationName, url: `/destinations/${slug}` }
-          ]
-        }}
+        type="itemList" 
+        data={{ 
+          items: properties.slice(0, 10),
+          name: `Group Accommodation in ${slug.replace(/-/g, ' ')}`
+        }} 
       />
-      {properties.length > 0 && (
-        <UKServiceSchema 
-          type="itemList" 
-          data={{ items: properties.slice(0, 10) }} 
-        />
-      )}
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{ breadcrumbs }} 
+      />
       {children}
     </>
   );

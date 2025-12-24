@@ -4,7 +4,7 @@ import { experiencesData } from "@/data/experiences";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const experience = experiencesData[slug] || experiencesData["private-chef"];
 
   return {

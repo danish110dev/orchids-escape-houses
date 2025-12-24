@@ -1,6 +1,6 @@
 
 interface UKServiceSchemaProps {
-  type: "home" | "breadcrumb" | "itemList" | "faq" | "default";
+  type: "home" | "breadcrumb" | "itemList" | "faq" | "blog" | "default";
   data?: any;
   includeSiteWide?: boolean;
 }
@@ -77,10 +77,11 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
   const itemListSchema = (type === "itemList" && data?.items) ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "name": data.name || "Property Listings",
     "itemListElement": data.items.map((item: any, index: number) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "url": item.url ? (item.url.startsWith("http") ? item.url : `${baseUrl}${item.url.startsWith("/") ? "" : "/"}${item.url}`) : `${baseUrl}/properties/${item.slug}`
+      "url": item.url ? (item.url.startsWith("http") ? item.url : `${baseUrl}${item.url.startsWith("/") ? "" : "/"}${item.url}`) : `${baseUrl}/properties/${item.slug || item.id}`
     }))
   } : null;
 
@@ -98,37 +99,72 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     }))
   } : null;
 
+  // Blog Article Schema
+  const articleSchema = (type === "blog" && data) ? {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": data.headline,
+    "description": data.description,
+    "image": data.image,
+    "datePublished": data.datePublished,
+    "dateModified": data.dateModified || data.datePublished,
+    "author": {
+      "@type": "Organization",
+      "name": "Group Escape Houses",
+      "url": baseUrl
+    },
+    "publisher": { "@id": `${baseUrl}/#organization` },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${data.slug}`
+    }
+  } : null;
+
   return (
     <>
+      {/* Site-wide schema */}
       {includeSiteWide && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]).replace(/<\/script>/g, '\\u003c/script>') }}
-        />
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+        </>
       )}
       
+      {/* Page specific schema */}
       {webPageSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema).replace(/<\/script>/g, '\\u003c/script>') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
         />
       )}
       {breadcrumbSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/<\/script>/g, '\\u003c/script>') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       )}
       {itemListSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema).replace(/<\/script>/g, '\\u003c/script>') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
         />
       )}
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/<\/script>/g, '\\u003c/script>') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
       )}
     </>

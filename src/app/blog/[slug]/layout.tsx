@@ -21,7 +21,6 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
@@ -67,55 +66,33 @@ export default async function BlogPostLayout({
   params,
 }: BlogPostLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
   const post = blogPosts[slug];
 
   if (!post) {
     return children;
   }
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description || post.excerpt,
-    datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
-    author: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: `${baseUrl}/logo.png`
-      }
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/blog/${slug}`
-    }
-  };
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${slug}` }
+  ];
 
   return (
     <>
       <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-            { name: post.title, url: `/blog/${slug}` }
-          ]
-        }}
+        type="blog" 
+        data={{ 
+          slug,
+          headline: post.title,
+          description: post.description || post.excerpt,
+          datePublished: new Date(post.date).toISOString(),
+          image: "https://groupescapehouses.co.uk/logo.png"
+        }} 
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{ breadcrumbs }} 
       />
       {children}
     </>
