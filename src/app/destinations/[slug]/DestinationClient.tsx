@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -1208,15 +1208,13 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
   return (
     <>
-      <StructuredData 
-        type="destination" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: `${destination.name} Group Accommodation`,
-          description: destination.overview,
           items: properties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [

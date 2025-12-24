@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import { notFound } from "next/navigation";

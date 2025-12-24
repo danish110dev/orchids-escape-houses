@@ -1,11 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { Check, ArrowRight, Film, Popcorn, Users, Droplets, Waves, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Properties with Cinema Rooms | Luxury Group Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with private cinema rooms. Perfect for cosy movie nights, entertainment, and relaxed group celebrations.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/cinema-room",
+  },
+};
 
 export default function CinemaRoomPage() {
   const highlights = [
@@ -57,15 +64,7 @@ export default function CinemaRoomPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
-        data={{
-          title: "Properties with Cinema Rooms",
-          description: "Luxury hen party houses in the UK with private cinema rooms. Perfect for cosy movie nights, entertainment, and relaxed group celebrations.",
-          items: []
-        }} 
-      />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -75,7 +74,6 @@ export default function CinemaRoomPage() {
           ]
         }}
       />
-
       <Header />
       
       {/* Hero Section */}

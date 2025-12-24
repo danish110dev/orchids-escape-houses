@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -27,16 +28,6 @@ import {
   Check,
   X
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
-  description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
-  openGraph: {
-    title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
-    description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
-    type: "website",
-  },
-};
 
 export default function AdvertisePage() {
   const benefits = [
@@ -249,22 +240,22 @@ export default function AdvertisePage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-              <Image
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80"
-                alt="Luxury interior"
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-full object-cover"
-              />
-              <Image
-                src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=400&q=80"
-                alt="Property pool"
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-full object-cover mt-8"
-              />
-            </div>
+              <div className="grid grid-cols-2 gap-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80"
+                  alt="Luxury modern living room interior in group holiday house"
+                  width={400}
+                  height={500}
+                  className="rounded-2xl w-full h-full object-cover"
+                />
+                <Image
+                  src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=400&q=80"
+                  alt="Private outdoor swimming pool at luxury group accommodation"
+                  width={400}
+                  height={500}
+                  className="rounded-2xl w-full h-full object-cover mt-8"
+                />
+              </div>
           </div>
         </div>
       </section>

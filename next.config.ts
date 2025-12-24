@@ -49,6 +49,50 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/occasions/hen-party-houses',
+        destination: '/hen-party-houses',
+        permanent: true,
+      },
+      {
+        source: '/occasions/weddings',
+        destination: '/weddings',
+        permanent: true,
+      },
+      {
+        source: '/occasions/special-celebrations',
+        destination: '/special-celebrations',
+        permanent: true,
+      },
+      {
+        source: '/occasions/weekend-breaks',
+        destination: '/weekend-breaks',
+        permanent: true,
+      },
+      {
+        source: '/occasions/christmas',
+        destination: '/christmas',
+        permanent: true,
+      },
+      {
+        source: '/occasions/new-year',
+        destination: '/new-year',
+        permanent: true,
+      },
+      {
+        source: '/occasions/easter',
+        destination: '/easter',
+        permanent: true,
+      },
+      {
+        source: '/occasions/stag-do-houses',
+        destination: '/stag-do-houses',
+        permanent: true,
+      },
+    ];
+  },
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {
@@ -59,4 +103,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1765449319523
+// Orchids restart: 1766521410583

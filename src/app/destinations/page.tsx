@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -326,6 +327,15 @@ export default function DestinationsPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Destinations", url: "/destinations" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

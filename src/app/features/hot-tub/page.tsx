@@ -1,13 +1,38 @@
-"use client";
-
 import Link from "next/link";
+import Image from "next/image";
 import { Check, ArrowRight, Droplets, Star, Users, Waves, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import { db } from "@/db";
+import { properties, propertyFeatures } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import type { Metadata } from "next";
 
-export default function HotTubPage() {
+export const metadata: Metadata = {
+  title: "Houses with Hot Tubs | Hen Party Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/hot-tub",
+  },
+};
+
+export default async function HotTubPage() {
+  // Fetch properties with hot tubs for the schema
+  const hotTubProperties = await db
+    .select({
+      id: properties.id,
+      title: properties.title,
+      slug: properties.slug,
+      heroImage: properties.heroImage,
+      location: properties.location,
+    })
+    .from(properties)
+    .innerJoin(propertyFeatures, eq(properties.id, propertyFeatures.propertyId))
+    .where(eq(propertyFeatures.featureName, "Hot Tub"))
+    .limit(8);
+
   const highlights = [
     "Outdoor and indoor hot tubs available",
     "Perfect for relaxation after a day out",
@@ -39,15 +64,13 @@ export default function HotTubPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: "Properties with Hot Tubs",
-          description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
-          items: []
+          items: hotTubProperties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -57,19 +80,19 @@ export default function HotTubPage() {
           ]
         }}
       />
-
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=90')",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
-        </div>
+      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=90"
+          alt="Luxury property with hot tub"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
         
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
           <nav className="flex justify-center gap-2 text-sm mb-6 text-white/90">
@@ -95,9 +118,12 @@ export default function HotTubPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {galleryImages.map((image, index) => (
               <div key={index} className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${image.url}')` }}
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>

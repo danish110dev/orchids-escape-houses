@@ -81,9 +81,9 @@ export default function HeroSearchForm() {
 
   if (!mounted) {
     return (
-      <div className="bg-white/95 rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto h-[300px] md:h-24 flex items-center justify-center">
+      <div className="bg-white/95 rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto h-[300px] md:h-[112px] flex items-center justify-center">
         <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
-           {[1,2,3,4].map(i => <div key={i} className="h-14 bg-gray-100 animate-pulse rounded-xl" />)}
+           {[1,2,3,4].map(i => <div key={i} className="h-14 md:h-16 bg-gray-100 animate-pulse rounded-xl md:rounded-2xl" />)}
         </div>
       </div>
     );

@@ -1,11 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { Check, ArrowRight, Home, Users, Sparkles, Droplets, Waves, Film } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Manor Houses to Rent UK | Grand Country Estates | Group Escape Houses",
+  description: "Luxury manor houses to rent across the UK for hen parties and group celebrations. Grand country estates with historic architecture and premium amenities.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/house-styles/manor-houses",
+  },
+};
 
 export default function ManorHousesPage() {
   const highlights = [
@@ -37,15 +44,7 @@ export default function ManorHousesPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
-        data={{
-          title: "Manor Houses to Rent UK",
-          description: "Luxury manor houses to rent across the UK for hen parties and group celebrations. Grand country estates with historic architecture, extensive grounds, and premium amenities.",
-          items: []
-        }} 
-      />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [

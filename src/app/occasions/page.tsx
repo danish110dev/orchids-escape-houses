@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import Script from "next/script";
 import { 
@@ -108,6 +109,15 @@ export default function OccasionsPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -185,21 +195,21 @@ export default function OccasionsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {occasions.map((occasion, index) => {
-              const Icon = occasion.icon;
-              return (
-                <motion.div
-                  key={occasion.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={`/occasions/${occasion.slug}`}
-                    className="group block rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {occasions.map((occasion, index) => {
+                const Icon = occasion.icon;
+                return (
+                  <motion.div
+                    key={occasion.slug}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
+                    <Link
+                      href={`/${occasion.slug}`}
+                      className="group block rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                    >
                     {/* Image */}
                     <div className="relative h-64 overflow-hidden">
                       <img

@@ -1,13 +1,38 @@
-"use client";
-
 import Link from "next/link";
+import Image from "next/image";
 import { Check, ArrowRight, Waves, Sun, Users, Droplets, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import { db } from "@/db";
+import { properties, propertyFeatures } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import type { Metadata } from "next";
 
-export default function SwimmingPoolPage() {
+export const metadata: Metadata = {
+  title: "Cottages with Pools | Large Group Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/swimming-pool",
+  },
+};
+
+export default async function SwimmingPoolPage() {
+  // Fetch properties with swimming pools for the schema and potentially a listing section
+  const poolProperties = await db
+    .select({
+      id: properties.id,
+      title: properties.title,
+      slug: properties.slug,
+      heroImage: properties.heroImage,
+      location: properties.location,
+    })
+    .from(properties)
+    .innerJoin(propertyFeatures, eq(properties.id, propertyFeatures.propertyId))
+    .where(eq(propertyFeatures.featureName, "Swimming Pool"))
+    .limit(8);
+
   const highlights = [
     "Outdoor pools for summer celebrations",
     "Perfect for pool parties and relaxation",
@@ -30,15 +55,13 @@ export default function SwimmingPoolPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: "Properties with Swimming Pools",
-          description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
-          items: []
+          items: poolProperties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -51,15 +74,16 @@ export default function SwimmingPoolPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1600&q=90')",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
-        </div>
+      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1600&q=90"
+          alt="Luxury property with swimming pool"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/50"></div>
         
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
           <nav className="flex justify-center gap-2 text-sm mb-6 text-white/90">
@@ -70,9 +94,9 @@ export default function SwimmingPoolPage() {
             <span className="text-white font-medium">Swimming Pool</span>
           </nav>
           
-            <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
-              Cottages with Pools
-            </h1>
+          <h1 className="mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
+            Cottages with Pools
+          </h1>
 
           <p className="text-xl max-w-3xl mx-auto text-white/95">
             Outdoor pools for unforgettable summer celebrations and hen parties

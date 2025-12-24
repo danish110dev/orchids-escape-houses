@@ -6,9 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/'],
-      },
-    ],
-    sitemap: 'https://groupescapehouses.co.uk/sitemap.xml',
-  };
-}
+    disallow: ['/api/', '/admin/', '/_next/'],
+        },
+      ],
+      sitemap: 'https://www.groupescapehouses.co.uk/sitemap.xml',
+    };
+  }

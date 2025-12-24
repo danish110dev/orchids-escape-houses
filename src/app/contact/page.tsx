@@ -42,14 +42,6 @@ export default function ContactPage() {
   useEffect(() => {
     setFormLoadTime(Date.now());
     
-    // Set canonical URL
-    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonicalLink.setAttribute('rel', 'canonical');
-    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/contact');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonicalLink);
-    }
-
     // Track user interaction
     const trackClick = () => {
       setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));

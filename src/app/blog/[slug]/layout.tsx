@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 // Blog posts data - extract to a file later
 const blogPosts: Record<string, any> = {
@@ -21,7 +21,7 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
@@ -67,7 +67,7 @@ export default async function BlogPostLayout({
   params,
 }: BlogPostLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const post = blogPosts[slug];
 
   if (!post) {
@@ -87,13 +87,7 @@ export default async function BlogPostLayout({
       url: baseUrl
     },
     publisher: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: `${baseUrl}/logo.png`
-      }
+      "@id": `${baseUrl}/#organization`
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -103,8 +97,17 @@ export default async function BlogPostLayout({
 
   return (
     <>
-      <Script
-        id={`article-schema-${slug}`}
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: post.title, url: `/blog/${slug}` }
+          ]
+        }}
+      />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />

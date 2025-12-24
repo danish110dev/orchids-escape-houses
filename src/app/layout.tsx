@@ -1,42 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
-import dynamic from "next/dynamic";
 import Script from "next/script";
-import { Inter, Playfair_Display } from "next/font/google";
-
-import CustomAutumnProvider from "@/lib/autumn-provider";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
+import CustomAutumnProvider from "@/lib/autumn-provider";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 
-const fontBody = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-  variable: "--font-body",
-});
-
-const fontDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-  variable: "--font-display",
-});
-
-// Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
   title: {
-    default: "Group Escape Houses | Luxury Group Accommodation UK",
+    default: "Large Group Accommodation Across the UK | Group Escape Houses",
     template: "%s | Group Escape Houses"
   },
-  description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-  metadataBase: new URL("https://groupescapehouses.co.uk"),
-  formatDetection: {
+    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
+    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+    alternates: {
+      canonical: "https://www.groupescapehouses.co.uk",
+    },
+    formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  // Icons are automatically generated from icon.tsx and apple-icon.tsx
   robots: {
     index: true,
     follow: true,
@@ -78,30 +63,31 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
           />
       </head>
-        <body className={`${fontBody.variable} ${fontDisplay.variable} antialiased`}>
-          <Script
-            id="orchids-browser-logs"
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-            strategy="lazyOnload"
-            data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
-          />
+      <body className="antialiased">
+        <Script
+          id="orchids-browser-logs"
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+          strategy="lazyOnload"
+          data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
+        />
         <ErrorReporter />
-          <Script
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-            strategy="lazyOnload"
-            data-target-origin="*"
-            data-message-type="ROUTE_CHANGE"
-            data-include-search-params="true"
-            data-only-in-iframe="true"
-            data-debug="true"
-            data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-          />
-            <CustomAutumnProvider>
-              {children}
-            </CustomAutumnProvider>
-            <ClientSideFeatures />
-        </body>
+        <Script
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+          strategy="lazyOnload"
+          data-target-origin="*"
+          data-message-type="ROUTE_CHANGE"
+          data-include-search-params="true"
+          data-only-in-iframe="true"
+          data-debug="true"
+          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+        />
+          <CustomAutumnProvider>
+            <UKServiceSchema type="default" includeSiteWide={true} />
+            {children}
+          </CustomAutumnProvider>
 
+        <ClientSideFeatures />
+      </body>
     </html>
   );
 }

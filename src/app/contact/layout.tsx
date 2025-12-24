@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Instant Enquiry & UK Support",
-  description: "Get instant quotes for hen party houses. UK support team, enquiry form or Brighton office visit. Fast response guaranteed.",
-  keywords: ["contact group escape houses", "hen party booking enquiry", "quote hen weekend", "book party house UK"],
-  openGraph: {
-    title: "Contact Us for Free Quote | Group Escape Houses",
-    description: "Brighton-based booking team ready to help. Same-day quotes, no fees. Call 01273 569301 or enquire online.",
-    url: "https://groupescapehouses.co.uk/contact",
-  },
+  title: "Contact Us | Group Escape Houses",
+  description: "Get in touch with Group Escape Houses for guest enquiries, property advertising, or group experience packages. Our UK team is here to help.",
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/contact",
+    canonical: "/contact",
   },
 };
 
@@ -19,5 +13,5 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }

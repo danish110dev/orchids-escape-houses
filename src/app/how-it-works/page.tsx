@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -19,11 +19,11 @@ import { steps, faqs } from "@/data/how-it-works";
 export default function HowItWorksPage() {
   return (
     <div className="min-h-screen">
-      <StructuredData 
+      <UKServiceSchema 
         type="faq" 
         data={{ faqs }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [

@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import Script from "next/script";
 import { Calendar, ChevronDown } from "lucide-react";
@@ -100,6 +101,15 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

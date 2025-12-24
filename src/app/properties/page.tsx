@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
@@ -98,13 +98,6 @@ function PropertiesContent() {
   });
 
   useEffect(() => {
-    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonicalLink.setAttribute('rel', 'canonical');
-    canonicalLink.setAttribute('href', 'https://groupescapehouses.co.uk/properties');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonicalLink);
-    }
-
     const fetchProperties = async () => {
       try {
         setIsLoadingData(true);
@@ -204,15 +197,13 @@ function PropertiesContent() {
 
   return (
     <>
-      <StructuredData 
-        type="listing" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: "Luxury Group Houses to Rent UK",
-          description: "Perfect for hen parties, weddings, celebrations, and group getaways across the UK. Large selection of party houses with hot tubs and pools.",
           items: filteredProperties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
