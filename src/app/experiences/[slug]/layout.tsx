@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { experiencesData } from "@/data/experiences";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -36,15 +36,7 @@ export default async function ExperienceDetailLayout({
 
   return (
     <>
-      <StructuredData 
-        type="experience" 
-        data={{
-          title: experience.title,
-          description: experience.description,
-          image: experience.image
-        }} 
-      />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [

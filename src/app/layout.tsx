@@ -4,6 +4,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Group Escape Houses"
   },
     description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+    metadataBase: new URL("https://groupescapehouses.co.uk"),
     alternates: {
       canonical: "/",
     },
@@ -67,9 +68,11 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        <CustomAutumnProvider>
-          {children}
-        </CustomAutumnProvider>
+          <CustomAutumnProvider>
+            <UKServiceSchema type="default" includeSiteWide={true} />
+            {children}
+          </CustomAutumnProvider>
+
         <ClientSideFeatures />
       </body>
     </html>

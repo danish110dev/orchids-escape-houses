@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { 
   MessageSquare,
@@ -63,15 +63,18 @@ export default function WhyListWithUs() {
 
     return (
       <div className="min-h-screen bg-white">
-        <StructuredData 
+        <UKServiceSchema 
           type="faq" 
-          data={{ 
-            faqs,
+          data={{ faqs }} 
+        />
+        <UKServiceSchema 
+          type="breadcrumb" 
+          data={{
             breadcrumbs: [
               { name: "Home", url: "/" },
               { name: "Why List With Us", url: "/why-list-with-escape-houses" }
             ]
-          }} 
+          }}
         />
         <Header />
 

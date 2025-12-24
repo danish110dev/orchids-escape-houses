@@ -5,14 +5,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
-import StructuredData from "@/components/StructuredData";
 import ReviewSlider from "@/components/ReviewSlider";
 import FAQSection from "@/components/FAQSection";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import HeroSearchForm from "@/components/home/HeroSearchForm";
 import HeroVideo from "@/components/home/HeroVideo";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import { getFeaturedProperties, getFeaturedExperiences, getFeaturedReviews } from "@/lib/data-fetchers";
+import { homeFaqs } from "@/data/faqs";
 
 // Static destinations data
 const destinations = [
@@ -57,14 +58,14 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="home" 
-        data={{
-          title: "Large Group Accommodation Across the UK",
-          description: "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners.",
-          items: featuredProperties
+      <UKServiceSchema type="home" />
+      <UKServiceSchema 
+        type="itemList" 
+        data={{ 
+          items: featuredProperties.map(p => ({ ...p, url: `/properties/${p.slug}` })) 
         }} 
       />
+      <UKServiceSchema type="faq" data={{ faqs: homeFaqs }} />
       <Header />
 
       <main>

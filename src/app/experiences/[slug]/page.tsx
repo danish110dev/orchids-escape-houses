@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Check, Calendar, MessageCircle } from "lucide-react";
 import Link from "next/link";
@@ -25,6 +25,19 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Experiences", url: "/experiences" },
+            { name: experience.title, url: `/experiences/${slug}` }
+          ]
+        }}
+      />
+      {experience.faqs && experience.faqs.length > 0 && (
+        <UKServiceSchema type="faq" data={{ faqs: experience.faqs }} />
+      )}
       <Header />
 
       <div className="pt-24">

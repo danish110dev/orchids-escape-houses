@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -80,30 +80,28 @@ export default async function PropertyDetailLayout({
   children,
   params,
 }: PropertyDetailLayoutProps) {
-  const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
-  
-  let property = null;
-  try {
-    const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
-      next: { revalidate: 60 },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      if (data && data.length > 0) {
-        property = data[0];
+    const { slug } = await params;
+    const baseUrl = 'https://groupescapehouses.co.uk';
+    
+    let property = null;
+    try {
+      const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
+        next: { revalidate: 60 },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data && data.length > 0) {
+          property = data[0];
+        }
       }
+    } catch (e) {
+      console.error('Error fetching property for layout schema:', e);
     }
-  } catch (e) {
-    console.error('Error fetching property for layout schema:', e);
-  }
 
-  return (
-    <>
-      {property && (
-        <>
-          <StructuredData type="property" data={property} />
-          <StructuredData 
+    return (
+      <>
+        {property && (
+          <UKServiceSchema 
             type="breadcrumb" 
             data={{
               breadcrumbs: [
@@ -113,9 +111,8 @@ export default async function PropertyDetailLayout({
               ]
             }}
           />
-        </>
-      )}
-      {children}
-    </>
-  );
+        )}
+        {children}
+      </>
+    );
 }
