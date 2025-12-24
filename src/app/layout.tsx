@@ -4,6 +4,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
+import CustomAutumnProvider from "@/lib/autumn-provider";
 
 // Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {

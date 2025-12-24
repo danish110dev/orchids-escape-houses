@@ -88,13 +88,13 @@ export default function AdvertiseWithUs() {
                         "su-474d0a6c-20251127184832.jpg"
                       ].map((img, i) => (
                         <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white/20">
-                          <Image 
-                            src={`https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-${img}`}
-                            alt="Owner"
-                            width={40}
-                            height={40}
-                            className="object-cover"
-                          />
+                            <Image 
+                              src={`https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-portrait-photograph-of-a-${img}`}
+                              alt={`Happy property owner avatar ${i + 1}`}
+                              width={40}
+                              height={40}
+                              className="object-cover"
+                            />
                         </div>
                       ))}
                     </div>
