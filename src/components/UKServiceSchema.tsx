@@ -73,11 +73,10 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     }))
   } : null;
 
-  // 4) ItemList schema (Collection pages)
+  // 4) ItemList schema (Collection pages, search results, location pages)
   const itemListSchema = (type === "itemList" && data?.items) ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "numberOfItems": data.items.length,
     "itemListElement": data.items.map((item: any, index: number) => ({
       "@type": "ListItem",
       "position": index + 1,

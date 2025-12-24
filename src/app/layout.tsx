@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
     metadataBase: new URL("https://groupescapehouses.co.uk"),
     alternates: {
-      canonical: "/",
+      canonical: "./",
     },
     formatDetection: {
     email: false,
