@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
 
-// Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
   title: {
     default: "Large Group Accommodation Across the UK | Group Escape Houses",
@@ -48,30 +46,29 @@ export default function RootLayout({
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
       </head>
-          <body className="antialiased">
-            <Script
-
-            id="orchids-browser-logs"
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-            strategy="lazyOnload"
-            data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
-          />
+      <body className="antialiased">
+        <Script
+          id="orchids-browser-logs"
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+          strategy="lazyOnload"
+          data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
+        />
         <ErrorReporter />
-          <Script
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-            strategy="lazyOnload"
-            data-target-origin="*"
-            data-message-type="ROUTE_CHANGE"
-            data-include-search-params="true"
-            data-only-in-iframe="true"
-            data-debug="true"
-            data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-          />
-            <CustomAutumnProvider>
-              {children}
-            </CustomAutumnProvider>
-            <ClientSideFeatures />
-        </body>
+        <Script
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+          strategy="lazyOnload"
+          data-target-origin="*"
+          data-message-type="ROUTE_CHANGE"
+          data-include-search-params="true"
+          data-only-in-iframe="true"
+          data-debug="true"
+          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+        />
+        <CustomAutumnProvider>
+          {children}
+        </CustomAutumnProvider>
+        <ClientSideFeatures />
+      </body>
     </html>
   );
 }
