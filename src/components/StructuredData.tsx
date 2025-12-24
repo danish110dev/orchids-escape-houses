@@ -137,12 +137,15 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
   const breadcrumbSchema = (type === "breadcrumb" || data?.breadcrumbs) ? {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": (data?.breadcrumbs || []).map((crumb: any, index: number) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": crumb.name,
-      "item": crumb.url.startsWith("http") ? crumb.url : `${baseUrl}${crumb.url}`
-    }))
+    "itemListElement": (data?.breadcrumbs || []).map((crumb: any, index: number) => {
+      const crumbUrl = crumb.url || crumb.item || "";
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": crumb.name,
+        "item": crumbUrl.startsWith("http") ? crumbUrl : `${baseUrl}${crumbUrl.startsWith("/") ? "" : "/"}${crumbUrl}`
+      };
+    })
   } : null;
 
   // FAQPage Schema
