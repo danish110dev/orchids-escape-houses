@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 // Blog posts data - extract to a file later
 const blogPosts: Record<string, any> = {
@@ -20,7 +21,6 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
@@ -66,7 +66,7 @@ export default async function BlogPostLayout({
   params,
 }: BlogPostLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
+  const baseUrl = 'https://groupescapehouses.co.uk';
   const post = blogPosts[slug];
 
   if (!post) {
@@ -82,18 +82,10 @@ export default async function BlogPostLayout({
     dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl
+      "name": "Group Escape Houses",
+      "@id": `${baseUrl}/#organization`
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: `${baseUrl}/logo.png`
-      }
-    },
+    publisher: { "@id": `${baseUrl}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${baseUrl}/blog/${slug}`
@@ -105,6 +97,16 @@ export default async function BlogPostLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: post.title, url: `/blog/${slug}` }
+          ]
+        }}
       />
       {children}
     </>

@@ -49,6 +49,7 @@ export default function RootLayout({
           <link rel="preconnect" href="https://images.unsplash.com" />
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+          <UKServiceSchema type="default" includeSiteWide={true} />
       </head>
       <body className="antialiased">
         <Script
@@ -69,7 +70,6 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
           <CustomAutumnProvider>
-            <UKServiceSchema type="default" includeSiteWide={true} />
             {children}
           </CustomAutumnProvider>
 

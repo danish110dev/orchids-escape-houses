@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   return {
     alternates: {
@@ -21,44 +21,39 @@ export default async function DestinationDetailLayout({
   params,
 }: DestinationDetailLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
+  const baseUrl = 'https://groupescapehouses.co.uk';
 
-  let itemListSchema = null;
-
+  let properties = [];
   try {
-    // Fetch properties for this destination
-    // Use relative URL for internal fetch if possible, or the baseUrl
     const response = await fetch(`${baseUrl}/api/properties?destination=${slug}`, {
       next: { revalidate: 60 },
     });
     
     if (response.ok) {
-      const properties = await response.json();
-
-      if (properties && properties.length > 0) {
-        itemListSchema = {
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: `Group Accommodation in ${slug.replace(/-/g, ' ')}`,
-          itemListElement: properties.slice(0, 10).map((property: any, index: number) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            name: property.title,
-            url: `${baseUrl}/properties/${property.slug || property.id}`
-          }))
-        };
-      }
+      properties = await response.json();
     }
   } catch (error) {
     console.error('Error fetching destination properties for schema:', error);
   }
 
+  const destinationName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
   return (
     <>
-      {itemListSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Destinations", url: "/destinations" },
+            { name: destinationName, url: `/destinations/${slug}` }
+          ]
+        }}
+      />
+      {properties && properties.length > 0 && (
+        <UKServiceSchema 
+          type="itemList" 
+          data={{ items: properties }} 
         />
       )}
       {children}
