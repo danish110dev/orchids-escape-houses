@@ -8,7 +8,7 @@ import ClientSideFeatures from "@/components/ClientSideFeatures";
 // Generic metadata for root layout - specific pages override this
 export const metadata: Metadata = {
   title: {
-    default: "Group Escape Houses | Luxury Group Accommodation UK",
+    default: "Large Group Accommodation Across the UK | Group Escape Houses",
     template: "%s | Group Escape Houses"
   },
   description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
