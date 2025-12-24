@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: "Hen Party Activities | Chef, Cocktails & Spa",
@@ -7,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hen Weekend Experiences & Activities | Group Escape Houses",
     description: "Private chefs, cocktail classes, spa days & wellness. Prices from £40pp.",
-    url: "https://groupescapehouses.co.uk/experiences",
+    url: "https://www.groupescapehouses.co.uk/experiences",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/experiences",
+    canonical: "https://www.groupescapehouses.co.uk/experiences",
   },
 };
 
@@ -19,5 +20,18 @@ export default function ExperiencesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Experiences", url: "/experiences" }
+          ]
+        }}
+      />
+      {children}
+    </>
+  );
 }

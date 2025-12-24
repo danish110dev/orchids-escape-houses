@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: "Hen Party Planning Blog | Tips & City Guides",
@@ -7,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hen Party Planning Blog & Resources | Group Escape Houses",
     description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
-    url: "https://groupescapehouses.co.uk/blog",
+    url: "https://www.groupescapehouses.co.uk/blog",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/blog",
+    canonical: "https://www.groupescapehouses.co.uk/blog",
   },
 };
 
@@ -19,5 +20,18 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" }
+          ]
+        }}
+      />
+      {children}
+    </>
+  );
 }

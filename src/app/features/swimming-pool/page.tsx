@@ -3,11 +3,20 @@ import Image from "next/image";
 import { Check, ArrowRight, Waves, Sun, Users, Droplets, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { db } from "@/db";
 import { properties, propertyFeatures } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cottages with Pools | Large Group Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/swimming-pool",
+  },
+};
 
 export default async function SwimmingPoolPage() {
   // Fetch properties with swimming pools for the schema and potentially a listing section
@@ -46,18 +55,13 @@ export default async function SwimmingPoolPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: "Properties with Swimming Pools",
-          description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
-          items: poolProperties.map(p => ({
-            name: p.title,
-            url: `/properties/${p.slug}`
-          }))
+          items: poolProperties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [

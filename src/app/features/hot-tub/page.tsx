@@ -3,11 +3,20 @@ import Image from "next/image";
 import { Check, ArrowRight, Droplets, Star, Users, Waves, Film, Gamepad2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
 import { db } from "@/db";
 import { properties, propertyFeatures } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Houses with Hot Tubs | Hen Party Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/hot-tub",
+  },
+};
 
 export default async function HotTubPage() {
   // Fetch properties with hot tubs for the schema
@@ -55,18 +64,13 @@ export default async function HotTubPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
+      <UKServiceSchema 
+        type="itemList" 
         data={{
-          title: "Properties with Hot Tubs",
-          description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
-          items: hotTubProperties.map(p => ({
-            name: p.title,
-            url: `/properties/${p.slug}`
-          }))
+          items: hotTubProperties
         }} 
       />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -76,7 +80,6 @@ export default async function HotTubPage() {
           ]
         }}
       />
-
       <Header />
       
       {/* Hero Section */}

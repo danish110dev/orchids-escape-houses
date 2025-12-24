@@ -1,14 +1,36 @@
 import type { Metadata } from "next";
 import UKServiceSchema from "@/components/UKServiceSchema";
 
+const faqs = [
+  {
+    question: "What is included in the price?",
+    answer:
+      "The price includes full use of the property and all facilities including hot tub, pool, games room, and all utilities. Bedding and towels are provided. Additional cleaning during your stay can be arranged for an extra fee.",
+  },
+  {
+    question: "How do deposits and payments work?",
+    answer:
+      "A 25% deposit is required to secure your booking. The remaining balance is due 6 weeks before your arrival. A refundable damage deposit of £500 is also required.",
+  },
+  {
+    question: "Can we bring pets?",
+    answer:
+      "Unfortunately, pets are not permitted at this property. Please check our other listings for pet-friendly options.",
+  },
+  {
+    question: "Is there parking available?",
+    answer:
+      "Yes, there is free private parking for up to 6 cars on the property. Additional street parking is available nearby.",
+  },
+];
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   try {
-    // Fetch property data
     const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
-      next: { revalidate: 60 }, // Cache for 60 seconds
+      next: { revalidate: 60 },
     });
     
     if (!response.ok) {
@@ -21,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       return {
         title: "Property | Group Escape Houses",
         alternates: {
-          canonical: `/properties/${slug}`,
+          canonical: `${baseUrl}/properties/${slug}`,
         },
       };
     }
@@ -39,11 +61,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       openGraph: {
         title: `${property.title} | Group Escape Houses`,
         description,
-        url: `/properties/${slug}`,
+        url: `${baseUrl}/properties/${slug}`,
         type: 'website',
         images: [
           {
-            url: property.heroImage || `${baseUrl}/og-image.jpg`,
+            url: property.heroImage || 'https://www.groupescapehouses.co.uk/og-image.jpg',
             width: 1200,
             height: 630,
             alt: property.title,
@@ -54,10 +76,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         card: 'summary_large_image',
         title,
         description,
-        images: [property.heroImage || `${baseUrl}/og-image.jpg`],
+        images: [property.heroImage || 'https://www.groupescapehouses.co.uk/og-image.jpg'],
       },
       alternates: {
-        canonical: `/properties/${slug}`,
+        canonical: `${baseUrl}/properties/${slug}`,
       },
     };
   } catch (error) {
@@ -65,7 +87,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: "Property | Group Escape Houses",
       alternates: {
-        canonical: `/properties/${slug}`,
+        canonical: `${baseUrl}/properties/${slug}`,
       },
     };
   }
@@ -81,7 +103,7 @@ export default async function PropertyDetailLayout({
   params,
 }: PropertyDetailLayoutProps) {
     const { slug } = await params;
-    const baseUrl = 'https://groupescapehouses.co.uk';
+    const baseUrl = 'https://www.groupescapehouses.co.uk';
     
     let property = null;
     try {
@@ -101,16 +123,19 @@ export default async function PropertyDetailLayout({
     return (
       <>
         {property && (
-          <UKServiceSchema 
-            type="breadcrumb" 
-            data={{
-              breadcrumbs: [
-                { name: "Home", url: "/" },
-                { name: "Properties", url: "/properties" },
-                { name: property.title, url: `/properties/${slug}` }
-              ]
-            }}
-          />
+          <>
+            <UKServiceSchema 
+              type="breadcrumb" 
+              data={{
+                breadcrumbs: [
+                  { name: "Home", url: "/" },
+                  { name: "Properties", url: "/properties" },
+                  { name: property.title, url: `/properties/${slug}` }
+                ]
+              }}
+            />
+            <UKServiceSchema type="faq" data={{ faqs }} />
+          </>
         )}
         {children}
       </>

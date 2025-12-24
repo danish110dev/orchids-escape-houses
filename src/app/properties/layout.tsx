@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Luxury Group Houses to Rent UK | Group Escape Houses",
   description: "Perfect for hen parties, weddings, celebrations, and group getaways across the UK. Large selection of party houses with hot tubs and pools.",
   alternates: {
-    canonical: "/properties",
+    canonical: "https://www.groupescapehouses.co.uk/properties",
   },
 };
 

@@ -21,13 +21,14 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
     return {
       title: "Blog Post | Group Escape Houses",
       alternates: {
-        canonical: `/blog/${slug}`,
+        canonical: `${baseUrl}/blog/${slug}`,
       },
     };
   }
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.title,
       description: post.description || post.excerpt,
-      url: `/blog/${slug}`,
+      url: `${baseUrl}/blog/${slug}`,
       type: 'article',
       publishedTime: new Date(post.date).toISOString(),
     },
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.description || post.excerpt,
     },
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `${baseUrl}/blog/${slug}`,
     },
   };
 }
@@ -66,33 +67,49 @@ export default async function BlogPostLayout({
   params,
 }: BlogPostLayoutProps) {
   const { slug } = await params;
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const post = blogPosts[slug];
 
   if (!post) {
     return children;
   }
 
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "Blog", url: "/blog" },
-    { name: post.title, url: `/blog/${slug}` }
-  ];
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description || post.excerpt,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: {
+      "@type": "Organization",
+      name: "Group Escape Houses",
+      url: baseUrl
+    },
+    publisher: {
+      "@id": `${baseUrl}/#organization`
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${slug}`
+    }
+  };
 
   return (
     <>
       <UKServiceSchema 
-        type="blog" 
-        data={{ 
-          slug,
-          headline: post.title,
-          description: post.description || post.excerpt,
-          datePublished: new Date(post.date).toISOString(),
-          image: "https://groupescapehouses.co.uk/logo.png"
-        }} 
-      />
-      <UKServiceSchema 
         type="breadcrumb" 
-        data={{ breadcrumbs }} 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: post.title, url: `/blog/${slug}` }
+          ]
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       {children}
     </>

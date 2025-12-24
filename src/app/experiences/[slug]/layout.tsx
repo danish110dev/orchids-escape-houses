@@ -11,12 +11,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${experience.title} | Group Escape Houses`,
     description: experience.description,
     alternates: {
-      canonical: `/experiences/${slug}`,
+      canonical: `${baseUrl}/experiences/${slug}`,
     },
     openGraph: {
       title: `${experience.title} | Group Escape Houses`,
       description: experience.description,
-      url: `/experiences/${slug}`,
+      url: `${baseUrl}/experiences/${slug}`,
       images: [{ url: experience.image }],
     }
   };
@@ -46,6 +46,9 @@ export default async function ExperienceDetailLayout({
           ]
         }}
       />
+      {experience.faqs && experience.faqs.length > 0 && (
+        <UKServiceSchema type="faq" data={{ faqs: experience.faqs }} />
+      )}
       {children}
     </>
   );

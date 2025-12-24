@@ -25,19 +25,6 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Experiences", url: "/experiences" },
-            { name: experience.title, url: `/experiences/${slug}` }
-          ]
-        }}
-      />
-      {experience.faqs && experience.faqs.length > 0 && (
-        <UKServiceSchema type="faq" data={{ faqs: experience.faqs }} />
-      )}
       <Header />
 
       <div className="pt-24">

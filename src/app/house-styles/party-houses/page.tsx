@@ -1,11 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { Check, ArrowRight, PartyPopper, Music, Users, Droplets, Gamepad2, Film } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Party Houses to Rent UK | Hen Party Accommodation | Group Escape Houses",
+  description: "Hen party houses and group party accommodation in the UK. Perfect celebration venues with hot tubs, games rooms, and entertainment spaces for unforgettable weekends.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/house-styles/party-houses",
+  },
+};
 
 export default function PartyHousesPage() {
   const highlights = [
@@ -37,15 +44,7 @@ export default function PartyHousesPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
-        data={{
-          title: "Party Houses to Rent UK",
-          description: "Hen party houses and group party accommodation in the UK. Perfect celebration venues with hot tubs, games rooms, and entertainment spaces for unforgettable weekends.",
-          items: [] // In a real scenario, this would be populated with the actual properties
-        }} 
-      />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -55,7 +54,6 @@ export default function PartyHousesPage() {
           ]
         }}
       />
-
       <Header />
       
       {/* Hero Section */}

@@ -1,11 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { Check, ArrowRight, Gamepad2, Trophy, Users, Droplets, Film, Waves } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Properties with Games Rooms | Luxury Group Houses UK | Group Escape Houses",
+  description: "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
+  alternates: {
+    canonical: "https://www.groupescapehouses.co.uk/features/games-room",
+  },
+};
 
 export default function GamesRoomPage() {
   const highlights = [
@@ -39,15 +46,7 @@ export default function GamesRoomPage() {
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="listing" 
-        data={{
-          title: "Properties with Games Rooms",
-          description: "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
-          items: []
-        }} 
-      />
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -57,7 +56,6 @@ export default function GamesRoomPage() {
           ]
         }}
       />
-
       <Header />
       
       {/* Hero Section */}

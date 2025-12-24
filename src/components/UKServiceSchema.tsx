@@ -1,12 +1,12 @@
 
 interface UKServiceSchemaProps {
-  type: "home" | "breadcrumb" | "itemList" | "faq" | "blog" | "default";
+  type: "home" | "breadcrumb" | "itemList" | "faq" | "default";
   data?: any;
   includeSiteWide?: boolean;
 }
 
 export default function UKServiceSchema({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
-  const baseUrl = "https://groupescapehouses.co.uk";
+  const baseUrl = "https://www.groupescapehouses.co.uk";
   
   // 1) Organization & WebSite
   const organizationSchema = {
@@ -77,11 +77,10 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
   const itemListSchema = (type === "itemList" && data?.items) ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": data.name || "Property Listings",
     "itemListElement": data.items.map((item: any, index: number) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "url": item.url ? (item.url.startsWith("http") ? item.url : `${baseUrl}${item.url.startsWith("/") ? "" : "/"}${item.url}`) : `${baseUrl}/properties/${item.slug || item.id}`
+      "url": item.url ? (item.url.startsWith("http") ? item.url : `${baseUrl}${item.url.startsWith("/") ? "" : "/"}${item.url}`) : `${baseUrl}/properties/${item.slug}`
     }))
   } : null;
 
@@ -97,27 +96,6 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
         "text": faq.answer
       }
     }))
-  } : null;
-
-  // Blog Article Schema
-  const articleSchema = (type === "blog" && data) ? {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": data.headline,
-    "description": data.description,
-    "image": data.image,
-    "datePublished": data.datePublished,
-    "dateModified": data.dateModified || data.datePublished,
-    "author": {
-      "@type": "Organization",
-      "name": "Group Escape Houses",
-      "url": baseUrl
-    },
-    "publisher": { "@id": `${baseUrl}/#organization` },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/blog/${data.slug}`
-    }
   } : null;
 
   return (
@@ -159,12 +137,6 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      {articleSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
       )}
     </>

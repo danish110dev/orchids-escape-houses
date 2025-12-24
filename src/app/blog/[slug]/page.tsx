@@ -501,27 +501,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   return (
     <div className="min-h-screen">
-      <StructuredData 
-        type="blog" 
-        data={{
-          headline: post.title,
-          description: post.excerpt,
-          image: post.image,
-          datePublished: post.date,
-          dateModified: post.date,
-          slug: post.slug
-        }} 
-      />
-      <StructuredData 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-            { name: post.title, url: `/blog/${slug}` }
-          ]
-        }}
-      />
       <Header />
 
       {/* Hero */}

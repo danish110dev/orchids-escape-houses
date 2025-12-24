@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: "Hen Party Destinations UK | Brighton, Bath & 25+ Cities",
@@ -7,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Top UK Hen Party Destinations | Group Escape Houses",
     description: "Explore 25+ cities with luxury party houses. Beach towns, nightlife hotspots & country escapes.",
-    url: "https://groupescapehouses.co.uk/destinations",
+    url: "https://www.groupescapehouses.co.uk/destinations",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/destinations",
+    canonical: "https://www.groupescapehouses.co.uk/destinations",
   },
 };
 
@@ -19,5 +20,18 @@ export default function DestinationsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Destinations", url: "/destinations" }
+          ]
+        }}
+      />
+      {children}
+    </>
+  );
 }

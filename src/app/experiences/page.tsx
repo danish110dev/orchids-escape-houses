@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import UKServiceSchema from "@/components/UKServiceSchema";
+import FAQAccordion from "@/components/FAQAccordion";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Sparkles, CheckCircle2, MapPin, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -132,17 +133,6 @@ export default function ExperiencesPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Experiences", url: "/experiences" }
-          ]
-        }}
-      />
-      <UKServiceSchema type="faq" data={{ faqs }} />
-
       <Header />
 
       {/* Hero */}

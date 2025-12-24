@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     template: "%s | Group Escape Houses"
   },
     description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-    metadataBase: new URL("https://groupescapehouses.co.uk"),
+    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
     alternates: {
-      canonical: "./",
+      canonical: "https://www.groupescapehouses.co.uk",
     },
     formatDetection: {
     email: false,
