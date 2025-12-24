@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -192,6 +193,50 @@ export default function ReviewsPage() {
       </section>
 
       <Footer />
+      
+      <Script
+        id="schema-reviews-collection"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://groupescapehouses.co.uk/reviews/#webpage",
+            "name": "Customer Reviews - Group Escape Houses",
+            "description": "Read reviews from guests who've hosted their celebrations at Group Escape Houses. See what they loved about their stays.",
+            "url": "https://groupescapehouses.co.uk/reviews",
+            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
+            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "inLanguage": "en-GB"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-reviews-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/reviews/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Reviews",
+                "item": "https://groupescapehouses.co.uk/reviews"
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -536,6 +537,50 @@ export default function ExperiencesPage() {
       </section>
 
       <Footer />
+      
+      <Script
+        id="schema-experiences-collection"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://groupescapehouses.co.uk/experiences/#webpage",
+            "name": "Group Experiences & Activities - Group Escape Houses",
+            "description": "Discover premium group experiences and activities to enjoy with your party. Wine tastings, spa days, adventure activities, and more.",
+            "url": "https://groupescapehouses.co.uk/experiences",
+            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
+            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "inLanguage": "en-GB"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-experiences-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/experiences/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Experiences",
+                "item": "https://groupescapehouses.co.uk/experiences"
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

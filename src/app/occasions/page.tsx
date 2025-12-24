@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Script from "next/script";
 import { 
   Sparkles, 
   Heart, 
@@ -364,6 +365,50 @@ export default function OccasionsPage() {
       </section>
 
       <Footer />
+      
+      <Script
+        id="schema-occasions-collection"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://groupescapehouses.co.uk/occasions/#webpage",
+            "name": "Group Holiday Ideas - Hen Parties, Weddings & Celebrations",
+            "description": "Find the perfect group holiday house for any occasion - hen parties, stag dos, weddings, family gatherings, corporate retreats and special celebrations.",
+            "url": "https://groupescapehouses.co.uk/occasions",
+            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
+            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "inLanguage": "en-GB"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-occasions-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/occasions/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Occasions",
+                "item": "https://groupescapehouses.co.uk/occasions"
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

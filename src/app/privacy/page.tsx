@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export default function PrivacyPage() {
   return (
@@ -290,6 +291,50 @@ export default function PrivacyPage() {
       </div>
 
       <Footer />
+      
+      <Script
+        id="schema-privacy"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://groupescapehouses.co.uk/privacy/#webpage",
+            "name": "Privacy Policy & GDPR",
+            "description": "Privacy policy and GDPR compliance information for Group Escape Houses",
+            "url": "https://groupescapehouses.co.uk/privacy",
+            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
+            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "inLanguage": "en-GB"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-privacy-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/privacy/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Privacy Policy",
+                "item": "https://groupescapehouses.co.uk/privacy"
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

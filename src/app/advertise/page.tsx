@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -679,6 +680,51 @@ export default function AdvertisePage() {
       </section>
 
       <Footer />
+      
+      <Script
+        id="schema-advertise"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://groupescapehouses.co.uk/advertise/#service",
+            "name": "Property Advertising for Group Holiday Homes",
+            "description": "List your property on Group Escape Houses marketplace. No commission charged, direct bookings from guests, and transparent fixed annual fees.",
+            "url": "https://groupescapehouses.co.uk/advertise",
+            "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "areaServed": "GB",
+            "priceRange": "£",
+            "serviceType": "Property Advertising Service"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-advertise-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/advertise/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Advertise Your Property",
+                "item": "https://groupescapehouses.co.uk/advertise"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

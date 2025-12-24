@@ -3,6 +3,8 @@ import Image from "next/image";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, Shield, Users, Award, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SchemaRenderer } from "@/components/SchemaRenderer";
+import { homePageSchema } from "@/lib/schema";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import StructuredData from "@/components/StructuredData";
@@ -379,6 +381,9 @@ export default async function Home() {
       </main>
 
       <Footer />
+      
+      {/* Schema Renderer */}
+      <SchemaRenderer schemas={[homePageSchema()]} />
     </div>
   );
 }

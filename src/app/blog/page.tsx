@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Script from "next/script";
 import { Calendar, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
@@ -268,6 +269,50 @@ export default function BlogPage() {
       </section>
 
       <Footer />
+      
+      <Script
+        id="schema-blog-collection"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://groupescapehouses.co.uk/blog/#webpage",
+            "name": "Group Holiday Blog - Tips & Guides",
+            "description": "Read our latest blog posts about planning group holidays, hen parties, stag dos, and UK destinations.",
+            "url": "https://groupescapehouses.co.uk/blog",
+            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
+            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
+            "inLanguage": "en-GB"
+          })
+        }}
+      />
+      
+      <Script
+        id="schema-blog-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://groupescapehouses.co.uk/blog/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://groupescapehouses.co.uk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://groupescapehouses.co.uk/blog"
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

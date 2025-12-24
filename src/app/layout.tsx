@@ -7,6 +7,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 const fontBody = Inter({
   subsets: ["latin"],
@@ -64,6 +65,18 @@ export default function RootLayout({
           <link rel="preconnect" href="https://images.unsplash.com" />
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
+          
+          {/* Global JSON-LD Schemas */}
+          <Script
+            id="schema-organization"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+          />
+          <Script
+            id="schema-website"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+          />
       </head>
         <body className={`${fontBody.variable} ${fontDisplay.variable} antialiased`}>
           <Script
