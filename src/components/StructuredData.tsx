@@ -1,5 +1,4 @@
 import Script from "next/script";
-import OrganizationSchema from "./OrganizationSchema";
 import BreadcrumbSchema from "./BreadcrumbSchema";
 
 interface StructuredDataProps {
@@ -198,6 +197,32 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
 
   return (
     <>
+      {/* Home Page Specific Schemas */}
+      {type === "home" && (
+        <>
+          <Script
+            id="organization-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <Script
+            id="website-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+          <Script
+            id="homepage-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+          />
+          <Script
+            id="service-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          />
+        </>
+      )}
+
       {/* Page Specific Schemas */}
       {collectionPageSchema && (
         <Script

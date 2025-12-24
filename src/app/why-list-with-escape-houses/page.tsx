@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FAQSchema from "@/components/FAQSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { 
   MessageSquare,
@@ -62,16 +61,20 @@ const faqs = [
 export default function WhyListWithUs() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  return (
-    <div className="min-h-screen bg-white">
-      <FAQSchema items={faqs} />
-      <BreadcrumbSchema 
-        items={[
-          { name: "Home", item: "/" },
-          { name: "Why List With Us", item: "/why-list-with-escape-houses" }
-        ]} 
-      />
-      <Header />
+    return (
+      <div className="min-h-screen bg-white">
+        <StructuredData 
+          type="faq" 
+          data={{ 
+            faqs,
+            breadcrumbs: [
+              { name: "Home", url: "/" },
+              { name: "Why List With Us", url: "/why-list-with-escape-houses" }
+            ]
+          }} 
+        />
+        <Header />
+
 
       <main>
         {/* Hero Section */}
