@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function HouseStylesAndFeaturesPage() {
   const houseStyles = [
@@ -36,6 +37,15 @@ export default function HouseStylesAndFeaturesPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Styles & Features", url: "/house-styles-and-features" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

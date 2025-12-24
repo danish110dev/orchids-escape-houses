@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import { Button } from "@/components/ui/button";
@@ -184,6 +185,26 @@ export default function HenPartyHousesPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "Hen Party Houses", url: "/hen-party-houses" }
+          ]
+        }}
+      />
+      <UKServiceSchema 
+        type="itemList" 
+        data={{
+          items: featuredProperties.map(p => ({ ...p, url: `/properties/${p.slug}` }))
+        }}
+      />
+      <UKServiceSchema 
+        type="faq" 
+        data={{ faqs }}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import { 
   Sparkles, 
@@ -107,6 +108,15 @@ export default function OccasionsPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema 
+        type="breadcrumb" 
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}
