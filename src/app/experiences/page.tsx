@@ -133,7 +133,7 @@ export default function ExperiencesPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <StructuredData 
+      <UKServiceSchema 
         type="breadcrumb" 
         data={{
           breadcrumbs: [
@@ -142,6 +142,7 @@ export default function ExperiencesPage() {
           ]
         }}
       />
+      <UKServiceSchema type="faq" data={{ faqs }} />
       <Header />
 
       {/* Hero */}

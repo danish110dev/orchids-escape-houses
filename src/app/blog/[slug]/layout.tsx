@@ -21,6 +21,7 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const baseUrl = 'https://groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
@@ -82,10 +83,18 @@ export default async function BlogPostLayout({
     dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Organization",
-      "name": "Group Escape Houses",
-      "@id": `${baseUrl}/#organization`
+      name: "Group Escape Houses",
+      url: baseUrl
     },
-    publisher: { "@id": `${baseUrl}/#organization` },
+    publisher: {
+      "@type": "Organization",
+      name: "Group Escape Houses",
+      url: baseUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.png`
+      }
+    },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${baseUrl}/blog/${slug}`
@@ -94,10 +103,6 @@ export default async function BlogPostLayout({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
       <UKServiceSchema 
         type="breadcrumb" 
         data={{
@@ -107,6 +112,10 @@ export default async function BlogPostLayout({
             { name: post.title, url: `/blog/${slug}` }
           ]
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       {children}
     </>

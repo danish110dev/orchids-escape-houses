@@ -4,6 +4,7 @@ import { experiencesData } from "@/data/experiences";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const baseUrl = 'https://groupescapehouses.co.uk';
   const experience = experiencesData[slug] || experiencesData["private-chef"];
 
   return {
@@ -45,9 +46,6 @@ export default async function ExperienceDetailLayout({
           ]
         }}
       />
-      {experience.faqs && experience.faqs.length > 0 && (
-        <UKServiceSchema type="faq" data={{ faqs: experience.faqs }} />
-      )}
       {children}
     </>
   );

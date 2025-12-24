@@ -3,6 +3,7 @@ import UKServiceSchema from "@/components/UKServiceSchema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const baseUrl = 'https://groupescapehouses.co.uk';
   
   return {
     alternates: {
@@ -24,6 +25,7 @@ export default async function DestinationDetailLayout({
   const baseUrl = 'https://groupescapehouses.co.uk';
 
   let properties = [];
+
   try {
     const response = await fetch(`${baseUrl}/api/properties?destination=${slug}`, {
       next: { revalidate: 60 },
@@ -36,7 +38,7 @@ export default async function DestinationDetailLayout({
     console.error('Error fetching destination properties for schema:', error);
   }
 
-  const destinationName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const destinationName = slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ');
 
   return (
     <>
@@ -50,10 +52,10 @@ export default async function DestinationDetailLayout({
           ]
         }}
       />
-      {properties && properties.length > 0 && (
+      {properties.length > 0 && (
         <UKServiceSchema 
           type="itemList" 
-          data={{ items: properties }} 
+          data={{ items: properties.slice(0, 10) }} 
         />
       )}
       {children}

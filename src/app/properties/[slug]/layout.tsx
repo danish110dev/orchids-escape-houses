@@ -10,62 +10,35 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       next: { revalidate: 60 },
     });
     
-    if (!response.ok) {
-      throw new Error('Failed to fetch property');
-    }
-
+    if (!response.ok) throw new Error('Failed to fetch property');
     const propertyData = await response.json();
     
     if (!propertyData || propertyData.length === 0) {
       return {
         title: "Property | Group Escape Houses",
-        alternates: {
-          canonical: `/properties/${slug}`,
-        },
+        alternates: { canonical: `/properties/${slug}` },
       };
     }
 
     const property = propertyData[0];
-    const title = `${property.title} | ${property.sleepsMax} Guests | Hot Tub & Pool | Group Escape Houses`;
-    const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMax} guests across ${property.bedrooms} bedrooms. From £${Math.min(property.priceFromWeekend, property.priceFromMidweek)}/night. ${property.description?.substring(0, 100)}...`;
+    const title = `${property.title} | ${property.sleepsMax} Guests | Group Escape Houses`;
+    const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMax} guests across ${property.bedrooms} bedrooms.`;
     
     return {
       title,
       description,
-      keywords: `${property.title}, ${property.location} holiday home, group accommodation, hen party house, party house, houses sleeping ${property.sleepsMax} guests, hot tub rental, luxury group accommodation`,
-      authors: [{ name: 'Group Escape Houses' }],
-      creator: 'Group Escape Houses',
       openGraph: {
-        title: `${property.title} | Group Escape Houses`,
-        description,
-        url: `/properties/${slug}`,
-        type: 'website',
-        images: [
-          {
-            url: property.heroImage || `${baseUrl}/og-image.jpg`,
-            width: 1200,
-            height: 630,
-            alt: property.title,
-          },
-        ],
-      },
-      twitter: {
-        card: 'summary_large_image',
         title,
         description,
-        images: [property.heroImage || `${baseUrl}/og-image.jpg`],
+        url: `/properties/${slug}`,
+        images: [{ url: property.heroImage || `${baseUrl}/og-image.jpg` }],
       },
-      alternates: {
-        canonical: `/properties/${slug}`,
-      },
+      alternates: { canonical: `/properties/${slug}` },
     };
   } catch (error) {
-    console.error('Error generating property metadata:', error);
     return {
       title: "Property | Group Escape Houses",
-      alternates: {
-        canonical: `/properties/${slug}`,
-      },
+      alternates: { canonical: `/properties/${slug}` },
     };
   }
 }
@@ -83,7 +56,9 @@ export default async function PropertyDetailLayout({
     const baseUrl = 'https://groupescapehouses.co.uk';
     
     let property = null;
+    let relatedProperties = [];
     try {
+      // Fetch property and related properties server-side for schema
       const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
         next: { revalidate: 60 },
       });
@@ -91,29 +66,37 @@ export default async function PropertyDetailLayout({
         const data = await response.json();
         if (data && data.length > 0) {
           property = data[0];
+          
+          // Fetch related
+          const relatedResponse = await fetch(`${baseUrl}/api/properties?isPublished=true&limit=3`);
+          if (relatedResponse.ok) {
+            const relatedData = await relatedResponse.json();
+            relatedProperties = relatedData.filter((p: any) => p.slug !== slug).slice(0, 2);
+          }
         }
       }
     } catch (e) {
       console.error('Error fetching property for layout schema:', e);
     }
 
+    // Default FAQs matching PropertyDetailPage
     const faqs = [
       {
         question: "What is included in the price?",
-        answer: "The price includes full use of the property and all facilities including hot tub, pool, games room, and all utilities. Bedding and towels are provided. Additional cleaning during your stay can be arranged for an extra fee.",
+        answer: "The price includes full use of the property and all facilities including hot tub, pool, games room, and all utilities. Bedding and towels are provided."
       },
       {
         question: "How do deposits and payments work?",
-        answer: "A 25% deposit is required to secure your booking. The remaining balance is due 6 weeks before your arrival. A refundable damage deposit of £500 is also required.",
+        answer: "A 25% deposit is required to secure your booking. The remaining balance is due 6 weeks before your arrival. A refundable damage deposit of £500 is also required."
       },
       {
         question: "Can we bring pets?",
-        answer: "Unfortunately, pets are not permitted at this property. Please check our other listings for pet-friendly options.",
+        answer: "Please check the individual property features for pet-friendly status."
       },
       {
         question: "Is there parking available?",
-        answer: "Yes, there is free private parking for up to 6 cars on the property. Additional street parking is available nearby.",
-      },
+        answer: "Yes, there is private parking available on the property."
+      }
     ];
 
     return (
@@ -129,6 +112,10 @@ export default async function PropertyDetailLayout({
                   { name: property.title, url: `/properties/${slug}` }
                 ]
               }}
+            />
+            <UKServiceSchema 
+              type="itemList" 
+              data={{ items: relatedProperties }} 
             />
             <UKServiceSchema type="faq" data={{ faqs }} />
           </>

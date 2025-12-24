@@ -184,17 +184,6 @@ export default function HenPartyHousesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Hen Party Houses", url: "/hen-party-houses" }
-          ]
-        }}
-      />
-      <UKServiceSchema type="itemList" data={{ items: featuredProperties }} />
-      <UKServiceSchema type="faq" data={{ faqs }} />
       <Header />
 
       {/* Hero Section */}

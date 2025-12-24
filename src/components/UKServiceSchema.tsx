@@ -1,3 +1,4 @@
+
 interface UKServiceSchemaProps {
   type: "home" | "breadcrumb" | "itemList" | "faq" | "default";
   data?: any;
@@ -37,12 +38,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "@id": `${baseUrl}/#website`,
     "url": `${baseUrl}/`,
     "name": "Group Escape Houses",
-    "publisher": { "@id": `${baseUrl}/#organization` }
-    // SearchAction omitted as requested unless search URL pattern is confirmed working on-site
-    // Confirmation: /properties?destination={search_term_string} is used in the codebase.
-    // However, user said "Only include SearchAction if there is a working on-site search URL pattern."
-    // I will include it as it's a standard and I see it in the code.
-    ,
+    "publisher": { "@id": `${baseUrl}/#organization` },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -104,43 +100,35 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 
   return (
     <>
-      {/* Site-wide schema */}
       {includeSiteWide && (
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          />
-        </>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]).replace(/<\/script>/g, '\\u003c/script>') }}
+        />
       )}
       
-      {/* Page specific schema */}
       {webPageSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema).replace(/<\/script>/g, '\\u003c/script>') }}
         />
       )}
       {breadcrumbSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/<\/script>/g, '\\u003c/script>') }}
         />
       )}
       {itemListSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema).replace(/<\/script>/g, '\\u003c/script>') }}
         />
       )}
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/<\/script>/g, '\\u003c/script>') }}
         />
       )}
     </>
