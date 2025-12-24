@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   return {
     alternates: {
-      canonical: `${baseUrl}/destinations/${slug}`,
+      canonical: `/destinations/${slug}`,
     },
   };
 }
@@ -22,12 +21,13 @@ export default async function DestinationDetailLayout({
   params,
 }: DestinationDetailLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
 
   let itemListSchema = null;
 
   try {
     // Fetch properties for this destination
+    // Use relative URL for internal fetch if possible, or the baseUrl
     const response = await fetch(`${baseUrl}/api/properties?destination=${slug}`, {
       next: { revalidate: 60 },
     });
@@ -56,8 +56,7 @@ export default async function DestinationDetailLayout({
   return (
     <>
       {itemListSchema && (
-        <Script
-          id={`itemlist-schema-${slug}`}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
         />

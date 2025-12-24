@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import StructuredData from "@/components/StructuredData";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   try {
     // Fetch property data
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       return {
         title: "Property | Group Escape Houses",
         alternates: {
-          canonical: `${baseUrl}/properties/${slug}`,
+          canonical: `/properties/${slug}`,
         },
       };
     }
@@ -39,11 +39,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       openGraph: {
         title: `${property.title} | Group Escape Houses`,
         description,
-        url: `${baseUrl}/properties/${slug}`,
+        url: `/properties/${slug}`,
         type: 'website',
         images: [
           {
-            url: property.heroImage || 'https://groupescapehouses.co.uk/og-image.jpg',
+            url: property.heroImage || 'https://www.groupescapehouses.co.uk/og-image.jpg',
             width: 1200,
             height: 630,
             alt: property.title,
@@ -54,10 +54,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         card: 'summary_large_image',
         title,
         description,
-        images: [property.heroImage || 'https://groupescapehouses.co.uk/og-image.jpg'],
+        images: [property.heroImage || 'https://www.groupescapehouses.co.uk/og-image.jpg'],
       },
       alternates: {
-        canonical: `${baseUrl}/properties/${slug}`,
+        canonical: `/properties/${slug}`,
       },
     };
   } catch (error) {
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: "Property | Group Escape Houses",
       alternates: {
-        canonical: `${baseUrl}/properties/${slug}`,
+        canonical: `/properties/${slug}`,
       },
     };
   }
@@ -80,8 +80,41 @@ export default async function PropertyDetailLayout({
   children,
   params,
 }: PropertyDetailLayoutProps) {
+  const { slug } = await params;
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
+  
+  let property = null;
+  try {
+    const response = await fetch(`${baseUrl}/api/properties?slug=${slug}`, {
+      next: { revalidate: 60 },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      if (data && data.length > 0) {
+        property = data[0];
+      }
+    }
+  } catch (e) {
+    console.error('Error fetching property for layout schema:', e);
+  }
+
   return (
     <>
+      {property && (
+        <>
+          <StructuredData type="property" data={property} />
+          <StructuredData 
+            type="breadcrumb" 
+            data={{
+              breadcrumbs: [
+                { name: "Home", url: "/" },
+                { name: "Properties", url: "/properties" },
+                { name: property.title, url: `/properties/${slug}` }
+              ]
+            }}
+          />
+        </>
+      )}
       {children}
     </>
   );

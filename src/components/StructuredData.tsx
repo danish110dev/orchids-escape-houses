@@ -1,4 +1,3 @@
-import Script from "next/script";
 import BreadcrumbSchema from "./BreadcrumbSchema";
 
 interface StructuredDataProps {
@@ -7,7 +6,7 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ type = "home", data }: StructuredDataProps) {
-  const baseUrl = "https://groupescapehouses.co.uk";
+  const baseUrl = "https://www.groupescapehouses.co.uk";
   
     // Organization Schema - PLATFORM LEVEL
     const organizationSchema = {
@@ -200,23 +199,19 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
       {/* Home Page Specific Schemas */}
       {type === "home" && (
         <>
-          <Script
-            id="organization-schema"
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           />
-          <Script
-            id="website-schema"
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           />
-          <Script
-            id="homepage-schema"
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
           />
-          <Script
-            id="service-schema"
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
           />
@@ -225,24 +220,21 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
 
       {/* Page Specific Schemas */}
       {collectionPageSchema && (
-        <Script
-          id="collection-page-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
         />
       )}
 
       {lodgingBusinessSchema && (
-        <Script
-          id="lodging-business-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessSchema) }}
         />
       )}
 
       {experienceSchema && (
-        <Script
-          id="experience-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(experienceSchema) }}
         />
@@ -253,16 +245,14 @@ export default function StructuredData({ type = "home", data }: StructuredDataPr
       )}
 
       {faqSchema && (
-        <Script
-          id="faq-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
 
       {articleSchema && (
-        <Script
-          id="blog-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />

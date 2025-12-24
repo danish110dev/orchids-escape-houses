@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 // Blog posts data - extract to a file later
 const blogPosts: Record<string, any> = {
@@ -21,14 +20,14 @@ const blogPosts: Record<string, any> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   
   const post = blogPosts[slug];
   if (!post) {
     return {
       title: "Blog Post | Group Escape Houses",
       alternates: {
-        canonical: `${baseUrl}/blog/${slug}`,
+        canonical: `/blog/${slug}`,
       },
     };
   }
@@ -42,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.title,
       description: post.description || post.excerpt,
-      url: `${baseUrl}/blog/${slug}`,
+      url: `/blog/${slug}`,
       type: 'article',
       publishedTime: new Date(post.date).toISOString(),
     },
@@ -52,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.description || post.excerpt,
     },
     alternates: {
-      canonical: `${baseUrl}/blog/${slug}`,
+      canonical: `/blog/${slug}`,
     },
   };
 }
@@ -67,7 +66,7 @@ export default async function BlogPostLayout({
   params,
 }: BlogPostLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://groupescapehouses.co.uk';
+  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const post = blogPosts[slug];
 
   if (!post) {
@@ -103,8 +102,7 @@ export default async function BlogPostLayout({
 
   return (
     <>
-      <Script
-        id={`article-schema-${slug}`}
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />

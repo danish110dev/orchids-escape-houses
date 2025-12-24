@@ -25,24 +25,6 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <StructuredData 
-        type="experience" 
-        data={{
-          title: experience.title,
-          description: experience.description,
-          image: experience.image
-        }} 
-      />
-      <StructuredData 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Experiences", url: "/experiences" },
-            { name: experience.title, url: `/experiences/${slug}` }
-          ]
-        }}
-      />
       <Header />
 
       <div className="pt-24">

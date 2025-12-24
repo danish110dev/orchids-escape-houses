@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 interface BreadcrumbItem {
   name: string;
   item: string;
@@ -10,7 +8,7 @@ interface BreadcrumbSchemaProps {
 }
 
 export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
-  const baseUrl = "https://groupescapehouses.co.uk";
+  const baseUrl = "https://www.groupescapehouses.co.uk";
 
   const schema = {
     "@context": "https://schema.org",
@@ -27,8 +25,7 @@ export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
   };
 
   return (
-    <Script
-      id={`breadcrumb-schema-${items.length}`}
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
