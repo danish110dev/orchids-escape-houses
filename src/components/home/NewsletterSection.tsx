@@ -69,15 +69,19 @@ export default function NewsletterSection() {
 
           <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
             <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: 'absolute', left: '-9999px' }} tabIndex={-1} autoComplete="off" />
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={isSubmitting}
-              className="flex-1 h-14 rounded-2xl border-2 border-white/30 bg-white/10 text-white placeholder:text-white/60 focus:bg-white/20"
-            />
+            <div className="flex-1 flex flex-col items-start">
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+              <Input
+                id="newsletter-email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={isSubmitting}
+                className="w-full h-14 rounded-2xl border-2 border-white/40 bg-white/10 text-white placeholder:text-white/80 focus:bg-white/20"
+              />
+            </div>
             <Button
               type="submit"
               size="lg"
