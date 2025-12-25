@@ -13,9 +13,10 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${baseUrl}/#organization`,
-    "name": "Group Escape Houses",
-    "url": `${baseUrl}/`,
-    "telephone": "01273 569301",
+      "name": "Group Escape Houses",
+      "url": `${baseUrl}/`,
+      "logo": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg",
+      "telephone": "01273 569301",
     "email": "hello@groupescapehouses.co.uk",
     "address": {
       "@type": "PostalAddress",

@@ -101,11 +101,11 @@ export default function HeroSearchForm() {
                 className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
                 aria-label="Select destination"
               >
-                <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-                <div className="flex flex-col overflow-hidden">
-                  <span className="text-xs text-gray-600 font-medium">Where</span>
-                  <span className="text-sm font-semibold truncate">{destination || "Search destinations"}</span>
-                </div>
+                  <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                  <div className="flex flex-col overflow-hidden">
+                    <span className="text-xs text-gray-700 font-semibold uppercase tracking-wide">Where</span>
+                    <span className="text-sm font-bold truncate">{destination || "Search destinations"}</span>
+                  </div>
               </Button>
             </PopoverTrigger>
           <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
@@ -132,11 +132,11 @@ export default function HeroSearchForm() {
               onClick={() => setDatePickerOpen(!datePickerOpen)}
               aria-label="Select dates"
             >
-              <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-              <div className="flex flex-col overflow-hidden">
-                <span className="text-xs text-gray-600 font-medium">When</span>
-                <span className="text-sm font-semibold truncate">{dateRangeDisplay}</span>
-              </div>
+                <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                <div className="flex flex-col overflow-hidden">
+                  <span className="text-xs text-gray-700 font-semibold uppercase tracking-wide">When</span>
+                  <span className="text-sm font-bold truncate">{dateRangeDisplay}</span>
+                </div>
             </Button>
           {datePickerOpen && (
             <>
@@ -157,21 +157,21 @@ export default function HeroSearchForm() {
           )}
         </div>
 
-        {/* Guests */}
-        <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
-          <PopoverTrigger asChild>
-            <Button 
-              variant="outline" 
-              className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-              aria-label="Select number of guests"
-            >
-              <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-              <div className="flex flex-col overflow-hidden">
-                <span className="text-xs text-gray-600 font-medium">Who</span>
-                <span className="text-sm font-semibold truncate">{guestsSummary}</span>
-              </div>
-            </Button>
-          </PopoverTrigger>
+          {/* Guests */}
+          <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                aria-label="Select number of guests"
+              >
+                <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                <div className="flex flex-col overflow-hidden">
+                  <span className="text-xs text-gray-700 font-semibold uppercase tracking-wide">Who</span>
+                  <span className="text-sm font-bold truncate">{guestsSummary}</span>
+                </div>
+              </Button>
+            </PopoverTrigger>
           <PopoverContent className="w-80" align="start">
             <div className="space-y-4">
               {[
@@ -179,13 +179,13 @@ export default function HeroSearchForm() {
                 { label: 'Children', sub: 'Age 2-12', value: children, min: 0, set: setChildren },
                 { label: 'Infants', sub: 'Under 2', value: infants, min: 0, set: setInfants },
                 { label: 'Pets', sub: 'Bring a pet', value: pets, min: 0, set: setPets }
-              ].map((group) => (
-                <div key={group.label} className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium">{group.label}</div>
-                    <div className="text-sm text-gray-600 font-medium">{group.sub}</div>
-                  </div>
-                  <div className="flex items-center gap-3">
+                ].map((group) => (
+                  <div key={group.label} className="flex items-center justify-between">
+                    <div>
+                      <div className="font-medium text-gray-900">{group.label}</div>
+                      <div className="text-sm text-gray-700 font-medium">{group.sub}</div>
+                    </div>
+                    <div className="flex items-center gap-3">
                     <Button 
                       size="icon" 
                       variant="outline" 
@@ -213,16 +213,16 @@ export default function HeroSearchForm() {
           </PopoverContent>
         </Popover>
 
-        {/* Search Button */}
-        <Button 
-          onClick={handleSearch} 
-          size="lg" 
-          className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02] bg-[var(--color-accent-sage)] text-white"
-          aria-label="Search properties"
-        >
-          <Sparkles className="mr-2 h-5 w-5" />
-          Search
-        </Button>
+          {/* Search Button */}
+          <Button 
+            onClick={handleSearch} 
+            size="lg" 
+            className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02] bg-[var(--color-accent-sage-dark)] text-white shadow-md hover:shadow-xl"
+            aria-label="Search properties"
+          >
+            <Sparkles className="mr-2 h-5 w-5" />
+            Search
+          </Button>
       </div>
     </div>
   );

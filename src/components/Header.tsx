@@ -495,21 +495,21 @@ export default function Header() {
               )}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-              <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>
-                {isMobileMenuOpen ? "Close" : "Menu"}
-              </span>
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                className="lg:hidden p-3 flex items-center gap-2 relative z-[60] hover:bg-gray-50 rounded-xl transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+                <span className="text-sm font-semibold" style={{ fontFamily: "var(--font-body)" }}>
+                  {isMobileMenuOpen ? "Close" : "Menu"}
+                </span>
+              </button>
           </div>
         </div>
         </header>

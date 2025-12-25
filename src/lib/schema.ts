@@ -80,7 +80,7 @@ export function organizationSchema() {
     "@id": "https://groupescapehouses.co.uk/#organization",
     "name": "Group Escape Houses",
     "url": "https://groupescapehouses.co.uk",
-    "logo": "https://groupescapehouses.co.uk/logo.png",
+      "logo": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg",
     "description": "Advertising platform connecting guests with group holiday houses and cottages across the UK",
     "address": {
       "@type": "PostalAddress",

@@ -340,9 +340,9 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-2xl py-6 text-base font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+          className="w-full rounded-2xl py-6 text-base font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
           style={{
-            background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage)",
+            background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage-dark)",
             color: "white",
           }}
         >
