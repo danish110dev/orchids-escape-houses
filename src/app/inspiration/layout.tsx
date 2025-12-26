@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
-  title: "Hen Party Planning Blog | Tips & City Guides",
-  description: "Free hen party planning tips. City nightlife guides, packing checklists, budgeting advice & property spotlights. Updated weekly.",
-  keywords: ["hen party planning tips", "hen weekend ideas", "UK hen party blog", "celebration planning guide"],
+  title: "Inspiration | Planning Tips & City Guides",
+  description: "Free planning tips. City nightlife guides, packing checklists, budgeting advice & property spotlights. Updated weekly.",
+  keywords: ["planning tips", "weekend ideas", "UK holiday blog", "celebration planning guide", "inspiration"],
   openGraph: {
-    title: "Hen Party Planning Blog & Resources | Group Escape Houses",
+    title: "Inspiration & Resources | Group Escape Houses",
     description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
-    url: "https://www.groupescapehouses.co.uk/blog",
+    url: "https://www.groupescapehouses.co.uk/inspiration",
   },
   alternates: {
-    canonical: "https://www.groupescapehouses.co.uk/blog",
+    canonical: "https://www.groupescapehouses.co.uk/inspiration",
   },
 };
 
-export default function BlogLayout({
+export default function InspirationLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ export default function BlogLayout({
         data={{
           breadcrumbs: [
             { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" }
+            { name: "Inspiration", url: "/inspiration" }
           ]
         }}
       />
