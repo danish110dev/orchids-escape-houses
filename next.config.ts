@@ -49,10 +49,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  async redirects() {
-    return [
-      {
-        source: '/occasions/hen-party-houses',
+    async redirects() {
+      return [
+        {
+          source: '/locations/:slug',
+          destination: '/destinations/:slug',
+          permanent: true,
+        },
+        {
+          source: '/occasions/hen-party-houses',
         destination: '/hen-party-houses',
         permanent: true,
       },
