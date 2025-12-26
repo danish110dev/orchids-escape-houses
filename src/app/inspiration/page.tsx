@@ -120,7 +120,7 @@ export default function InspirationPage() {
             Inspiration
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
-            Everything you need to plan the perfect hen weekend, from destination guides to party ideas
+            Everything you need to plan the perfect group getaway, from luxury destination guides to expert hosting tips
           </p>
         </div>
       </section>
