@@ -8,7 +8,7 @@ import Script from "next/script";
 import { Calendar, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-export default function BlogPage() {
+export default function InspirationPage() {
   const posts = [
     {
       id: 1,
@@ -78,7 +78,7 @@ export default function BlogPage() {
 
   const faqs = [
     {
-      question: "How often do you publish new blog posts?",
+      question: "How often do you publish new inspiration posts?",
       answer: "We publish new planning tips, destination guides, and hen party inspiration at least twice a week. Subscribe to our newsletter to get the latest posts delivered to your inbox."
     },
     {
@@ -87,7 +87,7 @@ export default function BlogPage() {
     },
     {
       question: "Are the experiences and venues you mention available to book?",
-      answer: "Yes! Many of the experiences, venues, and properties featured in our blog posts can be booked directly through our platform or via our partner network. Look for booking links within each article."
+      answer: "Yes! Many of the experiences, venues, and properties featured in our inspiration posts can be booked directly through our platform or via our partner network. Look for booking links within each article."
     },
     {
       question: "Can I share your articles with my hen party group?",
@@ -106,7 +106,7 @@ export default function BlogPage() {
         data={{
           breadcrumbs: [
             { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" }
+            { name: "Inspiration", url: "/inspiration" }
           ]
         }}
       />
@@ -116,7 +116,7 @@ export default function BlogPage() {
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6">
           <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Planning Tips & Inspiration
+            Inspiration
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
             Everything you need to plan the perfect hen weekend, from destination guides to party ideas
@@ -147,7 +147,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <Link
                 key={post.id}
-                href={`/blog/${post.slug}`}
+                href={`/inspiration/${post.slug}`}
                 className="group cursor-pointer"
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
@@ -265,7 +265,7 @@ export default function BlogPage() {
 
           <div className="text-center mt-12">
             <p className="text-[var(--color-neutral-dark)] mb-4">
-              Looking for more hen party inspiration?
+              Looking for more inspiration?
             </p>
             <Link
               href="/contact"
@@ -281,16 +281,16 @@ export default function BlogPage() {
       <Footer />
       
       <Script
-        id="schema-blog-collection"
+        id="schema-inspiration-collection"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "@id": "https://groupescapehouses.co.uk/blog/#webpage",
-            "name": "Group Holiday Blog - Tips & Guides",
-            "description": "Read our latest blog posts about planning group holidays, hen parties, stag dos, and UK destinations.",
-            "url": "https://groupescapehouses.co.uk/blog",
+            "@id": "https://groupescapehouses.co.uk/inspiration/#webpage",
+            "name": "Group Holiday Inspiration - Tips & Guides",
+            "description": "Read our latest inspiration posts about planning group holidays, hen parties, stag dos, and UK destinations.",
+            "url": "https://groupescapehouses.co.uk/inspiration",
             "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
             "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
             "inLanguage": "en-GB"
@@ -299,13 +299,13 @@ export default function BlogPage() {
       />
       
       <Script
-        id="schema-blog-breadcrumb"
+        id="schema-inspiration-breadcrumb"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/blog/#breadcrumb",
+            "@id": "https://groupescapehouses.co.uk/inspiration/#breadcrumb",
             "itemListElement": [
               {
                 "@type": "ListItem",
@@ -316,8 +316,8 @@ export default function BlogPage() {
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Blog",
-                "item": "https://groupescapehouses.co.uk/blog"
+                "name": "Inspiration",
+                "item": "https://groupescapehouses.co.uk/inspiration"
               }
             ]
           })
