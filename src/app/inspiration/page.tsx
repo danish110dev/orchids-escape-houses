@@ -80,23 +80,23 @@ export default function InspirationPage() {
   const faqs = [
     {
       question: "How often do you publish new inspiration posts?",
-      answer: "We publish new planning tips, destination guides, and hen party inspiration at least twice a week. Subscribe to our newsletter to get the latest posts delivered to your inbox."
+      answer: "We publish new planning tips, destination guides, and group holiday inspiration at least twice a week. Subscribe to our newsletter to get the latest posts delivered to your inbox."
     },
     {
       question: "Can I request a specific topic or destination guide?",
-      answer: "Absolutely! We love hearing what our readers want to know. Contact us with your suggestions and we'll do our best to cover topics that help you plan the perfect hen weekend."
+      answer: "Absolutely! We love hearing what our readers want to know. Contact us with your suggestions and we'll do our best to cover topics that help you plan the perfect group getaway."
     },
     {
       question: "Are the experiences and venues you mention available to book?",
       answer: "Yes! Many of the experiences, venues, and properties featured in our inspiration posts can be booked directly through our platform or via our partner network. Look for booking links within each article."
     },
     {
-      question: "Can I share your articles with my hen party group?",
+      question: "Can I share your articles with my group?",
       answer: "Please do! All our content is designed to be shared. Use the share buttons on each post or copy the URL to send to your group chat."
     },
     {
       question: "Do you accept guest posts or contributions?",
-      answer: "We're always interested in authentic hen party stories and destination recommendations. If you have a unique experience or expert knowledge to share, get in touch with our editorial team."
+      answer: "We're always interested in authentic group travel stories and destination recommendations. If you have a unique experience or expert knowledge to share, get in touch with our editorial team."
     }
   ];
 
