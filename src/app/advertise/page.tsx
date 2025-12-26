@@ -143,7 +143,7 @@ export default function AdvertisePage() {
     },
     {
       question: "What marketing support do I get?",
-      answer: "This depends on your membership tier. All tiers include an optimised listing. Higher tiers include social media promotion, blog features, holiday focus pages, and homepage features to maximise your property's visibility."
+      answer: "This depends on your membership tier. All tiers include an optimised listing. Higher tiers include social media promotion, inspiration features, holiday focus pages, and homepage features to maximise your property's visibility."
     },
     {
       question: "Can I upgrade my membership tier later?",

@@ -376,7 +376,7 @@ export default function AdvertiseWithUs() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Themed blog feature spotlight</span>
+                    <span className="text-sm">Themed inspiration feature spotlight</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
