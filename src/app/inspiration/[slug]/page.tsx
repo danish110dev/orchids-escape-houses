@@ -8,7 +8,7 @@ import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { use } from "react";
 
-// Blog posts data (should match the listing page)
+// Inspiration posts data (should match the listing page)
 const posts = [
   {
     id: 1,
@@ -40,7 +40,7 @@ const posts = [
       <p>Create a signature scent that will forever remind you of this special weekend. It's creative, luxurious, and everyone leaves with a unique gift. This activity works particularly well in cities like <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a> with its spa heritage.</p>
       
       <h2>7. Food Tours</h2>
-      <p>Explore a new city through its food scene. From <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton's indie cafes</a> to <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath's historic tea rooms</a>, a guided food tour combines sightseeing with eating. <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Read our Brighton guide</a> for the best food spots.</p>
+      <p>Explore a new city through its food scene. From <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton's indie cafes</a> to <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath's historic tea rooms</a>, a guided food tour combines sightseeing with eating. <a href="/inspiration/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Read our Brighton guide</a> for the best food spots.</p>
       
       <h2>8. Glamping Experience</h2>
       <p>Luxury camping with proper beds, <a href="/features/hot-tub" style="color: var(--color-accent-sage); text-decoration: underline;">hot tubs</a>, and fire pits. It's the perfect middle ground between adventure and comfort. Browse our <a href="/house-styles/unusual-and-quirky" style="color: var(--color-accent-sage); text-decoration: underline;">unusual and quirky properties</a> for unique glamping options.</p>
@@ -51,7 +51,7 @@ const posts = [
       <h2>10. Murder Mystery Evening</h2>
       <p>Turn your hen party into an interactive whodunnit. Professional companies will come to your <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">holiday house</a> and transform your evening into an immersive theatre experience. Perfect for houses with <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games rooms</a>.</p>
       
-      <p>The best hen parties are the ones that reflect who the bride really is. Don't feel pressured to follow trends – pick activities that will make your group laugh, bond, and create memories that last long after the wedding. Need help planning? Check out our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete hen party planning checklist</a> or learn about <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how to book your perfect house</a>.</p>
+      <p>The best hen parties are the ones that reflect who the bride really is. Don't feel pressured to follow trends – pick activities that will make your group laugh, bond, and create memories that last long after the wedding. Need help planning? Check out our <a href="/inspiration/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete hen party planning checklist</a> or learn about <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how to book your perfect house</a>.</p>
     `,
   },
   {
@@ -74,7 +74,7 @@ const posts = [
       <p><strong>Mange Tout</strong> - Cosy cafe with excellent vegetarian options and the best coffee in town.</p>
       
       <h2>Afternoon Activities</h2>
-      <p>Explore the famous Lanes for vintage shopping and independent boutiques. Walk the pier for classic seaside fun. Book a <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">cocktail making class</a> or <a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">life drawing session</a> at one of the many venues that specialise in hen parties. Check out our <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a> for more inspiration.</p>
+      <p>Explore the famous Lanes for vintage shopping and independent boutiques. Walk the pier for classic seaside fun. Book a <a href="/experiences/cocktail-masterclass" style="color: var(--color-accent-sage); text-decoration: underline;">cocktail making class</a> or <a href="/experiences/life-drawing" style="color: var(--color-accent-sage); text-decoration: underline;">life drawing session</a> at one of the many venues that specialise in hen parties. Check out our <a href="/inspiration/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a> for more inspiration.</p>
       
       <h2>Dinner Destinations</h2>
       <p><strong>The Coal Shed</strong> - Upscale steakhouse perfect for a celebration meal.</p>
@@ -96,7 +96,7 @@ const posts = [
         <li>Brighton Pride is in August - avoid that weekend unless you want to join the party</li>
       </ul>
       
-      <p>Brighton is the perfect hen party destination because it genuinely has something for everyone. Whether your group wants to party all night or prefer boutique shopping and afternoon tea, this city delivers. Still deciding between cities? Read our <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Check out <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a> or <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">browse our Brighton properties</a>.</p>
+      <p>Brighton is the perfect hen party destination because it genuinely has something for everyone. Whether your group wants to party all night or prefer boutique shopping and afternoon tea, this city delivers. Still deciding between cities? Read our <a href="/inspiration/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Check out <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a> or <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">browse our Brighton properties</a>.</p>
     `,
   },
   {
@@ -108,7 +108,7 @@ const posts = [
     date: "8 Jan 2025",
     slug: "split-costs-hen-weekend",
     content: `
-      <p>Let's talk about the most awkward part of planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a>: money. Getting the finances right can make or break the weekend, but with clear communication and fair systems, it doesn't have to be stressful. This guide complements our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a>.</p>
+      <p>Let's talk about the most awkward part of planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a>: money. Getting the finances right can make or break the weekend, but with clear communication and fair systems, it doesn't have to be stressful. This guide complements our <a href="/inspiration/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a>.</p>
       
       <h2>Set a Budget Early</h2>
       <p>Before <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">booking anything</a>, poll the group. What's everyone comfortable spending? Be honest about the fact that hen parties aren't cheap, but also make sure no one feels pressured to go beyond their means. Check our <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">booking guide</a> to understand typical costs.</p>
@@ -156,7 +156,7 @@ const posts = [
       <h2>Final Payment Deadline</h2>
       <p>Set a clear deadline for final payments – at least a month before the trip. This gives you time to chase any stragglers without last-minute stress.</p>
       
-      <p>The key to avoiding money drama is overcommunication. Send clear breakdowns, set expectations early, and make sure everyone knows what they're signing up for before they commit. For a complete overview of planning timelines and costs, see our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">hen party planning checklist</a>. Ready to start planning? <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">Get in touch</a> with our team for a personalised quote.</p>
+      <p>The key to avoiding money drama is overcommunication. Send clear breakdowns, set expectations early, and make sure everyone knows what they're signing up for before they commit. For a complete overview of planning timelines and costs, see our <a href="/inspiration/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">hen party planning checklist</a>. Ready to start planning? <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">Get in touch</a> with our team for a personalised quote.</p>
     `,
   },
   {
@@ -194,7 +194,7 @@ const posts = [
       </ul>
       
       <h2>Location Benefits</h2>
-      <p>The real win is the location. You're close enough to walk into town (or Uber for £5), but the street itself is quiet and residential. Perfect for groups who want to <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">party</a> but also need somewhere to recover. Read our full <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton hen do guide</a> for area tips.</p>
+      <p>The real win is the location. You're close enough to walk into town (or Uber for £5), but the street itself is quiet and residential. Perfect for groups who want to <a href="/house-styles/party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">party</a> but also need somewhere to recover. Read our full <a href="/inspiration/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton hen do guide</a> for area tips.</p>
       
       <p>Within walking distance:</p>
       <ul>
@@ -205,7 +205,7 @@ const posts = [
       </ul>
       
       <h2>Hen Party Friendly Features</h2>
-      <p>The owners genuinely welcome hen parties (not all properties do). They've thought about what groups need: plenty of fridge space, a big dining table for group meals, a sound system that actually works, and enough bathrooms that there's never a queue. Check our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">planning checklist</a> for what to look for in a house.</p>
+      <p>The owners genuinely welcome hen parties (not all properties do). They've thought about what groups need: plenty of fridge space, a big dining table for group meals, a sound system that actually works, and enough bathrooms that there's never a queue. Check our <a href="/inspiration/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">planning checklist</a> for what to look for in a house.</p>
       
       <h2>Booking Details</h2>
       <p><strong>Sleeps:</strong> 16 guests<br>
@@ -214,7 +214,7 @@ const posts = [
       <strong>Weekend (Fri-Sun):</strong> From £2,400<br>
       <strong>Midweek (Mon-Fri):</strong> From £1,800</p>
       
-      <p>When you break down the weekend rate between 15 guests (remember, the bride doesn't pay), it works out to £160 per person for two nights in a gorgeous property. Factor in that you're not paying for hotels, and it's excellent value. See our guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">how to split costs fairly</a>.</p>
+      <p>When you break down the weekend rate between 15 guests (remember, the bride doesn't pay), it works out to £160 per person for two nights in a gorgeous property. Factor in that you're not paying for hotels, and it's excellent value. See our guide on <a href="/inspiration/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">how to split costs fairly</a>.</p>
       
       <h2>Guest Reviews</h2>
       <p>"Perfect house for our hen do. The hot tub was the highlight, and the games room kept us entertained when we needed a quieter night." - Sarah's hen party, March 2024</p>
@@ -231,7 +231,7 @@ const posts = [
     date: "2 Jan 2025",
     slug: "bath-vs-brighton",
     content: `
-      <p>Two of the UK's most popular <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party destinations</a> couldn't be more different. <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a> brings Georgian elegance and spa culture, while <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton</a> delivers beach vibes and big nightlife. We're breaking down both to help you decide. Already decided? Read our detailed <a href="/blog/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton guide</a>.</p>
+      <p>Two of the UK's most popular <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party destinations</a> couldn't be more different. <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath</a> brings Georgian elegance and spa culture, while <a href="/destinations/brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton</a> delivers beach vibes and big nightlife. We're breaking down both to help you decide. Already decided? Read our detailed <a href="/inspiration/brighton-hen-do-guide" style="color: var(--color-accent-sage); text-decoration: underline;">Brighton guide</a>.</p>
       
       <h2>The Vibe</h2>
       <p><strong>Bath</strong> - Sophisticated, cultured, and undeniably pretty. This is the choice for groups who want beautiful surroundings, historic charm, and a more refined pace. Browse our <a href="/destinations/bath" style="color: var(--color-accent-sage); text-decoration: underline;">Bath properties</a>.</p>
@@ -283,7 +283,7 @@ const posts = [
       <p><strong>Brighton</strong> - Better in good weather when you can enjoy the beach and seafront. Still fun in winter but the experience is different.</p>
       
       <h2>Budget</h2>
-      <p><strong>Bath</strong> - Generally more expensive. Accommodation, restaurants, and activities tend to cost more. Budget £300-400 per person for a weekend. Read our guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs fairly</a>.</p>
+      <p><strong>Bath</strong> - Generally more expensive. Accommodation, restaurants, and activities tend to cost more. Budget £300-400 per person for a weekend. Read our guide on <a href="/inspiration/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs fairly</a>.</p>
       
       <p><strong>Brighton</strong> - More options across price ranges. Easier to do Brighton on a budget if needed. Expect £250-350 per person.</p>
       
@@ -300,12 +300,12 @@ const posts = [
       <ul>
         <li>Nightlife is a priority</li>
         <li>Your group loves the beach</li>
-        <li>You want more variety in <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities</a> and food</li>
+        <li>You want more variety in <a href="/inspiration/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities</a> and food</li>
         <li>Budget is a concern</li>
         <li>Accessibility matters (it's easier to get to)</li>
       </ul>
       
-      <p>Honestly, both cities are brilliant for hen parties. The "right" choice depends entirely on your group's personality and what kind of weekend you want. Can't decide? Bath for a refined celebration, Brighton for a party weekend. Need more help planning? Check our <a href="/blog/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a> or learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how booking works</a>. Ready to start? <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">Browse all properties</a> or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">contact our team</a> for personalised recommendations.</p>
+      <p>Honestly, both cities are brilliant for hen parties. The "right" choice depends entirely on your group's personality and what kind of weekend you want. Can't decide? Bath for a refined celebration, Brighton for a party weekend. Need more help planning? Check our <a href="/inspiration/hen-party-checklist" style="color: var(--color-accent-sage); text-decoration: underline;">complete planning checklist</a> or learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how booking works</a>. Ready to start? <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">Browse all properties</a> or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">contact our team</a> for personalised recommendations.</p>
     `,
   },
   {
@@ -317,7 +317,7 @@ const posts = [
     date: "29 Dec 2024",
     slug: "hen-party-checklist",
     content: `
-      <p>Planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a> can feel overwhelming, but breaking it down into manageable steps makes the whole process much easier. Here's your complete checklist to ensure nothing gets forgotten. Complement this with our guides on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs</a> and <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">alternative activities</a>.</p>
+      <p>Planning a <a href="/occasions/hen-party-houses" style="color: var(--color-accent-sage); text-decoration: underline;">hen party</a> can feel overwhelming, but breaking it down into manageable steps makes the whole process much easier. Here's your complete checklist to ensure nothing gets forgotten. Complement this with our guides on <a href="/inspiration/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">splitting costs</a> and <a href="/inspiration/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">alternative activities</a>.</p>
       
       <h2>6-8 Months Before</h2>
       
@@ -325,9 +325,9 @@ const posts = [
       <ul>
         <li>Talk to the bride about her vision (or surprise her, if that's the plan)</li>
         <li>Confirm the guest list</li>
-        <li>Set a realistic budget - see our <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">budgeting guide</a></li>
+        <li>Set a realistic budget - see our <a href="/inspiration/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">budgeting guide</a></li>
         <li>Choose dates (send out a poll to find what works for most people)</li>
-        <li>Decide on destination - compare <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton</a> or browse all <a href="/destinations" style="color: var(--color-accent-sage); text-decoration: underline;">destinations</a></li>
+        <li>Decide on destination - compare <a href="/inspiration/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton</a> or browse all <a href="/destinations" style="color: var(--color-accent-sage); text-decoration: underline;">destinations</a></li>
       </ul>
       
       <h3>Accommodation</h3>
@@ -352,7 +352,7 @@ const posts = [
       
       <h3>Money Management</h3>
       <ul>
-        <li>Create a detailed budget breakdown - full guide on <a href="/blog/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">cost splitting</a></li>
+        <li>Create a detailed budget breakdown - full guide on <a href="/inspiration/split-costs-hen-weekend" style="color: var(--color-accent-sage); text-decoration: underline;">cost splitting</a></li>
         <li>Set up a group payment system (Splitwise, Monzo, etc.)</li>
         <li>Collect initial deposits from guests</li>
         <li>Keep receipts for everything</li>
@@ -433,7 +433,7 @@ const posts = [
         <li>Put up decorations</li>
         <li>Assign rooms</li>
         <li>Do welcome drinks</li>
-        <li>Brief everyone on the schedule and <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities planned</a></li>
+        <li>Brief everyone on the schedule and <a href="/inspiration/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">activities planned</a></li>
         <li>Start making memories!</li>
       </ul>
       
@@ -469,12 +469,12 @@ const posts = [
         <li><strong>Remember the bride</strong> - This is about her, so include what she'd love</li>
       </ul>
       
-      <p>Planning a hen party takes organisation, but following this checklist means you won't miss anything important. The key is starting early and keeping track of everything in one place. Your future self (and the bride) will thank you. Need inspiration? Read our guide to <a href="/blog/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a>. Deciding between cities? Check our <a href="/blog/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a>, explore our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a>, or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">get in touch</a> for personalised help.</p>
+      <p>Planning a hen party takes organisation, but following this checklist means you won't miss anything important. The key is starting early and keeping track of everything in one place. Your future self (and the bride) will thank you. Need inspiration? Read our guide to <a href="/inspiration/alternative-hen-party-ideas" style="color: var(--color-accent-sage); text-decoration: underline;">10 alternative hen party ideas</a>. Deciding between cities? Check our <a href="/inspiration/bath-vs-brighton" style="color: var(--color-accent-sage); text-decoration: underline;">Bath vs Brighton comparison</a>. Ready to book? Learn <a href="/how-it-works" style="color: var(--color-accent-sage); text-decoration: underline;">how it works</a>, explore our <a href="/experiences" style="color: var(--color-accent-sage); text-decoration: underline;">experiences</a>, or <a href="/contact" style="color: var(--color-accent-sage); text-decoration: underline;">get in touch</a> for personalised help.</p>
     `,
   },
 ];
 
-export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default function InspirationPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const post = posts.find((p) => p.slug === slug);
 
@@ -507,11 +507,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
         <div className="max-w-[900px] mx-auto px-6">
           <Link
-            href="/blog"
+            href="/inspiration"
             className="inline-flex items-center gap-2 text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors mb-8 font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            Back to Inspiration
           </Link>
 
           <div
@@ -589,7 +589,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
-                  href={`/blog/${relatedPost.slug}`}
+                  href={`/inspiration/${relatedPost.slug}`}
                   className="group cursor-pointer"
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
