@@ -89,9 +89,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function DestinationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
+  // Basic data for SSR
+  const destinationName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
+      
+      {/* Initial HTML for SEO Crawlers */}
+      <noscript>
+        <div className="pt-32 pb-16 px-6 max-w-[1200px] mx-auto">
+          <h1 className="text-4xl font-bold mb-4">{destinationName} Hen Party Houses</h1>
+          <p className="text-xl mb-8">
+            Discover luxury group accommodation in {destinationName}. Perfect for hen parties, 
+            celebrations, and group getaways with stunning houses featuring hot tubs, pools, 
+            and exceptional amenities.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="border rounded-xl p-4">
+              <h2 className="text-xl font-semibold mb-2">Luxury Group Houses in {destinationName}</h2>
+              <p>Browse our handpicked collection of large houses to rent in {destinationName}.</p>
+              <a href="/properties" className="text-blue-600 underline">View all properties</a>
+            </div>
+          </div>
+        </div>
+      </noscript>
+
       <DestinationClient slug={slug} />
       <Footer />
     </div>
