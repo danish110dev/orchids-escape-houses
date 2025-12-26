@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { db } from '@/db';
-import { properties, experiences, destinations, blogPosts } from '@/db/schema';
+import { properties, experiences, blogPosts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -131,23 +131,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching experiences for sitemap:', error);
   }
 
-  // Fetch dynamic destinations
-  let destinationRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const publishedDestinations = await db
-      .select()
-      .from(destinations)
-      .where(eq(destinations.isPublished, true));
-    
-    destinationRoutes = publishedDestinations.map((destination) => ({
-      url: `${baseUrl}/destinations/${destination.slug}`,
-      lastModified: destination.updatedAt || currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }));
-  } catch (error) {
-    console.error('Error fetching destinations for sitemap:', error);
-  }
+  // All supported destination slugs (hardcoded in DestinationClient)
+  const allDestinationSlugs = [
+    'london',
+    'lake-district',
+    'brighton',
+    'bath',
+    'manchester',
+    'bournemouth',
+    'york',
+    'cardiff',
+    'newcastle',
+    'liverpool',
+    'newquay',
+    'bristol',
+    'cambridge',
+    'oxford',
+    'leeds',
+    'nottingham',
+    'sheffield',
+    'exeter',
+    'chester',
+    'durham',
+    'canterbury',
+    'blackpool',
+    'cotswolds',
+    'margate',
+    'harrogate',
+    'st-ives',
+    'windsor',
+    'stratford-upon-avon',
+    'plymouth',
+    'cheltenham',
+    'birmingham',
+    'cornwall',
+    'devon',
+    'yorkshire',
+    'norfolk',
+    'suffolk',
+    'sussex',
+    'peak-district',
+  ];
+
+  const destinationRoutes: MetadataRoute.Sitemap = allDestinationSlugs.map((slug) => ({
+    url: `${baseUrl}/destinations/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
   // Fetch dynamic blog posts
   let blogRoutes: MetadataRoute.Sitemap = [];
