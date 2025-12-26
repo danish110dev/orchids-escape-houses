@@ -222,7 +222,7 @@ export default function MobileMenu({
             <Link href="/admin/bookings" className="block text-2xl font-medium" onClick={onClose}>Admin Dashboard</Link>
             <Link href="/our-story" className="block text-2xl font-medium" onClick={onClose}>Our Story</Link>
             <Link href="/contact" className="block text-2xl font-medium" onClick={onClose}>Contact Us</Link>
-            <Link href="/blog" className="block text-2xl font-medium" onClick={onClose}>Inspiration</Link>
+            <Link href="/inspiration" className="block text-2xl font-medium" onClick={onClose}>Inspiration</Link>
           </nav>
         </div>
       </div>
