@@ -127,9 +127,9 @@ export default function PrivacyPage() {
               We may share your personal data with:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Property Owners:</strong> To facilitate your booking and stay</li>
-              <li><strong>Experience Providers:</strong> Third parties delivering add-on services (cocktail classes, chefs, etc.)</li>
-              <li><strong>Payment Processors:</strong> Stripe and other secure payment gateways</li>
+                <li><strong>Property Owners:</strong> To facilitate your enquiry and potential booking</li>
+                <li><strong>Experience Providers:</strong> Third parties delivering add-on services where applicable</li>
+                <li><strong>Payment Processors:</strong> Stripe (for property owner listing subscriptions)</li>
               <li><strong>Email Service Providers:</strong> For sending booking confirmations and communications</li>
               <li><strong>Analytics Providers:</strong> Google Analytics (anonymised data)</li>
               <li><strong>Legal Authorities:</strong> If required by law or to protect our rights</li>

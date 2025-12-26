@@ -33,7 +33,7 @@ export default function FAQSection() {
       question: "What is the deposit and payment schedule?",
       answer: (
         <>
-          We require a deposit to secure your booking (typically 25-30%). The remaining balance is due 6-8 weeks before your stay. All payments are processed securely via Stripe. Read more about our <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">payment terms</Link> and check our <Link href="/inspiration/split-costs-hen-weekend" className="text-[var(--color-accent-sage)] underline">guide on splitting costs fairly</Link>.
+          Bookings, payments and contracts are handled directly between guests and property owners. Each owner will have their own preferred payment methods and schedules, which you can discuss with them once you enquire. Read more about our <Link href="/booking-terms" className="text-[var(--color-accent-sage)] underline">booking terms</Link>.
         </>
       )
     },

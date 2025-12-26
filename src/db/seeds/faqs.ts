@@ -52,7 +52,7 @@ async function main() {
         },
         {
             question: 'What payment methods do you accept?',
-            answer: 'We accept all major credit and debit cards via Stripe, as well as bank transfers.',
+            answer: 'Bookings, payments and contracts are handled directly between guests and property owners. Each owner will have their own preferred payment methods and schedules.',
             category: 'Payments',
             orderIndex: 2,
             isPublished: true,
