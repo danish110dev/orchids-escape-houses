@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import UKServiceSchema from "@/components/UKServiceSchema";
 
-// Blog posts data - extract to a file later
-const blogPosts: Record<string, any> = {
+// Inspiration posts data - extract to a file later
+const inspirationPosts: Record<string, any> = {
   "alternative-hen-party-ideas": {
     title: "10 Hen Party Ideas That Aren't the Usual Spa Day",
     excerpt: "Looking for something different? From cocktail making to life drawing, here are our favourite alternative hen party activities.",
@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const baseUrl = 'https://www.groupescapehouses.co.uk';
   
-  const post = blogPosts[slug];
+  const post = inspirationPosts[slug];
   if (!post) {
     return {
-      title: "Blog Post | Group Escape Houses",
+      title: "Inspiration Post | Group Escape Houses",
       alternates: {
-        canonical: `${baseUrl}/blog/${slug}`,
+        canonical: `${baseUrl}/inspiration/${slug}`,
       },
     };
   }
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.title,
       description: post.description || post.excerpt,
-      url: `${baseUrl}/blog/${slug}`,
+      url: `${baseUrl}/inspiration/${slug}`,
       type: 'article',
       publishedTime: new Date(post.date).toISOString(),
     },
@@ -52,23 +52,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.description || post.excerpt,
     },
     alternates: {
-      canonical: `${baseUrl}/blog/${slug}`,
+      canonical: `${baseUrl}/inspiration/${slug}`,
     },
   };
 }
 
-interface BlogPostLayoutProps {
+interface InspirationPostLayoutProps {
   children: React.ReactNode;
   params: Promise<{ slug: string }>;
 }
 
-export default async function BlogPostLayout({
+export default async function InspirationPostLayout({
   children,
   params,
-}: BlogPostLayoutProps) {
+}: InspirationPostLayoutProps) {
   const { slug } = await params;
   const baseUrl = 'https://www.groupescapehouses.co.uk';
-  const post = blogPosts[slug];
+  const post = inspirationPosts[slug];
 
   if (!post) {
     return children;
@@ -91,7 +91,7 @@ export default async function BlogPostLayout({
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${baseUrl}/blog/${slug}`
+      "@id": `${baseUrl}/inspiration/${slug}`
     }
   };
 
@@ -102,8 +102,8 @@ export default async function BlogPostLayout({
         data={{
           breadcrumbs: [
             { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-            { name: post.title, url: `/blog/${slug}` }
+            { name: "Inspiration", url: "/inspiration" },
+            { name: post.title, url: `/inspiration/${slug}` }
           ]
         }}
       />
