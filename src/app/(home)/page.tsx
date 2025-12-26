@@ -73,13 +73,13 @@ export default async function Home() {
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
           <HeroVideo />
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
-              <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
-                Large Group Accommodation UK | Group Escape Houses
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-                Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission. Owners can manage listings, sync availability and receive enquiries direct.
-              </p>
+            <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
+                <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
+                  Large Group Accommodation UK
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                  Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners. Ideal for hen parties, family celebrations, weekends away and corporate retreats.
+                </p>
 
             <HeroSearchForm />
 
@@ -113,13 +113,13 @@ export default async function Home() {
         <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Featured Large Group Houses
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Large Group Houses Across the UK
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
+                </p>
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {featuredProperties.map((property) => (
@@ -146,13 +146,13 @@ export default async function Home() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Enhance Your Group Stay
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Group Accommodation for 10 to 30 Guests
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  Add special touches and activities to make your <Link href="/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
+                </p>
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {experiences.map((experience) => (
@@ -179,13 +179,13 @@ export default async function Home() {
         <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Explore Top Destinations
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                From vibrant cities to coastal escapes
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Ideal for Hen Parties, Weekends and Celebrations
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  From vibrant cities to coastal escapes
+                </p>
+              </div>
 
             {/* Scrolling Carousel */}
             <div className="relative min-h-[170px] md:min-h-[225px]">

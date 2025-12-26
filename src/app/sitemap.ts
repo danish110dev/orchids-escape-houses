@@ -225,6 +225,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Holiday focus routes
+  const holidayFocusRoutes: MetadataRoute.Sitemap = [
+    'adventure-holidays',
+    'book-private-chef',
+    'business-offsite-corporate-accommodation',
+    'girls-weekend-getaways',
+    'group-city-breaks',
+    'multi-generational-holidays',
+    'retreat-venues',
+    'rural-retreats',
+    'youth-school-group-accommodation',
+  ].map((slug) => ({
+    url: `${baseUrl}/holiday-focus/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticRoutes,
     ...propertyRoutes,
@@ -234,5 +252,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...featureRoutes,
     ...houseStyleRoutes,
     ...directOccasionRoutes,
+    ...holidayFocusRoutes,
   ];
 }

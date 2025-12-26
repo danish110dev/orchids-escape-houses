@@ -1206,6 +1206,33 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
   const properties = propertiesByLocation[slug] || propertiesByLocation.brighton || [];
 
+  const faqs = [
+    {
+      question: `What's the best time to visit ${destination.name} for a group celebration?`,
+      answer: destination.quickFacts.bestTime,
+    },
+    {
+      question: `How do I get to ${destination.name} from London?`,
+      answer: destination.quickFacts.fromLondon,
+    },
+    {
+      question: `What's the nightlife like in ${destination.name}?`,
+      answer: destination.quickFacts.nightlife,
+    },
+    {
+      question: `What activities are available for groups in ${destination.name}?`,
+      answer: destination.quickFacts.activities,
+    },
+    {
+      question: `How much does group accommodation in ${destination.name} cost?`,
+      answer: `Group accommodation in ${destination.name} typically costs ${destination.quickFacts.priceRange}. This is often split between guests, making it excellent value per person.`,
+    },
+    {
+      question: "How do I book a property?",
+      answer: "Simply browse our properties, select your dates, and submit an enquiry. Our team will respond within 24 hours with availability and booking details. You'll book directly with the property owner.",
+    },
+  ];
+
   return (
     <>
       <UKServiceSchema 
