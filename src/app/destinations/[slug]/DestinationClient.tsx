@@ -832,32 +832,207 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       brunch: [],
       activities: []
     },
-    birmingham: {
-      name: "Birmingham",
-      region: "West Midlands",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
-      overview: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
-      quickFacts: {
-        fromLondon: "1.5 hours by train",
-        bestTime: "Year-round destination",
-        nightlife: "Broad Street clubs, Digbeth venues, cocktail bars",
-        dining: "Balti Triangle, Michelin dining, international food",
-        beachAccess: "No beach but canal network",
-        accommodation: "City centre apartments, Victorian properties",
-        priceRange: "£70-£95 per night",
-        activities: "Shopping Bullring, museums, canal walks"
+      birmingham: {
+        name: "Birmingham",
+        region: "West Midlands",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
+        overview: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
+        quickFacts: {
+          fromLondon: "1.5 hours by train",
+          bestTime: "Year-round destination",
+          nightlife: "Broad Street clubs, Digbeth venues, cocktail bars",
+          dining: "Balti Triangle, Michelin dining, international food",
+          beachAccess: "No beach but canal network",
+          accommodation: "City centre apartments, Victorian properties",
+          priceRange: "£70-£95 per night",
+          activities: "Shopping Bullring, museums, canal walks"
+        },
+        gettingThere: [
+          { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
+          { icon: Car, text: "M1/M6 (approx 2 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Birmingham Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
       },
-      gettingThere: [
-        { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
-        { icon: Car, text: "M1/M6 (approx 2 hours)" },
-        { icon: Bus, text: "National Express coaches" },
-        { icon: Plane, text: "Birmingham Airport" }
-      ],
-      nightlife: [],
-      brunch: [],
-      activities: []
-    },
-  };
+      cornwall: {
+        name: "Cornwall",
+        region: "South West England",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80",
+        overview: "Cornwall is England's ultimate coastal escape, offering stunning beaches, dramatic cliffs, and charming fishing villages. Perfect for group getaways seeking surfing, seafood, and spectacular scenery.",
+        quickFacts: {
+          fromLondon: "5-6 hours by train or car",
+          bestTime: "May to September for beaches and outdoor activities",
+          nightlife: "Coastal pubs, beach bars, seafront restaurants",
+          dining: "Fresh seafood, Cornish pasties, award-winning restaurants",
+          beachAccess: "Hundreds of stunning beaches including Fistral, Porthcurno, St Ives",
+          accommodation: "Coastal cottages, beachfront properties, luxury farmhouses",
+          priceRange: "£80-£120 per night",
+          activities: "Surfing, coastal walks, Eden Project, boat trips, rock pooling"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Paddington to Truro/Penzance (5-6 hours)" },
+          { icon: Car, text: "A30 via Exeter (approx 5-6 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Newquay Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      devon: {
+        name: "Devon",
+        region: "South West England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Devon combines dramatic coastlines, rolling countryside, and charming market towns. From the rugged Dartmoor to the English Riviera, it's perfect for groups seeking natural beauty and outdoor adventures.",
+        quickFacts: {
+          fromLondon: "3-4 hours by train or car",
+          bestTime: "Year-round, best May to September for beaches",
+          nightlife: "Traditional pubs, coastal bars, Torquay nightlife",
+          dining: "Cream teas, fresh seafood, gastropubs",
+          beachAccess: "Beautiful beaches on both north and south coasts",
+          accommodation: "Coastal properties, Dartmoor lodges, country estates",
+          priceRange: "£75-£110 per night",
+          activities: "Dartmoor hiking, coastal walks, surfing, kayaking, cream teas"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Paddington to Exeter (2.5-3 hours)" },
+          { icon: Car, text: "M5 motorway (approx 3-4 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Exeter Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      yorkshire: {
+        name: "Yorkshire",
+        region: "Northern England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Yorkshire offers dramatic moors, historic cities, and warm northern hospitality. From the Yorkshire Dales to the North York Moors, it's perfect for groups seeking countryside escapes and city breaks.",
+        quickFacts: {
+          fromLondon: "2-3 hours by train",
+          bestTime: "Year-round, spring and autumn for walking",
+          nightlife: "York, Leeds, and Sheffield city nightlife",
+          dining: "Traditional pubs, Yorkshire puddings, local produce",
+          beachAccess: "Yorkshire coast with Whitby, Scarborough, Robin Hood's Bay",
+          accommodation: "Country houses, farmhouses, Yorkshire Dales lodges",
+          priceRange: "£70-£100 per night",
+          activities: "Walking, castle visits, steam railways, coastal towns"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London King's Cross to York (2 hours)" },
+          { icon: Car, text: "A1(M) motorway (approx 3-4 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Leeds Bradford or Robin Hood Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      norfolk: {
+        name: "Norfolk",
+        region: "East Anglia",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        overview: "Norfolk offers vast beaches, the unique Norfolk Broads, and charming coastal villages. Perfect for groups seeking peaceful countryside, birdwatching, and traditional seaside charm.",
+        quickFacts: {
+          fromLondon: "2-3 hours by train or car",
+          bestTime: "Spring to autumn for beaches and Broads",
+          nightlife: "Norwich city nightlife, coastal pubs",
+          dining: "Fresh seafood, Cromer crab, local produce",
+          beachAccess: "Miles of sandy beaches including Holkham, Wells-next-the-Sea",
+          accommodation: "Coastal cottages, Broads boats, country houses",
+          priceRange: "£70-£100 per night",
+          activities: "Norfolk Broads boating, birdwatching, beach walks, seal watching"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Liverpool Street to Norwich (2 hours)" },
+          { icon: Car, text: "A11 via Cambridge (approx 2.5 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Norwich Airport or Stansted" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      suffolk: {
+        name: "Suffolk",
+        region: "East Anglia",
+        image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80",
+        overview: "Suffolk combines charming medieval villages, sandy beaches, and gentle countryside. From Southwold to Aldeburgh, it's perfect for groups seeking culture, coastline, and relaxation.",
+        quickFacts: {
+          fromLondon: "1.5-2.5 hours by train or car",
+          bestTime: "Spring to autumn for beaches and festivals",
+          nightlife: "Ipswich nightlife, coastal pubs, beach bars",
+          dining: "Fresh seafood, Aldeburgh fish & chips, local produce",
+          beachAccess: "Beautiful beaches at Southwold, Aldeburgh, Felixstowe",
+          accommodation: "Coastal cottages, country houses, converted barns",
+          priceRange: "£70-£100 per night",
+          activities: "Beach walks, Southwold pier, Snape Maltings, birdwatching"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Liverpool Street to Ipswich (1.5 hours)" },
+          { icon: Car, text: "A12 via Colchester (approx 2 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Stansted Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      sussex: {
+        name: "Sussex",
+        region: "South East England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Sussex offers the iconic South Downs, historic towns, and vibrant coastal resorts. From the lanes of Brighton to the cliffs of Beachy Head, it's perfect for groups seeking beach life and countryside.",
+        quickFacts: {
+          fromLondon: "1-2 hours by train or car",
+          bestTime: "Year-round, especially spring and summer for beaches",
+          nightlife: "Brighton legendary nightlife, Eastbourne, Hastings",
+          dining: "Seafood, Brighton restaurants, gastropubs",
+          beachAccess: "Brighton, Eastbourne, Camber Sands, West Wittering",
+          accommodation: "Regency townhouses, coastal properties, South Downs lodges",
+          priceRange: "£75-£110 per night",
+          activities: "South Downs walks, Brighton shopping, castle visits, vineyards"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Victoria/London Bridge (1 hour to Brighton)" },
+          { icon: Car, text: "M23/A23 (approx 1.5 hours)" },
+          { icon: Bus, text: "National Express and Megabus" },
+          { icon: Plane, text: "Gatwick Airport nearby" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      "peak-district": {
+        name: "Peak District",
+        region: "Central England",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        overview: "The Peak District is England's first national park, offering dramatic landscapes, charming villages, and outdoor adventures. Perfect for groups seeking walking, cycling, and countryside retreats.",
+        quickFacts: {
+          fromLondon: "2.5-3 hours by train or car",
+          bestTime: "Year-round, spring and autumn for walking",
+          nightlife: "Traditional country pubs, Buxton and Bakewell",
+          dining: "Traditional pubs, Bakewell pudding, local produce",
+          beachAccess: "No beaches but stunning reservoirs and rivers",
+          accommodation: "Country houses, converted barns, stone cottages",
+          priceRange: "£75-£105 per night",
+          activities: "Walking, cycling, caving, rock climbing, spa towns"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London St Pancras to Sheffield/Manchester" },
+          { icon: Car, text: "M1 motorway (approx 3 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Manchester or East Midlands airports" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+    };
 
   const destination = destinationsData[slug] || {
     name: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),

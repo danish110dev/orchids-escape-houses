@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const title = `${destination.name} Hen Party Houses | Hot Tubs & Pools`;
   const description = `${destination.overview.substring(0, 155)}... Book luxury ${destination.name} hen party houses sleeping 10-20+ guests. Hot tubs, pools, games rooms. From £65-£120 per night.`;
-  const canonicalUrl = `https://groupescapehouses.co.uk/destinations/${slug}`;
+  const canonicalUrl = `https://www.groupescapehouses.co.uk/destinations/${slug}`;
 
   return {
     title,
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'Group Escape Houses',
       images: [
         {
-          url: 'https://groupescapehouses.co.uk/og-image.jpg',
+          url: 'https://www.groupescapehouses.co.uk/og-image.jpg',
           width: 1200,
           height: 630,
           alt: `${destination.name} Group Accommodation`,
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://groupescapehouses.co.uk/og-image.jpg'],
+        images: ['https://www.groupescapehouses.co.uk/og-image.jpg'],
     },
     other: {
       'format-detection': 'telephone=no, address=no, email=no',
