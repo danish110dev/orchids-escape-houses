@@ -267,8 +267,8 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         </div>
 
           {/* Add-ons */}
-          <div>
-            <Label className="text-sm font-medium mb-3 block">Add experiences (optional)</Label>
+          <fieldset>
+            <legend className="text-sm font-medium mb-3 block">Add experiences (optional)</legend>
             <div className="space-y-2.5">
               {[
                 "Cocktail Masterclass",
@@ -303,7 +303,7 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 const addonId = `addon-${addon.toLowerCase().replace(/\s+/g, '-')}`;
                 return (
                   <div key={addon} className="flex items-center gap-3 group">
-                    <div className="flex items-center h-10 w-10 justify-center">
+                    <div className="flex items-center h-12 w-12 min-h-[48px] min-w-[48px] justify-center">
                       <input
                         type="checkbox"
                         id={addonId}
@@ -322,7 +322,7 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                       href={`/experiences/${experienceToSlug(addon)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 hover:text-[var(--color-accent-sage)] transition-colors"
+                      className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center hover:text-[var(--color-accent-sage)] transition-colors"
                       title={`View ${addon} details`}
                       aria-label={`View ${addon} details in new tab`}
                     >
@@ -332,7 +332,7 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
                 );
               })}
             </div>
-          </div>
+          </fieldset>
 
           {/* Message */}
           <div>

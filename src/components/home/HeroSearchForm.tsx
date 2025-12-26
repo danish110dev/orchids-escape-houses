@@ -187,26 +187,26 @@ export default function HeroSearchForm() {
                       <div className="text-sm text-gray-500">{group.sub}</div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Button 
-                        size="icon" 
-                        variant="outline" 
-                        className="h-11 w-11 rounded-full" 
-                        onClick={() => group.set(Math.max(group.min, group.value - 1))} 
-                        disabled={group.value <= group.min}
-                        aria-label={`Decrease ${group.label}`}
-                      >
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <span className="w-8 text-center">{group.value}</span>
-                      <Button 
-                        size="icon" 
-                        variant="outline" 
-                        className="h-11 w-11 rounded-full" 
-                        onClick={() => group.set(group.value + 1)}
-                        aria-label={`Increase ${group.label}`}
-                      >
-                        <Plus className="h-4 w-4" />
-                      </Button>
+                        <Button 
+                          size="icon" 
+                          variant="outline" 
+                          className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-full" 
+                          onClick={() => group.set(Math.max(group.min, group.value - 1))} 
+                          disabled={group.value <= group.min}
+                          aria-label={`Decrease ${group.label}`}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <span className="w-8 text-center font-medium" aria-live="polite">{group.value}</span>
+                        <Button 
+                          size="icon" 
+                          variant="outline" 
+                          className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-full" 
+                          onClick={() => group.set(group.value + 1)}
+                          aria-label={`Increase ${group.label}`}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
                     </div>
                   </div>
                 ))}

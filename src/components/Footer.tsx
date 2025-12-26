@@ -121,13 +121,13 @@ export default function Footer() {
             {/* Social */}
             <div>
               <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 <a
                   href="https://www.instagram.com/groupescapehouses/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Instagram"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
+                  aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-6 h-6 text-white" />
                 </a>
@@ -135,8 +135,8 @@ export default function Footer() {
                   href="https://www.tiktok.com/@groupescapehouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="TikTok"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
+                  aria-label="Follow us on TikTok"
                 >
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
@@ -146,8 +146,8 @@ export default function Footer() {
                   href="https://www.youtube.com/@GroupEscapeHouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="YouTube"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
+                  aria-label="Subscribe on YouTube"
                 >
                   <Youtube className="w-6 h-6 text-white" />
                 </a>
@@ -155,8 +155,8 @@ export default function Footer() {
                   href="https://www.facebook.com/profile.php?id=61580927195664"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Facebook"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
+                  aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-6 h-6 text-white" />
                 </a>
@@ -164,8 +164,8 @@ export default function Footer() {
                   href="https://www.pinterest.com/groupescapehouses"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Pinterest"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
+                  aria-label="Follow us on Pinterest"
                 >
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0a12 12 0 0 0-4.37 23.17c-.18-1.56-.03-3.45.4-5.15l3.1-13.14a5.72 5.72 0 0 1-.21-1.81 3.94 3.94 0 0 1 4.09-3.91c1.93 0 2.86 1.45 2.86 3.18a20.64 20.64 0 0 1-1.15 4.46c-.33 1.38.69 2.5 2.05 2.5 2.47 0 4.13-3.17 4.13-6.93 0-2.86-1.93-5-5.44-5a6.32 6.32 0 0 0-6.6 6.36 3.78 3.78 0 0 0 .72 2.21.37.37 0 0 1 .08.35c-.09.39-.3 1.23-.34 1.4a.28.28 0 0 1-.4.2c-1.55-.63-2.27-2.33-2.27-4.24 0-3.15 2.65-6.93 7.9-6.93 4.23 0 7 3.07 7 6.39 0 4.38-2.44 7.66-6.05 7.66a3.28 3.28 0 0 1-2.8-1.42l-.77 3a11.4 11.4 0 0 1-1.31 2.72A12 12 0 1 0 12 0z"/>

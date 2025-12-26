@@ -112,7 +112,7 @@ export default function PropertyCard({
                   e.preventDefault();
                   setIsSaved(!isSaved);
                 }}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
+                className="absolute top-4 right-4 w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label={isSaved ? "Remove from saved" : "Save property"}
               >
                 <Heart

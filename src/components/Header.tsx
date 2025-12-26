@@ -497,9 +497,10 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
+              className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center gap-2 relative z-[60]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
