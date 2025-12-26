@@ -5,7 +5,6 @@ import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import UKServiceSchema from "@/components/UKServiceSchema";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: {
@@ -50,18 +49,6 @@ export default function RootLayout({
           <link rel="preconnect" href="https://images.unsplash.com" />
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
-          
-          {/* Global JSON-LD Schemas */}
-          <Script
-            id="schema-organization"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
-          />
-          <Script
-            id="schema-website"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
-          />
       </head>
       <body className="antialiased">
         <Script

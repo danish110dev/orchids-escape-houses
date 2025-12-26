@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Script from "next/script";
 import { useSession } from "@/lib/auth-client";
 import { PricingTable } from "@/components/autumn/pricing-table";
 import Header from "@/components/Header";
@@ -268,78 +267,6 @@ export default function PricingPage() {
       </main>
 
       <Footer />
-      
-      <Script
-        id="schema-pricing"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "PriceSpecification",
-            "@id": "https://groupescapehouses.co.uk/pricing/#pricing",
-            "name": "Group Escape Houses Pricing Plans",
-            "description": "View our transparent pricing for booking group holiday homes",
-            "url": "https://groupescapehouses.co.uk/pricing",
-            "priceCurrency": "GBP",
-            "offers": [
-              {
-                "@type": "Offer",
-                "name": "Free Browse",
-                "price": "0",
-                "priceCurrency": "GBP",
-                "description": "Browse properties and save favorites"
-              },
-              {
-                "@type": "Offer",
-                "name": "Small Groups (up to 12 guests)",
-                "price": "200",
-                "priceCurrency": "GBP",
-                "description": "Deposit for small group property bookings"
-              },
-              {
-                "@type": "Offer",
-                "name": "Medium Groups (13-20 guests)",
-                "price": "300",
-                "priceCurrency": "GBP",
-                "description": "Deposit for medium group property bookings"
-              },
-              {
-                "@type": "Offer",
-                "name": "Large Groups (21+ guests)",
-                "price": "400",
-                "priceCurrency": "GBP",
-                "description": "Deposit for large group property bookings"
-              }
-            ]
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-pricing-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/pricing/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Pricing",
-                "item": "https://groupescapehouses.co.uk/pricing"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

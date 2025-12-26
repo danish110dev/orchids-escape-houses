@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedStats from "@/components/AnimatedStats";
-import { SchemaRenderer } from "@/components/SchemaRenderer";
-import { aboutPageSchema, breadcrumbSchema } from "@/lib/schema";
 
 export default function OurStoryPage() {
   return (
@@ -197,14 +195,6 @@ export default function OurStoryPage() {
       </section>
 
       <Footer />
-      
-      <SchemaRenderer schemas={[
-        aboutPageSchema(),
-        breadcrumbSchema([
-          { name: "Home", url: "https://groupescapehouses.co.uk" },
-          { name: "Our Story", url: "https://groupescapehouses.co.uk/our-story" }
-        ])
-      ]} />
     </div>
   );
 }

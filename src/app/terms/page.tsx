@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Script from "next/script";
 
 export default function TermsPage() {
   return (
@@ -189,50 +188,6 @@ export default function TermsPage() {
       </div>
 
       <Footer />
-      
-      <Script
-        id="schema-terms"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://groupescapehouses.co.uk/terms/#webpage",
-            "name": "Terms and Conditions",
-            "description": "Terms and conditions for booking with Group Escape Houses",
-            "url": "https://groupescapehouses.co.uk/terms",
-            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
-            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "inLanguage": "en-GB"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-terms-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/terms/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Terms & Conditions",
-                "item": "https://groupescapehouses.co.uk/terms"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -694,51 +693,6 @@ export default function AdvertiseWithUs() {
       </main>
 
       <Footer />
-      
-      <Script
-        id="schema-advertise-with-us"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://groupescapehouses.co.uk/advertise-with-us/#service",
-            "name": "Advertise Your Large Group Property",
-            "description": "Join Group Escape Houses and list your property to reach groups looking for holiday homes. No commission, transparent pricing, and direct bookings.",
-            "url": "https://groupescapehouses.co.uk/advertise-with-us",
-            "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "areaServed": "GB",
-            "priceRange": "£",
-            "serviceType": "Property Management & Marketing Service"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-advertise-with-us-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/advertise-with-us/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Advertise With Us",
-                "item": "https://groupescapehouses.co.uk/advertise-with-us"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

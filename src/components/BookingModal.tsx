@@ -124,10 +124,10 @@ export default function BookingModal({
                   variant="outline"
                   className="w-full justify-start text-left font-normal h-12"
                 >
-                    <Calendar className="mr-2 h-4 w-4 text-gray-500" />
-                    <span className={checkInDate ? "text-gray-900" : "text-gray-600 font-medium"}>
-                      {dateRangeDisplay}
-                    </span>
+                  <Calendar className="mr-2 h-4 w-4 text-gray-400" />
+                  <span className={checkInDate ? "text-gray-900" : "text-gray-500"}>
+                    {dateRangeDisplay}
+                  </span>
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -258,17 +258,17 @@ export default function BookingModal({
             >
               Cancel
             </Button>
-              <Button
-                className="flex-1"
-                onClick={handleBookNow}
-                disabled={isProcessing || !checkInDate || !checkOutDate}
-                style={{
-                  background: "var(--color-accent-sage-dark)",
-                  color: "white",
-                }}
-              >
-                {isProcessing ? "Processing..." : "Book Now"}
-              </Button>
+            <Button
+              className="flex-1"
+              onClick={handleBookNow}
+              disabled={isProcessing || !checkInDate || !checkOutDate}
+              style={{
+                background: "var(--color-accent-sage)",
+                color: "white",
+              }}
+            >
+              {isProcessing ? "Processing..." : "Book Now"}
+            </Button>
           </div>
         </div>
       </DialogContent>

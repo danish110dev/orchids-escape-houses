@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import UKServiceSchema from "@/components/UKServiceSchema";
@@ -327,72 +326,6 @@ export default function HowItWorksPage() {
       </section>
 
       <Footer />
-      
-      <Script
-        id="schema-how-it-works"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "@id": "https://groupescapehouses.co.uk/how-it-works/#howto",
-            "name": "How to Book Your Perfect Hen Weekend",
-            "description": "Learn how to book a group holiday house with Group Escape Houses in 4 simple steps",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Search & Browse",
-                "text": "Explore our collection of luxury group holiday houses by location, size, price and features"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "View Details & Message",
-                "text": "Check out detailed photos, amenities, and previous guest reviews. Chat directly with the property owner"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Agree Terms & Deposit",
-                "text": "Agree on dates and pricing with the owner. Pay a simple, transparent deposit to secure your booking"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 4,
-                "name": "Confirm & Enjoy",
-                "text": "Receive your booking confirmation and property details. Enjoy your group holiday!"
-              }
-            ]
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-how-it-works-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/how-it-works/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "How It Works",
-                "item": "https://groupescapehouses.co.uk/how-it-works"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

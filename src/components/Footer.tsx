@@ -118,10 +118,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
-              <div className="flex flex-wrap gap-3">
+            {/* Social */}
+            <div>
+              <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="https://www.instagram.com/groupescapehouses/"
                   target="_blank"
@@ -172,15 +172,15 @@ export default function Footer() {
                   </svg>
                 </a>
               </div>
-          </div>
+            </div>
         </div>
 
         {/* Divider */}
         <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8"></div>
 
           {/* Bottom Bar */}
-          <div className="pt-8 text-center max-w-4xl mx-auto">
-            <p className="text-sm text-[var(--color-bg-secondary)] mb-6 italic">
+          <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8 text-center max-w-4xl mx-auto">
+            <p className="text-xs text-[var(--color-bg-secondary)] mb-6 italic">
               Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
             </p>
           </div>

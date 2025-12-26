@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import UKServiceSchema from "@/components/UKServiceSchema";
@@ -754,50 +753,6 @@ export default function DestinationsPage() {
       </section>
 
       <Footer />
-      
-      <Script
-        id="schema-destinations-collection"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://groupescapehouses.co.uk/destinations/#webpage",
-            "name": "UK Holiday Destinations - Group Escape Houses",
-            "description": "Discover the best UK destinations for group holidays. Choose from London, Brighton, Bath, Manchester and more.",
-            "url": "https://groupescapehouses.co.uk/destinations",
-            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
-            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "inLanguage": "en-GB"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-destinations-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/destinations/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Destinations",
-                "item": "https://groupescapehouses.co.uk/destinations"
-              }
-            ]
-          })
-        }}
-      />
     </div>);
 
 }

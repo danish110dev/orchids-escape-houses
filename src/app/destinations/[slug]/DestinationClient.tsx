@@ -1224,6 +1224,10 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           ]
         }}
       />
+      <UKServiceSchema 
+        type="faq" 
+        data={{ faqs }} 
+      />
 
       {/* Hero */}
       <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
@@ -1556,7 +1560,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       )}
 
       {/* FAQ Section */}
-      {/*
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-12">
@@ -1599,7 +1602,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           </div>
         </div>
       </section>
-      */}
 
       {/* Properties in this area */}
       <section className="py-24 bg-[var(--color-bg-primary)]">

@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
-import Script from "next/script";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink, ArrowRight } from "lucide-react";
@@ -170,7 +169,6 @@ export default function ContactPage() {
         location: "",
         experiences: [],
         message: "",
-        propertyType: "",
       });
       setDateRange({});
       setUserInteraction({ clicks: 0, keystrokes: 0 });
@@ -620,50 +618,6 @@ export default function ContactPage() {
       </section>
 
       <Footer />
-      
-      <Script
-        id="schema-contact"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "@id": "https://groupescapehouses.co.uk/contact/#webpage",
-            "name": "Contact Group Escape Houses",
-            "description": "Get in touch with Group Escape Houses. Fast response guaranteed. UK support team available.",
-            "url": "https://groupescapehouses.co.uk/contact",
-            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
-            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "inLanguage": "en-GB"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-breadcrumb-contact"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/contact/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Contact",
-                "item": "https://groupescapehouses.co.uk/contact"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

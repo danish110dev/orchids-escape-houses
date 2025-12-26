@@ -67,9 +67,8 @@ export default function NewsletterSection() {
             Subscribe for exclusive deals, new properties, and group planning tips
           </p>
 
-          <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
-            <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: 'absolute', left: '-9999px' }} tabIndex={-1} autoComplete="off" />
-            <div className="flex-1 flex flex-col items-start">
+            <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
+              <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: 'absolute', left: '-9999px' }} tabIndex={-1} autoComplete="off" />
               <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <Input
                 id="newsletter-email"
@@ -79,15 +78,14 @@ export default function NewsletterSection() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isSubmitting}
-                className="w-full h-14 rounded-2xl border-2 border-white/40 bg-white/10 text-white placeholder:text-white/80 focus:bg-white/20"
+                className="flex-1 h-14 rounded-2xl border-2 border-white/30 bg-white/10 text-white placeholder:text-white/60 focus:bg-white/20"
               />
-            </div>
-            <Button
-              type="submit"
-              size="lg"
-              disabled={isSubmitting || !email}
-              className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05] bg-white text-[var(--color-accent-sage)]"
-            >
+              <Button
+                type="submit"
+                size="lg"
+                disabled={isSubmitting || !email}
+                className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05] bg-white text-[var(--color-accent-sage)]"
+              >
               {isSubmitting ? "Subscribing..." : "Subscribe"}
             </Button>
           </form>
