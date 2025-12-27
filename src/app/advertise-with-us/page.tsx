@@ -104,7 +104,7 @@ export default function AdvertiseWithUs() {
                           <Star key={i} className="w-4 h-4 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
                         ))}
                       </div>
-                      <p className="text-sm font-medium">
+                      <p className="text-sm font-medium text-white" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}>
                         Over 3,000 five-star reviews from happy groups & owners
                       </p>
                     </div>
@@ -124,7 +124,7 @@ export default function AdvertiseWithUs() {
                 
                 <div className="space-y-8 text-xl text-[var(--color-neutral-dark)] leading-relaxed">
                   <p>
-                    The Hen Fairy is the UK&apos;s specialist platform for luxury group accommodation. We connect high-quality properties—barns, estates, and lodges sleeping 10 or more—directly with guests who value excellence.
+                    Group Escape Houses is the UK&apos;s specialist platform for luxury group accommodation. We connect high-quality properties—barns, estates, and lodges sleeping 10 or more—directly with guests who value excellence.
                   </p>
                   
                   <p>
@@ -143,7 +143,7 @@ export default function AdvertiseWithUs() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                What You Get With Your The Hen Fairy Listing
+                What You Get With Your Group Escape Houses Listing
               </h2>
             </div>
             
@@ -479,7 +479,7 @@ export default function AdvertiseWithUs() {
                 </h2>
                 
                 <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-8">
-                  Want to see exactly how The Hen Fairy can work for your property? The Owners Guide walks you through listings, marketing, subscription options and how to maximise direct enquiries from large groups.
+                  Want to see exactly how Group Escape Houses can work for your property? The Owners Guide walks you through listings, marketing, subscription options and how to maximise direct enquiries from large groups.
                 </p>
                 
                 <Button 
@@ -646,10 +646,10 @@ export default function AdvertiseWithUs() {
         <section id="contact" className="py-20 bg-[var(--color-bg-secondary)]">
           <div className="max-w-[1200px] mx-auto px-6 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Join The Hen Fairy Today
+              Join Group Escape Houses Today
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)] mb-12 max-w-3xl mx-auto leading-relaxed">
-              Ready to unlock more direct enquiries for your large group property? Subscribe to The Hen Fairy and reach guests who are searching specifically for luxury houses and estates for groups.
+              Ready to unlock more direct enquiries for your large group property? Subscribe to Group Escape Houses and reach guests who are searching specifically for luxury houses and estates for groups.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
@@ -658,10 +658,10 @@ export default function AdvertiseWithUs() {
                   Email Us
                 </h3>
                 <a 
-                  href="mailto:hello@thehenfairy.co.uk" 
+                  href="mailto:hello@groupescapehouses.co.uk" 
                   className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors text-lg font-medium"
                 >
-                  hello@thehenfairy.co.uk
+                  hello@groupescapehouses.co.uk
                 </a>
               </div>
               
