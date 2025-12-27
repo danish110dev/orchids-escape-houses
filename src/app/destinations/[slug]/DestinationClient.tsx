@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
 import UKServiceSchema from "@/components/UKServiceSchema";
+import { TrustBadges } from "@/components/TrustBadges";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -16,9 +17,9 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-  const handleImageError = (imageId: string) => {
+  const handleImageError = useCallback((imageId: string) => {
     setImageErrors(prev => ({ ...prev, [imageId]: true }));
-  };
+  }, []);
 
   // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
@@ -1431,39 +1432,51 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         data={{ faqs }} 
       />
 
-      {/* Hero */}
-      <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
-        <Image 
-          src={destination.image} 
-          alt={destination.name} 
-          fill 
-          className="object-cover" 
-          priority 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="max-w-[1200px] mx-auto px-6 pb-12">
-            <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
-              {destination.name}
-            </h1>
-            <div className="flex items-center gap-2 text-white text-xl mb-6 drop-shadow-md" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
-              <MapPin className="w-5 h-5 drop-shadow-md" />
-              <span>{destination.region}</span>
+        {/* Hero */}
+        <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
+          <Image 
+            src={destination.image} 
+            alt={destination.name} 
+            fill 
+            className="object-cover" 
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
+          <div className="absolute bottom-0 left-0 right-0 z-10">
+            <div className="max-w-[1200px] mx-auto px-6 pb-12">
+              <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
+                {destination.name}
+              </h1>
+              <div className="flex items-center gap-2 text-white text-xl mb-6 drop-shadow-md" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+                <MapPin className="w-5 h-5 drop-shadow-md" />
+                <span>{destination.region}</span>
+              </div>
+              <div className="flex flex-wrap gap-4 mb-6">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02] shadow-lg"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  <Link href="/contact">Check Availability</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-8 py-4 font-medium bg-white/10 border-white text-white hover:bg-white hover:text-black"
+                >
+                  <Link href="/properties">Browse Properties</Link>
+                </Button>
+              </div>
+              <TrustBadges variant="compact" className="text-white/90" />
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02] shadow-lg"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/contact">Check Availability and Book</Link>
-            </Button>
           </div>
         </div>
-      </div>
 
         {/* SEO Content Section with Internal Links */}
         <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">

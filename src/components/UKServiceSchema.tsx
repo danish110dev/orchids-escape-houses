@@ -1,6 +1,6 @@
 
 interface UKServiceSchemaProps {
-  type: "home" | "breadcrumb" | "itemList" | "faq" | "default";
+  type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article";
   data?: any;
   includeSiteWide?: boolean;
 }
@@ -98,6 +98,48 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     }))
   } : null;
 
+  // 6) Property/Product schema
+  const propertySchema = (type === "property" && data) ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": data.name,
+    "description": data.description,
+    "image": data.image,
+    "brand": {
+      "@type": "Brand",
+      "name": "Group Escape Houses"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "GBP",
+      "price": data.priceFrom,
+      "availability": "https://schema.org/InStock"
+    }
+  } : null;
+
+  // 7) Article schema
+  const articleSchema = (type === "article" && data) ? {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.title,
+    "description": data.description,
+    "image": data.image,
+    "datePublished": data.datePublished,
+    "dateModified": data.dateModified || data.datePublished,
+    "author": {
+      "@type": "Organization",
+      "name": "Group Escape Houses"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Group Escape Houses",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logo.png`
+      }
+    }
+  } : null;
+
   return (
     <>
       {/* Site-wide schema */}
@@ -137,6 +179,18 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {propertySchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(propertySchema) }}
+        />
+      )}
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
       )}
     </>

@@ -5,8 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import UKServiceSchema from "@/components/UKServiceSchema";
+import { TrustBadges } from "@/components/TrustBadges";
 import { Button } from "@/components/ui/button";
-import { Users, Home, MapPin, Bed, Bath, Waves, Gamepad2, ChefHat, Car, TreePine, Building, Castle, Mountain, Sun, Check, ChevronDown } from "lucide-react";
+import { Users, Home, MapPin, Waves, Gamepad2, ChefHat, Car, TreePine, Building, Castle, ChevronDown } from "lucide-react";
 import { db } from "@/db";
 import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
@@ -112,36 +113,38 @@ export default async function LargeGroupAccommodationPage() {
       />
       <UKServiceSchema type="faq" data={{ faqs }} />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center pt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=90"
-            alt="Large group accommodation UK"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-        </div>
-        
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Large Group Accommodation UK
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
-            Luxury houses sleeping 10 to 30+ guests across the UK. Perfect for family reunions, group weekends, birthdays, and corporate retreats.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="rounded-2xl px-8 py-6 text-lg font-medium" style={{ background: "var(--color-accent-sage)", color: "white" }}>
-              <Link href="/properties">Browse All Properties</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 py-6 text-lg font-medium bg-white/10 border-white text-white hover:bg-white hover:text-black">
-              <Link href="/contact">Check Availability</Link>
-            </Button>
+        {/* Hero Section */}
+        <section className="relative min-h-[60vh] flex items-center justify-center pt-20">
+          <div className="absolute inset-0">
+            <Image
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=90"
+              alt="Large group accommodation UK"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
           </div>
-        </div>
-      </section>
+          
+          <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Large Group Accommodation UK
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
+              Luxury houses sleeping 10 to 30+ guests across the UK. Perfect for family reunions, group weekends, birthdays, and corporate retreats.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <Button asChild size="lg" className="rounded-2xl px-8 py-6 text-lg font-medium" style={{ background: "var(--color-accent-sage)", color: "white" }}>
+                <Link href="/contact">Check Availability</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 py-6 text-lg font-medium bg-white/10 border-white text-white hover:bg-white hover:text-black">
+                <Link href="/properties">Browse All Properties</Link>
+              </Button>
+            </div>
+            <TrustBadges variant="compact" className="text-white/90" />
+          </div>
+        </section>
 
       {/* Introduction Section - SEO Content */}
       <section className="py-16 bg-white">

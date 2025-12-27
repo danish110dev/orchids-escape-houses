@@ -8,18 +8,14 @@ import PropertyCard from "@/components/PropertyCard";
 import EnquiryForm from "@/components/EnquiryForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import UKServiceSchema from "@/components/UKServiceSchema";
+import { TrustBadges, BookingMessage } from "@/components/TrustBadges";
 import { Button } from "@/components/ui/button";
 import {
   Users,
   Bed,
   Bath,
   MapPin,
-  Wifi,
-  Car,
-  Flame,
   Waves,
-  Music,
-  ChefHat,
   Download,
   Calendar,
 } from "lucide-react";
@@ -267,41 +263,65 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
       <UKServiceSchema type="faq" data={{ faqs }} />
 
       <div className="pt-24">
-        {/* Image Gallery */}
-        <div className="max-w-[1400px] mx-auto px-6 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-2xl overflow-hidden">
-            <div className="relative h-[400px] md:h-[600px]">
-              <Image
-                src={allImages[0]}
-                alt={property.title}
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+          {/* Image Gallery */}
+          <div className="max-w-[1400px] mx-auto px-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] md:aspect-auto md:h-[600px] bg-gray-100">
+                <Image
+                  src={allImages[0]}
+                  alt={property.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {allImages.slice(1, 5).map((image, index) => (
+                  <div key={index} className="relative aspect-[4/3] md:aspect-auto md:h-[290px] bg-gray-100">
+                    <Image
+                      src={image}
+                      alt={`${property.title} ${index + 2}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+                {allImages.length < 5 && (
+                  <>
+                    {[...Array(5 - allImages.length)].map((_, index) => (
+                      <div key={`placeholder-${index}`} className="relative aspect-[4/3] md:aspect-auto md:h-[290px] bg-gray-200"></div>
+                    ))}
+                  </>
+                )}
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {allImages.slice(1, 5).map((image, index) => (
-                <div key={index} className="relative h-[190px] md:h-[290px]">
-                  <Image
-                    src={image}
-                    alt={`${property.title} ${index + 2}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
+            
+            {/* Above-the-fold CTA for mobile */}
+            <div className="mt-6 md:hidden">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <p className="text-sm text-[var(--color-neutral-dark)]">Weekend from</p>
+                    <p className="text-3xl font-bold" style={{ color: "var(--color-accent-pink)" }}>
+                      £{property.priceFromWeekend}
+                    </p>
+                  </div>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-xl px-6 font-medium"
+                    style={{ background: "var(--color-accent-sage)", color: "white" }}
+                  >
+                    <a href="#enquiry">Enquire Now</a>
+                  </Button>
                 </div>
-              ))}
-              {allImages.length < 5 && (
-                <>
-                  {[...Array(5 - allImages.length)].map((_, index) => (
-                    <div key={`placeholder-${index}`} className="relative h-[190px] md:h-[290px] bg-gray-200"></div>
-                  ))}
-                </>
-              )}
+                <TrustBadges variant="compact" />
+              </div>
             </div>
           </div>
-        </div>
 
         {/* Content */}
         <div className="max-w-[1200px] mx-auto px-6 pb-24">
@@ -471,10 +491,13 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
               </div>
             </div>
 
-            {/* Right Column - Enquiry Form */}
-            <div className="lg:col-span-1">
-              <EnquiryForm propertyTitle={property.title} propertySlug={slug} />
-            </div>
+              {/* Right Column - Enquiry Form */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-28">
+                  <EnquiryForm propertyTitle={property.title} propertySlug={slug} />
+                  <BookingMessage className="mt-4" />
+                </div>
+              </div>
           </div>
 
           {/* Related Properties */}
