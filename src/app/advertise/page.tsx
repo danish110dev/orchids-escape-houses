@@ -685,8 +685,17 @@ export default function AdvertisePage() {
             "url": "https://groupescapehouses.co.uk/advertise",
             "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
             "areaServed": "GB",
-            "priceRange": "£",
-            "serviceType": "Property Advertising Service"
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Property Advertising Plans",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Annual Property Listing",
+                  "priceCurrency": "GBP"
+                }
+              ]
+            }
           })
         }}
       />

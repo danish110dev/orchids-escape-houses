@@ -5,7 +5,7 @@ import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import UKServiceSchema from "@/components/UKServiceSchema";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema, platformServiceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +61,11 @@ export default function RootLayout({
             id="schema-website"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+          />
+          <Script
+            id="schema-service"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(platformServiceSchema()) }}
           />
       </head>
       <body className="antialiased">

@@ -60,7 +60,8 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <UKServiceSchema type="home" />
+      <SchemaRenderer schemas={[homePageSchema()]} />
+      <UKServiceSchema type="home" includeSiteWide={false} />
       <UKServiceSchema 
         type="itemList" 
         data={{ 

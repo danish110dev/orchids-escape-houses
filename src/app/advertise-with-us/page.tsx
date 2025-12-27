@@ -708,8 +708,17 @@ export default function AdvertiseWithUs() {
             "url": "https://groupescapehouses.co.uk/advertise-with-us",
             "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
             "areaServed": "GB",
-            "priceRange": "£",
-            "serviceType": "Property Management & Marketing Service"
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Property Listing Plans",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Annual Property Listing",
+                  "priceCurrency": "GBP"
+                }
+              ]
+            }
           })
         }}
       />

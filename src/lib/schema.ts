@@ -147,6 +147,29 @@ export function homePageSchema() {
 }
 
 // ============================================================================
+// 3B. SERVICE SCHEMA - Homepage Platform Service
+// ============================================================================
+
+export function platformServiceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://groupescapehouses.co.uk/#service",
+    "name": "Group Holiday House Listings and Enquiries",
+    "description": "Online platform for browsing and enquiring about luxury group holiday houses, cottages, and villas across the UK",
+    "url": "https://groupescapehouses.co.uk",
+    "provider": {
+      "@id": "https://groupescapehouses.co.uk/#organization",
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "GB",
+    },
+    "serviceType": "Online Reservation Service",
+  };
+}
+
+// ============================================================================
 // 4. ABOUT PAGE SCHEMA
 // ============================================================================
 
