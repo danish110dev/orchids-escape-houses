@@ -39,11 +39,11 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "EventPlanningService",
+    "@type": "LocalBusiness",
     "@id": `${baseUrl}/#localbusiness`,
     "name": siteName,
     "url": `${baseUrl}/`,
-    "telephone": "01273 569301",
+    "telephone": "+441273569301",
     "email": "hello@groupescapehouses.co.uk",
     "address": {
       "@type": "PostalAddress",
@@ -52,30 +52,12 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
       "postalCode": "BN41 1DH",
       "addressCountry": "GB"
     },
+    "logo": `${baseUrl}/logo.png`,
     "image": `${baseUrl}/logo.png`,
     "priceRange": "££",
     "areaServed": {
       "@type": "Country",
       "name": "United Kingdom"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "10:00",
-        "closes": "16:00"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "3000"
     }
   };
 
