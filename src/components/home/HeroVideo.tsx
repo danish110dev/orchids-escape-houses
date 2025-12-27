@@ -28,9 +28,10 @@ export default function HeroVideo() {
         alt="Luxury UK group holiday house"
         fill
         priority
-        className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-30'}`}
+        fetchPriority="high"
+        className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
         sizes="100vw"
-        quality={75}
+        quality={85}
       />
 
       {shouldLoadVideo && (

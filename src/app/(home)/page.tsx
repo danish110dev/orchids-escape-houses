@@ -1,19 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, Shield, Users, Award, Clock } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import PropertyCard from "@/components/PropertyCard";
-import ExperienceCard from "@/components/ExperienceCard";
-import ReviewSlider from "@/components/ReviewSlider";
-import FAQSection from "@/components/FAQSection";
-import UKServiceSchema from "@/components/UKServiceSchema";
-import { Button } from "@/components/ui/button";
-import HeroSearchForm from "@/components/home/HeroSearchForm";
-import HeroVideo from "@/components/home/HeroVideo";
-import NewsletterSection from "@/components/home/NewsletterSection";
-import { getFeaturedProperties, getFeaturedExperiences, getFeaturedReviews } from "@/lib/data-fetchers";
-import { homeFaqs } from "@/data/faqs";
+import OptimizedImage from "@/components/OptimizedImage";
 
 // Static destinations data
 const destinations = [
