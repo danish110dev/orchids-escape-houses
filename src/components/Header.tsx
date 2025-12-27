@@ -159,15 +159,15 @@ export default function Header() {
               href="/" 
               className="flex items-center relative z-[60] flex-shrink-0 -ml-2"
             >
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
-                alt="Group Escape Houses"
-                width={160}
-                height={100}
-                className="h-20 w-auto"
-                priority
-              />
-            </Link>
+                <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
+                    alt="Group Escape Houses"
+                    width={160}
+                    height={100}
+                    className="h-20 w-auto"
+                    priority
+                  />
+              </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
@@ -402,27 +402,27 @@ export default function Header() {
                     )}
                   </div>
 
-              {/* How It Works Link */}
-              <Link
-                href="/how-it-works"
-                className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                How It Works
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-              </Link>
-
-              {/* Admin Link - Only show if authenticated */}
-              {session?.user && (
+                {/* How It Works Link */}
                 <Link
-                  href="/admin/bookings"
+                  href="/how-it-works"
                   className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Admin
+                  How It Works
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
                 </Link>
-              )}
+
+                {/* Guides Link */}
+                <Link
+                  href="/guides"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Guides
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </Link>
+
+
 
                 {/* Advertise Link */}
                 <Link
@@ -497,9 +497,10 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 flex items-center gap-2 relative z-[60]"
+              className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center gap-2 relative z-[60]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />

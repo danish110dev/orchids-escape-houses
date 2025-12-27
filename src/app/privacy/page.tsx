@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Script from "next/script";
 
 export default function PrivacyPage() {
   return (
@@ -31,7 +30,7 @@ export default function PrivacyPage() {
               Office, 11a North Street<br />
               Brighton<br />
               BN41 1DH<br />
-              Email: <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>
+              Email: <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@thehenfairy.co.uk</a>
             </p>
           </section>
 
@@ -128,9 +127,9 @@ export default function PrivacyPage() {
               We may share your personal data with:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Property Owners:</strong> To facilitate your booking and stay</li>
-              <li><strong>Experience Providers:</strong> Third parties delivering add-on services (cocktail classes, chefs, etc.)</li>
-              <li><strong>Payment Processors:</strong> Stripe and other secure payment gateways</li>
+                <li><strong>Property Owners:</strong> To facilitate your enquiry and potential booking</li>
+                <li><strong>Experience Providers:</strong> Third parties delivering add-on services where applicable</li>
+                <li><strong>Payment Processors:</strong> Stripe (for property owner listing subscriptions)</li>
               <li><strong>Email Service Providers:</strong> For sending booking confirmations and communications</li>
               <li><strong>Analytics Providers:</strong> Google Analytics (anonymised data)</li>
               <li><strong>Legal Authorities:</strong> If required by law or to protect our rights</li>
@@ -187,7 +186,7 @@ export default function PrivacyPage() {
               <li><strong>Right to Lodge a Complaint:</strong> Complain to the ICO if you believe we have breached data protection laws</li>
             </ul>
             <p className="mt-4">
-              To exercise any of these rights, please contact us at <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>. We will respond within one month.
+              To exercise any of these rights, please contact us at <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@thehenfairy.co.uk</a>. We will respond within one month.
             </p>
           </section>
 
@@ -273,7 +272,7 @@ export default function PrivacyPage() {
               Office, 11a North Street<br />
               Brighton<br />
               BN41 1DH<br />
-              Email: <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@groupescapehouses.co.uk</a>
+              Email: <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:underline">hello@thehenfairy.co.uk</a>
             </p>
             <p className="mt-4">
               You also have the right to lodge a complaint with the Information Commissioner's Office (ICO):<br />
@@ -291,50 +290,6 @@ export default function PrivacyPage() {
       </div>
 
       <Footer />
-      
-      <Script
-        id="schema-privacy"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://groupescapehouses.co.uk/privacy/#webpage",
-            "name": "Privacy Policy & GDPR",
-            "description": "Privacy policy and GDPR compliance information for Group Escape Houses",
-            "url": "https://groupescapehouses.co.uk/privacy",
-            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
-            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "inLanguage": "en-GB"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-privacy-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/privacy/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Privacy Policy",
-                "item": "https://groupescapehouses.co.uk/privacy"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

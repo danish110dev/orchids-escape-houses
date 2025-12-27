@@ -92,111 +92,139 @@ export default function HeroSearchForm() {
   return (
     <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-6 max-w-5xl mx-auto">
       <div ref={announcementRef} className="sr-only" role="status" aria-live="polite" />
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
-        {/* Destination */}
-        <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
-          <PopoverTrigger asChild>
-            <Button variant="outline" className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors">
-              <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
+          {/* Destination */}
+          <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                aria-label={`Destination: ${destination || "Search destinations"}`}
+              >
+                <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                <div className="flex flex-col overflow-hidden">
+                  <span className="text-xs text-gray-500">Where</span>
+                  <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
+                </div>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
+              <div className="space-y-2">
+                {allDestinations.map((dest, index) => (
+                  <button
+                    key={dest}
+                    ref={(el) => { destinationButtonsRef.current[index] = el; }}
+                    onClick={() => handleDestinationSelect(dest)}
+                    className="w-full text-left px-4 py-2 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors"
+                    aria-label={`Select destination: ${dest}`}
+                  >
+                    {dest}
+                  </button>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
+
+          {/* Dates */}
+          <div className="relative">
+            <Button
+              variant="outline"
+              className="h-14 sm:h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+              onClick={() => setDatePickerOpen(!datePickerOpen)}
+              aria-label={`Dates: ${dateRangeDisplay}`}
+            >
+              <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
               <div className="flex flex-col overflow-hidden">
-                <span className="text-xs text-gray-500">Where</span>
-                <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
+                <span className="text-xs text-gray-500">When</span>
+                <span className="text-sm font-medium truncate">{dateRangeDisplay}</span>
               </div>
             </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
-            <div className="space-y-2">
-              {allDestinations.map((dest, index) => (
-                <button
-                  key={dest}
-                  ref={(el) => { destinationButtonsRef.current[index] = el; }}
-                  onClick={() => handleDestinationSelect(dest)}
-                  className="w-full text-left px-4 py-2 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors"
-                >
-                  {dest}
-                </button>
-              ))}
-            </div>
-          </PopoverContent>
-        </Popover>
+            {datePickerOpen && (
+              <>
+                <div className="fixed inset-0 z-[9998]" onClick={() => setDatePickerOpen(false)} />
+                <div className="absolute top-full left-0 mt-2 z-[9999] bg-white rounded-xl shadow-2xl border p-4">
+                  <CalendarComponent
+                    mode="range"
+                    selected={dateRange}
+                    onSelect={setDateRange}
+                    numberOfMonths={isMobile ? 1 : 2}
+                    disabled={(date) => date < new Date()}
+                  />
+                  <div className="flex justify-end pt-4 border-t mt-4">
+                    <Button size="sm" onClick={() => setDatePickerOpen(false)} className="bg-[var(--color-accent-sage)] text-white">Done</Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
 
-        {/* Dates */}
-        <div className="relative">
-          <Button
-            variant="outline"
-            className="h-14 sm:h-14 md:h-16 w-full justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-            onClick={() => setDatePickerOpen(!datePickerOpen)}
+          {/* Guests */}
+          <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                aria-label={`Guests: ${guestsSummary}`}
+              >
+                <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                <div className="flex flex-col overflow-hidden">
+                  <span className="text-xs text-gray-500">Who</span>
+                  <span className="text-sm font-medium truncate">{guestsSummary}</span>
+                </div>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80" align="start">
+              <div className="space-y-4">
+                {[
+                  { label: 'Adults', sub: 'Age 13+', value: adults, min: 1, set: setAdults },
+                  { label: 'Children', sub: 'Age 2-12', value: children, min: 0, set: setChildren },
+                  { label: 'Infants', sub: 'Under 2', value: infants, min: 0, set: setInfants },
+                  { label: 'Pets', sub: 'Bring a pet', value: pets, min: 0, set: setPets }
+                ].map((group) => (
+                  <div key={group.label} className="flex items-center justify-between">
+                    <div>
+                      <div className="font-medium">{group.label}</div>
+                      <div className="text-sm text-gray-500">{group.sub}</div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <Button 
+                          size="icon" 
+                          variant="outline" 
+                          className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-full" 
+                          onClick={() => group.set(Math.max(group.min, group.value - 1))} 
+                          disabled={group.value <= group.min}
+                          aria-label={`Decrease ${group.label}`}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <span className="w-8 text-center font-medium" aria-live="polite">{group.value}</span>
+                        <Button 
+                          size="icon" 
+                          variant="outline" 
+                          className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-full" 
+                          onClick={() => group.set(group.value + 1)}
+                          aria-label={`Increase ${group.label}`}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
+
+          {/* Search Button */}
+          <Button 
+            onClick={handleSearch} 
+            size="lg" 
+            className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02] bg-[var(--color-accent-sage)] text-[var(--color-text-primary)]"
+            aria-label="Search properties"
           >
-            <Calendar className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-            <div className="flex flex-col overflow-hidden">
-              <span className="text-xs text-gray-500">When</span>
-              <span className="text-sm font-medium truncate">{dateRangeDisplay}</span>
-            </div>
+            <Sparkles className="mr-2 h-5 w-5" />
+            Search
           </Button>
-          {datePickerOpen && (
-            <>
-              <div className="fixed inset-0 z-[9998]" onClick={() => setDatePickerOpen(false)} />
-              <div className="absolute top-full left-0 mt-2 z-[9999] bg-white rounded-xl shadow-2xl border p-4">
-                <CalendarComponent
-                  mode="range"
-                  selected={dateRange}
-                  onSelect={setDateRange}
-                  numberOfMonths={isMobile ? 1 : 2}
-                  disabled={(date) => date < new Date()}
-                />
-                <div className="flex justify-end pt-4 border-t mt-4">
-                  <Button size="sm" onClick={() => setDatePickerOpen(false)} className="bg-[var(--color-accent-sage)] text-white">Done</Button>
-                </div>
-              </div>
-            </>
-          )}
         </div>
-
-        {/* Guests */}
-        <Popover open={guestsOpen} onOpenChange={setGuestsOpen}>
-          <PopoverTrigger asChild>
-            <Button variant="outline" className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors">
-              <User className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-              <div className="flex flex-col overflow-hidden">
-                <span className="text-xs text-gray-500">Who</span>
-                <span className="text-sm font-medium truncate">{guestsSummary}</span>
-              </div>
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-80" align="start">
-            <div className="space-y-4">
-              {[
-                { label: 'Adults', sub: 'Age 13+', value: adults, min: 1, set: setAdults },
-                { label: 'Children', sub: 'Age 2-12', value: children, min: 0, set: setChildren },
-                { label: 'Infants', sub: 'Under 2', value: infants, min: 0, set: setInfants },
-                { label: 'Pets', sub: 'Bring a pet', value: pets, min: 0, set: setPets }
-              ].map((group) => (
-                <div key={group.label} className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium">{group.label}</div>
-                    <div className="text-sm text-gray-500">{group.sub}</div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Button size="icon" variant="outline" className="h-8 w-8 rounded-full" onClick={() => group.set(Math.max(group.min, group.value - 1))} disabled={group.value <= group.min}>
-                      <Minus className="h-4 w-4" />
-                    </Button>
-                    <span className="w-8 text-center">{group.value}</span>
-                    <Button size="icon" variant="outline" className="h-8 w-8 rounded-full" onClick={() => group.set(group.value + 1)}>
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </PopoverContent>
-        </Popover>
-
-        {/* Search Button */}
-        <Button onClick={handleSearch} size="lg" className="h-14 sm:h-14 md:h-16 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg transition-all hover:scale-[1.02] bg-[var(--color-accent-sage)] text-white">
-          <Sparkles className="mr-2 h-5 w-5" />
-          Search
-        </Button>
-      </div>
     </div>
   );
 }

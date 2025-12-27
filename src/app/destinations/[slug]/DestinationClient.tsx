@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
 import UKServiceSchema from "@/components/UKServiceSchema";
+import { TrustBadges } from "@/components/TrustBadges";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -16,9 +17,9 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-  const handleImageError = (imageId: string) => {
+  const handleImageError = useCallback((imageId: string) => {
     setImageErrors(prev => ({ ...prev, [imageId]: true }));
-  };
+  }, []);
 
   // Full destinations data - moved from server to client
   const destinationsData: Record<string, any> = {
@@ -832,32 +833,207 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       brunch: [],
       activities: []
     },
-    birmingham: {
-      name: "Birmingham",
-      region: "West Midlands",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
-      overview: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
-      quickFacts: {
-        fromLondon: "1.5 hours by train",
-        bestTime: "Year-round destination",
-        nightlife: "Broad Street clubs, Digbeth venues, cocktail bars",
-        dining: "Balti Triangle, Michelin dining, international food",
-        beachAccess: "No beach but canal network",
-        accommodation: "City centre apartments, Victorian properties",
-        priceRange: "£70-£95 per night",
-        activities: "Shopping Bullring, museums, canal walks"
+      birmingham: {
+        name: "Birmingham",
+        region: "West Midlands",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-birmingham-ci-2022de45-20251019170730.jpg",
+        overview: "Britain's second city with world-class shopping, diverse dining and buzzing nightlife.",
+        quickFacts: {
+          fromLondon: "1.5 hours by train",
+          bestTime: "Year-round destination",
+          nightlife: "Broad Street clubs, Digbeth venues, cocktail bars",
+          dining: "Balti Triangle, Michelin dining, international food",
+          beachAccess: "No beach but canal network",
+          accommodation: "City centre apartments, Victorian properties",
+          priceRange: "£70-£95 per night",
+          activities: "Shopping Bullring, museums, canal walks"
+        },
+        gettingThere: [
+          { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
+          { icon: Car, text: "M1/M6 (approx 2 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Birmingham Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
       },
-      gettingThere: [
-        { icon: Train, text: "Direct trains from London Euston (1.5 hours)" },
-        { icon: Car, text: "M1/M6 (approx 2 hours)" },
-        { icon: Bus, text: "National Express coaches" },
-        { icon: Plane, text: "Birmingham Airport" }
-      ],
-      nightlife: [],
-      brunch: [],
-      activities: []
-    },
-  };
+      cornwall: {
+        name: "Cornwall",
+        region: "South West England",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80",
+        overview: "Cornwall is England's ultimate coastal escape, offering stunning beaches, dramatic cliffs, and charming fishing villages. Perfect for group getaways seeking surfing, seafood, and spectacular scenery.",
+        quickFacts: {
+          fromLondon: "5-6 hours by train or car",
+          bestTime: "May to September for beaches and outdoor activities",
+          nightlife: "Coastal pubs, beach bars, seafront restaurants",
+          dining: "Fresh seafood, Cornish pasties, award-winning restaurants",
+          beachAccess: "Hundreds of stunning beaches including Fistral, Porthcurno, St Ives",
+          accommodation: "Coastal cottages, beachfront properties, luxury farmhouses",
+          priceRange: "£80-£120 per night",
+          activities: "Surfing, coastal walks, Eden Project, boat trips, rock pooling"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Paddington to Truro/Penzance (5-6 hours)" },
+          { icon: Car, text: "A30 via Exeter (approx 5-6 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Newquay Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      devon: {
+        name: "Devon",
+        region: "South West England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Devon combines dramatic coastlines, rolling countryside, and charming market towns. From the rugged Dartmoor to the English Riviera, it's perfect for groups seeking natural beauty and outdoor adventures.",
+        quickFacts: {
+          fromLondon: "3-4 hours by train or car",
+          bestTime: "Year-round, best May to September for beaches",
+          nightlife: "Traditional pubs, coastal bars, Torquay nightlife",
+          dining: "Cream teas, fresh seafood, gastropubs",
+          beachAccess: "Beautiful beaches on both north and south coasts",
+          accommodation: "Coastal properties, Dartmoor lodges, country estates",
+          priceRange: "£75-£110 per night",
+          activities: "Dartmoor hiking, coastal walks, surfing, kayaking, cream teas"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Paddington to Exeter (2.5-3 hours)" },
+          { icon: Car, text: "M5 motorway (approx 3-4 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Exeter Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      yorkshire: {
+        name: "Yorkshire",
+        region: "Northern England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Yorkshire offers dramatic moors, historic cities, and warm northern hospitality. From the Yorkshire Dales to the North York Moors, it's perfect for groups seeking countryside escapes and city breaks.",
+        quickFacts: {
+          fromLondon: "2-3 hours by train",
+          bestTime: "Year-round, spring and autumn for walking",
+          nightlife: "York, Leeds, and Sheffield city nightlife",
+          dining: "Traditional pubs, Yorkshire puddings, local produce",
+          beachAccess: "Yorkshire coast with Whitby, Scarborough, Robin Hood's Bay",
+          accommodation: "Country houses, farmhouses, Yorkshire Dales lodges",
+          priceRange: "£70-£100 per night",
+          activities: "Walking, castle visits, steam railways, coastal towns"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London King's Cross to York (2 hours)" },
+          { icon: Car, text: "A1(M) motorway (approx 3-4 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Leeds Bradford or Robin Hood Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      norfolk: {
+        name: "Norfolk",
+        region: "East Anglia",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        overview: "Norfolk offers vast beaches, the unique Norfolk Broads, and charming coastal villages. Perfect for groups seeking peaceful countryside, birdwatching, and traditional seaside charm.",
+        quickFacts: {
+          fromLondon: "2-3 hours by train or car",
+          bestTime: "Spring to autumn for beaches and Broads",
+          nightlife: "Norwich city nightlife, coastal pubs",
+          dining: "Fresh seafood, Cromer crab, local produce",
+          beachAccess: "Miles of sandy beaches including Holkham, Wells-next-the-Sea",
+          accommodation: "Coastal cottages, Broads boats, country houses",
+          priceRange: "£70-£100 per night",
+          activities: "Norfolk Broads boating, birdwatching, beach walks, seal watching"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Liverpool Street to Norwich (2 hours)" },
+          { icon: Car, text: "A11 via Cambridge (approx 2.5 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Norwich Airport or Stansted" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      suffolk: {
+        name: "Suffolk",
+        region: "East Anglia",
+        image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80",
+        overview: "Suffolk combines charming medieval villages, sandy beaches, and gentle countryside. From Southwold to Aldeburgh, it's perfect for groups seeking culture, coastline, and relaxation.",
+        quickFacts: {
+          fromLondon: "1.5-2.5 hours by train or car",
+          bestTime: "Spring to autumn for beaches and festivals",
+          nightlife: "Ipswich nightlife, coastal pubs, beach bars",
+          dining: "Fresh seafood, Aldeburgh fish & chips, local produce",
+          beachAccess: "Beautiful beaches at Southwold, Aldeburgh, Felixstowe",
+          accommodation: "Coastal cottages, country houses, converted barns",
+          priceRange: "£70-£100 per night",
+          activities: "Beach walks, Southwold pier, Snape Maltings, birdwatching"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Liverpool Street to Ipswich (1.5 hours)" },
+          { icon: Car, text: "A12 via Colchester (approx 2 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Stansted Airport" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      sussex: {
+        name: "Sussex",
+        region: "South East England",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        overview: "Sussex offers the iconic South Downs, historic towns, and vibrant coastal resorts. From the lanes of Brighton to the cliffs of Beachy Head, it's perfect for groups seeking beach life and countryside.",
+        quickFacts: {
+          fromLondon: "1-2 hours by train or car",
+          bestTime: "Year-round, especially spring and summer for beaches",
+          nightlife: "Brighton legendary nightlife, Eastbourne, Hastings",
+          dining: "Seafood, Brighton restaurants, gastropubs",
+          beachAccess: "Brighton, Eastbourne, Camber Sands, West Wittering",
+          accommodation: "Regency townhouses, coastal properties, South Downs lodges",
+          priceRange: "£75-£110 per night",
+          activities: "South Downs walks, Brighton shopping, castle visits, vineyards"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London Victoria/London Bridge (1 hour to Brighton)" },
+          { icon: Car, text: "M23/A23 (approx 1.5 hours)" },
+          { icon: Bus, text: "National Express and Megabus" },
+          { icon: Plane, text: "Gatwick Airport nearby" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+      "peak-district": {
+        name: "Peak District",
+        region: "Central England",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        overview: "The Peak District is England's first national park, offering dramatic landscapes, charming villages, and outdoor adventures. Perfect for groups seeking walking, cycling, and countryside retreats.",
+        quickFacts: {
+          fromLondon: "2.5-3 hours by train or car",
+          bestTime: "Year-round, spring and autumn for walking",
+          nightlife: "Traditional country pubs, Buxton and Bakewell",
+          dining: "Traditional pubs, Bakewell pudding, local produce",
+          beachAccess: "No beaches but stunning reservoirs and rivers",
+          accommodation: "Country houses, converted barns, stone cottages",
+          priceRange: "£75-£105 per night",
+          activities: "Walking, cycling, caving, rock climbing, spa towns"
+        },
+        gettingThere: [
+          { icon: Train, text: "Trains from London St Pancras to Sheffield/Manchester" },
+          { icon: Car, text: "M1 motorway (approx 3 hours)" },
+          { icon: Bus, text: "National Express coaches" },
+          { icon: Plane, text: "Manchester or East Midlands airports" }
+        ],
+        nightlife: [],
+        brunch: [],
+        activities: []
+      },
+    };
 
   const destination = destinationsData[slug] || {
     name: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
@@ -1206,6 +1382,33 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
 
   const properties = propertiesByLocation[slug] || propertiesByLocation.brighton || [];
 
+  const faqs = [
+    {
+      question: `What's the best time to visit ${destination.name} for a group celebration?`,
+      answer: destination.quickFacts.bestTime,
+    },
+    {
+      question: `How do I get to ${destination.name} from London?`,
+      answer: destination.quickFacts.fromLondon,
+    },
+    {
+      question: `What's the nightlife like in ${destination.name}?`,
+      answer: destination.quickFacts.nightlife,
+    },
+    {
+      question: `What activities are available for groups in ${destination.name}?`,
+      answer: destination.quickFacts.activities,
+    },
+    {
+      question: `How much does group accommodation in ${destination.name} cost?`,
+      answer: `Group accommodation in ${destination.name} typically costs ${destination.quickFacts.priceRange}. This is often split between guests, making it excellent value per person.`,
+    },
+    {
+      question: "How do I book a property?",
+      answer: "Simply browse our properties, select your dates, and submit an enquiry. Our team will respond within 24 hours with availability and booking details. You'll book directly with the property owner.",
+    },
+  ];
+
   return (
     <>
       <UKServiceSchema 
@@ -1224,63 +1427,101 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           ]
         }}
       />
+      <UKServiceSchema 
+        type="faq" 
+        data={{ faqs }} 
+      />
 
-      {/* Hero */}
-      <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
-        <Image 
-          src={destination.image} 
-          alt={destination.name} 
-          fill 
-          className="object-cover" 
-          priority 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="max-w-[1200px] mx-auto px-6 pb-12">
-            <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
-              {destination.name}
-            </h1>
-            <div className="flex items-center gap-2 text-white text-xl mb-6 drop-shadow-md" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
-              <MapPin className="w-5 h-5 drop-shadow-md" />
-              <span>{destination.region}</span>
+        {/* Hero */}
+        <div className="relative h-[500px] mt-20 overflow-hidden bg-black">
+          <Image 
+            src={destination.image} 
+            alt={destination.name} 
+            fill 
+            className="object-cover" 
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
+          <div className="absolute bottom-0 left-0 right-0 z-10">
+            <div className="max-w-[1200px] mx-auto px-6 pb-12">
+              <h1 className="text-white mb-2 drop-shadow-lg" style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
+                {destination.name}
+              </h1>
+              <div className="flex items-center gap-2 text-white text-xl mb-6 drop-shadow-md" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+                <MapPin className="w-5 h-5 drop-shadow-md" />
+                <span>{destination.region}</span>
+              </div>
+              <div className="flex flex-wrap gap-4 mb-6">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02] shadow-lg"
+                  style={{
+                    background: "var(--color-accent-sage)",
+                    color: "white",
+                  }}
+                >
+                  <Link href="/contact">Check Availability</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-8 py-4 font-medium bg-white/10 border-white text-white hover:bg-white hover:text-black"
+                >
+                  <Link href="/properties">Browse Properties</Link>
+                </Button>
+              </div>
+              <TrustBadges variant="compact" className="text-white/90" />
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-8 py-4 font-medium transition-all duration-300 hover:scale-[1.02] shadow-lg"
-              style={{
-                background: "var(--color-accent-sage)",
-                color: "white",
-              }}
-            >
-              <Link href="/contact">Check Availability and Book</Link>
-            </Button>
           </div>
         </div>
-      </div>
 
-      {/* SEO Content Section with Internal Links */}
-      <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
-              Looking for the perfect <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
-              Group Escape Houses offers stunning <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group accommodation</Link> perfect 
-              for celebrations. Our <Link href="/house-styles/party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">party houses</Link> feature 
-              amazing amenities including <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, <Link href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium">swimming pools</Link>, 
-              and <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.
-            </p>
-            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
-              Whether you're planning a <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen do</Link>, <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebration</Link>, 
-              or <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, {destination.name} combines the 
-              perfect location with our <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link>. 
-              Explore our <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> to add cocktail classes, spa treatments, 
-              and more. Also discover other popular destinations including <Link href="/destinations/london" className="text-[var(--color-accent-sage)] hover:underline font-medium">London</Link>, <Link href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium">Bath</Link>, 
-              and <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">more UK party destinations</Link>.
-            </p>
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
+                Looking for the perfect <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
+                Group Escape Houses offers stunning <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link> perfect 
+                for celebrations. Our <Link href="/large-holiday-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">large holiday houses</Link> feature 
+                amazing amenities including <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, swimming pools, 
+                and <Link href="/houses-with-games-rooms" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.
+              </p>
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                Whether you're planning a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen weekend</Link>, <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebration</Link>, 
+                or <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, {destination.name} combines the 
+                perfect location with our <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link>. 
+                Explore our <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> to add cocktail classes, spa treatments, 
+                and more. Also discover other popular destinations including <Link href="/destinations/lake-district" className="text-[var(--color-accent-sage)] hover:underline font-medium">the Lake District</Link>, <Link href="/destinations/cotswolds" className="text-[var(--color-accent-sage)] hover:underline font-medium">Cotswolds</Link>, 
+                and <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">more UK group accommodation destinations</Link>.
+              </p>
+            </div>
+            
+            {/* Category Links Section */}
+            <div className="mt-8 pt-8 border-t border-[var(--color-bg-secondary)]">
+              <h3 className="text-lg font-semibold mb-4 text-[var(--color-text-primary)]">Browse by Property Type</h3>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/large-group-accommodation" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Large Group Accommodation
+                </Link>
+                <Link href="/large-holiday-houses" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Large Holiday Houses
+                </Link>
+                <Link href="/houses-with-hot-tubs" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Houses with Hot Tubs
+                </Link>
+                <Link href="/houses-with-games-rooms" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Houses with Games Rooms
+                </Link>
+                <Link href="/hen-party-houses" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Hen Party Houses
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Overview */}
       <section className="py-16 bg-white">
@@ -1556,7 +1797,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
       )}
 
       {/* FAQ Section */}
-      {/*
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-12">
@@ -1599,7 +1839,6 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           </div>
         </div>
       </section>
-      */}
 
       {/* Properties in this area */}
       <section className="py-24 bg-[var(--color-bg-primary)]">

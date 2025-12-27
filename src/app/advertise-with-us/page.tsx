@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -105,7 +104,7 @@ export default function AdvertiseWithUs() {
                           <Star key={i} className="w-4 h-4 fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]" />
                         ))}
                       </div>
-                      <p className="text-sm font-medium">
+                      <p className="text-sm font-medium text-white" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}>
                         Over 3,000 five-star reviews from happy groups & owners
                       </p>
                     </div>
@@ -376,7 +375,7 @@ export default function AdvertiseWithUs() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
-                    <span className="text-sm">Themed blog feature spotlight</span>
+                    <span className="text-sm">Themed inspiration feature spotlight</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-accent-sage)]" />
@@ -694,60 +693,6 @@ export default function AdvertiseWithUs() {
       </main>
 
       <Footer />
-      
-      <Script
-        id="schema-advertise-with-us"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://groupescapehouses.co.uk/advertise-with-us/#service",
-            "name": "Advertise Your Large Group Property",
-            "description": "Join Group Escape Houses and list your property to reach groups looking for holiday homes. No commission, transparent pricing, and direct bookings.",
-            "url": "https://groupescapehouses.co.uk/advertise-with-us",
-            "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "areaServed": "GB",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Property Listing Plans",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Annual Property Listing",
-                  "priceCurrency": "GBP"
-                }
-              ]
-            }
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-advertise-with-us-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/advertise-with-us/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Advertise With Us",
-                "item": "https://groupescapehouses.co.uk/advertise-with-us"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

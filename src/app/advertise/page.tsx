@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -143,7 +142,7 @@ export default function AdvertisePage() {
     },
     {
       question: "What marketing support do I get?",
-      answer: "This depends on your membership tier. All tiers include an optimised listing. Higher tiers include social media promotion, blog features, holiday focus pages, and homepage features to maximise your property's visibility."
+      answer: "This depends on your membership tier. All tiers include an optimised listing. Higher tiers include social media promotion, inspiration features, holiday focus pages, and homepage features to maximise your property's visibility."
     },
     {
       question: "Can I upgrade my membership tier later?",
@@ -652,8 +651,8 @@ export default function AdvertisePage() {
               <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 Email Us
               </h3>
-              <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:underline">
-                hello@groupescapehouses.co.uk
+              <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:underline">
+                hello@thehenfairy.co.uk
               </a>
             </div>
             
@@ -671,60 +670,6 @@ export default function AdvertisePage() {
       </section>
 
       <Footer />
-      
-      <Script
-        id="schema-advertise"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://groupescapehouses.co.uk/advertise/#service",
-            "name": "Property Advertising for Group Holiday Homes",
-            "description": "List your property on Group Escape Houses marketplace. No commission charged, direct bookings from guests, and transparent fixed annual fees.",
-            "url": "https://groupescapehouses.co.uk/advertise",
-            "provider": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "areaServed": "GB",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Property Advertising Plans",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Annual Property Listing",
-                  "priceCurrency": "GBP"
-                }
-              ]
-            }
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-advertise-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/advertise/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Advertise Your Property",
-                "item": "https://groupescapehouses.co.uk/advertise"
-              }
-            ]
-          })
-        }}
-      />
     </>
   );
 }

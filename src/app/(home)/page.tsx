@@ -1,10 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, Shield, Users, Award, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SchemaRenderer } from "@/components/SchemaRenderer";
-import { homePageSchema } from "@/lib/schema";
 import PropertyCard from "@/components/PropertyCard";
 import ExperienceCard from "@/components/ExperienceCard";
 import ReviewSlider from "@/components/ReviewSlider";
@@ -76,13 +74,14 @@ export default async function Home() {
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
           <HeroVideo />
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
-            <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
-              Large Group Accommodation Across the UK
-            </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-                Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission. Owners can manage listings, sync availability and receive enquiries direct.
-              </p>
+              <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
+                    <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
+                      Group Escape Houses | Large Group Accommodation UK
+                    </h1>
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                      Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners via Group Escape Houses. Ideal for family celebrations, group weekends away and corporate retreats.
+                    </p>
+
 
             <HeroSearchForm />
 
@@ -116,13 +115,13 @@ export default async function Home() {
         <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Featured Large Group Houses
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Large Group Houses Across the UK
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  Exceptional <Link href="/house-styles/luxury-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">luxury properties</Link> sleeping 10 to 40 guests with premium facilities including <Link href="/features/hot-tub" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hot tubs</Link> and <Link href="/features/games-room" className="underline hover:text-[var(--color-accent-sage)] transition-colors">games rooms</Link>
+                </p>
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {featuredProperties.map((property) => (
@@ -146,16 +145,16 @@ export default async function Home() {
         </section>
 
         {/* Experiences */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Enhance Your Group Stay
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                Add special touches and activities to make your <Link href="/occasions/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/occasions/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/occasions/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Group Accommodation for 10 to 30 Guests
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  Add special touches and activities to make your <Link href="/hen-party-houses" className="underline hover:text-[var(--color-accent-sage)] transition-colors">hen party</Link>, <Link href="/weekend-breaks" className="underline hover:text-[var(--color-accent-sage)] transition-colors">weekend break</Link>, or <Link href="/special-celebrations" className="underline hover:text-[var(--color-accent-sage)] transition-colors">celebration</Link> unforgettable
+                </p>
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {experiences.map((experience) => (
@@ -179,16 +178,16 @@ export default async function Home() {
         </section>
 
         {/* Destinations */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Explore Top Destinations
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-                From vibrant cities to coastal escapes
-              </p>
-            </div>
+                <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                  Ideal for Hen Parties, Weekends and Celebrations
+                </h2>
+                <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
+                  From vibrant cities to coastal escapes
+                </p>
+              </div>
 
             {/* Scrolling Carousel */}
             <div className="relative min-h-[170px] md:min-h-[225px]">
@@ -201,7 +200,7 @@ export default async function Home() {
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                       aria-label={`View properties in ${destination.name}`}
                     >
-                      <Image
+                      <OptimizedImage
                         src={destination.image}
                         alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
                         fill
@@ -237,7 +236,7 @@ export default async function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-12 md:mb-16 px-4">
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -282,7 +281,7 @@ export default async function Home() {
         </section>
 
         {/* Reviews */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] min-h-[400px]">
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] min-h-[400px] content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -311,13 +310,17 @@ export default async function Home() {
         </section>
 
         {/* FAQ */}
-        <FAQSection />
+        <div className="content-visibility-auto">
+          <FAQSection />
+        </div>
 
         {/* Newsletter */}
-        <NewsletterSection />
+        <div className="content-visibility-auto">
+          <NewsletterSection />
+        </div>
 
         {/* Instagram */}
-        <section className="py-16 md:py-20 bg-white overflow-hidden">
+        <section className="py-16 md:py-20 bg-white overflow-hidden content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12">
               <div className="flex items-center justify-center mb-3 md:mb-4">
@@ -340,6 +343,7 @@ export default async function Home() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
+
             </div>
 
               {/* Instagram Scrolling Carousel */}
@@ -363,13 +367,12 @@ export default async function Home() {
                         className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                         aria-label={`View Instagram post ${index + 1}`}
                       >
-                        <Image
+                        <OptimizedImage
                           src={img}
                           alt={`Luxury holiday house showcase on Instagram - Image ${index + 1}`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                           sizes="280px"
-                          loading="lazy"
                         />
 
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -387,9 +390,6 @@ export default async function Home() {
       </main>
 
       <Footer />
-      
-      {/* Schema Renderer */}
-      <SchemaRenderer schemas={[homePageSchema()]} />
     </div>
   );
 }

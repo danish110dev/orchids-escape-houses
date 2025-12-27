@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { db } from '@/db';
-import { properties, experiences, destinations, blogPosts } from '@/db/schema';
+import { properties, experiences, blogPosts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -57,12 +57,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
+      {
+        url: `${baseUrl}/inspiration`,
+        lastModified: currentDate,
+        changeFrequency: 'daily',
+        priority: 0.7,
+      },
     {
       url: `${baseUrl}/our-story`,
       lastModified: currentDate,
@@ -131,23 +131,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching experiences for sitemap:', error);
   }
 
-  // Fetch dynamic destinations
-  let destinationRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const publishedDestinations = await db
-      .select()
-      .from(destinations)
-      .where(eq(destinations.isPublished, true));
-    
-    destinationRoutes = publishedDestinations.map((destination) => ({
-      url: `${baseUrl}/destinations/${destination.slug}`,
-      lastModified: destination.updatedAt || currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }));
-  } catch (error) {
-    console.error('Error fetching destinations for sitemap:', error);
-  }
+  // All supported destination slugs (hardcoded in DestinationClient)
+  const allDestinationSlugs = [
+    'london',
+    'lake-district',
+    'brighton',
+    'bath',
+    'manchester',
+    'bournemouth',
+    'york',
+    'cardiff',
+    'newcastle',
+    'liverpool',
+    'newquay',
+    'bristol',
+    'cambridge',
+    'oxford',
+    'leeds',
+    'nottingham',
+    'sheffield',
+    'exeter',
+    'chester',
+    'durham',
+    'canterbury',
+    'blackpool',
+    'cotswolds',
+    'margate',
+    'harrogate',
+    'st-ives',
+    'windsor',
+    'stratford-upon-avon',
+    'plymouth',
+    'cheltenham',
+    'birmingham',
+    'cornwall',
+    'devon',
+    'yorkshire',
+    'norfolk',
+    'suffolk',
+    'sussex',
+    'peak-district',
+  ];
+
+  const destinationRoutes: MetadataRoute.Sitemap = allDestinationSlugs.map((slug) => ({
+    url: `${baseUrl}/destinations/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
   // Fetch dynamic blog posts
   let blogRoutes: MetadataRoute.Sitemap = [];
@@ -158,7 +189,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .where(eq(blogPosts.isPublished, true));
     
     blogRoutes = publishedBlogPosts.map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/inspiration/${post.slug}`,
       lastModified: post.updatedAt || post.publishedAt || currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
@@ -207,6 +238,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  // SEO Category pages (high priority for main keywords)
+  const categoryRoutes: MetadataRoute.Sitemap = [
+    'large-group-accommodation',
+    'large-holiday-houses',
+    'houses-with-hot-tubs',
+    'houses-with-games-rooms',
+  ].map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
   // Direct occasion routes
   const directOccasionRoutes: MetadataRoute.Sitemap = [
     'hen-party-houses',
@@ -222,17 +266,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  return [
-    ...staticRoutes,
-    ...propertyRoutes,
-    ...experienceRoutes,
-    ...destinationRoutes,
-    ...blogRoutes,
-    ...featureRoutes,
-    ...houseStyleRoutes,
-    ...directOccasionRoutes,
-  ];
-}
+    // Holiday focus routes
+    const holidayFocusRoutes: MetadataRoute.Sitemap = [
+      'adventure-holidays',
+      'book-private-chef',
+      'business-offsite-corporate-accommodation',
+      'girls-weekend-getaways',
+      'group-city-breaks',
+      'multi-generational-holidays',
+      'retreat-venues',
+      'rural-retreats',
+      'youth-school-group-accommodation',
+    ].map((slug) => ({
+      url: `${baseUrl}/holiday-focus/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
+
+    // Guide routes
+    const guideRoutes: MetadataRoute.Sitemap = [
+      'how-to-choose-large-group-accommodation-uk',
+      'large-group-house-vs-hotel',
+      'best-uk-destinations-for-large-group-weekends',
+      'what-to-check-when-booking-accommodation-for-20-plus-guests',
+      'noise-rules-and-neighbour-considerations-for-group-stays',
+    ].map((slug) => ({
+      url: `${baseUrl}/guides/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
+    return [
+      ...staticRoutes,
+      {
+        url: `${baseUrl}/guides`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      ...categoryRoutes,
+      ...propertyRoutes,
+      ...experienceRoutes,
+      ...destinationRoutes,
+      ...blogRoutes,
+      ...guideRoutes,
+      ...featureRoutes,
+      ...houseStyleRoutes,
+      ...directOccasionRoutes,
+      ...holidayFocusRoutes,
+    ];
+  }

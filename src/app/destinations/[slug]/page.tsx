@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const title = `${destination.name} Hen Party Houses | Hot Tubs & Pools`;
   const description = `${destination.overview.substring(0, 155)}... Book luxury ${destination.name} hen party houses sleeping 10-20+ guests. Hot tubs, pools, games rooms. From £65-£120 per night.`;
-  const canonicalUrl = `https://groupescapehouses.co.uk/destinations/${slug}`;
+  const canonicalUrl = `https://www.groupescapehouses.co.uk/destinations/${slug}`;
 
   return {
     title,
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'Group Escape Houses',
       images: [
         {
-          url: 'https://groupescapehouses.co.uk/og-image.jpg',
+          url: 'https://www.groupescapehouses.co.uk/og-image.jpg',
           width: 1200,
           height: 630,
           alt: `${destination.name} Group Accommodation`,
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://groupescapehouses.co.uk/og-image.jpg'],
+        images: ['https://www.groupescapehouses.co.uk/og-image.jpg'],
     },
     other: {
       'format-detection': 'telephone=no, address=no, email=no',
@@ -89,9 +89,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function DestinationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
+  // Basic data for SSR
+  const destinationName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <Header />
+      
+      {/* Initial HTML for SEO Crawlers */}
+      <noscript>
+        <div className="pt-32 pb-16 px-6 max-w-[1200px] mx-auto">
+          <h1 className="text-4xl font-bold mb-4">{destinationName} Hen Party Houses</h1>
+          <p className="text-xl mb-8">
+            Discover luxury group accommodation in {destinationName}. Perfect for hen parties, 
+            celebrations, and group getaways with stunning houses featuring hot tubs, pools, 
+            and exceptional amenities.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="border rounded-xl p-4">
+              <h2 className="text-xl font-semibold mb-2">Luxury Group Houses in {destinationName}</h2>
+              <p>Browse our handpicked collection of large houses to rent in {destinationName}.</p>
+              <a href="/properties" className="text-blue-600 underline">View all properties</a>
+            </div>
+          </div>
+        </div>
+      </noscript>
+
       <DestinationClient slug={slug} />
       <Footer />
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -133,50 +132,6 @@ export default function HouseStylesAndFeaturesPage() {
       </section>
 
       <Footer />
-      
-      <Script
-        id="schema-house-styles-collection"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://groupescapehouses.co.uk/house-styles-and-features/#webpage",
-            "name": "House Styles & Features - Group Holiday Homes",
-            "description": "Browse unique properties by style - manor houses, castles, country estates - and filter by features like swimming pools, hot tubs, cinemas and more.",
-            "url": "https://groupescapehouses.co.uk/house-styles-and-features",
-            "isPartOf": { "@id": "https://groupescapehouses.co.uk/#website" },
-            "publisher": { "@id": "https://groupescapehouses.co.uk/#organization" },
-            "inLanguage": "en-GB"
-          })
-        }}
-      />
-      
-      <Script
-        id="schema-house-styles-breadcrumb"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": "https://groupescapehouses.co.uk/house-styles-and-features/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://groupescapehouses.co.uk"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "House Styles & Features",
-                "item": "https://groupescapehouses.co.uk/house-styles-and-features"
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }

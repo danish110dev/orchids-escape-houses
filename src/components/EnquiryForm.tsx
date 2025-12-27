@@ -266,88 +266,100 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
           />
         </div>
 
-        {/* Add-ons */}
-        <div>
-          <Label className="text-sm font-medium mb-3 block">Add experiences (optional)</Label>
-          <div className="space-y-2.5">
-            {[
-              "Cocktail Masterclass",
-              "Butlers in the Buff",
-              "Life Drawing",
-              "Private Chef",
-              "Spa Treatments",
-              "Mobile Beauty Bar",
-              "Make-up Artist",
-              "Hair Styling",
-              "Prosecco Reception",
-              "Afternoon Tea",
-              "BBQ Catering",
-              "Pizza Making Class",
-              "Bottomless Brunch",
-              "Brunch Package",
-              "Gin Tasting",
-              "Wine Tasting",
-              "Cocktail Bar Hire",
-              "Flower Crown Making",
-              "Dance Class",
-              "Karaoke Night",
-              "Yoga Session",
-              "Photography Package",
-              "Videography Package",
-              "DJ Entertainment",
-              "Games & Activities Pack",
-              "Decorations & Balloons",
-              "Personalised Robes",
-              "Pamper Party Package",
-            ].map((addon) => (
-              <label key={addon} className="flex items-center gap-3 cursor-pointer group">
-                <input
-                  type="checkbox"
-                  name="addons"
-                  value={addon}
-                  className="w-4 h-4 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-sage)] cursor-pointer transition-all"
-                />
-                <Link
-                  href={`/experiences/${experienceToSlug(addon)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm group-hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-1.5 flex-1"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {addon}
-                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </label>
-            ))}
+          {/* Add-ons */}
+          <fieldset>
+            <legend className="text-sm font-medium mb-3 block">Add experiences (optional)</legend>
+            <div className="space-y-2.5">
+              {[
+                "Cocktail Masterclass",
+                "Butlers in the Buff",
+                "Life Drawing",
+                "Private Chef",
+                "Spa Treatments",
+                "Mobile Beauty Bar",
+                "Make-up Artist",
+                "Hair Styling",
+                "Prosecco Reception",
+                "Afternoon Tea",
+                "BBQ Catering",
+                "Pizza Making Class",
+                "Bottomless Brunch",
+                "Brunch Package",
+                "Gin Tasting",
+                "Wine Tasting",
+                "Cocktail Bar Hire",
+                "Flower Crown Making",
+                "Dance Class",
+                "Karaoke Night",
+                "Yoga Session",
+                "Photography Package",
+                "Videography Package",
+                "DJ Entertainment",
+                "Games & Activities Pack",
+                "Decorations & Balloons",
+                "Personalised Robes",
+                "Pamper Party Package",
+              ].map((addon) => {
+                const addonId = `addon-${addon.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <div key={addon} className="flex items-center gap-3 group">
+                    <div className="flex items-center h-12 w-12 min-h-[48px] min-w-[48px] justify-center">
+                      <input
+                        type="checkbox"
+                        id={addonId}
+                        name="addons"
+                        value={addon}
+                        className="w-6 h-6 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-sage)] cursor-pointer transition-all"
+                      />
+                    </div>
+                    <label 
+                      htmlFor={addonId}
+                      className="text-sm cursor-pointer select-none py-2 flex-1 group-hover:text-[var(--color-accent-sage)] transition-colors"
+                    >
+                      {addon}
+                    </label>
+                    <Link
+                      href={`/experiences/${experienceToSlug(addon)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center hover:text-[var(--color-accent-sage)] transition-colors"
+                      title={`View ${addon} details`}
+                      aria-label={`View ${addon} details in new tab`}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          {/* Message */}
+          <div>
+            <Label htmlFor="message" className="text-sm font-medium mb-2 block">
+              Additional requests
+            </Label>
+            <Textarea
+              id="message"
+              name="message"
+              rows={4}
+              placeholder="Tell us more about your celebration..."
+              className="rounded-xl"
+            />
           </div>
-        </div>
 
-        {/* Message */}
-        <div>
-          <Label htmlFor="message" className="text-sm font-medium mb-2 block">
-            Additional requests
-          </Label>
-          <Textarea
-            id="message"
-            name="message"
-            rows={4}
-            placeholder="Tell us more about your celebration..."
-            className="rounded-xl"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full rounded-2xl py-6 text-base font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-          style={{
-            background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage)",
-            color: "white",
-          }}
-        >
-          {isSubmitting ? "Sending..." : "Send Enquiry"}
-        </Button>
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full rounded-2xl py-6 text-base font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+            style={{
+              background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage)",
+              color: "var(--color-text-primary)",
+            }}
+          >
+            {isSubmitting ? "Sending..." : "Send Enquiry"}
+          </Button>
 
         <p className="text-xs text-center text-[var(--color-neutral-dark)]">
           Fast response from our UK team. We'll get back to you within 24 hours.

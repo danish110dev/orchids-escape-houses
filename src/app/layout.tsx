@@ -5,18 +5,17 @@ import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import UKServiceSchema from "@/components/UKServiceSchema";
-import { organizationSchema, websiteSchema, platformServiceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Large Group Accommodation Across the UK | Group Escape Houses",
-    template: "%s | Group Escape Houses"
-  },
-    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
-    alternates: {
-      canonical: "https://www.groupescapehouses.co.uk",
+    title: {
+      default: "Large Group Accommodation Across the UK | Group Escape Houses",
+      template: "%s | Group Escape Houses"
     },
+      description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Expert group holiday planning and activity houses.",
+      metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+      alternates: {
+        canonical: "https://www.groupescapehouses.co.uk",
+      },
     formatDetection: {
     email: false,
     address: false,
@@ -44,30 +43,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
+      <html lang="en">
+        <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
           <link rel="preconnect" href="https://images.unsplash.com" />
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
-          
-          {/* Global JSON-LD Schemas */}
-          <Script
-            id="schema-organization"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
-          />
-          <Script
-            id="schema-website"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
-          />
-          <Script
-            id="schema-service"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(platformServiceSchema()) }}
-          />
-      </head>
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        </head>
       <body className="antialiased">
         <Script
           id="orchids-browser-logs"

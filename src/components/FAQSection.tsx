@@ -33,7 +33,7 @@ export default function FAQSection() {
       question: "What is the deposit and payment schedule?",
       answer: (
         <>
-          We require a deposit to secure your booking (typically 25-30%). The remaining balance is due 6-8 weeks before your stay. All payments are processed securely via Stripe. Read more about our <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">payment terms</Link> and check our <Link href="/blog/split-costs-hen-weekend" className="text-[var(--color-accent-sage)] underline">guide on splitting costs fairly</Link>.
+          Bookings, payments and contracts are handled directly between guests and property owners. Each owner will have their own preferred payment methods and schedules, which you can discuss with them once you enquire. Read more about our <Link href="/booking-terms" className="text-[var(--color-accent-sage)] underline">booking terms</Link>.
         </>
       )
     },
@@ -65,7 +65,7 @@ export default function FAQSection() {
       question: "What about house rules and damage deposits?",
       answer: (
         <>
-          Each property has specific house rules regarding noise, parties, and check-in times. A refundable damage deposit (typically £250-500) is required. Read our full <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">terms and conditions</Link> for complete details. We also have helpful tips in our <Link href="/blog/hen-party-checklist" className="text-[var(--color-accent-sage)] underline">planning checklist</Link>.
+          Each property has specific house rules regarding noise, parties, and check-in times. A refundable damage deposit (typically £250-500) is required. Read our full <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">terms and conditions</Link> for complete details. We also have helpful tips in our <Link href="/inspiration/hen-party-checklist" className="text-[var(--color-accent-sage)] underline">planning checklist</Link>.
         </>
       )
     },
@@ -73,7 +73,7 @@ export default function FAQSection() {
       question: "Can you arrange activities and experiences?",
       answer: (
         <>
-          Yes! We offer <Link href="/experiences/cocktail-masterclass" className="text-[var(--color-accent-sage)] underline">cocktail masterclasses</Link>, <Link href="/experiences/life-drawing" className="text-[var(--color-accent-sage)] underline">butlers in the buff and life drawing</Link>, <Link href="/experiences/private-chef" className="text-[var(--color-accent-sage)] underline">private chefs</Link>, <Link href="/spa-treatments" className="text-[var(--color-accent-sage)] underline">spa treatments</Link>, and more. View our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences page</Link> to see all available add-ons and pricing. Looking for inspiration? Check out our <Link href="/blog/alternative-hen-party-ideas" className="text-[var(--color-accent-sage)] underline">10 alternative hen party ideas</Link>.
+          Yes! We offer <Link href="/experiences/cocktail-masterclass" className="text-[var(--color-accent-sage)] underline">cocktail masterclasses</Link>, <Link href="/experiences/life-drawing" className="text-[var(--color-accent-sage)] underline">butlers in the buff and life drawing</Link>, <Link href="/experiences/private-chef" className="text-[var(--color-accent-sage)] underline">private chefs</Link>, <Link href="/spa-treatments" className="text-[var(--color-accent-sage)] underline">spa treatments</Link>, and more. View our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences page</Link> to see all available add-ons and pricing. Looking for inspiration? Check out our <Link href="/inspiration/alternative-hen-party-ideas" className="text-[var(--color-accent-sage)] underline">10 alternative hen party ideas</Link>.
         </>
       )
     }

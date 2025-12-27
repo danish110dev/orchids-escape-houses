@@ -167,7 +167,7 @@ export default function BookingTermsPage() {
                   If you have any questions about our platform or how we work, please don't hesitate to get in touch.
                 </p>
                 <p className="text-[var(--color-neutral-dark)]">
-                  <strong>Email:</strong> <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hello@groupescapehouses.co.uk</a><br />
+                  <strong>Email:</strong> <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hello@thehenfairy.co.uk</a><br />
                   <strong>Office:</strong> 11a North Street, Brighton BN41 1DH
                 </p>
               </div>

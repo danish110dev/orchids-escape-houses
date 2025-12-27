@@ -3,8 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, UsersRound, MapPinned } from "lucide-react";
-import { useState, useMemo } from "react";
-import BookingModal from "@/components/BookingModal";
+import { useState, useMemo, useCallback, memo } from "react";
+import dynamic from "next/dynamic";
+
+const BookingModal = dynamic(() => import("@/components/BookingModal"), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface PropertyCardProps {
   id: string;
@@ -18,38 +23,31 @@ interface PropertyCardProps {
   slug: string;
 }
 
-// Use the same placeholder as the properties page
 const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
 
-// Validate image URL helper function (same as properties page)
-function validateImageUrl(url: string, propertyTitle: string): string {
+function validateImageUrl(url: string): string {
   if (!url || url === '/placeholder-property.jpg') {
     return PLACEHOLDER_IMAGE;
   }
   
-  // CRITICAL: Block ALL Google Images URLs (they're temporary and cause config issues)
   if (url.includes('gstatic.com') || url.includes('google.com/images') || url.includes('googleusercontent.com')) {
-    console.warn(`Google Images URL detected for property "${propertyTitle}" - using placeholder:`, url);
     return PLACEHOLDER_IMAGE;
   }
   
-  // Check if it's a valid image URL (must end with image extension or be from known image CDN)
   const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
   const isImageCDN = 
     url.includes('supabase.co/storage') ||
     url.includes('unsplash.com') ||
     url.includes('fal.media');
   
-  // If URL doesn't have image extension and isn't from known CDN, use placeholder
   if (!hasImageExtension && !isImageCDN) {
-    console.warn(`Invalid image URL detected for property "${propertyTitle}":`, url);
     return PLACEHOLDER_IMAGE;
   }
   
   return url;
 }
 
-export default function PropertyCard({
+function PropertyCard({
   id,
   title,
   location,
@@ -63,17 +61,18 @@ export default function PropertyCard({
   const [isSaved, setIsSaved] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  const validatedImage = useMemo(() => {
-    return validateImageUrl(image, title);
-  }, [image, title]);
-
+  const validatedImage = useMemo(() => validateImageUrl(image), [image]);
   const displayImage = imageError ? PLACEHOLDER_IMAGE : validatedImage;
 
-  const getDestinationSlug = (location: string) => {
-    const city = location.split(',')[0].trim().toLowerCase();
+  const handleImageError = useCallback(() => setImageError(true), []);
+  const handleImageLoad = useCallback(() => setImageLoaded(true), []);
+
+  const getDestinationSlug = useCallback((loc: string) => {
+    const city = loc.split(',')[0].trim().toLowerCase();
     return city.replace(/\s+/g, '-');
-  };
+  }, []);
 
   const destinationSlug = getDestinationSlug(location);
 
@@ -81,16 +80,20 @@ export default function PropertyCard({
     <>
       <div className="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
         <Link href={`/properties/${slug}`}>
-          <div className="relative w-full h-64 overflow-hidden bg-gray-200">
+          <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+            )}
             <Image
               src={displayImage}
               alt={title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={85}
-              className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              onError={() => setImageError(true)}
-              priority={false}
+              quality={80}
+              className={`object-cover object-center transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onError={handleImageError}
+              onLoad={handleImageLoad}
+              loading="lazy"
             />
             
             {/* Feature Tags */}
@@ -112,7 +115,7 @@ export default function PropertyCard({
                   e.preventDefault();
                   setIsSaved(!isSaved);
                 }}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
+                className="absolute top-4 right-4 w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label={isSaved ? "Remove from saved" : "Save property"}
               >
                 <Heart
@@ -191,13 +194,17 @@ export default function PropertyCard({
         </div>
       </div>
 
-      <BookingModal
-        open={bookingModalOpen}
-        onOpenChange={setBookingModalOpen}
-        propertyId={id}
-        propertyTitle={title}
-        priceFrom={priceFrom}
-      />
+      {bookingModalOpen && (
+        <BookingModal
+          open={bookingModalOpen}
+          onOpenChange={setBookingModalOpen}
+          propertyId={id}
+          propertyTitle={title}
+          priceFrom={priceFrom}
+        />
+      )}
     </>
   );
 }
+
+export default memo(PropertyCard);

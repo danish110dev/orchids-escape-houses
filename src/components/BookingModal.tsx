@@ -209,25 +209,27 @@ export default function BookingModal({
                   <div>
                     <div className="font-semibold">Guests</div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
-                      onClick={() => setGuests(Math.max(1, guests - 1))}
-                    >
-                      <Minus className="h-4 w-4" />
-                    </Button>
-                    <span className="w-8 text-center font-semibold">{guests}</span>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-10 w-10 rounded-lg border-2 border-[var(--color-accent-sage)]"
-                      onClick={() => setGuests(guests + 1)}
-                    >
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                  </div>
+                    <div className="flex items-center gap-3">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-lg border-2 border-[var(--color-accent-sage)]"
+                        onClick={() => setGuests(Math.max(1, guests - 1))}
+                        aria-label="Decrease guests"
+                      >
+                        <Minus className="h-4 w-4" />
+                      </Button>
+                      <span className="w-8 text-center font-semibold" aria-live="polite">{guests}</span>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-12 w-12 min-h-[48px] min-w-[48px] rounded-lg border-2 border-[var(--color-accent-sage)]"
+                        onClick={() => setGuests(guests + 1)}
+                        aria-label="Increase guests"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </Button>
+                    </div>
                 </div>
               </PopoverContent>
             </Popover>

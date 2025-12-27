@@ -73,13 +73,13 @@ export default function WhatsAppChat() {
       } else {
         setMessages((prev) => [
           ...prev,
-          { role: "assistant", content: "Sorry, I'm having trouble right now. Please email hello@groupescapehouses.co.uk or call us!" },
+          { role: "assistant", content: "Sorry, I'm having trouble right now. Please email hello@thehenfairy.co.uk or call us!" },
         ]);
       }
     } catch (error) {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Sorry, I'm having trouble connecting. Please try again or email hello@groupescapehouses.co.uk!" },
+        { role: "assistant", content: "Sorry, I'm having trouble connecting. Please try again or email hello@thehenfairy.co.uk!" },
       ]);
     } finally {
       setIsLoading(false);
@@ -174,7 +174,7 @@ export default function WhatsAppChat() {
               </Button>
             </div>
             <p className="text-xs text-[var(--color-neutral-dark)] mt-2 text-center">
-              Or email us at hello@groupescapehouses.co.uk
+              Or email us at hello@thehenfairy.co.uk
             </p>
           </div>
         </div>

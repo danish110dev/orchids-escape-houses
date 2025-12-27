@@ -58,37 +58,39 @@ export default function NewsletterSection() {
   return (
     <section className="py-16 md:py-20 bg-[var(--color-bg-primary)]">
       <div className="max-w-[1200px] mx-auto px-4 md:px-6">
-        <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white">
-          <PartyPopper className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6" />
-          <h2 className="mb-3 md:mb-4 text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
-            Get Group Travel Inspiration
-          </h2>
-          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto px-4">
-            Subscribe for exclusive deals, new properties, and group planning tips
-          </p>
+        <div className="bg-gradient-to-r from-[var(--color-accent-sage)] to-[var(--color-accent-gold)] rounded-2xl md:rounded-3xl p-8 md:p-12 text-center">
+            <PartyPopper className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 text-[var(--color-text-primary)]" />
+            <h2 className="mb-3 md:mb-4 text-3xl md:text-4xl text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+              Get Group Travel Inspiration
+            </h2>
+            <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto px-4 text-[var(--color-text-primary)]">
+              Subscribe for exclusive deals, new properties, and group planning tips
+            </p>
 
-          <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
-            <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: 'absolute', left: '-9999px' }} tabIndex={-1} autoComplete="off" />
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={isSubmitting}
-              className="flex-1 h-14 rounded-2xl border-2 border-white/30 bg-white/10 text-white placeholder:text-white/60 focus:bg-white/20"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              disabled={isSubmitting || !email}
-              className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05] bg-white text-[var(--color-accent-sage)]"
-            >
-              {isSubmitting ? "Subscribing..." : "Subscribe"}
-            </Button>
-          </form>
-          {submitStatus === "success" && <p className="mt-4 text-white font-medium">Thanks for subscribing! Check your inbox.</p>}
-          {submitStatus === "error" && <p className="mt-4 text-white font-medium">Something went wrong. Please try again.</p>}
+            <form ref={newsletterFormRef} onSubmit={handleEmailSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 md:gap-4 px-4">
+              <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: 'absolute', left: '-9999px' }} tabIndex={-1} autoComplete="off" />
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+              <Input
+                  id="newsletter-email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                  className="flex-1 h-14 rounded-2xl border-2 border-[var(--color-text-primary)]/30 bg-white/90 text-[var(--color-text-primary)] placeholder:text-[var(--color-neutral-dark)] focus:bg-white"
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting || !email}
+                  className="h-14 px-8 rounded-2xl font-semibold transition-all hover:scale-[1.05] bg-[var(--color-text-primary)] text-white min-h-[48px]"
+                >
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
+              </Button>
+            </form>
+            {submitStatus === "success" && <p className="mt-4 text-[var(--color-text-primary)] font-medium">Thanks for subscribing! Check your inbox.</p>}
+            {submitStatus === "error" && <p className="mt-4 text-[var(--color-text-primary)] font-medium">Something went wrong. Please try again.</p>}
         </div>
       </div>
     </section>

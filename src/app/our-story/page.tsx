@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedStats from "@/components/AnimatedStats";
-import { SchemaRenderer } from "@/components/SchemaRenderer";
-import { aboutPageSchema, breadcrumbSchema } from "@/lib/schema";
 
 export default function OurStoryPage() {
   return (
@@ -34,41 +32,41 @@ export default function OurStoryPage() {
       {/* Main Content */}
       <section className="py-24 bg-white">
         <div className="max-w-[900px] mx-auto px-6">
-          <div className="space-y-12">
-            <div>
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Where It All Began
-              </h2>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-                Group Escape Houses was born from a simple frustration. Our founder, Sarah, was planning her best friend's hen party in 2018 and spent weeks searching for the perfect house. She wanted somewhere special with a hot tub, space for 15 friends, and a location close to Brighton's vibrant nightlife. But every search led to generic holiday cottages, confusing booking processes, and properties that looked nothing like their photos.
-              </p>
-              <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                After finally finding a gorgeous property through word of mouth, Sarah realised there had to be a better way. What if there was a platform dedicated entirely to group celebrations, featuring only the best party houses across the UK, with transparent pricing and trusted add-on experiences? That weekend, Group Escape Houses was born.
-              </p>
-            </div>
+            <div className="space-y-12">
+              <div>
+                <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  Where It All Began
+                </h2>
+                <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
+                  Group Escape Houses was born from a simple frustration. Our founders spent weeks searching for the perfect large group accommodation for a family milestone. They wanted somewhere special with a hot tub, space for 20 guests, and a location that offered both luxury and privacy. But every search led to generic holiday cottages, confusing booking processes, and properties that didn't live up to the photos.
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                  After finally finding a gorgeous estate through word of mouth, they realised there had to be a better way. What if there was a platform dedicated entirely to large group celebrations, featuring only the best luxury houses across the UK, with direct owner contact and trusted local experiences? That weekend, Group Escape Houses was born.
+                </p>
+              </div>
 
-            <div className="bg-[var(--color-bg-primary)] p-12 rounded-2xl">
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Our Mission
-              </h2>
-              <p className="text-xl leading-relaxed italic" style={{ color: "var(--color-neutral-dark)" }}>
-                "To make planning group celebrations effortless by connecting people with luxury party houses and curated experiences that create memories to last a lifetime."
-              </p>
-            </div>
+              <div className="bg-[var(--color-bg-primary)] p-12 rounded-2xl">
+                <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  Our Mission
+                </h2>
+                <p className="text-xl leading-relaxed italic" style={{ color: "var(--color-neutral-dark)" }}>
+                  "To make planning large group celebrations effortless by connecting people directly with exceptional luxury properties and curated experiences that create memories to last a lifetime."
+                </p>
+              </div>
 
-            <div>
-              <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                How We Select Our Properties
-              </h2>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-                We personally visit and vet every property on our platform. We don't just look at photos, we stay overnight, test the hot tubs, check the wifi, and make sure the space genuinely works for groups. Only properties that meet our strict standards make it onto Group Escape Houses.
-              </p>
-              <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                We look for homes with character, whether that's a converted barn in the Cotswolds, a beachfront villa in Brighton, or a city centre townhouse in Manchester. Features like hot tubs, games rooms, and spacious kitchens are essential, but we also care about the intangibles: great natural light, comfortable beds, and that special something that makes a house feel like home.
-              </p>
-            </div>
+              <div>
+                <h2 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  How We Select Our Properties
+                </h2>
+                <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
+                  We personally vet every property on our platform. We don't just look at photos; we ensure the space genuinely works for large groups. Only properties that meet our strict standards for quality, space, and facilities make it onto Group Escape Houses.
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
+                  We look for homes with character—whether that's a converted barn in the Cotswolds, a coastal estate in Cornwall, or a stately home in Scotland. Features like hot tubs, games rooms, and spacious kitchens are standard, but we also care about the intangibles: great natural light, comfortable beds, and that special something that makes a house feel like an escape.
+                </p>
+              </div>
 
-            {/* Property Showcase Gallery */}
+              {/* Property Showcase Gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img
@@ -197,14 +195,6 @@ export default function OurStoryPage() {
       </section>
 
       <Footer />
-      
-      <SchemaRenderer schemas={[
-        aboutPageSchema(),
-        breadcrumbSchema([
-          { name: "Home", url: "https://groupescapehouses.co.uk" },
-          { name: "Our Story", url: "https://groupescapehouses.co.uk/our-story" }
-        ])
-      ]} />
     </div>
   );
 }

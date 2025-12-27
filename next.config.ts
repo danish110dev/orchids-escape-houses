@@ -33,15 +33,19 @@ const nextConfig: NextConfig = {
         hostname: 'www.propertista.co.uk',
       },
       {
-        protocol: 'https',
-        hostname: 'encrypted-tbn0.gstatic.com',
-      },
+          protocol: 'https',
+          hostname: 'encrypted-tbn0.gstatic.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'www.londonbay.com',
+        },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    qualities: [75, 85, 90, 95, 100],
+    qualities: [75, 80, 85, 90, 95, 100],
   },
   typescript: {
     ignoreBuildErrors: false,
@@ -49,10 +53,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  async redirects() {
-    return [
-      {
-        source: '/occasions/hen-party-houses',
+    async redirects() {
+      return [
+        {
+          source: '/locations/:slug',
+          destination: '/destinations/:slug',
+          permanent: true,
+        },
+        {
+          source: '/occasions/hen-party-houses',
         destination: '/hen-party-houses',
         permanent: true,
       },
