@@ -5,6 +5,10 @@ interface UKServiceSchemaProps {
 }
 
 export default function UKServiceSchema({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
+  return <SchemaRenderer type={type} data={data} includeSiteWide={includeSiteWide} />;
+}
+
+export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
   const baseUrl = "https://www.groupescapehouses.co.uk";
   const siteName = "Group Escape Houses";
   const sameAs = [
