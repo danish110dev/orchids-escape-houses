@@ -1,5 +1,19 @@
 import Link from "next/link";
 import OptimizedImage from "@/components/OptimizedImage";
+import { ArrowRight, Instagram, Home as HomeIcon, Sparkles, Shield, Users, Award, Clock } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PropertyCard from "@/components/PropertyCard";
+import ExperienceCard from "@/components/ExperienceCard";
+import ReviewSlider from "@/components/ReviewSlider";
+import FAQSection from "@/components/FAQSection";
+import UKServiceSchema from "@/components/UKServiceSchema";
+import { Button } from "@/components/ui/button";
+import HeroSearchForm from "@/components/home/HeroSearchForm";
+import HeroVideo from "@/components/home/HeroVideo";
+import NewsletterSection from "@/components/home/NewsletterSection";
+import { getFeaturedProperties, getFeaturedExperiences, getFeaturedReviews } from "@/lib/data-fetchers";
+import { homeFaqs } from "@/data/faqs";
 
 // Static destinations data
 const destinations = [
@@ -129,7 +143,7 @@ export default async function Home() {
         </section>
 
         {/* Experiences */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
                 <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -162,7 +176,7 @@ export default async function Home() {
         </section>
 
         {/* Destinations */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden">
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] overflow-hidden content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
                 <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -184,7 +198,7 @@ export default async function Home() {
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                       aria-label={`View properties in ${destination.name}`}
                     >
-                      <Image
+                      <OptimizedImage
                         src={destination.image}
                         alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
                         fill
@@ -220,7 +234,7 @@ export default async function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-12 md:mb-16 px-4">
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -265,7 +279,7 @@ export default async function Home() {
         </section>
 
         {/* Reviews */}
-        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] min-h-[400px]">
+        <section className="py-16 md:py-20 bg-[var(--color-bg-secondary)] min-h-[400px] content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12 px-4">
               <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -294,13 +308,17 @@ export default async function Home() {
         </section>
 
         {/* FAQ */}
-        <FAQSection />
+        <div className="content-visibility-auto">
+          <FAQSection />
+        </div>
 
         {/* Newsletter */}
-        <NewsletterSection />
+        <div className="content-visibility-auto">
+          <NewsletterSection />
+        </div>
 
         {/* Instagram */}
-        <section className="py-16 md:py-20 bg-white overflow-hidden">
+        <section className="py-16 md:py-20 bg-white overflow-hidden content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center mb-10 md:mb-12">
               <div className="flex items-center justify-center mb-3 md:mb-4">
@@ -346,13 +364,12 @@ export default async function Home() {
                         className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                         aria-label={`View Instagram post ${index + 1}`}
                       >
-                        <Image
+                        <OptimizedImage
                           src={img}
                           alt={`Luxury holiday house showcase on Instagram - Image ${index + 1}`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                           sizes="280px"
-                          loading="lazy"
                         />
 
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

@@ -24,7 +24,8 @@ export default function ClientSideFeatures() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 100);
+    // Defer non-critical features until after main content is interactive
+    const timer = setTimeout(() => setMounted(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
