@@ -52,18 +52,19 @@ export default function RootLayout({
           <link rel="preconnect" href="https://v3b.fal.media" />
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
           <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
         </head>
       <body className="antialiased">
+        <ErrorReporter />
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           data-orchids-project-id="8330e9be-5e47-4f2b-bda0-4162d899b6d9"
         />
-        <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           data-target-origin="*"
           data-message-type="ROUTE_CHANGE"
           data-include-search-params="true"
