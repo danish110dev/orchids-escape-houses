@@ -1,4 +1,3 @@
-
 interface UKServiceSchemaProps {
   type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article";
   data?: any;
@@ -6,8 +5,8 @@ interface UKServiceSchemaProps {
 }
 
 export default function UKServiceSchema({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
-  const baseUrl = "https://www.thehenfairy.co.uk";
-  const siteName = "The Hen Fairy";
+  const baseUrl = "https://www.groupescapehouses.co.uk";
+  const siteName = "Group Escape Houses";
   const sameAs = [
     "https://www.instagram.com/groupescapehouses/",
     "https://www.tiktok.com/@groupescapehouses",
@@ -32,7 +31,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
       "@type": "ContactPoint",
       "contactType": "customer service",
       "telephone": "+44-1273-569301",
-      "email": "hello@thehenfairy.co.uk",
+      "email": "hello@groupescapehouses.co.uk",
       "areaServed": "GB",
       "availableLanguage": "en-GB"
     }
@@ -45,7 +44,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "name": siteName,
     "url": `${baseUrl}/`,
     "telephone": "01273 569301",
-    "email": "hello@thehenfairy.co.uk",
+    "email": "hello@groupescapehouses.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "11a North Street",
@@ -103,8 +102,8 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "@type": "WebPage",
     "@id": `${baseUrl}/#webpage`,
     "url": `${baseUrl}/`,
-    "name": `Hen Party Activities & Accommodation UK | ${siteName}`,
-    "description": "Luxury hen party accommodation and activities across the UK. Book large group houses with hot tubs, pools, and expert planning.",
+    "name": `Group Accommodation & Luxury Holiday Houses UK | ${siteName}`,
+    "description": "Luxury large group accommodation across the UK. Book large group houses with hot tubs, pools, and expert planning.",
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#organization` }
   } : null;

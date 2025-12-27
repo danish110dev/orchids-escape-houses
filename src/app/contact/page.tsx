@@ -199,10 +199,10 @@ export default function ContactPage() {
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact The Hen Fairy - Hen Party Activities UK",
-    "description": "Get a free, no-obligation quote for your hen party. Fast response from our UK-based team. Book accommodation and activities for groups of 6-30+.",
-    "url": "https://www.thehenfairy.co.uk/contact",
-    "mainEntityOfPage": { "@id": "https://www.thehenfairy.co.uk/#organization" }
+    "name": "Contact Group Escape Houses - Group Accommodation UK",
+    "description": "Get a free, no-obligation quote for your group stay. Fast response from our UK-based team. Book luxury accommodation for groups of 10-30+.",
+    "url": "https://www.groupescapehouses.co.uk/contact",
+    "mainEntityOfPage": { "@id": "https://www.groupescapehouses.co.uk/#organization" }
   };
 
   const faqSchema = {
@@ -237,10 +237,10 @@ export default function ContactPage() {
         <section className="pt-28 pb-8 md:pt-32 md:pb-12 px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Contact The Hen Fairy
+              Contact Group Escape Houses
             </h1>
             <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6">
-              Hen Party Activities &amp; Accommodation UK
+              Large Group Accommodation Across the UK
             </p>
             
             <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
@@ -259,15 +259,16 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               
               <div className="lg:col-span-3 order-1">
-                <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-                  <div className="text-center mb-6">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                      Get Your Hen Party Quote
-                    </h2>
-                    <p className="text-[var(--color-neutral-dark)]">
-                      Fast response, no obligation
-                    </p>
-                  </div>
+                  <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div className="text-center mb-6">
+                      <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                        Get Your Group Quote
+                      </h2>
+                      <p className="text-[var(--color-neutral-dark)]">
+                        Fast response, no obligation
+                      </p>
+                    </div>
+
 
                   <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                     <input
@@ -514,15 +515,16 @@ export default function ContactPage() {
                     Why Book With Us
                   </h3>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
+                          <Clock className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm">10+ Years Experience</p>
+                          <p className="text-sm text-[var(--color-neutral-dark)]">Trusted group accommodation specialists since 2014</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-semibold text-sm">10+ Years Experience</p>
-                        <p className="text-sm text-[var(--color-neutral-dark)]">Trusted hen party specialists since 2014</p>
-                      </div>
-                    </div>
+
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
                         <Star className="w-5 h-5 text-[var(--color-accent-sage)]" />
@@ -570,18 +572,19 @@ export default function ContactPage() {
                         <p className="text-[var(--color-accent-sage)]">01273 569301</p>
                       </div>
                     </a>
-                      <a
-                        href="mailto:hello@thehenfairy.co.uk"
-                        className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
-                          <Mail className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-sm">Email Us</p>
-                          <p className="text-[var(--color-accent-sage)] text-sm">hello@thehenfairy.co.uk</p>
-                        </div>
-                      </a>
+                        <a
+                          href="mailto:hello@groupescapehouses.co.uk"
+                          className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
+                            <Mail className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-sm">Email Us</p>
+                            <p className="text-[var(--color-accent-sage)] text-sm">hello@groupescapehouses.co.uk</p>
+                          </div>
+                        </a>
+
                     <a
                       href="https://wa.me/441273569301"
                       target="_blank"

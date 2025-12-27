@@ -7,15 +7,15 @@ import CustomAutumnProvider from "@/lib/autumn-provider";
 import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Large Group Accommodation Across the UK | The Hen Fairy",
-    template: "%s | The Hen Fairy"
-  },
-    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Expert hen party planning and activity houses.",
-    metadataBase: new URL("https://www.thehenfairy.co.uk"),
-    alternates: {
-      canonical: "https://www.thehenfairy.co.uk",
+    title: {
+      default: "Large Group Accommodation Across the UK | Group Escape Houses",
+      template: "%s | Group Escape Houses"
     },
+      description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Expert group holiday planning and activity houses.",
+      metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+      alternates: {
+        canonical: "https://www.groupescapehouses.co.uk",
+      },
     formatDetection: {
     email: false,
     address: false,

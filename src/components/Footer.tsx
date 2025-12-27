@@ -12,10 +12,10 @@ export default function Footer() {
                 className="text-2xl mb-4"
                 style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-gold)" }}
               >
-                The Hen Fairy
+                Group Escape Houses
               </h3>
               <p className="text-sm text-[var(--color-bg-secondary)] leading-relaxed mb-4">
-                Exceptional large group accommodation and hen party planning across the UK with premium facilities and outstanding service.
+                Exceptional large group accommodation across the UK with premium facilities and outstanding service.
               </p>
             <Link href="/our-story" className="text-sm hover:text-[var(--color-accent-sage)] transition-colors">
               Read our story →
@@ -112,14 +112,15 @@ export default function Footer() {
                   <span>01273 569301</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="mailto:hello@thehenfairy.co.uk"
-                  className="hover:text-[var(--color-accent-sage)] transition-colors block"
-                >
-                  hello@thehenfairy.co.uk
-                </a>
-              </li>
+                <li>
+                  <a
+                    href="mailto:hello@groupescapehouses.co.uk"
+                    className="hover:text-[var(--color-accent-sage)] transition-colors block"
+                  >
+                    hello@groupescapehouses.co.uk
+                  </a>
+                </li>
+
             </ul>
           </div>
 
@@ -186,11 +187,11 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-[var(--color-accent-gold)] opacity-30 mb-8 pt-8 text-center max-w-4xl mx-auto">
             <p className="text-xs text-[var(--color-bg-secondary)] mb-6 italic">
-              The Hen Fairy is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
+              Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--color-bg-secondary)]">
-          <p>&copy; 2025 The Hen Fairy. All rights reserved.</p>
+          <p>&copy; 2025 Group Escape Houses. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/terms" className="hover:text-[var(--color-accent-sage)] transition-colors">
               Terms & Conditions
