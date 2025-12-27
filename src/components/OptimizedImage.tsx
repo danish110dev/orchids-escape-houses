@@ -28,6 +28,16 @@ function validateImageUrl(url: string): string {
     return PLACEHOLDER_IMAGE;
   }
   
+  // Fix Supabase URLs with trailing query parameters
+  if (url.includes('supabase.co/storage')) {
+    // Remove trailing '?' if present
+    url = url.replace(/\?$/, '');
+    // Ensure it doesn't have duplicate query params
+    if (!url.includes('?')) {
+      url = url + '?t=' + Date.now();
+    }
+  }
+  
   const hasImageExtension = /\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(url);
   const isImageCDN = 
     url.includes('supabase.co/storage') ||
