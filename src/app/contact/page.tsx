@@ -202,33 +202,7 @@ export default function ContactPage() {
     "name": "Contact The Hen Fairy - Hen Party Activities UK",
     "description": "Get a free, no-obligation quote for your hen party. Fast response from our UK-based team. Book accommodation and activities for groups of 6-30+.",
     "url": "https://www.thehenfairy.co.uk/contact",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "The Hen Fairy",
-      "telephone": "+44-1273-569301",
-      "email": "hello@groupescapehouses.co.uk",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "11a North Street",
-        "addressLocality": "Brighton",
-        "postalCode": "BN41 1DH",
-        "addressCountry": "GB"
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "10:00",
-          "closes": "16:00"
-        }
-      ]
-    }
+    "mainEntityOfPage": { "@id": "https://www.thehenfairy.co.uk/#organization" }
   };
 
   const faqSchema = {

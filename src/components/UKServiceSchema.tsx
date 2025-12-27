@@ -6,14 +6,43 @@ interface UKServiceSchemaProps {
 }
 
 export default function UKServiceSchema({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
-  const baseUrl = "https://www.groupescapehouses.co.uk";
+  const baseUrl = "https://www.thehenfairy.co.uk";
+  const siteName = "The Hen Fairy";
+  const sameAs = [
+    "https://www.instagram.com/groupescapehouses/",
+    "https://www.tiktok.com/@groupescapehouses",
+    "https://www.youtube.com/@GroupEscapeHouses",
+    "https://www.facebook.com/profile.php?id=61580927195664",
+    "https://www.pinterest.com/groupescapehouses"
+  ];
   
   // 1) Organization & WebSite
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${baseUrl}/#organization`,
-    "name": "Group Escape Houses",
+    "name": siteName,
+    "url": `${baseUrl}/`,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${baseUrl}/logo.png`
+    },
+    "sameAs": sameAs,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+44-1273-569301",
+      "email": "hello@groupescapehouses.co.uk",
+      "areaServed": "GB",
+      "availableLanguage": "en-GB"
+    }
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "EventPlanningService",
+    "@id": `${baseUrl}/#localbusiness`,
+    "name": siteName,
     "url": `${baseUrl}/`,
     "telephone": "01273 569301",
     "email": "hello@groupescapehouses.co.uk",
@@ -24,11 +53,30 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
       "postalCode": "BN41 1DH",
       "addressCountry": "GB"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "areaServed": "GB",
-      "availableLanguage": "en-GB"
+    "image": `${baseUrl}/logo.png`,
+    "priceRange": "££",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3000"
     }
   };
 
@@ -37,7 +85,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     "url": `${baseUrl}/`,
-    "name": "Group Escape Houses",
+    "name": siteName,
     "publisher": { "@id": `${baseUrl}/#organization` },
     "potentialAction": {
       "@type": "SearchAction",
@@ -55,8 +103,8 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "@type": "WebPage",
     "@id": `${baseUrl}/#webpage`,
     "url": `${baseUrl}/`,
-    "name": "Large Group Accommodation Across the UK | Group Escape Houses",
-    "description": "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
+    "name": `Hen Party Activities & Accommodation UK | ${siteName}`,
+    "description": "Luxury hen party accommodation and activities across the UK. Book large group houses with hot tubs, pools, and expert planning.",
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#organization` }
   } : null;
@@ -107,7 +155,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "image": data.image,
     "brand": {
       "@type": "Brand",
-      "name": "Group Escape Houses"
+      "name": siteName
     },
     "offers": {
       "@type": "Offer",
@@ -128,11 +176,11 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "dateModified": data.dateModified || data.datePublished,
     "author": {
       "@type": "Organization",
-      "name": "Group Escape Houses"
+      "name": siteName
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Group Escape Houses",
+      "name": siteName,
       "logo": {
         "@type": "ImageObject",
         "url": `${baseUrl}/logo.png`
@@ -148,6 +196,10 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
           />
           <script
             type="application/ld+json"
