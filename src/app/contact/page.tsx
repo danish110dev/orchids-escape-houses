@@ -5,15 +5,39 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock, Calendar, Check, ExternalLink, ArrowRight } from "lucide-react";
+import { Mail, Phone, MessageCircle, Clock, Calendar, Check, Star, Shield, Users, ChevronDown, ChevronUp } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 import { formatDateUKLong } from "@/lib/date-utils";
 import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
 import { toast } from "sonner";
+import Script from "next/script";
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  groupSize?: string;
+  dates?: string;
+  location?: string;
+}
+
+const faqs = [
+  {
+    question: "How quickly will you respond to my enquiry?",
+    answer: "We typically respond within 2 hours during office hours (Mon-Fri 9am-6pm, Sat 10am-4pm). For urgent requests, call us directly on 01273 569301."
+  },
+  {
+    question: "Is there any obligation when I submit an enquiry?",
+    answer: "No obligation at all. We'll provide you with options and pricing, and you're free to decide in your own time. No pressure, no hidden fees."
+  },
+  {
+    question: "How does pricing work for group bookings?",
+    answer: "Pricing varies by property, dates, and group size. We'll send you a clear quote with all costs included—no surprises. Many properties offer midweek discounts too."
+  }
+];
 
 export default function ContactPage() {
-  const [enquiryType, setEnquiryType] = useState<"guest" | "owner" | "packages" | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,27 +45,23 @@ export default function ContactPage() {
     groupSize: "",
     dates: "",
     location: "",
-    experiences: [] as string[],
     message: "",
-    propertyType: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  // Spam protection state
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [honeypot, setHoneypot] = useState("");
   const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
   const formRef = useRef<HTMLFormElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
-  // Track form load time
   useEffect(() => {
     setFormLoadTime(Date.now());
     
-    // Track user interaction
     const trackClick = () => {
       setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
     };
@@ -61,82 +81,78 @@ export default function ContactPage() {
     }
   }, []);
 
-  // Lazy load video
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldLoadVideo(true);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const validateField = (name: string, value: string): string | undefined => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Please enter your name';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        break;
+      case 'email':
+        if (!value.trim()) return 'Please enter your email';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email address';
+        break;
+      case 'phone':
+        if (value && !/^[\d\s+()-]{10,}$/.test(value.replace(/\s/g, ''))) return 'Please enter a valid UK phone number';
+        break;
+      case 'groupSize':
+        if (!value) return 'Please select your group size';
+        break;
+      case 'dates':
+        if (!value) return 'Please select your preferred dates';
+        break;
+    }
+    return undefined;
+  };
 
-  // Only these experiences have actual pages
-  const experiencesWithPages = [
-    "cocktail-masterclass",
-    "sip-and-paint",
-    "private-chef",
-    "spa-treatments",
-    "hair-styling",
-    "karaoke-night",
-    "flower-crown-making"
-  ];
+  const handleBlur = (name: string) => {
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const error = validateField(name, formData[name as keyof typeof formData]);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
 
-  const experienceOptions = [
-    { value: "cocktail-masterclass", label: "Cocktail Masterclass" },
-    { value: "sip-and-paint", label: "Sip & Paint" },
-    { value: "butlers-in-the-buff", label: "Butlers in the Buff" },
-    { value: "life-drawing", label: "Life Drawing" },
-    { value: "private-chef", label: "Private Chef" },
-    { value: "spa-treatments", label: "Spa Treatments" },
-    { value: "mobile-beauty-bar", label: "Mobile Beauty Bar" },
-    { value: "make-up-artist", label: "Make-up Artist" },
-    { value: "hair-styling", label: "Hair Styling" },
-    { value: "pamper-party-package", label: "Pamper Party Package" },
-    { value: "personalised-robes", label: "Personalised Robes" },
-    { value: "prosecco-reception", label: "Prosecco Reception" },
-    { value: "afternoon-tea", label: "Afternoon Tea" },
-    { value: "bbq-catering", label: "BBQ Catering" },
-    { value: "pizza-making-class", label: "Pizza Making Class" },
-    { value: "bottomless-brunch", label: "Bottomless Brunch" },
-    { value: "gin-tasting", label: "Gin Tasting" },
-    { value: "wine-tasting", label: "Wine Tasting" },
-    { value: "flower-crown-making", label: "Flower Crown Making" },
-    { value: "dance-class", label: "Dance Class" },
-    { value: "karaoke-night", label: "Karaoke Night" },
-    { value: "yoga-session", label: "Yoga Session" },
-    { value: "photography-package", label: "Photography Package" },
-    { value: "dj-entertainment", label: "DJ Entertainment" },
-    { value: "games-activities-pack", label: "Games & Activities Pack" },
-    { value: "decorations-balloons", label: "Decorations & Balloons" },
-  ];
+  const handleChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
 
   const handleDateSelect = (range: { from?: Date; to?: Date } | undefined) => {
     if (range) {
       setDateRange(range);
       if (range.from && range.to) {
         const formattedDates = `${formatDateUKLong(range.from)} - ${formatDateUKLong(range.to)}`;
-        setFormData({ ...formData, dates: formattedDates });
+        handleChange('dates', formattedDates);
       } else if (range.from) {
         const formattedDate = formatDateUKLong(range.from);
-        setFormData({ ...formData, dates: formattedDate });
+        handleChange('dates', formattedDate);
       }
     }
   };
 
-  const handleExperienceToggle = (experienceValue: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      experiences: prev.experiences.includes(experienceValue)
-        ? prev.experiences.filter((exp) => exp !== experienceValue)
-        : [...prev.experiences, experienceValue],
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const newErrors: FormErrors = {};
+    Object.keys(formData).forEach(key => {
+      if (key !== 'message' && key !== 'location') {
+        const error = validateField(key, formData[key as keyof typeof formData]);
+        if (error) newErrors[key as keyof FormErrors] = error;
+      }
+    });
+
+    setErrors(newErrors);
+    setTouched({ name: true, email: true, phone: true, groupSize: true, dates: true });
+
+    if (Object.keys(newErrors).length > 0) {
+      toast.error('Please fill in all required fields correctly');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // Generate JavaScript challenge
       const challenge = Math.floor(Date.now() / 10000).toString();
 
       const response = await fetch('/api/contact', {
@@ -157,9 +173,8 @@ export default function ContactPage() {
         throw new Error(data.error || 'Failed to send enquiry');
       }
 
-      toast.success("Enquiry sent successfully! We'll be in touch within 2 hours.");
+      toast.success("Enquiry sent! We'll be in touch within 2 hours.");
       
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -167,10 +182,11 @@ export default function ContactPage() {
         groupSize: "",
         dates: "",
         location: "",
-        experiences: [],
         message: "",
       });
       setDateRange({});
+      setTouched({});
+      setErrors({});
       setUserInteraction({ clicks: 0, keystrokes: 0 });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Failed to send enquiry. Please try again.");
@@ -180,420 +196,323 @@ export default function ContactPage() {
     }
   };
 
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact The Hen Fairy - Hen Party Activities UK",
+    "description": "Get a free, no-obligation quote for your hen party. Fast response from our UK-based team. Book accommodation and activities for groups of 6-30+.",
+    "url": "https://www.thehenfairy.co.uk/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "The Hen Fairy",
+      "telephone": "+44-1273-569301",
+      "email": "hello@groupescapehouses.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11a North Street",
+        "addressLocality": "Brighton",
+        "postalCode": "BN41 1DH",
+        "addressCountry": "GB"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ]
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
+      <Script
+        id="contact-page-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] overflow-hidden">
-        {shouldLoadVideo && (
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
-            poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-          >
-            <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/videos/luma_video_1729107219.mp4" type="video/mp4" />
-          </video>
-        )}
-        
-        <div className="max-w-[1200px] mx-auto px-6 text-center relative z-10">
-          <h1 className="mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Get in Touch
-          </h1>
-          <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-            Ready to book your perfect group celebration? Our UK team is here to help with any questions.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
-              <div>
-                <h2 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                  Contact Information
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <a
-                        href="tel:+441273569301"
-                        className="text-[var(--color-accent-sage)] hover:underline"
-                      >
-                        01273 569301
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <a
-                        href="mailto:hello@groupescapehouses.co.uk"
-                        className="text-[var(--color-accent-sage)] hover:underline"
-                      >
-                        hello@groupescapehouses.co.uk
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Office</h3>
-                      <p className="text-[var(--color-neutral-dark)]">
-                        11a North Street<br />
-                        Brighton<br />
-                        BN41 1DH
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--color-accent-sage)" }}
-                    >
-                      <Clock className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Opening Hours</h3>
-                      <p className="text-[var(--color-neutral-dark)]">
-                        Monday - Friday: 9am - 6pm<br />
-                        Saturday: 10am - 4pm<br />
-                        Sunday: Closed
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        <section className="pt-28 pb-8 md:pt-32 md:pb-12 px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Contact The Hen Fairy
+            </h1>
+            <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6">
+              Hen Party Activities &amp; Accommodation UK
+            </p>
+            
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
+              <div className="flex -space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                ))}
               </div>
-
-              <div className="bg-[var(--color-bg-primary)] p-6 rounded-2xl">
-                <h3 className="font-semibold mb-3">Fast Response Guaranteed</h3>
-                <p className="text-[var(--color-neutral-dark)] text-sm">
-                  We typically respond to enquiries within 2 hours during office hours. For urgent requests, please call or email directly.
-                </p>
-              </div>
+              <span className="text-sm font-medium">Trusted by 10,000+ groups</span>
             </div>
+          </div>
+        </section>
 
-            {/* Enquiry Form */}
-            <div className="lg:col-span-2">
-              {!enquiryType ? (
-                <div className="grid grid-cols-1 gap-6">
-                  <button
-                    onClick={() => setEnquiryType("guest")}
-                    className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md text-left transition-all hover:shadow-xl group border-2 border-transparent hover:border-[var(--color-accent-sage)]"
-                  >
-                    <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>Guest Enquiries</h3>
-                    <p className="text-[var(--color-neutral-dark)] mb-4">For help finding or booking a group property. Please note guest enquiries and bookings go directly to the property owners.</p>
-                    <span className="text-[var(--color-accent-sage)] font-semibold flex items-center gap-2">
-                      Submit guest enquiry <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => setEnquiryType("owner")}
-                    className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md text-left transition-all hover:shadow-xl group border-2 border-transparent hover:border-[var(--color-accent-sage)]"
-                  >
-                    <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>Property Owner Enquiries</h3>
-                    <p className="text-[var(--color-neutral-dark)] mb-4">For advertising your house or cottage on the website. We offer fixed-fee listings with no commission on bookings.</p>
-                    <span className="text-[var(--color-accent-sage)] font-semibold flex items-center gap-2">
-                      Inquire about advertising <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => setEnquiryType("packages")}
-                    className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md text-left transition-all hover:shadow-xl group border-2 border-transparent hover:border-[var(--color-accent-sage)]"
-                  >
-                    <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>Packages and Experiences</h3>
-                    <p className="text-[var(--color-neutral-dark)] mb-4">Inquiries for activities, event planning, and group experience packages linked to your stay.</p>
-                    <span className="text-[var(--color-accent-sage)] font-semibold flex items-center gap-2">
-                      Submit experience enquiry <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </button>
-                </div>
-              ) : (
-                <div className="bg-[var(--color-bg-primary)] rounded-2xl p-8 shadow-md">
-                  <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
-                      {enquiryType === "guest" && "Guest Enquiry"}
-                      {enquiryType === "owner" && "Property Owner Enquiry"}
-                      {enquiryType === "packages" && "Experience & Package Enquiry"}
+        <section className="pb-16 md:pb-24 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+              
+              <div className="lg:col-span-3 order-1">
+                <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                  <div className="text-center mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                      Get Your Hen Party Quote
                     </h2>
-                    <button 
-                      onClick={() => setEnquiryType(null)}
-                      className="text-sm text-[var(--color-accent-sage)] hover:underline"
-                    >
-                      Change inquiry type
-                    </button>
+                    <p className="text-[var(--color-neutral-dark)]">
+                      Fast response, no obligation
+                    </p>
                   </div>
 
-                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                    {/* Honeypot field - hidden from users */}
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                     <input
                       type="text"
                       name="website"
                       value={honeypot}
                       onChange={(e) => setHoneypot(e.target.value)}
-                      style={{ 
-                        position: 'absolute', 
-                        left: '-9999px',
-                        width: '1px',
-                        height: '1px'
-                      }}
+                      style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
                       tabIndex={-1}
                       autoComplete="off"
                       aria-hidden="true"
                     />
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Your Name *</label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                          placeholder="Sarah Smith"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Email Address *</label>
-                        <input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                          placeholder="sarah@example.com"
-                        />
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Phone Number</label>
-                        <input
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                          placeholder="07123 456789"
-                        />
-                      </div>
-                      {enquiryType === "owner" ? (
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Property Type *</label>
-                          <input
-                            type="text"
-                            required
-                            value={formData.propertyType}
-                            onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                            placeholder="e.g. 10 bed Country Manor"
-                          />
-                        </div>
-                      ) : (
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Group Size *</label>
-                          <select
-                            required
-                            value={formData.groupSize}
-                            onChange={(e) => setFormData({ ...formData, groupSize: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                          >
-                            <option value="">Select group size</option>
-                            <option value="6-10">6-10 guests</option>
-                            <option value="11-15">11-15 guests</option>
-                            <option value="16-20">16-20 guests</option>
-                            <option value="21+">21+ guests</option>
-                          </select>
-                        </div>
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                        Your Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => handleChange('name', e.target.value)}
+                        onBlur={() => handleBlur('name')}
+                        className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
+                          errors.name && touched.name 
+                            ? 'border-red-400 focus:border-red-500' 
+                            : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                        } focus:outline-none`}
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                      />
+                      {errors.name && touched.name && (
+                        <p id="name-error" className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
+                          {errors.name}
+                        </p>
                       )}
                     </div>
 
-                    {enquiryType !== "owner" && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                          Email Address <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => handleChange('email', e.target.value)}
+                          onBlur={() => handleBlur('email')}
+                          className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
+                            errors.email && touched.email 
+                              ? 'border-red-400 focus:border-red-500' 
+                              : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                          } focus:outline-none`}
+                          aria-invalid={!!errors.email}
+                          aria-describedby={errors.email ? 'email-error' : undefined}
+                        />
+                        {errors.email && touched.email && (
+                          <p id="email-error" className="mt-1.5 text-sm text-red-500">
+                            {errors.email}
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => handleChange('phone', e.target.value)}
+                          onBlur={() => handleBlur('phone')}
+                          className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
+                            errors.phone && touched.phone 
+                              ? 'border-red-400 focus:border-red-500' 
+                              : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                          } focus:outline-none`}
+                          aria-invalid={!!errors.phone}
+                          aria-describedby={errors.phone ? 'phone-error' : undefined}
+                        />
+                        {errors.phone && touched.phone && (
+                          <p id="phone-error" className="mt-1.5 text-sm text-red-500">
+                            {errors.phone}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="relative">
+                        <label htmlFor="dates" className="block text-sm font-semibold mb-2">
+                          Event Date <span className="text-red-500">*</span>
+                        </label>
                         <div className="relative">
-                          <label className="block text-sm font-medium mb-2">Preferred Dates *</label>
-                          <div className="relative">
-                            <input
-                              type="text"
-                              required
-                              value={formData.dates}
-                              onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
-                              onClick={() => setShowCalendar(!showCalendar)}
-                              className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none cursor-pointer"
-                              placeholder="Select dates (DD/MM/YYYY)"
-                              readOnly
+                          <input
+                            id="dates"
+                            type="text"
+                            value={formData.dates}
+                            onClick={() => setShowCalendar(!showCalendar)}
+                            onBlur={() => handleBlur('dates')}
+                            readOnly
+                            className={`w-full px-4 py-3.5 pr-12 rounded-xl border-2 transition-colors text-base cursor-pointer ${
+                              errors.dates && touched.dates 
+                                ? 'border-red-400 focus:border-red-500' 
+                                : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                            } focus:outline-none`}
+                            placeholder="Select dates"
+                            aria-invalid={!!errors.dates}
+                            aria-describedby={errors.dates ? 'dates-error' : undefined}
+                          />
+                          <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                        </div>
+                        {errors.dates && touched.dates && (
+                          <p id="dates-error" className="mt-1.5 text-sm text-red-500">
+                            {errors.dates}
+                          </p>
+                        )}
+                        {showCalendar && (
+                          <div className="absolute z-50 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl p-4 left-0 right-0 md:left-auto md:right-auto">
+                            <DayPicker
+                              mode="range"
+                              selected={dateRange as any}
+                              onSelect={handleDateSelect}
+                              disabled={{ before: new Date() }}
                             />
-                            <Calendar 
-                              className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
-                            />
-                          </div>
-                          {showCalendar && (
-                            <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4">
-                              <DayPicker
-                                mode="range"
-                                selected={dateRange as any}
-                                onSelect={handleDateSelect}
-                                disabled={{ before: new Date() }}
-                              />
-                              <div className="mt-3 flex gap-2">
-                                {dateRange.from && dateRange.to && (
-                                  <button
-                                    type="button"
-                                    onClick={() => setShowCalendar(false)}
-                                    className="flex-1 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors"
-                                    style={{
-                                      background: "var(--color-accent-sage)",
-                                    }}
-                                  >
-                                    Confirm Dates
-                                  </button>
-                                )}
+                            <div className="mt-3 flex gap-2">
+                              {dateRange.from && dateRange.to && (
                                 <button
                                   type="button"
-                                  onClick={() => {
-                                    setDateRange({});
-                                    setFormData({ ...formData, dates: "" });
-                                  }}
-                                  className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+                                  onClick={() => setShowCalendar(false)}
+                                  className="flex-1 px-4 py-2.5 text-sm font-medium text-white rounded-lg transition-colors"
+                                  style={{ background: "var(--color-accent-sage)" }}
                                 >
-                                  Clear
+                                  Confirm Dates
                                 </button>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Preferred Location</label>
-                          <select
-                            value={formData.location}
-                            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none"
-                          >
-                            <option value="">Any location</option>
-                            <option value="bath">Bath</option>
-                            <option value="birmingham">Birmingham</option>
-                            <option value="blackpool">Blackpool</option>
-                            <option value="bournemouth">Bournemouth</option>
-                            <option value="brighton">Brighton</option>
-                            <option value="bristol">Bristol</option>
-                            <option value="cambridge">Cambridge</option>
-                            <option value="canterbury">Canterbury</option>
-                            <option value="cheltenham">Cheltenham</option>
-                            <option value="chester">Chester</option>
-                            <option value="cotswolds">Cotswolds</option>
-                            <option value="durham">Durham</option>
-                            <option value="exeter">Exeter</option>
-                            <option value="harrogate">Harrogate</option>
-                            <option value="lake-district">Lake District</option>
-                            <option value="leeds">Leeds</option>
-                            <option value="liverpool">Liverpool</option>
-                            <option value="london">London</option>
-                            <option value="manchester">Manchester</option>
-                            <option value="margate">Margate</option>
-                            <option value="newcastle">Newcastle</option>
-                            <option value="newquay">Newquay</option>
-                            <option value="nottingham">Nottingham</option>
-                            <option value="oxford">Oxford</option>
-                            <option value="plymouth">Plymouth</option>
-                            <option value="sheffield">Sheffield</option>
-                            <option value="st-ives">St Ives</option>
-                            <option value="stratford-upon-avon">Stratford-upon-Avon</option>
-                            <option value="windsor">Windsor</option>
-                            <option value="york">York</option>
-                          </select>
-                        </div>
-                      </div>
-                    )}
-
-                    {enquiryType === "packages" && (
-                      <div>
-                        <label className="block text-sm font-medium mb-3">
-                          Experiences of Interest (Optional) 
-                          {formData.experiences.length > 0 && (
-                            <span className="ml-2 text-[var(--color-accent-sage)]">
-                              ({formData.experiences.length} selected)
-                            </span>
-                          )}
-                        </label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto p-4 bg-white rounded-xl border border-gray-300">
-                          {experienceOptions.map((option) => (
-                            <div
-                              key={option.value}
-                              className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--color-bg-primary)] transition-colors group"
-                            >
-                              <label 
-                                className="flex items-center gap-3 cursor-pointer flex-1"
+                              )}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setDateRange({});
+                                  handleChange('dates', '');
+                                }}
+                                className="px-4 py-2.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
                               >
-                                <div className="relative">
-                                  <input
-                                    type="checkbox"
-                                    checked={formData.experiences.includes(option.value)}
-                                    onChange={() => handleExperienceToggle(option.value)}
-                                    className="sr-only"
-                                  />
-                                  <div
-                                    className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
-                                      formData.experiences.includes(option.value)
-                                        ? "bg-[var(--color-accent-sage)] border-[var(--color-accent-sage)]"
-                                        : "border-gray-300 group-hover:border-[var(--color-accent-sage)]"
-                                    }`}
-                                  >
-                                    {formData.experiences.includes(option.value) && (
-                                      <Check className="w-3 h-3 text-white" />
-                                    )}
-                                  </div>
-                                </div>
-                                <span className="text-sm text-[var(--color-neutral-dark)] group-hover:text-[var(--color-text-primary)]">
-                                  {option.label}
-                                </span>
-                              </label>
+                                Clear
+                              </button>
                             </div>
-                          ))}
-                        </div>
+                          </div>
+                        )}
                       </div>
-                    )}
+                      <div>
+                        <label htmlFor="location" className="block text-sm font-semibold mb-2">
+                          Preferred Location
+                        </label>
+                        <select
+                          id="location"
+                          value={formData.location}
+                          onChange={(e) => handleChange('location', e.target.value)}
+                          className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none text-base appearance-none bg-white"
+                          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
+                        >
+                          <option value="">Any location</option>
+                          <option value="bath">Bath</option>
+                          <option value="brighton">Brighton</option>
+                          <option value="bristol">Bristol</option>
+                          <option value="cotswolds">Cotswolds</option>
+                          <option value="lake-district">Lake District</option>
+                          <option value="london">London</option>
+                          <option value="manchester">Manchester</option>
+                          <option value="newquay">Newquay</option>
+                          <option value="york">York</option>
+                        </select>
+                      </div>
+                    </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        {enquiryType === "owner" ? "Tell us about your property and marketing goals" : "Your Message"}
+                      <label htmlFor="groupSize" className="block text-sm font-semibold mb-2">
+                        Group Size <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="groupSize"
+                        value={formData.groupSize}
+                        onChange={(e) => handleChange('groupSize', e.target.value)}
+                        onBlur={() => handleBlur('groupSize')}
+                        className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base appearance-none bg-white ${
+                          errors.groupSize && touched.groupSize 
+                            ? 'border-red-400 focus:border-red-500' 
+                            : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                        } focus:outline-none`}
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
+                        aria-invalid={!!errors.groupSize}
+                        aria-describedby={errors.groupSize ? 'groupSize-error' : undefined}
+                      >
+                        <option value="">Select group size</option>
+                        <option value="6-10">6-10 guests</option>
+                        <option value="11-15">11-15 guests</option>
+                        <option value="16-20">16-20 guests</option>
+                        <option value="21-30">21-30 guests</option>
+                        <option value="30+">30+ guests</option>
+                      </select>
+                      {errors.groupSize && touched.groupSize && (
+                        <p id="groupSize-error" className="mt-1.5 text-sm text-red-500">
+                          {errors.groupSize}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                        Anything else we should know? <span className="text-gray-400 font-normal">(optional)</span>
                       </label>
                       <textarea
+                        id="message"
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={6}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[var(--color-accent-sage)] focus:outline-none resize-none"
-                        placeholder={enquiryType === "owner" ? "e.g. Number of rooms, current booking volume, etc." : "Tell us more about your group and requirements..."}
+                        onChange={(e) => handleChange('message', e.target.value)}
+                        rows={3}
+                        className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none resize-none text-base"
+                        placeholder="E.g. activities you're interested in, special requirements..."
                       />
                     </div>
 
@@ -601,23 +520,164 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full rounded-2xl py-6 text-lg font-medium transition-all duration-200 hover:shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{
-                        background: "var(--color-accent-sage)",
-                        color: "white",
-                      }}
+                      className="w-full rounded-xl py-4 md:py-5 text-base md:text-lg font-semibold transition-all duration-200 hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed min-h-[56px]"
+                      style={{ background: "var(--color-accent-sage)", color: "white" }}
                     >
-                      {isSubmitting ? "Sending..." : "Send Inquiry"}
+                      {isSubmitting ? "Sending..." : "Get Your Free Quote"}
                     </Button>
+
+                    <p className="text-center text-sm text-[var(--color-neutral-dark)] flex items-center justify-center gap-2">
+                      <Clock className="w-4 h-4" />
+                      We usually reply within 2 hours
+                    </p>
                   </form>
                 </div>
-              )}
+              </div>
+
+              <div className="lg:col-span-2 order-2 space-y-6">
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <h3 className="font-bold text-lg mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                    Why Book With Us
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">10+ Years Experience</p>
+                        <p className="text-sm text-[var(--color-neutral-dark)]">Trusted hen party specialists since 2014</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
+                        <Star className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">5-Star Reviews</p>
+                        <p className="text-sm text-[var(--color-neutral-dark)]">Rated excellent by thousands of groups</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
+                        <Shield className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">UK-Based Support</p>
+                        <p className="text-sm text-[var(--color-neutral-dark)]">Real people, based in Brighton</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)]/10 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">10,000+ Groups Helped</p>
+                        <p className="text-sm text-[var(--color-neutral-dark)]">We know what makes a great hen do</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <h3 className="font-bold text-lg mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                    Other Ways to Reach Us
+                  </h3>
+                  <div className="space-y-3">
+                    <a
+                      href="tel:+441273569301"
+                      className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Call Us</p>
+                        <p className="text-[var(--color-accent-sage)]">01273 569301</p>
+                      </div>
+                    </a>
+                    <a
+                      href="mailto:hello@groupescapehouses.co.uk"
+                      className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Email Us</p>
+                        <p className="text-[var(--color-accent-sage)] text-sm">hello@groupescapehouses.co.uk</p>
+                      </div>
+                    </a>
+                    <a
+                      href="https://wa.me/441273569301"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
+                        <MessageCircle className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">WhatsApp</p>
+                        <p className="text-[#25D366] text-sm">Message us directly</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="text-center py-4">
+                  <p className="text-sm text-[var(--color-neutral-dark)] mb-2">Popular searches:</p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    <Link href="/hen-party-houses" className="text-sm text-[var(--color-accent-sage)] hover:underline">Hen Party Houses</Link>
+                    <span className="text-gray-300">•</span>
+                    <Link href="/destinations/brighton" className="text-sm text-[var(--color-accent-sage)] hover:underline">Brighton</Link>
+                    <span className="text-gray-300">•</span>
+                    <Link href="/destinations/cotswolds" className="text-sm text-[var(--color-accent-sage)] hover:underline">Cotswolds</Link>
+                    <span className="text-gray-300">•</span>
+                    <Link href="/experiences" className="text-sm text-[var(--color-accent-sage)] hover:underline">Activities</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 max-w-3xl mx-auto">
+              <h2 className="text-2xl font-bold text-center mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-3">
+                {faqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl shadow-sm overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                      className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+                      aria-expanded={expandedFaq === index}
+                    >
+                      <span className="font-semibold text-[15px]">{faq.question}</span>
+                      {expandedFaq === index ? (
+                        <ChevronUp className="w-5 h-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    {expandedFaq === index && (
+                      <div className="px-5 pb-4">
+                        <p className="text-[var(--color-neutral-dark)] text-[15px] leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
