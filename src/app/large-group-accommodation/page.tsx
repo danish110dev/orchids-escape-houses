@@ -76,6 +76,10 @@ const topDestinations = [
   { name: "Yorkshire", slug: "yorkshire", description: "Moors and dales with traditional country estates" },
   { name: "Devon", slug: "devon", description: "Dartmoor lodges and seaside retreats" },
   { name: "Peak District", slug: "peak-district", description: "Stone cottages and countryside retreats" },
+  { name: "Norfolk", slug: "norfolk", description: "Broads and coastline with peaceful retreats" },
+  { name: "Sussex", slug: "sussex", description: "South Downs and coastal properties" },
+  { name: "Suffolk", slug: "suffolk", description: "Heritage coastline and countryside charm" },
+  { name: "Bath", slug: "bath", description: "Georgian elegance and spa town luxury" },
 ];
 
 export default async function LargeGroupAccommodationPage() {
@@ -380,11 +384,45 @@ export default async function LargeGroupAccommodationPage() {
                 </div>
               </details>
             ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
+        {/* Related Categories */}
+        <section className="py-16 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Browse Related Categories
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-8">
+              Explore our other specialist collections of group accommodation across the UK.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/large-holiday-houses" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Home className="w-10 h-10 mb-4 text-[var(--color-accent-sage)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Large Holiday Houses</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Spacious holiday homes for memorable group getaways</p>
+              </Link>
+              <Link href="/houses-with-hot-tubs" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Waves className="w-10 h-10 mb-4 text-[var(--color-accent-pink)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Houses with Hot Tubs</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Relax and unwind in properties featuring private hot tubs</p>
+              </Link>
+              <Link href="/houses-with-games-rooms" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Gamepad2 className="w-10 h-10 mb-4 text-[var(--color-accent-gold)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Houses with Games Rooms</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Entertainment-ready properties for fun-filled stays</p>
+              </Link>
+              <Link href="/hen-party-houses" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Users className="w-10 h-10 mb-4 text-[var(--color-accent-sage)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Hen Party Houses</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Perfect venues for unforgettable hen celebrations</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="bg-white p-12 rounded-3xl shadow-lg">

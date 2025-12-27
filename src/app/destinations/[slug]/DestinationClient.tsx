@@ -1465,28 +1465,50 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         </div>
       </div>
 
-      {/* SEO Content Section with Internal Links */}
-      <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
-              Looking for the perfect <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
-              Group Escape Houses offers stunning <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group accommodation</Link> perfect 
-              for celebrations. Our <Link href="/house-styles/party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">party houses</Link> feature 
-              amazing amenities including <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, <Link href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium">swimming pools</Link>, 
-              and <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.
-            </p>
-            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
-              Whether you're planning a <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen do</Link>, <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebration</Link>, 
-              or <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, {destination.name} combines the 
-              perfect location with our <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link>. 
-              Explore our <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> to add cocktail classes, spa treatments, 
-              and more. Also discover other popular destinations including <Link href="/destinations/london" className="text-[var(--color-accent-sage)] hover:underline font-medium">London</Link>, <Link href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium">Bath</Link>, 
-              and <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">more UK party destinations</Link>.
-            </p>
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-12 bg-white border-b border-[var(--color-bg-secondary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
+                Looking for the perfect <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
+                Group Escape Houses offers stunning <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link> perfect 
+                for celebrations. Our <Link href="/large-holiday-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">large holiday houses</Link> feature 
+                amazing amenities including <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, swimming pools, 
+                and <Link href="/houses-with-games-rooms" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.
+              </p>
+              <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+                Whether you're planning a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen weekend</Link>, <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebration</Link>, 
+                or <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, {destination.name} combines the 
+                perfect location with our <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury houses</Link>. 
+                Explore our <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> to add cocktail classes, spa treatments, 
+                and more. Also discover other popular destinations including <Link href="/destinations/lake-district" className="text-[var(--color-accent-sage)] hover:underline font-medium">the Lake District</Link>, <Link href="/destinations/cotswolds" className="text-[var(--color-accent-sage)] hover:underline font-medium">Cotswolds</Link>, 
+                and <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">more UK group accommodation destinations</Link>.
+              </p>
+            </div>
+            
+            {/* Category Links Section */}
+            <div className="mt-8 pt-8 border-t border-[var(--color-bg-secondary)]">
+              <h3 className="text-lg font-semibold mb-4 text-[var(--color-text-primary)]">Browse by Property Type</h3>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/large-group-accommodation" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Large Group Accommodation
+                </Link>
+                <Link href="/large-holiday-houses" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Large Holiday Houses
+                </Link>
+                <Link href="/houses-with-hot-tubs" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Houses with Hot Tubs
+                </Link>
+                <Link href="/houses-with-games-rooms" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Houses with Games Rooms
+                </Link>
+                <Link href="/hen-party-houses" className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] rounded-full text-sm font-medium hover:bg-[var(--color-accent-sage)] hover:text-white transition-colors">
+                  Hen Party Houses
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Overview */}
       <section className="py-16 bg-white">

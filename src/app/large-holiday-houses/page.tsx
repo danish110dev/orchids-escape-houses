@@ -309,42 +309,82 @@ export default async function LargeHolidayHousesPage() {
             From dramatic coastlines to peaceful countryside, we offer large holiday houses in the UK's most sought-after locations. Each destination brings its own character to your group holiday experience.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/destinations/lake-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Lake District</span>
-            </Link>
-            <Link href="/destinations/cornwall" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cornwall</span>
-            </Link>
-            <Link href="/destinations/cotswolds" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cotswolds</span>
-            </Link>
-            <Link href="/destinations/devon" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Devon</span>
-            </Link>
-            <Link href="/destinations/yorkshire" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Yorkshire</span>
-            </Link>
-            <Link href="/destinations/norfolk" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Norfolk</span>
-            </Link>
-            <Link href="/destinations/peak-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Peak District</span>
-            </Link>
-            <Link href="/destinations/sussex" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
-              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Sussex</span>
-            </Link>
-          </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Link href="/destinations/lake-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Lake District</span>
+              </Link>
+              <Link href="/destinations/cornwall" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cornwall</span>
+              </Link>
+              <Link href="/destinations/cotswolds" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cotswolds</span>
+              </Link>
+              <Link href="/destinations/devon" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Devon</span>
+              </Link>
+              <Link href="/destinations/yorkshire" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Yorkshire</span>
+              </Link>
+              <Link href="/destinations/norfolk" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Norfolk</span>
+              </Link>
+              <Link href="/destinations/peak-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Peak District</span>
+              </Link>
+              <Link href="/destinations/sussex" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Sussex</span>
+              </Link>
+              <Link href="/destinations/bath" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Bath</span>
+              </Link>
+              <Link href="/destinations/suffolk" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+                <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Suffolk</span>
+              </Link>
+            </div>
           
           <div className="text-center mt-8">
             <Link href="/destinations" className="text-[var(--color-accent-sage)] font-medium hover:underline">
               Explore all UK destinations →
             </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQs */}
+        {/* Related Categories */}
+        <section className="py-16 bg-[var(--color-bg-primary)]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Browse Related Categories
+            </h2>
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-8">
+              Find the perfect property by exploring our specialist collections.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/large-group-accommodation" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Users className="w-10 h-10 mb-4 text-[var(--color-accent-sage)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Large Group Accommodation</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Houses for 10-30+ guests across the UK</p>
+              </Link>
+              <Link href="/houses-with-hot-tubs" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Waves className="w-10 h-10 mb-4 text-[var(--color-accent-pink)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Houses with Hot Tubs</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Relax in properties with private hot tubs</p>
+              </Link>
+              <Link href="/houses-with-games-rooms" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Gamepad2 className="w-10 h-10 mb-4 text-[var(--color-accent-gold)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Houses with Games Rooms</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Entertainment-ready properties</p>
+              </Link>
+              <Link href="/hen-party-houses" className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all">
+                <Home className="w-10 h-10 mb-4 text-[var(--color-accent-sage)] group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">Hen Party Houses</h3>
+                <p className="text-sm text-[var(--color-neutral-dark)]">Perfect venues for hen celebrations</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "var(--font-display)" }}>

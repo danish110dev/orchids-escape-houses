@@ -67,6 +67,45 @@ async function getRelatedProperties(excludeSlug: string, location: string) {
   return result.filter(p => p.slug !== excludeSlug).slice(0, 2);
 }
 
+function getDestinationSlug(location: string): string | null {
+  const locationLower = location.toLowerCase();
+  const destinationMap: Record<string, string> = {
+    'lake district': 'lake-district',
+    'cumbria': 'lake-district',
+    'cornwall': 'cornwall',
+    'devon': 'devon',
+    'cotswolds': 'cotswolds',
+    'yorkshire': 'yorkshire',
+    'north yorkshire': 'yorkshire',
+    'peak district': 'peak-district',
+    'derbyshire': 'peak-district',
+    'norfolk': 'norfolk',
+    'suffolk': 'suffolk',
+    'sussex': 'sussex',
+    'east sussex': 'sussex',
+    'west sussex': 'sussex',
+    'brighton': 'brighton',
+    'bath': 'bath',
+    'somerset': 'bath',
+    'london': 'london',
+    'manchester': 'manchester',
+    'liverpool': 'liverpool',
+    'newcastle': 'newcastle',
+    'york': 'york',
+    'bristol': 'bristol',
+    'oxford': 'oxford',
+    'cambridge': 'cambridge',
+    'cardiff': 'cardiff',
+  };
+  
+  for (const [key, value] of Object.entries(destinationMap)) {
+    if (locationLower.includes(key)) {
+      return value;
+    }
+  }
+  return null;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const property = await getProperty(slug);
@@ -141,6 +180,9 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
     getPropertyImages(property.id),
     getRelatedProperties(slug, property.location),
   ]);
+
+  const destinationSlug = getDestinationSlug(property.location);
+  const destinationName = destinationSlug ? destinationSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : null;
 
   const allImages = [property.heroImage, ...images.map(img => img.imageURL)];
   const checkInTime = property.checkInOut?.split('-')[0]?.trim() || '4pm';
@@ -331,28 +373,49 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                 </div>
               </div>
 
-              {/* Description - Critical SEO content */}
-              <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4" style={{ fontFamily: "var(--font-body)" }}>
-                  About {property.title}
-                </h2>
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-[var(--color-neutral-dark)] leading-relaxed mb-4">
-                    {property.description}
-                  </p>
-                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-                    This luxury property in {property.location} features premium amenities perfect for{" "}
-                    <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen parties</Link>,{" "}
-                    <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebrations</Link>, and{" "}
-                    <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend breaks</Link>.{" "}
-                    Explore more{" "}
-                    <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group houses</Link>{" "}
-                    or discover other{" "}
-                    <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link>{" "}
-                    perfect for your celebration.
-                  </p>
+                {/* Description - Critical SEO content */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold mb-4" style={{ fontFamily: "var(--font-body)" }}>
+                    About {property.title}
+                  </h2>
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed mb-4">
+                      {property.description}
+                    </p>
+                    <p className="text-[var(--color-neutral-dark)] leading-relaxed mb-4">
+                      This luxury property in {property.location} is part of our{" "}
+                      <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link>{" "}
+                      collection, perfect for{" "}
+                      <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen parties</Link>,{" "}
+                      <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">special celebrations</Link>, and{" "}
+                      <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend breaks</Link>.{" "}
+                      Browse our selection of{" "}
+                      <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">houses with hot tubs</Link>{" "}
+                      or explore <Link href="/large-holiday-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">large holiday houses</Link>{" "}
+                      across the UK.
+                    </p>
+                    {destinationSlug && destinationName && (
+                      <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                        Discover more{" "}
+                        <Link href={`/destinations/${destinationSlug}`} className="text-[var(--color-accent-sage)] hover:underline font-medium">
+                          group accommodation in {destinationName}
+                        </Link>{" "}
+                        or explore other{" "}
+                        <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link>{" "}
+                        for your next group getaway.
+                      </p>
+                    )}
+                    {!destinationSlug && (
+                      <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                        Explore more{" "}
+                        <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury group houses</Link>{" "}
+                        or discover other{" "}
+                        <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link>{" "}
+                        perfect for your celebration.
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
 
               {/* Features */}
               <div className="bg-white rounded-2xl p-8 mb-8 shadow-md">
