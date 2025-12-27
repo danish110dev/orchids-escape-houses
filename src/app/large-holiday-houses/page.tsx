@@ -1,27 +1,26 @@
-import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
-import { Home, Users, MapPin, Check, ArrowRight, Star, Bed, Bath, ChevronDown, Waves, Gamepad2, Film } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import UKServiceSchema from "@/components/UKServiceSchema";
 import PropertyCard from "@/components/PropertyCard";
+import UKServiceSchema from "@/components/UKServiceSchema";
 import { Button } from "@/components/ui/button";
+import { Users, Home, MapPin, Bed, Waves, Gamepad2, TreePine, Sun, Palmtree, Mountain, ChevronDown } from "lucide-react";
 import { db } from "@/db";
 import { properties } from "@/db/schema";
-import { eq } from "drizzle-orm";
-import { validateImageUrl } from "@/lib/utils";
+import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Large Holiday Houses UK | Luxury Houses for Groups | Group Escape Houses",
-  description: "Book large holiday houses across the UK perfect for group getaways. Luxury properties sleeping 10-30 guests with hot tubs, games rooms, pools and stunning locations. Ideal for families, friends and celebrations.",
-  keywords: "large holiday houses UK, big holiday homes, large houses to rent UK, holiday homes for groups, luxury holiday houses, group holiday houses UK",
+  title: "Large Holiday Houses UK | Spacious Homes for Group Holidays | Group Escape Houses",
+  description: "Discover large holiday houses across the UK perfect for group getaways. Spacious homes sleeping 10-30 guests with stunning locations, hot tubs, games rooms, and countryside or coastal settings.",
+  keywords: "large holiday houses UK, big holiday homes, group holiday houses, spacious holiday rentals, large house holidays UK, family holiday houses, group holiday accommodation",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/large-holiday-houses",
   },
   openGraph: {
-    title: "Large Holiday Houses UK | Luxury Houses for Groups",
-    description: "Book large holiday houses across the UK perfect for group getaways. Luxury properties sleeping 10-30 guests with hot tubs, games rooms and stunning locations.",
+    title: "Large Holiday Houses UK | Spacious Homes for Group Holidays",
+    description: "Discover large holiday houses across the UK perfect for group getaways. Spacious homes sleeping 10-30 guests.",
     url: "https://www.groupescapehouses.co.uk/large-holiday-houses",
     siteName: "Group Escape Houses",
     locale: "en_GB",
@@ -29,79 +28,87 @@ export const metadata: Metadata = {
   },
 };
 
+async function getFeaturedProperties() {
+  try {
+    const result = await db
+      .select()
+      .from(properties)
+      .where(eq(properties.isPublished, true))
+      .orderBy(desc(properties.sleepsMax))
+      .limit(6);
+    return result;
+  } catch (error) {
+    return [];
+  }
+}
+
+const faqs = [
+  {
+    question: "What makes a large holiday house different from standard accommodation?",
+    answer: "Large holiday houses offer significantly more space than typical holiday rentals, with multiple bedrooms (usually 5-15), several bathrooms, spacious communal living areas, and often extensive private grounds. They're designed for groups to stay together rather than being split across multiple properties.",
+  },
+  {
+    question: "How many guests can your large holiday houses accommodate?",
+    answer: "Our large holiday houses sleep anywhere from 10 to 30+ guests. We have properties suitable for small groups of 10-12, medium groups of 15-20, and large gatherings of 25-30 or more. Each listing clearly states maximum occupancy.",
+  },
+  {
+    question: "Are large holiday houses good value for money?",
+    answer: "Absolutely. When the total cost is split between guests, large holiday houses often work out at £30-60 per person per night for luxury accommodation with premium amenities. This is frequently cheaper than individual hotel rooms while offering far more space and privacy.",
+  },
+  {
+    question: "What locations are available for large holiday houses?",
+    answer: "We offer large holiday houses across the UK, from coastal Cornwall and Devon to the Lake District, Yorkshire Dales, Cotswolds, Scottish Highlands, and everywhere in between. Whether you want beaches, mountains, or countryside, we have properties to suit.",
+  },
+  {
+    question: "Can we bring dogs to large holiday houses?",
+    answer: "Many of our properties are dog-friendly, welcoming well-behaved pets. Each property listing indicates whether dogs are allowed and any restrictions that apply. We recommend booking early as dog-friendly large houses are particularly popular.",
+  },
+  {
+    question: "What's included in the rental price?",
+    answer: "All our properties include bedding, towels, fully equipped kitchens, WiFi, heating, and parking. Many also include hot tub access, games rooms, and outdoor amenities. Any additional costs or optional extras are clearly stated in each property listing.",
+  },
+];
+
+const holidayTypes = [
+  { 
+    title: "Coastal Holidays", 
+    description: "Beach houses and clifftop retreats with sea views",
+    icon: Palmtree,
+    destinations: ["Cornwall", "Devon", "Norfolk", "Sussex"]
+  },
+  { 
+    title: "Countryside Escapes", 
+    description: "Rural retreats surrounded by rolling hills and farmland",
+    icon: TreePine,
+    destinations: ["Cotswolds", "Yorkshire", "Peak District", "Lake District"]
+  },
+  { 
+    title: "Mountain Retreats", 
+    description: "Highland lodges and lakeside properties with dramatic views",
+    icon: Mountain,
+    destinations: ["Lake District", "Snowdonia", "Scottish Highlands", "Peak District"]
+  },
+];
+
 export default async function LargeHolidayHousesPage() {
-  const holidayHouses = await db
-    .select()
-    .from(properties)
-    .where(eq(properties.isPublished, true))
-    .limit(6);
+  const featuredProperties = await getFeaturedProperties();
 
-  const houseStyles = [
-    { title: "Manor Houses", description: "Grand period properties with extensive grounds and historic character", slug: "manor-houses", image: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?w=800&q=80" },
-    { title: "Country Houses", description: "Classic British countryside homes in rural settings", slug: "country-houses", image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" },
-    { title: "Luxury Cottages", description: "Upscale cottages with premium amenities and modern comforts", slug: "large-cottages", image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80" },
-    { title: "Coastal Properties", description: "Beachside homes with sea views and beach access", slug: "luxury-cottages-with-sea-views", image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80" },
-  ];
-
-  const popularFeatures = [
-    { title: "Hot Tubs", description: "Private hot tubs for relaxation", icon: Waves, link: "/houses-with-hot-tubs" },
-    { title: "Games Rooms", description: "Pool tables, darts and entertainment", icon: Gamepad2, link: "/houses-with-games-rooms" },
-    { title: "Cinema Rooms", description: "Private cinema experiences", icon: Film, link: "/features/cinema-room" },
-    { title: "Swimming Pools", description: "Indoor and outdoor pools", icon: Waves, link: "/features/swimming-pool" },
-  ];
-
-  const topRegions = [
-    { name: "Lake District", slug: "lake-district", description: "Mountain retreats with stunning lake views" },
-    { name: "Cornwall", slug: "cornwall", description: "Coastal escapes with surfing beaches" },
-    { name: "Cotswolds", slug: "cotswolds", description: "Honey-stone villages and rolling hills" },
-    { name: "Devon", slug: "devon", description: "Dartmoor wilderness and cream tea country" },
-    { name: "Yorkshire", slug: "yorkshire", description: "Dales, moors and coastal charm" },
-    { name: "Norfolk", slug: "norfolk", description: "Broads, beaches and big skies" },
-    { name: "Peak District", slug: "peak-district", description: "Walking country and spa towns" },
-    { name: "Sussex", slug: "sussex", description: "South Downs and seaside towns" },
-  ];
-
-  const faqs = [
-    {
-      question: "What makes a property a 'large holiday house'?",
-      answer: "Large holiday houses are self-catering properties that can accommodate 10 or more guests. They typically feature multiple bedrooms, several bathrooms, spacious living areas, and facilities designed for groups. Unlike hotels, you have exclusive use of the entire property, including gardens, hot tubs, and other amenities."
-    },
-    {
-      question: "What types of large holiday houses do you offer?",
-      answer: "Our portfolio includes manor houses, country estates, converted barns, large cottages, coastal villas, and modern luxury homes. Each property type offers different character and amenities, from historic period features to contemporary design. Browse our house styles to find your perfect match."
-    },
-    {
-      question: "How far in advance should I book?",
-      answer: "For peak periods (school holidays, bank holiday weekends, Christmas and New Year), we recommend booking 6-12 months in advance. Popular properties fill quickly. For midweek stays and off-peak periods, 2-3 months notice is usually sufficient, though last-minute availability can sometimes be found."
-    },
-    {
-      question: "Are large holiday houses good value?",
-      answer: "Absolutely. When the cost is split between 10, 15, or 20+ guests, large holiday houses often work out cheaper per person than individual hotel rooms. You also save on dining costs with self-catering facilities, and the exclusive use of amenities like hot tubs and games rooms adds significant value."
-    },
-    {
-      question: "What should I consider when choosing a property?",
-      answer: "Key factors include: total sleeping capacity versus your group size, bedroom configuration (couples, families, single beds), accessibility requirements, proximity to your planned activities, and specific amenities your group wants. Our team can help match you to the perfect property."
-    },
-    {
-      question: "Can I book add-on experiences?",
-      answer: "Yes, many groups enhance their stay with add-on experiences including private chefs, spa treatments, cocktail masterclasses, and activity packages. These can be arranged when you book or added closer to your stay date. See our experiences page for full details."
-    },
-  ];
-
-  const transformedProperties = holidayHouses.map(p => ({
+  const transformedProperties = featuredProperties.map(p => ({
     id: p.id.toString(),
     title: p.title,
     location: p.location,
     sleeps: p.sleepsMax,
     bedrooms: p.bedrooms,
     priceFrom: Math.round(p.priceFromMidweek / 3),
-    image: validateImageUrl(p.heroImage, p.title),
+    image: p.heroImage,
     features: [],
     slug: p.slug,
   }));
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <Header />
+      
       <UKServiceSchema 
         type="breadcrumb" 
         data={{
@@ -111,52 +118,33 @@ export default async function LargeHolidayHousesPage() {
           ]
         }}
       />
-      <UKServiceSchema 
-        type="faq" 
-        data={{ faqs }}
-      />
-      <UKServiceSchema 
-        type="itemList" 
-        data={{
-          items: transformedProperties.map(p => ({ ...p, url: `/properties/${p.slug}` }))
-        }}
-      />
-      <Header />
+      <UKServiceSchema type="faq" data={{ faqs }} />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90"
-          alt="Large luxury holiday house in the UK countryside"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40" />
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-20">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&q=90"
+            alt="Large holiday house UK countryside"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
         
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-32 text-center">
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white" style={{ fontFamily: "var(--font-display)" }}>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-display)" }}>
             Large Holiday Houses UK
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-white/90">
-            Discover stunning large holiday homes across Britain. From country manors to coastal retreats, find the perfect house for your group getaway.
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
+            Spacious holiday homes for unforgettable group getaways. From coastal retreats to countryside escapes, find the perfect large house for your next holiday.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-7 text-xl font-bold transition-all duration-300 hover:scale-105"
-              style={{ background: "var(--color-accent-sage)", color: "white" }}
-            >
-              <Link href="/properties">Browse Holiday Houses</Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="rounded-2xl px-8 py-6 text-lg font-medium" style={{ background: "var(--color-accent-sage)", color: "white" }}>
+              <Link href="/properties">Browse All Houses</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-7 text-xl font-bold bg-white/10 backdrop-blur-sm border-2 text-white hover:bg-white hover:text-black transition-all duration-300"
-            >
+            <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 py-6 text-lg font-medium bg-white/10 border-white text-white hover:bg-white hover:text-black">
               <Link href="/contact">Check Availability</Link>
             </Button>
           </div>
@@ -164,228 +152,143 @@ export default async function LargeHolidayHousesPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center" style={{ fontFamily: "var(--font-display)" }}>
-              The Best Large Holiday Houses in the UK
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Unforgettable Group Holidays in Spacious UK Houses
             </h2>
-            <div className="prose prose-lg max-w-none text-[var(--color-neutral-dark)]">
-              <p className="text-lg leading-relaxed mb-6">
-                There's something special about gathering your favourite people in a large holiday house. No cramped hotel rooms or coordinating across different accommodations — just one beautiful property where everyone can be together, creating memories that last a lifetime.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Group Escape Houses curates the finest <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link> across the United Kingdom. Our collection spans the dramatic landscapes of the <Link href="/destinations/lake-district" className="text-[var(--color-accent-sage)] hover:underline font-medium">Lake District</Link>, the golden beaches of <Link href="/destinations/cornwall" className="text-[var(--color-accent-sage)] hover:underline font-medium">Cornwall</Link>, the rolling hills of the <Link href="/destinations/cotswolds" className="text-[var(--color-accent-sage)] hover:underline font-medium">Cotswolds</Link>, and everywhere in between. Whether you're seeking a <Link href="/house-styles/manor-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">grand manor house</Link> for a milestone celebration or a <Link href="/house-styles/large-cottages" className="text-[var(--color-accent-sage)] hover:underline font-medium">cosy large cottage</Link> for a family reunion, we have properties to match every vision.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Our large holiday houses come equipped with the amenities that transform a good holiday into an extraordinary one. Many feature <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">private hot tubs</Link> for evening relaxation, <Link href="/houses-with-games-rooms" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> for rainy day entertainment, <Link href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium">swimming pools</Link> for summer fun, and <Link href="/features/cinema-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">cinema rooms</Link> for movie nights. Combined with fully equipped kitchens, spacious dining areas, and beautiful grounds, these properties offer everything you need for the perfect group escape.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Large holiday houses are ideal for <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">birthday celebrations</Link>, <Link href="/holiday-focus/multi-generational-holidays" className="text-[var(--color-accent-sage)] hover:underline font-medium">family reunions</Link>, <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend breaks with friends</Link>, <Link href="/holiday-focus/business-offsite-corporate-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">corporate retreats</Link>, and <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen parties</Link>. Whatever brings your group together, we'll help you find the perfect setting.
-              </p>
-            </div>
+            
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              There's something special about gathering your favourite people under one roof for a holiday together. At Group Escape Houses, we curate a collection of <strong>large holiday houses across the UK</strong> that make group getaways not just possible, but truly memorable. Our properties range from traditional country estates to contemporary coastal homes, each offering the space, comfort, and character that group holidays deserve.
+            </p>
+
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              Unlike piecing together multiple hotel rooms or cramped holiday rentals, our large holiday houses bring your entire group together. Imagine long breakfasts around a farmhouse table, afternoons in the garden, evenings by the fire or in the <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tub</Link>, and late nights in the <Link href="/houses-with-games-rooms" className="text-[var(--color-accent-sage)] hover:underline font-medium">games room</Link>. These are the experiences that create lasting memories.
+            </p>
+
+            <h3 className="text-2xl font-semibold mt-8 mb-4">Why Choose a Large Holiday House?</h3>
+            
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Space to breathe:</strong> Our properties offer generous living areas where everyone can spread out. Multiple lounges mean different activities can happen simultaneously—board games in one room, a film in another, conversation by the fire in a third. When you want together time, spacious dining rooms and open-plan kitchens bring everyone back together.
+            </p>
+
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Privacy and freedom:</strong> A large holiday house is yours exclusively. No hotel corridors, no shared facilities with strangers, no restaurant opening hours to work around. Cook when you want, eat when you want, and enjoy your holiday on your own terms. This privacy is particularly valued by families with young children and groups celebrating special occasions.
+            </p>
+
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Exceptional value:</strong> Split between your group, large holiday houses often cost less per person than a standard hotel room. For a typical group of 15, our properties average £35-55 per person per night—and you're getting far more than a bedroom. You're getting exclusive access to an entire property with premium amenities and grounds.
+            </p>
+
+            <h3 className="text-2xl font-semibold mt-8 mb-4">Perfect for Every Type of Group Holiday</h3>
+            
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Family reunions:</strong> Multi-generational gatherings thrive in our large holiday houses. Grandparents, parents, children, and cousins can all stay together while still having their own space. Many properties feature ground-floor bedrooms for those with mobility needs, enclosed gardens for younger children, and layouts that accommodate different schedules and preferences.
+            </p>
+
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Friend getaways:</strong> Whether you're celebrating a milestone birthday, organising a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party</Link>, or simply catching up with old friends, our properties provide the perfect setting. Many groups return year after year, making the annual house holiday a treasured tradition.
+            </p>
+
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
+              <strong>Special celebrations:</strong> From significant birthdays to anniversary parties and <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium">milestone celebrations</Link>, large holiday houses offer a private venue for your event. Celebrate in style surrounded by the people who matter most, without the constraints and costs of traditional venues.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* House Styles Section */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      {/* Holiday Types */}
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4 text-center" style={{ fontFamily: "var(--font-display)" }}>
-            Explore House Styles
+          <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "var(--font-display)" }}>
+            Find Your Perfect Holiday Setting
           </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] text-center mb-12 max-w-3xl mx-auto">
-            From historic manors to modern coastal homes, find your perfect property style
-          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {houseStyles.map((style) => (
-              <Link
-                key={style.slug}
-                href={`/house-styles/${style.slug}`}
-                className="group relative h-[300px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <Image
-                  src={style.image}
-                  alt={style.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{style.title}</h3>
-                  <p className="text-white/90 mb-4">{style.description}</p>
-                  <span className="text-white font-medium inline-flex items-center gap-2">
-                    Explore {style.title} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-2xl px-10 py-6 font-bold"
-            >
-              <Link href="/house-styles-and-features">View All House Styles</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Popular Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4 text-center" style={{ fontFamily: "var(--font-display)" }}>
-            Popular Amenities
-          </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] text-center mb-12 max-w-3xl mx-auto">
-            The features that make our large holiday houses truly special
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularFeatures.map((feature) => {
-              const Icon = feature.icon;
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {holidayTypes.map((type, index) => {
+              const Icon = type.icon;
               return (
-                <Link
-                  key={feature.link}
-                  href={feature.link}
-                  className="bg-[var(--color-bg-primary)] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group text-center"
-                >
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "var(--color-accent-sage)" }}>
-                    <Icon className="w-8 h-8 text-white" />
+                <div key={index} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-[var(--color-accent-sage)]" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--color-accent-sage)] transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[var(--color-neutral-dark)] text-sm">{feature.description}</p>
-                </Link>
+                  <h3 className="text-xl font-bold mb-3">{type.title}</h3>
+                  <p className="text-[var(--color-neutral-dark)] mb-4">{type.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {type.destinations.map((dest, i) => (
+                      <span key={i} className="text-xs bg-[var(--color-bg-primary)] px-2 py-1 rounded">{dest}</span>
+                    ))}
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      {/* Features Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=90"
-                alt="Luxury large holiday house interior"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Why Book a Large Holiday House?
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Space to Spread Out</h3>
-                    <p className="text-[var(--color-neutral-dark)]">Multiple living areas, bedrooms, and outdoor spaces mean everyone has room to relax or socialise as they choose.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Stunning Locations</h3>
-                    <p className="text-[var(--color-neutral-dark)]">From lakeside retreats to coastal cliffs, our properties occupy some of Britain's most beautiful locations.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Cook Together or Dine Out</h3>
-                    <p className="text-[var(--color-neutral-dark)]">Professional kitchens make group cooking a joy, or hire a <Link href="/holiday-focus/book-private-chef" className="text-[var(--color-accent-sage)] hover:underline">private chef</Link> for a special evening.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Memories Made Easy</h3>
-                    <p className="text-[var(--color-neutral-dark)]">Shared experiences under one roof create lasting bonds and unforgettable stories.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[var(--color-accent-sage)] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">All-Inclusive Entertainment</h3>
-                    <p className="text-[var(--color-neutral-dark)]">Hot tubs, games rooms, and grounds to explore — entertainment is built into your stay.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Top Regions */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4 text-center" style={{ fontFamily: "var(--font-display)" }}>
-            Top Regions for Large Holiday Houses
+          <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+            What to Expect from Our Large Holiday Houses
           </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] text-center mb-12 max-w-3xl mx-auto">
-            Explore Britain's most popular destinations for group holidays
-          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {topRegions.map((region) => (
-              <Link
-                key={region.slug}
-                href={`/destinations/${region.slug}`}
-                className="group bg-[var(--color-bg-primary)] p-6 rounded-2xl hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <MapPin className="w-5 h-5 text-[var(--color-accent-sage)]" />
-                  <h3 className="text-lg font-bold group-hover:text-[var(--color-accent-sage)] transition-colors">
-                    {region.name}
-                  </h3>
-                </div>
-                <p className="text-[var(--color-neutral-dark)] text-sm">{region.description}</p>
-              </Link>
-            ))}
+          <div className="prose prose-lg max-w-none mb-12">
+            <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
+              Every property in our collection is personally selected for its ability to host memorable group holidays. We look for character properties with soul, modern amenities for comfort, and locations that inspire. Whether you choose a <Link href="/house-styles/manor-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">historic manor house</Link>, a <Link href="/house-styles/country-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">country farmhouse</Link>, or a <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">contemporary luxury home</Link>, you can expect quality and attention to detail.
+            </p>
           </div>
-          
-          <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-2xl px-10 py-6 font-bold"
-              style={{ background: "var(--color-accent-sage)", color: "white" }}
-            >
-              <Link href="/destinations">View All Destinations</Link>
-            </Button>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mb-4">
+                <Bed className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="font-medium mb-2">5-15 Bedrooms</h3>
+              <p className="text-sm text-[var(--color-neutral-dark)]">Comfortable sleeping for every guest</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto rounded-full bg-[var(--color-accent-pink)]/20 flex items-center justify-center mb-4">
+                <Waves className="w-8 h-8 text-[var(--color-accent-pink)]" />
+              </div>
+              <h3 className="font-medium mb-2">Hot Tubs</h3>
+              <p className="text-sm text-[var(--color-neutral-dark)]">Relax and unwind together</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto rounded-full bg-[var(--color-accent-gold)]/20 flex items-center justify-center mb-4">
+                <Gamepad2 className="w-8 h-8 text-[var(--color-accent-gold)]" />
+              </div>
+              <h3 className="font-medium mb-2">Games Rooms</h3>
+              <p className="text-sm text-[var(--color-neutral-dark)]">Entertainment for all ages</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto rounded-full bg-[var(--color-accent-sage)]/20 flex items-center justify-center mb-4">
+                <Sun className="w-8 h-8 text-[var(--color-accent-sage)]" />
+              </div>
+              <h3 className="font-medium mb-2">Private Grounds</h3>
+              <p className="text-sm text-[var(--color-neutral-dark)]">Gardens, terraces and outdoor space</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Properties */}
       {transformedProperties.length > 0 && (
-        <section className="py-20 bg-[var(--color-bg-primary)]">
+        <section className="py-16 bg-[var(--color-bg-primary)]">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                <h2 className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
                   Featured Large Holiday Houses
                 </h2>
-                <p className="text-xl text-[var(--color-neutral-dark)]">Handpicked properties for unforgettable group stays</p>
+                <p className="text-[var(--color-neutral-dark)] mt-2">Handpicked properties for unforgettable group holidays</p>
               </div>
-              <Button asChild variant="ghost" className="text-[var(--color-accent-sage)] font-bold text-lg hover:bg-transparent hover:underline p-0">
-                <Link href="/properties">View all properties <ArrowRight className="ml-2 w-5 h-5" /></Link>
-              </Button>
+              <Link href="/properties" className="text-[var(--color-accent-sage)] font-medium hover:underline hidden md:block">
+                View all properties →
+              </Link>
             </div>
-
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {transformedProperties.map((property) => (
                 <PropertyCard key={property.id} {...property} />
@@ -395,25 +298,68 @@ export default async function LargeHolidayHousesPage() {
         </section>
       )}
 
+      {/* Destinations Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+            Popular Destinations for Large Holiday Houses
+          </h2>
+          
+          <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-8">
+            From dramatic coastlines to peaceful countryside, we offer large holiday houses in the UK's most sought-after locations. Each destination brings its own character to your group holiday experience.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link href="/destinations/lake-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Lake District</span>
+            </Link>
+            <Link href="/destinations/cornwall" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cornwall</span>
+            </Link>
+            <Link href="/destinations/cotswolds" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Cotswolds</span>
+            </Link>
+            <Link href="/destinations/devon" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Devon</span>
+            </Link>
+            <Link href="/destinations/yorkshire" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Yorkshire</span>
+            </Link>
+            <Link href="/destinations/norfolk" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Norfolk</span>
+            </Link>
+            <Link href="/destinations/peak-district" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Peak District</span>
+            </Link>
+            <Link href="/destinations/sussex" className="group p-4 bg-[var(--color-bg-primary)] rounded-xl hover:shadow-md transition-all">
+              <span className="font-medium group-hover:text-[var(--color-accent-sage)]">Sussex</span>
+            </Link>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link href="/destinations" className="text-[var(--color-accent-sage)] font-medium hover:underline">
+              Explore all UK destinations →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQs */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-[var(--color-bg-primary)]">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4 text-center" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "var(--font-display)" }}>
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-[var(--color-neutral-dark)] text-center mb-12">
-            Everything you need to know about booking large holiday houses
-          </p>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="group border border-gray-100 rounded-2xl overflow-hidden bg-[var(--color-bg-primary)]">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
-                  <span className="font-bold text-lg pr-4">{faq.question}</span>
-                  <ChevronDown className="w-6 h-6 flex-shrink-0 transition-transform group-open:rotate-180" />
+              <details key={index} className="bg-white rounded-xl group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                  <span className="font-semibold pr-4">{faq.question}</span>
+                  <ChevronDown className="w-5 h-5 text-[var(--color-accent-gold)] flex-shrink-0 transition-transform group-open:rotate-180" />
                 </summary>
-                <div className="px-6 pb-6 text-[var(--color-neutral-dark)] leading-relaxed">
-                  {faq.answer}
+                <div className="px-6 pb-6">
+                  <p className="text-[var(--color-neutral-dark)] leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
             ))}
@@ -422,31 +368,21 @@ export default async function LargeHolidayHousesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <div className="bg-white p-16 rounded-[40px] shadow-xl border border-gray-100">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Find Your Perfect Holiday House
+          <div className="bg-[var(--color-bg-primary)] p-12 rounded-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              Start Planning Your Group Holiday
             </h2>
-            <p className="text-xl text-[var(--color-neutral-dark)] mb-10 max-w-3xl mx-auto">
-              Ready to bring your group together? Browse our collection of large holiday houses or get in touch for personalised recommendations.
+            <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-2xl mx-auto">
+              Browse our collection of large holiday houses or contact us for personalised recommendations. Your perfect group getaway awaits.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-2xl px-12 py-8 text-xl font-bold"
-                style={{ background: "var(--color-accent-sage)", color: "white" }}
-              >
-                <Link href="/contact">Check Availability</Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-2xl px-8 py-6 text-lg font-medium" style={{ background: "var(--color-accent-sage)", color: "white" }}>
+                <Link href="/properties">Browse Properties</Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-2xl px-12 py-8 text-xl font-bold"
-              >
-                <Link href="/properties">Browse All Houses</Link>
+              <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 py-6 text-lg font-medium">
+                <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>

@@ -27,10 +27,9 @@ function validateImageUrl(url: string, propertyTitle: string): string {
     return PLACEHOLDER_IMAGE;
   }
   
-  // CRITICAL: Block all external domains not in next.config allowed list
-  const blockedDomains = ['gstatic.com', 'google.com/images', 'googleusercontent.com', 'londonbay.com'];
-  if (blockedDomains.some(domain => url.includes(domain))) {
-    console.warn(`Blocked domain URL detected for property "${propertyTitle}" - using placeholder:`, url);
+  // CRITICAL: Block ALL Google Images URLs (they're temporary and cause config issues)
+  if (url.includes('gstatic.com') || url.includes('google.com/images') || url.includes('googleusercontent.com')) {
+    console.warn(`Google Images URL detected for property "${propertyTitle}" - using placeholder:`, url);
     return PLACEHOLDER_IMAGE;
   }
   
