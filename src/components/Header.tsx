@@ -402,15 +402,25 @@ export default function Header() {
                     )}
                   </div>
 
-              {/* How It Works Link */}
-              <Link
-                href="/how-it-works"
-                className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                How It Works
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-              </Link>
+                {/* How It Works Link */}
+                <Link
+                  href="/how-it-works"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  How It Works
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </Link>
+
+                {/* Guides Link */}
+                <Link
+                  href="/guides"
+                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Guides
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+                </Link>
 
               {/* Admin Link - Only show if authenticated */}
               {session?.user && (

@@ -269,34 +269,55 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Holiday focus routes
-  const holidayFocusRoutes: MetadataRoute.Sitemap = [
-    'adventure-holidays',
-    'book-private-chef',
-    'business-offsite-corporate-accommodation',
-    'girls-weekend-getaways',
-    'group-city-breaks',
-    'multi-generational-holidays',
-    'retreat-venues',
-    'rural-retreats',
-    'youth-school-group-accommodation',
-  ].map((slug) => ({
-    url: `${baseUrl}/holiday-focus/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+    // Holiday focus routes
+    const holidayFocusRoutes: MetadataRoute.Sitemap = [
+      'adventure-holidays',
+      'book-private-chef',
+      'business-offsite-corporate-accommodation',
+      'girls-weekend-getaways',
+      'group-city-breaks',
+      'multi-generational-holidays',
+      'retreat-venues',
+      'rural-retreats',
+      'youth-school-group-accommodation',
+    ].map((slug) => ({
+      url: `${baseUrl}/holiday-focus/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
 
-  return [
-    ...staticRoutes,
-    ...categoryRoutes,
-    ...propertyRoutes,
-    ...experienceRoutes,
-    ...destinationRoutes,
-    ...blogRoutes,
-    ...featureRoutes,
-    ...houseStyleRoutes,
-    ...directOccasionRoutes,
-    ...holidayFocusRoutes,
-  ];
-}
+    // Guide routes
+    const guideRoutes: MetadataRoute.Sitemap = [
+      'how-to-choose-large-group-accommodation-uk',
+      'large-group-house-vs-hotel-for-weekends',
+      'what-to-check-when-booking-accommodation-for-20-plus-guests',
+      'noise-rules-and-neighbour-considerations-for-group-stays',
+      'best-uk-destinations-for-group-weekends',
+    ].map((slug) => ({
+      url: `${baseUrl}/guides/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
+    return [
+      ...staticRoutes,
+      {
+        url: `${baseUrl}/guides`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      ...categoryRoutes,
+      ...propertyRoutes,
+      ...experienceRoutes,
+      ...destinationRoutes,
+      ...blogRoutes,
+      ...guideRoutes,
+      ...featureRoutes,
+      ...houseStyleRoutes,
+      ...directOccasionRoutes,
+      ...holidayFocusRoutes,
+    ];
+  }

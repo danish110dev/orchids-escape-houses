@@ -56,6 +56,11 @@ export default function Footer() {
                     Inspiration
                   </Link>
                 </li>
+                <li>
+                  <Link href="/guides" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Guides & Resources
+                  </Link>
+                </li>
               <li>
                 <Link href="/contact" className="hover:text-[var(--color-accent-sage)] transition-colors">
                   Contact & Enquiries
