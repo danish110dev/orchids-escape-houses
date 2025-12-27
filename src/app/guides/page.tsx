@@ -12,29 +12,37 @@ export const metadata: Metadata = {
   }
 };
 
-export const guides = [
+const guides = [
   {
     title: "How to Choose Large Group Accommodation in the UK",
-    excerpt: "Everything you need to know about finding the perfect base for your next big gathering, from bedroom ratios to social spaces.",
+    excerpt: "A comprehensive guide covering what counts as large group accommodation, typical group sizes from 10 to 30+ guests, facilities to prioritise, location considerations, and common mistakes to avoid.",
     slug: "how-to-choose-large-group-accommodation-uk",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-planning-che-9704c7d1-20251018105913.jpg",
     date: "Dec 27, 2025",
     category: "Planning"
   },
   {
-    title: "Large Group House vs Hotel for Weekends",
-    excerpt: "We weigh up the pros and cons of booking a private estate versus a hotel for your next group weekend break.",
-    slug: "large-group-house-vs-hotel-for-weekends",
+    title: "Large Group House vs Hotel: What's Better for Group Weekends?",
+    excerpt: "An honest comparison of hotels versus holiday houses for groups of 10-30, covering cost, privacy, catering options, flexibility for celebrations, and weekend itinerary examples.",
+    slug: "large-group-house-vs-hotel",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-showing-split-c-189baecf-20251018105904.jpg",
     date: "Dec 26, 2025",
     category: "Comparison"
+  },
+  {
+    title: "Best UK Destinations for Large Group Weekends",
+    excerpt: "Explore 8+ UK destinations perfect for group getaways including Brighton, London, Cornwall, Lake District, Cotswolds, Manchester, Devon, and York with property types, activities, and travel tips.",
+    slug: "best-uk-destinations-for-large-group-weekends",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--0e8a0dba-20251018105838.jpg",
+    date: "Dec 25, 2025",
+    category: "Destinations"
   },
   {
     title: "What to Check When Booking Accommodation for 20+ Guests",
     excerpt: "A comprehensive checklist for massive group bookings to ensure everyone has a bed and the dining table is actually big enough.",
     slug: "what-to-check-when-booking-accommodation-for-20-plus-guests",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-holid-f27f8e6d-20251018105853.jpg",
-    date: "Dec 25, 2025",
+    date: "Dec 24, 2025",
     category: "Checklist"
   },
   {
@@ -42,16 +50,8 @@ export const guides = [
     excerpt: "How to have a great time without falling foul of local regulations or bothering the neighbours during your group holiday.",
     slug: "noise-rules-and-neighbour-considerations-for-group-stays",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-hen-party-ac-2ed8f30b-20251018105832.jpg",
-    date: "Dec 24, 2025",
-    category: "Rules"
-  },
-  {
-    title: "Best UK Destinations for Group Weekends",
-    excerpt: "From the hills of the Peak District to the bars of Brighton, we round up the top spots for a successful group weekend.",
-    slug: "best-uk-destinations-for-group-weekends",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-brighton-uk--0e8a0dba-20251018105838.jpg",
     date: "Dec 23, 2025",
-    category: "Destinations"
+    category: "Rules"
   }
 ];
 

@@ -290,10 +290,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Guide routes
     const guideRoutes: MetadataRoute.Sitemap = [
       'how-to-choose-large-group-accommodation-uk',
-      'large-group-house-vs-hotel-for-weekends',
+      'large-group-house-vs-hotel',
+      'best-uk-destinations-for-large-group-weekends',
       'what-to-check-when-booking-accommodation-for-20-plus-guests',
       'noise-rules-and-neighbour-considerations-for-group-stays',
-      'best-uk-destinations-for-group-weekends',
     ].map((slug) => ({
       url: `${baseUrl}/guides/${slug}`,
       lastModified: currentDate,
