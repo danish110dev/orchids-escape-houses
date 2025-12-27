@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Properties with private swimming pools. Indoor heated & outdoor options. Perfect for group celebrations & hen parties across the UK.",
   keywords: ["houses with pools UK", "party houses with swimming pool", "group accommodation pool", "houses with indoor pool"],
   openGraph: {
-    title: "Houses with Swimming Pools for Groups | The Hen Fairy",
+    title: "Houses with Swimming Pools for Groups | Group Escape Houses",
     description: "Indoor heated and outdoor pools. Perfect for active hen weekends and pool parties.",
     url: "https://groupescapehouses.co.uk/features/swimming-pool",
   },

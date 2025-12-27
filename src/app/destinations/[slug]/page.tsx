@@ -41,9 +41,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords: `${destination.name} hen party houses, ${destination.name} group accommodation, ${destination.name} houses with hot tubs, large group houses ${destination.name}, hen do ${destination.name}, ${destination.name} party houses, ${destination.name} weekend breaks, group holidays ${destination.name}`,
-    authors: [{ name: 'The Hen Fairy' }],
-    creator: 'The Hen Fairy',
-    publisher: 'The Hen Fairy',
+    authors: [{ name: 'Group Escape Houses' }],
+    creator: 'Group Escape Houses',
+    publisher: 'Group Escape Houses',
     robots: {
       index: true,
       follow: true,
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: canonicalUrl,
       title,
       description,
-      siteName: 'The Hen Fairy',
+      siteName: 'Group Escape Houses',
       images: [
         {
           url: 'https://www.groupescapehouses.co.uk/og-image.jpg',

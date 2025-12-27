@@ -18,7 +18,7 @@ export default function BookPrivateChefPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Book a Private Chef for Your Group Stay | The Hen Fairy</title>
+      <title>Book a Private Chef for Your Group Stay | Group Escape Houses</title>
       <meta name="description" content="Enhance your group stay by booking a private chef for your holiday home. Professional in-house catering across the UK for celebrations and special occasions." />
       
       <Header />

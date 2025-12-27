@@ -14,7 +14,7 @@ export default function PrivacyPage() {
         <div className="prose prose-lg max-w-none space-y-8" style={{ color: "var(--color-neutral-dark)" }}>
           <section>
             <p className="text-lg mb-6">
-              The Hen Fairy is committed to protecting your privacy and ensuring your personal data is handled securely and transparently. This policy explains how we collect, use, store, and protect your information in compliance with UK GDPR and the Data Protection Act 2018.
+              Group Escape Houses is committed to protecting your privacy and ensuring your personal data is handled securely and transparently. This policy explains how we collect, use, store, and protect your information in compliance with UK GDPR and the Data Protection Act 2018.
             </p>
           </section>
 
@@ -23,10 +23,10 @@ export default function PrivacyPage() {
               1. Who We Are
             </h2>
             <p className="mb-4">
-              The Hen Fairy operates as a data controller for the personal information we collect from you. Our registered office is:
+              Group Escape Houses operates as a data controller for the personal information we collect from you. Our registered office is:
             </p>
             <p className="mb-4">
-              <strong>The Hen Fairy</strong><br />
+              <strong>Group Escape Houses</strong><br />
               Office, 11a North Street<br />
               Brighton<br />
               BN41 1DH<br />
@@ -268,7 +268,7 @@ export default function PrivacyPage() {
             </p>
             <p className="mb-4">
               <strong>Data Protection Officer</strong><br />
-              The Hen Fairy<br />
+              Group Escape Houses<br />
               Office, 11a North Street<br />
               Brighton<br />
               BN41 1DH<br />

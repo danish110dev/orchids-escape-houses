@@ -108,12 +108,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   if (!property) {
     return {
-      title: "Property Not Found | The Hen Fairy",
+      title: "Property Not Found | Group Escape Houses",
       description: "The property you're looking for could not be found.",
     };
   }
 
-  const title = `${property.title} | ${property.location} | Sleeps ${property.sleepsMax} | The Hen Fairy`;
+  const title = `${property.title} | ${property.location} | Sleeps ${property.sleepsMax} | Group Escape Houses`;
   const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMin}-${property.sleepsMax} guests with ${property.bedrooms} bedrooms and ${property.bathrooms} bathrooms. ${property.description.substring(0, 120)}...`;
   const canonicalUrl = `https://www.groupescapehouses.co.uk/properties/${slug}`;
 
@@ -121,9 +121,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords: `${property.title}, ${property.location} accommodation, group house ${property.location}, ${property.sleepsMax} sleeps, ${property.bedrooms} bedroom house, large group accommodation`,
-    authors: [{ name: "The Hen Fairy" }],
-    creator: "The Hen Fairy",
-    publisher: "The Hen Fairy",
+    authors: [{ name: "Group Escape Houses" }],
+    creator: "Group Escape Houses",
+    publisher: "Group Escape Houses",
     robots: {
       index: true,
       follow: true,
@@ -144,7 +144,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: canonicalUrl,
       title,
       description,
-      siteName: "The Hen Fairy",
+      siteName: "Group Escape Houses",
       images: [
         {
           url: property.heroImage,

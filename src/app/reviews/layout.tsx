@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "3,000+ verified five-star reviews from hen parties. Real photos, ratings & honest feedback from celebrations across the UK.",
   keywords: ["hen party house reviews", "group escape houses reviews", "party house testimonials UK", "5 star hen accommodation"],
   openGraph: {
-    title: "3,000+ Verified Guest Reviews | The Hen Fairy",
+    title: "3,000+ Verified Guest Reviews | Group Escape Houses",
     description: "Real testimonials with photos from hen parties across the UK. Average rating 4.9/5.",
     url: "https://groupescapehouses.co.uk/reviews",
   },

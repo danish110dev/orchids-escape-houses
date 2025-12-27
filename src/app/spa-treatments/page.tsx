@@ -75,7 +75,7 @@ export default function SpaPage() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-luxury-spa-t-0db740ac-20251018122325.jpg?"
-            alt="Mobile spa treatments for group celebrations at The Hen Fairy"
+            alt="Mobile spa treatments for group celebrations at Group Escape Houses"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-primary)]/95 to-[var(--color-bg-secondary)]/90"></div>
@@ -106,7 +106,7 @@ export default function SpaPage() {
       <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-            At <strong>The Hen Fairy</strong>, we bring luxury spa experiences directly to your <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">party house rental</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen weekends</Link>, <Link href="/occasions/weddings" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">wedding celebrations</Link>, <Link href="/occasions/special-celebrations" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">birthday parties</Link>, and group getaways across the UK. Our professional mobile therapists arrive with premium equipment, creating a relaxing spa atmosphere in the comfort of your own accommodation.
+            At <strong>Group Escape Houses</strong>, we bring luxury spa experiences directly to your <Link href="/properties" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors underline decoration-dotted">party house rental</Link>. Perfect for <Link href="/occasions/hen-party-houses" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hen weekends</Link>, <Link href="/occasions/weddings" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">wedding celebrations</Link>, <Link href="/occasions/special-celebrations" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">birthday parties</Link>, and group getaways across the UK. Our professional mobile therapists arrive with premium equipment, creating a relaxing spa atmosphere in the comfort of your own accommodation.
           </p>
         </div>
       </section>
@@ -195,7 +195,7 @@ export default function SpaPage() {
               Luxury Pampering at Your UK Party House
             </h2>
             <p className="text-lg max-w-3xl mx-auto mb-8" style={{ color: "var(--color-neutral-dark)" }}>
-              At <strong>The Hen Fairy</strong>, we bring the spa to you. Whether it's a morning of calm before <Link href="/experiences/cocktail-masterclass" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">cocktails</Link> or a full afternoon of indulgence at your <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">luxury house with hot tub</Link>, our experienced therapists arrive with everything needed to transform your space into a private retreat.
+              At <strong>Group Escape Houses</strong>, we bring the spa to you. Whether it's a morning of calm before <Link href="/experiences/cocktail-masterclass" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">cocktails</Link> or a full afternoon of indulgence at your <Link href="/features/hot-tub" className="font-medium text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">luxury house with hot tub</Link>, our experienced therapists arrive with everything needed to transform your space into a private retreat.
             </p>
           </motion.div>
 
@@ -561,7 +561,7 @@ export default function SpaPage() {
             Mobile Spa Treatment FAQs
           </h2>
           <p className="text-center text-lg text-[var(--color-neutral-dark)] mb-12 max-w-2xl mx-auto">
-            Everything you need to know about booking mobile spa treatments with The Hen Fairy. For general booking questions, see our <Link href="/how-it-works" className="underline hover:text-[var(--color-accent-gold)] transition-colors">how it works page</Link>.
+            Everything you need to know about booking mobile spa treatments with Group Escape Houses. For general booking questions, see our <Link href="/how-it-works" className="underline hover:text-[var(--color-accent-gold)] transition-colors">how it works page</Link>.
           </p>
           <FAQAccordion faqs={faqs} />
         </div>

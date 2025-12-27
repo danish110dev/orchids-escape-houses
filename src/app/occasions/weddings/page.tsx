@@ -95,7 +95,7 @@ import Image from "next/image";
 
     return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <title>Wedding Venues with Accommodation | The Hen Fairy</title>
+      <title>Wedding Venues with Accommodation | Group Escape Houses</title>
       <meta name="description" content="Discover stunning wedding venues with accommodation across the UK. Perfect for intimate celebrations, ceremonies, and full-weekend group wedding stays." />
       <Header />
 

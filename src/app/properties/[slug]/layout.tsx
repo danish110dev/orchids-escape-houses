@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     
     if (!propertyData || propertyData.length === 0) {
       return {
-        title: "Property | The Hen Fairy",
+        title: "Property | Group Escape Houses",
         alternates: {
           canonical: `${baseUrl}/properties/${slug}`,
         },
@@ -49,17 +49,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 
     const property = propertyData[0];
-    const title = `${property.title} | ${property.sleepsMax} Guests | Hot Tub & Pool | The Hen Fairy`;
+    const title = `${property.title} | ${property.sleepsMax} Guests | Hot Tub & Pool | Group Escape Houses`;
     const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMax} guests across ${property.bedrooms} bedrooms. From £${Math.min(property.priceFromWeekend, property.priceFromMidweek)}/night. ${property.description?.substring(0, 100)}...`;
     
     return {
       title,
       description,
       keywords: `${property.title}, ${property.location} holiday home, group accommodation, hen party house, party house, houses sleeping ${property.sleepsMax} guests, hot tub rental, luxury group accommodation`,
-      authors: [{ name: 'The Hen Fairy' }],
-      creator: 'The Hen Fairy',
+      authors: [{ name: 'Group Escape Houses' }],
+      creator: 'Group Escape Houses',
       openGraph: {
-        title: `${property.title} | The Hen Fairy`,
+        title: `${property.title} | Group Escape Houses`,
         description,
         url: `${baseUrl}/properties/${slug}`,
         type: 'website',
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   } catch (error) {
     console.error('Error generating property metadata:', error);
     return {
-      title: "Property | The Hen Fairy",
+      title: "Property | Group Escape Houses",
       alternates: {
         canonical: `${baseUrl}/properties/${slug}`,
       },

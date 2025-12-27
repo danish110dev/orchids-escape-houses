@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Personally inspected hen party houses sleeping 8-30+ guests. Hot tubs, BBQ areas & entertainment spaces. Weekend & midweek availability.",
   keywords: ["hen party houses", "hen weekend accommodation UK", "hen do houses", "large group hen party venues"],
   openGraph: {
-    title: "Verified Hen Party Houses | The Hen Fairy",
+    title: "Verified Hen Party Houses | Group Escape Houses",
     description: "Handpicked properties for hen celebrations. Each house inspected, verified and ready to party.",
     url: "https://groupescapehouses.co.uk/hen-party-houses",
   },

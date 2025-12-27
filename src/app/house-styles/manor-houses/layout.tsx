@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Historic manor houses sleeping 16-30+ guests. Period features, sprawling grounds & elegant interiors for sophisticated hen weekends.",
   keywords: ["manor houses to rent UK", "country estates for groups", "historic houses for hire", "stately homes hen parties"],
   openGraph: {
-    title: "Manor Houses & Country Estates | The Hen Fairy",
+    title: "Manor Houses & Country Estates | Group Escape Houses",
     description: "Grand historic properties with period features and sprawling grounds for elegant celebrations.",
     url: "https://groupescapehouses.co.uk/house-styles/manor-houses",
   },

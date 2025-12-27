@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Free planning tips. City nightlife guides, packing checklists, budgeting advice & property spotlights. Updated weekly.",
   keywords: ["planning tips", "weekend ideas", "UK holiday blog", "celebration planning guide", "inspiration"],
   openGraph: {
-    title: "Inspiration & Resources | The Hen Fairy",
+    title: "Inspiration & Resources | Group Escape Houses",
     description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
     url: "https://www.groupescapehouses.co.uk/inspiration",
   },

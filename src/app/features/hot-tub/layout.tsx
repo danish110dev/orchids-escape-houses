@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Group houses with private hot tubs. Perfect for hen parties. Sleeps 8-30+ guests. Weekend & midweek availability across the UK.",
   keywords: ["houses with hot tubs UK", "party houses hot tub", "group accommodation hot tub", "hen party houses with hot tubs"],
   openGraph: {
-    title: "Group Houses with Private Hot Tubs | The Hen Fairy",
+    title: "Group Houses with Private Hot Tubs | Group Escape Houses",
     description: "Properties with wood-fired and electric hot tubs. Scenic views, privacy and perfect hen party relaxation.",
     url: "https://groupescapehouses.co.uk/features/hot-tub",
   },

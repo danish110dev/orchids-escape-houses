@@ -18,7 +18,7 @@ export default function RuralRetreatsPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Rural Retreats Group Accommodation | The Hen Fairy</title>
+      <title>Rural Retreats Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Discover luxury rural retreats for large groups across the UK. Escape to the countryside with our handpicked collection of group houses and cottages." />
       
       <Header />

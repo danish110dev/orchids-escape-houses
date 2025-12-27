@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manor Houses to Rent UK | Grand Country Estates | The Hen Fairy",
+  title: "Manor Houses to Rent UK | Grand Country Estates | Group Escape Houses",
   description: "Luxury manor houses to rent across the UK for hen parties and group celebrations. Grand country estates with historic architecture and premium amenities.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/house-styles/manor-houses",

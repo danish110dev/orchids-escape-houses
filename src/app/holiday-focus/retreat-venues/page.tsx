@@ -18,7 +18,7 @@ export default function RetreatVenuesPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Retreat Venues UK | The Hen Fairy</title>
+      <title>Retreat Venues UK | Group Escape Houses</title>
       <meta name="description" content="Discover luxury retreat venues across the UK. Perfect group accommodation for wellness retreats, yoga workshops, and creative getaways in peaceful surroundings." />
       
       <Header />

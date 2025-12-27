@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkForSpam, getClientIP } from "@/lib/spam-protection";
 
 const WEBSITE_CONTEXT = `
-You are a helpful assistant for The Hen Fairy, a luxury hen party accommodation provider in the UK.
+You are a helpful assistant for Group Escape Houses, a luxury hen party accommodation provider in the UK.
 
 COMPANY INFO:
 - Email: hello@thehenfairy.co.uk

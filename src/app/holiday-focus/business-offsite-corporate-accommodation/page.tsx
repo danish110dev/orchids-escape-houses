@@ -18,7 +18,7 @@ export default function BusinessOffsitePage() {
 
   return (
     <div className="min-h-screen">
-      <title>Business Offsite and Corporate Accommodation | The Hen Fairy</title>
+      <title>Business Offsite and Corporate Accommodation | Group Escape Houses</title>
       <meta name="description" content="Book professional business offsite and corporate accommodation in the UK. Luxury group houses designed for team building, retreats, and remote working sessions." />
       
       <Header />

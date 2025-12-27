@@ -18,7 +18,7 @@ export default function MultiGenerationalHolidaysPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Multi-Generational Holidays UK | The Hen Fairy</title>
+      <title>Multi-Generational Holidays UK | Group Escape Houses</title>
       <meta name="description" content="Find the perfect multi-generational holiday homes across the UK. Luxury group accommodation designed for children, parents, and grandparents to enjoy together." />
       
       <Header />

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Easter Family Holiday Houses UK | The Hen Fairy",
+  title: "Easter Family Holiday Houses UK | Group Escape Houses",
   description: "Perfect large houses for Easter family gatherings and spring breaks. Luxury group accommodation with gardens, hot tubs, and plenty of space for the whole family.",
   alternates: {
     canonical: "/easter",

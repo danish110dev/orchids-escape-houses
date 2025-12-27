@@ -12,7 +12,7 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Hen Party Houses UK | Large Houses for Hen Dos | The Hen Fairy",
+  title: "Hen Party Houses UK | Large Houses for Hen Dos | Group Escape Houses",
   description: "Find the perfect hen party house in the UK. Luxury properties sleeping 10-30+ guests with hot tubs, games rooms, and stylish interiors. Celebrate the bride-to-be in style.",
   keywords: "hen party houses UK, hen do houses, hen weekend accommodation, hen party venue, group hen accommodation, luxury hen party house, hen party hot tub, hen do venue",
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Hen Party Houses UK | Large Houses for Hen Dos",
     description: "Find the perfect hen party house in the UK. Luxury properties sleeping 10-30+ guests with hot tubs and stylish interiors.",
     url: "https://www.groupescapehouses.co.uk/hen-party-houses",
-    siteName: "The Hen Fairy",
+    siteName: "Group Escape Houses",
     locale: "en_GB",
     type: "website",
   },
@@ -185,7 +185,7 @@ export default async function HenPartyHousesPage() {
             </h2>
             
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
-              Planning a hen party is one of the most exciting responsibilities for any maid of honour or bridesmaid. At The Hen Fairy, we make finding the perfect <strong>hen party house</strong> simple, offering a carefully curated collection of luxury properties across the UK that are ideal for celebrating the bride-to-be. From elegant country manors to stylish coastal retreats, our houses provide the space, amenities, and atmosphere that transform a hen weekend from ordinary to extraordinary.
+              Planning a hen party is one of the most exciting responsibilities for any maid of honour or bridesmaid. At Group Escape Houses, we make finding the perfect <strong>hen party house</strong> simple, offering a carefully curated collection of luxury properties across the UK that are ideal for celebrating the bride-to-be. From elegant country manors to stylish coastal retreats, our houses provide the space, amenities, and atmosphere that transform a hen weekend from ordinary to extraordinary.
             </p>
 
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">

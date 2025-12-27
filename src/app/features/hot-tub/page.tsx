@@ -11,7 +11,7 @@ import { eq } from "drizzle-orm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Houses with Hot Tubs | Hen Party Houses UK | The Hen Fairy",
+  title: "Houses with Hot Tubs | Hen Party Houses UK | Group Escape Houses",
   description: "Luxury hen party houses in the UK with private hot tubs. Perfect for relaxation, celebration, and unforgettable group experiences.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/features/hot-tub",

@@ -13,7 +13,7 @@ const inspirationPosts: Record<string, any> = {
   "brighton-hen-do-guide": {
     title: "The Ultimate Brighton Hen Do Guide: Where to Stay, Eat & Party",
     excerpt: "Brighton is the UK's hen party capital for a reason. Our complete guide covers the best houses, restaurants, bars, and activities.",
-    description: "Complete Brighton hen party guide. Best houses, restaurants, bars, activities & nightlife tips. Plan the perfect Brighton hen do with The Hen Fairy.",
+    description: "Complete Brighton hen party guide. Best houses, restaurants, bars, activities & nightlife tips. Plan the perfect Brighton hen do with Group Escape Houses.",
     date: "12 Jan 2025",
     category: "City Guides",
   },
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = inspirationPosts[slug];
   if (!post) {
     return {
-      title: "Inspiration Post | The Hen Fairy",
+      title: "Inspiration Post | Group Escape Houses",
       alternates: {
         canonical: `${baseUrl}/inspiration/${slug}`,
       },
@@ -34,11 +34,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${post.title} | The Hen Fairy`,
+    title: `${post.title} | Group Escape Houses`,
     description: post.description || post.excerpt,
     keywords: `${post.category.toLowerCase()}, hen party planning, group accommodation, UK celebrations`,
-    authors: [{ name: 'The Hen Fairy' }],
-    creator: 'The Hen Fairy',
+    authors: [{ name: 'Group Escape Houses' }],
+    creator: 'Group Escape Houses',
     openGraph: {
       title: post.title,
       description: post.description || post.excerpt,
@@ -83,7 +83,7 @@ export default async function InspirationPostLayout({
     dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Organization",
-      name: "The Hen Fairy",
+      name: "Group Escape Houses",
       url: baseUrl
     },
     publisher: {

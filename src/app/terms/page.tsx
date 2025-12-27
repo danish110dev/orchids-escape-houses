@@ -18,7 +18,7 @@ export default function TermsPage() {
               1. Our Service
             </h2>
             <p className="mb-4">
-              The Hen Fairy is an advertising platform and information resource for luxury large group accommodation in the UK. We are not a travel agent, booking agent, or property management company.
+              Group Escape Houses is an advertising platform and information resource for luxury large group accommodation in the UK. We are not a travel agent, booking agent, or property management company.
             </p>
             <p className="mb-4">
               Our service consists of providing a platform where property owners can advertise their properties and guests can find and enquire about accommodation. We do not own, manage, or inspect the properties listed on our website.
@@ -30,7 +30,7 @@ export default function TermsPage() {
               2. Bookings and Payments
             </h2>
             <p className="mb-4">
-              All bookings, payments, and contractual agreements are handled directly between guests and property owners. The Hen Fairy is not a party to any rental agreement or booking contract.
+              All bookings, payments, and contractual agreements are handled directly between guests and property owners. Group Escape Houses is not a party to any rental agreement or booking contract.
             </p>
             <p className="mb-4">
               Property owners are responsible for setting their own pricing, availability, and booking terms. Guests should review and agree to the specific terms provided by the property owner before making any payments.
@@ -57,7 +57,7 @@ export default function TermsPage() {
               4. Liability
             </h2>
             <p className="mb-4">
-              The Hen Fairy shall not be liable for any loss, damage, personal injury, or expense incurred as a result of:
+              Group Escape Houses shall not be liable for any loss, damage, personal injury, or expense incurred as a result of:
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Any booking made through our platform</li>
@@ -73,7 +73,7 @@ export default function TermsPage() {
               5. Intellectual Property
             </h2>
             <p className="mb-4">
-              All content on this website, including text, images, logos, and design, is the property of The Hen Fairy or its licensors and is protected by copyright and other intellectual property laws.
+              All content on this website, including text, images, logos, and design, is the property of Group Escape Houses or its licensors and is protected by copyright and other intellectual property laws.
             </p>
           </section>
 
@@ -91,7 +91,7 @@ export default function TermsPage() {
               7. Contact Us
             </h2>
             <p className="mb-2">
-              <strong>The Hen Fairy</strong><br />
+              <strong>Group Escape Houses</strong><br />
               Office, 11a North Street<br />
               Brighton<br />
               BN41 1DH

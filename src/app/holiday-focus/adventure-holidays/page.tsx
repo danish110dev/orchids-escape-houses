@@ -18,7 +18,7 @@ export default function AdventureHolidaysPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Adventure Holidays Group Accommodation | The Hen Fairy</title>
+      <title>Adventure Holidays Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Book the perfect base for your adventure holidays in the UK. Luxury group accommodation near hiking, water sports, and outdoor activities for active groups." />
       
       <Header />

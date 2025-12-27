@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Properties suited to every celebration type. Hen parties, milestone birthdays, family reunions, Christmas gatherings and New Year breaks. Find the perfect house for your occasion.",
   keywords: ["hen party houses", "birthday party houses UK", "wedding accommodation", "celebration venues", "Christmas party houses"],
   openGraph: {
-    title: "Properties for Every Occasion | The Hen Fairy",
+    title: "Properties for Every Occasion | Group Escape Houses",
     description: "Hen parties, birthdays, reunions, weddings and seasonal celebrations. Find your perfect match.",
     url: "https://groupescapehouses.co.uk/occasions",
   },

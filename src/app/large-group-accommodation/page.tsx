@@ -13,7 +13,7 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Large Group Accommodation UK | Houses for 10-30+ Guests | The Hen Fairy",
+  title: "Large Group Accommodation UK | Houses for 10-30+ Guests | Group Escape Houses",
   description: "Find large group accommodation across the UK sleeping 10 to 30+ guests. Luxury houses with hot tubs, games rooms, and spacious living areas perfect for family reunions, birthdays, corporate retreats, and group celebrations.",
   keywords: "large group accommodation UK, group houses UK, large holiday houses, houses sleeping 10, houses sleeping 20, houses sleeping 30, group accommodation, large house rental UK, big houses to rent",
   alternates: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Large Group Accommodation UK | Houses for 10-30+ Guests",
     description: "Find large group accommodation across the UK sleeping 10 to 30+ guests. Luxury houses with hot tubs, games rooms, and spacious living areas.",
     url: "https://www.groupescapehouses.co.uk/large-group-accommodation",
-    siteName: "The Hen Fairy",
+    siteName: "Group Escape Houses",
     locale: "en_GB",
     type: "website",
   },
@@ -155,7 +155,7 @@ export default async function LargeGroupAccommodationPage() {
             </h2>
             
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
-              Planning a getaway for a large group can be challenging, but finding the right accommodation shouldn't be. At The Hen Fairy, we specialise in <strong>large group accommodation across the UK</strong>, offering carefully selected properties that sleep anywhere from 10 to over 30 guests. Whether you're organising a family reunion, milestone birthday celebration, corporate away day, or simply a weekend break with friends, our collection of luxury houses provides the space, amenities, and atmosphere your group needs.
+              Planning a getaway for a large group can be challenging, but finding the right accommodation shouldn't be. At Group Escape Houses, we specialise in <strong>large group accommodation across the UK</strong>, offering carefully selected properties that sleep anywhere from 10 to over 30 guests. Whether you're organising a family reunion, milestone birthday celebration, corporate away day, or simply a weekend break with friends, our collection of luxury houses provides the space, amenities, and atmosphere your group needs.
             </p>
 
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">

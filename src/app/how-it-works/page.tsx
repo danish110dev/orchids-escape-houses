@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
                 How to Book Your Perfect Hen Weekend
               </h1>
               <p className="text-xl text-[var(--color-neutral-dark)]">
-                Booking with The Hen Fairy is simple and transparent. Here's how it works.
+                Booking with Group Escape Houses is simple and transparent. Here's how it works.
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
@@ -155,7 +155,7 @@ export default function HowItWorksPage() {
                   </h2>
                   <div className="space-y-4 text-lg" style={{ color: "var(--color-neutral-dark)" }}>
                     <p>
-                      The Hen Fairy is an advertising platform. When you find your perfect property, simply submit an enquiry through our instant enquiry form. This sends your details directly to the property owner.
+                      Group Escape Houses is an advertising platform. When you find your perfect property, simply submit an enquiry through our instant enquiry form. This sends your details directly to the property owner.
                     </p>
                     <p>
                       All booking confirmations, payments and contracts are handled directly between you and the property owner. Each owner will have their own preferred payment methods and schedules.

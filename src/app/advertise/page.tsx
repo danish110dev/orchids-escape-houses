@@ -112,7 +112,7 @@ export default function AdvertisePage() {
       property: "The Hollies, Argyll, Bute"
     },
     {
-      quote: "What an amazing year we have had with The Hen Fairy. A day doesn't go by without an enquiry and we are pleased with our conversion rate. Their site is so user-friendly also and the team always greets you personally. Keep up the good work.",
+      quote: "What an amazing year we have had with Group Escape Houses. A day doesn't go by without an enquiry and we are pleased with our conversion rate. Their site is so user-friendly also and the team always greets you personally. Keep up the good work.",
       author: "Sharon",
       property: "Walnut Barn Estate"
     },
@@ -172,7 +172,7 @@ export default function AdvertisePage() {
             </h1>
             
             <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed mb-8">
-              If you're looking for more control, more flexibility to do what you want, and a straightforward partner with no hidden fees, then The Hen Fairy could be just the thing for your luxury holiday property.
+              If you're looking for more control, more flexibility to do what you want, and a straightforward partner with no hidden fees, then Group Escape Houses could be just the thing for your luxury holiday property.
             </p>
             
             <Button 
@@ -229,10 +229,10 @@ export default function AdvertisePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-                Why is The Hen Fairy Different?
+                Why is Group Escape Houses Different?
               </h2>
               <p className="text-xl text-[var(--color-neutral-dark)] mb-6 leading-relaxed">
-                The Hen Fairy puts you back in control. We don't charge any commission, just an annual subscription fee. You dictate your prices, have complete control over your calendar and have unfettered access to your potential guests.
+                Group Escape Houses puts you back in control. We don't charge any commission, just an annual subscription fee. You dictate your prices, have complete control over your calendar and have unfettered access to your potential guests.
               </p>
               <p className="text-xl text-[var(--color-neutral-dark)] leading-relaxed">
                 If you need a hand with your marketing or listing, our experienced team is ready to help increase the visibility of your amazing property and increase your bookings.
@@ -354,7 +354,7 @@ export default function AdvertisePage() {
               Success Stories
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)]">
-              Hear from property owners who have joined The Hen Fairy
+              Hear from property owners who have joined Group Escape Houses
             </p>
           </div>
           
@@ -572,7 +572,7 @@ export default function AdvertisePage() {
               </Button>
               
               <p className="text-sm text-center text-[var(--color-neutral-dark)]">
-                By submitting this form, you agree to be contacted by The Hen Fairy regarding your property listing.
+                By submitting this form, you agree to be contacted by Group Escape Houses regarding your property listing.
               </p>
             </form>
           </div>
@@ -616,7 +616,7 @@ export default function AdvertisePage() {
       <section className="py-20 bg-[var(--color-bg-secondary)]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            Join The Hen Fairy Today
+            Join Group Escape Houses Today
           </h2>
           <p className="text-xl text-[var(--color-neutral-dark)] mb-8 max-w-3xl mx-auto">
             Ready to elevate your property's potential? Partner with us for direct bookings and seamless management.

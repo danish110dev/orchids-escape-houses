@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Party Houses to Rent UK | Hen Party Accommodation | The Hen Fairy",
+  title: "Party Houses to Rent UK | Hen Party Accommodation | Group Escape Houses",
   description: "Hen party houses and group party accommodation in the UK. Perfect celebration venues with hot tubs, games rooms, and entertainment spaces for unforgettable weekends.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/house-styles/party-houses",

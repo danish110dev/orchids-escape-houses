@@ -1484,7 +1484,7 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-4">
                 Looking for the perfect <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party houses in {destination.name}</Link>? 
-                The Hen Fairy offers stunning <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link> perfect 
+                Group Escape Houses offers stunning <Link href="/large-group-accommodation" className="text-[var(--color-accent-sage)] hover:underline font-medium">large group accommodation</Link> perfect 
                 for celebrations. Our <Link href="/large-holiday-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">large holiday houses</Link> feature 
                 amazing amenities including <Link href="/houses-with-hot-tubs" className="text-[var(--color-accent-sage)] hover:underline font-medium">hot tubs</Link>, swimming pools, 
                 and <Link href="/houses-with-games-rooms" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link> to make your weekend unforgettable.

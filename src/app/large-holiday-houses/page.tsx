@@ -12,7 +12,7 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Large Holiday Houses UK | Spacious Homes for Group Holidays | The Hen Fairy",
+  title: "Large Holiday Houses UK | Spacious Homes for Group Holidays | Group Escape Houses",
   description: "Discover large holiday houses across the UK perfect for group getaways. Spacious homes sleeping 10-30 guests with stunning locations, hot tubs, games rooms, and countryside or coastal settings.",
   keywords: "large holiday houses UK, big holiday homes, group holiday houses, spacious holiday rentals, large house holidays UK, family holiday houses, group holiday accommodation",
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Large Holiday Houses UK | Spacious Homes for Group Holidays",
     description: "Discover large holiday houses across the UK perfect for group getaways. Spacious homes sleeping 10-30 guests.",
     url: "https://www.groupescapehouses.co.uk/large-holiday-houses",
-    siteName: "The Hen Fairy",
+    siteName: "Group Escape Houses",
     locale: "en_GB",
     type: "website",
   },
@@ -160,7 +160,7 @@ export default async function LargeHolidayHousesPage() {
             </h2>
             
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
-              There's something special about gathering your favourite people under one roof for a holiday together. At The Hen Fairy, we curate a collection of <strong>large holiday houses across the UK</strong> that make group getaways not just possible, but truly memorable. Our properties range from traditional country estates to contemporary coastal homes, each offering the space, comfort, and character that group holidays deserve.
+              There's something special about gathering your favourite people under one roof for a holiday together. At Group Escape Houses, we curate a collection of <strong>large holiday houses across the UK</strong> that make group getaways not just possible, but truly memorable. Our properties range from traditional country estates to contemporary coastal homes, each offering the space, comfort, and character that group holidays deserve.
             </p>
 
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">

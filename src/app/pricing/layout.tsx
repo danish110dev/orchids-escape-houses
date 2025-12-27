@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Clear hen party house pricing. Weekend from £69pp, midweek from £49pp. 25% deposit, balance 8 weeks before. No hidden fees.",
   keywords: ["hen party house prices", "group accommodation pricing", "weekend rates", "transparent booking costs"],
   openGraph: {
-    title: "Transparent Pricing & Payment Terms | The Hen Fairy",
+    title: "Transparent Pricing & Payment Terms | Group Escape Houses",
     description: "Clear pricing from £49pp with no hidden fees. Deposits and payment terms explained.",
     url: "https://groupescapehouses.co.uk/pricing",
   },

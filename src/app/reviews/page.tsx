@@ -20,7 +20,7 @@ export default function ReviewsPage() {
       property: "Bath Spa Retreat",
       rating: 5,
       date: "November 2024",
-      comment: "Stunning property with so much space for our group of 18. The games room kept us entertained, and the cinema was perfect for a cosy night in. The Hen Fairy made everything so easy to organise.",
+      comment: "Stunning property with so much space for our group of 18. The games room kept us entertained, and the cinema was perfect for a cosy night in. Group Escape Houses made everything so easy to organise.",
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ export default function ReviewsPage() {
       property: "Bournemouth Beach House",
       rating: 5,
       date: "September 2024",
-      comment: "We had the best weekend here! The pool was incredible, and being so close to the beach made it extra special. The butlers in the buff we booked were hilarious and made the weekend unforgettable. Thank you The Hen Fairy!",
+      comment: "We had the best weekend here! The pool was incredible, and being so close to the beach made it extra special. The butlers in the buff we booked were hilarious and made the weekend unforgettable. Thank you Group Escape Houses!",
     },
     {
       id: 6,
@@ -60,7 +60,7 @@ export default function ReviewsPage() {
       property: "The Brighton Manor",
       rating: 5,
       date: "August 2024",
-      comment: "Second time booking through The Hen Fairy and they never disappoint. The house was immaculate, check-in was seamless, and the life drawing class we organised was the highlight of the weekend!",
+      comment: "Second time booking through Group Escape Houses and they never disappoint. The house was immaculate, check-in was seamless, and the life drawing class we organised was the highlight of the weekend!",
     },
     {
       id: 8,
@@ -84,7 +84,7 @@ export default function ReviewsPage() {
       property: "York Georgian Townhouse",
       rating: 5,
       date: "July 2024",
-      comment: "Absolutely loved this house! The period features gave it so much character, and York is such a beautiful city to explore. The customer service from The Hen Fairy was outstanding from start to finish.",
+      comment: "Absolutely loved this house! The period features gave it so much character, and York is such a beautiful city to explore. The customer service from Group Escape Houses was outstanding from start to finish.",
     },
   ];
 
@@ -99,7 +99,7 @@ export default function ReviewsPage() {
             3,000+ Five Star Reviews
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto">
-            See what our guests say about their celebrations with The Hen Fairy
+            See what our guests say about their celebrations with Group Escape Houses
           </p>
           
           {/* Rating Summary */}

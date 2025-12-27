@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "25+ UK destinations with party houses. Coastal cities, vibrant nightlife & countryside. Brighton, Bath, Manchester, York, Liverpool.",
   keywords: ["hen party destinations UK", "best cities for hen weekends", "Brighton hen parties", "Bath hen do", "Manchester hen weekend"],
   openGraph: {
-    title: "Top UK Hen Party Destinations | The Hen Fairy",
+    title: "Top UK Hen Party Destinations | Group Escape Houses",
     description: "Explore 25+ cities with luxury party houses. Beach towns, nightlife hotspots & country escapes.",
     url: "https://www.groupescapehouses.co.uk/destinations",
   },

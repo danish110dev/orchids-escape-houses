@@ -246,7 +246,7 @@ export default function SpecialCelebrationsPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Why Choose The Hen Fairy
+              Why Choose Group Escape Houses
             </h2>
           </div>
 

@@ -24,7 +24,7 @@ function getOpenAIClient() {
 
 // Website context for the AI chatbot
 const WEBSITE_CONTEXT = `
-You are a helpful assistant for The Hen Fairy, a luxury hen party house rental company in the UK.
+You are a helpful assistant for Group Escape Houses, a luxury hen party house rental company in the UK.
 
 COMPANY INFO:
 - Office: 11a North St, Brighton and Hove, Brighton BN41 1DH
