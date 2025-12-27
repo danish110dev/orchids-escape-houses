@@ -39,7 +39,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "EventPlanningService",
+    "@type": "LocalBusiness",
     "@id": `${baseUrl}/#localbusiness`,
     "name": siteName,
     "url": `${baseUrl}/`,
@@ -71,12 +71,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
         "opens": "10:00",
         "closes": "16:00"
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "3000"
-    }
+    ]
   };
 
   const websiteSchema = {
