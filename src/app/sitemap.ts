@@ -238,6 +238,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  // SEO Category pages (high priority for main keywords)
+  const categoryRoutes: MetadataRoute.Sitemap = [
+    'large-group-accommodation',
+    'large-holiday-houses',
+    'houses-with-hot-tubs',
+    'houses-with-games-rooms',
+  ].map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
   // Direct occasion routes
   const directOccasionRoutes: MetadataRoute.Sitemap = [
     'hen-party-houses',
@@ -253,7 +266,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   // Holiday focus routes
@@ -276,6 +289,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticRoutes,
+    ...categoryRoutes,
     ...propertyRoutes,
     ...experienceRoutes,
     ...destinationRoutes,
