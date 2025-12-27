@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Learn why property owners choose Escape Houses for luxury group listings. 0% commission, direct guest communication, and full control over your bookings.",
   keywords: ["list property group escape houses", "commission free property listing UK", "large group holiday home advertising", "luxury cottage owner platform"],
   openGraph: {
-    title: "Why List With Us | Group Escape Houses",
+    title: "Why List With Us | The Hen Fairy",
     description: "The UK's specialist platform for luxury large group properties. Reach high-intent guests directly and keep 100% of your revenue.",
     url: "https://groupescapehouses.co.uk/why-list-with-escape-houses",
   },

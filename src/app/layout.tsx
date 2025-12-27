@@ -8,13 +8,13 @@ import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: {
-    default: "Large Group Accommodation Across the UK | Group Escape Houses",
-    template: "%s | Group Escape Houses"
+    default: "Large Group Accommodation Across the UK | The Hen Fairy",
+    template: "%s | The Hen Fairy"
   },
-    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors.",
-    metadataBase: new URL("https://www.groupescapehouses.co.uk"),
+    description: "Luxury large group accommodation across the UK with hot tubs, pools, and stylish interiors. Expert hen party planning and activity houses.",
+    metadataBase: new URL("https://www.thehenfairy.co.uk"),
     alternates: {
-      canonical: "https://www.groupescapehouses.co.uk",
+      canonical: "https://www.thehenfairy.co.uk",
     },
     formatDetection: {
     email: false,

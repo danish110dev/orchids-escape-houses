@@ -73,13 +73,13 @@ export default async function Home() {
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
           <HeroVideo />
 
-            <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
-                <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
-                  Large Group Accommodation UK
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
-                  Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners. Ideal for hen parties, family celebrations, weekends away and corporate retreats.
-                </p>
+              <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
+                  <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
+                    The Hen Fairy | Large Group Accommodation UK
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                    Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners via The Hen Fairy. Ideal for hen parties, family celebrations, weekends away and corporate retreats.
+                  </p>
 
             <HeroSearchForm />
 

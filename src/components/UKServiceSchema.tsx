@@ -32,7 +32,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
       "@type": "ContactPoint",
       "contactType": "customer service",
       "telephone": "+44-1273-569301",
-      "email": "hello@groupescapehouses.co.uk",
+      "email": "hello@thehenfairy.co.uk",
       "areaServed": "GB",
       "availableLanguage": "en-GB"
     }
@@ -45,7 +45,7 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
     "name": siteName,
     "url": `${baseUrl}/`,
     "telephone": "01273 569301",
-    "email": "hello@groupescapehouses.co.uk",
+    "email": "hello@thehenfairy.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "11a North Street",

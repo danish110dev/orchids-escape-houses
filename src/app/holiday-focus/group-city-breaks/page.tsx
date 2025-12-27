@@ -18,7 +18,7 @@ export default function GroupCityBreaksPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Group City Breaks UK | Group Escape Houses</title>
+      <title>Group City Breaks UK | The Hen Fairy</title>
       <meta name="description" content="Explore the best group city breaks across the UK. Stay in luxury townhouses and centrally located apartments perfect for large groups and celebrations." />
       
       <Header />

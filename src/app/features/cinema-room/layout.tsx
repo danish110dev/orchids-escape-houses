@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Luxury homes with private cinema rooms. Perfect for movie nights during hen parties. Seating for 10+ guests with big screens.",
   keywords: ["houses with cinema rooms UK", "party houses with movie room", "private screening rooms", "home cinema group accommodation"],
   openGraph: {
-    title: "Party Houses with Cinema Rooms | Group Escape Houses",
+    title: "Party Houses with Cinema Rooms | The Hen Fairy",
     description: "Private screening rooms with big screens and surround sound. Perfect for movie night relaxation.",
     url: "https://groupescapehouses.co.uk/features/cinema-room",
   },

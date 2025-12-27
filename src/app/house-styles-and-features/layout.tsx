@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Filter party houses by architectural style and premium features. Grand manors, historic castles, luxury cottages. Search by hot tubs, pools, games rooms and cinema rooms.",
   keywords: ["luxury manor houses UK", "party houses with hot tubs", "houses with pools", "castles for hire UK", "luxury cottages"],
   openGraph: {
-    title: "House Styles & Premium Features | Group Escape Houses",
+    title: "House Styles & Premium Features | The Hen Fairy",
     description: "Filter by architectural style or feature. Manors, castles, hot tubs, pools and entertainment.",
     url: "https://groupescapehouses.co.uk/house-styles-and-features",
   },

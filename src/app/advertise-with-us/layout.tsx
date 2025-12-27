@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+  title: "Advertise Your Group Property | Fixed Fee Listings | The Hen Fairy",
   description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
   keywords: ["list property", "advertise accommodation", "property owner", "fixed fee listings", "group accommodation platform", "no commission"],
   openGraph: {
-    title: "Advertise Your Group Property | Fixed Fee Listings | Group Escape Houses",
+    title: "Advertise Your Group Property | Fixed Fee Listings | The Hen Fairy",
     description: "Advertise your large group house or cottage to UK travellers. Fixed fee listings, no commission, direct enquiries and availability syncing.",
     url: "https://groupescapehouses.co.uk/advertise-with-us",
   },

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Properties with Cinema Rooms | Luxury Group Houses UK | Group Escape Houses",
+  title: "Properties with Cinema Rooms | Luxury Group Houses UK | The Hen Fairy",
   description: "Luxury hen party houses in the UK with private cinema rooms. Perfect for cosy movie nights, entertainment, and relaxed group celebrations.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/features/cinema-room",

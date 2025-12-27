@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Five-star luxury properties with designer interiors, hot tubs, pools & chef kitchens. Premium facilities for discerning hen parties.",
   keywords: ["luxury party houses UK", "high-end group accommodation", "5-star party houses", "premium celebration venues"],
   openGraph: {
-    title: "Five-Star Luxury Houses | Group Escape Houses",
+    title: "Five-Star Luxury Houses | The Hen Fairy",
     description: "Premium properties with designer interiors, exceptional facilities and boutique service.",
     url: "https://groupescapehouses.co.uk/house-styles/luxury-houses",
   },

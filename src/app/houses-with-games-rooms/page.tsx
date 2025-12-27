@@ -12,7 +12,7 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Houses with Games Rooms UK | Large Group Properties | Group Escape Houses",
+  title: "Houses with Games Rooms UK | Large Group Properties | The Hen Fairy",
   description: "Find large houses with games rooms across the UK. Pool tables, table tennis, arcade games, and entertainment spaces. Perfect for group getaways, family holidays, and celebrations sleeping 10-30 guests.",
   keywords: "houses with games rooms UK, group houses games room, pool table holiday house, large house games room, party house games room, family holiday games room, entertainment room holiday house",
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Houses with Games Rooms UK | Large Group Properties",
     description: "Find large houses with games rooms across the UK. Pool tables, table tennis, and entertainment spaces for groups.",
     url: "https://www.groupescapehouses.co.uk/houses-with-games-rooms",
-    siteName: "Group Escape Houses",
+    siteName: "The Hen Fairy",
     locale: "en_GB",
     type: "website",
   },
@@ -166,7 +166,7 @@ export default async function HousesWithGamesRoomsPage() {
             </h2>
             
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
-              A dedicated games room transforms a good group holiday into a great one. At Group Escape Houses, we specialise in <strong>large houses with games rooms across the UK</strong>, giving your group access to entertainment facilities that keep everyone engaged, laughing, and bonding throughout your stay. Whether you're competitive pool sharks or casual board game enthusiasts, our properties deliver endless entertainment options.
+              A dedicated games room transforms a good group holiday into a great one. At The Hen Fairy, we specialise in <strong>large houses with games rooms across the UK</strong>, giving your group access to entertainment facilities that keep everyone engaged, laughing, and bonding throughout your stay. Whether you're competitive pool sharks or casual board game enthusiasts, our properties deliver endless entertainment options.
             </p>
 
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">

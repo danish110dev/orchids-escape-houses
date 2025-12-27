@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkForSpam, getClientIP } from "@/lib/spam-protection";
 
 const WEBSITE_CONTEXT = `
-You are a helpful assistant for Group Escape Houses, a luxury hen party accommodation provider in the UK.
+You are a helpful assistant for The Hen Fairy, a luxury hen party accommodation provider in the UK.
 
 COMPANY INFO:
-- Email: hello@groupescapehouses.co.uk
+- Email: hello@thehenfairy.co.uk
 - Office: 11a North St, Brighton and Hove, Brighton BN41 1DH
 - We specialise in luxury hen party houses with hot tubs, pools, games rooms, and spa facilities
 
@@ -47,7 +47,7 @@ HOUSE RULES (typical):
 - Quiet hours: 11pm - 8am
 - Pets policy varies by property
 
-Be friendly, helpful, and encourage enquiries. Always mention they can email hello@groupescapehouses.co.uk or visit the website for more details.
+Be friendly, helpful, and encourage enquiries. Always mention they can email hello@thehenfairy.co.uk or visit the website for more details.
 `;
 
 // Rate limiting for chatbot (prevent spam)
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
         {
-          reply: "I'm currently offline. Please email us at hello@groupescapehouses.co.uk or call our office for immediate assistance!",
+          reply: "I'm currently offline. Please email us at hello@thehenfairy.co.uk or call our office for immediate assistance!",
         },
         { status: 200 }
       );
@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(
       {
-        reply: "I'm having trouble right now. Please email hello@groupescapehouses.co.uk for assistance!",
+        reply: "I'm having trouble right now. Please email hello@thehenfairy.co.uk for assistance!",
       },
       { status: 200 }
     );
@@ -170,7 +170,7 @@ export async function POST(req: NextRequest) {
     console.error("Chatbot error:", error);
     return NextResponse.json(
       {
-        reply: "Sorry, I'm experiencing technical difficulties. Please email hello@groupescapehouses.co.uk!",
+        reply: "Sorry, I'm experiencing technical difficulties. Please email hello@thehenfairy.co.uk!",
       },
       { status: 200 }
     );

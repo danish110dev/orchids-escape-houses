@@ -12,7 +12,7 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Houses with Hot Tubs UK | Large Group Properties | Group Escape Houses",
+  title: "Houses with Hot Tubs UK | Large Group Properties | The Hen Fairy",
   description: "Discover large houses with hot tubs across the UK. Perfect for group getaways, hen parties, and family celebrations. Properties sleeping 10-30 guests with private outdoor hot tubs.",
   keywords: "houses with hot tubs UK, hot tub holidays, large houses hot tubs, group accommodation hot tub, hen party house hot tub, holiday house hot tub, UK hot tub breaks",
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Houses with Hot Tubs UK | Large Group Properties",
     description: "Discover large houses with hot tubs across the UK. Perfect for group getaways, hen parties, and family celebrations.",
     url: "https://www.groupescapehouses.co.uk/houses-with-hot-tubs",
-    siteName: "Group Escape Houses",
+    siteName: "The Hen Fairy",
     locale: "en_GB",
     type: "website",
   },
@@ -166,7 +166,7 @@ export default async function HousesWithHotTubsPage() {
             </h2>
             
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">
-              Few things enhance a group holiday quite like a private hot tub. At Group Escape Houses, we've curated an exceptional collection of <strong>large houses with hot tubs across the UK</strong>, giving your group the opportunity to relax, socialise, and create lasting memories in bubbling comfort. Whether you're planning a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party</Link>, family celebration, or weekend away with friends, a hot tub property elevates the entire experience.
+              Few things enhance a group holiday quite like a private hot tub. At The Hen Fairy, we've curated an exceptional collection of <strong>large houses with hot tubs across the UK</strong>, giving your group the opportunity to relax, socialise, and create lasting memories in bubbling comfort. Whether you're planning a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party</Link>, family celebration, or weekend away with friends, a hot tub property elevates the entire experience.
             </p>
 
             <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed mb-6">

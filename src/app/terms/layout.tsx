@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Terms of use and booking information for our advertising platform. Clarity on how we connect guests with property owners across the UK.",
   keywords: ["terms and conditions", "booking terms", "cancellation policy", "house rules"],
   openGraph: {
-    title: "Terms & Conditions | Group Escape Houses",
+    title: "Terms & Conditions | The Hen Fairy",
     description: "Booking terms, cancellation policy and house rules explained clearly.",
     url: "https://groupescapehouses.co.uk/terms",
   },

@@ -252,10 +252,10 @@ function BookingConfirmedContent() {
             <p>
               Email us at{" "}
               <a 
-                href="mailto:hello@groupescapehouses.co.uk"
+                href="mailto:hello@thehenfairy.co.uk"
                 className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors font-medium"
               >
-                hello@groupescapehouses.co.uk
+                hello@thehenfairy.co.uk
               </a>
             </p>
           </div>

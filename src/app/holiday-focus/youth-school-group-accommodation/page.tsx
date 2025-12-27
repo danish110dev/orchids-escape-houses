@@ -18,7 +18,7 @@ export default function YouthSchoolAccommodationPage() {
 
   return (
     <div className="min-h-screen">
-      <title>Youth and School Group Accommodation | Group Escape Houses</title>
+      <title>Youth and School Group Accommodation | The Hen Fairy</title>
       <meta name="description" content="Find safe and spacious youth and school group accommodation across the UK. Ideal houses for educational trips, youth clubs, and large group learning adventures." />
       
       <Header />

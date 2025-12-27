@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const experience = experiencesData[slug] || experiencesData["private-chef"];
 
   return {
-    title: `${experience.title} | Group Escape Houses`,
+    title: `${experience.title} | The Hen Fairy`,
     description: experience.description,
     alternates: {
       canonical: `${baseUrl}/experiences/${slug}`,
     },
     openGraph: {
-      title: `${experience.title} | Group Escape Houses`,
+      title: `${experience.title} | The Hen Fairy`,
       description: experience.description,
       url: `${baseUrl}/experiences/${slug}`,
       images: [{ url: experience.image }],

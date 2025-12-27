@@ -38,10 +38,10 @@ export default function OurStoryPage() {
                 Where It All Began
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-                Group Escape Houses was born from a simple frustration. Our founder, Sarah, was planning her best friend's hen party in 2018 and spent weeks searching for the perfect house. She wanted somewhere special with a hot tub, space for 15 friends, and a location close to Brighton's vibrant nightlife. But every search led to generic holiday cottages, confusing booking processes, and properties that looked nothing like their photos.
+                The Hen Fairy was born from a simple frustration. Our founder, Sarah, was planning her best friend's hen party in 2018 and spent weeks searching for the perfect house. She wanted somewhere special with a hot tub, space for 15 friends, and a location close to Brighton's vibrant nightlife. But every search led to generic holiday cottages, confusing booking processes, and properties that looked nothing like their photos.
               </p>
               <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
-                After finally finding a gorgeous property through word of mouth, Sarah realised there had to be a better way. What if there was a platform dedicated entirely to group celebrations, featuring only the best party houses across the UK, with transparent pricing and trusted add-on experiences? That weekend, Group Escape Houses was born.
+                After finally finding a gorgeous property through word of mouth, Sarah realised there had to be a better way. What if there was a platform dedicated entirely to group celebrations, featuring only the best party houses across the UK, with transparent pricing and trusted add-on experiences? That weekend, The Hen Fairy was born.
               </p>
             </div>
 
@@ -59,7 +59,7 @@ export default function OurStoryPage() {
                 How We Select Our Properties
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-                We personally visit and vet every property on our platform. We don't just look at photos, we stay overnight, test the hot tubs, check the wifi, and make sure the space genuinely works for groups. Only properties that meet our strict standards make it onto Group Escape Houses.
+                We personally visit and vet every property on our platform. We don't just look at photos, we stay overnight, test the hot tubs, check the wifi, and make sure the space genuinely works for groups. Only properties that meet our strict standards make it onto The Hen Fairy.
               </p>
               <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
                 We look for homes with character, whether that's a converted barn in the Cotswolds, a beachfront villa in Brighton, or a city centre townhouse in Manchester. Features like hot tubs, games rooms, and spacious kitchens are essential, but we also care about the intangibles: great natural light, comfortable beds, and that special something that makes a house feel like home.
@@ -158,7 +158,7 @@ export default function OurStoryPage() {
                 Meet The Team
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-neutral-dark)" }}>
-                Today, Group Escape Houses is a team of 15 passionate people based in our Brighton office. From property scouts to customer service heroes, we all share the same goal: making your celebration unforgettable.
+                Today, The Hen Fairy is a team of 15 passionate people based in our Brighton office. From property scouts to customer service heroes, we all share the same goal: making your celebration unforgettable.
               </p>
               <p className="text-lg leading-relaxed" style={{ color: "var(--color-neutral-dark)" }}>
                 We're hen party planners, weekend warriors, and celebration enthusiasts. Many of us have used our own platform for birthdays, stag dos, and friend reunions. We know what makes a great weekend, because we live it.

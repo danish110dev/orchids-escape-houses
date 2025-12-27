@@ -231,7 +231,7 @@ export default function WhyListWithUs() {
 
             <div className="mt-12 text-center">
               <p className="text-lg text-[var(--color-neutral-dark)] italic">
-                "We saved over £12,000 in commissions last year by switching our primary focus to Group Escape Houses."
+                "We saved over £12,000 in commissions last year by switching our primary focus to The Hen Fairy."
               </p>
               <p className="font-bold mt-2">— Manor House Owner, Somerset</p>
             </div>

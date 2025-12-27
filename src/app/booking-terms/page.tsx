@@ -22,7 +22,7 @@ export default function BookingTermsPage() {
               Booking Terms & Conditions
             </h1>
             <p className="text-xl text-[var(--color-neutral-dark)] max-w-3xl leading-relaxed">
-              Group Escape Houses is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
+              The Hen Fairy is an advertising platform. Bookings, payments and contracts are handled directly between guests and property owners.
             </p>
           </div>
         </section>
@@ -39,13 +39,13 @@ export default function BookingTermsPage() {
                 </h2>
                 <div className="space-y-4 text-[var(--color-neutral-dark)]">
                   <p>
-                    Group Escape Houses provides an advertising service for property owners to list their group accommodation. We are not a booking agent, travel agent or property management company.
+                    The Hen Fairy provides an advertising service for property owners to list their group accommodation. We are not a booking agent, travel agent or property management company.
                   </p>
                   <p>
                     When you submit an enquiry through our platform, your details are sent directly to the property owner. All subsequent communications, booking confirmations, payment arrangements and contractual agreements are made directly between you and the property owner.
                   </p>
                   <p>
-                    Group Escape Houses does not handle booking payments, deposits or security deposits. We do not set the final rental price or determine availability.
+                    The Hen Fairy does not handle booking payments, deposits or security deposits. We do not set the final rental price or determine availability.
                   </p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function BookingTermsPage() {
                     <strong>Deposits and Balances:</strong> Payments, deposits and booking terms are agreed and handled directly with the property owner. Most owners will require a deposit to secure your dates, followed by a final balance payment.
                   </p>
                   <p>
-                    <strong>Security Deposits:</strong> Most owners require a refundable security deposit to cover potential damage. These are managed and held directly by the property owner, not by Group Escape Houses.
+                    <strong>Security Deposits:</strong> Most owners require a refundable security deposit to cover potential damage. These are managed and held directly by the property owner, not by The Hen Fairy.
                   </p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function BookingTermsPage() {
                 </h2>
                 <div className="space-y-4 text-[var(--color-neutral-dark)]">
                   <p>
-                    Property owners are responsible for the safety and maintenance of their properties. Group Escape Houses is not liable for personal injury, loss or damage to guests' belongings during their stay.
+                    Property owners are responsible for the safety and maintenance of their properties. The Hen Fairy is not liable for personal injury, loss or damage to guests' belongings during their stay.
                   </p>
                   <p>
                     Guests are responsible for any damage caused during their stay, which will be handled according to the owner's specific terms and security deposit policy.
@@ -126,7 +126,7 @@ export default function BookingTermsPage() {
                 </h2>
                 <div className="space-y-4 text-[var(--color-neutral-dark)]">
                   <p>
-                    Group Escape Houses shall not be liable for any failure to perform its obligations due to circumstances beyond our reasonable control. Any issues regarding booking cancellations due to force majeure events must be resolved directly with the property owner.
+                    The Hen Fairy shall not be liable for any failure to perform its obligations due to circumstances beyond our reasonable control. Any issues regarding booking cancellations due to force majeure events must be resolved directly with the property owner.
                   </p>
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function BookingTermsPage() {
                   </h2>
                 <div className="space-y-4 text-[var(--color-neutral-dark)]">
                   <p>
-                    These terms and conditions relate to your use of the Group Escape Houses website and advertising platform. Any disputes regarding your use of this platform will be subject to the exclusive jurisdiction of the courts of England and Wales.
+                    These terms and conditions relate to your use of the The Hen Fairy website and advertising platform. Any disputes regarding your use of this platform will be subject to the exclusive jurisdiction of the courts of England and Wales.
                   </p>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function BookingTermsPage() {
                   If you have any questions about our platform or how we work, please don't hesitate to get in touch.
                 </p>
                 <p className="text-[var(--color-neutral-dark)]">
-                  <strong>Email:</strong> <a href="mailto:hello@groupescapehouses.co.uk" className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hello@groupescapehouses.co.uk</a><br />
+                  <strong>Email:</strong> <a href="mailto:hello@thehenfairy.co.uk" className="text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors">hello@thehenfairy.co.uk</a><br />
                   <strong>Office:</strong> 11a North Street, Brighton BN41 1DH
                 </p>
               </div>

@@ -17,7 +17,7 @@ export default function OrganizationSchema() {
     },
     "description": "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission.",
     "telephone": "01273 569301",
-    "email": "hello@groupescapehouses.co.uk",
+    "email": "hello@thehenfairy.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "11a North Street",

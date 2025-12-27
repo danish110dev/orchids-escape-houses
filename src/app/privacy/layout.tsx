@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Our commitment to protecting your privacy and personal data. GDPR-compliant practices, cookie policy, data retention and your rights explained clearly.",
   keywords: ["privacy policy", "data protection", "GDPR compliance", "personal data"],
   openGraph: {
-    title: "Privacy Policy | Group Escape Houses",
+    title: "Privacy Policy | The Hen Fairy",
     description: "GDPR-compliant privacy practices. How we protect and handle your personal data.",
     url: "https://groupescapehouses.co.uk/privacy",
   },

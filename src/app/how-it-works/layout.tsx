@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Simple 4-step direct enquiry and booking process. Find your perfect house and book directly with property owners for the best rates.",
   keywords: ["how to book hen party house", "hen weekend booking process", "direct booking luxury houses", "enquire direct"],
   openGraph: {
-    title: "How Our Enquiry Process Works | Group Escape Houses",
+    title: "How Our Enquiry Process Works | The Hen Fairy",
     description: "Easy 4-step process to find and book your perfect group property directly with owners.",
     url: "https://groupescapehouses.co.uk/how-it-works",
   },

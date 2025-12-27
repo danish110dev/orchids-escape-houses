@@ -24,11 +24,11 @@ function getOpenAIClient() {
 
 // Website context for the AI chatbot
 const WEBSITE_CONTEXT = `
-You are a helpful assistant for Group Escape Houses, a luxury hen party house rental company in the UK.
+You are a helpful assistant for The Hen Fairy, a luxury hen party house rental company in the UK.
 
 COMPANY INFO:
 - Office: 11a North St, Brighton and Hove, Brighton BN41 1DH
-- Email: hello@groupescapehouses.co.uk
+- Email: hello@thehenfairy.co.uk
 - Website: groupescapehouses.co.uk
 
 SERVICES:
@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       return new NextResponse("No message body", { status: 400 });
     }
 
-    let aiResponse = "Thanks for your message! For immediate assistance, please email us at hello@groupescapehouses.co.uk or visit our website at groupescapehouses.co.uk to make an instant enquiry.";
+    let aiResponse = "Thanks for your message! For immediate assistance, please email us at hello@thehenfairy.co.uk or visit our website at groupescapehouses.co.uk to make an instant enquiry.";
 
     // Try to generate AI response if OpenAI is configured
     const openai = getOpenAIClient();
@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
     
     const twiml = new twilio.twiml.MessagingResponse();
     twiml.message(
-      "Sorry, I'm having trouble right now. Please email us at hello@groupescapehouses.co.uk or call our office."
+      "Sorry, I'm having trouble right now. Please email us at hello@thehenfairy.co.uk or call our office."
     );
 
     return new NextResponse(twiml.toString(), {

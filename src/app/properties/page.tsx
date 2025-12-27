@@ -10,17 +10,17 @@ import { eq } from "drizzle-orm";
 import PropertiesClient from "./PropertiesClient";
 
 export const metadata: Metadata = {
-  title: "Luxury Group Houses to Rent | Group Escape Houses",
+  title: "Luxury Group Houses to Rent | The Hen Fairy",
   description: "Browse our collection of luxury group houses to rent across the UK. Perfect for hen parties, weddings, celebrations, and group getaways. Hot tubs, pools, games rooms and more.",
   keywords: "group houses to rent, luxury group accommodation, hen party houses, large holiday homes UK, party houses with hot tub",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/properties",
   },
   openGraph: {
-    title: "Luxury Group Houses to Rent | Group Escape Houses",
+    title: "Luxury Group Houses to Rent | The Hen Fairy",
     description: "Browse our collection of luxury group houses to rent across the UK. Perfect for hen parties, weddings, celebrations, and group getaways.",
     url: "https://www.groupescapehouses.co.uk/properties",
-    siteName: "Group Escape Houses",
+    siteName: "The Hen Fairy",
     type: "website",
   },
 };

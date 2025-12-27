@@ -160,14 +160,14 @@ export default function Header() {
               className="flex items-center relative z-[60] flex-shrink-0 -ml-2"
             >
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
-                alt="Group Escape Houses"
-                width={160}
-                height={100}
-                className="h-20 w-auto"
-                priority
-              />
-            </Link>
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
+                  alt="The Hen Fairy"
+                  width={160}
+                  height={100}
+                  className="h-20 w-auto"
+                  priority
+                />
+              </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Brighton-based hen party specialists since 2018. Arranging 500+ weekends annually. Every property personally inspected by our team.",
   keywords: ["about group escape houses", "hen party specialists UK", "Brighton accommodation team"],
   openGraph: {
-    title: "Our Story & Team | Group Escape Houses",
+    title: "Our Story & Team | The Hen Fairy",
     description: "Brighton-based since 2018. Arranging 500+ hen weekends annually with personal service.",
     url: "https://groupescapehouses.co.uk/our-story",
   },

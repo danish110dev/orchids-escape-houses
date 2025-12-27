@@ -110,7 +110,7 @@ export default function RegisterPage() {
               Create Account
             </h1>
             <p className="text-lg text-[var(--color-neutral-dark)]">
-              Join Group Escape Houses to manage bookings
+              Join The Hen Fairy to manage bookings
             </p>
           </div>
 

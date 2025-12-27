@@ -570,18 +570,18 @@ export default function ContactPage() {
                         <p className="text-[var(--color-accent-sage)]">01273 569301</p>
                       </div>
                     </a>
-                    <a
-                      href="mailto:hello@groupescapehouses.co.uk"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-sm">Email Us</p>
-                        <p className="text-[var(--color-accent-sage)] text-sm">hello@groupescapehouses.co.uk</p>
-                      </div>
-                    </a>
+                      <a
+                        href="mailto:hello@thehenfairy.co.uk"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-[var(--color-bg-primary)] hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="w-10 h-10 rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center">
+                          <Mail className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm">Email Us</p>
+                          <p className="text-[var(--color-accent-sage)] text-sm">hello@thehenfairy.co.uk</p>
+                        </div>
+                      </a>
                     <a
                       href="https://wa.me/441273569301"
                       target="_blank"
