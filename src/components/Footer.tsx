@@ -61,13 +61,23 @@ export default function Footer() {
                     Guides & Resources
                   </Link>
                 </li>
-              <li>
-                <Link href="/contact" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                  Contact & Enquiries
-                </Link>
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <Link href="/contact" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Contact & Enquiries
+                  </Link>
+                </li>
+                <li>
+                  <a href="https://butlersinthebuff.co.uk/" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Butlers in the Buff UK
+                  </a>
+                </li>
+                <li>
+                  <a href="https://butlerswithbums.com/" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                    Butlers with Bums
+                  </a>
+                </li>
+              </ul>
+            </div>
 
             {/* Property Owners */}
             <div>
