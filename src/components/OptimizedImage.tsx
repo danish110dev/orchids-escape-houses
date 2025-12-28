@@ -28,13 +28,15 @@ function validateImageUrl(url: string): string {
     return PLACEHOLDER_IMAGE;
   }
   
-  // Fix Supabase URLs with trailing query parameters
+  // Fix Supabase URLs - ensure proper format without trailing ?
   if (url.includes('supabase.co/storage')) {
     // Remove trailing '?' if present
     url = url.replace(/\?$/, '');
-    // Ensure it doesn't have duplicate query params
-    if (!url.includes('?')) {
-      url = url + '?t=' + Date.now();
+    // Clean up any malformed query strings
+    url = url.replace(/\?+/g, '?');
+    // Remove empty query params
+    if (url.endsWith('?')) {
+      url = url.slice(0, -1);
     }
   }
   
@@ -42,7 +44,11 @@ function validateImageUrl(url: string): string {
   const isImageCDN = 
     url.includes('supabase.co/storage') ||
     url.includes('unsplash.com') ||
-    url.includes('fal.media');
+    url.includes('fal.media') ||
+    url.includes('butlersinthebuff') ||
+    url.includes('propertista.co.uk') ||
+    url.includes('londonbay.com') ||
+    url.includes('gstatic.com');
   
   if (!hasImageExtension && !isImageCDN) {
     return PLACEHOLDER_IMAGE;
@@ -91,6 +97,7 @@ export default function OptimizedImage({
           sizes={sizes}
           quality={quality}
           priority={priority}
+          unoptimized={displaySrc === PLACEHOLDER_IMAGE}
           loading={priority ? undefined : "lazy"}
           className={`object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
           onError={handleError}
@@ -112,6 +119,7 @@ export default function OptimizedImage({
       sizes={sizes}
       quality={quality}
       priority={priority}
+      unoptimized={displaySrc === PLACEHOLDER_IMAGE}
       loading={priority ? undefined : "lazy"}
       className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
       onError={handleError}
