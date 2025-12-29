@@ -165,7 +165,7 @@ export default async function Home() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-pink)] text-[var(--color-text-primary)]"
+                className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] bg-[var(--color-accent-sage)] text-white"
               >
                 <Link href="/experiences">
                   View All Experiences
