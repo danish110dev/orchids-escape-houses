@@ -2,20 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "redirects": [
-    {
-      "source": "/:path((?!api).*)*",
-      "destination": "https://groupescapehouses.co.uk/:path*",
-      "statusCode": 301,
-      "has": [
-        {
-          "type": "header",
-          "key": "x-forwarded-proto",
-          "value": "http"
-        }
-      ]
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
