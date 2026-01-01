@@ -35,6 +35,14 @@ export const metadata: Metadata = {
   verification: {
     google: "5Y_FiF2qaStUJ-oNPw4DIxA8AUWw-pnJ999FgRUzpgk",
   },
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +53,8 @@ export default function RootLayout({
   return (
       <html lang="en">
         <head>
+	        <link rel="icon" href="/favicon.png" />
+          <link rel="apple-touch-icon" href="/apple-icon" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />

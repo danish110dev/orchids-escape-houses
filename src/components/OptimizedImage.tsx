@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
-const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
-
+// const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-71429268-20251018131719.jpghttps://www.londonbay.com/hubfs/Naples%20Collection%20(Custom%20Clients%20and%20Models)/256%20Aqua%20Ct/256%20Aqua%20Court__Rear%20Elevation.jpg';
+const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80';
 interface OptimizedImageProps {
   src: string;
   alt: string;
@@ -85,28 +85,31 @@ export default function OptimizedImage({
     onLoad?.();
   }, [onLoad]);
 
+  // Fallback to show image after 2 seconds if onLoad hasn't fired
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const aspectRatioClass = aspectRatio ? `aspect-[${aspectRatio}]` : "";
 
   if (fill) {
     return (
-      <div className={`relative overflow-hidden bg-gray-100 ${aspectRatioClass}`}>
-        <Image
-          src={displaySrc}
-          alt={alt}
-          fill
-          sizes={sizes}
-          quality={quality}
-          priority={priority}
-          unoptimized={displaySrc === PLACEHOLDER_IMAGE}
-          loading={priority ? undefined : "lazy"}
-          className={`object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-          onError={handleError}
-          onLoad={handleLoad}
-        />
-        {!isLoaded && (
-          <div className="absolute inset-0 bg-gray-200 animate-pulse" />
-        )}
-      </div>
+      <Image
+        src={displaySrc}
+        alt={alt}
+        fill
+        sizes={sizes}
+        quality={quality}
+        priority={priority}
+        unoptimized={true}
+        loading={priority ? undefined : "lazy"}
+        className={`object-cover ${className}`}
+        onError={handleError}
+        onLoad={handleLoad}
+      />
     );
   }
 
@@ -114,14 +117,14 @@ export default function OptimizedImage({
     <Image
       src={displaySrc}
       alt={alt}
-      width={width}
-      height={height}
+      width={width || 400}
+      height={height || 300}
       sizes={sizes}
       quality={quality}
       priority={priority}
-      unoptimized={displaySrc === PLACEHOLDER_IMAGE}
+      unoptimized={true}
       loading={priority ? undefined : "lazy"}
-      className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`${className}`}
       onError={handleError}
       onLoad={handleLoad}
     />

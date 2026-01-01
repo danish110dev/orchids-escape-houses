@@ -23,7 +23,7 @@ interface PropertyCardProps {
   slug: string;
 }
 
-const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
+const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80';
 
 function validateImageUrl(url: string): string {
   if (!url || url === '/placeholder-property.jpg') {

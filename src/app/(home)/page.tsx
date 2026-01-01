@@ -17,34 +17,34 @@ import { homeFaqs } from "@/data/faqs";
 
 // Static destinations data
 const destinations = [
-  { 
-    name: "London", 
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-london-citysc-8f325788-20251019170619.jpg?",
+  {
+    name: "London",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&q=80&fit=crop",
     description: "Iconic attractions & world-class nightlife"
   },
-  { 
-    name: "Brighton", 
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/wide-angle-photograph-of-brighton-seafro-11bd7734-20251017161212.jpg",
+  {
+    name: "Brighton",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&q=80&fit=crop",
     description: "Seaside fun with vibrant beach bars"
   },
-  { 
-    name: "Bath", 
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/historic-bath-city-center-photograph%2c--eef16b18-20251017161220.jpg",
+  {
+    name: "Bath",
+    image: "https://images.unsplash.com/photo-1549144511-f099e773c147?w=800&h=600&q=80&fit=crop",
     description: "Georgian elegance & thermal spas"
   },
-  { 
-    name: "Manchester", 
-    image: "https://v3b.fal.media/files/b/tiger/TnJnPy7geHZHAjOwxZKxO_output.png",
+  {
+    name: "Manchester",
+    image: "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=800&h=600&q=80&fit=crop",
     description: "Northern vibes & legendary nightlife"
   },
-  { 
-    name: "Newquay", 
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?",
+  {
+    name: "Newquay",
+    image: "https://ssl.cdn-redfin.com/photo/190/islphoto/288/genIslnoResize.R1651288_V.webp",
     description: "Surf beaches & coastal adventures"
   },
-  { 
-    name: "Liverpool", 
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+  {
+    name: "Liverpool",
+    image: "https://media.istockphoto.com/id/2175972607/photo/modern-luxury-home-with-geometric-driveway-and-sunset-sky.jpg?s=612x612&w=0&k=20&c=0pvJ_frDStQGywjOptq9XmyEQgVIxfH3Yg7MbYIfIjI=",
     description: "Beatles heritage & waterfront bars"
   },
 ];
@@ -199,12 +199,10 @@ export default async function Home() {
                       className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
                       aria-label={`View properties in ${destination.name}`}
                     >
-                      <OptimizedImage
+                      <img
                         src={destination.image}
                         alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
-                        fill
-                        className="object-cover object-center transition-transform group-hover:scale-110"
-                        sizes="(max-width: 768px) 300px, 400px"
+                        className="w-full h-full object-cover object-center transition-transform group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -349,14 +347,14 @@ export default async function Home() {
               <div className="relative mt-12 min-h-[400px] md:min-h-[500px]">
                 <div className="overflow-hidden">
                   <div className="flex gap-4 animate-slide-left">
-                    {[ 
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-410655fd-20251209095213.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-84d0cd28-20251209095213.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-d21b606a-20251209095213.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-stunning-in-cbe99e90-20251209095212.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-a-luxury-uk-c-082eb61b-20251209095213.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-interior-photograph-of-a-lu-e5926857-20251209095212.jpg",
-                      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-a-group-of-ha-bdabbebd-20251209095212.jpg",
+                    {[
+                      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&h=711&q=80&fit=crop",
+                      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=711&q=80&fit=crop",
                     ].map((img, index) => (
                       <a
                         key={`img-${index}`}
@@ -366,12 +364,10 @@ export default async function Home() {
                         className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
                         aria-label={`View Instagram post ${index + 1}`}
                       >
-                        <OptimizedImage
+                        <img
                           src={img}
                           alt={`Luxury holiday house showcase on Instagram - Image ${index + 1}`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          sizes="280px"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
 
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
