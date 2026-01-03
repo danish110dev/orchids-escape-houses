@@ -82,7 +82,6 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        <UKServiceSchema type="default" includeSiteWide={true} />
         <CustomAutumnProvider>
           {children}
         </CustomAutumnProvider>

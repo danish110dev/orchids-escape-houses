@@ -58,14 +58,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <UKServiceSchema type="home" includeSiteWide={false} />
-      <UKServiceSchema 
-        type="itemList" 
-        data={{ 
-          items: featuredProperties.map(p => ({ ...p, url: `/properties/${p.slug}` })) 
-        }} 
-      />
-      <UKServiceSchema type="faq" data={{ faqs: homeFaqs }} />
+      <UKServiceSchema type="home" includeSiteWide={true} />
       <Header />
 
       <main>
