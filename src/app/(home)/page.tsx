@@ -58,7 +58,9 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <UKServiceSchema type="home" includeSiteWide={true} />
+      <UKServiceSchema type="organization" />
+      <UKServiceSchema type="website" />
+      <UKServiceSchema type="home" />
       <Header />
 
       <main>

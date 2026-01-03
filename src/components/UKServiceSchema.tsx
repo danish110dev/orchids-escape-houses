@@ -1,5 +1,5 @@
 interface UKServiceSchemaProps {
-  type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article";
+  type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article" | "organization" | "website";
   data?: any;
   includeSiteWide?: boolean;
 }
@@ -172,6 +172,20 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           />
         </>
+      )}
+
+      {/* Individual schema types */}
+      {type === "organization" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      )}
+      {type === "website" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       )}
       
       {/* Page specific schema */}
