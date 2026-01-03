@@ -36,6 +36,13 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
       "email": "hello@groupescapehouses.co.uk",
       "areaServed": "GB",
       "availableLanguage": "en-GB"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
@@ -129,7 +136,25 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }))
   } : null;
 
-  // 6) Property/VacationRental schema
+  // 6) Service schema (Home page - accommodation service)
+  const serviceSchema = (type === "home") ? {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${baseUrl}/#service`,
+    "name": "Large Group Accommodation UK",
+    "description": "Book luxury large group houses and cottages across the UK. Sleeps 10-30+ guests. Direct booking with property owners, no commission fees.",
+    "provider": { "@id": `${baseUrl}/#organization` },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "serviceType": "Accommodation",
+    "category": "Vacation Rental",
+    "offers": {
+      "@type": "Offer",
+      "description": "Large group accommodation booking service"
+    }
+  } : null;
   const propertySchema = (type === "property" && data) ? {
     "@context": "https://schema.org",
     "@type": "VacationRental",
@@ -187,6 +212,10 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
           />
           <script
             type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          />
+          <script
+            type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           />
         </>
@@ -215,6 +244,12 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
       )}
       {propertySchema && (
