@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/login', '/register', '/_next/'],
+        disallow: ['/api/', '/admin/', '/login', '/register'],
       },
     ],
     sitemap: 'https://www.groupescapehouses.co.uk/sitemap.xml',

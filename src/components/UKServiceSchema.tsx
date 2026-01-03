@@ -82,14 +82,14 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }
   };
 
-  // 3) WebPage schema (Homepage ONLY)
-  const webPageSchema = type === "home" ? {
+  // 3) WebPage schema (Every page)
+  const webPageSchema = type !== "default" ? {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${baseUrl}/#webpage`,
-    "url": `${baseUrl}/`,
-    "name": `Group Accommodation & Luxury Holiday Houses UK | ${siteName}`,
-    "description": "Luxury large group accommodation across the UK. Book large group houses with hot tubs, pools, and expert planning.",
+    "@id": `${baseUrl}${data?.url || "/"}#webpage`,
+    "url": `${baseUrl}${data?.url || "/"}`,
+    "name": data?.name || `Group Accommodation & Luxury Holiday Houses UK | ${siteName}`,
+    "description": data?.description || "Luxury large group accommodation across the UK. Book large group houses with hot tubs, pools, and expert planning.",
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#organization` }
   } : null;
@@ -131,23 +131,28 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }))
   } : null;
 
-  // 6) Property/Product schema
+  // 6) Property/VacationRental schema
   const propertySchema = (type === "property" && data) ? {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "VacationRental",
     "name": data.name,
     "description": data.description,
     "image": data.image,
-    "brand": {
-      "@type": "Brand",
-      "name": siteName
+    "url": `${baseUrl}/properties/${data.slug}`,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": data.location,
+      "addressCountry": "GB"
     },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "GBP",
-      "price": data.priceFrom,
-      "availability": "https://schema.org/InStock"
-    }
+    "provider": { "@id": `${baseUrl}/#organization` },
+    ...(data.priceFrom && {
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "GBP",
+        "price": data.priceFrom,
+        "availability": "https://schema.org/InStock"
+      }
+    })
   } : null;
 
   // 7) Article schema
@@ -181,10 +186,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
           />
           <script
             type="application/ld+json"
