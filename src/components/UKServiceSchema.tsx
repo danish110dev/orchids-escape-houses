@@ -9,14 +9,12 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 }
 
 export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
-  const baseUrl = "https://www.groupescapehouses.co.uk";
-  const siteName = "Group Escape Houses";
+  const baseUrl = "https://www.escape-houses.co.uk";
+  const siteName = "Escape Houses";
   const sameAs = [
-    "https://www.instagram.com/groupescapehouses/",
-    "https://www.tiktok.com/@groupescapehouses",
-    "https://www.youtube.com/@GroupEscapeHouses",
-    "https://www.facebook.com/profile.php?id=61580927195664",
-    "https://www.pinterest.com/groupescapehouses"
+    "https://www.instagram.com/escapehouses",
+    "https://www.facebook.com/escapehouses",
+    "https://www.twitter.com/escapehouses"
   ];
   
   // 1) Organization & WebSite
@@ -28,14 +26,14 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "url": `${baseUrl}/`,
     "logo": {
       "@type": "ImageObject",
-      "url": `${baseUrl}/logo.png`
+      "url": `${baseUrl}/icon-512x512.png`
     },
     "sameAs": sameAs,
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "telephone": "+44-1273-569301",
-      "email": "hello@groupescapehouses.co.uk",
+      "telephone": "+44-161-870-1366",
+      "email": "hello@escape-houses.co.uk",
       "areaServed": "GB",
       "availableLanguage": "en-GB"
     }
@@ -47,8 +45,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "@id": `${baseUrl}/#localbusiness`,
     "name": siteName,
     "url": `${baseUrl}/`,
-    "telephone": "+441273569301",
-    "email": "hello@groupescapehouses.co.uk",
+    "telephone": "+441618701366",
+    "email": "hello@escape-houses.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "11a North Street",
@@ -56,8 +54,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
       "postalCode": "BN41 1DH",
       "addressCountry": "GB"
     },
-    "logo": `${baseUrl}/logo.png`,
-    "image": `${baseUrl}/logo.png`,
+    "logo": `${baseUrl}/icon-512x512.png`,
+    "image": `${baseUrl}/icon-512x512.png`,
     "priceRange": "££",
     "areaServed": {
       "@type": "Country",
@@ -88,8 +86,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "@type": "WebPage",
     "@id": `${baseUrl}${data?.url || "/"}#webpage`,
     "url": `${baseUrl}${data?.url || "/"}`,
-    "name": data?.name || `Group Accommodation & Luxury Holiday Houses UK | ${siteName}`,
-    "description": data?.description || "Luxury large group accommodation across the UK. Book large group houses with hot tubs, pools, and expert planning.",
+    "name": data?.name || `Escape Houses | Luxury Holiday Homes & Villas in the UK`,
+    "description": data?.description || "Discover luxury holiday homes and villas across the UK. Book your perfect escape with Escape Houses - premium self-catering accommodation for groups and families.",
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#organization` }
   } : null;
@@ -173,7 +171,7 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
       "name": siteName,
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/logo.png`
+        "url": `${baseUrl}/icon-512x512.png`
       }
     }
   } : null;
