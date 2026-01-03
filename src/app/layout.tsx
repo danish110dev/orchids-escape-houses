@@ -82,10 +82,10 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-          <CustomAutumnProvider>
-            <UKServiceSchema type="default" includeSiteWide={true} />
-            {children}
-          </CustomAutumnProvider>
+        <UKServiceSchema type="default" includeSiteWide={true} />
+        <CustomAutumnProvider>
+          {children}
+        </CustomAutumnProvider>
 
         <ClientSideFeatures />
       </body>
