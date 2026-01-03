@@ -9,12 +9,12 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 }
 
 export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
-  const baseUrl = "https://www.escape-houses.co.uk";
-  const siteName = "Escape Houses";
+  const baseUrl = "https://www.groupescapehouses.co.uk";
+  const siteName = "Group Escape Houses";
   const sameAs = [
-    "https://www.instagram.com/escapehouses",
-    "https://www.facebook.com/escapehouses",
-    "https://www.twitter.com/escapehouses"
+    "https://www.instagram.com/groupescapehouses/",
+    "https://www.facebook.com/profile.php?id=61580927195664",
+    "https://www.tiktok.com/@groupescapehouses"
   ];
   
   // 1) Organization & WebSite
@@ -32,8 +32,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "telephone": "+44-161-870-1366",
-      "email": "hello@escape-houses.co.uk",
+      "telephone": "+44-1273-569301",
+      "email": "hello@groupescapehouses.co.uk",
       "areaServed": "GB",
       "availableLanguage": "en-GB"
     }
@@ -45,8 +45,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "@id": `${baseUrl}/#localbusiness`,
     "name": siteName,
     "url": `${baseUrl}/`,
-    "telephone": "+441618701366",
-    "email": "hello@escape-houses.co.uk",
+    "telephone": "+441273569301",
+    "email": "hello@groupescapehouses.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "11a North Street",
@@ -86,8 +86,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "@type": "WebPage",
     "@id": `${baseUrl}${data?.url || "/"}#webpage`,
     "url": `${baseUrl}${data?.url || "/"}`,
-    "name": data?.name || `Escape Houses | Luxury Holiday Homes & Villas in the UK`,
-    "description": data?.description || "Discover luxury holiday homes and villas across the UK. Book your perfect escape with Escape Houses - premium self-catering accommodation for groups and families.",
+    "name": data?.name || `Group Escape Houses | Large Group Accommodation UK`,
+    "description": data?.description || "Discover large group accommodation and escape houses across the UK. Sleeps 10 to 30 guests. Book direct with property owners.",
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#organization` }
   } : null;
