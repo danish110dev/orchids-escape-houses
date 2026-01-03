@@ -46,30 +46,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${baseUrl}/#localbusiness`,
-    "name": siteName,
-    "url": `${baseUrl}/`,
-    "telephone": "+441273569301",
-    "email": "hello@groupescapehouses.co.uk",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "11a North Street",
-      "addressLocality": "Brighton",
-      "postalCode": "BN41 1DH",
-      "addressCountry": "GB"
-    },
-    "logo": `${baseUrl}/icon-512x512.png`,
-    "image": `${baseUrl}/icon-512x512.png`,
-    "priceRange": "££",
-    "areaServed": {
-      "@type": "Country",
-      "name": "United Kingdom"
-    }
-  };
-
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -209,10 +185,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
           />
           <script
             type="application/ld+json"
