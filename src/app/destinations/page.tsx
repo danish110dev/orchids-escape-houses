@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import UKServiceSchema from "@/components/UKServiceSchema";
-import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles, Clock } from "lucide-react";
+import { MapPin, TrendingUp, Instagram, ArrowRight, Sparkles, Clock, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function DestinationsPage() {
@@ -322,7 +322,18 @@ export default function DestinationsPage() {
   ];
 
   const featuredDestinations = destinations.filter((d) => d.featured);
-  const otherDestinations = destinations.filter((d) => !d.featured);
+  
+  const coastalDestinations = [
+    "brighton", "bournemouth", "newquay", "st-ives", "margate", "blackpool", "plymouth"
+  ].map(slug => destinations.find(d => d.slug === slug)).filter(Boolean);
+
+  const cityDestinations = [
+    "london", "manchester", "bath", "york", "liverpool", "bristol", "cambridge", "oxford", "leeds", "nottingham", "sheffield", "newcastle", "birmingham", "cardiff"
+  ].map(slug => destinations.find(d => d.slug === slug)).filter(Boolean);
+
+  const natureDestinations = [
+    "lake-district", "cotswolds", "peak-district", "cornwall", "devon", "yorkshire", "norfolk", "suffolk", "sussex"
+  ].map(slug => destinations.find(d => d.slug === slug)).filter(Boolean);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
@@ -342,194 +353,137 @@ export default function DestinationsPage() {
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-6">
             <MapPin className="w-4 h-4 text-[var(--color-accent-pink)]" />
-            <span className="text-sm font-medium">Explore England</span>
+            <span className="text-sm font-medium">Explore UK Destinations</span>
           </div>
           <h1 className="mb-4 text-4xl md:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
-            Top Hen Party Destinations in England
+            The Best UK Hen Party Destinations
           </h1>
           <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto mb-6">
-            Discover the best cities and towns across England for your hen celebration
+            Discover 30+ handpicked cities and regions across the UK for your group celebration
           </p>
-          <p className="text-base text-[var(--color-neutral-dark)] max-w-3xl mx-auto leading-relaxed">
-            From vibrant city centres with legendary nightlife to stunning coastal retreats and historic spa towns, England offers incredible destinations for unforgettable hen weekends. Each location features handpicked luxury houses with hot tubs, pools, and all the amenities you need for the perfect group celebration.
-          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-[var(--color-accent-sage)]">
+            <a href="#popular" className="hover:underline">Popular Cities</a>
+            <span>•</span>
+            <a href="#coastal" className="hover:underline">Coastal Escapes</a>
+            <span>•</span>
+            <a href="#nature" className="hover:underline">Countryside & Nature</a>
+          </div>
         </div>
       </section>
 
-      {/* Featured Destinations */}
-      <section className="py-12 bg-[var(--color-bg-secondary)]">
+        {/* Most Popular */}
+        <section id="popular" className="py-12 bg-[var(--color-bg-secondary)] scroll-mt-24">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="flex items-center gap-2 mb-4 border-b border-[var(--color-accent-pink)]/20 pb-4">
+              <TrendingUp className="w-6 h-6 text-[var(--color-accent-pink)]" />
+              <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+                Most Popular Cities
+              </h2>
+            </div>
+            <p className="text-[var(--color-neutral-dark)] mb-8 max-w-3xl">
+              These are our most-booked cities for <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen parties</Link> and large group celebrations. Each offers a unique blend of culture, nightlife, and <Link href="/house-styles/luxury-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury accommodation</Link>.
+            </p>
+
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredDestinations.map((destination: any) => (
+              <Link
+                key={destination.slug}
+                href={`/destinations/${destination.slug}`}
+                className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="relative h-[400px]">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${destination.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>
+                      {destination.name}
+                    </h3>
+                    <p className="text-sm opacity-90 mb-4">{destination.bio}</p>
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
+                      <span>View {destination.propertyCount} Properties</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coastal Escapes */}
+      <section id="coastal" className="py-12 bg-white scroll-mt-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex items-center gap-2 mb-8">
-            <TrendingUp className="w-6 h-6 text-[var(--color-accent-pink)]" />
+          <div className="flex items-center gap-2 mb-8 border-b border-[var(--color-accent-sage)]/20 pb-4">
+            <Waves className="w-6 h-6 text-[var(--color-accent-sage)]" />
             <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
-              Most Popular
+              Coastal Escapes
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredDestinations.map((destination) =>
-            <Link
-              key={destination.slug}
-              href={`/destinations/${destination.slug}`}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-
-                <div className="relative h-[580px]">
-                  <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${destination.image}')` }}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {coastalDestinations.map((destination: any) => (
+              <Link
+                key={destination.slug}
+                href={`/destinations/${destination.slug}`}
+                className="group flex flex-col gap-3"
+              >
+                <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  />
                 </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-
-                  {/* Badge */}
-                  <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-white/95 text-[var(--color-text-primary)] text-sm font-medium shadow-lg backdrop-blur-sm">
-                    {destination.propertyCount} properties
-                  </div>
-
-                  {/* Content with white background */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm text-[var(--color-text-primary)]">
-                    <h3
-                    className="text-3xl font-bold mb-2"
-                    style={{ fontFamily: "var(--font-display)" }}>
-
-                      {destination.name}
-                    </h3>
-                    <p className="text-sm font-medium mb-3">
-                      {destination.region}
-                    </p>
-                    <p className="text-sm leading-relaxed mb-4 text-black">
-                      {destination.bio}
-                    </p>
-                    <div className="flex flex-col gap-3">
-                      <Button
-                        asChild
-                        size="sm"
-                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
-                        style={{
-                          background: "var(--color-accent-sage)",
-                          color: "white"
-                        }}>
-                        <Link href={`/destinations/${destination.slug}`} onClick={(e) => e.stopPropagation()}>
-                          View Properties
-                        </Link>
-                      </Button>
-                      <Button
-                        asChild
-                        size="sm"
-                        className="rounded-xl px-4 py-1.5 text-xs font-medium transition-all duration-200"
-                        style={{
-                          background: "var(--color-accent-gold)",
-                          color: "white"
-                        }}>
-                        <Link href="/contact" onClick={(e) => e.stopPropagation()}>
-                          Check Availability
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-sage)] transition-colors">
+                    {destination.name}
+                  </h3>
+                  <p className="text-xs text-[var(--color-neutral-dark)]">{destination.propertyCount} Properties</p>
                 </div>
               </Link>
-            )}
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section 1 - After Featured Destinations */}
-      <section className="py-8 bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm mb-4">
-            <Sparkles className="w-4 h-4 text-[var(--color-accent-gold)]" />
-            <span className="text-sm font-medium">Ready to Book?</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl mb-3" style={{ fontFamily: "var(--font-display)" }}>
-            Find Your Perfect Hen Party House
-          </h2>
-          <p className="text-lg text-[var(--color-neutral-dark)] mb-6 max-w-2xl mx-auto">
-            Browse our full collection of luxury houses with hot tubs, pools and games rooms
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="rounded-2xl px-10 py-6 text-base font-semibold transition-all duration-200 hover:shadow-2xl hover:-translate-y-1 group"
-            style={{
-              background: "var(--color-text-primary)",
-              color: "white"
-            }}>
-
-            <Link href="/properties" className="inline-flex items-center gap-2">
-              View All Properties
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* All Destinations */}
-      <section className="py-0 bg-[var(--color-bg-secondary)]">
+      {/* Countryside & Nature */}
+      <section id="nature" className="py-12 bg-[var(--color-bg-secondary)] scroll-mt-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <h2 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>
-            All Destinations
-          </h2>
+          <div className="flex items-center gap-2 mb-8 border-b border-[var(--color-accent-gold)]/20 pb-4">
+            <Sparkles className="w-6 h-6 text-[var(--color-accent-gold)]" />
+            <h2 className="text-3xl font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+              Countryside & Nature
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {otherDestinations.map((destination) =>
-            <Link
-              key={destination.slug}
-              href={`/destinations/${destination.slug}`}
-              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-
-                <div className="relative h-[540px]">
-                  <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${destination.image}')` }}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {natureDestinations.map((destination: any) => (
+              <Link
+                key={destination.slug}
+                href={`/destinations/${destination.slug}`}
+                className="group flex flex-col gap-3"
+              >
+                <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  />
                 </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-sm text-[var(--color-text-primary)]">
-                    <h3
-                    className="text-xl font-bold mb-1"
-                    style={{ fontFamily: "var(--font-display)" }}>
-
-                      {destination.name}
-                    </h3>
-                    <p className="text-xs font-medium mb-2">
-                      {destination.region}
-                    </p>
-                    <p className="text-xs font-medium mb-2">
-                      {destination.propertyCount} properties
-                    </p>
-                    <p className="text-xs leading-relaxed mb-3 text-black">
-                      {destination.bio}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      <Button
-                        asChild
-                        size="sm"
-                        className="rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200 w-full"
-                        style={{
-                          background: "var(--color-accent-sage)",
-                          color: "white"
-                        }}>
-                        <Link href={`/destinations/${destination.slug}`} onClick={(e) => e.stopPropagation()}>
-                          View Properties
-                        </Link>
-                      </Button>
-                      <Button
-                        asChild
-                        size="sm"
-                        className="rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200 w-full"
-                        style={{
-                          background: "var(--color-accent-gold)",
-                          color: "white"
-                        }}>
-                        <Link href="/contact" onClick={(e) => e.stopPropagation()}>
-                          Check Availability
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-gold)] transition-colors">
+                    {destination.name}
+                  </h3>
+                  <p className="text-xs text-[var(--color-neutral-dark)]">{destination.propertyCount} Properties</p>
                 </div>
               </Link>
-            )}
+            ))}
           </div>
         </div>
       </section>

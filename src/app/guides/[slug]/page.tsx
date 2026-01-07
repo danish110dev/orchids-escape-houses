@@ -16,11 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  const baseUrl = "https://www.groupescapehouses.co.uk";
+
   return {
-    title: `${guide.title} | Group Travel Guides | Escape Houses`,
+    title: `${guide.title} | Group Travel Guides | Group Escape Houses`,
     description: guide.content.replace(/<[^>]*>/g, '').substring(0, 160),
     alternates: {
-      canonical: `https://www.escapehouses.co.uk/guides/${slug}`
+      canonical: `${baseUrl}/guides/${slug}`
     },
     openGraph: {
       title: guide.title,
@@ -40,6 +42,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     notFound();
   }
 
+  const baseUrl = "https://www.groupescapehouses.co.uk";
+
   // Schema.org Article Data
   const jsonLd = {
     "@context": "https://schema.org",
@@ -49,15 +53,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     "datePublished": new Date(guide.date).toISOString(),
     "author": {
       "@type": "Organization",
-      "name": "Escape Houses",
-      "url": "https://www.escapehouses.co.uk"
+      "name": "Group Escape Houses",
+      "url": baseUrl
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Escape Houses",
+      "name": "Group Escape Houses",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.escapehouses.co.uk/logo.png"
+        "url": `${baseUrl}/logo.png`
       }
     },
     "description": guide.content.replace(/<[^>]*>/g, '').substring(0, 160)
@@ -101,7 +105,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 <User className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold">Escape Houses Team</p>
+                <p className="text-sm font-bold">Group Escape Houses Team</p>
                 <p className="text-xs text-[var(--color-neutral-dark)] opacity-60">Travel Experts</p>
               </div>
             </div>

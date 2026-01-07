@@ -72,9 +72,9 @@ function BookingConfirmedContent() {
           <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-6">
             <Mail className="w-8 h-8 text-red-600" />
           </div>
-          <h1 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-            Something Went Wrong
-          </h1>
+            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              Something Went Wrong
+            </h2>
           <p className="text-lg text-[var(--color-neutral-dark)] mb-8">
             {error}
           </p>

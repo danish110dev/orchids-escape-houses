@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | How We Handle Your Personal Data | GDPR Compliant",
-  description: "Our commitment to protecting your privacy and personal data. GDPR-compliant practices, cookie policy, data retention and your rights explained clearly.",
+  description: "Privacy policy and GDPR-compliant practices. How we protect your personal data, cookies and your rights.",
   keywords: ["privacy policy", "data protection", "GDPR compliance", "personal data"],
   openGraph: {
-    title: "Privacy Policy | Group Escape Houses",
+    title: "Privacy Policy",
+
     description: "GDPR-compliant privacy practices. How we protect and handle your personal data.",
-    url: "https://groupescapehouses.co.uk/privacy",
+    url: "https://www.groupescapehouses.co.uk/privacy",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/privacy",
+    canonical: "https://www.groupescapehouses.co.uk/privacy",
   },
 };
 

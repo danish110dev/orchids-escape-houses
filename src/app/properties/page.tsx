@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -10,14 +11,16 @@ import { eq } from "drizzle-orm";
 import PropertiesClient from "./PropertiesClient";
 
 export const metadata: Metadata = {
-  title: "Luxury Group Houses to Rent | Group Escape Houses",
+  title: "Luxury Group Houses to Rent",
+
   description: "Browse our collection of luxury group houses to rent across the UK. Perfect for hen parties, weddings, celebrations, and group getaways. Hot tubs, pools, games rooms and more.",
   keywords: "group houses to rent, luxury group accommodation, hen party houses, large holiday homes UK, party houses with hot tub",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/properties",
   },
   openGraph: {
-    title: "Luxury Group Houses to Rent | Group Escape Houses",
+    title: "Luxury Group Houses to Rent",
+
     description: "Browse our collection of luxury group houses to rent across the UK. Perfect for hen parties, weddings, celebrations, and group getaways.",
     url: "https://www.groupescapehouses.co.uk/properties",
     siteName: "Group Escape Houses",
@@ -73,13 +76,13 @@ export default async function PropertiesPage() {
         }}
       />
 
-      <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div>
-            <h1 className="mb-4" style={{ fontFamily: "var(--font-display)" }}>
+      <section className="pt-24 sm:pt-32 pb-10 sm:pb-16 bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center sm:text-left">
+            <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl" style={{ fontFamily: "var(--font-display)" }}>
               Luxury Group Houses to Rent
             </h1>
-            <p className="text-xl text-[var(--color-neutral-dark)] max-w-2xl">
+            <p className="text-lg sm:text-xl text-[var(--color-neutral-dark)] max-w-2xl mx-auto sm:mx-0">
               Perfect for hen parties, weddings, celebrations, and group getaways across the UK
             </p>
           </div>
@@ -87,23 +90,23 @@ export default async function PropertiesPage() {
       </section>
 
       <section className="py-6 bg-white border-b border-[var(--color-bg-secondary)]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-[var(--color-neutral-dark)] leading-relaxed">
-              Discover our handpicked collection of luxury group houses to rent across the UK. 
-              Whether you're planning a <a href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party</a>, 
-              <a href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium"> special celebration</a>, 
-              or <a href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</a>, 
-              we have the perfect property for your group. Our houses feature amazing amenities including 
-              <a href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium"> hot tubs</a>, 
-              <a href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium"> swimming pools</a>, 
-              and <a href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</a>. 
-              Browse our <a href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</a> including 
-              <a href="/destinations/london" className="text-[var(--color-accent-sage)] hover:underline font-medium"> London</a>, 
-              <a href="/destinations/brighton" className="text-[var(--color-accent-sage)] hover:underline font-medium"> Brighton</a>, 
-              <a href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium"> Bath</a>, and 
-              <a href="/destinations/lake-district" className="text-[var(--color-accent-sage)] hover:underline font-medium"> the Lake District</a>.
-            </p>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="prose prose-base sm:prose-lg max-w-none">
+              <p className="text-[var(--color-neutral-dark)] leading-relaxed">
+                Discover our handpicked collection of luxury group houses to rent across the UK. 
+                Whether you're planning a <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party</Link>, 
+                <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] hover:underline font-medium"> special celebration</Link>, 
+                or <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>, 
+                we have the perfect property for your group. Our houses feature amazing amenities including 
+                <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium"> hot tubs</Link>, 
+                <Link href="/features/swimming-pool" className="text-[var(--color-accent-sage)] hover:underline font-medium"> swimming pools</Link>, 
+                and <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link>. 
+                Browse our <Link href="/destinations" className="text-[var(--color-accent-sage)] hover:underline font-medium">UK destinations</Link> including 
+                <Link href="/destinations/london" className="text-[var(--color-accent-sage)] hover:underline font-medium"> London</Link>, 
+                <Link href="/destinations/brighton" className="text-[var(--color-accent-sage)] hover:underline font-medium"> Brighton</Link>, 
+                  <Link href="/destinations/bath" className="text-[var(--color-accent-sage)] hover:underline font-medium"> Bath</Link>, and 
+                <Link href="/destinations/lake-district" className="text-[var(--color-accent-sage)] hover:underline font-medium"> the Lake District</Link>.
+              </p>
           </div>
         </div>
       </section>
@@ -114,7 +117,7 @@ export default async function PropertiesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {allProperties.slice(0, 12).map((property) => (
                 <article key={property.id} className="bg-white rounded-2xl overflow-hidden shadow-md">
-                  <a href={`/properties/${property.slug}`}>
+                  <Link href={`/properties/${property.slug}`}>
                     <img 
                       src={property.image} 
                       alt={property.title}
@@ -130,7 +133,7 @@ export default async function PropertiesPage() {
                         From £{property.priceFrom}/night
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </article>
               ))}
             </div>
@@ -167,15 +170,15 @@ export default async function PropertiesPage() {
               { name: "Bristol", slug: "bristol" },
               { name: "Newcastle", slug: "newcastle" },
               { name: "Liverpool", slug: "liverpool" },
-            ].map((dest) => (
-              <a
-                key={dest.slug}
-                href={`/destinations/${dest.slug}`}
-                className="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow"
-              >
-                <span className="font-medium text-[var(--color-text-primary)]">{dest.name}</span>
-              </a>
-            ))}
+              ].map((dest) => (
+                <Link
+                  key={dest.slug}
+                  href={`/destinations/${dest.slug}`}
+                  className="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow"
+                >
+                  <span className="font-medium text-[var(--color-text-primary)]">{dest.name}</span>
+                </Link>
+              ))}
           </div>
         </div>
       </section>

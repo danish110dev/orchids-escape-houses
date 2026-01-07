@@ -39,6 +39,12 @@ export const user = sqliteTable("user", {
   updatedAt: integer("updated_at", { mode: "timestamp" })
     .$defaultFn(() => new Date())
     .notNull(),
+    role: text("role").notNull().default("guest"),
+    phoneNumber: text("phone"),
+    propertyName: text("company_name"),
+  propertyWebsite: text("property_website"),
+  planId: text("plan_id"),
+  paymentStatus: text("payment_status").default("pending"),
 });
 
 export const session = sqliteTable("session", {
@@ -260,4 +266,33 @@ export const partners = sqliteTable('partners', {
   isActive: integer('is_active', { mode: 'boolean' }).default(true),
   createdAt: text('created_at').notNull(),
   updatedAt: text('updated_at').notNull(),
+});
+
+// Saved properties table
+export const savedProperties = sqliteTable('saved_properties', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
+  propertyId: integer('property_id').notNull().references(() => properties.id, { onDelete: 'cascade' }),
+  createdAt: text('created_at').notNull(),
+});
+
+// Saved quotes table
+export const savedQuotes = sqliteTable('saved_quotes', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
+  quotePayload: text('quote_payload', { mode: 'json' }).notNull(),
+  createdAt: text('created_at').notNull(),
+});
+
+// Enquiries table
+export const enquiries = sqliteTable('enquiries', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
+  type: text('type').notNull(), // 'property' or 'experience' or 'general'
+  propertyId: integer('property_id').references(() => properties.id),
+  subject: text('subject').notNull(),
+  message: text('message').notNull(),
+  recipientEmail: text('recipient_email').notNull(),
+  status: text('status').notNull().default('sent'),
+  createdAt: text('created_at').notNull(),
 });

@@ -69,14 +69,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
-    {
-      url: `${baseUrl}/house-styles-and-features`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy`,
+      {
+        url: `${baseUrl}/house-styles-and-features`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      },
+      {
+        url: `${baseUrl}/occasions`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
@@ -189,7 +195,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .where(eq(blogPosts.isPublished, true));
     
     blogRoutes = publishedBlogPosts.map((post) => ({
-      url: `${baseUrl}/inspiration/${post.slug}`,
+      url: `${baseUrl}/blog/${post.slug}`,
       lastModified: post.updatedAt || post.publishedAt || currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,

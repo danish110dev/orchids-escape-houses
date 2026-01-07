@@ -109,7 +109,7 @@ export default async function DestinationDetailPage({ params }: { params: Promis
             <div className="border rounded-xl p-4">
               <h2 className="text-xl font-semibold mb-2">Luxury Group Houses in {destinationName}</h2>
               <p>Browse our handpicked collection of large houses to rent in {destinationName}.</p>
-              <a href="/properties" className="text-blue-600 underline">View all properties</a>
+                <Link href="/properties" className="text-blue-600 underline">View all properties</Link>
             </div>
           </div>
         </div>

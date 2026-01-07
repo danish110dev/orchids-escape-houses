@@ -98,11 +98,21 @@ export default function Footer() {
                     Fixed Fee Pricing
                   </Link>
                 </li>
-                <li>
-                  <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                    Owner Dashboard
-                  </Link>
-                </li>
+                  <li>
+                    <Link href="/login" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                      Customer Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/owner-login" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                      Owner Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
+                      Owner Dashboard
+                    </Link>
+                  </li>
               </ul>
             </div>
 

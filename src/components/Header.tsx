@@ -3,17 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, LogOut, User as UserIcon, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, User as UserIcon, Phone, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import dynamic from "next/dynamic";
-
-const MobileMenu = dynamic(() => import("./MobileMenu"), {
-  ssr: false
-});
+import { SignInModal } from "./auth/SignInModal";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   const router = useRouter();
@@ -25,6 +23,7 @@ export default function Header() {
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [isOccasionsOpen, setIsOccasionsOpen] = useState(false);
   const [isExperiencesOpen, setIsExperiencesOpen] = useState(false);
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,20 +53,11 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const handleSignOut = async () => {
-    const token = localStorage.getItem("bearer_token");
+    const { error } = await authClient.signOut();
     
-    const { error } = await authClient.signOut({
-      fetchOptions: {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    });
-    
-    if (error?.code) {
+    if (error) {
       toast.error("Error signing out");
     } else {
-      localStorage.removeItem("bearer_token");
       refetch();
       toast.success("Signed out successfully");
       router.push("/");
@@ -154,7 +144,7 @@ export default function Header() {
       >
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-between h-24">
-            {/* Logo - Moved back with better proportions */}
+            {/* Logo */}
             <Link 
               href="/" 
               className="flex items-center relative z-[60] flex-shrink-0 -ml-2"
@@ -171,7 +161,7 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-              {/* Houses to Rent Dropdown */}
+              {/* Properties Dropdown */}
               <div
                 className="relative flex-1 flex justify-center px-1"
                 onMouseEnter={() => setIsHousesOpen(true)}
@@ -190,7 +180,6 @@ export default function Header() {
                 {isHousesOpen && (
                   <div className="absolute top-full left-0 w-[640px] bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
                     <div className="grid grid-cols-2 gap-10">
-                      {/* House Styles Column */}
                       <div>
                         <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                           House Styles
@@ -208,8 +197,6 @@ export default function Header() {
                           ))}
                         </ul>
                       </div>
-
-                      {/* Must-Have Features Column */}
                       <div>
                         <h3 className="text-sm font-semibold mb-4 text-[var(--color-accent-sage)] uppercase tracking-wide">
                           Must-Have Features
@@ -228,14 +215,11 @@ export default function Header() {
                         </ul>
                       </div>
                     </div>
-
-                    {/* View All Link */}
                     <div className="mt-6 pt-5 border-t border-gray-100">
-  <Link
-    href="/properties"
-    className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-  >
-
+                      <Link
+                        href="/properties"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
                         Browse All Properties →
                       </Link>
                     </div>
@@ -268,7 +252,7 @@ export default function Header() {
                       {occasions.map((occasion) => (
                         <li key={occasion.slug}>
                           <Link
-                            href={`/occasions/${occasion.slug}`}
+                            href={`/${occasion.slug}`}
                             className="group/item flex flex-col py-2 hover:bg-[var(--color-bg-secondary)] rounded-lg px-3 -mx-3 transition-all"
                           >
                             <span className="text-[15px] font-medium text-[var(--color-text-primary)] group-hover/item:text-[var(--color-accent-sage)] transition-colors">
@@ -281,15 +265,14 @@ export default function Header() {
                         </li>
                       ))}
                     </ul>
-
-                          <div className="mt-5 pt-4 border-t border-gray-100">
-                            <Link
-                              href="/occasions"
-                              className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-                            >
-                              View All Occasions →
-                            </Link>
-                          </div>
+                    <div className="mt-5 pt-4 border-t border-gray-100">
+                      <Link
+                        href="/special-celebrations"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        View All Occasions →
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -341,16 +324,14 @@ export default function Header() {
                         ))}
                       </ul>
                     </div>
-
-                      {/* View All Link */}
-                      <div className="mt-6 pt-5 border-t border-gray-100">
-                        <Link
-                          href="/experiences"
-                          className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
-                        >
-                          View All Experiences →
-                        </Link>
-                      </div>
+                    <div className="mt-6 pt-5 border-t border-gray-100">
+                      <Link
+                        href="/experiences"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        View All Experiences →
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -377,67 +358,52 @@ export default function Header() {
                       Popular Destinations
                     </h3>
                     <ul className="space-y-2.5">
-                          {destinations.map((destination) => (
-                            <li key={destination.slug}>
-                              <Link
-                                href={`/destinations/${destination.slug}`}
-                                className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
-                              >
-                                {destination.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* View All Link */}
-                        <div className="mt-6 pt-5 border-t border-gray-100">
+                      {destinations.map((destination) => (
+                        <li key={destination.slug}>
                           <Link
-                            href="/destinations"
-                            className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                            href={`/destinations/${destination.slug}`}
+                            className="text-[15px] text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors block py-1.5"
                           >
-                            See all locations →
+                            {destination.title}
                           </Link>
-                        </div>
-                      </div>
-                    )}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 pt-5 border-t border-gray-100">
+                      <Link
+                        href="/destinations"
+                        className="text-sm font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors"
+                      >
+                        See all locations →
+                      </Link>
+                    </div>
                   </div>
+                )}
+              </div>
 
-                {/* How It Works Link */}
-                <Link
-                  href="/how-it-works"
-                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  How It Works
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-                </Link>
+              {/* How It Works */}
+              <Link
+                href="/how-it-works"
+                className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                How It Works
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
 
-                {/* Guides Link */}
-                <Link
-                  href="/guides"
-                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  Guides
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-                </Link>
-
-
-
-                {/* Advertise Link */}
-                <Link
-                  href="/why-list-with-escape-houses"
-                  className="text-[14px] font-medium hover:text-[var(--color-accent-sage)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  Advertise
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-sage)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
-                </Link>
+              {/* List Your Property */}
+              <Link
+                href="/register-your-property"
+                className="text-[14px] font-semibold text-[var(--color-accent-sage)] hover:text-[var(--color-accent-gold)] transition-colors relative group py-7 flex-1 flex justify-center px-2 whitespace-nowrap"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                List Your Property
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-accent-gold)] transition-all duration-200 group-hover:w-full group-hover:left-0"></span>
+              </Link>
             </nav>
 
             {/* Auth & CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-4 ml-auto flex-shrink-0">
-              {/* Phone Number - Always visible */}
               <a
                 href="tel:+441273569301"
                 className="group flex items-center gap-2 px-4 py-2 bg-[var(--color-accent-sage)]/10 hover:bg-[var(--color-accent-sage)] rounded-xl transition-all duration-200 border border-[var(--color-accent-sage)]/20"
@@ -449,72 +415,99 @@ export default function Header() {
                 </span>
               </a>
               
-                {isPending ? (
-                  <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
-                ) : isInitialized && session?.user ? (
-                  <>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-[var(--color-bg-secondary)] rounded-xl">
-                      <UserIcon className="w-4 h-4 text-[var(--color-accent-sage)]" />
-                      <span className="text-sm font-medium text-[var(--color-text-primary)]">
-                        {session.user.name}
-                      </span>
-                    </div>
-                    <Button
-                      onClick={handleSignOut}
-                      variant="outline"
-                      className="rounded-xl px-4 py-2 font-medium border-2 transition-all duration-200 hover:bg-red-50 hover:border-red-500 hover:text-red-600"
-                    >
-                      <LogOut className="w-4 h-4 mr-2" />
-                      Sign Out
-                    </Button>
-                  </>
-                ) : (
+              {isPending ? (
+                <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
+              ) : isInitialized && session?.user ? (
                 <>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="rounded-xl px-6 py-2 font-medium border-2 transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
-                    style={{
-                      borderColor: "var(--color-accent-sage)",
-                      color: "var(--color-text-primary)",
-                    }}
-                  >
-                    <Link href="/login">Log In</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    className="rounded-xl px-6 py-2 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-                    style={{
-                      background: "var(--color-accent-gold)",
-                      fontFamily: "var(--font-body)",
-                    }}
-                  >
-                    <Link href="/register">Sign Up</Link>
-                  </Button>
+                  {session.user.role === "guest" && (
+                    <Link
+                      href="/account/dashboard"
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors relative group"
+                      title="Saved Items"
+                    >
+                      <Heart className="w-5 h-5 text-[var(--color-accent-sage)]" />
+                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+                    </Link>
+                  )}
+                  <div className="flex items-center gap-3">
+                      <Link
+                        href={session.user.role === "owner" ? "/owner-dashboard" : "/account/dashboard"}
+                        className="flex items-center gap-2 px-4 py-2 bg-[var(--color-bg-secondary)] rounded-xl hover:bg-gray-100 transition-all"
+                      >
+                        <UserIcon className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                        <span className="text-sm font-medium text-[var(--color-text-primary)]">
+                          {session.user.role === "owner" ? "Owner Dashboard" : "My Account"}
+                        </span>
+                      </Link>
+                    <button
+                      onClick={handleSignOut}
+                      className="p-2 hover:text-red-600 transition-colors"
+                      title="Sign Out"
+                    >
+                      <LogOut className="w-5 h-5" />
+                    </button>
+                  </div>
                 </>
-              )}
-            </div>
+                  ) : (
+                    <>
+                      <div className="relative group">
+                        <button
+                          className="text-[14px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent-sage)] transition-colors px-4 py-2 flex items-center gap-1"
+                        >
+                          Login
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                          <div className="absolute top-full right-0 w-48 bg-white rounded-xl shadow-xl py-2 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                              <button
+                                  onClick={() => {
+                                    router.push("/login");
+                                  }}
+                                  className="w-full text-left px-4 py-2 text-sm text-[var(--color-text-primary)] hover:bg-gray-50 hover:text-[var(--color-accent-sage)] transition-colors"
+                                >
+                                  Customer Login
+                                </button>
+                                <Link
+                                  href="/owner-login"
+                                  className="block w-full text-left px-4 py-2 text-sm text-[var(--color-text-primary)] hover:bg-gray-50 hover:text-[var(--color-accent-sage)] transition-colors"
+                                >
+                                  Owner Login
+                                </Link>
+                          </div>
+                      </div>
+                      <Button
+                        asChild
+                        className="rounded-xl px-6 py-2 text-white font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                        style={{
+                          background: "var(--color-accent-gold)",
+                          fontFamily: "var(--font-body)",
+                        }}
+                      >
+                        <Link href="/account/guest/sign-up">Sign Up</Link>
+                      </Button>
+                    </>
+                  )}
+              </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center gap-2 relative z-[60]"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-              <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>
-                {isMobileMenuOpen ? "Close" : "Menu"}
-              </span>
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center gap-2 relative z-[60]"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+                <span className="text-sm font-medium" style={{ fontFamily: "var(--font-body)" }}>
+                  {isMobileMenuOpen ? "Close" : "Menu"}
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
         </header>
-  
+    
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
@@ -527,6 +520,11 @@ export default function Header() {
           occasions={occasions}
           experiences={experiences}
         />
-      </>
-    );
-  }
+
+        <SignInModal 
+          isOpen={isSignInModalOpen} 
+          onOpenChange={setIsSignInModalOpen} 
+        />
+    </>
+  );
+}

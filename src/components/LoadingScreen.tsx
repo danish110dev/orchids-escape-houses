@@ -28,11 +28,11 @@ export default function LoadingScreen() {
       });
     }, 100);
 
-    // Faster fade out - reduced from 2500ms to 1500ms
+    // Faster fade out - reduced from 1500ms to 800ms
     const fadeTimer = setTimeout(() => {
       setIsLoading(false);
       sessionStorage.setItem('hasLoadedOnce', 'true');
-    }, 1500);
+    }, 800);
 
     return () => {
       clearInterval(progressInterval);

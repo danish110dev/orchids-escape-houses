@@ -12,7 +12,8 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Hen Party Houses UK | Large Houses for Hen Dos | Group Escape Houses",
+  title: "Hen Party Houses UK | Large Houses for Hen Dos",
+
   description: "Find the perfect hen party house in the UK. Luxury properties sleeping 10-30+ guests with hot tubs, games rooms, and stylish interiors. Celebrate the bride-to-be in style.",
   keywords: "hen party houses UK, hen do houses, hen weekend accommodation, hen party venue, group hen accommodation, luxury hen party house, hen party hot tub, hen do venue",
   alternates: {

@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Party Houses by Occasion | Hen Parties & Celebrations",
-  description: "Properties suited to every celebration type. Hen parties, milestone birthdays, family reunions, Christmas gatherings and New Year breaks. Find the perfect house for your occasion.",
+  description: "Party houses for every celebration. Hen parties, birthdays, reunions, Christmas and New Year. Find the perfect house for your occasion.",
   keywords: ["hen party houses", "birthday party houses UK", "wedding accommodation", "celebration venues", "Christmas party houses"],
   openGraph: {
-    title: "Properties for Every Occasion | Group Escape Houses",
+    title: "Properties for Every Occasion",
+
     description: "Hen parties, birthdays, reunions, weddings and seasonal celebrations. Find your perfect match.",
-    url: "https://groupescapehouses.co.uk/occasions",
+    url: "https://www.groupescapehouses.co.uk/occasions",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions",
+    canonical: "https://www.groupescapehouses.co.uk/occasions",
   },
 };
 

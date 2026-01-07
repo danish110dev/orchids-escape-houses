@@ -94,36 +94,37 @@ export default function HeroSearchForm() {
       <div ref={announcementRef} className="sr-only" role="status" aria-live="polite" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
           {/* Destination */}
-          <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
-            <PopoverTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
-                aria-label={`Destination: ${destination || "Search destinations"}`}
-              >
-                <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
-                <div className="flex flex-col overflow-hidden">
-                  <span className="text-xs text-gray-500">Where</span>
-                  <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
+            <Popover open={destinationOpen} onOpenChange={setDestinationOpen}>
+              <PopoverTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="h-14 sm:h-14 md:h-16 justify-start text-left font-normal rounded-xl md:rounded-2xl border-2 hover:border-[var(--color-accent-sage)] transition-colors"
+                  aria-label={`Destination: ${destination || "Search destinations"}`}
+                >
+                  <MapPin className="mr-2 h-5 w-5 text-[var(--color-accent-sage)] flex-shrink-0" />
+                  <div className="flex flex-col overflow-hidden">
+                    <span className="text-xs text-gray-500">Where</span>
+                    <span className="text-sm font-medium truncate">{destination || "Search destinations"}</span>
+                  </div>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[calc(100vw-40px)] md:w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
+                <div className="space-y-2">
+                  {allDestinations.map((dest, index) => (
+                    <button
+                      key={dest}
+                      ref={(el) => { destinationButtonsRef.current[index] = el; }}
+                      onClick={() => handleDestinationSelect(dest)}
+                      className="w-full text-left px-4 py-3 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors text-sm sm:text-base"
+                      aria-label={`Select destination: ${dest}`}
+                    >
+                      {dest}
+                    </button>
+                  ))}
                 </div>
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
-              <div className="space-y-2">
-                {allDestinations.map((dest, index) => (
-                  <button
-                    key={dest}
-                    ref={(el) => { destinationButtonsRef.current[index] = el; }}
-                    onClick={() => handleDestinationSelect(dest)}
-                    className="w-full text-left px-4 py-2 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors"
-                    aria-label={`Select destination: ${dest}`}
-                  >
-                    {dest}
-                  </button>
-                ))}
-              </div>
-            </PopoverContent>
-          </Popover>
+              </PopoverContent>
+            </Popover>
+
 
           {/* Dates */}
           <div className="relative">

@@ -57,26 +57,27 @@ export default function FAQSection() {
       question: "Are hen party houses suitable for other celebrations?",
       answer: (
         <>
-          Absolutely! While we specialise in <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] underline">hen weekends</Link>, our properties are perfect for <Link href="/occasions/special-celebrations" className="text-[var(--color-accent-sage)] underline">birthdays</Link>, anniversaries, family reunions, and any group celebration. Browse our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences</Link> to find activities for your occasion. We also cater to <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] underline">weekend breaks</Link> and <Link href="/occasions/christmas" className="text-[var(--color-accent-sage)] underline">Christmas</Link> gatherings.
+          Absolutely! While we specialise in <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] underline">hen weekends</Link>, our properties are perfect for <Link href="/special-celebrations" className="text-[var(--color-accent-sage)] underline">birthdays</Link>, anniversaries, family reunions, and any group celebration. Browse our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences</Link> to find activities for your occasion. We also cater to <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] underline">weekend breaks</Link> and <Link href="/christmas" className="text-[var(--color-accent-sage)] underline">Christmas</Link> gatherings.
         </>
       )
     },
-    {
-      question: "What about house rules and damage deposits?",
-      answer: (
-        <>
-          Each property has specific house rules regarding noise, parties, and check-in times. A refundable damage deposit (typically £250-500) is required. Read our full <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">terms and conditions</Link> for complete details. We also have helpful tips in our <Link href="/inspiration/hen-party-checklist" className="text-[var(--color-accent-sage)] underline">planning checklist</Link>.
-        </>
-      )
-    },
-    {
-      question: "Can you arrange activities and experiences?",
-      answer: (
-        <>
-          Yes! We offer <Link href="/experiences/cocktail-masterclass" className="text-[var(--color-accent-sage)] underline">cocktail masterclasses</Link>, <Link href="/experiences/life-drawing" className="text-[var(--color-accent-sage)] underline">butlers in the buff and life drawing</Link>, <Link href="/experiences/private-chef" className="text-[var(--color-accent-sage)] underline">private chefs</Link>, <Link href="/spa-treatments" className="text-[var(--color-accent-sage)] underline">spa treatments</Link>, and more. View our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences page</Link> to see all available add-ons and pricing. Looking for inspiration? Check out our <Link href="/inspiration/alternative-hen-party-ideas" className="text-[var(--color-accent-sage)] underline">10 alternative hen party ideas</Link>.
-        </>
-      )
-    }
+      {
+        question: "What about house rules and damage deposits?",
+        answer: (
+          <>
+            Each property has specific house rules regarding noise, parties, and check-in times. A refundable damage deposit (typically £250-500) is required. Read our full <Link href="/how-it-works" className="text-[var(--color-accent-sage)] underline">terms and conditions</Link> for complete details. We also have helpful tips in our <Link href="/blog/hen-party-checklist" className="text-[var(--color-accent-sage)] underline">planning checklist</Link>.
+          </>
+        )
+      },
+      {
+        question: "Can you arrange activities and experiences?",
+        answer: (
+          <>
+            Yes! We offer <Link href="/experiences/cocktail-masterclass" className="text-[var(--color-accent-sage)] underline">cocktail masterclasses</Link>, <Link href="/experiences/life-drawing" className="text-[var(--color-accent-sage)] underline">butlers in the buff and life drawing</Link>, <Link href="/experiences/private-chef" className="text-[var(--color-accent-sage)] underline">private chefs</Link>, <Link href="/spa-treatments" className="text-[var(--color-accent-sage)] underline">spa treatments</Link>, and more. View our <Link href="/experiences" className="text-[var(--color-accent-sage)] underline">experiences page</Link> to see all available add-ons and pricing. Looking for inspiration? Check out our <Link href="/blog/alternative-hen-party-ideas" className="text-[var(--color-accent-sage)] underline">10 alternative hen party ideas</Link>.
+          </>
+        )
+      }
+
   ];
 
   return (

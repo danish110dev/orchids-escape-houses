@@ -59,7 +59,7 @@ export default function AllHolidayFocusPage() {
     {
       title: "Stag Do Houses",
       description: "Epic group houses for the ultimate stag weekend celebration.",
-      href: "/occasions/stag-do-houses",
+      href: "/stag-do-houses",
       icon: PartyPopper
     },
     {

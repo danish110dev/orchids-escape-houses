@@ -30,7 +30,7 @@ export default function HeroVideo() {
         fill
         priority
         fetchPriority="high"
-        unoptimized={posterLink.includes('supabase.co') || posterLink.includes('fal.media')}
+        unoptimized={false}
         className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
         sizes="100vw"
         quality={85}

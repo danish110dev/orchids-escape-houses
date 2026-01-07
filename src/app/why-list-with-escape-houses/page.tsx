@@ -108,34 +108,31 @@ export default function WhyListWithUs() {
                       The UK&apos;s specialist platform for luxury large group properties. Reach high-intent guests directly, set your own terms, and keep 100% of your booking revenue.
                     </p>
                     
-                    <div className="flex flex-wrap gap-4 mb-8">
-                      <Button 
-                        asChild
-                        size="lg"
-                        className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
-                        style={{ background: "var(--color-accent-sage)" }}
-                      >
-                        <Link href="/contact">
-                          Register Your Property
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </Link>
-                      </Button>
-                      
-                      <Button 
-                        asChild
-                        size="lg"
-                        variant="outline"
-                        className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0 text-[var(--color-text-primary)]"
-                      >
-                        <a 
-                          href="/api/download/owners-guide" 
-                          download="owners-guide.pdf"
+                      <div className="flex flex-wrap gap-4 mb-8">
+                        <Button 
+                          asChild
+                          size="lg"
+                          className="rounded-2xl px-10 py-6 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                          style={{ background: "var(--color-accent-sage)" }}
                         >
-                          Download Owners Guide
-                          <Download className="w-5 h-5 ml-2" />
-                        </a>
-                      </Button>
-                    </div>
+                          <Link href="/register-your-property">
+                            Register Your Property
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                          </Link>
+                        </Button>
+                        
+                        <Button 
+                          asChild
+                          size="lg"
+                          variant="outline"
+                          className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0 text-[var(--color-text-primary)]"
+                        >
+                          <Link href="/owner-login">
+                            Owner Login
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                          </Link>
+                        </Button>
+                      </div>
                   </motion.div>
                 </div>
               </div>
@@ -368,16 +365,24 @@ export default function WhyListWithUs() {
             <p className="text-xl text-[var(--color-neutral-dark)] mb-12 max-w-2xl mx-auto leading-relaxed">
               Join the UK's premier platform for luxury group properties and start receiving direct, commission-free enquiries today.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Button 
-                asChild
-                size="lg"
-                className="rounded-2xl px-10 py-7 text-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
-                style={{ background: "var(--color-accent-sage)" }}
-              >
-                <Link href="/contact">List Your Property Now</Link>
-              </Button>
-            </div>
+              <div className="flex flex-wrap justify-center gap-6">
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-2xl px-10 py-7 text-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                  style={{ background: "var(--color-accent-sage)" }}
+                >
+                  <Link href="/register-your-property">Register Your Property</Link>
+                </Button>
+                <Button 
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-10 py-7 text-xl font-bold border-2 border-[var(--color-accent-sage)] text-[var(--color-accent-sage)] shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                >
+                  <Link href="/owner-login">Owner Login</Link>
+                </Button>
+              </div>
           </div>
         </section>
       </main>

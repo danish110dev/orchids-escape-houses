@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/house-styles/large-holiday-homes",
+    canonical: "https://www.groupescapehouses.co.uk/house-styles/large-holiday-homes",
   },
 };
 

@@ -12,7 +12,8 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Large Holiday Houses UK | Spacious Homes for Group Holidays | Group Escape Houses",
+  title: "Large Holiday Houses UK | Spacious Homes for Group Holidays",
+
   description: "Discover large holiday houses across the UK perfect for group getaways. Spacious homes sleeping 10-30 guests with stunning locations, hot tubs, games rooms, and countryside or coastal settings.",
   keywords: "large holiday houses UK, big holiday homes, group holiday houses, spacious holiday rentals, large house holidays UK, family holiday houses, group holiday accommodation",
   alternates: {

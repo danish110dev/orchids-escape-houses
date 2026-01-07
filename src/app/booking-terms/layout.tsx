@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/booking-terms",
+    canonical: "https://www.groupescapehouses.co.uk/booking-terms",
   },
 };
 

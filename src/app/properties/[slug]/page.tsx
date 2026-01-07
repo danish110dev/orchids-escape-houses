@@ -108,12 +108,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   if (!property) {
     return {
-      title: "Property Not Found | Group Escape Houses",
+      title: "Property Not Found",
+
       description: "The property you're looking for could not be found.",
     };
   }
 
-  const title = `${property.title} | ${property.location} | Sleeps ${property.sleepsMax} | Group Escape Houses`;
+  const title = `${property.title} in ${property.location} (Sleeps ${property.sleepsMax})`;
   const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMin}-${property.sleepsMax} guests with ${property.bedrooms} bedrooms and ${property.bathrooms} bathrooms. ${property.description.substring(0, 120)}...`;
   const canonicalUrl = `https://www.groupescapehouses.co.uk/properties/${slug}`;
 
@@ -338,7 +339,8 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   <span>{property.location}</span>
                 </div>
 
-                <PropertyClientActions propertyTitle={property.title} />
+                  <PropertyClientActions propertyId={property.id} propertyTitle={property.title} />
+
               </div>
 
               {/* Fast Facts - Critical SEO content */}
@@ -517,17 +519,17 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
       </div>
 
       {/* Sticky Bottom Bar (Mobile) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-2xl p-4 z-40 border-t border-gray-200">
-        <div className="flex items-center justify-between gap-4">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-2xl p-4 z-40 border-t border-gray-200 pb-[env(safe-area-inset-bottom,16px)]">
+        <div className="flex items-center justify-between gap-4 max-w-md mx-auto">
           <div>
-            <p className="text-sm text-[var(--color-neutral-dark)]">From</p>
-            <p className="text-2xl font-bold" style={{ color: "var(--color-accent-pink)" }}>
-              £{property.priceFromMidweek}
+            <p className="text-xs text-[var(--color-neutral-dark)]">Weekend from</p>
+            <p className="text-xl font-bold" style={{ color: "var(--color-accent-pink)" }}>
+              £{property.priceFromWeekend}
             </p>
           </div>
           <Button
             asChild
-            className="rounded-2xl px-8 py-6 font-medium"
+            className="flex-1 rounded-xl h-14 font-semibold shadow-lg active:scale-95 transition-transform"
             style={{
               background: "var(--color-accent-pink)",
               color: "var(--color-text-primary)",

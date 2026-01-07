@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Christmas Party Houses UK | Group Escape Houses",
-  description: "Celebrate the festive season in style with our selection of Christmas party houses. Large luxury properties perfect for family gatherings and festive celebrations.",
+  title: "Christmas Party Houses UK",
+
+  description: "Christmas party houses UK. Large luxury properties for family gatherings and festive celebrations.",
   alternates: {
     canonical: "/christmas",
   },

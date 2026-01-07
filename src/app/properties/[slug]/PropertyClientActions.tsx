@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Heart, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
+import { SaveButton } from "@/components/auth/SaveButton";
 
 interface PropertyClientActionsProps {
+  propertyId: number;
   propertyTitle: string;
 }
 
-export default function PropertyClientActions({ propertyTitle }: PropertyClientActionsProps) {
-  const [isSaved, setIsSaved] = useState(false);
-
+export default function PropertyClientActions({ propertyId, propertyTitle }: PropertyClientActionsProps) {
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -29,20 +28,10 @@ export default function PropertyClientActions({ propertyTitle }: PropertyClientA
 
   return (
     <div className="flex gap-4">
-      <Button
-        variant="outline"
-        className="rounded-xl min-h-[48px] min-w-[48px]"
-        onClick={() => setIsSaved(!isSaved)}
-        aria-label={isSaved ? "Remove from saved" : "Save property"}
-      >
-        <Heart
-          className={`w-4 h-4 mr-2 ${isSaved ? "fill-red-500 text-red-500" : ""}`}
-        />
-        {isSaved ? "Saved" : "Save"}
-      </Button>
+      <SaveButton propertyId={propertyId} variant="full" />
       <Button 
         variant="outline" 
-        className="rounded-xl min-h-[48px] min-w-[48px]"
+        className="rounded-xl min-h-[48px] px-6 border-2 border-gray-200"
         onClick={handleShare}
         aria-label="Share property"
       >

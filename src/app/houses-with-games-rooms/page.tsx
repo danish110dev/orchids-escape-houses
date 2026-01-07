@@ -12,7 +12,8 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Houses with Games Rooms UK | Large Group Properties | Group Escape Houses",
+  title: "Houses with Games Rooms UK | Large Group Properties",
+
   description: "Find large houses with games rooms across the UK. Pool tables, table tennis, arcade games, and entertainment spaces. Perfect for group getaways, family holidays, and celebrations sleeping 10-30 guests.",
   keywords: "houses with games rooms UK, group houses games room, pool table holiday house, large house games room, party house games room, family holiday games room, entertainment room holiday house",
   alternates: {

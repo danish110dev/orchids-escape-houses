@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Properties with Games Rooms | Luxury Group Houses UK | Group Escape Houses",
+  title: "Properties with Games Rooms | Luxury Group Houses UK",
+
   description: "Luxury hen party houses in the UK with dedicated games rooms. Perfect for group entertainment with pool tables, table tennis, board games, and more.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/features/games-room",

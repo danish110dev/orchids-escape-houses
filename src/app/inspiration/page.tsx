@@ -17,7 +17,19 @@ export default function BlogPage() {
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-hen-party-ac-2ed8f30b-20251018105832.jpg",
       date: "15 Jan 2025",
       slug: "alternative-hen-party-ideas",
+      path: "/blog/alternative-hen-party-ideas"
     },
+    {
+      id: 6,
+      title: "Your Complete Hen Party Planning Checklist",
+      excerpt: "From booking the house to coordinating activities, this step-by-step checklist ensures nothing gets forgotten when planning the perfect hen weekend.",
+      category: "Planning Tips",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-planning-che-9704c7d1-20251018105913.jpg",
+      date: "29 Dec 2024",
+      slug: "hen-party-checklist",
+      path: "/blog/hen-party-checklist"
+    },
+
     {
       id: 2,
       title: "The Ultimate Brighton Hen Do Guide: Where to Stay, Eat & Party",
@@ -143,10 +155,10 @@ export default function BlogPage() {
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <Link
                 key={post.id}
-                href={`/blog/${post.slug}`}
+                href={post.path || `/inspiration/${post.slug}`}
                 className="group cursor-pointer"
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">

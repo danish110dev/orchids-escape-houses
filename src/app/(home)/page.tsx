@@ -39,7 +39,7 @@ const destinations = [
   },
   {
     name: "Newquay",
-    image: "https://ssl.cdn-redfin.com/photo/190/islphoto/288/genIslnoResize.R1651288_V.webp",
+    image: "https://images.unsplash.com/photo-1510113521329-879836376550?w=800&h=600&q=80&fit=crop",
     description: "Surf beaches & coastal adventures"
   },
   {
@@ -65,14 +65,14 @@ export default async function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-24 sm:py-32 md:py-16">
+        <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-20 sm:py-32 md:py-16">
           <HeroVideo />
 
-              <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-32 sm:mt-20 md:mt-0">
-                    <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2" style={{ fontFamily: "var(--font-display)" }}>
+              <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-24 sm:mt-20 md:mt-0">
+                    <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
                       Group Escape Houses | Large Group Accommodation UK
                     </h1>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 text-[var(--color-neutral-dark)] max-w-3xl mx-auto px-2 sm:px-4">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-white drop-shadow-md max-w-3xl mx-auto px-2 sm:px-4">
                       Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners via Group Escape Houses. Ideal for family celebrations, group weekends away and corporate retreats.
                     </p>
 
@@ -85,19 +85,19 @@ export default async function Home() {
         </section>
 
         {/* Trust Signals */}
-        <section className="py-12 sm:py-14 md:py-16 bg-white">
+        <section className="py-10 sm:py-14 md:py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-7 md:gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-7 md:gap-8 text-center">
                   {[
                     { icon: Award, label: "5 Star Reviews", val: "3,000+", color: "var(--color-accent-gold)" },
                     { icon: Shield, label: "Safe Payments", val: "Secure", color: "var(--color-accent-sage)" },
                     { icon: Users, label: "Expert Support", val: "UK Team", color: "var(--color-accent-pink)" },
                     { icon: Clock, label: "Quick Response", val: "Fast", color: "var(--color-accent-gold)" }
                   ].map((item, i) => (
-                    <div key={i} className="transition-transform hover:scale-105">
-                      <item.icon className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3" style={{ color: item.color }} aria-hidden="true" />
-                      <div className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{item.val}</div>
-                      <div className="text-sm md:text-base text-[var(--color-neutral-dark)]">{item.label}</div>
+                    <div key={i} className="md:transition-transform md:hover:scale-105">
+                      <item.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3" style={{ color: item.color }} aria-hidden="true" />
+                      <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5" style={{ fontFamily: "var(--font-display)" }}>{item.val}</div>
+                      <div className="text-xs sm:text-sm md:text-base text-[var(--color-neutral-dark)]">{item.label}</div>
                     </div>
                   ))}
 

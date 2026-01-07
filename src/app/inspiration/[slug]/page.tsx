@@ -2,7 +2,6 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import UKServiceSchema from "@/components/UKServiceSchema";
 import Link from "next/link";
 import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -112,7 +111,7 @@ const posts = [
       <p>Whether you're cooking for yourselves or hiring a <a href="/experiences/private-chef" style="color: var(--color-accent-sage); text-decoration: underline;">private chef</a>, the kitchen is equipped to the highest standard. With triple ovens, massive fridge-freezers, and two dishwashers, hosting a banquet for 24 has never been easier.</p>
       
       <h2>Perfect for Special Occasions</h2>
-      <p>From <a href="/occasions/weddings" style="color: var(--color-accent-sage); text-decoration: underline;">intimate wedding celebrations</a> to milestone 50th birthday parties, this house is built for celebration. The grand dining hall can be configured for formal sit-down meals, while the <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games room</a> with its full-size pool table keeps the party going late into the night.</p>
+      <p>From <a href="/weddings" style="color: var(--color-accent-sage); text-decoration: underline;">intimate wedding celebrations</a> to milestone 50th birthday parties, this house is built for celebration. The grand dining hall can be configured for formal sit-down meals, while the <a href="/features/games-room" style="color: var(--color-accent-sage); text-decoration: underline;">games room</a> with its full-size pool table keeps the party going late into the night.</p>
       
       <p>The Cotswold Manor isn't just a place to sleep—it's a destination in itself. <a href="/properties" style="color: var(--color-accent-sage); text-decoration: underline;">Search our latest availability</a> to see if this stunning property is available for your next group getaway.</p>
     `,
@@ -126,7 +125,7 @@ const posts = [
     date: "2 Jan 2025",
     slug: "wedding-group-accommodation-guide",
     content: `
-      <p>Your wedding is about bringing people together. What better way to do that than by housing your closest friends and family in a <a href="/occasions/weddings" style="color: var(--color-accent-sage); text-decoration: underline;">grand holiday home</a> for the duration of the festivities?</p>
+      <p>Your wedding is about bringing people together. What better way to do that than by housing your closest friends and family in a <a href="/weddings" style="color: var(--color-accent-sage); text-decoration: underline;">grand holiday home</a> for the duration of the festivities?</p>
       
       <h2>The Benefits of 'Wed-Shedding'</h2>
       <p>Booking a <a href="/house-styles/large-holiday-homes" style="color: var(--color-accent-sage); text-decoration: underline;">large holiday home</a> for your wedding party creates a festive, communal atmosphere that hotels simply can't replicate. It allows for pre-wedding brunches, late-night chats by the fire, and a shared space for getting ready on the big day.</p>
@@ -210,7 +209,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
             <ArrowLeft className="w-4 h-4" />
             Back to Inspiration
           </Link>
-
+  
           <div
             className="inline-block px-3 py-1 rounded-full text-sm font-medium mb-6"
             style={{
@@ -220,14 +219,14 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
           >
             {post.category}
           </div>
-
+  
           <h1
             className="mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {post.title}
           </h1>
-
+  
           <div className="flex items-center gap-6 text-[var(--color-neutral-dark)]">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
@@ -243,7 +242,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
-
+  
       {/* Featured Image */}
       <section className="py-12 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -256,7 +255,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
-
+  
       {/* Content */}
       <section className="py-16 bg-white">
         <div className="max-w-[800px] mx-auto px-6">
@@ -270,7 +269,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
           />
         </div>
       </section>
-
+  
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <section className="py-24 bg-[var(--color-bg-primary)]">
@@ -281,7 +280,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
             >
               Related Articles
             </h2>
-
+  
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((relatedPost) => (
                 <Link
@@ -297,7 +296,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-
+  
                     <div className="p-6">
                       <div
                         className="inline-block px-3 py-1 rounded-full text-sm font-medium mb-4"
@@ -308,14 +307,14 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
                       >
                         {relatedPost.category}
                       </div>
-
+  
                       <h3
                         className="text-xl font-semibold mb-3 group-hover:text-[var(--color-accent-sage)] transition-colors"
                         style={{ fontFamily: "var(--font-body)" }}
                       >
                         {relatedPost.title}
                       </h3>
-
+  
                       <div className="flex items-center gap-2 text-sm text-[var(--color-neutral-dark)]">
                         <Calendar className="w-4 h-4" />
                         <span>{relatedPost.date}</span>
@@ -328,7 +327,7 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
           </div>
         </section>
       )}
-
+  
       <Footer />
     </div>
   );

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stag Do Houses | Group Escape Houses",
-  description: "Discover the best stag do houses across the UK. Epic group accommodation with games rooms, hot tubs, and plenty of space for the ultimate stag weekend celebration.",
+  title: "Stag Do Houses",
+
+  description: "Best stag do houses UK. Epic group accommodation with games rooms, hot tubs and space for stag weekends.",
   alternates: {
     canonical: "/stag-do-houses",
   },

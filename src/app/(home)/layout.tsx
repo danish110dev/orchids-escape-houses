@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Large Group Accommodation UK | Group Escape Houses",
+  title: "Large Group Accommodation UK",
   description: "Discover large group accommodation and escape houses across the UK. Sleeps 10 to 30 guests. Book direct with property owners.",
   keywords: "large group accommodation UK, group accommodation UK, escape houses UK, large holiday houses UK, hen party houses, houses with hot tubs, party houses for groups, luxury group houses, weekend break houses, large cottages UK, group holiday homes, hen do accommodation",
   authors: [{ name: 'Group Escape Houses' }],
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: 'https://www.groupescapehouses.co.uk',
-    title: "Large Group Accommodation UK | Group Escape Houses",
+    title: "Large Group Accommodation UK",
     description: "Discover large group accommodation and escape houses across the UK. Sleeps 10 to 30 guests. Book direct with property owners.",
     siteName: 'Group Escape Houses',
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Large Group Accommodation UK | Group Escape Houses",
+    title: "Large Group Accommodation UK",
     description: "Discover large group accommodation and escape houses across the UK. Sleeps 10 to 30 guests. Book direct with property owners.",
     images: ['https://www.groupescapehouses.co.uk/og-image.jpg'],
   },

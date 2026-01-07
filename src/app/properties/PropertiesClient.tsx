@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -347,18 +348,18 @@ export default function PropertiesClient({ initialProperties }: PropertiesClient
                 >
                   Load More Properties
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-300 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
-                  style={{
-                    borderColor: "var(--color-accent-gold)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
-                  <a href="/contact">Request a Quote</a>
-                </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-2xl px-10 py-6 font-medium border-2 transition-all duration-300 hover:bg-[var(--color-accent-gold)] hover:text-white hover:border-[var(--color-accent-gold)]"
+                    style={{
+                      borderColor: "var(--color-accent-gold)",
+                      color: "var(--color-text-primary)",
+                    }}
+                  >
+                    <Link href="/contact">Request a Quote</Link>
+                  </Button>
               </div>
             </div>
           )}

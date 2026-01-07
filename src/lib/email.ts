@@ -239,3 +239,60 @@ export async function sendContactEmail(data: ContactEmailData) {
     throw error;
   }
 }
+
+export async function sendWelcomeEmail(email: string, name: string) {
+  try {
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: #89A38F; color: white; padding: 20px; text-align: center; }
+            .content { background: #f9f9f9; padding: 30px; }
+            .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+            .button { background: #89A38F; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 20px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Welcome to Group Escape Houses!</h1>
+            </div>
+            <div class="content">
+              <p>Hi ${name},</p>
+              <p>Thank you for signing up with Group Escape Houses! We're excited to help you find the perfect large group accommodation for your next getaway.</p>
+              <p>Whether you're planning a family reunion, a hen or stag do, or a corporate retreat, we have a wide range of beautiful properties to choose from.</p>
+              <p>Log in to your dashboard to start exploring and saving your favorite houses.</p>
+              <a href="${process.env.BETTER_AUTH_URL || 'https://groupescapehouses.co.uk'}/login" class="button">Go to Dashboard</a>
+              <p style="margin-top: 30px;">Best regards,<br>The Group Escape Houses Team</p>
+            </div>
+            <div class="footer">
+              <p>Group Escape Houses<br>11a North Street, Brighton BN41 1DH</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const { data: emailData, error } = await resend.emails.send({
+      from: 'Group Escape Houses <enquiries@groupescapehouses.co.uk>',
+      to: [email],
+      subject: 'Welcome to Group Escape Houses!',
+      html: htmlContent,
+    });
+
+    if (error) {
+      console.error('❌ Failed to send welcome email:', error);
+      throw error;
+    }
+
+    console.log('✅ Welcome email sent successfully to:', email);
+    return emailData;
+  } catch (error) {
+    console.error('Welcome email error:', error);
+    throw error;
+  }
+}

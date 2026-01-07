@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   description: "Free hen party planning tips. City nightlife guides, packing checklists, budgeting advice & property spotlights. Updated weekly.",
   keywords: ["hen party planning tips", "hen weekend ideas", "UK hen party blog", "celebration planning guide"],
   openGraph: {
-    title: "Hen Party Planning Blog & Resources | Group Escape Houses",
+    title: "Hen Party Planning Blog & Resources",
+
     description: "Free expert advice, city guides, checklists and inspiration. Updated weekly.",
     url: "https://www.groupescapehouses.co.uk/blog",
   },

@@ -8,6 +8,7 @@ import UKServiceSchema from "@/components/UKServiceSchema";
 import { TrustBadges } from "@/components/TrustBadges";
 import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDown, Calendar, Home, Waves, PoundSterling, Users, PartyPopper, Train, Plane, Car, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AddExperiencesToStay from "@/components/AddExperiencesToStay";
 
 interface DestinationClientProps {
   slug: string;
@@ -229,85 +230,123 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
         { icon: Bus, text: "National Express coaches from London" },
         { icon: Plane, text: "Bournemouth Airport with connections across Europe" }
       ],
-      nightlife: [],
-      brunch: [],
-      activities: []
-    },
-    york: {
-      name: "York",
-      region: "North Yorkshire",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
-      overview: "York is a historic walled city combining medieval charm, world-class museums, and vibrant nightlife. Perfect for hen parties seeking culture, history, and sophisticated entertainment in one of England's most picturesque cities.",
-      quickFacts: {
-        fromLondon: "2 hours by direct train from King's Cross",
-        bestTime: "Year-round charm! Spring for gardens, December for Christmas markets",
-        nightlife: "Medieval pubs, Shambles bars, Micklegate nightlife district",
-        dining: "Betty's Tea Rooms, riverside restaurants, historic pub dining",
-        beachAccess: "No beach but beautiful river walks and city walls",
-        accommodation: "Georgian townhouses, medieval properties, modern apartments in city walls",
-        priceRange: "£75-£100 per night - great value historic city",
-        activities: "York Minster, Shambles shopping, ghost walks, afternoon tea, city walls walk"
-      },
-      gettingThere: [
-        { icon: Train, text: "Direct trains from London King's Cross (2 hours)" },
-        { icon: Car, text: "A1(M) motorway (approx 4 hours from London)" },
-        { icon: Bus, text: "National Express coaches from London" },
-        { icon: Plane, text: "Leeds Bradford Airport is 45 minutes away" }
+      nightlife: [
+        { name: "The Old Fire Station", description: "Iconic student and live music venue", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+        { name: "Halo", description: "Vibrant nightclub in a converted church", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
       ],
-      nightlife: [],
-      brunch: [],
-      activities: []
-    },
-    cardiff: {
-      name: "Cardiff",
-      region: "South Wales",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
-      overview: "Cardiff is Wales's vibrant capital with a stunning castle, Cardiff Bay waterfront, and legendary Welsh hospitality. Perfect for hen parties seeking a compact city with great nightlife, rugby culture, and easy access to Welsh countryside.",
-      quickFacts: {
-        fromLondon: "2 hours by direct train from Paddington",
-        bestTime: "Year-round destination! Spring for Principality Stadium events, summer for Cardiff Bay",
-        nightlife: "St Mary Street clubs, Cardiff Bay bars, Roath nightlife",
-        dining: "Welsh lamb, Cardiff Bay restaurants, St Mary Street curry houses",
-        beachAccess: "Cardiff Bay waterfront, Penarth beach 20 minutes away",
-        accommodation: "Victorian terraces, Bay apartments, city centre townhouses",
-        priceRange: "£70-£95 per night - excellent value capital city",
-        activities: "Cardiff Castle, Principality Stadium tours, Cardiff Bay, shopping arcades"
-      },
-      gettingThere: [
-        { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
-        { icon: Car, text: "M4 motorway (approx 2.5 hours from London)" },
-        { icon: Bus, text: "Megabus and National Express from London" },
-        { icon: Plane, text: "Cardiff Airport with UK and European flights" }
+      brunch: [
+        { name: "West Beach", description: "Award-winning seafood and brunch by the sand", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
       ],
-      nightlife: [],
-      brunch: [],
-      activities: []
+      activities: [
+        { name: "Paddleboarding", description: "Explore the coast from the water", image: "https://images.unsplash.com/photo-1517176642928-5803ef5ce6d4?w=800&q=80" },
+        { name: "Pier Zip Line", description: "High-speed adventure over the waves", image: "https://images.unsplash.com/photo-1521330784833-ce9a10df3f0d?w=800&q=80" },
+        { name: "Beach Club", description: "Relaxed daytime vibes with sea views", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" }
+      ]
     },
-    newcastle: {
-      name: "Newcastle",
-      region: "Tyne and Wear",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
-      overview: "Newcastle offers legendary nightlife, warm Geordie hospitality, and stunning bridges over the Tyne. Perfect for hen parties seeking big nights out, fantastic value, and one of the UK's most friendly cities.",
-      quickFacts: {
-        fromLondon: "3 hours by direct train from King's Cross",
-        bestTime: "Year-round party city! Summer for Quayside, any time for nightlife",
-        nightlife: "Legendary! Diamond Strip, Bigg Market, Quayside bars, digital nightclub",
-        dining: "Geordie classics, Quayside restaurants, Grey Street fine dining",
-        beachAccess: "Tynemouth beach 20 minutes away - surfing and seaside charm",
-        accommodation: "Quayside apartments, city centre townhouses, Victorian terraces",
-        priceRange: "£65-£90 per night - best value major UK city",
-        activities: "Quayside walks, Tyne Bridge, shopping Eldon Square, Baltic art gallery"
+      york: {
+        name: "York",
+        region: "North Yorkshire",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-york-uk%2c-m-7d6cc34e-20251018100412.jpg",
+        overview: "York is a historic walled city combining medieval charm, world-class museums, and vibrant nightlife. Perfect for hen parties seeking culture, history, and sophisticated entertainment in one of England's most picturesque cities.",
+        quickFacts: {
+          fromLondon: "2 hours by direct train from King's Cross",
+          bestTime: "Year-round charm! Spring for gardens, December for Christmas markets",
+          nightlife: "Medieval pubs, Shambles bars, Micklegate nightlife district",
+          dining: "Betty's Tea Rooms, riverside restaurants, historic pub dining",
+          beachAccess: "No beach but beautiful river walks and city walls",
+          accommodation: "Georgian townhouses, medieval properties, modern apartments in city walls",
+          priceRange: "£75-£100 per night - great value historic city",
+          activities: "York Minster, Shambles shopping, ghost walks, afternoon tea, city walls walk"
+        },
+        gettingThere: [
+          { icon: Train, text: "Direct trains from London King's Cross (2 hours)" },
+          { icon: Car, text: "A1(M) motorway (approx 4 hours from London)" },
+          { icon: Bus, text: "National Express coaches from London" },
+          { icon: Plane, text: "Leeds Bradford Airport is 45 minutes away" }
+        ],
+        nightlife: [
+          { name: "The Shambles Bars", description: "Quirky cocktail bars in medieval buildings", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+          { name: "Micklegate Nightlife", description: "Vibrant area with clubs and late-night bars", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+        ],
+        brunch: [
+          { name: "Betty's Tea Rooms", description: "World-famous afternoon tea and brunch", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
+        ],
+        activities: [
+          { name: "Ghost Walks", description: "Explore Europe's most haunted city at night", image: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800&q=80" },
+          { name: "York Minster", description: "Stunning Gothic cathedral tours", image: "https://images.unsplash.com/photo-1515542641795-85ed383ce282?w=800&q=80" },
+          { name: "Punting on the Ouse", description: "Relaxing boat trips through the city", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" }
+        ]
       },
-      gettingThere: [
-        { icon: Train, text: "Direct trains from London King's Cross (3 hours)" },
-        { icon: Car, text: "A1(M) motorway (approx 5 hours from London)" },
-        { icon: Bus, text: "National Express coaches from London" },
-        { icon: Plane, text: "Newcastle Airport with excellent UK and European connections" }
-      ],
-      nightlife: [],
-      brunch: [],
-      activities: []
-    },
+
+      cardiff: {
+        name: "Cardiff",
+        region: "South Wales",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/cardiff-city-center-photograph%2c-iconic-caf939c9-20251017161252.jpg",
+        overview: "Cardiff is Wales's vibrant capital with a stunning castle, Cardiff Bay waterfront, and legendary Welsh hospitality. Perfect for hen parties seeking a compact city with great nightlife, rugby culture, and easy access to Welsh countryside.",
+        quickFacts: {
+          fromLondon: "2 hours by direct train from Paddington",
+          bestTime: "Year-round destination! Spring for Principality Stadium events, summer for Cardiff Bay",
+          nightlife: "St Mary Street clubs, Cardiff Bay bars, Roath nightlife",
+          dining: "Welsh lamb, Cardiff Bay restaurants, St Mary Street curry houses",
+          beachAccess: "Cardiff Bay waterfront, Penarth beach 20 minutes away",
+          accommodation: "Victorian terraces, Bay apartments, city centre townhouses",
+          priceRange: "£70-£95 per night - excellent value capital city",
+          activities: "Cardiff Castle, Principality Stadium tours, Cardiff Bay, shopping arcades"
+        },
+        gettingThere: [
+          { icon: Train, text: "Direct trains from London Paddington (2 hours)" },
+          { icon: Car, text: "M4 motorway (approx 2.5 hours from London)" },
+          { icon: Bus, text: "Megabus and National Express from London" },
+          { icon: Plane, text: "Cardiff Airport with UK and European flights" }
+        ],
+        nightlife: [
+          { name: "St Mary Street", description: "The heart of Cardiff's nightlife with clubs and bars", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+          { name: "Cardiff Bay", description: "Upscale bars and restaurants with water views", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+        ],
+        brunch: [
+          { name: "Bill's Cardiff Bay", description: "Vibrant brunch spot overlooking the water", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
+        ],
+        activities: [
+          { name: "Cardiff Castle", description: "Historic castle tours in the city centre", image: "https://images.unsplash.com/photo-1515542641795-85ed383ce282?w=800&q=80" },
+          { name: "White Water Rafting", description: "Exciting rafting at Cardiff International White Water", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
+          { name: "Principality Stadium", description: "Behind-the-scenes tours of the iconic stadium", image: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800&q=80" }
+        ]
+      },
+      newcastle: {
+        name: "Newcastle",
+        region: "Tyne and Wear",
+        image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newcastle-upo-1cea0fd5-20251019170922.jpg",
+        overview: "Newcastle offers legendary nightlife, warm Geordie hospitality, and stunning bridges over the Tyne. Perfect for hen parties seeking big nights out, fantastic value, and one of the UK's most friendly cities.",
+        quickFacts: {
+          fromLondon: "3 hours by direct train from King's Cross",
+          bestTime: "Year-round party city! Summer for Quayside, any time for nightlife",
+          nightlife: "Legendary! Diamond Strip, Bigg Market, Quayside bars, digital nightclub",
+          dining: "Geordie classics, Quayside restaurants, Grey Street fine dining",
+          beachAccess: "Tynemouth beach 20 minutes away - surfing and seaside charm",
+          accommodation: "Quayside apartments, city centre townhouses, Victorian terraces",
+          priceRange: "£65-£90 per night - best value major UK city",
+          activities: "Quayside walks, Tyne Bridge, shopping Eldon Square, Baltic art gallery"
+        },
+        gettingThere: [
+          { icon: Train, text: "Direct trains from London King's Cross (3 hours)" },
+          { icon: Car, text: "A1(M) motorway (approx 5 hours from London)" },
+          { icon: Bus, text: "National Express coaches from London" },
+          { icon: Plane, text: "Newcastle Airport with excellent UK and European connections" }
+        ],
+        nightlife: [
+          { name: "Diamond Strip", description: "Upscale bars and clubs frequented by celebs", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" },
+          { name: "The Quayside", description: "Trendy bars with views of the Tyne Bridge", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" }
+        ],
+        brunch: [
+          { name: "The Botanist", description: "Stunning rooftop bar and brunch spot", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80", link: "#" }
+        ],
+        activities: [
+          { name: "Tyne Bridge Walk", description: "Iconic walk with stunning river views", image: "https://images.unsplash.com/photo-1515542641795-85ed383ce282?w=800&q=80" },
+          { name: "Baltic Art Gallery", description: "Contemporary art in a converted flour mill", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
+          { name: "Tynemouth Surfing", description: "Learn to surf just 20 mins from city centre", image: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800&q=80" }
+        ]
+      },
+
     liverpool: {
       name: "Liverpool",
       region: "Merseyside",
@@ -1537,14 +1576,14 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
               
               <div className="space-y-4 mt-6">
                 <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
-                  {destination.name} stands out as one of the UK's premier destinations for <Link href="/occasions/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party celebrations</Link>. 
+                  {destination.name} stands out as one of the UK's premier destinations for <Link href="/hen-party-houses" className="text-[var(--color-accent-sage)] hover:underline font-medium">hen party celebrations</Link>. 
                   Our carefully selected <Link href="/properties" className="text-[var(--color-accent-sage)] hover:underline font-medium">luxury properties</Link> in the area provide the perfect base for your celebration, 
                   featuring essential amenities like <Link href="/features/hot-tub" className="text-[var(--color-accent-sage)] hover:underline font-medium">private hot tubs</Link>, <Link href="/features/games-room" className="text-[var(--color-accent-sage)] hover:underline font-medium">games rooms</Link>, 
                   and spacious living areas designed for group entertainment.
                 </p>
                 
                 <p className="text-lg text-[var(--color-neutral-dark)] leading-relaxed">
-                  Beyond the accommodation, {destination.name} offers an incredible range of activities to enhance your <Link href="/occasions/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>. 
+                  Beyond the accommodation, {destination.name} offers an incredible range of activities to enhance your <Link href="/weekend-breaks" className="text-[var(--color-accent-sage)] hover:underline font-medium">weekend break</Link>. 
                   From world-class dining and vibrant nightlife to unique <Link href="/experiences" className="text-[var(--color-accent-sage)] hover:underline font-medium">experiences</Link> like cocktail masterclasses, spa treatments, 
                   and private chef dinners, there's something to suit every group's taste and budget.
                 </p>
@@ -1795,6 +1834,9 @@ export default function DestinationClient({ slug }: DestinationClientProps) {
           </div>
         </section>
       )}
+
+      {/* Add to Your Stay - Experiences */}
+      <AddExperiencesToStay />
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">

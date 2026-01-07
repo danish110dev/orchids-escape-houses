@@ -1,17 +1,27 @@
-import type { Metadata } from "next";
-import UKServiceSchema from "@/components/UKServiceSchema";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hen Party Destinations UK | Brighton, Bath & 25+ Cities",
-  description: "25+ UK destinations with party houses. Coastal cities, vibrant nightlife & countryside. Brighton, Bath, Manchester, York, Liverpool.",
-  keywords: ["hen party destinations UK", "best cities for hen weekends", "Brighton hen parties", "Bath hen do", "Manchester hen weekend"],
-  openGraph: {
-    title: "Top UK Hen Party Destinations | Group Escape Houses",
-    description: "Explore 25+ cities with luxury party houses. Beach towns, nightlife hotspots & country escapes.",
-    url: "https://www.groupescapehouses.co.uk/destinations",
-  },
+  title: "UK Hen Party Destinations | Best Cities & Regions",
+  description: "Best UK group accommodation destinations. Brighton, Bath, Lake District and 30+ locations with luxury houses and activities.",
+  keywords: "UK hen party destinations, hen do locations UK, group celebration destinations, Brighton hen party, Bath hen party, London hen party houses",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/destinations",
+  },
+  openGraph: {
+    title: "UK Hen Party Destinations",
+    description: "Explore 30+ handpicked cities and regions across the UK for your group celebration.",
+    url: "https://www.groupescapehouses.co.uk/destinations",
+    siteName: "Group Escape Houses",
+    images: [
+      {
+        url: "https://www.groupescapehouses.co.uk/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "UK Hen Party Destinations",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
   },
 };
 
@@ -20,18 +30,5 @@ export default function DestinationsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <UKServiceSchema 
-        type="breadcrumb" 
-        data={{
-          breadcrumbs: [
-            { name: "Home", url: "/" },
-            { name: "Destinations", url: "/destinations" }
-          ]
-        }}
-      />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

@@ -286,220 +286,227 @@ export default function ContactPage() {
                       <label htmlFor="name" className="block text-sm font-semibold mb-2">
                         Your Name <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        id="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleChange('name', e.target.value)}
-                        onBlur={() => handleBlur('name')}
-                        className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
-                          errors.name && touched.name 
-                            ? 'border-red-400 focus:border-red-500' 
-                            : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
-                        } focus:outline-none`}
-                        aria-invalid={!!errors.name}
-                        aria-describedby={errors.name ? 'name-error' : undefined}
-                      />
-                      {errors.name && touched.name && (
-                        <p id="name-error" className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
-                          {errors.name}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                          Email Address <span className="text-red-500">*</span>
-                        </label>
                         <input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleChange('email', e.target.value)}
-                          onBlur={() => handleBlur('email')}
+                          id="name"
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => handleChange('name', e.target.value)}
+                          onBlur={() => handleBlur('name')}
+                          autoComplete="name"
                           className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
-                            errors.email && touched.email 
+                            errors.name && touched.name 
                               ? 'border-red-400 focus:border-red-500' 
                               : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
-                          } focus:outline-none`}
-                          aria-invalid={!!errors.email}
-                          aria-describedby={errors.email ? 'email-error' : undefined}
+                          } focus:outline-none min-h-[48px]`}
+                          aria-invalid={!!errors.name}
+                          aria-describedby={errors.name ? 'name-error' : undefined}
                         />
-                        {errors.email && touched.email && (
-                          <p id="email-error" className="mt-1.5 text-sm text-red-500">
-                            {errors.email}
+                        {errors.name && touched.name && (
+                          <p id="name-error" className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
+                            {errors.name}
                           </p>
                         )}
                       </div>
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-semibold mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleChange('phone', e.target.value)}
-                          onBlur={() => handleBlur('phone')}
-                          className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
-                            errors.phone && touched.phone 
-                              ? 'border-red-400 focus:border-red-500' 
-                              : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
-                          } focus:outline-none`}
-                          aria-invalid={!!errors.phone}
-                          aria-describedby={errors.phone ? 'phone-error' : undefined}
-                        />
-                        {errors.phone && touched.phone && (
-                          <p id="phone-error" className="mt-1.5 text-sm text-red-500">
-                            {errors.phone}
-                          </p>
-                        )}
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="relative">
-                        <label htmlFor="dates" className="block text-sm font-semibold mb-2">
-                          Event Date <span className="text-red-500">*</span>
-                        </label>
-                        <div className="relative">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                            Email Address <span className="text-red-500">*</span>
+                          </label>
                           <input
-                            id="dates"
-                            type="text"
-                            value={formData.dates}
-                            onClick={() => setShowCalendar(!showCalendar)}
-                            onBlur={() => handleBlur('dates')}
-                            readOnly
-                            className={`w-full px-4 py-3.5 pr-12 rounded-xl border-2 transition-colors text-base cursor-pointer ${
-                              errors.dates && touched.dates 
+                            id="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) => handleChange('email', e.target.value)}
+                            onBlur={() => handleBlur('email')}
+                            inputMode="email"
+                            autoComplete="email"
+                            autoCapitalize="none"
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
+                              errors.email && touched.email 
                                 ? 'border-red-400 focus:border-red-500' 
                                 : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
-                            } focus:outline-none`}
-                            placeholder="Select dates"
-                            aria-invalid={!!errors.dates}
-                            aria-describedby={errors.dates ? 'dates-error' : undefined}
+                            } focus:outline-none min-h-[48px]`}
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? 'email-error' : undefined}
                           />
-                          <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                          {errors.email && touched.email && (
+                            <p id="email-error" className="mt-1.5 text-sm text-red-500">
+                              {errors.email}
+                            </p>
+                          )}
                         </div>
-                        {errors.dates && touched.dates && (
-                          <p id="dates-error" className="mt-1.5 text-sm text-red-500">
-                            {errors.dates}
-                          </p>
-                        )}
-                        {showCalendar && (
-                          <div className="absolute z-50 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl p-4 left-0 right-0 md:left-auto md:right-auto">
-                            <DayPicker
-                              mode="range"
-                              selected={dateRange as any}
-                              onSelect={handleDateSelect}
-                              disabled={{ before: new Date() }}
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                            Phone Number
+                          </label>
+                          <input
+                            id="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => handleChange('phone', e.target.value)}
+                            onBlur={() => handleBlur('phone')}
+                            inputMode="tel"
+                            autoComplete="tel"
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base ${
+                              errors.phone && touched.phone 
+                                ? 'border-red-400 focus:border-red-500' 
+                                : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                            } focus:outline-none min-h-[48px]`}
+                            aria-invalid={!!errors.phone}
+                            aria-describedby={errors.phone ? 'phone-error' : undefined}
+                          />
+                          {errors.phone && touched.phone && (
+                            <p id="phone-error" className="mt-1.5 text-sm text-red-500">
+                              {errors.phone}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="relative">
+                          <label htmlFor="dates" className="block text-sm font-semibold mb-2">
+                            Event Date <span className="text-red-500">*</span>
+                          </label>
+                          <div className="relative">
+                            <input
+                              id="dates"
+                              type="text"
+                              value={formData.dates}
+                              onClick={() => setShowCalendar(!showCalendar)}
+                              onBlur={() => handleBlur('dates')}
+                              readOnly
+                              inputMode="none"
+                              className={`w-full px-4 py-3.5 pr-12 rounded-xl border-2 transition-colors text-base cursor-pointer ${
+                                errors.dates && touched.dates 
+                                  ? 'border-red-400 focus:border-red-500' 
+                                  : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                              } focus:outline-none min-h-[48px]`}
+                              placeholder="Select dates"
+                              aria-invalid={!!errors.dates}
+                              aria-describedby={errors.dates ? 'dates-error' : undefined}
                             />
-                            <div className="mt-3 flex gap-2">
-                              {dateRange.from && dateRange.to && (
+                            <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                          </div>
+                          {errors.dates && touched.dates && (
+                            <p id="dates-error" className="mt-1.5 text-sm text-red-500">
+                              {errors.dates}
+                            </p>
+                          )}
+                          {showCalendar && (
+                            <div className="absolute z-50 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl p-4 left-0 right-0 md:left-auto md:right-auto">
+                              <DayPicker
+                                mode="range"
+                                selected={dateRange as any}
+                                onSelect={handleDateSelect}
+                                disabled={{ before: new Date() }}
+                              />
+                              <div className="mt-3 flex gap-2">
+                                {dateRange.from && dateRange.to && (
+                                  <button
+                                    type="button"
+                                    onClick={() => setShowCalendar(false)}
+                                    className="flex-1 px-4 py-2.5 text-sm font-medium text-white rounded-lg transition-colors min-h-[44px]"
+                                    style={{ background: "var(--color-accent-sage)" }}
+                                  >
+                                    Confirm Dates
+                                  </button>
+                                )}
                                 <button
                                   type="button"
-                                  onClick={() => setShowCalendar(false)}
-                                  className="flex-1 px-4 py-2.5 text-sm font-medium text-white rounded-lg transition-colors"
-                                  style={{ background: "var(--color-accent-sage)" }}
+                                  onClick={() => {
+                                    setDateRange({});
+                                    handleChange('dates', '');
+                                  }}
+                                  className="px-4 py-2.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px]"
                                 >
-                                  Confirm Dates
+                                  Clear
                                 </button>
-                              )}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setDateRange({});
-                                  handleChange('dates', '');
-                                }}
-                                className="px-4 py-2.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
-                              >
-                                Clear
-                              </button>
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
+                        <div>
+                          <label htmlFor="location" className="block text-sm font-semibold mb-2">
+                            Preferred Location
+                          </label>
+                          <select
+                            id="location"
+                            value={formData.location}
+                            onChange={(e) => handleChange('location', e.target.value)}
+                            className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none text-base appearance-none bg-white min-h-[48px]"
+                            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
+                          >
+                            <option value="">Any location</option>
+                            <option value="bath">Bath</option>
+                            <option value="brighton">Brighton</option>
+                            <option value="bristol">Bristol</option>
+                            <option value="cotswolds">Cotswolds</option>
+                            <option value="lake-district">Lake District</option>
+                            <option value="london">London</option>
+                            <option value="manchester">Manchester</option>
+                            <option value="newquay">Newquay</option>
+                            <option value="york">York</option>
+                          </select>
+                        </div>
                       </div>
+
                       <div>
-                        <label htmlFor="location" className="block text-sm font-semibold mb-2">
-                          Preferred Location
+                        <label htmlFor="groupSize" className="block text-sm font-semibold mb-2">
+                          Group Size <span className="text-red-500">*</span>
                         </label>
                         <select
-                          id="location"
-                          value={formData.location}
-                          onChange={(e) => handleChange('location', e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none text-base appearance-none bg-white"
+                          id="groupSize"
+                          value={formData.groupSize}
+                          onChange={(e) => handleChange('groupSize', e.target.value)}
+                          onBlur={() => handleBlur('groupSize')}
+                          className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base appearance-none bg-white ${
+                            errors.groupSize && touched.groupSize 
+                              ? 'border-red-400 focus:border-red-500' 
+                              : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
+                          } focus:outline-none min-h-[48px]`}
                           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
+                          aria-invalid={!!errors.groupSize}
+                          aria-describedby={errors.groupSize ? 'groupSize-error' : undefined}
                         >
-                          <option value="">Any location</option>
-                          <option value="bath">Bath</option>
-                          <option value="brighton">Brighton</option>
-                          <option value="bristol">Bristol</option>
-                          <option value="cotswolds">Cotswolds</option>
-                          <option value="lake-district">Lake District</option>
-                          <option value="london">London</option>
-                          <option value="manchester">Manchester</option>
-                          <option value="newquay">Newquay</option>
-                          <option value="york">York</option>
+                          <option value="">Select group size</option>
+                          <option value="6-10">6-10 guests</option>
+                          <option value="11-15">11-15 guests</option>
+                          <option value="16-20">16-20 guests</option>
+                          <option value="21-30">21-30 guests</option>
+                          <option value="30+">30+ guests</option>
                         </select>
+                        {errors.groupSize && touched.groupSize && (
+                          <p id="groupSize-error" className="mt-1.5 text-sm text-red-500">
+                            {errors.groupSize}
+                          </p>
+                        )}
                       </div>
-                    </div>
 
-                    <div>
-                      <label htmlFor="groupSize" className="block text-sm font-semibold mb-2">
-                        Group Size <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="groupSize"
-                        value={formData.groupSize}
-                        onChange={(e) => handleChange('groupSize', e.target.value)}
-                        onBlur={() => handleBlur('groupSize')}
-                        className={`w-full px-4 py-3.5 rounded-xl border-2 transition-colors text-base appearance-none bg-white ${
-                          errors.groupSize && touched.groupSize 
-                            ? 'border-red-400 focus:border-red-500' 
-                            : 'border-gray-200 focus:border-[var(--color-accent-sage)]'
-                        } focus:outline-none`}
-                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
-                        aria-invalid={!!errors.groupSize}
-                        aria-describedby={errors.groupSize ? 'groupSize-error' : undefined}
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                          Anything else we should know? <span className="text-gray-400 font-normal">(optional)</span>
+                        </label>
+                        <textarea
+                          id="message"
+                          value={formData.message}
+                          onChange={(e) => handleChange('message', e.target.value)}
+                          rows={3}
+                          className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none resize-none text-base min-h-[100px]"
+                          placeholder="E.g. activities you're interested in, special requirements..."
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={isSubmitting}
+                        className="w-full rounded-xl py-4 md:py-5 text-base md:text-lg font-semibold transition-all duration-200 hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed min-h-[56px] relative z-10"
+                        style={{ background: "var(--color-accent-sage)", color: "white" }}
                       >
-                        <option value="">Select group size</option>
-                        <option value="6-10">6-10 guests</option>
-                        <option value="11-15">11-15 guests</option>
-                        <option value="16-20">16-20 guests</option>
-                        <option value="21-30">21-30 guests</option>
-                        <option value="30+">30+ guests</option>
-                      </select>
-                      {errors.groupSize && touched.groupSize && (
-                        <p id="groupSize-error" className="mt-1.5 text-sm text-red-500">
-                          {errors.groupSize}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                        Anything else we should know? <span className="text-gray-400 font-normal">(optional)</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => handleChange('message', e.target.value)}
-                        rows={3}
-                        className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none resize-none text-base"
-                        placeholder="E.g. activities you're interested in, special requirements..."
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full rounded-xl py-4 md:py-5 text-base md:text-lg font-semibold transition-all duration-200 hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed min-h-[56px]"
-                      style={{ background: "var(--color-accent-sage)", color: "white" }}
-                    >
-                      {isSubmitting ? "Sending..." : "Get Your Free Quote"}
-                    </Button>
+                        {isSubmitting ? "Sending..." : "Get Your Free Quote"}
+                      </Button>
 
                     <p className="text-center text-sm text-[var(--color-neutral-dark)] flex items-center justify-center gap-2">
                       <Clock className="w-4 h-4" />

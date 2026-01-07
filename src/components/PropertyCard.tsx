@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, UsersRound, MapPinned } from "lucide-react";
+import { UsersRound, MapPinned } from "lucide-react";
 import { useState, useMemo, useCallback, memo } from "react";
 import dynamic from "next/dynamic";
+import { SaveButton } from "./auth/SaveButton";
 
 const BookingModal = dynamic(() => import("@/components/BookingModal"), {
   ssr: false,
@@ -58,7 +59,6 @@ function PropertyCard({
   features,
   slug,
 }: PropertyCardProps) {
-  const [isSaved, setIsSaved] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -79,8 +79,8 @@ function PropertyCard({
   return (
     <>
       <div className="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
-        <Link href={`/properties/${slug}`}>
-          <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+        <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+          <Link href={`/properties/${slug}`}>
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gray-200 animate-pulse" />
             )}
@@ -95,39 +95,26 @@ function PropertyCard({
               onLoad={handleImageLoad}
               loading="lazy"
             />
-            
-            {/* Feature Tags */}
-            <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
-              {features.slice(0, 2).map((feature) => (
-                <span
-                  key={feature}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-white/90 backdrop-blur-sm"
-                  style={{ color: "var(--color-text-primary)" }}
-                >
-                  {feature}
-                </span>
-              ))}
-            </div>
-
-              {/* Save Button */}
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsSaved(!isSaved);
-                }}
-                className="absolute top-4 right-4 w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
-                aria-label={isSaved ? "Remove from saved" : "Save property"}
+          </Link>
+          
+          {/* Feature Tags */}
+          <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
+            {features.slice(0, 2).map((feature) => (
+              <span
+                key={feature}
+                className="px-3 py-1 text-xs font-medium rounded-full bg-white/90 backdrop-blur-sm"
+                style={{ color: "var(--color-text-primary)" }}
               >
-                <Heart
-                  className={`w-5 h-5 ${
-                    isSaved ? "fill-red-500 text-red-500" : "text-[var(--color-text-primary)]"
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-
+                {feature}
+              </span>
+            ))}
           </div>
-        </Link>
+
+          {/* Save Button */}
+          <div className="absolute top-4 right-4">
+            <SaveButton propertyId={parseInt(id)} />
+          </div>
+        </div>
 
         <div className="p-6">
           <Link href={`/properties/${slug}`}>
@@ -157,18 +144,18 @@ function PropertyCard({
             <span>{bedrooms} bedrooms</span>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-[var(--color-bg-secondary)]">
-            <div>
+          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[var(--color-bg-secondary)]">
+            <div className="flex-1">
               <p className="text-sm text-[var(--color-neutral-dark)]">From</p>
               <p className="text-2xl font-semibold" style={{ color: "var(--color-accent-sage)" }}>
                 £{priceFrom}
               </p>
               <p className="text-xs text-[var(--color-neutral-dark)]">per night</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-full sm:w-auto">
               <Link
                 href={`/properties/${slug}`}
-                className="px-4 py-2 rounded-xl border-2 font-medium text-sm transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)]"
+                className="flex-1 sm:flex-none px-6 py-3 rounded-xl border-2 font-medium text-sm transition-all duration-200 hover:bg-[var(--color-accent-sage)] hover:text-white hover:border-[var(--color-accent-sage)] text-center flex items-center justify-center min-h-[48px]"
                 style={{
                   borderColor: "var(--color-accent-sage)",
                   color: "var(--color-text-primary)",
@@ -181,11 +168,7 @@ function PropertyCard({
                   e.preventDefault();
                   setBookingModalOpen(true);
                 }}
-                className="px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 hover:shadow-lg"
-                style={{
-                  background: "var(--color-accent-sage)",
-                  color: "white",
-                }}
+                className="flex-2 sm:flex-none px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 hover:shadow-lg flex items-center justify-center min-h-[48px] bg-[var(--color-accent-sage)] text-white"
               >
                 Book Now
               </button>

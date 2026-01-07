@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/features/fishing-lake",
+    canonical: "https://www.groupescapehouses.co.uk/features/fishing-lake",
   },
 };
 

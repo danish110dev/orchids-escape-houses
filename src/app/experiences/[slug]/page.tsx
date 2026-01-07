@@ -230,7 +230,28 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
             </div>
           </div>
 
-          {/* Related Experiences */}
+            {/* Recommended Destinations */}
+            {experience.recommendedLocations && (
+              <div className="mt-16 pt-12 border-t border-[var(--color-bg-secondary)]">
+                <h3 className="text-2xl font-semibold mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                  Available in these Destinations
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {experience.recommendedLocations.map((loc: string) => (
+                    <Link
+                      key={loc}
+                      href={`/destinations/${loc.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="px-6 py-3 rounded-xl bg-white border-2 border-[var(--color-accent-sage)]/20 text-[var(--color-text-primary)] hover:border-[var(--color-accent-sage)] transition-all font-medium"
+                    >
+                      {loc}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Related Experiences */}
+
           {filteredRelated.length > 0 && (
             <div className="mt-24">
               <h3 className="text-3xl font-semibold mb-8" style={{ fontFamily: "var(--font-display)" }}>

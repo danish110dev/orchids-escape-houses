@@ -6,9 +6,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
-  images: {
-    unoptimized: true,
-    remotePatterns: [
+    images: {
+      unoptimized: false,
+      remotePatterns: [
       {
         protocol: 'https',
         hostname: 'slelguoygbfzlpylpxfs.supabase.co',
@@ -47,7 +47,6 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    qualities: [75, 80, 85, 90, 95, 100],
   },
   typescript: {
     ignoreBuildErrors: false,
@@ -55,15 +54,26 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-    async redirects() {
-      return [
-        {
-          source: '/locations/:slug',
-          destination: '/destinations/:slug',
-          permanent: true,
-        },
-        {
-          source: '/occasions/hen-party-houses',
+      async redirects() {
+        return [
+          {
+            source: '/locations/:slug',
+            destination: '/destinations/:slug',
+            permanent: true,
+          },
+          {
+            source: '/inspiration/alternative-hen-party-ideas',
+            destination: '/blog/alternative-hen-party-ideas',
+            permanent: true,
+          },
+          {
+            source: '/inspiration/hen-party-checklist',
+            destination: '/blog/hen-party-checklist',
+            permanent: true,
+          },
+          {
+            source: '/occasions/hen-party-houses',
+
         destination: '/hen-party-houses',
         permanent: true,
       },
@@ -114,4 +124,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1767304980288
+// Orchids restart: 1767763565110

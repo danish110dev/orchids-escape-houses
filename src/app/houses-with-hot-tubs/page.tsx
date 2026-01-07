@@ -12,7 +12,8 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Houses with Hot Tubs UK | Large Group Properties | Group Escape Houses",
+  title: "Houses with Hot Tubs UK | Large Group Properties",
+
   description: "Discover large houses with hot tubs across the UK. Perfect for group getaways, hen parties, and family celebrations. Properties sleeping 10-30 guests with private outdoor hot tubs.",
   keywords: "houses with hot tubs UK, hot tub holidays, large houses hot tubs, group accommodation hot tub, hen party house hot tub, holiday house hot tub, UK hot tub breaks",
   alternates: {

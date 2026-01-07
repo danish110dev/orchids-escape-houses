@@ -1,20 +1,22 @@
 import { ChefHat, Utensils, Paintbrush, Wine, Palette, Mic2, Sparkles, Camera, Heart, Coffee, Gift, Music, PartyPopper, Flower2, Scissors, Flame, Pizza, GlassWater, Dumbbell, Users } from "lucide-react";
 
 export const experiencesData: Record<string, any> = {
-  "private-chef": {
-    title: "Private Chef Experience",
-    duration: "3-4 hours",
-    priceFrom: 65,
-    groupSize: "8-24 guests",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
-    gallery: [
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-eb946e05-20251024112454.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-052b2939-20251027101941.jpg",
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-23564d70-20251024130257.jpg"
-    ],
-    icon: ChefHat,
-    description: "Treat your group to a restaurant-quality dining experience in the comfort of your own property. Our professional chefs will arrive with all ingredients, prepare a stunning three-course meal tailored to your preferences, and handle all the clearing up. It's the perfect way to enjoy gourmet food without lifting a finger, leaving you free to focus on celebrating with your guests.",
-    included: ["Professional private chef for the evening", "Three-course gourmet meal tailored to your group", "All ingredients, equipment, and serving ware", "Menu planning consultation beforehand", "Full table service and presentation", "Kitchen cleanup and washing up"],
+    "private-chef": {
+      title: "Private Chef Experience",
+      duration: "3-4 hours",
+      priceFrom: 65,
+      groupSize: "8-24 guests",
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photo-of-a-private-ch-e336a153-20251018105040.jpg",
+      gallery: [
+        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-eb946e05-20251024112454.jpg",
+        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-beautif-052b2939-20251027101941.jpg",
+        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-stock-photograph-of-a-priva-23564d70-20251024130257.jpg"
+      ],
+      icon: ChefHat,
+      description: "Treat your group to a restaurant-quality dining experience in the comfort of your own property. Our professional chefs will arrive with all ingredients, prepare a stunning three-course meal tailored to your preferences, and handle all the clearing up. It's the perfect way to enjoy gourmet food without lifting a finger, leaving you free to focus on celebrating with your guests. This experience is highly recommended for milestone birthdays and sophisticated hen parties in destinations like Bath, The Cotswolds, and the Lake District.",
+      recommendedLocations: ["Bath", "Cotswolds", "Lake District", "London"],
+      included: ["Professional private chef for the evening", "Three-course gourmet meal tailored to your group", "All ingredients, equipment, and serving ware", "Menu planning consultation beforehand", "Full table service and presentation", "Kitchen cleanup and washing up"],
+
     whatToProvide: ["Dining space and table setup", "Basic kitchen facilities (oven, hob, fridge)", "Crockery and cutlery for your group size", "Let us know about any dietary requirements in advance"],
     pricing: [{ size: "8-12 guests", price: 75 }, { size: "13-18 guests", price: 68 }, { size: "19-24 guests", price: 65 }],
     faqs: [

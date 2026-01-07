@@ -11,7 +11,8 @@ import { eq } from "drizzle-orm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cottages with Pools | Large Group Houses UK | Group Escape Houses",
+  title: "Cottages with Pools | Large Group Houses UK",
+
   description: "Luxury hen party houses in the UK with outdoor swimming pools. Perfect for summer celebrations, pool parties, and unforgettable group weekends.",
   alternates: {
     canonical: "https://www.groupescapehouses.co.uk/features/swimming-pool",

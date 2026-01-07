@@ -104,7 +104,7 @@ export default function OptimizedImage({
         sizes={sizes}
         quality={quality}
         priority={priority}
-        unoptimized={true}
+        unoptimized={false}
         loading={priority ? undefined : "lazy"}
         className={`object-cover ${className}`}
         onError={handleError}
@@ -122,7 +122,7 @@ export default function OptimizedImage({
       sizes={sizes}
       quality={quality}
       priority={priority}
-      unoptimized={true}
+      unoptimized={false}
       loading={priority ? undefined : "lazy"}
       className={`${className}`}
       onError={handleError}

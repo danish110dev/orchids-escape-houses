@@ -6,8 +6,9 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Calendar, ExternalLink } from "lucide-react";
+import { Calendar, ExternalLink, Bookmark, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useSession } from "@/lib/auth-client";
 
 interface EnquiryFormProps {
   propertyTitle?: string;
@@ -15,8 +16,11 @@ interface EnquiryFormProps {
 }
 
 export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryFormProps) {
+  const { data: session } = useSession();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [saveQuote, setSaveQuote] = useState(false);
+  const [isSavingQuote, setIsSavingQuote] = useState(false);
   
   // Spam protection state
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
@@ -58,6 +62,23 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
 
     const formData = new FormData(e.currentTarget);
     const addons = formData.getAll('addons');
+    
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      checkin: formData.get('checkin'),
+      checkout: formData.get('checkout'),
+      groupSize: formData.get('groupSize'),
+      occasion: formData.get('occasion'),
+      addons,
+      message: formData.get('message'),
+      propertyTitle,
+      propertySlug,
+      honeypot,
+      timestamp: formLoadTime.toString(),
+      userInteraction
+    };
 
     try {
       // Generate JavaScript challenge
@@ -67,21 +88,8 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          checkin: formData.get('checkin'),
-          checkout: formData.get('checkout'),
-          groupSize: formData.get('groupSize'),
-          occasion: formData.get('occasion'),
-          addons,
-          message: formData.get('message'),
-          propertyTitle,
-          propertySlug,
-          honeypot,
-          timestamp: formLoadTime.toString(),
+          ...payload,
           challenge,
-          userInteraction
         })
       });
 
@@ -89,6 +97,26 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to send enquiry');
+      }
+
+      // Handle Save Quote if requested and logged in
+      if (saveQuote && session?.user) {
+        setIsSavingQuote(true);
+        await fetch("/api/account/save-quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "save",
+            quotePayload: {
+              propertyTitle,
+              propertySlug,
+              price: "TBC", // Could be enhanced if price logic is available
+              dates: `${payload.checkin} - ${payload.checkout}`,
+              groupSize: payload.groupSize,
+            }
+          }),
+        });
+        setIsSavingQuote(false);
       }
 
       setIsSubmitted(true);
@@ -122,9 +150,12 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
         <h3 className="text-2xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)" }}>
           Enquiry Sent!
         </h3>
-        <p className="text-[var(--color-neutral-dark)]">
+        <p className="text-[var(--color-neutral-dark)] mb-6">
           Thank you for your enquiry. Our team will get back to you within 24 hours.
         </p>
+        <Button asChild className="rounded-xl w-full bg-[var(--color-accent-sage)] text-white">
+          <Link href="/account/dashboard">View Enquiry History</Link>
+        </Button>
       </div>
     );
   }
@@ -144,132 +175,128 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
           onChange={(e) => setHoneypot(e.target.value)}
           style={{ 
             position: 'absolute', 
-            left: '-9999px',
-            width: '1px',
-            height: '1px'
+            left: '-9999px', 
+            width: '1px', 
+            height: '1px' 
           }}
           tabIndex={-1}
           autoComplete="off"
           aria-hidden="true"
         />
 
-        {/* Name */}
-        <div>
-          <Label htmlFor="name" className="text-sm font-medium mb-2 block">
-            Your name
-          </Label>
-          <Input
-            id="name"
-            name="name"
-            required
-            placeholder="Jane Smith"
-            className="rounded-xl"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <Label htmlFor="email" className="text-sm font-medium mb-2 block">
-            Email address
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="jane@example.com"
-            className="rounded-xl"
-          />
-        </div>
-
-        {/* Phone */}
-        <div>
-          <Label htmlFor="phone" className="text-sm font-medium mb-2 block">
-            Phone number
-          </Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            placeholder="07123 456789"
-            className="rounded-xl"
-          />
-        </div>
-
-        {/* Dates */}
-        <div className="space-y-4">
+          {/* Name */}
           <div>
-            <Label htmlFor="checkin" className="text-base font-semibold mb-2 block">
-              Arrival date
+            <Label htmlFor="name" className="text-sm font-medium mb-2 block">
+              Your name
             </Label>
-            <div className="relative">
-              <Input
-                id="checkin"
-                name="checkin"
-                type="date"
-                required
-                className="rounded-xl text-base py-6"
-              />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
-            </div>
-            <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
-              Check-in from 4pm
-            </p>
+            <Input
+              id="name"
+              name="name"
+              required
+              defaultValue={session?.user?.name || ""}
+              placeholder="Jane Smith"
+              className="rounded-xl min-h-[48px] text-base"
+            />
           </div>
+  
+          {/* Email */}
           <div>
-            <Label htmlFor="checkout" className="text-base font-semibold mb-2 block">
-              Departure date
+            <Label htmlFor="email" className="text-sm font-medium mb-2 block">
+              Email address
             </Label>
-            <div className="relative">
-              <Input
-                id="checkout"
-                name="checkout"
-                type="date"
-                required
-                className="rounded-xl text-base py-6"
-              />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
-            </div>
-            <p className="text-xs text-[var(--color-neutral-dark)] mt-1.5">
-              Check-out by 10am · 3 night minimum
-            </p>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              defaultValue={session?.user?.email || ""}
+              placeholder="jane@example.com"
+              className="rounded-xl min-h-[48px] text-base"
+            />
           </div>
-        </div>
-
-        {/* Group Size */}
-        <div>
-          <Label htmlFor="groupSize" className="text-sm font-medium mb-2 block">
-            Group size
-          </Label>
-          <Input
-            id="groupSize"
-            name="groupSize"
-            type="number"
-            min="1"
-            required
-            placeholder="12"
-            className="rounded-xl"
-          />
-        </div>
-
-        {/* Occasion */}
-        <div>
-          <Label htmlFor="occasion" className="text-sm font-medium mb-2 block">
-            Occasion
-          </Label>
-          <Input
-            id="occasion"
-            name="occasion"
-            placeholder="Hen party"
-            className="rounded-xl"
-          />
-        </div>
+  
+          {/* Phone */}
+          <div>
+            <Label htmlFor="phone" className="text-sm font-medium mb-2 block">
+              Phone number
+            </Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              placeholder="07123 456789"
+              className="rounded-xl min-h-[48px] text-base"
+            />
+          </div>
+  
+          {/* Dates */}
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="checkin" className="text-base font-semibold mb-2 block">
+                Arrival date
+              </Label>
+              <div className="relative">
+                <Input
+                  id="checkin"
+                  name="checkin"
+                  type="date"
+                  required
+                  className="rounded-xl text-base py-6 min-h-[48px]"
+                />
+                <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
+              </div>
+            </div>
+            <div>
+              <Label htmlFor="checkout" className="text-base font-semibold mb-2 block">
+                Departure date
+              </Label>
+              <div className="relative">
+                <Input
+                  id="checkout"
+                  name="checkout"
+                  type="date"
+                  required
+                  className="rounded-xl text-base py-6 min-h-[48px]"
+                />
+                <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none text-[var(--color-accent-sage)]" />
+              </div>
+            </div>
+          </div>
+  
+          {/* Group Size */}
+          <div>
+            <Label htmlFor="groupSize" className="text-sm font-medium mb-2 block">
+              Group size
+            </Label>
+            <Input
+              id="groupSize"
+              name="groupSize"
+              type="number"
+              min="1"
+              required
+              placeholder="12"
+              className="rounded-xl min-h-[48px] text-base"
+            />
+          </div>
+  
+          {/* Occasion */}
+          <div>
+            <Label htmlFor="occasion" className="text-sm font-medium mb-2 block">
+              Occasion
+            </Label>
+            <Input
+              id="occasion"
+              name="occasion"
+              placeholder="Hen party"
+              className="rounded-xl min-h-[48px] text-base"
+            />
+          </div>
 
           {/* Add-ons */}
           <fieldset>
             <legend className="text-sm font-medium mb-3 block">Add experiences (optional)</legend>
-            <div className="space-y-2.5">
+            <div className="max-h-[200px] overflow-y-auto pr-2 space-y-2.5 scrollbar-hide">
               {[
                 "Cocktail Masterclass",
                 "Butlers in the Buff",
@@ -302,32 +329,20 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
               ].map((addon) => {
                 const addonId = `addon-${addon.toLowerCase().replace(/\s+/g, '-')}`;
                 return (
-                  <div key={addon} className="flex items-center gap-3 group">
-                    <div className="flex items-center h-12 w-12 min-h-[48px] min-w-[48px] justify-center">
-                      <input
-                        type="checkbox"
-                        id={addonId}
-                        name="addons"
-                        value={addon}
-                        className="w-6 h-6 rounded border-2 border-[var(--color-neutral-dark)] accent-[var(--color-accent-sage)] cursor-pointer transition-all"
-                      />
-                    </div>
+                  <div key={addon} className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      id={addonId}
+                      name="addons"
+                      value={addon}
+                      className="w-5 h-5 rounded border-gray-300 accent-[var(--color-accent-sage)]"
+                    />
                     <label 
                       htmlFor={addonId}
-                      className="text-sm cursor-pointer select-none py-2 flex-1 group-hover:text-[var(--color-accent-sage)] transition-colors"
+                      className="text-sm cursor-pointer select-none flex-1 py-1"
                     >
                       {addon}
                     </label>
-                    <Link
-                      href={`/experiences/${experienceToSlug(addon)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center hover:text-[var(--color-accent-sage)] transition-colors"
-                      title={`View ${addon} details`}
-                      aria-label={`View ${addon} details in new tab`}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </Link>
                   </div>
                 );
               })}
@@ -344,21 +359,43 @@ export default function EnquiryForm({ propertyTitle, propertySlug }: EnquiryForm
               name="message"
               rows={4}
               placeholder="Tell us more about your celebration..."
-              className="rounded-xl"
+              className="rounded-xl min-h-[120px] text-base"
             />
           </div>
+
+          {/* Save Quote for logged in users */}
+          {session?.user && session.user.role === "guest" && (
+            <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <input
+                type="checkbox"
+                id="saveQuote"
+                checked={saveQuote}
+                onChange={(e) => setSaveQuote(e.target.checked)}
+                className="w-5 h-5 rounded border-gray-300 accent-[var(--color-accent-sage)]"
+              />
+              <label htmlFor="saveQuote" className="text-sm font-medium cursor-pointer flex items-center gap-2">
+                <Bookmark className="w-4 h-4 text-[var(--color-accent-sage)]" />
+                Save this quote to my account
+              </label>
+            </div>
+          )}
 
           {/* Submit Button */}
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-2xl py-6 text-base font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+            className="w-full rounded-2xl py-6 text-base font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 relative z-10 min-h-[56px]"
             style={{
               background: isSubmitting ? "var(--color-bg-secondary)" : "var(--color-accent-sage)",
-              color: "var(--color-text-primary)",
+              color: "white",
             }}
           >
-            {isSubmitting ? "Sending..." : "Send Enquiry"}
+            {isSubmitting ? (
+              <span className="flex items-center gap-2">
+                <Loader2 className="w-5 h-5 animate-spin" />
+                {isSavingQuote ? "Saving Quote..." : "Sending..."}
+              </span>
+            ) : "Send Enquiry"}
           </Button>
 
         <p className="text-xs text-center text-[var(--color-neutral-dark)]">

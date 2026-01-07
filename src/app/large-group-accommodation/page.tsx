@@ -13,7 +13,8 @@ import { properties } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
-  title: "Large Group Accommodation UK | Houses for 10-30+ Guests | Group Escape Houses",
+  title: "Large Group Accommodation UK | Houses for 10-30+ Guests",
+
   description: "Find large group accommodation across the UK sleeping 10 to 30+ guests. Luxury houses with hot tubs, games rooms, and spacious living areas perfect for family reunions, birthdays, corporate retreats, and group celebrations.",
   keywords: "large group accommodation UK, group houses UK, large holiday houses, houses sleeping 10, houses sleeping 20, houses sleeping 30, group accommodation, large house rental UK, big houses to rent",
   alternates: {

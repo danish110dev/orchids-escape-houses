@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = inspirationPosts[slug];
   if (!post) {
     return {
-      title: "Inspiration Post | Group Escape Houses",
+      title: "Inspiration Post",
+
       alternates: {
         canonical: `${baseUrl}/inspiration/${slug}`,
       },
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${post.title} | Group Escape Houses`,
+    title: post.title,
     description: post.description || post.excerpt,
     keywords: `${post.category.toLowerCase()}, hen party planning, group accommodation, UK celebrations`,
     authors: [{ name: 'Group Escape Houses' }],
@@ -67,33 +68,11 @@ export default async function InspirationPostLayout({
   params,
 }: InspirationPostLayoutProps) {
   const { slug } = await params;
-  const baseUrl = 'https://www.groupescapehouses.co.uk';
   const post = inspirationPosts[slug];
 
   if (!post) {
     return children;
   }
-
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description || post.excerpt,
-    datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
-    author: {
-      "@type": "Organization",
-      name: "Group Escape Houses",
-      url: baseUrl
-    },
-    publisher: {
-      "@id": `${baseUrl}/#organization`
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/inspiration/${slug}`
-    }
-  };
 
   return (
     <>
@@ -107,9 +86,15 @@ export default async function InspirationPostLayout({
           ]
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      <UKServiceSchema 
+        type="article"
+        data={{
+          title: post.title,
+          description: post.description || post.excerpt,
+          datePublished: new Date(post.date).toISOString(),
+          image: "https://www.groupescapehouses.co.uk/logo.png", // Fallback or post image
+          url: `/inspiration/${slug}`
+        }}
       />
       {children}
     </>
