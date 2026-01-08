@@ -18,58 +18,73 @@ function validateImageUrl(url: string | null): string {
 }
 
 export async function getFeaturedProperties(limit = 3) {
-  const results = await db
-    .select()
-    .from(properties)
-    .where(and(eq(properties.featured, true), eq(properties.isPublished, true)))
-    .orderBy(desc(properties.createdAt))
-    .limit(limit);
+  try {
+    const results = await db
+      .select()
+      .from(properties)
+      .where(and(eq(properties.featured, true), eq(properties.isPublished, true)))
+      .orderBy(desc(properties.createdAt))
+      .limit(limit);
 
-  return results.map(prop => ({
-    id: prop.id.toString(),
-    title: prop.title,
-    location: prop.location,
-    sleeps: prop.sleepsMax,
-    bedrooms: prop.bedrooms,
-    priceFrom: prop.priceFromWeekend,
-    image: validateImageUrl(prop.heroImage),
-    features: [],
-    slug: prop.slug,
-  }));
+    return results.map(prop => ({
+      id: prop.id.toString(),
+      title: prop.title,
+      location: prop.location,
+      sleeps: prop.sleepsMax,
+      bedrooms: prop.bedrooms,
+      priceFrom: prop.priceFromWeekend,
+      image: validateImageUrl(prop.heroImage),
+      features: [],
+      slug: prop.slug,
+    }));
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+    return [];
+  }
 }
 
 export async function getFeaturedExperiences(limit = 6) {
-  const results = await db
-    .select()
-    .from(experiences)
-    .where(eq(experiences.isPublished, true))
-    .orderBy(desc(experiences.createdAt))
-    .limit(limit);
+  try {
+    const results = await db
+      .select()
+      .from(experiences)
+      .where(eq(experiences.isPublished, true))
+      .orderBy(desc(experiences.createdAt))
+      .limit(limit);
 
-  return results.map(exp => ({
-    title: exp.title,
-    duration: exp.duration,
-    priceFrom: exp.priceFrom,
-    groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
-    image: validateImageUrl(exp.heroImage),
-    slug: exp.slug,
-  }));
+    return results.map(exp => ({
+      title: exp.title,
+      duration: exp.duration,
+      priceFrom: exp.priceFrom,
+      groupSize: `${exp.groupSizeMin}-${exp.groupSizeMax} guests`,
+      image: validateImageUrl(exp.heroImage),
+      slug: exp.slug,
+    }));
+  } catch (error) {
+    console.error('Error fetching experiences:', error);
+    return [];
+  }
 }
 
 export async function getFeaturedReviews(limit = 6) {
-  const results = await db
-    .select()
-    .from(reviewsTable)
-    .where(and(eq(reviewsTable.isApproved, true), eq(reviewsTable.isPublished, true)))
-    .orderBy(desc(reviewsTable.reviewDate))
-    .limit(limit);
+  try {
+    const results = await db
+      .select()
+      .from(reviewsTable)
+      .where(and(eq(reviewsTable.isApproved, true), eq(reviewsTable.isPublished, true)))
+      .orderBy(desc(reviewsTable.reviewDate))
+      .limit(limit);
 
-  return results.map(review => ({
-    name: review.guestName,
-    rating: review.rating,
-    comment: review.comment,
-    date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-    property: review.propertyId ? 'Property' : undefined,
-    image: review.guestImage || undefined,
-  }));
+    return results.map(review => ({
+      name: review.guestName,
+      rating: review.rating,
+      comment: review.comment,
+      date: new Date(review.reviewDate).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+      property: review.propertyId ? 'Property' : undefined,
+      image: review.guestImage || undefined,
+    }));
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    return [];
+  }
 }

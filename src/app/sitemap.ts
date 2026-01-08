@@ -101,41 +101,46 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Fetch dynamic properties
-  let propertyRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const publishedProperties = await db
-      .select()
-      .from(properties)
-      .where(eq(properties.isPublished, true));
-    
-    propertyRoutes = publishedProperties.map((property) => ({
-      url: `${baseUrl}/properties/${property.slug}`,
-      lastModified: property.updatedAt || currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }));
-  } catch (error) {
-    console.error('Error fetching properties for sitemap:', error);
-  }
+    // Fetch dynamic properties
+    let propertyRoutes: MetadataRoute.Sitemap = [];
+    try {
+      if (db) {
+        const publishedProperties = await db
+          .select()
+          .from(properties)
+          .where(eq(properties.isPublished, true));
+        
+        propertyRoutes = publishedProperties.map((property) => ({
+          url: `${baseUrl}/properties/${property.slug}`,
+          lastModified: property.updatedAt || currentDate,
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching properties for sitemap:', error);
+    }
 
-  // Fetch dynamic experiences
-  let experienceRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const publishedExperiences = await db
-      .select()
-      .from(experiences)
-      .where(eq(experiences.isPublished, true));
-    
-    experienceRoutes = publishedExperiences.map((experience) => ({
-      url: `${baseUrl}/experiences/${experience.slug}`,
-      lastModified: experience.updatedAt || currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }));
-  } catch (error) {
-    console.error('Error fetching experiences for sitemap:', error);
-  }
+    // Fetch dynamic experiences
+    let experienceRoutes: MetadataRoute.Sitemap = [];
+    try {
+      if (db) {
+        const publishedExperiences = await db
+          .select()
+          .from(experiences)
+          .where(eq(experiences.isPublished, true));
+        
+        experienceRoutes = publishedExperiences.map((experience) => ({
+          url: `${baseUrl}/experiences/${experience.slug}`,
+          lastModified: experience.updatedAt || currentDate,
+          changeFrequency: 'monthly' as const,
+          priority: 0.7,
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching experiences for sitemap:', error);
+    }
+
 
   // All supported destination slugs (hardcoded in DestinationClient)
   const allDestinationSlugs = [
