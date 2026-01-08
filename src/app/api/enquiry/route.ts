@@ -63,6 +63,8 @@ export async function POST(request: NextRequest) {
     // Run comprehensive spam check
     const spamCheckData: SpamCheckData = {
       email,
+      name,
+      message,
       honeypot,
       timestamp,
       challenge,
@@ -80,7 +82,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Determine recipient email
-    let recipientEmail = manualRecipient || "info@groupescapehouses.co.uk";
+    // SECURITY: We strictly control who can receive these emails to prevent relay abuse
+    const ADMIN_EMAIL = "info@groupescapehouses.co.uk";
+    let recipientEmail = ADMIN_EMAIL;
     let propertyId = null;
 
     if (type === "property" && propertySlug) {
@@ -97,10 +101,14 @@ export async function POST(request: NextRequest) {
         }
         
         propertyId = property.id;
+        // Use owner contact from DB, never trust request body for this
         if (property.ownerContact) {
           recipientEmail = property.ownerContact;
         }
       }
+    } else if (type === "experience") {
+      // Experience enquiries always go to admin
+      recipientEmail = ADMIN_EMAIL;
     }
 
     // Store record if logged in
