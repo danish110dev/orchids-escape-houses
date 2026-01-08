@@ -15,7 +15,7 @@ async function main() {
             priceFromMidweek: 89,
             priceFromWeekend: 95,
             description: 'Stunning Victorian manor house in the heart of Brighton with hot tub, pool, and spacious living areas perfect for hen parties and group celebrations. Walking distance to Brighton\'s vibrant nightlife and beach.',
-            heroImage: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-real-estate-photograph-of-a-b6c21bf3-20251018131712.jpg',
+            heroImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90',
             checkInOut: 'Check-in 4pm, Check-out 10am',
             featured: true,
             isPublished: true,

@@ -122,10 +122,10 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         "name": "Group Escape Houses | Large Group Accommodation UK",
         "isPartOf": { "@id": `${baseUrl}/#website` },
         "about": { "@id": `${baseUrl}/#organization` },
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "url": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
-        }
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90"
+          }
       },
       {
         "@type": "FAQPage",
