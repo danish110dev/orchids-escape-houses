@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { stripe, PLANS, PlanId } from '@/lib/stripe';
+import { stripe } from '@/lib/stripe';
+import { PLANS, PlanId, getPlanPriceId } from '@/lib/plans';
 import { auth } from '@/lib/auth';
 import { db } from '@/db';
 import { user as userTable } from '@/db/schema';
@@ -15,7 +16,11 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { planId, propertyId } = body as { planId: PlanId; propertyId?: string };
+    const { planId, propertyId, interval = 'yearly' } = body as { 
+      planId: PlanId; 
+      propertyId?: string;
+      interval?: 'monthly' | 'yearly';
+    };
 
     if (!planId || !PLANS[planId]) {
       return NextResponse.json({ error: 'Invalid plan selected' }, { status: 400 });
@@ -30,9 +35,13 @@ export async function POST(request: NextRequest) {
       })
       .where(eq(userTable.id, session.user.id));
 
+    // Get the correct Stripe price ID from environment variables
+    const stripePriceId = getPlanPriceId(planId, interval);
     const plan = PLANS[planId];
     const headersList = await headers();
     const origin = headersList.get('origin') || 'http://localhost:3000';
+
+    console.log(`Creating Stripe checkout for plan: ${planId}, interval: ${interval}, priceId: ${stripePriceId}`);
 
       const checkoutSession = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
@@ -40,7 +49,7 @@ export async function POST(request: NextRequest) {
         billing_address_collection: 'required',
         line_items: [
           {
-            price: plan.priceId,
+            price: stripePriceId,
             quantity: 1,
           },
         ],
@@ -51,12 +60,14 @@ export async function POST(request: NextRequest) {
         userId: session.user.id,
         planId: planId,
         propertyId: propertyId || '',
+        interval: interval,
       },
       subscription_data: {
         metadata: {
           userId: session.user.id,
           planId: planId,
           propertyId: propertyId || '',
+          interval: interval,
         },
       },
       automatic_tax: {
@@ -67,6 +78,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    console.log(`Stripe checkout session created: ${checkoutSession.id}`);
     return NextResponse.json({ url: checkoutSession.url });
     } catch (error: any) {
       console.error('Stripe Checkout Error:', {

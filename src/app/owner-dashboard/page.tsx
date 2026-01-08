@@ -31,7 +31,8 @@ const PLANS = [
   {
     id: "bronze",
     name: "Bronze Listing",
-    price: "£450",
+    price: "£99.99",
+    monthlyPrice: "£9.99",
     period: "/ year",
     description: "Everything you need to start receiving direct enquiries.",
     features: [
@@ -45,7 +46,8 @@ const PLANS = [
   {
     id: "silver",
     name: "Silver Listing",
-    price: "£650",
+    price: "£149.99",
+    monthlyPrice: "£14.99",
     period: "/ year",
     description: "Enhanced visibility and social media promotion.",
     features: [
@@ -59,7 +61,8 @@ const PLANS = [
   {
     id: "gold",
     name: "Gold Listing",
-    price: "£850",
+    price: "£199.99",
+    monthlyPrice: "£19.99",
     period: "/ year",
     description: "Maximum exposure across the entire platform.",
     features: [
@@ -225,9 +228,10 @@ export default function OwnerDashboard() {
                           <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 mb-8 w-full max-w-lg text-center">
                             <h3 className="text-2xl font-bold mb-2">{user.planId.charAt(0).toUpperCase() + user.planId.slice(1)} Listing</h3>
                             <div className="flex items-center justify-center gap-1 mb-4">
-                              <span className="text-3xl font-bold">{PLANS.find(p => p.id === user.planId)?.price || '£450'}</span>
+                              <span className="text-3xl font-bold">{PLANS.find(p => p.id === user.planId)?.price || '£99.99'}</span>
                               <span className="text-sm text-[var(--color-neutral-dark)]">+ VAT / year</span>
                             </div>
+                            <p className="text-sm text-gray-500 mb-4">or {PLANS.find(p => p.id === user.planId)?.monthlyPrice || '£9.99'} / month</p>
                             <ul className="text-left space-y-2 mb-0 inline-block">
                               {PLANS.find(p => p.id === user.planId)?.features.map((feature, i) => (
                                 <li key={i} className="flex items-start gap-2 text-sm">

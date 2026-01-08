@@ -13,7 +13,8 @@ const plans = [
   {
     id: "bronze",
     name: "Bronze Listing",
-    price: "£450",
+    price: "£99.99",
+    monthlyPrice: "£9.99",
     period: "/ year",
     description: "Everything you need to start receiving direct enquiries.",
     color: "#B87333",
@@ -28,7 +29,8 @@ const plans = [
   {
     id: "silver",
     name: "Silver Listing",
-    price: "£650",
+    price: "£149.99",
+    monthlyPrice: "£14.99",
     period: "/ year",
     description: "Enhanced visibility and social media promotion.",
     color: "#71717A",
@@ -43,7 +45,8 @@ const plans = [
   {
     id: "gold",
     name: "Gold Listing",
-    price: "£850",
+    price: "£199.99",
+    monthlyPrice: "£19.99",
     period: "/ year",
     description: "Maximum exposure across the entire platform.",
     color: "#C6A76D",
