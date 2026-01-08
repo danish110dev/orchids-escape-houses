@@ -25,10 +25,83 @@ import {
   Megaphone,
   Award,
   Check,
-  X
+  X,
+  Loader2
 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { toast } from "sonner";
 
 export default function AdvertisePage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  // Spam protection state
+  const [formLoadTime, setFormLoadTime] = useState<number>(0);
+  const [honeypot, setHoneypot] = useState("");
+  const [userInteraction, setUserInteraction] = useState({ clicks: 0, keystrokes: 0 });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    setFormLoadTime(Date.now());
+    
+    const trackClick = () => {
+      setUserInteraction(prev => ({ ...prev, clicks: prev.clicks + 1 }));
+    };
+
+    const trackKeypress = () => {
+      setUserInteraction(prev => ({ ...prev, keystrokes: prev.keystrokes + 1 }));
+    };
+
+    if (formRef.current) {
+      formRef.current.addEventListener('click', trackClick);
+      formRef.current.addEventListener('keydown', trackKeypress);
+      
+      return () => {
+        formRef.current?.removeEventListener('click', trackClick);
+        formRef.current?.removeEventListener('keydown', trackKeypress);
+      };
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
+    
+    try {
+      // Generate JavaScript challenge
+      const challenge = Math.floor(Date.now() / 10000).toString();
+
+      const response = await fetch('/api/partners/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...payload,
+          honeypot,
+          timestamp: formLoadTime.toString(),
+          challenge,
+          userInteraction
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit registration');
+      }
+
+      setIsSubmitted(true);
+      toast.success("Registration submitted! Our team will be in touch within 48 hours.");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to submit. Please try again.");
+      console.error("Registration error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const benefits = [
     {
       icon: MessageSquare,
@@ -390,192 +463,236 @@ export default function AdvertisePage() {
               Register Your Interest
             </h2>
             <p className="text-xl text-[var(--color-neutral-dark)]">
-              Fill in the form below and we'll be in touch within 48 hours to discuss your property.
+              {isSubmitted 
+                ? "Thank you for your interest! Our team will be in touch within 48 hours."
+                : "Fill in the form below and we'll be in touch within 48 hours to discuss your property."}
             </p>
           </div>
           
-          <div className="bg-[var(--color-bg-primary)] rounded-3xl shadow-xl p-8 md:p-12">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="propertyName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Property Name
-                </label>
+          {!isSubmitted ? (
+            <div className="bg-[var(--color-bg-primary)] rounded-3xl shadow-xl p-8 md:p-12">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users */}
                 <input
                   type="text"
-                  id="propertyName"
-                  name="propertyName"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  name="website_url"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  style={{ 
+                    position: 'absolute', 
+                    left: '-9999px', 
+                    width: '1px', 
+                    height: '1px' 
+                  }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
                 />
-              </div>
-              
-              <div>
-                <label htmlFor="location" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Property Location (City/Region) *
-                </label>
-                <input
-                  type="text"
-                  id="location"
-                  name="location"
-                  required
-                  placeholder="e.g. Brighton, Cotswolds, Lake District"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                />
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="bedrooms" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                    Number of Bedrooms *
-                  </label>
-                  <input
-                    type="number"
-                    id="bedrooms"
-                    name="bedrooms"
-                    required
-                    min="1"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="sleeps" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                    Maximum Guests *
-                  </label>
-                  <input
-                    type="number"
-                    id="sleeps"
-                    name="sleeps"
-                    required
-                    min="8"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label htmlFor="membershipTier" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Preferred Membership Tier
-                </label>
-                <select
-                  id="membershipTier"
-                  name="membershipTier"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="propertyName" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Property Name
+                  </label>
+                  <input
+                    type="text"
+                    id="propertyName"
+                    name="propertyName"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="location" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Property Location (City/Region) *
+                  </label>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    required
+                    placeholder="e.g. Brighton, Cotswolds, Lake District"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  />
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="bedrooms" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                      Number of Bedrooms *
+                    </label>
+                    <input
+                      type="number"
+                      id="bedrooms"
+                      name="bedrooms"
+                      required
+                      min="1"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="sleeps" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                      Maximum Guests *
+                    </label>
+                    <input
+                      type="number"
+                      id="sleeps"
+                      name="sleeps"
+                      required
+                      min="8"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="membershipTier" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Preferred Membership Tier
+                  </label>
+                  <select
+                    id="membershipTier"
+                    name="membershipTier"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  >
+                    <option value="">Select a tier</option>
+                    <option value="essential">Essential - £450 + VAT</option>
+                    <option value="professional">Professional - £650 + VAT</option>
+                    <option value="premium">Premium - £850 + VAT</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="features" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Key Features
+                  </label>
+                  <textarea
+                    id="features"
+                    name="features"
+                    rows={3}
+                    placeholder="e.g. Hot tub, swimming pool, games room, cinema room..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors resize-none bg-white"
+                  ></textarea>
+                </div>
+                
+                <div>
+                  <label htmlFor="website" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Property Website or Listing URL (if available)
+                  </label>
+                  <input
+                    type="url"
+                    id="website"
+                    name="website"
+                    placeholder="https://"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
+                    Additional Information
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    placeholder="Tell us anything else about your property or any questions you have..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors resize-none bg-white"
+                  ></textarea>
+                </div>
+                
+                <Button 
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full rounded-2xl px-8 py-6 text-lg font-medium text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 disabled:opacity-70"
+                  style={{ background: "var(--color-accent-sage)" }}
                 >
-                  <option value="">Select a tier</option>
-                  <option value="essential">Essential - £450 + VAT</option>
-                  <option value="professional">Professional - £650 + VAT</option>
-                  <option value="premium">Premium - £850 + VAT</option>
-                </select>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Submit Registration
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </>
+                  )}
+                </Button>
+                
+                <p className="text-sm text-center text-[var(--color-neutral-dark)]">
+                  By submitting this form, you agree to be contacted by Group Escape Houses regarding your property listing.
+                </p>
+              </form>
+            </div>
+          ) : (
+            <div className="bg-white rounded-3xl shadow-xl p-12 text-center border-2 border-[var(--color-accent-sage)]/20">
+              <div className="w-20 h-20 bg-[var(--color-accent-sage)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-10 h-10 text-[var(--color-accent-sage)]" />
               </div>
-              
-              <div>
-                <label htmlFor="features" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Key Features
-                </label>
-                <textarea
-                  id="features"
-                  name="features"
-                  rows={3}
-                  placeholder="e.g. Hot tub, swimming pool, games room, cinema room..."
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors resize-none bg-white"
-                ></textarea>
-              </div>
-              
-              <div>
-                <label htmlFor="website" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Property Website or Listing URL (if available)
-                </label>
-                <input
-                  type="url"
-                  id="website"
-                  name="website"
-                  placeholder="https://"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors bg-white"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-[var(--color-text-primary)]">
-                  Additional Information
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  placeholder="Tell us anything else about your property or any questions you have..."
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--color-accent-sage)] focus:outline-none transition-colors resize-none bg-white"
-                ></textarea>
-              </div>
-              
-              <Button 
-                type="submit"
-                size="lg"
-                className="w-full rounded-2xl px-8 py-6 text-lg font-medium text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
-                style={{ background: "var(--color-accent-sage)" }}
-              >
-                Submit Registration
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              
-              <p className="text-sm text-center text-[var(--color-neutral-dark)]">
-                By submitting this form, you agree to be contacted by Group Escape Houses regarding your property listing.
+              <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>Registration Received!</h3>
+              <p className="text-xl text-[var(--color-neutral-dark)] mb-8">
+                One of our account managers will review your property and contact you within 48 hours to discuss the next steps.
               </p>
-            </form>
-          </div>
+              <Button asChild variant="outline" className="rounded-xl px-8 py-4">
+                <Link href="/">Return to Homepage</Link>
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 

@@ -304,3 +304,24 @@ export const enquiries = sqliteTable('enquiries', {
   status: text('status').notNull().default('sent'),
   createdAt: text('created_at').notNull(),
 });
+
+// Spam protection tables
+export const spamBlacklist = sqliteTable('spam_blacklist', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  type: text('type').notNull(), // 'ip' or 'email'
+  value: text('value').notNull().unique(),
+  reason: text('reason'),
+  expiresAt: text('expires_at'),
+  createdAt: text('created_at').notNull(),
+});
+
+export const spamSubmissions = sqliteTable('spam_submissions', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  ip: text('ip'),
+  email: text('email'),
+  formType: text('form_type'),
+  reason: text('reason'),
+  userAgent: text('user_agent'),
+  payload: text('payload', { mode: 'json' }),
+  createdAt: text('created_at').notNull(),
+});

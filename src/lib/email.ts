@@ -27,6 +27,21 @@ interface ContactEmailData {
   message?: string;
 }
 
+interface PartnerRegistrationData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  propertyName?: string;
+  location: string;
+  bedrooms: string | number;
+  sleeps: string | number;
+  membershipTier?: string;
+  features?: string;
+  website?: string;
+  message?: string;
+}
+
 export async function sendEnquiryEmail(data: EnquiryEmailData) {
   try {
     const htmlContent = `
@@ -293,6 +308,116 @@ export async function sendWelcomeEmail(email: string, name: string) {
     return emailData;
   } catch (error) {
     console.error('Welcome email error:', error);
+    throw error;
+  }
+}
+
+export async function sendPartnerRegistrationEmail(data: PartnerRegistrationData) {
+  try {
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: #89A38F; color: white; padding: 20px; text-align: center; }
+            .content { background: #f9f9f9; padding: 30px; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #1F2937; }
+            .value { color: #374151; }
+            .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Accommodation Listing Submission</h1>
+            </div>
+            <div class="content">
+              <div class="field">
+                <span class="label">Name:</span> 
+                <span class="value">${data.firstName} ${data.lastName}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Email:</span> 
+                <span class="value">${data.email}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Phone:</span> 
+                <span class="value">${data.phone}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Property Name:</span> 
+                <span class="value">${data.propertyName || 'N/A'}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Location:</span> 
+                <span class="value">${data.location}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Bedrooms:</span> 
+                <span class="value">${data.bedrooms}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Max Guests:</span> 
+                <span class="value">${data.sleeps}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Membership Tier:</span> 
+                <span class="value">${data.membershipTier || 'Not selected'}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Website:</span> 
+                <span class="value">${data.website || 'N/A'}</span>
+              </div>
+              
+              <div class="field">
+                <span class="label">Features:</span> 
+                <span class="value">${data.features || 'N/A'}</span>
+              </div>
+              
+              ${data.message ? `
+                <div class="field">
+                  <span class="label">Additional Message:</span>
+                  <div class="value" style="margin-top: 5px; white-space: pre-wrap;">${data.message}</div>
+                </div>
+              ` : ''}
+            </div>
+            <div class="footer">
+              <p>Group Escape Houses<br>11a North Street, Brighton BN41 1DH</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const { data: emailData, error } = await resend.emails.send({
+      from: 'Group Escape Houses <enquiries@groupescapehouses.co.uk>',
+      to: ['hello@groupescapehouses.co.uk'],
+      subject: `Accommodation listing submission: ${data.propertyName || (data.firstName + ' ' + data.lastName)}`,
+      html: htmlContent,
+      replyTo: data.email,
+    });
+
+    if (error) {
+      console.error('❌ Failed to send partner registration email:', error);
+      throw error;
+    }
+
+    console.log('✅ Partner registration email sent successfully:', emailData?.id);
+    return emailData;
+  } catch (error) {
+    console.error('Email sending error:', error);
     throw error;
   }
 }

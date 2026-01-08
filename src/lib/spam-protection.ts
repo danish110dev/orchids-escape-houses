@@ -169,23 +169,6 @@ const SUSPICIOUS_PATTERNS = [
 ];
 
 // ============================================
-// SPAM KEYWORDS (for message content)
-// ============================================
-
-const SPAM_KEYWORDS = [
-  "seo", "marketing", "business grow", "rank first", "first page",
-  "get more traffic", "increase sales", "digital marketing", "web design",
-  "crypto", "bitcoin", "investment", "financial freedom", "make money",
-  "cheap", "discount", "offer", "free gift", "winner", "congratulations",
-  "casino", "gambling", "poker", "slots", "lottery",
-  "viagra", "cialis", "pharmacy", "medicine",
-  "sex", "porn", "dating", "meet girls", "hot",
-  "write me back", "reach out", "marketing partner", "partnership",
-  "inclusion in your", "submit group", "submission", "listing submission",
-  "91YVEH6", "4DNMT0X" // Specific IDs seen in user's screenshot
-];
-
-// ============================================
 // HELPER FUNCTIONS
 // ============================================
 
@@ -275,15 +258,6 @@ function isTrustedDomain(email: string): boolean {
 }
 
 /**
- * Check for spam keywords in text
- */
-function containsSpamKeywords(text: string): boolean {
-  if (!text) return false;
-  const lowerText = text.toLowerCase();
-  return SPAM_KEYWORDS.some(keyword => lowerText.includes(keyword.toLowerCase()));
-}
-
-/**
  * Validate JavaScript challenge
  */
 function validateChallenge(challenge: string): boolean {
@@ -323,8 +297,6 @@ export function blacklistEmail(email: string, reason: string): void {
 
 export interface SpamCheckData {
   email: string;
-  message?: string;
-  name?: string;
   honeypot?: string;
   timestamp?: string;
   challenge?: string;
@@ -391,35 +363,13 @@ export async function checkForSpam(
       shouldBlacklist: true
     };
   }
-
-  // ==========================================
-  // 3.5 KEYWORD CONTENT CHECK
-  // ==========================================
-  
-  if (data.message && containsSpamKeywords(data.message)) {
-    blacklistIP(ip, 'Spam keywords in message');
-    return {
-      isSpam: true,
-      reason: 'Message contains prohibited content or suspicious patterns.',
-      shouldBlacklist: true
-    };
-  }
-
-  if (data.name && containsSpamKeywords(data.name)) {
-    blacklistIP(ip, 'Spam keywords in name');
-    return {
-      isSpam: true,
-      reason: 'Name contains prohibited content.',
-      shouldBlacklist: true
-    };
-  }
   
   // ==========================================
   // 4. USER AGENT VALIDATION
   // ==========================================
   
-  if (!userAgent || userAgent.length < 20 || userAgent.toLowerCase().includes('bot') || userAgent.toLowerCase().includes('crawl')) {
-    blacklistIP(ip, 'Invalid or bot user agent');
+  if (!userAgent || userAgent.length < 20) {
+    blacklistIP(ip, 'Invalid user agent');
     return {
       isSpam: true,
       reason: 'Invalid or missing user agent',
@@ -431,11 +381,11 @@ export async function checkForSpam(
   // 5. JAVASCRIPT CHALLENGE
   // ==========================================
   
-  if (!data.challenge || !validateChallenge(data.challenge)) {
-    blacklistIP(ip, 'Failed or missing JavaScript challenge');
+  if (data.challenge && !validateChallenge(data.challenge)) {
+    blacklistIP(ip, 'Failed JavaScript challenge');
     return {
       isSpam: true,
-      reason: 'Verification failed. Please ensure JavaScript is enabled.',
+      reason: 'JavaScript challenge failed',
       shouldBlacklist: true
     };
   }
@@ -444,67 +394,55 @@ export async function checkForSpam(
   // 6. TIME-BASED VALIDATION
   // ==========================================
   
-  if (!data.timestamp) {
-    return {
-      isSpam: true,
-      reason: 'Session verification failed. Please refresh the page.',
-      shouldBlacklist: false
-    };
-  }
-
-  const formLoadTime = parseInt(data.timestamp);
-  const now = Date.now();
-  const timeTaken = now - formLoadTime;
-  
-  if (timeTaken < MIN_FORM_FILL_TIME_MS) {
-    blacklistIP(ip, `Form filled too quickly (${timeTaken}ms)`);
-    return {
-      isSpam: true,
-      reason: `Form filled too quickly. Please take a moment to review your message.`,
-      shouldBlacklist: true
-    };
-  }
-  
-  if (timeTaken > MAX_FORM_FILL_TIME_MS) {
-    return {
-      isSpam: true,
-      reason: 'Form session expired. Please refresh and try again.',
-      shouldBlacklist: false
-    };
+  if (data.timestamp) {
+    const formLoadTime = parseInt(data.timestamp);
+    const now = Date.now();
+    const timeTaken = now - formLoadTime;
+    
+    if (timeTaken < MIN_FORM_FILL_TIME_MS) {
+      blacklistIP(ip, `Form filled too quickly (${timeTaken}ms)`);
+      return {
+        isSpam: true,
+        reason: `Form filled too quickly (${(timeTaken / 1000).toFixed(1)}s)`,
+        shouldBlacklist: true
+      };
+    }
+    
+    if (timeTaken > MAX_FORM_FILL_TIME_MS) {
+      return {
+        isSpam: true,
+        reason: 'Form session expired (stale)',
+        shouldBlacklist: false
+      };
+    }
   }
   
   // ==========================================
   // 7. USER INTERACTION VALIDATION
   // ==========================================
   
-  if (!data.userInteraction) {
-    return {
-      isSpam: true,
-      reason: 'Human interaction not detected.',
-      shouldBlacklist: false
-    };
-  }
-
-  const { clicks, keystrokes } = data.userInteraction;
-  const isTrusted = isTrustedDomain(email);
-  const minKeystrokes = isTrusted ? MIN_USER_KEYSTROKES_TRUSTED : MIN_USER_KEYSTROKES_UNTRUSTED;
-  
-  if (clicks < MIN_USER_CLICKS) {
-    blacklistIP(ip, `Insufficient clicks (${clicks})`);
-    return {
-      isSpam: true,
-      reason: `Human interaction not detected (clicks).`,
-      shouldBlacklist: true
-    };
-  }
-  
-  if (keystrokes < minKeystrokes) {
-    blacklistIP(ip, `Insufficient keystrokes (${keystrokes})`);
-    return {
-      isSpam: true,
-      reason: `Human interaction not detected (typing).`,
-      shouldBlacklist: true
-    };
+  if (data.userInteraction) {
+    const { clicks, keystrokes } = data.userInteraction;
+    const isTrusted = isTrustedDomain(email);
+    const minKeystrokes = isTrusted ? MIN_USER_KEYSTROKES_TRUSTED : MIN_USER_KEYSTROKES_UNTRUSTED;
+    
+    if (clicks < MIN_USER_CLICKS) {
+      blacklistIP(ip, `Insufficient clicks (${clicks})`);
+      return {
+        isSpam: true,
+        reason: `Insufficient user interaction (clicks: ${clicks})`,
+        shouldBlacklist: true
+      };
+    }
+    
+    if (keystrokes < minKeystrokes) {
+      blacklistIP(ip, `Insufficient keystrokes (${keystrokes})`);
+      return {
+        isSpam: true,
+        reason: `Insufficient user interaction (keystrokes: ${keystrokes})`,
+        shouldBlacklist: true
+      };
+    }
   }
   
   // ==========================================

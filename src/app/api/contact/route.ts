@@ -31,8 +31,6 @@ export async function POST(request: Request) {
     // Run comprehensive spam check
     const spamCheckData: SpamCheckData = {
       email,
-      name,
-      message,
       honeypot,
       timestamp,
       challenge,
