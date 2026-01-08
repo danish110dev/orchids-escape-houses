@@ -18,33 +18,69 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
   ];
   
   // 1) Organization & WebSite
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${baseUrl}/#organization`,
-    "name": siteName,
-    "url": `${baseUrl}/`,
-    "logo": {
-      "@type": "ImageObject",
-      "url": `${baseUrl}/icon-512x512.png`
-    },
-    "sameAs": sameAs,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "telephone": "+44-1273-569301",
-      "email": "hello@groupescapehouses.co.uk",
-      "areaServed": "GB",
-      "availableLanguage": "en-GB"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "150",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  };
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      "name": siteName,
+      "url": `${baseUrl}/`,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/icon-512x512.png`
+      },
+      "sameAs": sameAs,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+44-1273-569301",
+        "email": "hello@groupescapehouses.co.uk",
+        "areaServed": "GB",
+        "availableLanguage": "en-GB"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Membership Plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bronze Listing Membership",
+              "description": "Annual membership for large group accommodation owners including full property listing and iCal sync."
+            },
+            "price": "450.00",
+            "priceCurrency": "GBP"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Silver Listing Membership",
+              "description": "Enhanced membership including social media promotion and professional page build."
+            },
+            "price": "650.00",
+            "priceCurrency": "GBP"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gold Listing Membership",
+              "description": "Premium membership with homepage placement and themed blog features."
+            },
+            "price": "850.00",
+            "priceCurrency": "GBP"
+          }
+        ]
+      }
+    };
 
   const websiteSchema = {
     "@context": "https://schema.org",
