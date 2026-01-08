@@ -23,11 +23,23 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
     .filter(exp => exp.slug !== slug)
     .slice(0, 3);
 
-  return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <Header />
+    return (
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
 
-      <div className="pt-24">
+        <UKServiceSchema 
+          type="breadcrumb" 
+          data={{
+            breadcrumbs: [
+              { name: "Home", url: "/" },
+              { name: "Experiences", url: "/experiences" },
+              { name: experience.title, url: `/experiences/${slug}` }
+            ]
+          }}
+        />
+
+        <div className="pt-24">
+
         {/* Hero Image */}
         <div className="max-w-[1400px] mx-auto px-6 mb-12">
           <div className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden">

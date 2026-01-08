@@ -484,14 +484,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  return (
-    <div className="min-h-screen">
-      <Header />
+    return (
+      <div className="min-h-screen">
+        <Header />
+  
+        <UKServiceSchema 
+          type="breadcrumb" 
+          data={{
+            breadcrumbs: [
+              { name: "Home", url: "/" },
+              { name: "Blog", url: "/blog" },
+              { name: post.title, url: `/blog/${slug}` }
+            ]
+          }}
+        />
 
-      <BlogClientWrapper 
-        post={post}
-        relatedPosts={relatedPosts}
-      />
+        <BlogClientWrapper 
+          post={post}
+          relatedPosts={relatedPosts}
+        />
+
 
       <Footer />
     </div>

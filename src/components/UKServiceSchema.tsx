@@ -1,5 +1,5 @@
 interface UKServiceSchemaProps {
-  type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article" | "organization" | "website";
+  type: "home" | "breadcrumb" | "itemList" | "faq" | "default" | "property" | "article" | "organization" | "website" | "home_graph";
   data?: any;
   includeSiteWide?: boolean;
 }
@@ -19,14 +19,13 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
   
   // 1) Organization & WebSite
     const organizationSchema = {
-      "@context": "https://schema.org",
       "@type": "Organization",
       "@id": `${baseUrl}/#organization`,
       "name": siteName,
       "url": `${baseUrl}/`,
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/icon-512x512.png`
+        "url": `https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg`
       },
       "sameAs": sameAs,
       "contactPoint": {
@@ -35,7 +34,14 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         "telephone": "+44-1273-569301",
         "email": "hello@groupescapehouses.co.uk",
         "areaServed": "GB",
-        "availableLanguage": "en-GB"
+        "availableLanguage": ["en"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11a North Street",
+        "addressLocality": "Brighton",
+        "postalCode": "BN41 1DH",
+        "addressCountry": "GB"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -83,7 +89,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     };
 
   const websiteSchema = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     "url": `${baseUrl}/`,
@@ -99,8 +104,104 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }
   };
 
+  const homeGraphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        ...organizationSchema,
+        "@context": undefined // context is at the root
+      },
+      {
+        ...websiteSchema,
+        "@context": undefined
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${baseUrl}/#webpage`,
+        "url": `${baseUrl}/`,
+        "name": "Group Escape Houses | Large Group Accommodation UK",
+        "isPartOf": { "@id": `${baseUrl}/#website` },
+        "about": { "@id": `${baseUrl}/#organization` },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/luxury-uk-group-holiday-house-exterior%2c-10e76810-20251016181409.jpg"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I book a hen party house?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Browse our properties, select your preferred house, and submit an enquiry with your dates and group size. Our UK team will respond within 24 hours with availability and a quote. You can also call us for instant assistance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in the price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All our properties include utilities, Wi-Fi, and standard amenities. Many houses feature hot tubs and games rooms. Additional experiences like cocktail classes, butlers, and private chefs can be added."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the deposit and payment schedule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bookings, payments and contracts are handled directly between guests and property owners. Each owner will have their own preferred payment methods and schedules, which you can discuss once you enquire."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel or change my booking?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cancellation policies vary by property. Many bookings are non-refundable within 8 weeks of arrival. We recommend travel insurance and contacting the team to discuss changes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many people can stay in a house?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our houses accommodate groups from 8 to 30+ guests. Each property listing shows maximum capacity, bedrooms, and bed configurations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are hen party houses suitable for other celebrations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our properties are suitable for birthdays, anniversaries, family reunions, and group celebrations, as well as weekend breaks and festive stays."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What about house rules and damage deposits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each property sets its own house rules and check-in arrangements. A refundable damage deposit is usually required, commonly £250 to £500."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you arrange activities and experiences?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We offer experiences such as cocktail masterclasses, life drawing, private chefs, and spa treatments. See the experiences page for options and pricing."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   // 3) WebPage schema (Every page)
-  const webPageSchema = type !== "default" ? {
+  const webPageSchema = type !== "default" && type !== "home_graph" ? {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${baseUrl}${data?.url || "/"}#webpage`,
@@ -217,14 +318,21 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       )}
-      {type === "website" && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-      )}
-      
-      {/* Page specific schema */}
+        {type === "website" && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+        )}
+        {type === "home_graph" && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(homeGraphSchema) }}
+          />
+        )}
+        
+        {/* Page specific schema */}
+
       {webPageSchema && (
         <script
           type="application/ld+json"

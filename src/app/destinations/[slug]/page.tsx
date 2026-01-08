@@ -92,11 +92,23 @@ export default async function DestinationDetailPage({ params }: { params: Promis
   // Basic data for SSR
   const destinationName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   
-  return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      <Header />
-      
-      {/* Initial HTML for SEO Crawlers */}
+    return (
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
+        <Header />
+        
+        <UKServiceSchema 
+          type="breadcrumb" 
+          data={{
+            breadcrumbs: [
+              { name: "Home", url: "/" },
+              { name: "Destinations", url: "/destinations" },
+              { name: destinationName, url: `/destinations/${slug}` }
+            ]
+          }}
+        />
+
+        {/* Initial HTML for SEO Crawlers */}
+
       <noscript>
         <div className="pt-32 pb-16 px-6 max-w-[1200px] mx-auto">
           <h1 className="text-4xl font-bold mb-4">{destinationName} Hen Party Houses</h1>
