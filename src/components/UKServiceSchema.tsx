@@ -113,8 +113,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         "@id": `${baseUrl}/#webpage`,
         "url": `${baseUrl}/`,
         "name": "Group Escape Houses | Large Group Accommodation UK",
-        "isPartOf": { "@id": `${baseUrl}/#website` },
-        "about": { "@id": `${baseUrl}/#organization` },
+        "isPartOf": `${baseUrl}/#website`,
+        "about": `${baseUrl}/#organization`,
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90"
@@ -201,8 +201,8 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "url": `${baseUrl}${data?.url || "/"}`,
     "name": data?.name || `Group Escape Houses | Large Group Accommodation UK`,
     "description": data?.description || "Discover large group accommodation and escape houses across the UK. Sleeps 10 to 30 guests. Book direct with property owners.",
-    "isPartOf": { "@id": `${baseUrl}/#website` },
-    "about": { "@id": `${baseUrl}/#organization` }
+    "isPartOf": `${baseUrl}/#website`,
+    "about": `${baseUrl}/#organization`
   } : null;
 
   // 2) BreadcrumbList schema (Every page EXCEPT homepage)
