@@ -88,6 +88,14 @@ export async function POST(request: NextRequest) {
         where: eq(properties.slug, propertySlug),
       });
       if (property) {
+        // Block enquiries for unpaid/inactive listings
+        if (property.status !== 'Active') {
+          return NextResponse.json(
+            { error: 'This listing is currently inactive and cannot receive enquiries.' },
+            { status: 403 }
+          );
+        }
+        
         propertyId = property.id;
         if (property.ownerContact) {
           recipientEmail = property.ownerContact;

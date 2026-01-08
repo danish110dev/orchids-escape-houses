@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
+    allowedDevOrigins: ["192.168.1.80", "localhost", "127.0.0.1"],
     images: {
       unoptimized: false,
       remotePatterns: [
@@ -54,6 +55,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
+  experimental: {},
       async redirects() {
         return [
           {
@@ -124,4 +126,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1767763565110
+// Orchids restart: 1767880322317

@@ -24,11 +24,11 @@ function SuccessContent() {
             </div>
 
             <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Payment Successful!
+              Thank you!
             </h1>
 
             <p className="text-lg text-[var(--color-neutral-dark)] mb-8">
-              Thank you for subscribing to Escape Houses. Your listing plan is now active.
+              Your listing is now active. You will receive a confirmation email with invoice details.
             </p>
 
             <div className="space-y-4 mb-8 text-left bg-[var(--color-bg-primary)] rounded-xl p-6">

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { properties } from '@/db/schema';
 import { eq, like, and, or, desc, asc } from 'drizzle-orm';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 // Placeholder image for invalid URLs
 const PLACEHOLDER_IMAGE = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/elegant-luxury-property-placeholder-imag-83731ee8-20251207154036.jpg';
@@ -44,6 +46,8 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
+    const ownerId = searchParams.get('ownerId');
+    const includeUnpublished = searchParams.get('includeUnpublished') === 'true';
 
     // Single property by ID
     if (id) {
@@ -90,6 +94,13 @@ export async function GET(request: NextRequest) {
 
     // Build where conditions
     const conditions: any[] = [];
+
+    if (ownerId) {
+      conditions.push(eq(properties.ownerId, ownerId));
+    } else if (!includeUnpublished) {
+      conditions.push(eq(properties.isPublished, true));
+      conditions.push(eq(properties.status, 'Active'));
+    }
 
     // Search condition
     if (search) {
@@ -160,6 +171,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const session = await auth.api.getSession({ headers: await headers() });
     const body = await request.json();
 
     // Validate required fields
@@ -241,6 +253,7 @@ export async function POST(request: NextRequest) {
     // Sanitize and prepare data
     const now = new Date().toISOString();
     const propertyData = {
+      ownerId: session?.user?.id || null,
       title: body.title.trim(),
       slug: body.slug.trim(),
       location: body.location.trim(),
@@ -262,7 +275,8 @@ export async function POST(request: NextRequest) {
       mapLng: body.mapLng !== undefined ? parseFloat(body.mapLng) : null,
       ownerContact: body.ownerContact?.trim() || null,
       featured: body.featured ?? false,
-      isPublished: body.isPublished ?? true,
+      isPublished: false, // Default to unpublished until paid
+      status: 'pending',
       createdAt: now,
       updatedAt: now,
     };
@@ -281,6 +295,7 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 
 export async function PUT(request: NextRequest) {
   try {
@@ -386,6 +401,13 @@ export async function PUT(request: NextRequest) {
     const updates: any = {
       updatedAt: new Date().toISOString(),
     };
+
+    // Log admin overrides
+    const session = await auth.api.getSession({ headers: await headers() });
+    if (session?.user?.role === 'admin' && body.status && body.status !== existingProperty[0].status) {
+      console.log(`[ADMIN OVERRIDE] User ${session.user.email} changed property ${id} status from ${existingProperty[0].status} to ${body.status}`);
+      // In a real app, we might store this in an audit_logs table.
+    }
 
     if (body.title !== undefined) updates.title = body.title.trim();
     if (body.slug !== undefined) updates.slug = body.slug.trim();

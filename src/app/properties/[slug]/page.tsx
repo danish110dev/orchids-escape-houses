@@ -31,7 +31,13 @@ async function getProperty(slug: string) {
     .where(eq(properties.slug, slug))
     .limit(1);
   
-  return result[0] || null;
+  const property = result[0] || null;
+  
+  if (property && property.status !== 'Active' && !property.isPublished) {
+    return null;
+  }
+  
+  return property;
 }
 
 async function getPropertyFeatures(propertyId: number) {

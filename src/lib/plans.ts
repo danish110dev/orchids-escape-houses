@@ -3,7 +3,7 @@ export const PLANS = {
     id: 'bronze',
     name: 'Bronze Listing',
     price: 450,
-    priceId: 'price_1SlwgjIakKHMdeEkEH6ni0Cj', // Using essential price ID
+    priceId: 'price_1Sn3LzIakKHMdeEkSVAVUXSN',
     features: [
       "Full property listing page",
       "Unlimited direct enquiries",
@@ -16,7 +16,7 @@ export const PLANS = {
     id: 'silver',
     name: 'Silver Listing',
     price: 650,
-    priceId: 'price_1SlwgkIakKHMdeEkM5Jy2zFW', // Using featured price ID
+    priceId: 'price_1Sn3M0IakKHMdeEkgNv0io1d',
     features: [
       "Everything in Bronze",
       "Professional page build & support",
@@ -29,7 +29,7 @@ export const PLANS = {
     id: 'gold',
     name: 'Gold Listing',
     price: 850,
-    priceId: 'price_gold_placeholder', // Placeholder for gold
+    priceId: 'price_1Sn3M0IakKHMdeEkzWarFzy8',
     features: [
       "Everything in Silver",
       "Themed blog feature",

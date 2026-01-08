@@ -100,6 +100,7 @@ export const verification = sqliteTable("verification", {
 // Properties table
 export const properties = sqliteTable('properties', {
   id: integer('id').primaryKey({ autoIncrement: true }),
+  ownerId: text('owner_id').references(() => user.id),
   title: text('title').notNull(),
   slug: text('slug').notNull().unique(),
   location: text('location').notNull(),
@@ -121,7 +122,14 @@ export const properties = sqliteTable('properties', {
   mapLng: real('map_lng'),
   ownerContact: text('owner_contact'),
   featured: integer('featured', { mode: 'boolean' }).default(false),
-  isPublished: integer('is_published', { mode: 'boolean' }).default(true),
+  isPublished: integer('is_published', { mode: 'boolean' }).default(false),
+  status: text('status').notNull().default('pending'),
+  plan: text('plan'),
+  stripeCustomerId: text('stripe_customer_id'),
+  stripeSubscriptionId: text('stripe_subscription_id'),
+  stripePriceId: text('stripe_price_id'),
+  stripeInvoiceId: text('stripe_invoice_id'),
+  nextPaymentDate: text('next_payment_date'),
   createdAt: text('created_at').notNull(),
   updatedAt: text('updated_at').notNull(),
 });

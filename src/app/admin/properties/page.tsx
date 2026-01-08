@@ -22,23 +22,29 @@ import {
 import { Edit, Calendar, DollarSign, Search, Filter } from "lucide-react";
 import Link from "next/link";
 import { format } from "date-fns";
+import { toast } from "sonner";
 
-interface Property {
-  id: string;
-  title: string;
-  status: "active" | "inactive" | "draft";
-  town: string;
-  max_guests: number;
-  price_from: number;
-  updated_at: string;
-}
+  interface Property {
+    id: string;
+    title: string;
+    status: string;
+    plan: string;
+    stripeCustomerId: string;
+    stripeSubscriptionId: string;
+    stripeInvoiceId: string;
+    nextPaymentDate: string;
+    region: string;
+    sleepsMax: number;
+    priceFromMidweek: number;
+    updatedAt: string;
+  }
 
-interface PropertiesResponse {
-  properties: Property[];
-  total: number;
-  page: number;
-  limit: number;
-}
+  interface PropertiesResponse {
+    properties: Property[];
+    total: number;
+    page: number;
+    limit: number;
+  }
 
 export default function AdminPropertiesPage() {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -94,25 +100,48 @@ export default function AdminPropertiesPage() {
     fetchProperties();
   };
 
-  const getStatusBadge = (status: string) => {
-    const styles = {
-      active: "bg-green-100 text-green-800",
-      inactive: "bg-gray-100 text-gray-800",
-      draft: "bg-yellow-100 text-yellow-800",
+    const getStatusBadge = (status: string) => {
+      const styles: Record<string, string> = {
+        active: "bg-green-100 text-green-800",
+        Active: "bg-green-100 text-green-800",
+        inactive: "bg-gray-100 text-gray-800",
+        Inactive: "bg-gray-100 text-gray-800",
+        draft: "bg-yellow-100 text-yellow-800",
+        pending: "bg-amber-100 text-amber-800",
+        Pending: "bg-amber-100 text-amber-800",
+      };
+
+      return (
+        <span
+          className={`px-2 py-1 rounded-full text-xs font-medium ${
+            styles[status] || styles.draft
+          }`}
+        >
+          {status.charAt(0).toUpperCase() + status.slice(1)}
+        </span>
+      );
     };
 
-    return (
-      <span
-        className={`px-2 py-1 rounded-full text-xs font-medium ${
-          styles[status as keyof typeof styles] || styles.draft
-        }`}
-      >
-        {status.charAt(0).toUpperCase() + status.slice(1)}
-      </span>
-    );
-  };
+    const handleStatusChange = async (propertyId: string, newStatus: string) => {
+      try {
+        const response = await fetch(`/api/properties?id=${propertyId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: newStatus }),
+        });
 
-  const totalPages = Math.ceil(total / 50);
+        if (response.ok) {
+          toast.success(`Property status updated to ${newStatus}`);
+          fetchProperties();
+        } else {
+          toast.error("Failed to update status");
+        }
+      } catch (error) {
+        toast.error("Error updating status");
+      }
+    };
+
+    const totalPages = Math.ceil(total / 50);
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -215,69 +244,106 @@ export default function AdminPropertiesPage() {
             </div>
           ) : (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Town</TableHead>
-                    <TableHead>Max Guests</TableHead>
-                    <TableHead>Price From</TableHead>
-                    <TableHead>Updated</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {properties.map((property) => (
-                    <TableRow key={property.id}>
-                      <TableCell className="font-medium">
-                        {property.title}
-                      </TableCell>
-                      <TableCell>{getStatusBadge(property.status)}</TableCell>
-                      <TableCell className="capitalize">{property.town}</TableCell>
-                      <TableCell>{property.max_guests}</TableCell>
-                      <TableCell>£{property.price_from}</TableCell>
-                      <TableCell>
-                        {format(new Date(property.updated_at), "dd MMM yyyy")}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center justify-end gap-2">
-                          <Button
-                            asChild
-                            variant="ghost"
-                            size="sm"
-                            title="Edit Property"
-                          >
-                            <Link href={`/admin/properties/${property.id}/edit`}>
-                              <Edit className="w-4 h-4" />
-                            </Link>
-                          </Button>
-                          <Button
-                            asChild
-                            variant="ghost"
-                            size="sm"
-                            title="Manage Availability"
-                          >
-                            <Link href={`/admin/properties/${property.id}/availability`}>
-                              <Calendar className="w-4 h-4" />
-                            </Link>
-                          </Button>
-                          <Button
-                            asChild
-                            variant="ghost"
-                            size="sm"
-                            title="Manage Pricing"
-                          >
-                            <Link href={`/admin/properties/${property.id}/pricing`}>
-                              <DollarSign className="w-4 h-4" />
-                            </Link>
-                          </Button>
-                        </div>
-                      </TableCell>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Title</TableHead>
+                      <TableHead>Plan</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Stripe Info</TableHead>
+                      <TableHead>Next Payment</TableHead>
+                      <TableHead>Price From</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {properties.map((property) => (
+                      <TableRow key={property.id}>
+                        <TableCell className="font-medium">
+                          {property.title}
+                          <div className="text-xs text-gray-500">{property.region}</div>
+                        </TableCell>
+                        <TableCell>
+                          <span className="font-medium">{property.plan || 'N/A'}</span>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-col gap-1">
+                            {getStatusBadge(property.status)}
+                            <Select 
+                              onValueChange={(value) => handleStatusChange(property.id, value)}
+                              defaultValue={property.status}
+                            >
+                              <SelectTrigger className="h-7 text-[10px] w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="Active">Active</SelectItem>
+                                <SelectItem value="Pending">Pending</SelectItem>
+                                <SelectItem value="Inactive">Inactive</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="text-[10px] text-gray-500">
+                            {property.stripeSubscriptionId ? (
+                              <>
+                                <div>Sub: {property.stripeSubscriptionId}</div>
+                                <div>Inv: {property.stripeInvoiceId}</div>
+                              </>
+                            ) : (
+                              'No active subscription'
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="text-xs">
+                            {property.nextPaymentDate ? (
+                              format(new Date(property.nextPaymentDate), "dd MMM yyyy")
+                            ) : (
+                              'N/A'
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>£{property.priceFromMidweek}</TableCell>
+                        <TableCell>
+                          <div className="flex items-center justify-end gap-2">
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              title="Edit Property"
+                            >
+                              <Link href={`/admin/properties/${property.id}/edit`}>
+                                <Edit className="w-4 h-4" />
+                              </Link>
+                            </Button>
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              title="Manage Availability"
+                            >
+                              <Link href={`/admin/properties/${property.id}/availability`}>
+                                <Calendar className="w-4 h-4" />
+                              </Link>
+                            </Button>
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              title="Manage Pricing"
+                            >
+                              <Link href={`/admin/properties/${property.id}/pricing`}>
+                                <DollarSign className="w-4 h-4" />
+                              </Link>
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
 
               {/* Pagination */}
               {totalPages > 1 && (

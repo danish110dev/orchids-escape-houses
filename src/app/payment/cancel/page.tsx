@@ -17,11 +17,11 @@ export default function PaymentCancelPage() {
             </div>
 
             <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Payment Cancelled
+              Payment not completed
             </h1>
 
             <p className="text-lg text-[var(--color-neutral-dark)] mb-8">
-              Your payment was cancelled. No charges have been made to your account.
+              Please retry or contact support. No charges have been made to your account.
             </p>
 
             <div className="bg-[var(--color-bg-primary)] rounded-xl p-6 mb-8 text-left">

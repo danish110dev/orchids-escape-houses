@@ -48,26 +48,26 @@ export const metadata: Metadata = {
   verification: {
     google: "5Y_FiF2qaStUJ-oNPw4DIxA8AUWw-pnJ999FgRUzpgk",
   },
-  icons: {
-    icon: [
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
-    ],
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-      <html lang="en">
-        <head>
-          <link rel="icon" href="/favicon.png" />
-          <link rel="apple-touch-icon" href="/apple-icon" />
+    icons: {
+      icon: [
+        { url: '/icon', sizes: '32x32', type: 'image/jpeg' },
+      ],
+      apple: [
+        { url: '/apple-icon', sizes: '180x180', type: 'image/jpeg' },
+      ],
+    },
+  };
+  
+  export default function RootLayout({
+    children,
+  }: Readonly<{
+    children: React.ReactNode;
+  }>) {
+    return (
+        <html lang="en">
+          <head>
+            <link rel="icon" href="/icon" />
+            <link rel="apple-touch-icon" href="/apple-icon" />
           <link rel="preconnect" href="https://slelguoygbfzlpylpxfs.supabase.co" />
           <link rel="preconnect" href="https://images.unsplash.com" />
           <link rel="preconnect" href="https://v3b.fal.media" />

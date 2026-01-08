@@ -34,6 +34,7 @@ export const auth = betterAuth({
 		"http://127.0.0.1:3000",
 		"http://192.168.1.232:3000",
 		"http://192.168.0.171:3000",
+		"http://192.168.1.80:3000",
 		...(process.env.BETTER_AUTH_TRUSTED_ORIGINS?.split(",").map(o => o.trim()) || [])
 	],
 	advanced: {

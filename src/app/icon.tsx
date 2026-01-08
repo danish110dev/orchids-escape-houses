@@ -2,22 +2,22 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 export const size = { width: 32, height: 32 };
-export const contentType = 'image/png';
+export const contentType = 'image/jpeg';
 
 export default async function Icon() {
-  // Use the generated GEH monogram favicon
-  const logoUrl = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/favicon-logo-for-group-escape-houses-ele-b17e92cb-20251202142945.jpg';
+    // Use the header logo for the favicon
+    const logoUrl = 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg';
   
   try {
     const response = await fetch(logoUrl);
     const imageBuffer = await response.arrayBuffer();
     
-    return new Response(imageBuffer, {
-      headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=31536000, immutable',
-      },
-    });
+      return new Response(imageBuffer, {
+        headers: {
+          'Content-Type': 'image/jpeg',
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
+      });
   } catch (error) {
     // Fallback to a simple colored square if image fetch fails
     return new ImageResponse(
