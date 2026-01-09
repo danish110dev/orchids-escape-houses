@@ -116,89 +116,67 @@ export default function Footer() {
               </ul>
             </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
-            <ul className="space-y-3 text-sm text-[var(--color-bg-secondary)]">
-              <li>Office, 11a North Street</li>
-              <li>Brighton</li>
-              <li>BN41 1DH</li>
-              <li className="pt-2">
-                <a
-                  href="tel:+441273569301"
-                  className="hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-2 font-medium"
-                >
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>01273 569301</span>
-                </a>
-              </li>
-                <li>
+            {/* Contact Info */}
+            <div>
+              <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
+              <ul className="space-y-3 text-sm text-[var(--color-bg-secondary)] mb-6">
+                <li>Office, 11a North Street</li>
+                <li>Brighton</li>
+                <li>BN41 1DH</li>
+                <li className="pt-2">
                   <a
-                    href="mailto:hello@groupescapehouses.co.uk"
-                    className="hover:text-[var(--color-accent-sage)] transition-colors block"
+                    href="tel:+441273569301"
+                    className="hover:text-[var(--color-accent-sage)] transition-colors flex items-center gap-2 font-medium"
                   >
-                    hello@groupescapehouses.co.uk
+                    <Phone className="w-4 h-4 flex-shrink-0" />
+                    <span>01273 569301</span>
                   </a>
                 </li>
+                  <li>
+                    <a
+                      href="mailto:hello@groupescapehouses.co.uk"
+                      className="hover:text-[var(--color-accent-sage)] transition-colors block"
+                    >
+                      hello@groupescapehouses.co.uk
+                    </a>
+                  </li>
 
-            </ul>
-          </div>
+              </ul>
 
-            {/* Social */}
-            <div>
-              <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://www.instagram.com/groupescapehouses/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Follow us on Instagram"
-                >
-                  <Instagram className="w-6 h-6 text-white" />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@groupescapehouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Follow us on TikTok"
-                >
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.youtube.com/@GroupEscapeHouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Subscribe on YouTube"
-                >
-                  <Youtube className="w-6 h-6 text-white" />
-                </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61580927195664"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Follow us on Facebook"
-                >
-                  <Facebook className="w-6 h-6 text-white" />
-                </a>
-                <a
-                  href="https://www.pinterest.com/groupescapehouses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-accent-sage)] flex items-center justify-center hover:-translate-y-1 hover:bg-[var(--color-accent-gold)] transition-all duration-200"
-                  aria-label="Follow us on Pinterest"
-                >
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0a12 12 0 0 0-4.37 23.17c-.18-1.56-.03-3.45.4-5.15l3.1-13.14a5.72 5.72 0 0 1-.21-1.81 3.94 3.94 0 0 1 4.09-3.91c1.93 0 2.86 1.45 2.86 3.18a20.64 20.64 0 0 1-1.15 4.46c-.33 1.38.69 2.5 2.05 2.5 2.47 0 4.13-3.17 4.13-6.93 0-2.86-1.93-5-5.44-5a6.32 6.32 0 0 0-6.6 6.36 3.78 3.78 0 0 0 .72 2.21.37.37 0 0 1 .08.35c-.09.39-.3 1.23-.34 1.4a.28.28 0 0 1-.4.2c-1.55-.63-2.27-2.33-2.27-4.24 0-3.15 2.65-6.93 7.9-6.93 4.23 0 7 3.07 7 6.39 0 4.38-2.44 7.66-6.05 7.66a3.28 3.28 0 0 1-2.8-1.42l-.77 3a11.4 11.4 0 0 1-1.31 2.72A12 12 0 1 0 12 0z"/>
-                  </svg>
-                </a>
-              </div>
+              <h4 className="font-semibold mb-4 text-white">Top Destinations</h4>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                <li><Link href="/destinations/bath" className="hover:text-[var(--color-accent-sage)]">Bath</Link></li>
+                <li><Link href="/destinations/brighton" className="hover:text-[var(--color-accent-sage)]">Brighton</Link></li>
+                <li><Link href="/destinations/cotswolds" className="hover:text-[var(--color-accent-sage)]">Cotswolds</Link></li>
+                <li><Link href="/destinations/lake-district" className="hover:text-[var(--color-accent-sage)]">Lake District</Link></li>
+                <li><Link href="/destinations/london" className="hover:text-[var(--color-accent-sage)]">London</Link></li>
+                <li><Link href="/destinations/york" className="hover:text-[var(--color-accent-sage)]">York</Link></li>
+              </ul>
             </div>
+
+              {/* Occasions & Features */}
+              <div>
+                <h4 className="font-semibold mb-4 text-white">Popular Occasions</h4>
+                <ul className="space-y-2 text-sm mb-6">
+                  <li><Link href="/hen-party-houses" className="hover:text-[var(--color-accent-sage)] transition-colors">Hen Party Houses</Link></li>
+                  <li><Link href="/special-celebrations" className="hover:text-[var(--color-accent-sage)] transition-colors">Special Celebrations</Link></li>
+                  <li><Link href="/weddings" className="hover:text-[var(--color-accent-sage)] transition-colors">Wedding Venues</Link></li>
+                  <li><Link href="/weekend-breaks" className="hover:text-[var(--color-accent-sage)] transition-colors">Weekend Breaks</Link></li>
+                  <li><Link href="/christmas" className="hover:text-[var(--color-accent-sage)] transition-colors">Christmas Houses</Link></li>
+                  <li><Link href="/new-year" className="hover:text-[var(--color-accent-sage)] transition-colors">New Year Eve Party Houses</Link></li>
+                </ul>
+
+                <h4 className="font-semibold mb-4 text-white">House Features</h4>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                  <li><Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)]">Hot Tub</Link></li>
+                  <li><Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)]">Swimming Pool</Link></li>
+                  <li><Link href="/features/games-room" className="hover:text-[var(--color-accent-sage)]">Games Room</Link></li>
+                  <li><Link href="/features/cinema-room" className="hover:text-[var(--color-accent-sage)]">Cinema Room</Link></li>
+                  <li><Link href="/features/tennis-court" className="hover:text-[var(--color-accent-sage)]">Tennis Court</Link></li>
+                  <li><Link href="/features/direct-beach-access" className="hover:text-[var(--color-accent-sage)]">Beach Access</Link></li>
+                </ul>
+              </div>
+
         </div>
 
         {/* Divider */}

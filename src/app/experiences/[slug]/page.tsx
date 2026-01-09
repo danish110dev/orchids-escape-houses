@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,10 +8,46 @@ import { Button } from "@/components/ui/button";
 import { Clock, Users, Check, Calendar, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { experiencesData, relatedExperiences } from "@/data/experiences";
-import { use } from "react";
+import type { Metadata } from "next";
 
-export default function ExperienceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const experience = experiencesData[slug] || experiencesData["private-chef"];
+  const title = `${experience.title} | Group Escape Houses`;
+  const description = experience.description.substring(0, 160);
+  const url = `https://www.groupescapehouses.co.uk/experiences/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [
+        {
+          url: experience.image,
+          width: 1200,
+          height: 630,
+          alt: experience.title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [experience.image],
+    },
+  };
+}
+
+export default async function ExperienceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const experience = experiencesData[slug] || experiencesData["private-chef"];
   const Icon = experience.icon;
   const pricingType = experience.pricingType || "per person";

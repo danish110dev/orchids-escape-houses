@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hen Party Houses UK | Group Escape Houses",
     description: "Luxury hen party accommodation with hot tubs and pools. 8-30+ guests.",
-    url: "https://groupescapehouses.co.uk/occasions/hen-party-houses",
+    url: "https://www.groupescapehouses.co.uk/occasions/hen-party-houses",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/hen-party-houses",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/hen-party-houses",
   },
 };
 

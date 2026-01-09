@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     overview: `Discover amazing group accommodation in ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`
   };
 
-  const title = `${destination.name} Hen Party Houses | Hot Tubs & Pools`;
+    const title = `${destination.name} Hen Party Houses | Luxury Group Accommodation & Large Houses to Rent`;
   const description = `${destination.overview.substring(0, 155)}... Book luxury ${destination.name} hen party houses sleeping 10-20+ guests. Hot tubs, pools, games rooms. From £65-£120 per night.`;
   const canonicalUrl = `https://www.groupescapehouses.co.uk/destinations/${slug}`;
 

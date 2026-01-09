@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
-  const title = `${property.title} in ${property.location} (Sleeps ${property.sleepsMax})`;
+    const title = `${property.title} | Luxury Group Accommodation in ${property.location} (Sleeps ${property.sleepsMax})`;
   const description = `${property.title} in ${property.location}. Sleeps ${property.sleepsMin}-${property.sleepsMax} guests with ${property.bedrooms} bedrooms and ${property.bathrooms} bathrooms. ${property.description.substring(0, 120)}...`;
   const canonicalUrl = `https://www.groupescapehouses.co.uk/properties/${slug}`;
 
