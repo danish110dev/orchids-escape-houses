@@ -88,7 +88,7 @@ export default function RegisterYourProperty() {
                   className="rounded-2xl px-10 py-6 text-lg font-semibold bg-white/95 hover:bg-white border-0 text-[var(--color-text-primary)]"
                 >
                   <a 
-                    href="/api/download/owners-guide?view=true" 
+                    href="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/owners-guide.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -374,7 +374,7 @@ export default function RegisterYourProperty() {
                   style={{ background: "var(--color-accent-gold)" }}
                 >
                   <a 
-                    href="/api/download/owners-guide?view=true" 
+                    href="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/owners-guide.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
