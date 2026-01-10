@@ -275,7 +275,7 @@ export default function AdvertiseWithUs() {
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2 justify-center mb-1">
                       <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
-                        £450
+                        £99.99
                       </span>
                       <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                     </div>
@@ -284,7 +284,7 @@ export default function AdvertiseWithUs() {
                   
                   <div className="text-center">
                     <p className="text-sm text-[var(--color-neutral-dark)] mb-1">
-                      Or <strong>£40 per month</strong>
+                      Or <strong>£9.99 per month</strong>
                     </p>
                     <p className="text-xs text-[var(--color-neutral-dark)]">
                       Minimum 12 months
@@ -347,7 +347,7 @@ export default function AdvertiseWithUs() {
                     <div className="mb-4">
                       <div className="flex items-baseline gap-2 justify-center mb-1">
                         <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
-                          £650
+                          £149.99
                         </span>
                         <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                       </div>
@@ -356,7 +356,7 @@ export default function AdvertiseWithUs() {
                     
                     <div className="text-center">
                       <p className="text-sm text-[var(--color-neutral-dark)] mb-1">
-                        Or <strong>£57 per month</strong>
+                        Or <strong>£14.99 per month</strong>
                       </p>
                       <p className="text-xs text-[var(--color-neutral-dark)]">
                         Minimum 12 months
@@ -413,7 +413,7 @@ export default function AdvertiseWithUs() {
                     <div className="mb-4">
                       <div className="flex items-baseline gap-2 justify-center mb-1">
                         <span className="text-4xl font-bold text-[var(--color-text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
-                          £850
+                          £199.99
                         </span>
                         <span className="text-[var(--color-neutral-dark)] font-medium">+ VAT</span>
                       </div>
@@ -422,7 +422,7 @@ export default function AdvertiseWithUs() {
                     
                     <div className="text-center">
                       <p className="text-sm text-[var(--color-neutral-dark)] mb-1">
-                        Or <strong>£75 per month</strong>
+                        Or <strong>£19.99 per month</strong>
                       </p>
                       <p className="text-xs text-[var(--color-neutral-dark)]">
                         Minimum 12 months
