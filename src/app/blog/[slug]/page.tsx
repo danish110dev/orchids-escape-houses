@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import BlogClientWrapper from "@/components/blog/BlogClientWrapper";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 // Blog posts data
 const posts = [

@@ -7,6 +7,7 @@ import { MapPin, Navigation, Coffee, Moon, Sparkles, UtensilsCrossed, ChevronDow
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import DestinationClient from "./DestinationClient";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

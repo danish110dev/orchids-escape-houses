@@ -21,13 +21,19 @@ export default function ForgotPasswordPage() {
     setIsLoading(true);
 
     try {
-      const { data, error } = await authClient.forgetPassword({
-        email,
-        redirectTo: "/account/reset-password",
+      const response = await fetch("/api/auth/forget-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          redirectTo: "/account/reset-password",
+        }),
       });
 
-      if (error) {
-        toast.error(error.message || "Failed to send reset email");
+      const result = await response.json();
+
+      if (!response.ok) {
+        toast.error(result.message || "Failed to send reset email");
         setIsLoading(false);
         return;
       }

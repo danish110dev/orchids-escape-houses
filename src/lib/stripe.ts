@@ -7,7 +7,7 @@ if (!stripeKey) {
 }
 
 export const stripe = new Stripe(stripeKey, {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-10-29.clover',
 });
 
 export { PLANS, type PlanId } from './plans';

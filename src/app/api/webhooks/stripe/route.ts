@@ -86,11 +86,12 @@ export async function POST(request: NextRequest) {
         };
 
         if (subscription) {
-          updateData.stripeCustomerId = subscription.customer as string;
-          updateData.stripeSubscriptionId = subscription.id;
-          updateData.stripePriceId = subscription.items.data[0].price.id;
-          updateData.nextPaymentDate = new Date(subscription.current_period_end * 1000).toISOString();
-          updateData.stripeInvoiceId = typeof subscription.latest_invoice === 'string' ? subscription.latest_invoice : subscription.latest_invoice?.id;
+          const sub = subscription as any;
+          updateData.stripeCustomerId = sub.customer as string;
+          updateData.stripeSubscriptionId = sub.id;
+          updateData.stripePriceId = sub.items.data[0].price.id;
+          updateData.nextPaymentDate = new Date(sub.current_period_end * 1000).toISOString();
+          updateData.stripeInvoiceId = typeof sub.latest_invoice === 'string' ? sub.latest_invoice : sub.latest_invoice?.id;
         }
 
         await db
