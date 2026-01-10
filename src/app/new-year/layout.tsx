@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 
   description: "Ring in the New Year with our selection of luxury party houses. Epic group accommodation with plenty of space for celebrations, hot tubs, and games rooms.",
   alternates: {
-    canonical: "/new-year",
+    canonical: "https://www.groupescapehouses.co.uk/new-year",
   },
 };
 

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TreePine, Flame, ChefHat, Sparkles, Check, ChevronDown, Star, Gift } from "lucide-react";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function ChristmasPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -90,6 +91,16 @@ export default function ChristmasPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "Christmas", url: "/occasions/christmas" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -36,13 +36,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         "areaServed": "GB",
         "availableLanguage": ["en"]
       },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "11a North Street",
-        "addressLocality": "Brighton",
-        "postalCode": "BN41 1DH",
-        "addressCountry": "GB"
-      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
@@ -216,12 +209,21 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
   const breadcrumbSchema = (type !== "home" && data?.breadcrumbs) ? {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": data.breadcrumbs.map((crumb: any, index: number) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": crumb.name,
-      "item": crumb.url.startsWith("http") ? crumb.url : `${baseUrl}${crumb.url.startsWith("/") ? "" : "/"}${crumb.url}`
-    }))
+    "itemListElement": data.breadcrumbs.map((crumb: any, index: number) => {
+      const isLastItem = index === data.breadcrumbs.length - 1;
+      const item: any = {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": crumb.name
+      };
+
+      // Omit "item" field for the current page (last breadcrumb)
+      if (!isLastItem) {
+        item.item = crumb.url.startsWith("http") ? crumb.url : `${baseUrl}${crumb.url.startsWith("/") ? "" : "/"}${crumb.url}`;
+      }
+
+      return item;
+    })
   } : null;
 
   // 4) ItemList schema (Collection pages, search results, location pages)

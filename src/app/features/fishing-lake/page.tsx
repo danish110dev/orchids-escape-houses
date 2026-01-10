@@ -5,6 +5,7 @@ import { Check, ArrowRight, Fish, TreePine, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function FishingLakePage() {
   const highlights = [
@@ -17,6 +18,16 @@ export default function FishingLakePage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Fishing Lake", url: "/features/fishing-lake" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

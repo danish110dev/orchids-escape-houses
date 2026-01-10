@@ -7,6 +7,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Heart, Wine, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function SpaPage() {
   const faqs = [
@@ -62,6 +63,15 @@ export default function SpaPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Spa Treatments", url: "/spa-treatments" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

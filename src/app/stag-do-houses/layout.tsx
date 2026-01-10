@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 
   description: "Best stag do houses UK. Epic group accommodation with games rooms, hot tubs and space for stag weekends.",
   alternates: {
-    canonical: "/stag-do-houses",
+    canonical: "https://www.groupescapehouses.co.uk/stag-do-houses",
   },
 };
 

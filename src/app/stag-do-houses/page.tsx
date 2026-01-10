@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function StagDoHousesPage() {
   const highlights = [
@@ -18,6 +19,15 @@ export default function StagDoHousesPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Stag Do Houses", url: "/stag-do-houses" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

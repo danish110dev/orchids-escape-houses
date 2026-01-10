@@ -12,6 +12,7 @@ import "react-day-picker/dist/style.css";
 import "./datepicker-styles.css";
 import { toast } from "sonner";
 import Script from "next/script";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 interface FormErrors {
   name?: string;
@@ -220,6 +221,15 @@ export default function ContactPage() {
 
   return (
     <>
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Contact", url: "/contact" }
+          ]
+        }}
+      />
       <Script
         id="contact-page-schema"
         type="application/ld+json"
@@ -230,7 +240,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      
+
       <div className="min-h-screen bg-[var(--color-bg-primary)]">
         <Header />
 

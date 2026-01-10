@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function LargeHolidayHomesPage() {
   const highlights = [
@@ -18,6 +19,16 @@ export default function LargeHolidayHomesPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles" },
+            { name: "Large Holiday Homes", url: "/house-styles/large-holiday-homes" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

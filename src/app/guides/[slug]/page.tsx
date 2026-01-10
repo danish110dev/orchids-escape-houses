@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Share2, Clock, User } from "lucide-react";
 import { notFound } from "next/navigation";
 import { guidesContent } from "../guidesContent";
 import { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -69,8 +70,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <div className="min-h-screen bg-white">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Guides", url: "/guides" },
+            { name: guide.title, url: `/guides/${slug}` }
+          ]
+        }}
+      />
       <Header />
-      
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

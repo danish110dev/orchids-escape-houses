@@ -5,6 +5,7 @@ import { Check, ArrowRight, Castle, Users, Crown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function CastlesPage() {
   const highlights = [
@@ -17,6 +18,16 @@ export default function CastlesPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles" },
+            { name: "Castles", url: "/house-styles/castles" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section with Video */}

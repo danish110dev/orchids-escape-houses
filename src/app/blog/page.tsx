@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Calendar, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function BlogPage() {
   const posts = [
@@ -99,6 +100,15 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

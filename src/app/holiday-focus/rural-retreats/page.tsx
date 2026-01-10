@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function RuralRetreatsPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function RuralRetreatsPage() {
     <div className="min-h-screen">
       <title>Rural Retreats Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Discover luxury rural retreats for large groups across the UK. Escape to the countryside with our handpicked collection of group houses and cottages." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Rural Retreats", url: "/holiday-focus/rural-retreats" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

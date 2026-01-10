@@ -3,10 +3,20 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function BookingTermsPage() {
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Booking Terms", url: "/booking-terms" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

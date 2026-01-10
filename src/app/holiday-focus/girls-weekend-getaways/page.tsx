@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function GirlsWeekendGetawaysPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function GirlsWeekendGetawaysPage() {
     <div className="min-h-screen">
       <title>Girls Weekend Getaways UK | Group Escape Houses</title>
       <meta name="description" content="Plan the ultimate girls' weekend getaway with our luxury group accommodation. Stunning houses and cottages across the UK perfect for relaxation and celebration." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Girls Weekend Getaways", url: "/holiday-focus/girls-weekend-getaways" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

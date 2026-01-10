@@ -97,7 +97,7 @@ const playfair = Playfair_Display({
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
         </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-body`}>
-        <UKServiceSchema />
+        <UKServiceSchema type="organization" />
         <ErrorReporter />
         <Script
           id="orchids-browser-logs"

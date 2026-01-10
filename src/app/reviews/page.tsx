@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function ReviewsPage() {
   const reviews = [
@@ -90,6 +91,15 @@ export default function ReviewsPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Reviews", url: "/reviews" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

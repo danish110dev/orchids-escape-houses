@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function YouthSchoolAccommodationPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function YouthSchoolAccommodationPage() {
     <div className="min-h-screen">
       <title>Youth and School Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Find safe and spacious youth and school group accommodation across the UK. Ideal houses for educational trips, youth clubs, and large group learning adventures." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Youth School Group Accommodation", url: "/holiday-focus/youth-school-group-accommodation" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

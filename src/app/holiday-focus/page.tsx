@@ -5,6 +5,7 @@ import { TreePine, Users, Heart, School, Building2, ChefHat, Mountain, Tent, Par
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function AllHolidayFocusPage() {
   const holidayTypes = [
@@ -72,6 +73,15 @@ export default function AllHolidayFocusPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

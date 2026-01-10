@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Users, Calendar, Utensils, Check, ChevronDown, Star } from "lucide-react";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function SpecialCelebrationsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -94,6 +95,16 @@ export default function SpecialCelebrationsPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "Special Celebrations", url: "/occasions/special-celebrations" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

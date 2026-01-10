@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function MultiGenerationalHolidaysPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function MultiGenerationalHolidaysPage() {
     <div className="min-h-screen">
       <title>Multi-Generational Holidays UK | Group Escape Houses</title>
       <meta name="description" content="Find the perfect multi-generational holiday homes across the UK. Luxury group accommodation designed for children, parents, and grandparents to enjoy together." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Multi Generational Holidays", url: "/holiday-focus/multi-generational-holidays" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

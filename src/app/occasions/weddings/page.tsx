@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Church, Camera, Utensils, Sparkles, Check, ChevronDown, Star, Users } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
   export default function WeddingsPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -97,6 +98,16 @@ import Image from "next/image";
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       <title>Wedding Venues with Accommodation | Group Escape Houses</title>
       <meta name="description" content="Discover stunning wedding venues with accommodation across the UK. Perfect for intimate celebrations, ceremonies, and full-weekend group wedding stays." />
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "Weddings", url: "/occasions/weddings" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

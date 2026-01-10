@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function LuxuryDogFriendlyCottagesPage() {
   const highlights = [
@@ -20,6 +21,16 @@ export default function LuxuryDogFriendlyCottagesPage() {
     <div className="min-h-screen">
       <title>Dog Friendly Holiday Cottages and Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Find luxury dog friendly holiday cottages and group accommodation across the UK. Perfect for large groups where every family member, including pets, is welcome." />
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles" },
+            { name: "Luxury Dog Friendly Cottages", url: "/house-styles/luxury-dog-friendly-cottages" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

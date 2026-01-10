@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function EVChargingPage() {
   const highlights = [
@@ -74,6 +75,16 @@ export default function EVChargingPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "EV Charging", url: "/features/ev-charging" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

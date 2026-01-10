@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   title: "Wedding Accommodation UK | Guest Houses for Groups",
   description: "Exclusive-use houses for wedding parties & guests. Space for getting ready, celebrations & post-wedding brunches. Sleep groups together.",
   keywords: ["wedding accommodation UK", "wedding party houses", "exclusive use wedding venues", "wedding guest accommodation"],
-  metadataBase: new URL("https://groupescapehouses.co.uk"),
+  metadataBase: new URL("https://www.groupescapehouses.co.uk"),
   openGraph: {
     title: "Wedding Party Accommodation | Group Escape Houses",
     description: "Exclusive houses for wedding parties and guests. Getting ready space, celebrations and brunches.",
-    url: "https://groupescapehouses.co.uk/occasions/weddings",
+    url: "https://www.groupescapehouses.co.uk/occasions/weddings",
     siteName: "Group Escape Houses",
     type: "website",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "Exclusive houses for wedding parties and guests. Getting ready space, celebrations and brunches.",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/weddings",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/weddings",
   },
   robots: {
     index: true,

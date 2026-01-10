@@ -1,9 +1,19 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Privacy Policy", url: "/privacy" }
+          ]
+        }}
+      />
       <Header />
       
       <div className="max-w-[900px] mx-auto px-6 py-24">

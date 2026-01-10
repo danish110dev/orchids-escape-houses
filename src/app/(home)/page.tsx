@@ -58,7 +58,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <UKServiceSchema type="home_graph" />
+      <UKServiceSchema type="website" />
       <Header />
 
       <main>

@@ -5,6 +5,7 @@ import { Check, ArrowRight, CircleDot, Users, Sun } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function TennisCourtPage() {
   const highlights = [
@@ -17,6 +18,16 @@ export default function TennisCourtPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Tennis Court", url: "/features/tennis-court" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function LuxuryCottagesWithSeaViewsPage() {
   const highlights = [
@@ -18,6 +19,16 @@ export default function LuxuryCottagesWithSeaViewsPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "House Styles", url: "/house-styles" },
+            { name: "Luxury Cottages with Sea Views", url: "/house-styles/luxury-cottages-with-sea-views" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

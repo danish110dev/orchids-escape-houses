@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Calendar, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export const metadata: Metadata = {
   title: "Group Travel Guides & Resources | Escape Houses",
@@ -58,6 +59,15 @@ const guides = [
 export default function GuidesPage() {
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Guides", url: "/guides" }
+          ]
+        }}
+      />
       <Header />
       
       <main className="pt-32 pb-24">

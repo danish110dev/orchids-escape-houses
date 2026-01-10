@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function GroundFloorBedroomPage() {
   const highlights = [
@@ -37,6 +38,16 @@ export default function GroundFloorBedroomPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Ground Floor Bedroom", url: "/features/ground-floor-bedroom" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

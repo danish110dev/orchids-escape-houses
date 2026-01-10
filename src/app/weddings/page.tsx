@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function WeddingsPage() {
   const [mounted, setMounted] = useState(false);
@@ -110,6 +111,15 @@ export default function WeddingsPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Weddings", url: "/weddings" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

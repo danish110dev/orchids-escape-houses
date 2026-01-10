@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function BookPrivateChefPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function BookPrivateChefPage() {
     <div className="min-h-screen">
       <title>Book a Private Chef for Your Group Stay | Group Escape Houses</title>
       <meta name="description" content="Enhance your group stay by booking a private chef for your holiday home. Professional in-house catering across the UK for celebrations and special occasions." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Book Private Chef", url: "/holiday-focus/book-private-chef" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

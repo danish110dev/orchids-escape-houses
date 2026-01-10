@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function BusinessOffsitePage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function BusinessOffsitePage() {
     <div className="min-h-screen">
       <title>Business Offsite and Corporate Accommodation | Group Escape Houses</title>
       <meta name="description" content="Book professional business offsite and corporate accommodation in the UK. Luxury group houses designed for team building, retreats, and remote working sessions." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Business Offsite Corporate Accommodation", url: "/holiday-focus/business-offsite-corporate-accommodation" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

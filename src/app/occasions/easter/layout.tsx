@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Easter Holiday Houses | Group Escape Houses",
     description: "Celebrate Easter in luxury group accommodation. Perfect for families and friends.",
-    url: "https://groupescapehouses.co.uk/occasions/easter",
+    url: "https://www.groupescapehouses.co.uk/occasions/easter",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/easter",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/easter",
   },
 };
 

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, Sparkles, Check, ChevronDown, Star } from "lucide-react";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function WeekendBreaksPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -73,6 +74,16 @@ export default function WeekendBreaksPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "Weekend Breaks", url: "/occasions/weekend-breaks" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Special Celebrations | Group Escape Houses",
     description: "Luxury houses for birthdays, anniversaries and special occasions.",
-    url: "https://groupescapehouses.co.uk/occasions/special-celebrations",
+    url: "https://www.groupescapehouses.co.uk/occasions/special-celebrations",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/special-celebrations",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/special-celebrations",
   },
 };
 

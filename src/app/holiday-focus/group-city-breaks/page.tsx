@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function GroupCityBreaksPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function GroupCityBreaksPage() {
     <div className="min-h-screen">
       <title>Group City Breaks UK | Group Escape Houses</title>
       <meta name="description" content="Explore the best group city breaks across the UK. Stay in luxury townhouses and centrally located apartments perfect for large groups and celebrations." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Group City Breaks", url: "/holiday-focus/group-city-breaks" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

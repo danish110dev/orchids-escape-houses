@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Group Weekend Breaks | Group Escape Houses",
     description: "2-3 night stays with Friday arrivals. Quick getaways and mini-celebrations from £69pp.",
-    url: "https://groupescapehouses.co.uk/occasions/weekend-breaks",
+    url: "https://www.groupescapehouses.co.uk/occasions/weekend-breaks",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/weekend-breaks",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/weekend-breaks",
   },
 };
 

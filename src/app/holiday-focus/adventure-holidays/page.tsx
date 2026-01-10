@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function AdventureHolidaysPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function AdventureHolidaysPage() {
     <div className="min-h-screen">
       <title>Adventure Holidays Group Accommodation | Group Escape Houses</title>
       <meta name="description" content="Book the perfect base for your adventure holidays in the UK. Luxury group accommodation near hiking, water sports, and outdoor activities for active groups." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Adventure Holidays", url: "/holiday-focus/adventure-holidays" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

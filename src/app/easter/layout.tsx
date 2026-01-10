@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Easter Family Holiday Houses UK",
   description: "Perfect large houses for Easter family gatherings and spring breaks. Luxury group accommodation with gardens, hot tubs, and plenty of space for the whole family.",
   alternates: {
-    canonical: "/easter",
+    canonical: "https://www.groupescapehouses.co.uk/easter",
   },
 };
 

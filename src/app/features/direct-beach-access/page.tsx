@@ -5,6 +5,7 @@ import { Check, ArrowRight, Waves, Sun, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function DirectBeachAccessPage() {
   const highlights = [
@@ -17,6 +18,16 @@ export default function DirectBeachAccessPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Direct Beach Access", url: "/features/direct-beach-access" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

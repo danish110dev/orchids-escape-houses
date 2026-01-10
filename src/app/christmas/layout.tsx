@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 
   description: "Christmas party houses UK. Large luxury properties for family gatherings and festive celebrations.",
   alternates: {
-    canonical: "/christmas",
+    canonical: "https://www.groupescapehouses.co.uk/christmas",
   },
 };
 

@@ -3,10 +3,20 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedStats from "@/components/AnimatedStats";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function OurStoryPage() {
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Our Story", url: "/our-story" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

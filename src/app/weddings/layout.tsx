@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 
   description: "Beautiful luxury houses for wedding guests, pre-wedding gatherings, and post-wedding celebrations. Keep your loved ones close on your special day.",
   alternates: {
-    canonical: "/weddings",
+    canonical: "https://www.groupescapehouses.co.uk/weddings",
   },
 };
 

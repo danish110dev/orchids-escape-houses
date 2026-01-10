@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function RetreatVenuesPage() {
   const highlights = [
@@ -20,7 +21,17 @@ export default function RetreatVenuesPage() {
     <div className="min-h-screen">
       <title>Retreat Venues UK | Group Escape Houses</title>
       <meta name="description" content="Discover luxury retreat venues across the UK. Perfect group accommodation for wellness retreats, yoga workshops, and creative getaways in peaceful surroundings." />
-      
+
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Holiday Focus", url: "/holiday-focus" },
+            { name: "Retreat Venues", url: "/holiday-focus/retreat-venues" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

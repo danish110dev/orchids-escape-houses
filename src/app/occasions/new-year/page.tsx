@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { PartyPopper, Music, Waves, Sparkles, Check, ChevronDown, Star, Clock } from "lucide-react";
 import { useState } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function NewYearPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -94,6 +95,16 @@ export default function NewYearPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Occasions", url: "/occasions" },
+            { name: "New Year", url: "/occasions/new-year" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -37,8 +37,8 @@ export default function HouseStylesPage() {
 
   return (
     <div className="min-h-screen">
-      <UKServiceSchema 
-        
+      <UKServiceSchema
+        type="breadcrumb"
         data={{
           breadcrumbs: [
             { name: "Home", url: "/" },

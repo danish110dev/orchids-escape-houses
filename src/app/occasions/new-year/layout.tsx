@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "New Year's Eve Party Houses | Group Escape Houses",
     description: "Celebrate NYE in private houses. Hot tubs, celebrations and champagne from £99pp.",
-    url: "https://groupescapehouses.co.uk/occasions/new-year",
+    url: "https://www.groupescapehouses.co.uk/occasions/new-year",
   },
   alternates: {
-    canonical: "https://groupescapehouses.co.uk/occasions/new-year",
+    canonical: "https://www.groupescapehouses.co.uk/occasions/new-year",
   },
 };
 

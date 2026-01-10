@@ -5,6 +5,7 @@ import { Check, ArrowRight, Waves, Snowflake, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function IndoorSwimmingPoolPage() {
   const highlights = [
@@ -17,6 +18,16 @@ export default function IndoorSwimmingPoolPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Features", url: "/house-styles-and-features" },
+            { name: "Indoor Swimming Pool", url: "/features/indoor-swimming-pool" }
+          ]
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

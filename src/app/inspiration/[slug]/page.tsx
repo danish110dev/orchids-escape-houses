@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Calendar, ArrowLeft, Share2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { use } from "react";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 // Inspiration posts data (should match the listing page)
 const posts = [
@@ -197,6 +198,16 @@ export default function InspirationPostPage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Inspiration", url: "/inspiration" },
+            { name: post.title, url: `/inspiration/${slug}` }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero */}

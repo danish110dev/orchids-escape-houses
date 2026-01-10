@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
+import UKServiceSchema from "@/components/UKServiceSchema";
 
 export default function SpecialCelebrationsPage() {
   const [mounted, setMounted] = useState(false);
@@ -110,6 +111,15 @@ export default function SpecialCelebrationsPage() {
 
   return (
     <div className="min-h-screen">
+      <UKServiceSchema
+        type="breadcrumb"
+        data={{
+          breadcrumbs: [
+            { name: "Home", url: "/" },
+            { name: "Special Celebrations", url: "/special-celebrations" }
+          ]
+        }}
+      />
       <Header />
 
       {/* Hero Section */}
