@@ -62,7 +62,7 @@ async function main() {
             slug: 'newquay',
             region: 'South West England',
             overview: 'Cornwall\'s surf capital offering stunning beaches, coastal adventures, and relaxed beach bar vibes for active groups.',
-            heroImage: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/8330e9be-5e47-4f2b-bda0-4162d899b6d9/generated_images/professional-photograph-of-newquay-beach-1b9fbe44-20251019170627.jpg?',
+            heroImage: 'https://media.istockphoto.com/id/1211485656/photo/surfboard-and-palm-tree-on-beach-background.jpg?s=612x612&w=0&k=20&c=sjiA2xKDegW63sCAOc_b95aE6aDOuFIHUtasbKXFw7M=',
             travelTips: 'Book surf lessons in advance during summer. Fistral Beach is the main surf spot. Rent cars for exploring the coast.',
             topVenues: ['Fistral Beach', 'Watergate Bay', 'Newquay Zoo', 'Beach bars', 'Coastal walks'],
             isPublished: true,

@@ -39,7 +39,7 @@ const destinations = [
   },
   {
     name: "Newquay",
-    image: "https://images.unsplash.com/photo-1510113521329-879836376550?w=800&h=600&q=80&fit=crop",
+    image: "https://media.istockphoto.com/id/1211485656/photo/surfboard-and-palm-tree-on-beach-background.jpg?s=612x612&w=0&k=20&c=sjiA2xKDegW63sCAOc_b95aE6aDOuFIHUtasbKXFw7M=",
     description: "Surf beaches & coastal adventures"
   },
   {
