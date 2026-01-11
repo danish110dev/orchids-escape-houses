@@ -85,16 +85,16 @@ export default async function BlogPostLayout({
           ]
         }}
       />
-      <UKServiceSchema 
-        type="article"
-        data={{
-          title: post.title,
-          description: post.description || post.excerpt,
-          datePublished: new Date(post.date).toISOString(),
-          image: "https://www.groupescapehouses.co.uk/logo.png", // Fallback or post image
-          url: `/blog/${slug}`
-        }}
-      />
+        <UKServiceSchema 
+          type="article"
+          data={{
+            title: post.title,
+            description: post.description || post.excerpt,
+            datePublished: new Date(post.date).toISOString(),
+            image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg", // Fallback or post image
+            url: `/blog/${slug}`
+          }}
+        />
       {children}
     </>
   );

@@ -1,19 +1,15 @@
 import Stripe from 'stripe';
 
-// Stripe mode can be explicitly set via STRIPE_MODE env var
-// Otherwise defaults: TEST for builds/dev, LIVE only for actual production runtime
-const stripeMode = process.env.STRIPE_MODE || 'test';
-const isLiveMode = stripeMode === 'live';
-
-const stripeKey = isLiveMode 
-  ? process.env.STRIPE_LIVE_KEY
+// Use TEST key for development, LIVE key for production
+const stripeKey = process.env.NODE_ENV === 'production' 
+  ? process.env.STRIPE_LIVE_KEY 
   : (process.env.STRIPE_TEST_KEY || process.env.STRIPE_TESTMODE_KEY);
 
 if (!stripeKey) {
-  throw new Error(`Stripe API Key is missing (mode: ${stripeMode})`);
+  throw new Error('Stripe API Key is missing');
 }
 
-console.log(`[Stripe] Using ${stripeMode.toUpperCase()} mode`);
+console.log(`[Stripe] Using ${process.env.NODE_ENV === 'production' ? 'LIVE' : 'TEST'} mode`);
 
 export const stripe = new Stripe(stripeKey, {
   apiVersion: '2025-10-29.clover',

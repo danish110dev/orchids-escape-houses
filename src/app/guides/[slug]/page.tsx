@@ -62,7 +62,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       "name": "Group Escape Houses",
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/logo.png`
+        "url": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg"
       }
     },
     "description": guide.content.replace(/<[^>]*>/g, '').substring(0, 160)
