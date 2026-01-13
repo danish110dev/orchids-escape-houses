@@ -23,7 +23,7 @@ export const PLANS = {
     id: 'bronze',
     name: 'Bronze Listing (Basic)',
     price: 450,
-    monthlyPrice: 45,
+    monthlyPrice: 37.50,
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_YEARLY || 'price_1SlA97I0J9sqa21Cs4lB88Zd',
     monthlyPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_MONTHLY || 'price_1SlA8rI0J9sqa21Cpr3kyVzE',
     features: [
@@ -38,7 +38,7 @@ export const PLANS = {
     id: 'silver',
     name: 'Silver Listing (Premium)',
     price: 650,
-    monthlyPrice: 65,
+    monthlyPrice: 54.17,
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PREMIUM_YEARLY || 'price_1SlAAMI0J9sqa21CgTlHU0xg',
     monthlyPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PREMIUM_MONTHLY || 'price_1SlA9zI0J9sqa21C5otPYqAU',
     features: [
@@ -53,7 +53,7 @@ export const PLANS = {
     id: 'gold',
     name: 'Gold Listing (Enterprise)',
     price: 850,
-    monthlyPrice: 85,
+    monthlyPrice: 70.83,
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_YEARLY || 'price_1SlABDI0J9sqa21CMj7l3PUz',
     monthlyPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_MONTHLY || 'price_1SlAAtI0J9sqa21CYrz1BcfW',
     features: [
