@@ -104,14 +104,61 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // ✅ NEW: Handle asynchronous payments (bank transfer, etc.)
+    // ✅ CRITICAL: Handle payment intent succeeded (bank transfers finally complete)
+    if (event.type === 'payment_intent.succeeded') {
+      const paymentIntent = event.data.object as any;
+      const { userId, planId, propertyId } = paymentIntent.metadata || {};
+      
+      console.log(`Payment intent succeeded: ${paymentIntent.id}, method: ${paymentIntent.payment_method_types?.[0]}`);
+      
+      if (userId && planId) {
+        // Activate subscription only after payment is confirmed
+        await db
+          .update(userTable)
+          .set({
+            paymentStatus: 'active',
+            planId: planId,
+            updatedAt: new Date(),
+          })
+          .where(eq(userTable.id, userId));
+
+        console.log(`User ${userId} payment succeeded, plan ${planId} activated (bank transfer completed)`);
+
+        if (propertyId) {
+          await db
+            .update(propertiesTable)
+            .set({
+              status: 'Active',
+              plan: planId.charAt(0).toUpperCase() + planId.slice(1),
+              isPublished: true,
+              updatedAt: new Date().toISOString(),
+            })
+            .where(eq(propertiesTable.id, parseInt(propertyId)));
+          
+          console.log(`Property ${propertyId} activated due to payment intent success`);
+        }
+      }
+    }
+
+    // ✅ Handle asynchronous payments (bank transfer, etc.) - PAYMENT PENDING
     if (event.type === 'payment_intent.processing') {
       const paymentIntent = event.data.object as any;
-      console.log(`Payment processing: ${paymentIntent.id}, method: ${paymentIntent.payment_method_types?.[0]}`);
+      const { userId } = paymentIntent.metadata || {};
       
-      // This event fires when payment is in progress but not yet complete
-      // Useful for bank transfers which take 1-3 days
-      // Optional: Send customer email: "Your payment is being processed..."
+      console.log(`Payment processing: ${paymentIntent.id}, method: ${paymentIntent.payment_method_types?.[0]} - AWAITING COMPLETION`);
+      
+      if (userId) {
+        // Set status to pending (not yet active)
+        await db
+          .update(userTable)
+          .set({
+            paymentStatus: 'pending',
+            updatedAt: new Date(),
+          })
+          .where(eq(userTable.id, userId));
+        
+        console.log(`User ${userId} payment pending (bank transfer in progress, will complete in 1-3 days)`);
+      }
     }
 
     if (event.type === 'customer.subscription.deleted') {

@@ -128,6 +128,13 @@ function PaymentContent() {
                   )}
                 </Button>
 
+                <a
+                  href={`/payment/bank-transfer?plan=${plan.id}`}
+                  className="block text-center mt-3 text-sm font-semibold text-[var(--color-accent-sage)] hover:underline"
+                >
+                  or use bank transfer
+                </a>
+
                 <p className="text-center text-xs text-[var(--color-neutral-dark)] mt-4 opacity-60">
                   Secure payment via Stripe
                 </p>
