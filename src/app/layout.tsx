@@ -72,7 +72,7 @@ const playfair = Playfair_Display({
       },
       icons: {
         icon: [
-          { url: '/favicon.ico', sizes: 'any' },
+          { url: '/favicon.icon', sizes: 'any' },
           { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
           { url: '/favicon-96.png', sizes: '96x96', type: 'image/png' },
           { url: '/favicon-144.png', sizes: '144x144', type: 'image/png' },
