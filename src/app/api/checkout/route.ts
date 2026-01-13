@@ -70,12 +70,6 @@ export async function POST(request: NextRequest) {
           interval: interval,
         },
       },
-      automatic_tax: {
-        enabled: true,
-      },
-      tax_id_collection: {
-        enabled: true,
-      },
     });
 
     console.log(`Stripe checkout session created: ${checkoutSession.id}`);

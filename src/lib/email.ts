@@ -301,14 +301,16 @@ export async function sendWelcomeEmail(email: string, name: string) {
 
     if (error) {
       console.error('❌ Failed to send welcome email:', error);
-      throw error;
+      // Don't throw - allow sign-up to continue even if email fails
+      return null;
     }
 
     console.log('✅ Welcome email sent successfully to:', email);
     return emailData;
   } catch (error) {
     console.error('Welcome email error:', error);
-    throw error;
+    // Don't throw - allow sign-up to continue even if email fails
+    return null;
   }
 }
 
