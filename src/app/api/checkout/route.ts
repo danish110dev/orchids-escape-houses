@@ -44,7 +44,11 @@ export async function POST(request: NextRequest) {
     console.log(`Creating Stripe checkout for plan: ${planId}, interval: ${interval}, priceId: ${stripePriceId}`);
 
       const checkoutSession = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
+        payment_method_types: [
+          'card',       // Visa, Mastercard, Amex, Discover
+          'apple_pay',  // iOS/macOS Apple Pay (requires domain verification)
+          'google_pay', // Android/Chrome Google Pay
+        ],
         mode: 'subscription',
         billing_address_collection: 'required',
         line_items: [
@@ -69,6 +73,9 @@ export async function POST(request: NextRequest) {
           propertyId: propertyId || '',
           interval: interval,
         },
+      },
+      payment_intent_data: {
+        setup_future_usage: 'off_session',
       },
     });
 

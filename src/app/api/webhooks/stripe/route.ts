@@ -66,6 +66,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Missing required metadata' }, { status: 400 });
       }
 
+      // Update user with active status
       await db
         .update(userTable)
         .set({
@@ -101,6 +102,16 @@ export async function POST(request: NextRequest) {
         
         console.log(`Updated property ${propertyId} to Active with plan ${planId}`);
       }
+    }
+
+    // ✅ NEW: Handle asynchronous payments (bank transfer, etc.)
+    if (event.type === 'payment_intent.processing') {
+      const paymentIntent = event.data.object as any;
+      console.log(`Payment processing: ${paymentIntent.id}, method: ${paymentIntent.payment_method_types?.[0]}`);
+      
+      // This event fires when payment is in progress but not yet complete
+      // Useful for bank transfers which take 1-3 days
+      // Optional: Send customer email: "Your payment is being processed..."
     }
 
     if (event.type === 'customer.subscription.deleted') {
@@ -150,6 +161,15 @@ export async function POST(request: NextRequest) {
           console.log(`User ${metadata.userId} payment failed, status set to past_due`);
         }
       }
+    }
+
+    // ✅ NEW: Handle payment intent failures (additional tracking)
+    if (event.type === 'payment_intent.payment_failed') {
+      const paymentIntent = event.data.object as any;
+      console.log(`Payment failed: ${paymentIntent.id}, error: ${paymentIntent.last_payment_error?.message}`);
+      
+      // This can happen if user's bank rejects the transfer
+      // Optional: Send customer email: "Your payment failed. Please try another method."
     }
   } catch (dbError) {
     console.error('Database update error:', dbError);
