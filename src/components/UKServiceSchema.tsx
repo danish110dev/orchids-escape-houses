@@ -11,75 +11,9 @@ export default function UKServiceSchema({ type, data, includeSiteWide = false }:
 export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServiceSchemaProps) {
   const baseUrl = "https://www.groupescapehouses.co.uk";
   const siteName = "Group Escape Houses";
-  const sameAs = [
-    "https://www.instagram.com/groupescapehouses/",
-    "https://www.facebook.com/profile.php?id=61580927195664",
-    "https://www.tiktok.com/@groupescapehouses"
-  ];
   
-  // 1) Organization & WebSite
-    const organizationSchema = {
-      "@type": "Organization",
-      "@id": `${baseUrl}/#organization`,
-      "name": siteName,
-      "url": `${baseUrl}/`,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg`
-      },
-      "sameAs": sameAs,
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "telephone": "+44-1273-569301",
-        "email": "hello@groupescapehouses.co.uk",
-        "areaServed": "GB",
-        "availableLanguage": ["en"]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "150",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Membership Plans",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Bronze Listing Membership",
-              "description": "Annual membership for large group accommodation owners including full property listing and iCal sync."
-            },
-            "price": "450.00",
-            "priceCurrency": "GBP"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Silver Listing Membership",
-              "description": "Enhanced membership including social media promotion and professional page build."
-            },
-            "price": "650.00",
-            "priceCurrency": "GBP"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gold Listing Membership",
-              "description": "Premium membership with homepage placement and themed blog features."
-            },
-            "price": "850.00",
-            "priceCurrency": "GBP"
-          }
-        ]
-      }
-    };
+  // Organization schema is now handled by OrganizationSchema.tsx sitewide
+  // to avoid duplication and maintain a single source of truth.
 
   const websiteSchema = {
     "@type": "WebSite",
@@ -100,10 +34,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
   const homeGraphSchema = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        ...organizationSchema,
-        "@context": undefined // context is at the root
-      },
       {
         ...websiteSchema,
         "@context": undefined
@@ -193,7 +123,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     ]
   };
 
-  // 3) WebPage schema (Every page)
   const webPageSchema = type !== "default" && type !== "home_graph" ? {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -205,7 +134,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     "about": `${baseUrl}/#organization`
   } : null;
 
-  // 2) BreadcrumbList schema (Every page EXCEPT homepage)
   const breadcrumbSchema = (type !== "home" && data?.breadcrumbs) ? {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -217,7 +145,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
         "name": crumb.name
       };
 
-      // Omit "item" field for the current page (last breadcrumb)
       if (!isLastItem) {
         item.item = crumb.url.startsWith("http") ? crumb.url : `${baseUrl}${crumb.url.startsWith("/") ? "" : "/"}${crumb.url}`;
       }
@@ -226,7 +153,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     })
   } : null;
 
-  // 4) ItemList schema (Collection pages, search results, location pages)
   const itemListSchema = (type === "itemList" && data?.items) ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -237,7 +163,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     }))
   } : null;
 
-  // 5) FAQPage schema (Pages with FAQs)
   const faqSchema = (type === "faq" && data?.faqs) ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -274,7 +199,6 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     })
   } : null;
 
-  // 7) Article schema
   const articleSchema = (type === "article" && data) ? {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -301,40 +225,27 @@ export function SchemaRenderer({ type, data, includeSiteWide = false }: UKServic
     <>
       {/* Site-wide schema */}
       {includeSiteWide && (
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          />
-        </>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       )}
 
       {/* Individual schema types */}
-      {type === "organization" && (
+      {type === "website" && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       )}
-        {type === "website" && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          />
-        )}
-        {type === "home_graph" && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(homeGraphSchema) }}
-          />
-        )}
-        
-        {/* Page specific schema */}
-
+      {type === "home_graph" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeGraphSchema) }}
+        />
+      )}
+      
+      {/* Page specific schema */}
       {webPageSchema && (
         <script
           type="application/ld+json"

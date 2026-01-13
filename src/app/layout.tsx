@@ -6,6 +6,7 @@ import Script from "next/script";
 import ClientSideFeatures from "@/components/ClientSideFeatures";
 import CustomAutumnProvider from "@/lib/autumn-provider";
 import UKServiceSchema from "@/components/UKServiceSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -97,7 +98,7 @@ const playfair = Playfair_Display({
           <link rel="dns-prefetch" href="https://slelguoygbfzlpylpxfs.supabase.co" />
         </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-body`}>
-        <UKServiceSchema type="organization" />
+        <OrganizationSchema />
         <ErrorReporter />
         <Script
           id="orchids-browser-logs"

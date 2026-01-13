@@ -11,9 +11,9 @@ export default function OrganizationSchema() {
     "url": `${baseUrl}/`,
     "logo": {
       "@type": "ImageObject",
-      "url": `${baseUrl}/logo.png`,
+      "url": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/stacked_logo-1760785640378.jpg",
       "width": 600,
-      "height": 60
+      "height": 400
     },
     "description": "Group Escape Houses lists large group houses and cottages across the UK. Guests enquire and book directly with property owners, with no commission.",
     "telephone": "+44-1273-569301",
@@ -34,7 +34,7 @@ export default function OrganizationSchema() {
 
   return (
     <Script
-      id="organization-schema"
+      id="organization-schema-script"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
