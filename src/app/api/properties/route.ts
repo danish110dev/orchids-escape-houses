@@ -174,7 +174,9 @@ export async function POST(request: NextRequest) {
     const session = await auth.api.getSession({ headers: await headers() });
     const body = await request.json();
 
-    // Validate required fields
+    console.log('POST /properties - Received body:', JSON.stringify(body, null, 2));
+
+    // Validate required fields (these come from the form mapping)
     const requiredFields = [
       'title',
       'slug',
@@ -190,20 +192,30 @@ export async function POST(request: NextRequest) {
       'heroImage',
     ];
 
+    const missingFields: string[] = [];
     for (const field of requiredFields) {
-      if (!body[field] && body[field] !== 0) {
-        return NextResponse.json(
-          {
-            error: `Required field '${field}' is missing`,
-            code: 'MISSING_REQUIRED_FIELD',
-          },
-          { status: 400 }
-        );
+      if (body[field] === undefined || body[field] === null || body[field] === '') {
+        missingFields.push(field);
       }
     }
 
+    if (missingFields.length > 0) {
+      console.log('Missing fields:', missingFields);
+      return NextResponse.json(
+        {
+          error: `Required fields missing: ${missingFields.join(', ')}`,
+          code: 'MISSING_REQUIRED_FIELD',
+          missingFields,
+        },
+        { status: 400 }
+      );
+    }
+
     // Validate numeric fields
-    if (body.sleepsMax < body.sleepsMin) {
+    const sleepsMin = parseInt(body.sleepsMin) || 0;
+    const sleepsMax = parseInt(body.sleepsMax) || 0;
+    
+    if (sleepsMax < sleepsMin) {
       return NextResponse.json(
         {
           error: 'sleepsMax must be greater than or equal to sleepsMin',
@@ -213,7 +225,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (body.priceFromMidweek <= 0 || body.priceFromWeekend <= 0) {
+    const priceFromMidweek = parseFloat(body.priceFromMidweek) || 0;
+    const priceFromWeekend = parseFloat(body.priceFromWeekend) || 0;
+
+    if (priceFromMidweek <= 0 || priceFromWeekend <= 0) {
       return NextResponse.json(
         {
           error: 'Prices must be positive values',
@@ -223,7 +238,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (body.bedrooms < 0 || body.bathrooms < 0) {
+    const bedrooms = parseInt(body.bedrooms) || 0;
+    const bathrooms = parseInt(body.bathrooms) || 0;
+
+    if (bedrooms < 0 || bathrooms < 0) {
       return NextResponse.json(
         {
           error: 'Bedrooms and bathrooms must be non-negative',
@@ -234,10 +252,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Check slug uniqueness
+    const slugToUse = body.slug.trim().toLowerCase();
     const existingProperty = await db
       .select()
       .from(properties)
-      .where(eq(properties.slug, body.slug.trim()))
+      .where(eq(properties.slug, slugToUse))
       .limit(1);
 
     if (existingProperty.length > 0) {
@@ -253,17 +272,17 @@ export async function POST(request: NextRequest) {
     // Sanitize and prepare data
     const now = new Date().toISOString();
     const propertyData = {
-      ownerId: session?.user?.id || null,
+      ownerId: session?.user?.id || 'guest',
       title: body.title.trim(),
-      slug: body.slug.trim(),
+      slug: slugToUse,
       location: body.location.trim(),
       region: body.region.trim(),
-      sleepsMin: parseInt(body.sleepsMin),
-      sleepsMax: parseInt(body.sleepsMax),
-      bedrooms: parseInt(body.bedrooms),
-      bathrooms: parseInt(body.bathrooms),
-      priceFromMidweek: parseFloat(body.priceFromMidweek),
-      priceFromWeekend: parseFloat(body.priceFromWeekend),
+      sleepsMin,
+      sleepsMax,
+      bedrooms,
+      bathrooms,
+      priceFromMidweek,
+      priceFromWeekend,
       description: body.description.trim(),
       houseRules: body.houseRules?.trim() || null,
       checkInOut: body.checkInOut?.trim() || null,
@@ -275,22 +294,29 @@ export async function POST(request: NextRequest) {
       mapLng: body.mapLng !== undefined ? parseFloat(body.mapLng) : null,
       ownerContact: body.ownerContact?.trim() || null,
       featured: body.featured ?? false,
-      isPublished: false, // Default to unpublished until paid
-      status: 'pending',
+      isPublished: false,
+      status: body.status || 'pending',
       createdAt: now,
       updatedAt: now,
     };
+
+    console.log('Creating property with data:', JSON.stringify(propertyData, null, 2));
 
     const newProperty = await db
       .insert(properties)
       .values(propertyData)
       .returning();
 
+    console.log('Property created successfully:', newProperty[0].id);
     return NextResponse.json(newProperty[0], { status: 201 });
   } catch (error) {
-    console.error('POST error:', error);
+    console.error('POST /properties error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Internal server error: ' + (error as Error).message },
+      { 
+        error: 'Failed to create property: ' + errorMessage,
+        details: String(error)
+      },
       { status: 500 }
     );
   }

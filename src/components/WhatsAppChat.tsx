@@ -95,7 +95,7 @@ export default function WhatsAppChat() {
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[380px] h-[600px] bg-white rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200">
+        <div className="fixed bottom-24 right-6 w-[380px] max-w-[calc(100vw-48px)] h-[600px] max-h-[calc(100vh-200px)] bg-white rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200 md:w-[380px] md:h-[600px]">
           {/* Header */}
           <div
             className="p-4 text-white flex items-center justify-between"
@@ -181,7 +181,7 @@ export default function WhatsAppChat() {
       )}
 
       {/* Floating Buttons Container - Bottom Right */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 right-4 md:right-6 z-50 flex flex-col gap-3 sm:bottom-8 sm:right-6">
         {/* Real WhatsApp Button - Top */}
         <button
           onClick={handleRealWhatsApp}
