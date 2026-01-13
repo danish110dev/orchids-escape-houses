@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     console.log(`Creating Stripe checkout for plan: ${planId}, interval: ${interval}, priceId: ${stripePriceId}`);
 
       const checkoutSession = await stripe.checkout.sessions.create({
-        payment_method_types: ['card', 'google_pay'],
+        payment_method_types: ['card'],
         mode: 'subscription',
         billing_address_collection: 'required',
         line_items: [
