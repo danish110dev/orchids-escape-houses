@@ -149,7 +149,7 @@ export function ContactOptions({ className = "" }: { className?: string }) {
         Call Us
       </a>
       <a
-        href="mailto:hello@thehenfairy.co.uk"
+        href="mailto:hello@groupescapehouses.co.uk"
         className="flex items-center gap-2 text-[var(--color-neutral-dark)] hover:text-[var(--color-accent-sage)] transition-colors"
       >
         <Mail className="w-4 h-4" />

@@ -10,15 +10,21 @@ export default function HeroVideo() {
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
   // Decode any percent-encoded characters in the stored URL (e.g. %2c -> ,)
-  const posterLink = "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90";
+  const posterLink = "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=75";
 
   useEffect(() => {
-    // Start loading video immediately to reduce delay
-    setShouldLoadVideo(true);
+    // Delay video loading slightly to prioritize LCP image and critical JS
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Dark Overlay for Readability */}
+      <div className="absolute inset-0 bg-black/40 z-[5]" />
+
       {/* LCP Priority Image */}
       <Image
         src={posterLink}

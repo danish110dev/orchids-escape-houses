@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { MapPin, Calendar, User, Sparkles, Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import dynamic from "next/dynamic";
 
 const CalendarComponent = dynamic(() => import("@/components/ui/calendar").then(mod => mod.Calendar), {
@@ -108,21 +109,27 @@ export default function HeroSearchForm() {
                   </div>
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[calc(100vw-40px)] md:w-80 p-4 max-h-96 overflow-y-auto smooth-scroll" align="start">
-                <div className="space-y-2">
-                  {allDestinations.map((dest, index) => (
-                    <button
-                      key={dest}
-                      ref={(el) => { destinationButtonsRef.current[index] = el; }}
-                      onClick={() => handleDestinationSelect(dest)}
-                      className="w-full text-left px-4 py-3 rounded-xl hover:bg-[var(--color-bg-primary)] transition-colors text-sm sm:text-base"
-                      aria-label={`Select destination: ${dest}`}
-                    >
-                      {dest}
-                    </button>
-                  ))}
-                </div>
-              </PopoverContent>
+                <PopoverContent className="w-[calc(100vw-40px)] md:w-80 p-0" align="start">
+                  <Command>
+                    <CommandInput placeholder="Search destinations..." />
+                    <CommandList className="smooth-scroll">
+                      <CommandEmpty>No destinations found.</CommandEmpty>
+                      <CommandGroup heading="Popular Locations">
+                        {allDestinations.map((dest, index) => (
+                          <CommandItem
+                            key={dest}
+                            value={dest}
+                            onSelect={() => handleDestinationSelect(dest)}
+                            className="cursor-pointer"
+                          >
+                            {dest}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+
             </Popover>
 
 

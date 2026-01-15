@@ -49,6 +49,13 @@ export async function middleware(request: NextRequest) {
       }
     }
 
+    // Protect admin routes (except login and setup)
+    if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login') && !pathname.startsWith('/admin-setup')) {
+      if (!hasSession) {
+        return NextResponse.redirect(new URL('/admin/login', request.url));
+      }
+    }
+
   return NextResponse.next();
 }
 

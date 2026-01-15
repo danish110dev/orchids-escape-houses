@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import HeroSearchForm from "@/components/home/HeroSearchForm";
 import HeroVideo from "@/components/home/HeroVideo";
 import NewsletterSection from "@/components/home/NewsletterSection";
+import { InstagramSection } from "@/components/home/InstagramSection";
+import { HenPartyCarousel } from "@/components/home/HenPartyCarousel";
 import { getFeaturedProperties, getFeaturedExperiences, getFeaturedReviews } from "@/lib/data-fetchers";
 import { homeFaqs } from "@/data/faqs";
 
@@ -39,12 +41,12 @@ const destinations = [
   },
   {
     name: "Newquay",
-    image: "https://media.istockphoto.com/id/1211485656/photo/surfboard-and-palm-tree-on-beach-background.jpg?s=612x612&w=0&k=20&c=sjiA2xKDegW63sCAOc_b95aE6aDOuFIHUtasbKXFw7M=",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&q=80&fit=crop",
     description: "Surf beaches & coastal adventures"
   },
   {
     name: "Liverpool",
-    image: "https://media.istockphoto.com/id/2175972607/photo/modern-luxury-home-with-geometric-driveway-and-sunset-sky.jpg?s=612x612&w=0&k=20&c=0pvJ_frDStQGywjOptq9XmyEQgVIxfH3Yg7MbYIfIjI=",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&q=80&fit=crop",
     description: "Beatles heritage & waterfront bars"
   },
 ];
@@ -59,6 +61,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen">
       <UKServiceSchema type="website" />
+      <UKServiceSchema type="faq" data={{ faqs: homeFaqs }} />
       <Header />
 
       <main>
@@ -66,13 +69,13 @@ export default async function Home() {
         <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-[var(--color-bg-primary)] to-[var(--color-bg-secondary)] px-4 sm:px-6 py-20 sm:py-32 md:py-16">
           <HeroVideo />
 
-              <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-24 sm:mt-20 md:mt-0">
-                    <h1 className="mb-6 md:mb-6 text-white drop-shadow-lg px-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
-                      Group Escape Houses | Large Group Accommodation UK
-                    </h1>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-white drop-shadow-md max-w-3xl mx-auto px-2 sm:px-4">
-                      Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners via Group Escape Houses. Ideal for family celebrations, group weekends away and corporate retreats.
-                    </p>
+                <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-6 text-center w-full mt-24 sm:mt-20 md:mt-0">
+                      <h1 className="mb-6 md:mb-6 text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] px-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                        Group Escape Houses | Large Group Accommodation UK
+                      </h1>
+                      <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] max-w-3xl mx-auto px-2 sm:px-4 font-medium">
+                        Discover large group houses and cottages across the UK sleeping 10 to 30 guests. Enquire and book directly with property owners via Group Escape Houses. Ideal for family celebrations, group weekends away and corporate retreats.
+                      </p>
 
 
             <HeroSearchForm />
@@ -136,6 +139,9 @@ export default async function Home() {
           </div>
         </section>
 
+        {/* Hen Party Section */}
+        <HenPartyCarousel />
+
         {/* Experiences */}
         <section className="py-16 md:py-20 bg-white content-visibility-auto">
           <div className="max-w-[1200px] mx-auto px-4 md:px-6">
@@ -186,18 +192,20 @@ export default async function Home() {
               <div className="overflow-hidden">
                 <div className="flex gap-6 animate-slide-left">
                   {[...destinations, ...destinations].map((destination, index) => (
-                    <Link
-                      key={`${destination.name}-${index}`}
-                      href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
-                      aria-label={`View properties in ${destination.name}`}
-                    >
-                      <img
-                        src={destination.image}
-                        alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
-                        className="w-full h-full object-cover object-center transition-transform group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <Link
+                        key={`${destination.name}-${index}`}
+                        href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="group relative flex-shrink-0 w-[300px] md:w-[400px] overflow-hidden rounded-2xl aspect-video transition-transform hover:scale-[1.02]"
+                        aria-label={`View properties in ${destination.name}`}
+                      >
+                        <OptimizedImage
+                          src={destination.image}
+                          alt={`Scenic view of ${destination.name} - a top UK holiday destination`}
+                          fill
+                          className="transition-transform group-hover:scale-110"
+                          sizes="(max-width: 768px) 300px, 400px"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: "var(--font-display)" }}>
                           {destination.name}
@@ -310,71 +318,7 @@ export default async function Home() {
         </div>
 
         {/* Instagram */}
-        <section className="py-16 md:py-20 bg-white overflow-hidden content-visibility-auto">
-          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
-            <div className="text-center mb-10 md:mb-12">
-              <div className="flex items-center justify-center mb-3 md:mb-4">
-                <Instagram className="w-12 h-12 md:w-16 md:h-16 text-transparent" style={{
-                  background: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
-                }} />
-              </div>
-              <h2 className="mb-3 md:mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                Follow Us on Instagram
-              </h2>
-              <p className="text-lg md:text-xl text-[var(--color-neutral-dark)] mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-                Get daily inspiration and see our houses in action
-              </p>
-              <a href="https://www.instagram.com/groupescapehouses/" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="rounded-2xl px-10 py-6 font-medium transition-all hover:scale-[1.05] text-white border-0 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888]">
-                  @groupescapehouses
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-
-            </div>
-
-              {/* Instagram Scrolling Carousel */}
-              <div className="relative mt-12 min-h-[400px] md:min-h-[500px]">
-                <div className="overflow-hidden">
-                  <div className="flex gap-4 animate-slide-left">
-                    {[
-                      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&h=711&q=80&fit=crop",
-                      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=711&q=80&fit=crop",
-                    ].map((img, index) => (
-                      <a
-                        key={`img-${index}`}
-                        href="https://www.instagram.com/groupescapehouses/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative flex-shrink-0 w-[280px] aspect-[9/16] overflow-hidden rounded-xl transition-transform hover:scale-[1.02] bg-gray-100"
-                        aria-label={`View Instagram post ${index + 1}`}
-                      >
-                        <img
-                          src={img}
-                          alt={`Luxury holiday house showcase on Instagram - Image ${index + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm">
-                          <Instagram className="w-10 h-10 text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <InstagramSection />
       </main>
 
       <Footer />

@@ -108,11 +108,7 @@ export default function Footer() {
                       Owner Login
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/admin/properties" className="hover:text-[var(--color-accent-sage)] transition-colors">
-                      Owner Dashboard
-                    </Link>
-                  </li>
+
               </ul>
             </div>
 
@@ -166,16 +162,21 @@ export default function Footer() {
                   <li><Link href="/new-year" className="hover:text-[var(--color-accent-sage)] transition-colors">New Year Eve Party Houses</Link></li>
                 </ul>
 
-                <h4 className="font-semibold mb-4 text-white">House Features</h4>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-                  <li><Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)]">Hot Tub</Link></li>
-                  <li><Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)]">Swimming Pool</Link></li>
-                  <li><Link href="/features/games-room" className="hover:text-[var(--color-accent-sage)]">Games Room</Link></li>
-                  <li><Link href="/features/cinema-room" className="hover:text-[var(--color-accent-sage)]">Cinema Room</Link></li>
-                  <li><Link href="/features/tennis-court" className="hover:text-[var(--color-accent-sage)]">Tennis Court</Link></li>
-                  <li><Link href="/features/direct-beach-access" className="hover:text-[var(--color-accent-sage)]">Beach Access</Link></li>
-                </ul>
-              </div>
+                  <h4 className="font-semibold mb-4 text-white">House Features</h4>
+                  <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                    <li><Link href="/features/hot-tub" className="hover:text-[var(--color-accent-sage)]">Hot Tub</Link></li>
+                    <li><Link href="/features/swimming-pool" className="hover:text-[var(--color-accent-sage)]">Swimming Pool</Link></li>
+                    <li><Link href="/features/indoor-swimming-pool" className="hover:text-[var(--color-accent-sage)]">Indoor Pool</Link></li>
+                    <li><Link href="/features/games-room" className="hover:text-[var(--color-accent-sage)]">Games Room</Link></li>
+                    <li><Link href="/features/cinema-room" className="hover:text-[var(--color-accent-sage)]">Cinema Room</Link></li>
+                    <li><Link href="/features/tennis-court" className="hover:text-[var(--color-accent-sage)]">Tennis Court</Link></li>
+                    <li><Link href="/features/direct-beach-access" className="hover:text-[var(--color-accent-sage)]">Beach Access</Link></li>
+                    <li><Link href="/features/ev-charging" className="hover:text-[var(--color-accent-sage)]">EV Charging</Link></li>
+                    <li><Link href="/features/fishing-lake" className="hover:text-[var(--color-accent-sage)]">Fishing Lake</Link></li>
+                    <li><Link href="/features/ground-floor-bedroom" className="hover:text-[var(--color-accent-sage)]">Ground Floor Bed</Link></li>
+                  </ul>
+                </div>
+
 
         </div>
 
