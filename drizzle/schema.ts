@@ -665,3 +665,18 @@ export const performanceStats = sqliteTable("performance_stats", {
 	updatedAt: text("updated_at").notNull(),
 });
 
+export const paymentHistory = sqliteTable("payment_history", {
+	id: integer().primaryKey({ autoIncrement: true }).notNull(),
+	paymentId: integer("payment_id").notNull().references(() => payments.id, { onDelete: "cascade" }),
+	eventType: text("event_type").notNull(),
+	oldStatus: text("old_status"),
+	newStatus: text("new_status").notNull(),
+	amount: real(),
+	metadata: text(),
+	stripeEventId: text("stripe_event_id"),
+	triggeredBy: text("triggered_by"),
+	ipAddress: text("ip_address"),
+	userAgent: text("user_agent"),
+	notes: text(),
+	createdAt: text("created_at").notNull(),
+});

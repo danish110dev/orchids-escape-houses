@@ -23,7 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import PropertyApprovals from "@/components/admin/PropertyApprovals";
-import Transactions from "@/components/admin/Transactions";
+import TransactionsWithTabs from "@/components/admin/TransactionsWithTabs";
 import MembershipTracking from "@/components/admin/MembershipTracking";
 
 const formatUKDate = (dateString: string) => {
@@ -592,7 +592,7 @@ function AdminDashboardContent() {
 
           {/* Transactions Section */}
           {activeView === "transactions" && (
-            <Transactions />
+            <TransactionsWithTabs />
           )}
 
           {/* Membership Tracking Section */}

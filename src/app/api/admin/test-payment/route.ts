@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     console.log('User exists check:', userExists.length > 0);
 
     // Create a test payment record
-    const testPayment = await db.insert(paymentsTable).values({
+    const [testPayment] = await db.insert(paymentsTable).values({
       userId: userExists[0]?.id || userId,
       stripePaymentIntentId: `test_pi_${Date.now()}`,
       stripeChargeId: `test_ch_${Date.now()}`,
@@ -43,14 +43,19 @@ export async function POST(request: NextRequest) {
       processedAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-    });
+    }).returning();
 
-    console.log('Test payment inserted:', testPayment);
+    console.log('✅ Test payment inserted:', testPayment);
+
+    // Verify it was saved by reading it back
+    const allPayments = await db.select().from(paymentsTable).limit(10);
+    console.log('📊 Total payments in DB:', allPayments.length);
 
     return NextResponse.json({
       success: true,
       message: 'Test payment created successfully',
       testPayment,
+      totalPayments: allPayments.length,
     });
   } catch (error) {
     console.error('Test payment error:', error);

@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { db } from '@/db';
-import { user as userTable, properties as propertiesTable, payments as paymentsTable, subscriptions as subscriptionsTable } from '../../../../../drizzle/schema';
+import { user as userTable, properties as propertiesTable, payments as paymentsTable, subscriptions as subscriptionsTable, bookings as bookingsTable } from '../../../../../drizzle/schema';
 import { eq } from 'drizzle-orm';
+import { logPaymentEvent } from '@/lib/payment-history';
 
 const processedEvents = new Set<string>();
 
@@ -41,6 +42,85 @@ export async function POST(request: NextRequest) {
   console.log(`Processing Stripe webhook: ${event.type} (${event.id})`);
 
   try {
+    // ========================================
+    // CHECKOUT SESSION COMPLETED
+    // ========================================
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object as any;
+      const { bookingId, paymentType, userId, planId, propertyId } = session.metadata || {};
+
+      // Handle booking payments
+      if (bookingId && paymentType) {
+        console.log(`📦 Checkout session completed for booking ${bookingId}, payment type: ${paymentType}`);
+        
+        try {
+          // Retrieve payment intent details
+          const paymentIntentId = session.payment_intent;
+          
+          if (paymentIntentId) {
+            const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+            const paymentMethodDetails = paymentIntent.payment_method_details?.card || {};
+
+            // Update or create payment record
+            const existingPayment = await db
+              .select()
+              .from(paymentsTable)
+              .where(eq(paymentsTable.stripeSessionId, session.id))
+              .limit(1);
+
+            if (existingPayment && existingPayment.length > 0) {
+              await db
+                .update(paymentsTable)
+                .set({
+                  stripePaymentIntentId: paymentIntentId,
+                  stripeChargeId: paymentIntent.charges?.data?.[0]?.id || paymentIntentId,
+                  paymentStatus: 'succeeded',
+                  paymentMethod: paymentIntent.payment_method_types?.[0] || 'card',
+                  paymentMethodBrand: paymentMethodDetails.brand || 'unknown',
+                  paymentMethodLast4: paymentMethodDetails.last4 || '0000',
+                  receiptUrl: paymentIntent.charges?.data?.[0]?.receipt_url || null,
+                  processedAt: new Date().toISOString(),
+                  updatedAt: new Date().toISOString(),
+                })
+                .where(eq(paymentsTable.id, existingPayment[0].id));
+
+              console.log(`✅ Updated payment from checkout session for booking ${bookingId}`);
+            }
+
+            // Update booking status
+            const updateData: any = { updatedAt: new Date().toISOString() };
+            
+            if (paymentType === 'deposit') {
+              updateData.depositPaid = 1;
+              updateData.stripeDepositPaymentIntentId = paymentIntentId;
+              updateData.bookingStatus = 'confirmed';
+            } else if (paymentType === 'balance') {
+              updateData.balancePaid = 1;
+              updateData.stripeBalancePaymentIntentId = paymentIntentId;
+              updateData.bookingStatus = 'paid';
+            }
+
+            await db
+              .update(bookingsTable)
+              .set(updateData)
+              .where(eq(bookingsTable.id, parseInt(bookingId)));
+
+            console.log(`✅ Booking ${bookingId} updated from checkout session`);
+          }
+        } catch (error) {
+          console.error(`❌ Failed to process booking checkout session:`, error);
+        }
+
+        return NextResponse.json({ received: true });
+      }
+
+      // Handle subscription payments (existing logic continues below)
+      if (!userId || !planId) {
+        console.warn('No metadata found in checkout.session.completed');
+        return NextResponse.json({ received: true });
+      }
+    }
+
     if (event.type === 'checkout.session.completed' || event.type === 'invoice.paid' || event.type === 'customer.subscription.updated') {
       const sessionOrInvoiceOrSub = event.data.object as any;
       
@@ -186,10 +266,126 @@ export async function POST(request: NextRequest) {
     // ✅ CRITICAL: Handle payment intent succeeded (bank transfers finally complete)
     if (event.type === 'payment_intent.succeeded') {
       const paymentIntent = event.data.object as any;
-      const { userId, planId, propertyId } = paymentIntent.metadata || {};
+      const { userId, planId, propertyId, bookingId, paymentType } = paymentIntent.metadata || {};
       
       console.log(`Payment intent succeeded: ${paymentIntent.id}, method: ${paymentIntent.payment_method_types?.[0]}`);
       
+      // ========================================
+      // BOOKING PAYMENT (Deposit or Balance)
+      // ========================================
+      if (bookingId && paymentType) {
+        const paymentMethodDetails = paymentIntent.payment_method_details?.card || {};
+        
+        try {
+          console.log(`📦 Processing booking payment - Booking: ${bookingId}, Type: ${paymentType}`);
+          
+          // Update or insert payment record
+          const existingPayment = await db
+            .select()
+            .from(paymentsTable)
+            .where(eq(paymentsTable.stripePaymentIntentId, paymentIntent.id))
+            .limit(1);
+
+          if (existingPayment && existingPayment.length > 0) {
+            // Update existing pending payment
+            await db
+              .update(paymentsTable)
+              .set({
+                stripeChargeId: paymentIntent.charges?.data?.[0]?.id || paymentIntent.id,
+                paymentStatus: 'succeeded',
+                paymentMethod: paymentIntent.payment_method_types?.[0] || 'card',
+                paymentMethodBrand: paymentMethodDetails.brand || 'unknown',
+                paymentMethodLast4: paymentMethodDetails.last4 || '0000',
+                receiptUrl: paymentIntent.charges?.data?.[0]?.receipt_url || null,
+                processedAt: new Date(paymentIntent.created * 1000).toISOString(),
+                stripeEventId: event.id,
+                updatedAt: new Date().toISOString(),
+              })
+              .where(eq(paymentsTable.id, existingPayment[0].id));
+
+            console.log(`✅ Updated existing payment record for booking ${bookingId}`);
+
+            // Log to payment history
+            await logPaymentEvent({
+              paymentId: existingPayment[0].id,
+              eventType: 'succeeded',
+              oldStatus: 'pending',
+              newStatus: 'succeeded',
+              amount: paymentIntent.amount,
+              stripeEventId: event.id,
+              triggeredBy: 'webhook',
+              metadata: { bookingId, paymentType },
+            });
+          } else {
+            // Create new payment record
+            const [newPayment] = await db.insert(paymentsTable).values({
+              userId: userId || '',
+              bookingId: parseInt(bookingId),
+              stripePaymentIntentId: paymentIntent.id,
+              stripeChargeId: paymentIntent.charges?.data?.[0]?.id || paymentIntent.id,
+              amount: paymentIntent.amount ? paymentIntent.amount / 100 : 0,
+              .returning();
+
+            console.log(`✅ Created new payment record for booking ${bookingId}`);
+
+            // Log to payment history
+            await logPaymentEvent({
+              paymentId: newPayment.id,
+              eventType: 'created',
+              newStatus: 'succeeded',
+              amount: paymentIntent.amount,
+              stripeEventId: event.id,
+              triggeredBy: 'webhook',
+              metadata: { bookingId, paymentType },
+            }
+              paymentMethodBrand: paymentMethodDetails.brand || 'unknown',
+              paymentMethodLast4: paymentMethodDetails.last4 || '0000',
+              description: `${paymentType === 'deposit' ? 'Deposit' : 'Balance'} payment for booking #${bookingId}`,
+              receiptEmail: paymentIntent.receipt_email || '',
+              receiptUrl: paymentIntent.charges?.data?.[0]?.receipt_url || '',
+              processedAt: new Date(paymentIntent.created * 1000).toISOString(),
+              stripeEventId: event.id,
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+            });
+
+            console.log(`✅ Created new payment record for booking ${bookingId}`);
+          }
+
+          // Update booking payment status
+          const updateData: any = {
+            updatedAt: new Date().toISOString(),
+          };
+
+          if (paymentType === 'deposit') {
+            updateData.depositPaid = 1;
+            updateData.stripeDepositPaymentIntentId = paymentIntent.id;
+            updateData.stripeDepositChargeId = paymentIntent.charges?.data?.[0]?.id || paymentIntent.id;
+            updateData.bookingStatus = 'confirmed'; // Deposit paid = confirmed
+          } else if (paymentType === 'balance') {
+            updateData.balancePaid = 1;
+            updateData.stripeBalancePaymentIntentId = paymentIntent.id;
+            updateData.stripeBalanceChargeId = paymentIntent.charges?.data?.[0]?.id || paymentIntent.id;
+            updateData.bookingStatus = 'paid'; // Full payment = paid
+          }
+
+          await db
+            .update(bookingsTable)
+            .set(updateData)
+            .where(eq(bookingsTable.id, parseInt(bookingId)));
+
+          console.log(`✅ Booking ${bookingId} updated - ${paymentType} marked as paid`);
+
+        } catch (error) {
+          console.error(`❌ Failed to process booking payment for ${bookingId}:`, error);
+        }
+
+        return NextResponse.json({ received: true });
+      }
+      
+      // ========================================
+      // SUBSCRIPTION PAYMENT (Existing logic)
+      // ========================================
       if (userId && planId) {
         // Save transaction to payments table
         const paymentMethod = paymentIntent.payment_method_details?.card || {};
@@ -353,7 +549,96 @@ export async function POST(request: NextRequest) {
     // ✅ NEW: Handle payment intent failures (additional tracking)
     if (event.type === 'payment_intent.payment_failed') {
       const paymentIntent = event.data.object as any;
+      const { bookingId, paymentType, userId } = paymentIntent.metadata || {};
+      
       console.log(`Payment failed: ${paymentIntent.id}, error: ${paymentIntent.last_payment_error?.message}`);
+      
+      // Handle booking payment failures
+      if (bookingId && paymentType) {
+        try {
+          console.log(`📦 Processing FAILED booking payment - Booking: ${bookingId}, Type: ${paymentType}`);
+
+          // Check if payment record exists
+          const existingPayment = await db
+            .select()
+            .from(paymentsTable)
+            .where(eq(paymentsTable.stripePaymentIntentId, paymentIntent.id))
+            .limit(1);
+
+          if (existingPayment && existingPayment.length > 0) {
+            // Update to failed
+            await db
+              .update(paymentsTable)
+              .set({
+                paymentStatus: 'failed',
+                failureCode: paymentIntent.last_payment_error?.code || 'unknown',
+                failureMessage: paymentIntent.last_payment_error?.message || 'Payment declined',
+                updatedAt: new Date().toISOString(),
+              })
+              .where(eq(paymentsTable.id, existingPayment[0].id));
+
+            console.log(`✅ Updated payment record to failed for booking ${bookingId}`);
+          } else {
+            // Create failed payment record
+            await db.insert(paymentsTable).values({
+              userId: userId || '',
+              bookingId: parseInt(bookingId),
+              stripePaymentIntentId: paymentIntent.id,
+              amount: paymentIntent.amount ? paymentIntent.amount / 100 : 0,
+              currency: (paymentIntent.currency || 'gbp').toUpperCase(),
+
+            // Log to payment history
+            const insertedPayment = await db
+              .select()
+              .from(paymentsTable)
+              .where(eq(paymentsTable.stripePaymentIntentId, paymentIntent.id))
+              .limit(1);
+
+            if (insertedPayment && insertedPayment.length > 0) {
+              await logPaymentEvent({
+                paymentId: insertedPayment[0].id,
+                eventType: 'failed',
+                newStatus: 'failed',
+                amount: paymentIntent.amount,
+                stripeEventId: event.id,
+                triggeredBy: 'webhook',
+                metadata: { 
+                  bookingId, 
+                  paymentType,
+                  errorCode: paymentIntent.last_payment_error?.code,
+                  errorMessage: paymentIntent.last_payment_error?.message,
+                },
+              });
+            }
+              paymentStatus: 'failed',
+              paymentMethod: paymentIntent.payment_method_types?.[0] || 'card',
+              description: `FAILED: ${paymentType === 'deposit' ? 'Deposit' : 'Balance'} payment for booking #${bookingId}`,
+              failureCode: paymentIntent.last_payment_error?.code || 'unknown',
+              failureMessage: paymentIntent.last_payment_error?.message || 'Payment declined',
+              stripeEventId: event.id,
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+            });
+
+            console.log(`✅ Created failed payment record for booking ${bookingId}`);
+          }
+
+          // Optional: Update booking status to indicate payment failure
+          await db
+            .update(bookingsTable)
+            .set({
+              bookingStatus: 'payment_failed',
+              adminNotes: `${paymentType} payment failed: ${paymentIntent.last_payment_error?.message || 'Unknown error'}`,
+              updatedAt: new Date().toISOString(),
+            })
+            .where(eq(bookingsTable.id, parseInt(bookingId)));
+
+          console.log(`✅ Booking ${bookingId} marked as payment_failed`);
+
+        } catch (error) {
+          console.error(`❌ Failed to process failed booking payment for ${bookingId}:`, error);
+        }
+      }
       
       // This can happen if user's bank rejects the transfer
       // Optional: Send customer email: "Your payment failed. Please try another method."

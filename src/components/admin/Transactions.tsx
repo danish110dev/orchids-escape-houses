@@ -23,31 +23,25 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 interface Transaction {
-  id: number;
+  id: string;
   amount: number;
   currency: string;
   status: string;
-  paymentMethod: string;
   paymentMethodBrand: string;
   paymentMethodLast4: string;
   description: string;
   customer: {
     name: string;
     email: string;
-    role: string;
+    role?: string;
   };
-  subscription: {
-    planName: string;
-    status: string;
-  } | null;
-  stripePaymentIntentId: string | null;
-  stripeChargeId: string | null;
-  receiptUrl: string | null;
-  refundAmount: number;
-  refundedAt: string | null;
-  billingReason: string | null;
-  createdAt: string;
-  processedAt: string | null;
+  date: string;
+  stripeId: string;
+  propertyName?: string;
+  failureMessage?: string | null;
+  isBookingPayment?: boolean;
+  receiptUrl?: string | null;
+  refundAmount?: number;
 }
 
 interface StatusCounts {
@@ -57,6 +51,8 @@ interface StatusCounts {
   failed: number;
   refunded: number;
   canceled: number;
+  bookingPayments?: number;
+  subscriptionPayments?: number;
 }
 
 type StatusFilter = 'all' | 'succeeded' | 'pending' | 'failed' | 'refunded' | 'canceled';
@@ -89,11 +85,26 @@ export default function Transactions() {
       
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ Transactions data received:', {
+          transactionsCount: data.transactions?.length,
+          stats: data.stats,
+          total: data.total
+        });
         setTransactions(data.transactions || []);
-        setStatusCounts(data.statusCounts || {});
-        setTotalRevenue(data.totalRevenue || 0);
+        setStatusCounts({
+          all: data.total || 0,
+          succeeded: data.stats?.successful || 0,
+          pending: data.stats?.pending || 0,
+          failed: data.stats?.failed || 0,
+          refunded: data.stats?.refunded || 0,
+          canceled: data.stats?.cancelled || 0,
+          bookingPayments: data.stats?.bookingPayments || 0,
+          subscriptionPayments: data.stats?.subscriptionPayments || 0,
+        });
+        setTotalRevenue(data.stats?.totalRevenue || 0);
       } else {
-        console.error('Failed to fetch transactions:', response.status);
+        const errorText = await response.text();
+        console.error('Failed to fetch transactions:', response.status, errorText);
       }
     } catch (error) {
       console.error('Error fetching transactions:', error);
@@ -206,7 +217,7 @@ export default function Transactions() {
         </div>
 
         {/* Revenue Summary */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
           <div className="bg-green-50 rounded-lg p-3 border border-green-200">
             <div className="text-xs font-medium text-green-700 mb-1">Total Revenue</div>
             <div className="text-lg sm:text-xl font-bold text-green-600 truncate">
@@ -224,6 +235,14 @@ export default function Transactions() {
           <div className="bg-red-50 rounded-lg p-3 border border-red-200">
             <div className="text-xs font-medium text-red-700 mb-1">Failed</div>
             <div className="text-lg sm:text-xl font-bold text-red-600">{statusCounts.failed}</div>
+          </div>
+          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
+            <div className="text-xs font-medium text-purple-700 mb-1">Bookings</div>
+            <div className="text-lg sm:text-xl font-bold text-purple-600">{statusCounts.bookingPayments || 0}</div>
+          </div>
+          <div className="bg-indigo-50 rounded-lg p-3 border border-indigo-200">
+            <div className="text-xs font-medium text-indigo-700 mb-1">Subscriptions</div>
+            <div className="text-lg sm:text-xl font-bold text-indigo-600">{statusCounts.subscriptionPayments || 0}</div>
           </div>
         </div>
 
@@ -364,29 +383,44 @@ export default function Transactions() {
                           Owner
                         </span>
                       )}
+                      {transaction.isBookingPayment && (
+                        <span className="inline-block mt-1 px-2 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded">
+                          Booking
+                        </span>
+                      )}
                     </td>
                     <td className="px-4 py-3 hidden md:table-cell">
                       <div className="text-sm text-gray-900 max-w-[200px] truncate">{transaction.description}</div>
-                      {transaction.subscription && (
-                        <div className="text-xs text-gray-500 mt-1">
-                          Plan: {transaction.subscription.planName}
+                      {transaction.propertyName && transaction.propertyName !== 'N/A' && (
+                        <div className="text-xs text-blue-600 mt-1 font-medium">
+                          🏠 {transaction.propertyName}
+                        </div>
+                      )}
+                      {!transaction.isBookingPayment && (
+                        <div className="text-xs text-purple-600 mt-1 font-medium">
+                          💼 Subscription Payment
+                        </div>
+                      )}
+                      {transaction.failureMessage && (
+                        <div className="text-xs text-red-600 mt-1">
+                          ❌ {transaction.failureMessage}
                         </div>
                       )}
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap hidden lg:table-cell">
                       <div className="text-xs text-gray-900">
-                        {formatDate(transaction?.createdAt)}
+                        {formatDate(transaction?.date)}
                       </div>
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       <div className="flex items-center gap-2">
-                        {transaction.receiptUrl && (
+                        {transaction.stripeId && transaction.stripeId !== 'N/A' && (
                           <a
-                            href={transaction.receiptUrl}
+                            href={`https://dashboard.stripe.com/payments/${transaction.stripeId}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-700 p-1"
-                            title="View Receipt"
+                            title="View in Stripe"
                           >
                             <ExternalLink className="w-4 h-4" />
                           </a>

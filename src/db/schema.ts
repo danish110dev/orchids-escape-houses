@@ -325,3 +325,20 @@ export const spamSubmissions = sqliteTable('spam_submissions', {
   payload: text('payload', { mode: 'json' }),
   createdAt: text('created_at').notNull(),
 });
+
+// Payment history audit trail
+export const paymentHistory = sqliteTable('payment_history', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  paymentId: integer('payment_id').notNull().references(() => payments.id, { onDelete: 'cascade' }),
+  eventType: text('event_type').notNull(), // 'created', 'status_changed', 'refunded', 'updated'
+  oldStatus: text('old_status'),
+  newStatus: text('new_status').notNull(),
+  amount: real('amount'),
+  metadata: text('metadata'), // JSON for additional event data
+  stripeEventId: text('stripe_event_id'),
+  triggeredBy: text('triggered_by'), // 'webhook', 'admin', 'system', 'user'
+  ipAddress: text('ip_address'),
+  userAgent: text('user_agent'),
+  notes: text('notes'),
+  createdAt: text('created_at').notNull(),
+});
